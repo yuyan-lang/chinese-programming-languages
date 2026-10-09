@@ -1,0 +1,218 @@
+[
+  {
+    "id": "lang-001",
+    "name": "豫言",
+    "description": "使用中文语法的函数式编程语言。",
+    "references": [
+      {
+        "title": "参考资料",
+        "url": "https://www.ploc.org.cn/ploc/CNPL-2023.pdf"
+      }
+    ],
+    "status": "有文献"
+  },
+  {
+    "id": "lang-002",
+    "name": "易语言",
+    "description": "中文编程语言及开发环境。",
+    "references": [
+      {
+        "title": "参考资料",
+        "url": "https://zh.wikipedia.org/wiki/易语言"
+      }
+    ],
+    "status": "有文献"
+  },
+  {
+    "id": "lang-003",
+    "name": "文言",
+    "description": "采用古汉语风格语法的编程语言。",
+    "references": [
+      {
+        "title": "参考资料",
+        "url": "https://github.com/wenyan-lang/wenyan"
+      }
+    ],
+    "status": "有源码"
+  },
+  {
+    "id": "lang-004",
+    "name": "凹语言",
+    "description": "支持中文语法的编程语言。",
+    "references": [
+      {
+        "title": "参考资料",
+        "url": "https://github.com/wa-lang/wa"
+      }
+    ],
+    "status": "有源码"
+  },
+  {
+    "id": "lang-005",
+    "name": "洛书",
+    "description": "中文编程语言项目。",
+    "references": [
+      {
+        "title": "参考资料",
+        "url": "https://github.com/chen-chaochen/losulang"
+      }
+    ],
+    "status": "待核实"
+  },
+  {
+    "id": "lang-006",
+    "name": "粤语",
+    "description": "粤语风格编程语言。",
+    "references": [
+      {
+        "title": "参考资料",
+        "url": "https://github.com/yiung/china-programming-languages"
+      }
+    ],
+    "status": "待核实"
+  },
+  {
+    "id": "lang-007",
+    "name": "言序",
+    "description": "现代中文语法编程语言。",
+    "references": [
+      {
+        "title": "参考资料",
+        "url": "https://github.com/YanXuLang/yanxu"
+      }
+    ],
+    "status": "待核实"
+  },
+  {
+    "id": "lang-008",
+    "name": "段言",
+    "description": "中文关键字编程语言。",
+    "references": [
+      {
+        "title": "参考资料",
+        "url": "https://github.com/skywalk163/duan"
+      }
+    ],
+    "status": "待核实"
+  },
+  {
+    "id": "lang-009",
+    "name": "光明",
+    "description": "中文语法分层编程语言。",
+    "references": [
+      {
+        "title": "参考资料",
+        "url": "https://pypi.org/project/guangming/"
+      }
+    ],
+    "status": "待核实"
+  },
+  {
+    "id": "lang-010",
+    "name": "天工语",
+    "description": "古汉语风格语言。",
+    "references": [
+      {
+        "title": "参考资料",
+        "url": "https://github.com/HyperXenonZephyr/TianGongKaiWu-Programming_Language"
+      }
+    ],
+    "status": "待核实"
+  },
+  {
+    "id": "lang-011",
+    "name": "奇语言",
+    "description": "中文关键字编程语言。",
+    "references": [
+      {
+        "title": "参考资料",
+        "url": "https://github.com/qilang-project/qi"
+      }
+    ],
+    "status": "待核实"
+  },
+  {
+    "id": "lang-012",
+    "name": "结绳中文",
+    "description": "中文应用开发语言。",
+    "references": [
+      {
+        "title": "参考资料",
+        "url": "https://tiecode.cn"
+      }
+    ],
+    "status": "待核实"
+  },
+  {
+    "id": "lang-013",
+    "name": "中蟒",
+    "description": "中文化蟒蛇语言。",
+    "references": [
+      {
+        "title": "参考资料",
+        "url": "https://github.com/program-in-chinese/overview"
+      }
+    ],
+    "status": "待核实"
+  },
+  {
+    "id": "lang-014",
+    "name": "周蟒",
+    "description": "中文化蟒蛇语言。",
+    "references": [
+      {
+        "title": "参考资料",
+        "url": "https://github.com/program-in-chinese/overview"
+      }
+    ],
+    "status": "待核实"
+  },
+  {
+    "id": "lang-015",
+    "name": "草蟒",
+    "description": "中文化蟒蛇语言。",
+    "references": [
+      {
+        "title": "参考资料",
+        "url": "https://github.com/yiung/china-programming-languages"
+      }
+    ],
+    "status": "待核实"
+  },
+  {
+    "id": "lang-016",
+    "name": "习语言",
+    "description": "中文编程语言项目。",
+    "references": [
+      {
+        "title": "参考资料",
+        "url": "https://github.com/program-in-chinese/overview"
+      }
+    ],
+    "status": "待核实"
+  },
+  {
+    "id": "lang-017",
+    "name": "入墨答",
+    "description": "函数式语言实验。",
+    "references": [
+      {
+        "title": "参考资料",
+        "url": "https://www.ploc.org.cn/ploc/CNPL-2023.pdf"
+      }
+    ],
+    "status": "有文献"
+  },
+  {
+    "id": "lang-018",
+    "name": "CNPL",
+    "description": "中文编程语言编译器项目。",
+    "references": [
+      {
+        "title": "参考资料",
+        "url": "https://github.com/Zhou-zhi-peng/cnpl"
+      }
+    ],
+    "status": "待核实"
+  }
+]
