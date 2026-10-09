@@ -62,14 +62,52 @@
   {
     "id": "lang-006",
     "name": "粤语",
-    "description": "粤语风格编程语言。",
+    "aliases": [
+      "粵語編程語言",
+      "Cantonese"
+    ],
+    "category": "粤语关键字语言／转译型实现",
+    "author": "Stepfen Shawn（pyproject.toml署名；GitHub账号StepfenShawn）",
+    "first_publication": "仓库创建于2020-12-20；README版权起年为2020，语言首次公开发布日期仍待核实，不把仓库创建时间直接当作首发。",
+    "description": "粤语（Cantonese）是一门用粤语口语组织关键字与控制结构的开源编程语言。它以“介紹返”表达赋值，以“畀我睇下”输出内容，并以粤语短语表达循环、函数、异常处理及类定义；README说明关键字可用繁体，也可简繁混合。项目还展示模式匹配、匿名函数和类似Rust的宏系统，用于扩展语法，并能导入Python库。当前核验版本采用Rust编写词法分析、语法分析、抽象语法树及Python代码生成器，经PyO3连接Python命令行与交互环境，最终由Python执行生成代码。仓库提供算法、绘图、小游戏、网页及SQL宏等示例，适合观察方言表达与编译技术的结合；这些示例和文档中的多后端描述并不等同于当前版本全部经过运行验证。",
+    "features": [
+      "粤语口语关键字，文档允许简繁混用",
+      "独立词法分析、语法分析与AST",
+      "Python源码生成与Python库互操作",
+      "模式匹配、类、异常及宏语法（文档和源码）",
+      "命令行与REPL"
+    ],
+    "code": "畀我睇下「\"Hello World!\"」點樣先？",
+    "implementation": "固定提交d4ba0df：Rust实现lexer/parser/AST与Python源码生成；PyO3暴露编译接口，maturin打包，Python CLI用compile/exec或带行号映射的执行器运行生成代码。README另列LLVM（仅部分语句）及HTML路线，但当前CLI未见-llvm/-to_web选项，本次不认定这两者为当前已验证后端；也不据README宏示例认定原生Rust代码后端可用。",
+    "status": "有公开源码，未归档；默认分支最近提交2026-09-06；本次仅源码与文档核验，未安装、编译或运行。",
+    "version": "Python包及CLI标注1.0.12；Rust crate独立标注0.1.0。GitHub Releases接口为空；PyPI已发布版本未独立核验。",
+    "relations": "主仓库维护于StepfenShawn/Cantonese；Python是当前生成目标与运行环境，Rust是当前编译前端实现语言，不能混写为同一后端。与同名粤语自然语言工具不得仅凭名称合并。",
     "references": [
       {
-        "title": "参考资料",
-        "url": "https://github.com/yiung/china-programming-languages"
+        "title": "README：语言语法、示例与后端自述（固定提交）",
+        "url": "https://github.com/StepfenShawn/Cantonese/blob/d4ba0df9166a5e2ebd58212a716b368c0b76ad34/README.md"
+      },
+      {
+        "title": "Python包元数据：作者、版本与maturin构建",
+        "url": "https://github.com/StepfenShawn/Cantonese/blob/d4ba0df9166a5e2ebd58212a716b368c0b76ad34/pyproject.toml"
+      },
+      {
+        "title": "Rust编译器：词法／语法分析及Python代码生成",
+        "url": "https://github.com/StepfenShawn/Cantonese/blob/d4ba0df9166a5e2ebd58212a716b368c0b76ad34/src/compiler/mod.rs"
+      },
+      {
+        "title": "Python CLI：运行方式与实际命令选项",
+        "url": "https://github.com/StepfenShawn/Cantonese/blob/d4ba0df9166a5e2ebd58212a716b368c0b76ad34/python/cantonese_rs/cantonese.py"
+      },
+      {
+        "title": "仓库元数据：创建时间、维护状态与默认分支",
+        "url": "https://api.github.com/repos/StepfenShawn/Cantonese"
       }
     ],
-    "status": "待核实"
+    "verification_notes": "2026-10-09只读核验，固定提交d4ba0df9166a5e2ebd58212a716b368c0b76ad34（2026-09-06T10:05:24Z）。仓库创建2020-12-20T08:30:23Z，pushed_at为2026-09-23T09:48:00Z，不能混同默认分支最新提交日期。读取Cargo.toml确认crate为0.1.0、PyO3依赖与Rust 2024 edition；读取src/python_api.rs确认Python绑定。读取GitHub Releases集合得到空数组。README可能含旧版本用法，未做执行兼容性测试。示例逐字取自固定提交README，未凭空编造。只完善lang-006，未改豫言。",
+    "code_source": "https://github.com/StepfenShawn/Cantonese/blob/d4ba0df9166a5e2ebd58212a716b368c0b76ad34/README.md",
+    "code_context": "README“Hello World”完整单行原文；另在examples/basic/HelloWorld.cantonese发现同一句和下一行“收工”。",
+    "verified_at": "2026-10-09"
   },
   {
     "id": "lang-007",
@@ -214,5 +252,655 @@
       }
     ],
     "status": "待核实"
+  },
+  {
+    "name": "文语",
+    "aliases": [
+      "WenYu"
+    ],
+    "category": "语言",
+    "author": "bikthh（账号；实名待核实）",
+    "first_publication": "仓库创建 2026-07-14；语言首次公开发布日期待核实",
+    "description": "【语言】中文关键字通用语言，提供并发、通道及AI服务接口。",
+    "features": [
+      "中文语法／关键字",
+      "有公开实现源码"
+    ],
+    "code": "变量 回复 = AI.对话([\n    AI.系统(\"用中文回答\"),\n    AI.用户(\"什么是编程？\")\n])",
+    "implementation": "JavaScript 实现词法、递归下降/Pratt 解析、编译器与栈式字节码 VM。",
+    "status": "已有源码；未在本次研究中编译或执行",
+    "version": "3.1（README自述）",
+    "relations": "README明确自称Go风格并发与Python风格简洁；与文言是不同仓库，未发现继承或兼容声明；.wy同后缀不作合并依据。",
+    "references": [
+      {
+        "title": "项目README（核验快照）",
+        "url": "https://github.com/bikthh/wenyu/blob/c550aa8b80e6682914164d89b497c05f9e3d760b/README.md"
+      },
+      {
+        "title": "实现或样例证据",
+        "url": "https://github.com/bikthh/wenyu/blob/c550aa8b80e6682914164d89b497c05f9e3d760b/token.js"
+      },
+      {
+        "title": "仓库元数据",
+        "url": "https://api.github.com/repos/bikthh/wenyu"
+      }
+    ],
+    "verification_notes": "2026-10-09只读核验。1星，非fork；最后推送2026-07-26T06:22:33Z。日期为仓库创建不代表首发。功能、性能、通过测试数量未独立复测。",
+    "code_source": "https://github.com/bikthh/wenyu/blob/c550aa8b80e6682914164d89b497c05f9e3d760b/README.md",
+    "id": "lang-019",
+    "verified_at": "2026-10-09"
+  },
+  {
+    "name": "灵语",
+    "aliases": [
+      "LingYu"
+    ],
+    "category": "Python 中文方言／关键字转译层",
+    "author": "jzm（源码版权署名）",
+    "first_publication": "仓库创建 2026-09-02；语言首次公开发布日期待核实",
+    "description": "【Python 中文方言／关键字转译层】将中文关键字、内置函数与库别名映射到Python的中文编程实现。",
+    "features": [
+      "中文语法／关键字",
+      "有公开实现源码"
+    ],
+    "code": "定义 斐波那契(n):\n    若 n <= 1:\n        返回 n",
+    "implementation": "Python token级转译为Python源码，由CPython执行；已核对keywords.py中文词法表。",
+    "status": "已有源码；未在本次研究中编译或执行",
+    "version": "1.0.0（README自述）",
+    "relations": "Python对应语法；与灵码、其他同名灵语关系待核实。",
+    "references": [
+      {
+        "title": "项目README（核验快照）",
+        "url": "https://github.com/jzm3/lingyu/blob/fc24eeb21478bf60bf2184c8db02446c473b7980/README.md"
+      },
+      {
+        "title": "实现或样例证据",
+        "url": "https://github.com/jzm3/lingyu/blob/fc24eeb21478bf60bf2184c8db02446c473b7980/lingyu/keywords.py"
+      },
+      {
+        "title": "仓库元数据",
+        "url": "https://api.github.com/repos/jzm3/lingyu"
+      }
+    ],
+    "verification_notes": "2026-10-09只读核验。0星，非fork；最后推送2026-09-02T04:46:12Z。日期为仓库创建不代表首发。功能、性能、通过测试数量未独立复测。",
+    "code_source": "https://github.com/jzm3/lingyu/blob/fc24eeb21478bf60bf2184c8db02446c473b7980/README.md",
+    "id": "lang-020",
+    "verified_at": "2026-10-09"
+  },
+  {
+    "name": "曜语",
+    "aliases": [
+      "YaoLang"
+    ],
+    "category": "编译型语言",
+    "author": "曜神；源码标注“由 Gemini 构造”；仓库账号a737812",
+    "first_publication": "仓库创建 2026-08-20；语言首次公开发布日期待核实",
+    "description": "【编译型语言】采用中文关键字的静态类型语言，源码经C中间层生成可执行程序。",
+    "features": [
+      "中文语法／关键字",
+      "有公开实现源码"
+    ],
+    "code": "函数 主函数() { _yao_print_s(\"你好!\"); _yao_print(42) }",
+    "implementation": "单文件C编译器，经词法、AST、语义与C代码生成，再调用系统C编译器。",
+    "status": "已有源码；未在本次研究中编译或执行",
+    "version": "0.1.0-alpha（源码）",
+    "relations": "C为中间目标；有明确AI辅助构造声明，不据此排除。",
+    "references": [
+      {
+        "title": "项目README（核验快照）",
+        "url": "https://github.com/a737812/yaolang/blob/8b639836a59c9a9e96f70de67a6a1ad51d157c9d/README.md"
+      },
+      {
+        "title": "实现或样例证据",
+        "url": "https://github.com/a737812/yaolang/blob/8b639836a59c9a9e96f70de67a6a1ad51d157c9d/src/yaolang.c"
+      },
+      {
+        "title": "仓库元数据",
+        "url": "https://api.github.com/repos/a737812/yaolang"
+      }
+    ],
+    "verification_notes": "2026-10-09只读核验。0星，非fork；最后推送2026-09-06T03:26:32Z。日期为仓库创建不代表首发。功能、性能、通过测试数量未独立复测。",
+    "code_source": "https://github.com/a737812/yaolang/blob/8b639836a59c9a9e96f70de67a6a1ad51d157c9d/README.md",
+    "id": "lang-021",
+    "verified_at": "2026-10-09"
+  },
+  {
+    "name": "CNplus",
+    "aliases": [
+      "CNplus-lang"
+    ],
+    "category": "语言",
+    "author": "CNplus组织；个人作者待核实",
+    "first_publication": "README自述项目始于2021年12月；2022年6月尝试C++版，2026重启；当前仓库创建2026-08-21，最早版本首发原始记录待核实。",
+    "description": "【语言】具有独立前端及多个执行后端的中文语言，与早期同名中文API封装应作版本沿革关联。",
+    "features": [
+      "中文语法／关键字",
+      "有公开实现源码"
+    ],
+    "code": "如果 单价 * 数量 > 50\n    打印(\"满 50 包邮！\")\n否则\n    打印(\"再买点就包邮了\")",
+    "implementation": "Python实现独立lexer/parser/AST，树遍历及Python/JavaScript转译后端。",
+    "status": "已有源码；未在本次研究中编译或执行",
+    "version": "README列出v1.2.0；正式最新发行待核实",
+    "relations": "README自述源于2021-12中文函数名封装，2022-06 C++尝试，2026重启；旧实现保存在archive。",
+    "references": [
+      {
+        "title": "项目README（核验快照）",
+        "url": "https://github.com/CNplus/CNplus-lang/blob/5000dc1de6554ce567cad80372f39b9808566b7d/README.md"
+      },
+      {
+        "title": "实现或样例证据",
+        "url": "https://github.com/CNplus/CNplus-lang/blob/5000dc1de6554ce567cad80372f39b9808566b7d/cnplus/lexer/keywords.toml"
+      },
+      {
+        "title": "仓库元数据",
+        "url": "https://api.github.com/repos/CNplus/CNplus-lang"
+      }
+    ],
+    "verification_notes": "2026-10-09只读核验。1星，非fork；最后推送2026-09-19T04:04:48Z。日期为仓库创建不代表首发。功能、性能、通过测试数量未独立复测。 2026-10-09源码摘录QA：按固定提交重新读取核验，已改为单段连续原文，未拼接变量声明。",
+    "code_source": "https://github.com/CNplus/CNplus-lang/blob/5000dc1de6554ce567cad80372f39b9808566b7d/README.md",
+    "code_context": "固定提交原文的连续条件分支摘录；依赖原示例前文已声明的单价、数量，不作为独立完整程序。",
+    "id": "lang-022",
+    "verified_at": "2026-10-09"
+  },
+  {
+    "name": "基石",
+    "aliases": [
+      "jishi",
+      "JISHI"
+    ],
+    "category": "语言",
+    "author": "benxiaoniao（账号；实名待核实）",
+    "first_publication": "仓库创建 2026-09-05；语言首次公开发布日期待核实",
+    "description": "【语言】以中文关键字表达控制流、函数、对象与模块的语言，提供原生工具链和浏览器WASM运行入口。",
+    "features": [
+      "中文语法／关键字",
+      "有公开实现源码"
+    ],
+    "code": "循环 10 次：\n    令 猜测 = 整数(输入(\"猜一个 1-100 的数：\"))",
+    "implementation": "当前正式实现Rust前端、Rust字节码VM与C VM；Python/Node实现已退役为参考判据。核对Rust Cargo清单。",
+    "status": "已有源码；未在本次研究中编译或执行",
+    "version": "0.2.2（README，2026-10-09）",
+    "relations": "不要依据仓库主语言Python误记当前实现；README明确2026-10-08退役旧Python/Node分发。",
+    "references": [
+      {
+        "title": "项目README（核验快照）",
+        "url": "https://github.com/benxiaoniao/JISHI/blob/491733465dadd79fa82cbf9fb01b60ee2ddf214c/README.md"
+      },
+      {
+        "title": "实现或样例证据",
+        "url": "https://github.com/benxiaoniao/JISHI/blob/491733465dadd79fa82cbf9fb01b60ee2ddf214c/rust/Cargo.toml"
+      },
+      {
+        "title": "仓库元数据",
+        "url": "https://api.github.com/repos/benxiaoniao/JISHI"
+      }
+    ],
+    "verification_notes": "2026-10-09只读核验。0星，非fork；最后推送2026-10-09T14:37:47Z。日期为仓库创建不代表首发。功能、性能、通过测试数量未独立复测。",
+    "code_source": "https://github.com/benxiaoniao/JISHI/blob/491733465dadd79fa82cbf9fb01b60ee2ddf214c/README.md",
+    "id": "lang-023",
+    "verified_at": "2026-10-09"
+  },
+  {
+    "name": "易码",
+    "aliases": [
+      "Yima"
+    ],
+    "category": "解释型语言",
+    "author": "景磊（Jing Lei，词法分析器源码署名）",
+    "first_publication": "仓库创建 2026-02-22；语言首次公开发布日期待核实",
+    "description": "【解释型语言】面向初学者的中文语言，使用“功能”“如果…就”“定义图纸”等语法。",
+    "features": [
+      "中文语法／关键字",
+      "有公开实现源码"
+    ],
+    "code": "功能 求和(a, b)\n    返回 a + b\n\n显示 求和(3, 4)",
+    "implementation": "Python实现词法分析与解释器，含CLI、图形化编辑器和回归脚本。",
+    "status": "已有源码；未在本次研究中编译或执行",
+    "version": "v1.0稳定期（README自述）",
+    "relations": "与易语言为不同项目；未发现继承或兼容声明。",
+    "references": [
+      {
+        "title": "项目README（核验快照）",
+        "url": "https://github.com/jinglei88/Yima---Minimalist-Chinese-Programming-Language/blob/de50f04b0211daa3c4401c4610c83dbcc1060e0e/README.md"
+      },
+      {
+        "title": "实现或样例证据",
+        "url": "https://github.com/jinglei88/Yima---Minimalist-Chinese-Programming-Language/blob/de50f04b0211daa3c4401c4610c83dbcc1060e0e/yima/%E8%AF%8D%E6%B3%95%E5%88%86%E6%9E%90.py"
+      },
+      {
+        "title": "仓库元数据",
+        "url": "https://api.github.com/repos/jinglei88/Yima---Minimalist-Chinese-Programming-Language"
+      }
+    ],
+    "verification_notes": "2026-10-09只读核验。1星，非fork；最后推送2026-02-25T08:58:46Z。日期为仓库创建不代表首发。功能、性能、通过测试数量未独立复测。 社区线索：jinglei于2026-02-20在linux.do发布AI制作的.ym语言（https://linux.do/t/topic/1631327?tl=en）；仓库归属与2.0旧语法沿革尚待建立互链，暂不把该帖日期认作已核实首发。",
+    "code_source": "https://github.com/jinglei88/Yima---Minimalist-Chinese-Programming-Language/blob/de50f04b0211daa3c4401c4610c83dbcc1060e0e/README.md",
+    "id": "lang-024",
+    "verified_at": "2026-10-09"
+  },
+  {
+    "name": "小易",
+    "aliases": [
+      "xiaoyi"
+    ],
+    "category": "Python 中文方言／转译器",
+    "author": "cnlnr；Gitee账号LZY4（README互链；实名待核实）",
+    "first_publication": "仓库创建 2025-08-01；语言首次公开发布日期待核实",
+    "description": "【Python 中文方言／转译器】简化Python函数与类声明并支持中文关键字的转译型语言。",
+    "features": [
+      "中文语法／关键字",
+      "有公开实现源码"
+    ],
+    "code": "问候():\n    返回 f\"你好，{输入(\"_\" * 20 + \"\\r你的名字是:\")}\"\n\n打印(问候())",
+    "implementation": "Python实现，.xy源码可运行或转为.py。",
+    "status": "已有实现；作者明确表示不会积极推送新代码",
+    "version": "0.1.2（README命令输出）",
+    "relations": "GitHub与Gitee https://gitee.com/LZY4/xiaoyi 为README互指的同一项目；不同于易语言。",
+    "references": [
+      {
+        "title": "项目README（核验快照）",
+        "url": "https://github.com/cnlnr/xiaoyi/blob/58c6e6b7cbb35ade751aace13b61a6c8d4b7193e/README.md"
+      },
+      {
+        "title": "实现或样例证据",
+        "url": "https://github.com/cnlnr/xiaoyi/blob/58c6e6b7cbb35ade751aace13b61a6c8d4b7193e/%E6%B5%8B%E8%AF%95.xy"
+      },
+      {
+        "title": "仓库元数据",
+        "url": "https://api.github.com/repos/cnlnr/xiaoyi"
+      }
+    ],
+    "verification_notes": "2026-10-09只读核验。2星，非fork；最后推送2025-08-21T09:23:26Z。日期为仓库创建不代表首发。功能、性能、通过测试数量未独立复测。",
+    "code_source": "https://github.com/cnlnr/xiaoyi/blob/58c6e6b7cbb35ade751aace13b61a6c8d4b7193e/README.md",
+    "id": "lang-025",
+    "verified_at": "2026-10-09"
+  },
+  {
+    "name": "档案管理语言",
+    "aliases": [
+      "DGY"
+    ],
+    "category": "语言",
+    "author": "wwwwyyt（账号；实名待核实）",
+    "first_publication": "仓库创建 2026-04-22；语言首次公开发布日期待核实",
+    "description": "【语言】用于计算机教学、强调数据操作与参考文档的中文语言。",
+    "features": [
+      "中文语法／关键字",
+      "有公开实现源码"
+    ],
+    "code": "设 A = 1\n设 B = 2\n存 1 1 到 #A #B",
+    "implementation": "C实现lexer/parser/stack/core；已核对词法保留字表。",
+    "status": "开发中（README）",
+    "version": "待核实",
+    "relations": "作者明确受Forth启发；非档案管理业务DSL，README定位计算机教学。",
+    "references": [
+      {
+        "title": "项目README（核验快照）",
+        "url": "https://github.com/wwwwyyt/dgy-lang/blob/3d626fa851325d6cbe1c405ac7d88a633ef523ab/README.md"
+      },
+      {
+        "title": "实现或样例证据",
+        "url": "https://github.com/wwwwyyt/dgy-lang/blob/3d626fa851325d6cbe1c405ac7d88a633ef523ab/src/dgy_lexer.c"
+      },
+      {
+        "title": "仓库元数据",
+        "url": "https://api.github.com/repos/wwwwyyt/dgy-lang"
+      }
+    ],
+    "verification_notes": "2026-10-09只读核验。1星，非fork；最后推送2026-09-12T05:44:22Z。日期为仓库创建不代表首发。功能、性能、通过测试数量未独立复测。",
+    "code_source": "https://github.com/wwwwyyt/dgy-lang/blob/3d626fa851325d6cbe1c405ac7d88a633ef523ab/README.md",
+    "id": "lang-026",
+    "verified_at": "2026-10-09"
+  },
+  {
+    "name": "PythonCN",
+    "aliases": [],
+    "category": "Python 关键字翻译层",
+    "author": "PythonDeveloper29042（源码@author）",
+    "first_publication": "仓库创建 2025-05-12；语言首次公开发布日期待核实",
+    "description": "【Python 关键字翻译层】极小型中文Python关键词与标点替换实现。",
+    "features": [
+      "中文语法／关键字",
+      "有公开实现源码"
+    ],
+    "code": "如果　数　％　２　＝＝　０：\n　　　　输出（字符串（数）＋＂为一个偶数＂）\n否则：\n　　　　输出（字符串（数）＋＂为一个奇数＂）",
+    "implementation": "compiler.py依字典逐项str.replace替换后写temp.py并调用python；非独立解析器。",
+    "status": "已有源码；未在本次研究中编译或执行",
+    "version": "待核实",
+    "relations": "Python翻译层；与中蟒/草蟒/其他ChinesePython不可凭同名合并。",
+    "references": [
+      {
+        "title": "项目README（核验快照）",
+        "url": "https://github.com/PythonDeveloper29042/PythonCN/blob/e41006e637f5381801551e4b2554a1b05a5918fa/README.md"
+      },
+      {
+        "title": "实现或样例证据",
+        "url": "https://github.com/PythonDeveloper29042/PythonCN/blob/e41006e637f5381801551e4b2554a1b05a5918fa/compiler.py"
+      },
+      {
+        "title": "仓库元数据",
+        "url": "https://api.github.com/repos/PythonDeveloper29042/PythonCN"
+      },
+      {
+        "title": "仓库原始中文代码示例",
+        "url": "https://github.com/PythonDeveloper29042/PythonCN/blob/e41006e637f5381801551e4b2554a1b05a5918fa/chinese_code.pycn"
+      }
+    ],
+    "verification_notes": "2026-10-09只读核验。0星，非fork；最后推送2025-05-12T11:12:30Z。日期为仓库创建不代表首发。功能、性能、通过测试数量未独立复测。示例为仓库原文节选，未修正其输入值未转换为整数的潜在问题；源码重复“是”键且简单替换可能改动字符串，不宜宣称完全兼容。",
+    "code_source": "https://github.com/PythonDeveloper29042/PythonCN/blob/e41006e637f5381801551e4b2554a1b05a5918fa/chinese_code.pycn",
+    "id": "lang-027",
+    "verified_at": "2026-10-09"
+  },
+  {
+    "name": "将军令",
+    "aliases": [
+      "jiangjunling-lang"
+    ],
+    "category": "实验解释型语言",
+    "author": "jiangjun-ling组织；个人作者待核实",
+    "first_publication": "仓库创建 2025-11-12；语言首次公开发布日期待核实",
+    "description": "【实验解释型语言】用“令”“策”“若…则”“访…于”“报”等中文关键字表达程序的实验语言。",
+    "features": [
+      "中文语法／关键字",
+      "有公开实现源码"
+    ],
+    "code": "若 年龄 >= 18 则：\n    报 姓名 + \"是成年人\"\n否则：\n    报 姓名 + \"是未成年人\"",
+    "implementation": "Python实现中文命名词法分析器、语法分析器、AST和解释器；有.jl样例。",
+    "status": "已有源码；未在本次研究中编译或执行",
+    "version": "实验版本；具体版本待核实",
+    "relations": "未发现与其他项目继承关系。",
+    "references": [
+      {
+        "title": "项目README（核验快照）",
+        "url": "https://github.com/jiangjun-ling/jiangjunling-lang/blob/72943b33184bc4bab505c787bc3c29e022e2ceb3/README.md"
+      },
+      {
+        "title": "实现或样例证据",
+        "url": "https://github.com/jiangjun-ling/jiangjunling-lang/blob/72943b33184bc4bab505c787bc3c29e022e2ceb3/%E8%AF%8D%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8.py"
+      },
+      {
+        "title": "仓库元数据",
+        "url": "https://api.github.com/repos/jiangjun-ling/jiangjunling-lang"
+      },
+      {
+        "title": "中文示例",
+        "url": "https://github.com/jiangjun-ling/jiangjunling-lang/blob/72943b33184bc4bab505c787bc3c29e022e2ceb3/%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95.jl"
+      }
+    ],
+    "verification_notes": "2026-10-09只读核验。0星，非fork；最后推送2025-11-12T06:59:12Z。日期为仓库创建不代表首发。功能、性能、通过测试数量未独立复测。 2026-10-09源码摘录QA：按固定提交重新读取核验，已改为单段连续原文，未拼接变量声明。",
+    "code_source": "https://github.com/jiangjun-ling/jiangjunling-lang/blob/72943b33184bc4bab505c787bc3c29e022e2ceb3/%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95.jl",
+    "code_context": "固定提交原文的连续条件分支摘录；依赖原示例前文已声明的年龄、姓名，不作为独立完整程序。",
+    "id": "lang-028",
+    "verified_at": "2026-10-09"
+  },
+  {
+    "name": "NyaPlus",
+    "aliases": [],
+    "category": "嵌入式中文脚本框架／DSL",
+    "author": "nekonekods（账号；实名待核实）",
+    "first_publication": "仓库创建2025-02-15；首次公开发布日期待核实",
+    "description": "【嵌入式中文脚本框架／DSL】Java实现的可嵌入中文脚本框架，允许宿主定制输入输出与函数，语法借鉴QRspeed。",
+    "features": [
+      "如果…如果尾",
+      "循环…循环尾",
+      "宿主扩展函数"
+    ],
+    "code": "循环:  i:2; %i%<=10;  i:[%i%+1]\n第%i%个\\n\n循环尾",
+    "code_source": "https://github.com/nekonekods/NyaPlus/blob/d00f5df7c7927dce3c93fdcff040ce274ea69560/have_a_try/test_dic.nya",
+    "implementation": "Java/Maven实现。README说明当前解析使用字符串替换；已核对脚本示例与pom.xml。",
+    "status": "开发中，README明确很多地方不完善；本次未运行。",
+    "version": "1.0-SNAPSHOT（pom.xml）",
+    "relations": "README明确借鉴QRspeed，计划两套语法，其中一套兼容QRspeed；计划不等于兼容性已实现。",
+    "references": [
+      {
+        "title": "作者README",
+        "url": "https://github.com/nekonekods/NyaPlus/blob/d00f5df7c7927dce3c93fdcff040ce274ea69560/README.md"
+      },
+      {
+        "title": "中文脚本示例",
+        "url": "https://github.com/nekonekods/NyaPlus/blob/d00f5df7c7927dce3c93fdcff040ce274ea69560/have_a_try/test_dic.nya"
+      },
+      {
+        "title": "Java构建清单",
+        "url": "https://github.com/nekonekods/NyaPlus/blob/d00f5df7c7927dce3c93fdcff040ce274ea69560/pom.xml"
+      },
+      {
+        "title": "仓库元数据",
+        "url": "https://api.github.com/repos/nekonekods/NyaPlus"
+      }
+    ],
+    "verification_notes": "2026-10-09只读核验：2星、非fork，最后推送2025-04-09。不宜列作成熟通用语言。",
+    "id": "lang-029",
+    "verified_at": "2026-10-09"
+  },
+  {
+    "name": "Nuzo",
+    "aliases": [],
+    "category": "中英双语关键字语言；AI 辅助开发的实验性字节码语言",
+    "author": "魔114514（TRAE 社区）；其原帖指向 GitHub nimamasl114514",
+    "first_publication": "目前找到的原作者公开介绍为 2026-05-04；最早发布日期及仓库创建日期待核实",
+    "description": "【中英双语关键字语言；AI 辅助开发的实验性字节码语言】作者在 TRAE 社区展示的中英双语实验语言，并提供中文程序与项目地址。作者说明代码由 AI 开发、架构由人主导。",
+    "features": [
+      "30 多组中英关键字对应（作者说明）",
+      "动态类型（作者说明，未独立验证）",
+      "类、继承与闭包（作者说明，未独立验证）",
+      "模式匹配及异常处理（作者说明，未独立验证）",
+      "模块导入（作者说明，未独立验证）"
+    ],
+    "code": "函数 斐波那契(n) {\n    如果 n < 2 { 返回 n; }\n    返回 斐波那契(n - 1) + 斐波那契(n - 2);\n}",
+    "implementation": "Rust；词法/语法分析、字节码编译器与栈式虚拟机（原作者说明，未独立运行验证）",
+    "status": "原作者在 2026-05-04 声称 439 项测试通过；同时承认 GC 尚不完善、标准库较少。当前维护状态待核实。",
+    "version": "待核实",
+    "relations": "不是仅支持中文标识符；与同名 nuzo-memory 工具没有已证实关系，需避免误链。",
+    "references": [
+      {
+        "title": "作者原帖：用 SOLO 使用 RUST 从零迭代出一门 400+ 测试的复杂编程语言",
+        "url": "https://forum.trae.cn/t/topic/14494"
+      },
+      {
+        "title": "作者原帖所列项目仓库（当前内容待核实）",
+        "url": "https://github.com/nimamasl114514/nuzo"
+      }
+    ],
+    "verification_notes": "已读取作者原帖与中文语法示例。实现细节、功能及测试数均为作者自述，未独立运行验证。GitHub 接口访问原帖所列精确仓库返回 404，页面本次亦无法获取；这只说明本次不可访问，不能断言从未存在或已删除。",
+    "code_source": "https://forum.trae.cn/t/topic/14494",
+    "id": "lang-030",
+    "verified_at": "2026-10-09",
+    "code_source_detail": {
+      "url": "https://forum.trae.cn/t/topic/14494",
+      "location": "四、成果展示 → 代码示例（中英文对照）→ 中文版",
+      "excerpt_type": "连续原文片段；仅摘录函数定义"
+    }
+  },
+  {
+    "name": "Y++",
+    "aliases": [
+      "y++"
+    ],
+    "category": "中文关键字语言；Windows 可视化应用开发",
+    "author": "官网文档署名「一点滴」；具体开发者身份待核实",
+    "first_publication": "已找到作者于 2026-07-15 发布的视频；最早发布日期待核实，不将该视频当成首发",
+    "description": "【中文关键字语言；Windows 可视化应用开发】与 YStudio IDE 配套的中文语言，官网展示原生 Windows 应用开发、窗体设计、中文类型和控制流语法。",
+    "features": [
+      "中文类型关键字与真/假常量",
+      "窗口与事件",
+      "自定义结构体和类",
+      "DLL / WinAPI 声明",
+      "YSS 界面样式表"
+    ],
+    "code": "整数 n = 0",
+    "implementation": "YStudio 编译与发布工具链；底层编译器实现语言和后端待核实。主逻辑 .yc、结构体 .yt、类 .ypp、API 声明 .yp。",
+    "status": "官网展示文档与 Windows x86/x64 安装包；本次没有下载安装运行。",
+    "version": "官网展示 YStudio v2.2；语言独立版本待核实",
+    "relations": "Y++ 是语言、YStudio 是 IDE，不应作为两个语言计数。与第三方同名语言及易语言的代码继承关系待核实。",
+    "references": [
+      {
+        "title": "Y++ / YStudio 官网",
+        "url": "https://www.yddphp.cn/index.html"
+      },
+      {
+        "title": "Y++ 语言基础",
+        "url": "https://www.yddphp.cn/docs/language.html"
+      },
+      {
+        "title": "图片支持库：中文条件语句实例",
+        "url": "https://www.yddphp.cn/docs/image-support.html"
+      },
+      {
+        "title": "Y++ 指针 / DLL 边界对照手册",
+        "url": "https://www.yddphp.cn/docs/dll-pointers.html"
+      },
+      {
+        "title": "作者视频：Y++高级界面【3】标签组件（2026-07-15）",
+        "url": "https://www.bilibili.com/video/BV1tSNq6AE7g/"
+      }
+    ],
+    "verification_notes": "中文类型、常量与如果/返回直接见官方文档；code 是语言基础页面中单一原始连续片段，展示类型关键字，不是完整可运行程序。搜索索引可读取官方全文但直接 open 数次失败。最早发布日期及开源情况均未确认。",
+    "code_source": "https://www.yddphp.cn/docs/language.html",
+    "id": "lang-031",
+    "verified_at": "2026-10-09",
+    "code_source_detail": {
+      "url": "https://www.yddphp.cn/docs/language.html",
+      "location": "3.1 基本类型 → 整数行的示例",
+      "excerpt_type": "单个连续原文示例"
+    }
+  },
+  {
+    "name": "中文Python解释器",
+    "aliases": [
+      "Chinese Python Interpreter",
+      "ikdxhz/chinese-python"
+    ],
+    "category": "Python 中文关键字转换层；教学工具",
+    "author": "ikdxhz",
+    "first_publication": "待核实；README 自署 2024年6月24日，与仓库创建于 2025-06-22 的元数据不一致。可能迁移或日期有误，原因待核实，不据此认定 2024 年首发。",
+    "description": "【Python 中文关键字转换层；教学工具】把预定义中文关键字及部分标点转换为标准 Python 后执行的工具，支持桌面和浏览器版本。作者明确将其定位为文本转换器。",
+    "features": [
+      "中文关键字及多个同义词映射",
+      "中文标点转换",
+      "显示转换后的 Python",
+      ".cnpy 文件",
+      "桌面 GUI 与在线编辑器"
+    ],
+    "code": "定义 计算平方(数字):\n    返回 数字 * 数字",
+    "implementation": "桌面版 Python；在线版 JavaScript 转换 + Pyodide；基于映射表和正则替换，非独立语法/运行时系统。",
+    "status": "公开仓库可读；GitHub 仓库元数据最后推送时间为 2025-06-24T12:29:02Z，main 分支，MIT；不据此断言停止维护。本次未执行代码。",
+    "version": "README 徽章自称 1.0；正式发行版本待核实",
+    "relations": "依赖 Python 生态；不是中蟒、周蟒或草蟒的已证实别名。作者明确说明并非完整语言实现，也非 AI 系统；README 建议借助 AI 排错不等于 AI 编译。",
+    "references": [
+      {
+        "title": "项目仓库与原作者 README",
+        "url": "https://github.com/ikdxhz/chinese-python"
+      },
+      {
+        "title": "中文关键字映射实现",
+        "url": "https://github.com/ikdxhz/chinese-python/blob/ba31921bd379ca1d72f437a3f01528aaa2fe2a57/mapping.py"
+      },
+      {
+        "title": "转换及执行程序",
+        "url": "https://github.com/ikdxhz/chinese-python/blob/ba31921bd379ca1d72f437a3f01528aaa2fe2a57/chinese_python.py"
+      },
+      {
+        "title": "GitHub 仓库元数据",
+        "url": "https://api.github.com/repos/ikdxhz/chinese-python"
+      },
+      {
+        "title": "固定版本 README",
+        "url": "https://github.com/ikdxhz/chinese-python/blob/ba31921bd379ca1d72f437a3f01528aaa2fe2a57/README.md"
+      }
+    ],
+    "verification_notes": "已读取仓库 README、文件清单及语法例子；未逐行审核实现或运行。适合放在「中文化实现/转换层」而非原创语言主列表。GitHub 元数据创建时间为 2025-06-22T14:17:18Z；仓库创建时间不是语言首次公开时间。README 自署日期与仓库时间不同，迁移历史或日期准确性待核实。README.md、mapping.py、chinese_python.py 文件名已从仓库清单核实；main 固定提交为 ba31921bd379ca1d72f437a3f01528aaa2fe2a57。",
+    "repository_created_at": "2025-06-22T14:17:18Z",
+    "repository_pushed_at": "2025-06-24T12:29:02Z",
+    "code_source": "https://github.com/ikdxhz/chinese-python/blob/ba31921bd379ca1d72f437a3f01528aaa2fe2a57/README.md",
+    "id": "lang-032",
+    "verified_at": "2026-10-09",
+    "code_source_detail": {
+      "url": "https://github.com/ikdxhz/chinese-python/blob/ba31921bd379ca1d72f437a3f01528aaa2fe2a57/README.md",
+      "location": "代码示例 → 定义一个函数",
+      "excerpt_type": "连续原文片段；仅摘录函数定义"
+    }
+  },
+  {
+    "name": "Calculator.rs（中文试验分支）",
+    "aliases": [
+      "Calculator.rs Chinese-test"
+    ],
+    "category": "实验性中文脚本／计算器语言分支",
+    "author": "BHznJNs",
+    "first_publication": "至少于2023-07-19公开演示；初始提交日期待核实",
+    "description": "【实验性中文脚本／计算器语言分支】Rust 实现的命令行计算器及脚本语言的中文试验分支。作者在 Bilibili 发布中文编程演示，并在简介中链接 Chinese-test 分支。",
+    "features": [
+      "中文语法关键词（函数、中断、类、实例、输出）",
+      "变量与数学函数",
+      "惰性表达式",
+      "数组",
+      "函数与面向对象",
+      "脚本执行"
+    ],
+    "code": "加一 = 函数(任意数) {中断 任意数 + 1}\n输出 加一(1) # 2",
+    "implementation": "Rust；命令行程序；中文试验分支 Chinese-test；README 列出 Windows、GNU/Linux、macOS",
+    "status": "源码及作者演示可核验；中文分支当前维护状态、是否并入主线待核实",
+    "version": "待核实（分支名 Chinese-test）",
+    "relations": "Calculator.rs 的中文试验分支，不应将整个英文主项目或各演示重复计为新语言。",
+    "references": [
+      {
+        "title": "作者演示：整活！自制编程语言实现中文编程！Calculator.rs（2023-07-19 11:35:20）",
+        "url": "https://www.bilibili.com/video/BV1Vh4y1L7Ay/"
+      },
+      {
+        "title": "Chinese-test 分支 README（GitHub connector 已读取）",
+        "url": "https://github.com/BHznJNs/Calculator.rs/blob/Chinese-test/README.md"
+      },
+      {
+        "title": "本次核验固定提交的中文分支README",
+        "url": "https://github.com/BHznJNs/Calculator.rs/blob/189e8e23d95c215b1fbb7ff9d31ea2f740b43c89/README.md"
+      }
+    ],
+    "verification_notes": "B站作者、视频发布时间与源码链接已核验；README 以中文函数定义、实例化等语法证明非仅中文标识符。未运行代码；README blob SHA 50854fba1829c852d66347bc071586328d13594b。属于2024年前遗漏补录。 本轮汇总核验中文分支提交189e8e23d95c215b1fbb7ff9d31ea2f740b43c89，提交时间2023-07-19T03:46:48Z。",
+    "id": "lang-033",
+    "verified_at": "2026-10-09",
+    "code_source": "https://github.com/BHznJNs/Calculator.rs/blob/Chinese-test/README.md"
+  },
+  {
+    "name": "玄铁",
+    "aliases": [
+      "XuanTie",
+      "XuanTie-Lang"
+    ],
+    "category": "中文通用／系统级语言（项目自述定位）",
+    "author": "MARKJY-China（仓库维护者）；B站 问号盒 的同一身份关系待核实",
+    "first_publication": "待核实；官方 README 含2026-09-27更新说明",
+    "description": "【中文通用／系统级语言（项目自述定位）】采用中文单字关键词的编程语言。官方仓库公开 Go 种子编译器和玄铁源码，并描述 LLVM 自举、ARC 内存管理与异步并发。",
+    "features": [
+      "中文关键词设、函、若、返",
+      "LLVM 编译后端（作者声明）",
+      "自举编译器（作者声明）",
+      "异步与等待",
+      "MIT 开源",
+      "作者声明大量代码由AI辅助生成"
+    ],
+    "code": "设 名字 = \"玄铁\"\n示(\"你好，#{名字}！1+1=#{1+1}\")\n函 获取数据(id) {\n    若 id == 0 { 返 失败(\"无效 ID\") }\n    返 成功({\"名\": \"玄铁\", \"值\": 100})\n}",
+    "implementation": "仓库含 Go 种子编译器及 xuantie_compiler/ 玄铁自举编译器；LLVM IR 后端；具体性能及自举可复现性未实测",
+    "status": "公开开发中；README 建议1.0以前只用于小项目且不要长期依赖",
+    "version": "README 安装段提到 v1.0-rc.3，是否最新版本待核实",
+    "relations": "与阿里平头哥玄铁CPU名称相同但为不同项目；不得混同。",
+    "references": [
+      {
+        "title": "玄铁官方仓库",
+        "url": "https://github.com/MARKJY-China/XuanTie-Lang"
+      },
+      {
+        "title": "官方文档站（仓库链接）",
+        "url": "https://xt.markjy.com"
+      },
+      {
+        "title": "本次核验固定提交README",
+        "url": "https://github.com/MARKJY-China/XuanTie-Lang/blob/17ef9d35a683fb8951050dd7ea5f0c7c6d9dbd83/readme.md"
+      }
+    ],
+    "verification_notes": "README直接读取证实中文语法；核心技术与AI比例均按作者自述而非独立认证。B站索引有问号盒的v1.0-rc演示（显示08-15）和自举视频（显示04-21），但原视频BV与年份未核实，不将这些日期当首发日。 本轮汇总核验master提交17ef9d35a683fb8951050dd7ea5f0c7c6d9dbd83，提交时间2026-10-06T23:42:05Z。",
+    "id": "lang-034",
+    "verified_at": "2026-10-09",
+    "code_source": "https://github.com/MARKJY-China/XuanTie-Lang"
   }
 ]

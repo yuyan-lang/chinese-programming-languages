@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>玄铁｜中文编程语言百科</title><link rel="stylesheet" href="../style.css"></head><body><header><h1>玄铁</h1></header><main><p><a href="../">返回语言目录</a></p>
+<h2>语言介绍</h2><p>【中文通用／系统级语言（项目自述定位）】采用中文单字关键词的编程语言。官方仓库公开 Go 种子编译器和玄铁源码，并描述 LLVM 自举、ARC 内存管理与异步并发。</p>
+<h2>分类与别名</h2><p>中文通用／系统级语言（项目自述定位）；别名：XuanTie、XuanTie-Lang</p>
+<h2>作者与首次公开</h2><p>MARKJY-China（仓库维护者）；B站 问号盒 的同一身份关系待核实。待核实；官方 README 含2026-09-27更新说明</p>
+<h2>设计与特征</h2><p>中文关键词设、函、若、返；LLVM 编译后端（作者声明）；自举编译器（作者声明）；异步与等待；MIT 开源；作者声明大量代码由AI辅助生成</p>
+<h2>中文语法示例</h2><pre><code>设 名字 = &quot;玄铁&quot;
+示(&quot;你好，#{名字}！1+1=#{1+1}&quot;)
+函 获取数据(id) {
+    若 id == 0 { 返 失败(&quot;无效 ID&quot;) }
+    返 成功({&quot;名&quot;: &quot;玄铁&quot;, &quot;值&quot;: 100})
+}</code></pre><p>原始资料短摘录，用于展示中文语法；未在本轮执行，不保证单独运行。 <a href="https://github.com/MARKJY-China/XuanTie-Lang">示例来源</a></p>
+<h2>实现与运行环境</h2><p>仓库含 Go 种子编译器及 xuantie_compiler/ 玄铁自举编译器；LLVM IR 后端；具体性能及自举可复现性未实测</p>
+<h2>版本与维护状态</h2><p>README 安装段提到 v1.0-rc.3，是否最新版本待核实；公开开发中；README 建议1.0以前只用于小项目且不要长期依赖</p>
+<h2>与其他项目的关系</h2><p>与阿里平头哥玄铁CPU名称相同但为不同项目；不得混同。</p>
+<h2>核验说明</h2><p>README直接读取证实中文语法；核心技术与AI比例均按作者自述而非独立认证。B站索引有问号盒的v1.0-rc演示（显示08-15）和自举视频（显示04-21），但原视频BV与年份未核实，不将这些日期当首发日。 本轮汇总核验master提交17ef9d35a683fb8951050dd7ea5f0c7c6d9dbd83，提交时间2026-10-06T23:42:05Z。</p>
+<h2>参考资料</h2><ul><li><a href="https://github.com/MARKJY-China/XuanTie-Lang">玄铁官方仓库</a></li><li><a href="https://xt.markjy.com">官方文档站（仓库链接）</a></li><li><a href="https://github.com/MARKJY-China/XuanTie-Lang/blob/17ef9d35a683fb8951050dd7ea5f0c7c6d9dbd83/readme.md">本次核验固定提交README</a></li></ul><p>资料核验日期：2026-10-09</p><p><a href="https://github.com/yuyan-lang/chinese-programming-languages/issues/new">补充资料或纠错</a></p></main><footer>站点由<a href="https://yuyan-lang.org/">豫言编程语言</a>提供</footer></body></html>
