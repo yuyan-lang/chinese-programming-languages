@@ -702,13 +702,14 @@
       }
     ],
     "verification_notes": "已读取作者原帖与中文语法示例。实现细节、功能及测试数均为作者自述，未独立运行验证。GitHub 接口访问原帖所列精确仓库返回 404，页面本次亦无法获取；这只说明本次不可访问，不能断言从未存在或已删除。",
-    "code_source": {
+    "code_source": "https://forum.trae.cn/t/topic/14494",
+    "id": "lang-030",
+    "verified_at": "2026-10-09",
+    "code_source_detail": {
       "url": "https://forum.trae.cn/t/topic/14494",
       "location": "四、成果展示 → 代码示例（中英文对照）→ 中文版",
       "excerpt_type": "连续原文片段；仅摘录函数定义"
-    },
-    "id": "lang-030",
-    "verified_at": "2026-10-09"
+    }
   },
   {
     "name": "Y++",
@@ -754,13 +755,14 @@
       }
     ],
     "verification_notes": "中文类型、常量与如果/返回直接见官方文档；code 是语言基础页面中单一原始连续片段，展示类型关键字，不是完整可运行程序。搜索索引可读取官方全文但直接 open 数次失败。最早发布日期及开源情况均未确认。",
-    "code_source": {
+    "code_source": "https://www.yddphp.cn/docs/language.html",
+    "id": "lang-031",
+    "verified_at": "2026-10-09",
+    "code_source_detail": {
       "url": "https://www.yddphp.cn/docs/language.html",
       "location": "3.1 基本类型 → 整数行的示例",
       "excerpt_type": "单个连续原文示例"
-    },
-    "id": "lang-031",
-    "verified_at": "2026-10-09"
+    }
   },
   {
     "name": "中文Python解释器",
@@ -809,13 +811,14 @@
     "verification_notes": "已读取仓库 README、文件清单及语法例子；未逐行审核实现或运行。适合放在「中文化实现/转换层」而非原创语言主列表。GitHub 元数据创建时间为 2025-06-22T14:17:18Z；仓库创建时间不是语言首次公开时间。README 自署日期与仓库时间不同，迁移历史或日期准确性待核实。README.md、mapping.py、chinese_python.py 文件名已从仓库清单核实；main 固定提交为 ba31921bd379ca1d72f437a3f01528aaa2fe2a57。",
     "repository_created_at": "2025-06-22T14:17:18Z",
     "repository_pushed_at": "2025-06-24T12:29:02Z",
-    "code_source": {
+    "code_source": "https://github.com/ikdxhz/chinese-python/blob/ba31921bd379ca1d72f437a3f01528aaa2fe2a57/README.md",
+    "id": "lang-032",
+    "verified_at": "2026-10-09",
+    "code_source_detail": {
       "url": "https://github.com/ikdxhz/chinese-python/blob/ba31921bd379ca1d72f437a3f01528aaa2fe2a57/README.md",
       "location": "代码示例 → 定义一个函数",
       "excerpt_type": "连续原文片段；仅摘录函数定义"
-    },
-    "id": "lang-032",
-    "verified_at": "2026-10-09"
+    }
   },
   {
     "name": "Calculator.rs（中文试验分支）",
