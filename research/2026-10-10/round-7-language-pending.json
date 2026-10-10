@@ -1,0 +1,200 @@
+[
+  {
+    "name": "太和／TaiHeLang",
+    "discovery_status": "本轮新发现，待核实候选",
+    "category": "中文编译语言候选",
+    "repository": "https://github.com/naodingaoaoao/TaiHeLang",
+    "repository_created_at": "2026-02-27T10:20:05Z",
+    "snapshot": "c52c75f9ef82772017ffd19042fce72b8d891e71",
+    "author": "naodingaoaoao",
+    "evidence": "固定README自述中文关键字、Python编译器、LLVM IR与Electron IDE，指向spec.md和examples。",
+    "pending": "原始连续中文例程、词法与解析实现、LLVM生成入口、发行和AI参与待核实。",
+    "verified_at": "2026-10-10",
+    "references": [
+      {
+        "title": "固定原始来源",
+        "url": "https://github.com/naodingaoaoao/TaiHeLang/blob/c52c75f9ef82772017ffd19042fce72b8d891e71/README.md"
+      },
+      {
+        "title": "仓库元数据",
+        "url": "https://api.github.com/repos/naodingaoaoao/TaiHeLang"
+      }
+    ]
+  },
+  {
+    "name": "pchinese",
+    "discovery_status": "本轮新发现，待核实候选",
+    "category": "Python中文语法翻译层候选",
+    "repository": "https://github.com/LostPEople634/pchinese",
+    "repository_created_at": "2026-08-06T05:30:41Z",
+    "snapshot": "8c1a0957d3177dd85a7723c4dcb6ab042b6a2752",
+    "author": "LostPEople634",
+    "evidence": "固定README提供“定义／如果／返回”阶乘、类与全角标点原例，自述代码区整词替换及Python compile＋exec流程，1.2加入PyQt中文词表。",
+    "pending": "词法扫描与运行实现、具体包版本、发行与中文库映射边界待核实。",
+    "verified_at": "2026-10-10",
+    "references": [
+      {
+        "title": "固定原始来源",
+        "url": "https://github.com/LostPEople634/pchinese/blob/8c1a0957d3177dd85a7723c4dcb6ab042b6a2752/README.md"
+      },
+      {
+        "title": "仓库元数据",
+        "url": "https://api.github.com/repos/LostPEople634/pchinese"
+      }
+    ]
+  },
+  {
+    "name": "ChineseToyLang",
+    "discovery_status": "本轮新发现，待核实候选",
+    "category": "中文玩具编译器候选",
+    "repository": "https://github.com/sundaolin9527/ChineseToyLang",
+    "repository_created_at": "2025-06-01T08:03:13Z",
+    "snapshot": "897456459430f6c9abcb517fa3249739f502e7b2",
+    "author": "sundaolin9527",
+    "evidence": "固定tests/examples/test_variable.txt包含“令 a = 28;”“恒 PI = 3.1415926;”及真／假等中文语法；文件树包含C/C++词法器、解析器、IR与后端实现。",
+    "pending": "准确语言名、docs规范、LLVM或其他后端依赖、完整流水线、版本和许可待核实。",
+    "verified_at": "2026-10-10",
+    "references": [
+      {
+        "title": "固定原始来源",
+        "url": "https://github.com/sundaolin9527/ChineseToyLang/blob/897456459430f6c9abcb517fa3249739f502e7b2/tests/examples/test_variable.txt"
+      },
+      {
+        "title": "仓库元数据",
+        "url": "https://api.github.com/repos/sundaolin9527/ChineseToyLang"
+      }
+    ]
+  },
+  {
+    "name": "XuYu",
+    "discovery_status": "本轮新发现，待核实候选",
+    "category": "中文编程语言设计与早期解释器候选",
+    "repository": "https://github.com/mehaotian/xuyu",
+    "repository_created_at": "2026-09-22T01:48:00Z",
+    "snapshot": "2974fd20dc0b0a91eab3a83c063c21a8527a897b",
+    "author": "mehaotian",
+    "evidence": "固定README将当前实现范围列为中文标识符、整数赋值、引用和四则表达式，采用Go；后续计划列出“输出”“如／否则”，指向语言规范-v0.1.md。",
+    "pending": "当前原例的汉字语法边界、中文关键字规范、实现与设计分别分类、版本和许可待核实。当前实现证据按标识符与表达式阶段记录。",
+    "verified_at": "2026-10-10",
+    "references": [
+      {
+        "title": "固定原始来源",
+        "url": "https://github.com/mehaotian/xuyu/blob/2974fd20dc0b0a91eab3a83c063c21a8527a897b/README.md"
+      },
+      {
+        "title": "仓库元数据",
+        "url": "https://api.github.com/repos/mehaotian/xuyu"
+      }
+    ]
+  },
+  {
+    "name": "中文Rust语法设计与转译工具",
+    "discovery_status": "本轮新发现，待核实候选",
+    "category": "中文→Rust转译设计候选",
+    "repository": "https://github.com/bo333/Chinese-Rust-Syntax-Design-and-Transpilation-Tool",
+    "repository_created_at": "2026-07-03T03:40:07Z",
+    "snapshot": "4605fee9402c9ad6fe6e06771b6d2443105eada8",
+    "author": "bo333",
+    "evidence": "固定README提供“函数／让／可变／如果／返回”等关键词到Rust的映射规范，描述确定性语法糖和错误定位方案。",
+    "pending": "实际用户连续代码、源码实现、设计完成度、版本和许可待核实。",
+    "verified_at": "2026-10-10",
+    "references": [
+      {
+        "title": "固定原始来源",
+        "url": "https://github.com/bo333/Chinese-Rust-Syntax-Design-and-Transpilation-Tool/blob/4605fee9402c9ad6fe6e06771b6d2443105eada8/README.md"
+      },
+      {
+        "title": "仓库元数据",
+        "url": "https://api.github.com/repos/bo333/Chinese-Rust-Syntax-Design-and-Transpilation-Tool"
+      }
+    ]
+  },
+  {
+    "name": "中文智能合约编译器／zhsc-compiler",
+    "discovery_status": "本轮新发现，待核实候选",
+    "category": "Solidity中文语法转译DSL候选",
+    "repository": "https://github.com/Anubisya/zhsc-compiler",
+    "repository_created_at": "2025-10-24T12:07:05Z",
+    "snapshot": "f6d8665def53639a8b8b3adf473fdfa177e93632",
+    "author": "Anubisya",
+    "evidence": "固定README有完整“.zhs”合约原例，使用“合约／公开／字符串／函数／返回”，列出Python lexer、parser、AST和Solidity生成器。",
+    "pending": "源码实现、中文名称转拼音处理、Solidity语义覆盖、版本与发行待核实。",
+    "verified_at": "2026-10-10",
+    "references": [
+      {
+        "title": "固定原始来源",
+        "url": "https://github.com/Anubisya/zhsc-compiler/blob/f6d8665def53639a8b8b3adf473fdfa177e93632/README.md"
+      },
+      {
+        "title": "仓库元数据",
+        "url": "https://api.github.com/repos/Anubisya/zhsc-compiler"
+      }
+    ]
+  },
+  {
+    "name": "chinalang／中国语言",
+    "discovery_status": "本轮新发现，待核实候选",
+    "category": "中文／英文双关键字戏仿语言候选",
+    "repository": "https://github.com/sjqtentacles/chinalang",
+    "repository_created_at": "2026-06-21T00:11:22Z",
+    "snapshot": "59332f7c0d02c130257124cbbedbe8d2fd1cafc4",
+    "author": "sjqtentacles",
+    "evidence": "固定README有“宣布／说／函数／上交／如果／否则”等关键字及中文程序，说明Go树遍历解释器和Lisp式宏。",
+    "pending": "原始实现、运行时机制、作者背景、版本、许可与同源关系待核实。",
+    "verified_at": "2026-10-10",
+    "references": [
+      {
+        "title": "固定原始来源",
+        "url": "https://github.com/sjqtentacles/chinalang/blob/59332f7c0d02c130257124cbbedbe8d2fd1cafc4/README.md"
+      },
+      {
+        "title": "仓库元数据",
+        "url": "https://api.github.com/repos/sjqtentacles/chinalang"
+      }
+    ]
+  },
+  {
+    "name": "MiniLang（FI0m9ySans）",
+    "discovery_status": "本轮新发现，待核实候选",
+    "category": "中文解释语言候选",
+    "repository": "https://github.com/FI0m9ySans/minilang",
+    "repository_created_at": "2025-11-04T05:49:43Z",
+    "snapshot": "2778f3d3df8d6806c5b9b763e31e7d0d3ac19c7d",
+    "author": "FI0m9ySans",
+    "evidence": "固定README提供“定义 数字 = 10;／函数 平方(甲)／返回”连续原例，称Python词法器、解析器与解释器，源文件后缀.kalop。",
+    "pending": "实际实现文件、作者与AI参与、版本、发行、许可及其他MiniLang同名关系待核实。",
+    "verified_at": "2026-10-10",
+    "references": [
+      {
+        "title": "固定原始来源",
+        "url": "https://github.com/FI0m9ySans/minilang/blob/2778f3d3df8d6806c5b9b763e31e7d0d3ac19c7d/README.md"
+      },
+      {
+        "title": "仓库元数据",
+        "url": "https://api.github.com/repos/FI0m9ySans/minilang"
+      }
+    ]
+  },
+  {
+    "name": "PyCn（sunzi334481）",
+    "discovery_status": "本轮新发现，待核实候选",
+    "category": "Python中文语法转译语言候选",
+    "repository": "https://github.com/sunzi334481/PyCn",
+    "repository_created_at": "2026-10-05T11:54:33Z",
+    "snapshot": "f840307aab9f55e7d25d798768db0ad4db24edb0",
+    "author": "sunzi334481",
+    "evidence": "固定README提供中文递归阶乘原例和.pycn后缀，描述token级转译、中文模块导入钩子及编辑器插件。",
+    "pending": "翻译源码、版本与发行、测试层级、同类Python中文项目沿革及AI参与待核实。",
+    "verified_at": "2026-10-10",
+    "references": [
+      {
+        "title": "固定原始来源",
+        "url": "https://github.com/sunzi334481/PyCn/blob/f840307aab9f55e7d25d798768db0ad4db24edb0/README.md"
+      },
+      {
+        "title": "仓库元数据",
+        "url": "https://api.github.com/repos/sunzi334481/PyCn"
+      }
+    ]
+  }
+]

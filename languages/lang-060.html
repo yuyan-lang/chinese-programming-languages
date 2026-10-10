@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>智语言（cnzkai）｜中文编程语言百科</title><link rel="stylesheet" href="../style.css"></head><body><header><h1>智语言（cnzkai）</h1></header><main><p><a href="../">返回语言目录</a></p>
+<h2>语言介绍</h2><p>智语言（ZLang）是GitHub账号cnzkai以开发者指南及.z验收例程公开的中文编程语言项目。文档以冒号和缩进组织函数及控制流，使用如果、否则、返回、计次循环、条件循环、导入和公开等中文词汇；同时描述自动类型推断、动态数组、结构体、指针、内存操作和模块可见性。固定test/text.z提供中文递归函数、条件与循环等连续原例。当前条目按公开规范与例程的证据层级收录。</p>
+<h2>分类与别名</h2><p>中文编程语言规范／开发者指南与验收例程；别名：智语言；ZLang</p>
+<h2>作者与公开历史</h2><p>GitHub账号cnzkai；固定提交作者署名Kaiser，GitHub作者对象对应cnzkai。实名及协作者待核实。</p><p>仓库创建于2026-04-09T16:03:27Z；当前可读默认分支的根提交39023dfd3acc362ed2b49859a37b102110226b9a的提交时间为2026-04-15T06:48:53Z，包含开发者指南。test/text.z的提交时间为2026-04-15T06:52:41Z。语言首次公开日期待核实。</p>
+<h2>设计与特征</h2><p>.z中文源文件例程；冒号与四空格缩进的控制流约定；中文条件、返回、计次循环与条件循环；递归函数及中文格式化输出原例；指南描述的数组、结构体、指针与内存接口；导入、模块命名空间与公开成员规范</p>
+<h2>中文语法示例</h2><pre><code>斐波那契(n):
+    如果 n &lt;= 1:
+        返回 n
+    返回 斐波那契(n - 1) + 斐波那契(n - 2)
+
+阶乘(n):
+    如果 n &lt;= 1:
+        返回 1
+    返回 n * 阶乘(n - 1)</code></pre><p>固定test/text.z第544—552行连续原文，包含斐波那契与阶乘两个完整递归函数。原文件为验收例程，以输出实际值和期望值的形式组织测试项目；测试通过状态待核实。 <a href="https://github.com/cnzkai/Zlang/blob/8049eae6d22c10cbc764f8b253f561cd6ce7d378/test/text.z#L544-L552">示例来源</a></p>
+<h2>实现与运行环境</h2><p>当前固定公开文件为README.md与test/text.z。README第645—667行给出zlc0目录、build.bat、zlc0.exe编译命令及验收运行说明；仓库简介自述编译器自举。编译器源码、引导链、构建脚本、可执行发行物与自举完成度待核实。test/text.z第5行引用a_module，模块依赖源码与验收工程完整性待核实。指南第253行提到“函数”关键字，紧随的原例与验收函数使用函数名直接声明；两种声明形式的适用规则待核实。</p>
+<h2>版本与维护状态</h2><p>固定默认分支提交8049eae6d22c10cbc764f8b253f561cd6ce7d378，时间2026-04-15T06:52:41Z。读取到3次提交和1个main分支；Release列表为空，标签命名空间返回404。文档内zlc0按编译器目录及可执行文件名称记录。正式语言版本号与发布计划待核实。</p><p>作者账号、固定语法指南、中文验收原例与提交日期已核。编译器实现、自举、构建运行、规范一致性、稳定版本与许可范围待核实。</p>
+<h2>与其他项目的关系</h2><p>本条身份以cnzkai/Zlang、提交作者Kaiser与文件标题“智语言（ZLang）”共同限定。其他名为ZLang、Z语言、智语言的项目各自保留来源链；项目间的继承、同源或改名关系待核实。</p>
+<h2>核验说明</h2><p>2026-10-10只读核验。已读取55项目录、Issue #3及其评论并按名称、别名和仓库地址去重。递归树3项，truncated=false，含2个文件及test目录；默认分支提交共3条，根提交parents为空。已全文读取README与test/text.z，并再次按行取回第544—552行比对原例。公开Issues列表为空。普通网页作者精确检索结果有限；GitHub“智语言”检索包含同名的其他作者项目，当前条目采用作者限定名称。自举依据仓库简介的作者声明，执行状态采用待核实。</p>
+<h2>参考资料</h2><ul><li><a href="https://github.com/cnzkai/Zlang/blob/8049eae6d22c10cbc764f8b253f561cd6ce7d378/README.md#L1-L38">固定开发者指南与语言命名</a></li><li><a href="https://github.com/cnzkai/Zlang/blob/8049eae6d22c10cbc764f8b253f561cd6ce7d378/test/text.z#L544-L552">固定递归函数原例</a></li><li><a href="https://github.com/cnzkai/Zlang/blob/8049eae6d22c10cbc764f8b253f561cd6ce7d378/README.md#L164-L245">固定条件与循环规范</a></li><li><a href="https://github.com/cnzkai/Zlang/blob/8049eae6d22c10cbc764f8b253f561cd6ce7d378/README.md#L249-L301">固定函数声明与递归规范</a></li><li><a href="https://github.com/cnzkai/Zlang/blob/8049eae6d22c10cbc764f8b253f561cd6ce7d378/README.md#L562-L604">固定模块与可见性规范</a></li><li><a href="https://github.com/cnzkai/Zlang/blob/8049eae6d22c10cbc764f8b253f561cd6ce7d378/README.md#L645-L667">固定构建与验收命令说明</a></li><li><a href="https://github.com/cnzkai/Zlang/blob/8049eae6d22c10cbc764f8b253f561cd6ce7d378/test/text.z#L1-L13">固定验收例程入口及模块依赖</a></li><li><a href="https://github.com/cnzkai/Zlang/tree/8049eae6d22c10cbc764f8b253f561cd6ce7d378">固定公开文件清单</a></li><li><a href="https://github.com/cnzkai/Zlang/commit/39023dfd3acc362ed2b49859a37b102110226b9a">根提交、作者署名及文档日期</a></li><li><a href="https://github.com/cnzkai/Zlang/commit/8049eae6d22c10cbc764f8b253f561cd6ce7d378">验收例程提交及作者账号</a></li><li><a href="https://github.com/cnzkai/Zlang">原作者仓库简介与自举声明</a></li></ul><p>资料核验日期：2026-10-10</p><p><a href="https://github.com/yuyan-lang/chinese-programming-languages/issues/new">补充资料或纠错</a></p></main><footer>站点由<a href="https://yuyan-lang.org/">豫言编程语言</a>提供</footer></body></html>

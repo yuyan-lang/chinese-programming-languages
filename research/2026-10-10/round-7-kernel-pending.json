@@ -1,0 +1,1051 @@
+[
+  {
+    "id": "quantumnec",
+    "name": "QuantumNEC",
+    "aliases": [],
+    "checked_at": "2026-10-10",
+    "selection_status": "待核实：中国开发者或中国社区公开归属",
+    "classification": "本轮新发现的个人内核候选",
+    "recommendation": "保存为待核实候选，公开归属证据齐备后评估加入正式内核目录",
+    "short_description": "QuantumNEC 是 SegmentationFaultCD 开发的实验操作系统内核。当前 limine 分支面向 x86-64，采用现代 C++ 与汇编，包含 Limine 启动、MuQSS 调度代码、页内存分配、页表及系统调用服务框架。",
+    "author": {
+      "people": [
+        {
+          "handle": "SegmentationFaultCD",
+          "github_url": "https://github.com/SegmentationFaultCD",
+          "bilibili_handle": "段错误核心已转储",
+          "bilibili_url": "https://space.bilibili.com/1226480503"
+        }
+      ],
+      "organization": "个人项目；公开参与 plos-clan 社区",
+      "attribution": {
+        "text": "社区项目页明确将 QuantumNEC 归于 SegmentationFaultCD，并直接链接 Bilibili 账号段错误核心已转储；GitHub 组织介绍把 SegmentationFaultCD 列入管理员。",
+        "evidence_level": "社区项目页与组织自述",
+        "source_ids": [
+          "q1",
+          "q2"
+        ]
+      },
+      "china_basis": {
+        "status": "待核实",
+        "text": "已核对作者 GitHub 档案、个人 README、社区主页与关于页，以及作者原视频。已取得 plos-clan 参与关系；明确中国开发者或中国社区归属自述继续待核实。",
+        "source_ids": [
+          "q1",
+          "q2",
+          "q3",
+          "q4"
+        ]
+      }
+    },
+    "kernel_positioning": {
+      "text": "构建文件生成 micro_kernel.elf，固定源码包含启动入口、内存管理、中断、任务调度和系统调用模块，README 说明个人操作系统项目。",
+      "evidence_level": "作者声明与源码可见",
+      "source_ids": [
+        "q5",
+        "q6",
+        "q7"
+      ]
+    },
+    "dates": {
+      "development_started": {
+        "date": "2023-01-01",
+        "basis": "README 作者自述",
+        "source_ids": [
+          "q5"
+        ]
+      },
+      "first_public": {
+        "date": null,
+        "status": "待核实",
+        "known_public_record": "原作者频道列出 2023-04-02 的《操作系统成长日志#1 测试异常处理成功》。该视频与当前仓库之间的历史对应继续核实。",
+        "source_ids": [
+          "q8"
+        ]
+      },
+      "repository_created": {
+        "at": "2024-09-16T02:12:45Z",
+        "repository_id": 857944900,
+        "meaning": "GitHub 仓库 created_at",
+        "source_ids": [
+          "q9"
+        ]
+      },
+      "earliest_retained_commit": {
+        "at": "2024-09-16T02:29:14Z",
+        "commit": "576ef489e45e30ea8088751b9edd97e3add25a89",
+        "meaning": "当前主分支可达历史中的根提交，parents 为空",
+        "source_ids": [
+          "q10"
+        ]
+      }
+    },
+    "architectures": [
+      {
+        "text": "xmake.lua 指定 x86-64，链接参数目标为 x86_64-freestanding。",
+        "evidence_level": "源码可见",
+        "source_ids": [
+          "q6"
+        ]
+      }
+    ],
+    "capabilities": {
+      "boot": [
+        {
+          "text": "loader_entry 声明 Limine revision 3 请求，初始化串口、IDT、GDT、页分配器、高半区映射、堆、页表、显示、ACPI、APIC 和任务相关结构。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "q7"
+          ]
+        }
+      ],
+      "scheduling": [
+        {
+          "text": "Muqss.cpp 包含时间片、nice 权重、虚拟截止时间、实时队列、调度队列以及 yield、wake_up 和任务选择逻辑。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "q11"
+          ]
+        },
+        {
+          "text": "固定启动入口中的 SMP、系统调用、模块加载和开中断调用处于注释状态，随后运行内存与 C++ 容器测试。此快照的多任务运行状态待核实。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "q7"
+          ]
+        }
+      ],
+      "memory": [
+        {
+          "text": "page.cpp 从 Limine 内存映射统计空闲范围，建立页面区域、位图与红黑树结构；启动入口包含 4 KiB、2 MiB、1 GiB 分配器测试调用。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "q12",
+            "q7"
+          ]
+        }
+      ],
+      "filesystem": [
+        {
+          "text": "文件系统服务包含接口骨架：内核 handle 返回传入中断帧，服务进程 main 执行 syscall 后进入循环。完整 VFS 与持久文件系统运行能力待核实。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "q13",
+            "q14"
+          ]
+        }
+      ],
+      "drivers": [
+        {
+          "text": "源码树包含 ACPI、串口、APIC、HPET 与 CPU 初始化模块。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "q15"
+          ]
+        }
+      ]
+    },
+    "implementation_languages": [
+      {
+        "text": "构建配置采用 C23/C++26，内核代码主要为 C++，中断与系统调用目录包含汇编文件。",
+        "evidence_level": "源码可见",
+        "source_ids": [
+          "q6",
+          "q15"
+        ]
+      }
+    ],
+    "project_relationships": [
+      {
+        "text": "README 列出 Limine、libos-terminal 与 fmt；.gitmodules 记录相应上游地址。",
+        "evidence_level": "作者声明与源码可见",
+        "source_ids": [
+          "q5",
+          "q16"
+        ]
+      },
+      {
+        "text": "源码树将 Limine 固定到 0765b5db055680471cea3180e8277dcf701847dc，将 fmt 固定到 e9ddc97b9aa8acf323212d55f45f1d6e6e4f8ab3。libos-terminal 在该树以头文件与静态库文件保存，二进制来源版本待核实。",
+        "evidence_level": "源码树元数据",
+        "source_ids": [
+          "q15",
+          "q16"
+        ]
+      },
+      {
+        "text": "仓库保留 limine、Edk2、LegacyBIOS 分支；plos-clan/QuantumNEC 为另一公开仓库，默认 Edk2。仓库迁移及各分支源码继承范围待核实。",
+        "evidence_level": "仓库元数据",
+        "source_ids": [
+          "q17",
+          "q18"
+        ]
+      },
+      {
+        "text": "2026-07-27 固定提交说明使用 Opencode 重建 arch。AI 辅助范围以该提交说明记录，整个项目的生成比例待核实。",
+        "evidence_level": "提交作者声明",
+        "source_ids": [
+          "q19"
+        ]
+      }
+    ],
+    "status": {
+      "source_snapshot": {
+        "branch": "limine",
+        "commit": "6216373689baa6302cdb2a3b4656955063510b1e",
+        "committed_at": "2026-07-27T15:30:53Z",
+        "source_ids": [
+          "q19"
+        ]
+      },
+      "latest_formal_release": {
+        "version": null,
+        "status": "待核实",
+        "note": "核验时 Releases 集合返回空数组",
+        "source_ids": [
+          "q20"
+        ]
+      },
+      "license": {
+        "name": "GPL-3.0（根 LICENSE）",
+        "source_ids": [
+          "q21"
+        ],
+        "third_party": [
+          {
+            "name": "Limine",
+            "license": "BSD-2-Clause 文本",
+            "source_ids": [
+              "q22"
+            ]
+          },
+          {
+            "name": "fmt",
+            "license": "MIT 文本与可选嵌入例外",
+            "source_ids": [
+              "q23"
+            ]
+          }
+        ],
+        "scope_note": "libos-terminal 静态库、固件与完整第三方许可清单继续待核实"
+      },
+      "runtime_verification": {
+        "status": "待核实",
+        "scope": "本轮覆盖原作者与社区页面、GitHub 元数据和源码静态阅读；演示功能、固定快照独立构建与运行继续核验"
+      }
+    },
+    "links": {
+      "source": "https://github.com/SegmentationFaultCD/QuantumNEC",
+      "documentation": "https://docs.plos-clan.org/project/QuantumNEC",
+      "video_channel": {
+        "url": "https://space.bilibili.com/1226480503",
+        "source_ids": [
+          "q1"
+        ]
+      },
+      "individual_video": {
+        "url": "https://www.bilibili.com/video/BV1yuWFzSEbi/",
+        "published_date": "2025-09-20",
+        "evidence": "社区作者页直接关联频道，频道与原片页面互相吻合"
+      },
+      "historical_videos": [
+        {
+          "url": "https://www.bilibili.com/video/BV13M411u7yc/",
+          "title": "操作系统成长日志#1 测试异常处理成功",
+          "channel_date": "2023-04-02"
+        },
+        {
+          "url": "https://www.bilibili.com/video/BV14s4y1i7YS/",
+          "title": "操作系统成长日志#2 内存方面的完工和展望",
+          "channel_date": "2023-05-31"
+        },
+        {
+          "url": "https://www.bilibili.com/video/BV1a1421f755/",
+          "title": "操作系统成长日志#3 进程，线程管理，调度，ACPI，分页等等功能的实现",
+          "date_note": "2024 年发布；页面重绘存在时区日期差异，精确时间待核实"
+        }
+      ]
+    },
+    "evidence_layers": {
+      "author_claims": "README 的开发起点、自制系统定位；原片标题的阶段功能；提交中的 Opencode 使用说明。",
+      "source_visible": "固定快照的内核入口、调度实现、内存管理和服务骨架。",
+      "author_demo": "已读取原片页面并观察历史视频说明画面；功能运行画面及时间点继续待核实。",
+      "independent_run": "待核实"
+    },
+    "pending_verification": [
+      "中国开发者或中国社区归属的明确公开自述",
+      "原作者视频中功能运行画面、时间点与源码版本对应",
+      "当前快照的独立构建、启动、多任务、SMP 和模块加载",
+      "Edk2、LegacyBIOS、limine 分支与 plos-clan 同名仓库的继承/迁移关系",
+      "完整文件系统/VFS实现与进度",
+      "libos-terminal 静态库、固件及完整第三方许可/版本",
+      "首个公开日期与正式版本"
+    ],
+    "sources": [
+      {
+        "id": "q1",
+        "title": "社区 QuantumNEC 作者自述及 B站互链",
+        "url": "https://github.com/plos-clan/docs/blob/fc84dc13f484e8a0bc87e62d1956312b6a9a6a46/docs/project/QuantumNEC.md",
+        "kind": "固定社区文档",
+        "supports": [
+          "作者",
+          "实现语言",
+          "原视频频道"
+        ]
+      },
+      {
+        "id": "q2",
+        "title": "plos-clan 组织公开管理员介绍",
+        "url": "https://github.com/plos-clan",
+        "kind": "组织自述",
+        "supports": [
+          "社区参与关系"
+        ]
+      },
+      {
+        "id": "q3",
+        "title": "SegmentationFaultCD 公开档案",
+        "url": "https://github.com/SegmentationFaultCD",
+        "kind": "作者主页",
+        "supports": [
+          "归属核查"
+        ]
+      },
+      {
+        "id": "q4",
+        "title": "plos-clan 关于页",
+        "url": "https://plos-clan.org/about/",
+        "kind": "社区官网",
+        "supports": [
+          "归属核查"
+        ]
+      },
+      {
+        "id": "q5",
+        "title": "QuantumNEC 固定 README",
+        "url": "https://github.com/SegmentationFaultCD/QuantumNEC/blob/6216373689baa6302cdb2a3b4656955063510b1e/README.md",
+        "kind": "固定作者文档",
+        "supports": [
+          "定位",
+          "开发起点",
+          "依赖"
+        ]
+      },
+      {
+        "id": "q6",
+        "title": "xmake 构建配置",
+        "url": "https://github.com/SegmentationFaultCD/QuantumNEC/blob/6216373689baa6302cdb2a3b4656955063510b1e/xmake.lua",
+        "kind": "固定源码",
+        "supports": [
+          "架构",
+          "编译语言",
+          "内核产物"
+        ]
+      },
+      {
+        "id": "q7",
+        "title": "内核启动入口",
+        "url": "https://github.com/SegmentationFaultCD/QuantumNEC/blob/6216373689baa6302cdb2a3b4656955063510b1e/source/kernel/boot/kloader.cpp",
+        "kind": "固定源码",
+        "supports": [
+          "启动",
+          "当前启用调用"
+        ]
+      },
+      {
+        "id": "q8",
+        "title": "原作者 B站频道",
+        "url": "https://space.bilibili.com/1226480503",
+        "kind": "作者频道",
+        "supports": [
+          "历史视频入口"
+        ]
+      },
+      {
+        "id": "q9",
+        "title": "仓库元数据",
+        "url": "https://api.github.com/repos/SegmentationFaultCD/QuantumNEC",
+        "kind": "平台元数据",
+        "supports": [
+          "仓库创建",
+          "许可字段"
+        ]
+      },
+      {
+        "id": "q10",
+        "title": "当前历史中的根提交",
+        "url": "https://github.com/SegmentationFaultCD/QuantumNEC/commit/576ef489e45e30ea8088751b9edd97e3add25a89",
+        "kind": "提交元数据",
+        "supports": []
+      },
+      {
+        "id": "q11",
+        "title": "MuQSS 调度实现",
+        "url": "https://github.com/SegmentationFaultCD/QuantumNEC/blob/6216373689baa6302cdb2a3b4656955063510b1e/source/kernel/task/schedule/Muqss.cpp",
+        "kind": "固定源码",
+        "supports": [
+          "调度"
+        ]
+      },
+      {
+        "id": "q12",
+        "title": "页面分配初始化",
+        "url": "https://github.com/SegmentationFaultCD/QuantumNEC/blob/6216373689baa6302cdb2a3b4656955063510b1e/source/kernel/memory/allocator/page.cpp",
+        "kind": "固定源码",
+        "supports": [
+          "内存"
+        ]
+      },
+      {
+        "id": "q13",
+        "title": "内核文件系统服务",
+        "url": "https://github.com/SegmentationFaultCD/QuantumNEC/blob/6216373689baa6302cdb2a3b4656955063510b1e/source/kernel/syscall/services/filesystem.cpp",
+        "kind": "固定源码",
+        "supports": [
+          "服务骨架"
+        ]
+      },
+      {
+        "id": "q14",
+        "title": "文件系统服务进程",
+        "url": "https://github.com/SegmentationFaultCD/QuantumNEC/blob/6216373689baa6302cdb2a3b4656955063510b1e/source/module/filesystem/fs_servicer.cpp",
+        "kind": "固定源码",
+        "supports": [
+          "服务骨架"
+        ]
+      },
+      {
+        "id": "q15",
+        "title": "固定源码树",
+        "url": "https://api.github.com/repos/SegmentationFaultCD/QuantumNEC/git/trees/6216373689baa6302cdb2a3b4656955063510b1e?recursive=1",
+        "kind": "源码树元数据",
+        "supports": [
+          "模块",
+          "子模块版本"
+        ]
+      },
+      {
+        "id": "q16",
+        "title": "上游子模块配置",
+        "url": "https://github.com/SegmentationFaultCD/QuantumNEC/blob/6216373689baa6302cdb2a3b4656955063510b1e/.gitmodules",
+        "kind": "固定配置",
+        "supports": [
+          "上游"
+        ]
+      },
+      {
+        "id": "q17",
+        "title": "分支集合",
+        "url": "https://api.github.com/repos/SegmentationFaultCD/QuantumNEC/branches?per_page=100",
+        "kind": "平台元数据",
+        "supports": []
+      },
+      {
+        "id": "q18",
+        "title": "plos-clan 同名仓库元数据",
+        "url": "https://api.github.com/repos/plos-clan/QuantumNEC",
+        "kind": "平台元数据",
+        "supports": []
+      },
+      {
+        "id": "q19",
+        "title": "固定提交与 Opencode 说明",
+        "url": "https://github.com/SegmentationFaultCD/QuantumNEC/commit/6216373689baa6302cdb2a3b4656955063510b1e",
+        "kind": "提交作者说明",
+        "supports": [
+          "快照",
+          "AI辅助"
+        ]
+      },
+      {
+        "id": "q20",
+        "title": "Releases 集合",
+        "url": "https://api.github.com/repos/SegmentationFaultCD/QuantumNEC/releases?per_page=20",
+        "kind": "平台元数据",
+        "supports": []
+      },
+      {
+        "id": "q21",
+        "title": "根 LICENSE",
+        "url": "https://github.com/SegmentationFaultCD/QuantumNEC/blob/6216373689baa6302cdb2a3b4656955063510b1e/LICENSE",
+        "kind": "固定许可文本",
+        "supports": [
+          "GPLv3"
+        ]
+      },
+      {
+        "id": "q22",
+        "title": "固定 Limine 许可",
+        "url": "https://github.com/Limine-Bootloader/Limine/blob/0765b5db055680471cea3180e8277dcf701847dc/LICENSE",
+        "kind": "固定上游许可",
+        "supports": []
+      },
+      {
+        "id": "q23",
+        "title": "固定 fmt 许可",
+        "url": "https://github.com/fmtlib/fmt/blob/e9ddc97b9aa8acf323212d55f45f1d6e6e4f8ab3/LICENSE",
+        "kind": "固定上游许可",
+        "supports": []
+      },
+      {
+        "id": "q24",
+        "title": "原作者现代 C++ 开发记录",
+        "url": "https://www.bilibili.com/video/BV1yuWFzSEbi/",
+        "kind": "原作者视频页",
+        "supports": [
+          "标题",
+          "日期",
+          "频道"
+        ]
+      },
+      {
+        "id": "q25",
+        "title": "原作者历史日志#3",
+        "url": "https://www.bilibili.com/video/BV1a1421f755/",
+        "kind": "原作者视频页",
+        "supports": [
+          "历史阶段"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "racaos",
+    "name": "racaOS",
+    "aliases": [],
+    "checked_at": "2026-10-10",
+    "selection_status": "待核实：中国开发者或中国社区公开归属",
+    "classification": "本轮新发现的个人内核候选",
+    "recommendation": "保存为待核实候选；取得明确公开归属后，按 edition21 与历史 x86-64 阶段分项整理",
+    "short_description": "racaOS 是 zzjrabbit 维护、历经多次重构的操作系统项目。当前 edition21 采用 Rust，面向 LoongArch64，围绕 Zodiac 框架、动态内核模块和内存管理组织。历史分支保存 x86-64 系统。",
+    "author": {
+      "people": [
+        {
+          "handle": "zzjrabbit",
+          "github_url": "https://github.com/zzjrabbit",
+          "public_aliases": [
+            "UEFIer"
+          ]
+        }
+      ],
+      "organization": "个人项目；公开参与 plos-clan 社区",
+      "attribution": {
+        "text": "社区项目页将 racaOS 归于 UEFIer，并直接链接 zzjrabbit/racaOS；社区管理页列出 zzjrabbit 的公开社区角色。",
+        "evidence_level": "社区项目页与组织自述",
+        "source_ids": [
+          "r1",
+          "r2"
+        ]
+      },
+      "china_basis": {
+        "status": "待核实",
+        "text": "已核对作者 GitHub 档案、个人 README、个人网站与关于页、plos-clan 社区项目及管理页。明确中国开发者或中国社区归属自述继续待核实。",
+        "source_ids": [
+          "r1",
+          "r2",
+          "r3",
+          "r4"
+        ]
+      }
+    },
+    "kernel_positioning": {
+      "text": "README 将当前实现描述为增强 framekernel 的实验实践，以 Zodiac 框架和动态模块组织内核。源码包含 freestanding Rust 入口、Limine 请求、页帧分配、虚拟地址空间与 ELF 模块加载。",
+      "evidence_level": "作者声明与源码可见",
+      "source_ids": [
+        "r5",
+        "r6",
+        "r7",
+        "r8"
+      ]
+    },
+    "dates": {
+      "development_started": {
+        "date": "2023-01-28",
+        "basis": "README 第一版生日的作者自述",
+        "source_ids": [
+          "r5"
+        ]
+      },
+      "current_edition_started": {
+        "date": "2025-11-20",
+        "basis": "README 当前版本生日的作者自述",
+        "source_ids": [
+          "r5"
+        ]
+      },
+      "first_public": {
+        "date": null,
+        "status": "待核实"
+      },
+      "repository_created": {
+        "at": "2024-06-05T23:18:15Z",
+        "repository_id": 811092792,
+        "meaning": "GitHub created_at",
+        "source_ids": [
+          "r9"
+        ]
+      },
+      "current_edition_root_commit": {
+        "at": "2025-11-23T03:41:04Z",
+        "commit": "879e7fa0d1c13d213397aa3cf8de33255ed87698",
+        "meaning": "edition21 可达历史的根提交，parents 为空；与项目首次公开日期分开记录",
+        "source_ids": [
+          "r10"
+        ]
+      }
+    },
+    "architectures": [
+      {
+        "text": "edition21 README 标明 LoongArch64；builder 使用 qemu-system-loongarch64、virt 机型和 la464 CPU 参数。",
+        "evidence_level": "作者声明与源码可见",
+        "source_ids": [
+          "r5",
+          "r11"
+        ]
+      },
+      {
+        "text": "edition12 README 标明 x86_64；旧文档与旧版本记录按历史阶段保存。",
+        "evidence_level": "历史作者声明",
+        "source_ids": [
+          "r12"
+        ]
+      }
+    ],
+    "capabilities": {
+      "boot": [
+        {
+          "text": "Zodiac 的 kmain 声明 Limine base revision 4、可执行文件与地址请求，初始化框架后转交主函数；init 加载模块后进入 idle_loop。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "r6",
+            "r7"
+          ]
+        }
+      ],
+      "scheduling": [
+        {
+          "text": "当前 README 将多任务列为路线图项；modules/task/src/lib.rs 的模块入口为空，Zodiac task 模块定义任务上下文接口。",
+          "evidence_level": "作者声明与源码可见",
+          "source_ids": [
+            "r5",
+            "r13",
+            "r14"
+          ]
+        }
+      ],
+      "memory": [
+        {
+          "text": "BitmapFrameAllocator 从 Limine 可用区域构造 4 KiB 页帧位图，提供连续页帧分配与回收；memory 模块以 Vmar 映射测试内存，写入并读回测试值。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "r15",
+            "r16"
+          ]
+        }
+      ],
+      "filesystem": [
+        {
+          "text": "当前 README 将 FAT/ext2/ext4 列为路线图项；modules/filesystem/src/lib.rs 的模块入口为空。当前版 VFS 与持久文件系统实现状态待核实。",
+          "evidence_level": "作者声明与源码可见",
+          "source_ids": [
+            "r5",
+            "r17"
+          ]
+        }
+      ],
+      "drivers": [
+        {
+          "text": "源码树包含 LoongArch64 寄存器、页表、串口、ACPI 与中断代码；当前 README 将 AHCI/NVMe、网络和更多驱动列为路线图项。",
+          "evidence_level": "源码可见与作者路线图",
+          "source_ids": [
+            "r5",
+            "r18"
+          ]
+        }
+      ],
+      "modules": [
+        {
+          "text": "init 模块清单加载 core_dylib、logger、errors、memory、filesystem、task，Module::load 在解析模块后调用入口。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "r8"
+          ]
+        }
+      ]
+    },
+    "implementation_languages": [
+      {
+        "text": "当前工作区由 Rust crates、modules 与 Zodiac 组成，体系结构目录包含汇编。",
+        "evidence_level": "源码可见",
+        "source_ids": [
+          "r18",
+          "r19"
+        ]
+      }
+    ],
+    "project_relationships": [
+      {
+        "text": "当前 README 感谢 Asterinas 的 OSTD/OSDK 设计启发及 wenxuanjun 的页表示例。",
+        "evidence_level": "作者声明",
+        "source_ids": [
+          "r5"
+        ]
+      },
+      {
+        "text": "社区项目页记录 racaOS 基于 TrashOS，并注明 wenxuanjun 提供基础代码、lihanrui2913 提供过驱动；该文档描述 x86-64 阶段。继承范围及与 edition21 的对应继续待核实。",
+        "evidence_level": "社区文档",
+        "source_ids": [
+          "r1"
+        ]
+      },
+      {
+        "text": "edition12 README 说明 raca_loader 基于 bootloader 0.11.3，感谢 phil-opp 的 x86_64 库与 rCore 的引导/驱动模板及中断重构思路。",
+        "evidence_level": "历史作者声明",
+        "source_ids": [
+          "r12"
+        ]
+      },
+      {
+        "text": "edition21 Cargo.lock 固定 Limine crate 0.5.0、acpi 6.0.1、talc 4.4.3 与 elf 0.8.0。完整依赖许可证与二进制引导组件版本继续核实。",
+        "evidence_level": "源码可见",
+        "source_ids": [
+          "r20"
+        ]
+      }
+    ],
+    "status": {
+      "source_snapshot": {
+        "branch": "edition21",
+        "commit": "72ab92f0e296fd6889059315afa5a9850ae582ba",
+        "committed_at": "2025-12-08T14:53:56Z",
+        "source_ids": [
+          "r21"
+        ]
+      },
+      "latest_formal_release": {
+        "version": "v16.1.0",
+        "published_at": "2024-12-06T14:02:15Z",
+        "stage": "历史版本；与当前 edition21 分开记录",
+        "source_ids": [
+          "r22"
+        ]
+      },
+      "license": {
+        "name": null,
+        "status": "待核实",
+        "text": "当前 GitHub 许可字段为空，完整 edition21 源码树中根许可证文件待取得；社区历史项目页展示 GPLv2 徽章，适用版本与当前许可范围待核实。",
+        "source_ids": [
+          "r1",
+          "r9",
+          "r18"
+        ]
+      },
+      "runtime_verification": {
+        "status": "待核实",
+        "scope": "本轮覆盖公开网页、平台元数据及源码静态阅读；当前和历史版本独立运行继续待核实"
+      }
+    },
+    "links": {
+      "source": "https://github.com/zzjrabbit/racaOS",
+      "documentation": "https://docs.plos-clan.org/project/racaos",
+      "website": "https://zzjrabbit.github.io/",
+      "historical_release": "https://github.com/zzjrabbit/racaOS/releases/tag/v16.1.0",
+      "historical_community_post": "https://www.bilibili.com/opus/809991700591149093"
+    },
+    "evidence_layers": {
+      "author_claims": "README 的多次重构、当前 LoongArch64 平台和 framekernel 定位；历史发行功能。",
+      "source_visible": "edition21 入口、Zodiac 内存管理、动态模块列表以及任务/文件系统占位。",
+      "author_demo": "当前版本原作者演示待核实；关联社区成员历史文章已定位。",
+      "independent_run": "待核实"
+    },
+    "pending_verification": [
+      "中国开发者或中国社区归属的明确公开自述",
+      "当前版本许可与历史 GPLv2 文档的适用范围",
+      "TrashOS、rCore 模板、旧 x86-64 分支及当前 LoongArch64 版的源码继承范围",
+      "原作者视频账号、完整原片及其对应源码版本",
+      "edition21 的独立构建与运行",
+      "旧版本运行能力与当前路线图的逐项沿革",
+      "项目首次公开日期和完整第三方组件许可"
+    ],
+    "sources": [
+      {
+        "id": "r1",
+        "title": "社区 racaOS 项目页",
+        "url": "https://github.com/plos-clan/docs/blob/fc84dc13f484e8a0bc87e62d1956312b6a9a6a46/docs/project/racaos.md",
+        "kind": "固定社区文档",
+        "supports": [
+          "作者别名",
+          "仓库链接",
+          "历史关系",
+          "历史许可徽章"
+        ]
+      },
+      {
+        "id": "r2",
+        "title": "社区管理页",
+        "url": "https://github.com/plos-clan/docs/blob/fc84dc13f484e8a0bc87e62d1956312b6a9a6a46/docs/group/group.md",
+        "kind": "固定社区文档",
+        "supports": [
+          "zzjrabbit 社区角色"
+        ]
+      },
+      {
+        "id": "r3",
+        "title": "作者 GitHub 公开档案",
+        "url": "https://github.com/zzjrabbit",
+        "kind": "作者主页",
+        "supports": [
+          "归属核查"
+        ]
+      },
+      {
+        "id": "r4",
+        "title": "作者个人网站关于页",
+        "url": "https://zzjrabbit.github.io/about.html",
+        "kind": "作者网站",
+        "supports": [
+          "归属核查"
+        ]
+      },
+      {
+        "id": "r5",
+        "title": "edition21 README",
+        "url": "https://github.com/zzjrabbit/racaOS/blob/72ab92f0e296fd6889059315afa5a9850ae582ba/README.md",
+        "kind": "固定作者文档",
+        "supports": [
+          "定位",
+          "版本阶段",
+          "路线图"
+        ]
+      },
+      {
+        "id": "r6",
+        "title": "Zodiac 引导接口",
+        "url": "https://github.com/zzjrabbit/racaOS/blob/72ab92f0e296fd6889059315afa5a9850ae582ba/zodiac/src/boot/mod.rs",
+        "kind": "固定源码",
+        "supports": [
+          "引导"
+        ]
+      },
+      {
+        "id": "r7",
+        "title": "init 内核主函数",
+        "url": "https://github.com/zzjrabbit/racaOS/blob/72ab92f0e296fd6889059315afa5a9850ae582ba/init/src/main.rs",
+        "kind": "固定源码",
+        "supports": [
+          "主函数"
+        ]
+      },
+      {
+        "id": "r8",
+        "title": "内核模块清单与入口",
+        "url": "https://github.com/zzjrabbit/racaOS/blob/72ab92f0e296fd6889059315afa5a9850ae582ba/init/src/module/mod.rs",
+        "kind": "固定源码",
+        "supports": [
+          "模块"
+        ]
+      },
+      {
+        "id": "r9",
+        "title": "racaOS 仓库元数据",
+        "url": "https://api.github.com/repos/zzjrabbit/racaOS",
+        "kind": "平台元数据",
+        "supports": [
+          "创建日期",
+          "许可字段"
+        ]
+      },
+      {
+        "id": "r10",
+        "title": "edition21 根提交",
+        "url": "https://github.com/zzjrabbit/racaOS/commit/879e7fa0d1c13d213397aa3cf8de33255ed87698",
+        "kind": "提交元数据",
+        "supports": []
+      },
+      {
+        "id": "r11",
+        "title": "LoongArch64 系统构建与运行配置",
+        "url": "https://github.com/zzjrabbit/racaOS/blob/72ab92f0e296fd6889059315afa5a9850ae582ba/builder/src/main.rs",
+        "kind": "固定源码",
+        "supports": [
+          "目标架构"
+        ]
+      },
+      {
+        "id": "r12",
+        "title": "edition12 历史 README",
+        "url": "https://github.com/zzjrabbit/racaOS/blob/45a4861daf1061c21cb71ac7f5cad0b2ab973d94/README.md",
+        "kind": "历史文档",
+        "supports": [
+          "旧平台",
+          "上游关系"
+        ]
+      },
+      {
+        "id": "r13",
+        "title": "任务模块占位",
+        "url": "https://github.com/zzjrabbit/racaOS/blob/72ab92f0e296fd6889059315afa5a9850ae582ba/modules/task/src/lib.rs",
+        "kind": "固定源码",
+        "supports": [
+          "任务状态"
+        ]
+      },
+      {
+        "id": "r14",
+        "title": "Zodiac 任务接口",
+        "url": "https://github.com/zzjrabbit/racaOS/blob/72ab92f0e296fd6889059315afa5a9850ae582ba/zodiac/src/task/mod.rs",
+        "kind": "固定源码",
+        "supports": []
+      },
+      {
+        "id": "r15",
+        "title": "位图页帧分配器",
+        "url": "https://github.com/zzjrabbit/racaOS/blob/72ab92f0e296fd6889059315afa5a9850ae582ba/zodiac/src/mem/frame.rs",
+        "kind": "固定源码",
+        "supports": [
+          "内存"
+        ]
+      },
+      {
+        "id": "r16",
+        "title": "Vmar 内存模块与测试",
+        "url": "https://github.com/zzjrabbit/racaOS/blob/72ab92f0e296fd6889059315afa5a9850ae582ba/modules/memory/src/lib.rs",
+        "kind": "固定源码",
+        "supports": [
+          "内存"
+        ]
+      },
+      {
+        "id": "r17",
+        "title": "文件系统模块占位",
+        "url": "https://github.com/zzjrabbit/racaOS/blob/72ab92f0e296fd6889059315afa5a9850ae582ba/modules/filesystem/src/lib.rs",
+        "kind": "固定源码",
+        "supports": [
+          "文件系统状态"
+        ]
+      },
+      {
+        "id": "r18",
+        "title": "edition21 完整源码树",
+        "url": "https://api.github.com/repos/zzjrabbit/racaOS/git/trees/72ab92f0e296fd6889059315afa5a9850ae582ba?recursive=1",
+        "kind": "源码树元数据",
+        "supports": []
+      },
+      {
+        "id": "r19",
+        "title": "工作区配置",
+        "url": "https://github.com/zzjrabbit/racaOS/blob/72ab92f0e296fd6889059315afa5a9850ae582ba/Cargo.toml",
+        "kind": "固定配置",
+        "supports": [
+          "实现语言",
+          "结构"
+        ]
+      },
+      {
+        "id": "r20",
+        "title": "依赖锁定文件",
+        "url": "https://github.com/zzjrabbit/racaOS/blob/72ab92f0e296fd6889059315afa5a9850ae582ba/Cargo.lock",
+        "kind": "固定依赖清单",
+        "supports": [
+          "上游版本"
+        ]
+      },
+      {
+        "id": "r21",
+        "title": "固定提交",
+        "url": "https://github.com/zzjrabbit/racaOS/commit/72ab92f0e296fd6889059315afa5a9850ae582ba",
+        "kind": "提交元数据",
+        "supports": []
+      },
+      {
+        "id": "r22",
+        "title": "v16.1.0 历史正式发布",
+        "url": "https://github.com/zzjrabbit/racaOS/releases/tag/v16.1.0",
+        "kind": "发布说明",
+        "supports": [
+          "历史版本"
+        ]
+      },
+      {
+        "id": "r23",
+        "title": "2023 年社区成员 racaOS 关联文章",
+        "url": "https://www.bilibili.com/opus/809991700591149093",
+        "kind": "社区成员文章",
+        "supports": [
+          "历史线索"
+        ]
+      },
+      {
+        "id": "r24",
+        "title": "分支集合",
+        "url": "https://api.github.com/repos/zzjrabbit/racaOS/branches?per_page=100",
+        "kind": "平台元数据",
+        "supports": [
+          "历次重构阶段"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "bearos-medaifan",
+    "name": "BearOS／小熊操作系统",
+    "checked_at": "2026-10-10",
+    "classification": "本轮新发现的网页与视频索引线索",
+    "selection_status": "待核实",
+    "links": {
+      "website": "https://www.medaifan.net/",
+      "project_page": "https://www.medaifan.net/bearos.html",
+      "discovery_index": "https://search.bilibili.com/all?keyword=%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E5%86%85%E6%A0%B8"
+    },
+    "known_facts": [
+      "作者官网列出 BearOS V0.10，说明业余开发自己的操作系统。",
+      "官网列出 1024×768 图形、中文输入输出、Shell、文件系统、磁盘文件运行、C 类库、编辑器与 BasC 语言，均按作者声明保存。",
+      "B站索引出现胖嘟嘟的超级熊发布的 BearOS 系统内核与文件管理视频。"
+    ],
+    "pending_verification": [
+      "官网作者与B站账号的直接关联",
+      "明确中国开发者/社区公开自述",
+      "原视频 BV 与发布时间",
+      "内核来源、源码入口、架构、许可和版本",
+      "作者演示与独立运行"
+    ],
+    "scope_note": "本轮深查范围已收束到 QuantumNEC 与 racaOS，此项保存入口。"
+  },
+  {
+    "id": "os002",
+    "name": "OS002",
+    "checked_at": "2026-10-10",
+    "classification": "本轮新发现的视频索引线索",
+    "selection_status": "待核实",
+    "links": {
+      "discovery_index": "https://search.bilibili.com/all?keyword=%E9%9B%ABOS"
+    },
+    "known_facts": [
+      "B站索引将 OS002 关联到 Liu_Chunyi，标题提及 C 语言、多线程与中断。"
+    ],
+    "pending_verification": [
+      "原视频 BV、作者账号及日期",
+      "明确中国开发者/社区公开自述",
+      "自身内核定位与上游关系",
+      "源码、架构、许可和版本",
+      "作者演示与独立运行"
+    ],
+    "scope_note": "保存项目资料线索；本轮深查范围为 QuantumNEC 与 racaOS。"
+  },
+  {
+    "id": "kunos",
+    "name": "KunOS",
+    "checked_at": "2026-10-10",
+    "classification": "既有 Issue #13 归属缺口复核",
+    "issue_url": "https://github.com/yuyan-lang/chinese-programming-languages/issues/13",
+    "new_substantive_progress": 0,
+    "selection_status": "待核实",
+    "checked_sources": [
+      "https://github.com/hellopgrmm",
+      "https://github.com/yuyan-lang/chinese-programming-languages/issues/13"
+    ],
+    "finding": "作者 GitHub 公开主页展示 KunOS 与个人站仓库；明确中国开发者归属自述继续待核实。",
+    "pending_verification": [
+      "沿用 Issue #13 的中国开发者归属、完整许可和演示版本对应事项"
+    ],
+    "scope_note": "本轮未取得改变收录结论的新实质证据。"
+  }
+]
