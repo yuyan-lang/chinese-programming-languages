@@ -14,14 +14,74 @@
   {
     "id": "lang-002",
     "name": "易语言",
-    "description": "中文编程语言及开发环境。",
+    "description": "易语言是吴涛创建的中文编程语言及配套可视化开发环境，早期资料使用E语言名称，英文产品名为EPL。程序以中文命令、数据类型、子程序和窗口事件组织逻辑，编辑器用表格管理定义，并显示程序流程线。官方文档提供“如果”“计次循环首”等流程控制命令，以及文本、整数、日期时间、字节集等类型。开发环境集成界面设计、代码编辑、调试和编译，支持通过易模块复用代码，并借助支持库、DLL、API、COM和OCX接入外部功能。官方产品说明列有Windows和Linux应用开发能力，历史EPL说明进一步列出Windows窗口、控制台、动态链接库及Linux控制台项目。官网当前列出5.95下载。这里记录传统易语言产品线；易语言·飞扬及易乐谷分别具有自己的架构和语言定位。",
     "references": [
       {
         "title": "参考资料",
         "url": "https://zh.wikipedia.org/wiki/易语言"
+      },
+      {
+        "title": "官方产品说明：编译器、可视化环境及互操作",
+        "url": "https://www.eyuyan.com/eprc.htm"
+      },
+      {
+        "title": "官方语言手册：命令、类型、子程序和窗口事件",
+        "url": "https://www.eyuyan.com/help/zlsc/lang.htm"
+      },
+      {
+        "title": "官方教程：判断与循环及例程上下文",
+        "url": "https://eyuyan.com/help/zlsc/day/day5.htm"
+      },
+      {
+        "title": "官方计次循环例程原图",
+        "url": "https://eyuyan.com/help/zlsc/day/day5.files/image012.gif"
+      },
+      {
+        "title": "官方公司介绍：创始人吴涛及2004年公司沿革",
+        "url": "https://www.eyuyan.com/intro/index.htm"
+      },
+      {
+        "title": "官网历史报道目录：2000—2003",
+        "url": "https://www.eyuyan.com/intro/newslist2003.htm"
+      },
+      {
+        "title": "官网所存2000年E语言1.1报道原图",
+        "url": "https://www.eyuyan.com/intro/images/baodao/00-43.jpg"
+      },
+      {
+        "title": "官方下载：5.95及历史EPL／飞扬发行资料",
+        "url": "https://www.eyuyan.com/pdown.htm"
+      },
+      {
+        "title": "官方产品分类：易语言、飞扬及易乐谷",
+        "url": "https://www.eyuyan.com/prc.htm"
       }
     ],
-    "status": "有文献"
+    "status": "官网产品说明、语言手册、代码图示和5.95下载入口可读。最新下载页面的版本日期、当前维护计划及独立运行结果待核实。",
+    "aliases": [
+      "E语言",
+      "EPL",
+      "Easy Programming Language"
+    ],
+    "category": "中文命令式编译语言／可视化应用开发环境",
+    "author": "吴涛；大连大有吴涛易语言软件开发有限公司由吴涛与大连大有房屋开发有限公司于2004年合作成立（官网公司介绍）。",
+    "first_publication": "官网历史资料保存了2000-10-30《电脑报》第43期对E语言1.1试用版的介绍，说明项目当年已有公开发行材料。1.0版本的具体首次公开日待核实。",
+    "features": [
+      "中文命令、类型和本土化文本／日期处理",
+      "表格式定义、可视化窗口设计和程序流程线",
+      "子程序、程序集与窗口事件驱动",
+      "易模块复用和支持库扩展",
+      "DLL、API、COM及OCX互操作",
+      "Windows应用与历史Linux控制台开发资料"
+    ],
+    "code": "计次循环首 (100, 变量1)\n    按钮1.标题 ＝ 到文本 (变量1)\n    延时 (200)\n计次循环尾 ()",
+    "code_source": "https://eyuyan.com/help/zlsc/day/day5.files/image012.gif",
+    "code_context": "官网“第五天”教程原图中的连续四行代码文字转录。空白排版已整理，图形流程线和折叠图标省略。图中先将变量1定义为整数型，并在按钮1的被单击子程序中修改按钮标题；本例是可视化编辑器中的局部片段。原始.e文件、文本导出格式与运行效果待核实。",
+    "implementation": "官网产品文档将编译方式描述为将中文源程序编译为CPU指令；语言手册说明运行支持库提供命令和库定义类型。历史EPL 4.01介绍列出Windows窗口、控制台、DLL与Linux控制台工程。编译器内部实现语言、完整原始源码及5.95在现代系统上的兼容性待核实。",
+    "version": "官网产品下载页列5.95精简版、完全版及5.9x到5.95升级包；页面保留5.93等旧版本。5.95首次发布日期待核实。",
+    "relations": "E语言是官网2000年历史资料中的名称，EPL是官方英文产品名。易语言·飞扬（EF）采用类C语法和另一套核心架构；易乐谷是公司以易语言实现的中文LOGO工具。三者按各自产品和语法资料分别记录。本条围绕传统易语言。",
+    "verification_notes": "2026-10-10只读核验。官网公司介绍确认吴涛身份；官网所存《电脑报》原图清楚标出E语言、1.1版及吴涛署名，报道日期按官方历史目录记录。2000年9月11日和9月16日首发说法的原版发行记录／作者书序仍待核实。代码依据原图人工转录，图示采用的符号按可见形式呈现；源文件级字节及编码核对待核实。5.95按当日官方下载页面记录，页面页脚旧版权年份用于页面识别。编译方式、平台和特性依据官方说明，执行与性能验证待核实。",
+    "verified_at": "2026-10-10"
   },
   {
     "id": "lang-003",
@@ -277,14 +337,81 @@
   {
     "id": "lang-012",
     "name": "结绳中文",
-    "description": "中文应用开发语言。",
+    "description": "结绳中文是用于应用开发的中文关键字语言，配套有编译器、平台基本库、开发环境和编辑器插件。当前公开语法以“类”“变量”“方法”“事件”“如果”“循环”“返回”“结束”等词组织程序，提供继承、泛型、属性、事件、运算符重载、类型推断和原生代码嵌入。源文件使用.t后缀，开发工具另用.tly表示布局。跨平台编译器文档描述了Android的Java、XML及Gradle输出、网页的JavaScript和HTML输出，以及C++目标代码。VSCode工具链调用编译器后，分别接入Gradle或CMake完成目标工程构建。公开发行仓库提供预编译工具、C/C++集成头文件和平台库；完整编译器内部源码与实际运行效果待核实。语言、编译器、配套开发环境与编辑器插件共同构成这一项目的工具链。",
     "references": [
       {
         "title": "参考资料",
         "url": "https://tiecode.cn"
+      },
+      {
+        "title": "跨平台编译器发布仓库与使用说明（固定提交）",
+        "url": "https://github.com/FinalScave/TiecodeCompiler-Public/blob/688aebd0887457fd2b6ae7abefd415eafa430e04/README.md"
+      },
+      {
+        "title": "中文语法、原始示例与平台输出规则（固定提交）",
+        "url": "https://github.com/FinalScave/TiecodeCompiler-Public/blob/688aebd0887457fd2b6ae7abefd415eafa430e04/docs/%E7%BB%93%E7%BB%B3%E8%AF%AD%E6%B3%95.md"
+      },
+      {
+        "title": "中文词元枚举（固定提交）",
+        "url": "https://github.com/FinalScave/TiecodeCompiler-Public/blob/688aebd0887457fd2b6ae7abefd415eafa430e04/headers/tiec/token.h"
+      },
+      {
+        "title": "编译器组件及C++集成API文档（固定提交）",
+        "url": "https://github.com/FinalScave/TiecodeCompiler-Public/blob/688aebd0887457fd2b6ae7abefd415eafa430e04/docs/%E7%BC%96%E8%AF%91%E5%99%A8Api.md"
+      },
+      {
+        "title": "编译器阶段和工厂接口（固定提交）",
+        "url": "https://github.com/FinalScave/TiecodeCompiler-Public/blob/688aebd0887457fd2b6ae7abefd415eafa430e04/headers/tiec/compiler.h"
+      },
+      {
+        "title": "4.7.0-beta3公开预发行",
+        "url": "https://github.com/FinalScave/TiecodeCompiler-Public/releases/tag/4.7.0-beta3"
+      },
+      {
+        "title": "VSCode插件原始构建流程（固定提交）",
+        "url": "https://github.com/mobile-ipe/Tiecode-VSCode/blob/d3c261f4cb2742ab0256fe1d767c783dbe41c711/src/tiecode/build.ts"
+      },
+      {
+        "title": "VSCode插件版本、发布者及语言扩展名",
+        "url": "https://github.com/mobile-ipe/Tiecode-VSCode/blob/d3c261f4cb2742ab0256fe1d767c783dbe41c711/package.json"
+      },
+      {
+        "title": "MobileIPE团队的跨平台编译器发布仓库",
+        "url": "https://gitee.com/mobile-ipe/TiecodeCompiler-Public"
+      },
+      {
+        "title": "Maven Central：开发者、官网链接及历史插件API版本",
+        "url": "https://central.sonatype.com/artifact/cn.tiecode/plugin-api/1.0.1"
+      },
+      {
+        "title": "Scave旧编译器说明及Java入口",
+        "url": "https://gitee.com/scave/Tiecode-Compiler"
       }
     ],
-    "status": "待核实"
+    "status": "编译器发行仓库可公开访问；GitHub和Gitee所读分支头同为688aebd，提交于2026-06-17。语法文档、集成头文件、平台库和预编译发行记录可读；官网tiecode.cn本次读取返回502。最新其他发行渠道、持续维护计划、运行与性能待核实。",
+    "aliases": [
+      "结绳",
+      "Tiecode"
+    ],
+    "category": "中文关键字语言／多目标源码生成工具链",
+    "author": "Scave（GitHub账号FinalScave，公开编译器维护者及cn.tiecode插件API署名开发者）；MobileIPE联合成员社区参与配套工具和文档。早期完整创始团队及实名待核实。",
+    "first_publication": "Maven Central的cn.tiecode:plugin-api版本表保存了2022年11月的公开发行记录；Scave旧编译器仓库保留2023年的使用资料。语言和最初IDE的首次公开日期待核实。现有GitHub跨平台发布仓库建立于2026-05-31。",
+    "features": [
+      "中文保留关键字及.t源文件",
+      "类、继承、泛型、属性与事件",
+      "类型标注、局部类型推断及运算符重载",
+      "平台注解、原生代码嵌入与.d.t声明封装",
+      "Android、网页及C++目标源码生成",
+      "命令行、原生库、WebAssembly和IDE服务接口"
+    ],
+    "code": "@强制输出\n类 主窗口: 窗口\n  变量 标题: 文本 = \"Hello\"\n\n  方法 创建完毕()\n    调试输出(标题)\n  结束 方法\n结束 类",
+    "code_source": "https://github.com/FinalScave/TiecodeCompiler-Public/blob/688aebd0887457fd2b6ae7abefd415eafa430e04/docs/%E7%BB%93%E7%BB%B3%E8%AF%AD%E6%B3%95.md",
+    "code_context": "固定提交《结绳语言语法》“语言概览”的完整连续代码块，保留原双空格缩进。示例使用窗口、文本和调试输出等平台基本库符号；它展示类、变量与方法结构。执行效果待核实。",
+    "implementation": "公开C++头文件和编译器API文档描述Context、语法树、符号表，以及解析、符号填充、语义分析和最终输出阶段；token.h逐项列出中文关键字。平台文档描述Java/XML/Gradle、JavaScript/HTML和C++源码输出。所读VSCode构建代码先调用Wasm编译器，再运行Android Gradle或CXX CMake构建。旧版2023文档提供com.tiecode.compiler.Main的Java调用入口。完整内部实现源码、跨版本迁移细节及各目标实际兼容性待核实。",
+    "version": "已核验GitHub发行版4.7.0-beta3，发布时间2026-06-17T14:55:55Z，标记为预发行；同提交README的Android Maven示例使用4.7.0-beta4。beta4的实际发行状态待核实。配套VSCode插件package.json为0.1.1，其版本单独记录。",
+    "relations": "本条对应tiecode.cn、Scave及MobileIPE来源链中的结绳语言。MobileIPE和VSCode插件提供开发环境，.tly是布局描述格式，平台基本库负责原生功能绑定。Java、C++和JavaScript在已读资料中分别承担调用接口、集成接口或目标输出等角色，各角色按版本和组件记录。",
+    "verification_notes": "2026-10-10只读核验。固定GitHub提交688aebd0887457fd2b6ae7abefd415eafa430e04，提交时间2026-06-17T14:45:55Z，pushed_at为2026-06-17T14:55:54Z；Gitee公开页面显示相同分支头。Maven POM直接链接tiecode.cn并署名Scave；其SCM字段指向simple-lsp4a，按包元数据记录，仓库关系待核实。Maven版本表最早可见alpha29/alpha30为2022-11-18，日期页面未标明时区，属于生态包发行证据。旧Gitee编译器README所见最后提交bb55bd02316179c156b1ff7898f62e66beab4050，日期2023-11-26T15:22:35Z。发布仓库用途为产物、文档、头文件和库；语言内部实现及运行、性能验证待核实。",
+    "verified_at": "2026-10-10"
   },
   {
     "id": "lang-013",
@@ -1768,5 +1895,289 @@
     "code_context": "官方“快速上手”中“你好.rcx”的完整代码块，保留原文、标点、双空格和Tab缩进。该示例采用官方文档v1.0.0上下文；本轮为静态核验。",
     "verified_at": "2026-10-10",
     "id": "lang-043"
+  },
+  {
+    "name": "玄语",
+    "aliases": [
+      "XY Language",
+      "XY",
+      "ZHCC"
+    ],
+    "category": "中文编译型语言／LLVM文本后端",
+    "author": "陈恒源（当前LICENSE署名）；GitHub维护账号chy818，Cargo清单署名“玄语 Team”。",
+    "first_publication": "GitHub仓库创建于2026-03-18，根提交日期为同日。可核实的首个GitHub Release为2026-07-05的v0.1.0-alpha，发布说明将其称为首个公开预览版本。更早的首次公开时间待核实。",
+    "description": "玄语是一项使用中文关键字的编译型语言项目，英文名称为XY Language，原名ZHCC，以.xy文件组织程序。语法包含“函数”“定义”“返回”“若……则……否则”“当”“循环”“引入”等表达，词法表同时提供fn、let、return等英文别名。公开仓库包含Rust宿主编译器、XY编译器源码、C运行时、标准库和示例；宿主实现依次进行词法分析、语法解析、语义分析和LLVM IR文本生成，再由外部LLVM工具链生成目标文件并链接。当前资料可支持中文语法、实现路径与版本沿革的记录；完整语言语义、跨平台构建和自举结果属于待核实项。",
+    "features": [
+      "中文函数、变量、返回、条件和循环语法",
+      "中文与英文关键字映射及中文标识符扫描",
+      "Rust词法、递归下降解析和LLVM IR文本生成源码",
+      ".xy编译器模块、C运行时与原始例程",
+      "公开GitHub Releases及0.4.0-alpha包版本"
+    ],
+    "code": "函数 主() : 整数 {\n    打印(\"Hello\\n\")\n    返回 0\n}\n",
+    "code_source": "https://github.com/chy818/xuanyu/blob/6bd1bad153de4d0c2019b6001974ddab0ad69268/examples/simple.xy#L1-L4",
+    "code_context": "固定提交examples/simple.xy第1—4行完整文件，保留原文、缩进和换行。它展示主函数、打印与返回语句。本轮采用静态文本核验，运行结果待核实。",
+    "implementation": "Rust宿主编译器的lexer.rs调用关键字表，parser.rs将中文关键字解析为AST；codegen.rs逐步构建LLVM IR字符串。main.rs调用外部llc生成目标文件，并以clang编译、链接runtime.c。Cargo将inkwell设为可选依赖，默认特性为空。src/compiler_v2/公开XY实现的词法、解析、语义与代码生成模块，compiler_new.xy串联这些阶段。README的自举一致性与测试通过说明按作者声明记录，独立复现待核实。",
+    "status": "公开开发项目，默认分支master最新提交日期为2026-08-12。已核验中文词法和解析入口、代码生成链、原始短例及发行元数据；构建、运行、自举和性能验证待核实。",
+    "version": "Cargo.toml与L2驱动标注0.4.0-alpha；最新GitHub Release为v0.4.0-alpha，published_at为2026-08-12T13:58:02Z。核验源码固定到其后的master提交6bd1bad153de4d0c2019b6001974ddab0ad69268。",
+    "relations": "玄语、XY Language与ZHCC按README更名说明合并为一个项目。玄铁另有MARKJY-China/XuanTie-Lang仓库，百科保留其独立条目。Rust为宿主实现语言，LLVM为后端工具链。v0.2.0-beta及v0.3.0-beta发布正文带有Claude Code生成标注；该标注对应材料的生成范围及源码AI使用比例待核实。",
+    "references": [
+      {
+        "title": "README：名称、更名说明与项目定位",
+        "url": "https://github.com/chy818/xuanyu/blob/6bd1bad153de4d0c2019b6001974ddab0ad69268/README.md#L1-L20"
+      },
+      {
+        "title": "原始短例：examples/simple.xy",
+        "url": "https://github.com/chy818/xuanyu/blob/6bd1bad153de4d0c2019b6001974ddab0ad69268/examples/simple.xy#L1-L4"
+      },
+      {
+        "title": "中文与英文关键字映射",
+        "url": "https://github.com/chy818/xuanyu/blob/6bd1bad153de4d0c2019b6001974ddab0ad69268/src/lexer/token.rs#L281-L410"
+      },
+      {
+        "title": "中文标识符扫描与关键字查找",
+        "url": "https://github.com/chy818/xuanyu/blob/6bd1bad153de4d0c2019b6001974ddab0ad69268/src/lexer/lexer.rs#L270-L306"
+      },
+      {
+        "title": "函数及中文语句解析",
+        "url": "https://github.com/chy818/xuanyu/blob/6bd1bad153de4d0c2019b6001974ddab0ad69268/src/parser/parser.rs#L1093-L1149"
+      },
+      {
+        "title": "LLVM IR字符串生成及返回",
+        "url": "https://github.com/chy818/xuanyu/blob/6bd1bad153de4d0c2019b6001974ddab0ad69268/src/codegen/codegen.rs#L129-L325"
+      },
+      {
+        "title": "外部llc目标生成与clang运行时链接",
+        "url": "https://github.com/chy818/xuanyu/blob/6bd1bad153de4d0c2019b6001974ddab0ad69268/src/main.rs#L271-L376"
+      },
+      {
+        "title": "XY编译器驱动源码",
+        "url": "https://github.com/chy818/xuanyu/blob/6bd1bad153de4d0c2019b6001974ddab0ad69268/src/compiler_v2/compiler_new.xy#L118-L183"
+      },
+      {
+        "title": "Cargo清单：版本和可选LLVM依赖",
+        "url": "https://github.com/chy818/xuanyu/blob/6bd1bad153de4d0c2019b6001974ddab0ad69268/Cargo.toml#L1-L25"
+      },
+      {
+        "title": "当前LICENSE：作者署名",
+        "url": "https://github.com/chy818/xuanyu/blob/6bd1bad153de4d0c2019b6001974ddab0ad69268/LICENSE#L1-L20"
+      },
+      {
+        "title": "根提交README：zhcc名称",
+        "url": "https://github.com/chy818/xuanyu/blob/e6cdc7a1065f260ab64bd7ca30669dde3c0ad90d/README.md#L1-L5"
+      },
+      {
+        "title": "首个GitHub预览版Release",
+        "url": "https://github.com/chy818/xuanyu/releases/tag/v0.1.0-alpha"
+      },
+      {
+        "title": "最新GitHub Release",
+        "url": "https://github.com/chy818/xuanyu/releases/tag/v0.4.0-alpha"
+      },
+      {
+        "title": "v0.3.0-beta发布正文及Claude Code标注",
+        "url": "https://github.com/chy818/xuanyu/releases/tag/v0.3.0-beta"
+      },
+      {
+        "title": "仓库元数据",
+        "url": "https://api.github.com/repos/chy818/xuanyu"
+      }
+    ],
+    "verification_notes": "2026-10-10通过GitHub只读接口核验，固定master提交6bd1bad153de4d0c2019b6001974ddab0ad69268（2026-08-12T14:10:08Z）。递归树189项，truncated=false；当前可达提交分页返回100与15项。根提交e6cdc7a1065f260ab64bd7ca30669dde3c0ad90d的parents为空、日期2026-03-18T10:55:56Z。Releases集合返回4项；最新标签指向c62e02b2af37102fad6c482828037e60440b1031，与本条源码快照分开记录。中文关键词、解析分派和IR生成根据实现核实。README的自举、121项测试及生产就绪表述为作者声明，独立执行证据待核实。当前LICENSE为MIT文本，旧v0.1.0-alpha发布说明记Apache-2.0，许可证沿革待核实。v0.2与v0.3发布正文具有Claude Code生成标注，源码生成范围待核实。首发时间、运行兼容性与完整自举继续列为资料缺口。",
+    "code_source_detail": {
+      "repository": "chy818/xuanyu",
+      "branch": "master",
+      "commit": "6bd1bad153de4d0c2019b6001974ddab0ad69268",
+      "path": "examples/simple.xy",
+      "lines": "1-4",
+      "blob_sha": "6247f5e5b042134f75536fb8a9a371192d6cdebd",
+      "verification": "GitHub接口按固定commit读取；完整四行原文"
+    },
+    "verified_at": "2026-10-10",
+    "repository_created_at": "2026-03-18T10:53:51Z",
+    "repository_pushed_at": "2026-08-12T14:10:13Z",
+    "id": "lang-044"
+  },
+  {
+    "name": "han-riscv",
+    "aliases": [],
+    "category": "实验性中文C-like编译语言／微型原型",
+    "author": "1913964829（GitHub维护账号及实现提交作者账号）；根提交署名moki。",
+    "first_publication": "GitHub仓库创建于2026-06-29T03:43:16Z，根提交日期为同日03:50:24Z；第一版编译器源码提交日期为同日06:07:53Z。首次对外公开时间待核实。",
+    "description": "han-riscv是一项以中文关键字表达C-like系统语言的编译器实验，使用.han源文件和名为hancc的C++17原型。当前实现围绕“整”和“返”建立最小语法：程序由无参数函数组成，函数体包含一条返回语句，返回表达式支持十进制整数、括号及加减乘除。词法扫描器接收中文标识符，解析器构建表达式AST，后端输出RV64风格的RISC-V汇编，并将“主”映射为main入口符号。项目文档还提出中文IR、更多C语法、运行时和自举路线；这些内容按后续设计目标记录，当前条目以实际公开原型的语法与实现为依据。",
+    "features": [
+      "“整”“返”中文关键字及中文函数名",
+      "无参数函数与单条返回语句",
+      "十进制整数、括号和二元加减乘除",
+      "C++17词法扫描、递归下降解析与AST",
+      "RV64风格汇编文本输出及主函数符号映射"
+    ],
+    "code": "整 主() {\n    返 7;\n}",
+    "code_source": "https://github.com/1913964829/han-riscv/blob/cc2cc9f6c95624fa15c18b877e8e5b7df479809b/examples/hello.han#L4-L6",
+    "code_context": "固定提交examples/hello.han第4—6行连续原文，是文件中的完整最小函数；前3行为注释和空行。本轮采用静态核验，编译与运行结果待核实。",
+    "implementation": "CMakeLists.txt将构建标准设为C++17。src/hancc.cpp的词法器将“整”“返”映射到KwInt、KwReturn；parse_function限定无参函数和一条返回语句，表达式解析按乘除、加减层级建立AST。RiscvBackend直接输出li、add、sub、mul、div、sd、ld等汇编文本，main读取.han后调用完整编译流程。中文IR、函数参数、变量、分支、递归、RV32与自举在文档中列为后续工作。",
+    "status": "已公开第一版微型编译器源码，默认分支main最新提交日期为2026-06-29。已核验关键词、解析器、RV64风格后端与原始例程。构建、汇编、链接、实际运行及许可证待核实。",
+    "version": "文档称“第一版hancc原型”。CMake和README采用原型描述，语义版本号待核实。2026-10-10读取GitHub Releases集合为空；源码固定到cc2cc9f6c95624fa15c18b877e8e5b7df479809b。",
+    "relations": "han-riscv为项目名，hancc为编译器名，.han为源文件后缀，按一个语言实验记录。C提供语法设计参照，C++为当前实现语言，RISC-V为后端目标。仓库简介自称“vibecoding项目”；使用的具体AI工具、生成范围和人工修改比例待核实。与其他中文C或RISC-V语言项目的沿革关系待核实。",
+    "references": [
+      {
+        "title": "README：当前原型语法和长期目标",
+        "url": "https://github.com/1913964829/han-riscv/blob/cc2cc9f6c95624fa15c18b877e8e5b7df479809b/README.md#L1-L87"
+      },
+      {
+        "title": "实际原始短例",
+        "url": "https://github.com/1913964829/han-riscv/blob/cc2cc9f6c95624fa15c18b877e8e5b7df479809b/examples/hello.han#L1-L6"
+      },
+      {
+        "title": "中文关键字词法实现",
+        "url": "https://github.com/1913964829/han-riscv/blob/cc2cc9f6c95624fa15c18b877e8e5b7df479809b/src/hancc.cpp#L198-L229"
+      },
+      {
+        "title": "无参函数及整数表达式解析",
+        "url": "https://github.com/1913964829/han-riscv/blob/cc2cc9f6c95624fa15c18b877e8e5b7df479809b/src/hancc.cpp#L297-L363"
+      },
+      {
+        "title": "RISC-V汇编生成和完整编译入口",
+        "url": "https://github.com/1913964829/han-riscv/blob/cc2cc9f6c95624fa15c18b877e8e5b7df479809b/src/hancc.cpp#L404-L531"
+      },
+      {
+        "title": "CMake：C++17构建声明",
+        "url": "https://github.com/1913964829/han-riscv/blob/cc2cc9f6c95624fa15c18b877e8e5b7df479809b/CMakeLists.txt#L1-L11"
+      },
+      {
+        "title": "第一版原型文档及下一步",
+        "url": "https://github.com/1913964829/han-riscv/blob/cc2cc9f6c95624fa15c18b877e8e5b7df479809b/docs/07_first_compiler.md"
+      },
+      {
+        "title": "根提交：日期与作者署名",
+        "url": "https://github.com/1913964829/han-riscv/commit/ab68a9d7ca4ba8751c7f20eb30a8b79397fb8c0f"
+      },
+      {
+        "title": "第一版编译器源码提交",
+        "url": "https://github.com/1913964829/han-riscv/commit/dd504ee77a89c65f5a9111a218acd2bf29b56045"
+      },
+      {
+        "title": "仓库元数据及vibecoding自述",
+        "url": "https://api.github.com/repos/1913964829/han-riscv"
+      },
+      {
+        "title": "GitHub Releases集合",
+        "url": "https://api.github.com/repos/1913964829/han-riscv/releases"
+      }
+    ],
+    "verification_notes": "2026-10-10通过GitHub只读接口核验，固定main提交cc2cc9f6c95624fa15c18b877e8e5b7df479809b（2026-06-29T06:08:32Z）。完整递归树22项，truncated=false；提交集合6项，根提交parents为空。当前实现可从词法识别、语法限制追到AST及RV64风格文本输出。README及docs/07_first_compiler.md明确将factorial.han列为阶段目标，函数参数、递归和若语句按后续目标记录。中文IR、优化器、运行时和自举属于规划层；完整流水线正确性和指令集兼容性待实测。仓库元数据fork=false、license=null；许可证待核实。Releases返回空数组，git/refs/tags返回404，该响应按标签端点结果记录。仓库简介的vibecoding说明保留为作者自述。",
+    "code_source_detail": {
+      "repository": "1913964829/han-riscv",
+      "branch": "main",
+      "commit": "cc2cc9f6c95624fa15c18b877e8e5b7df479809b",
+      "path": "examples/hello.han",
+      "lines": "4-6",
+      "blob_sha": "47359b273244627cce6fc31993bfeeceb6b91529",
+      "verification": "GitHub接口按固定commit读取；连续三行原文"
+    },
+    "verified_at": "2026-10-10",
+    "repository_created_at": "2026-06-29T03:43:16Z",
+    "repository_pushed_at": "2026-06-29T06:08:32Z",
+    "id": "lang-045"
+  },
+  {
+    "name": "Chinese++",
+    "aliases": [
+      "ChinesePlusPlus",
+      "LinuxChinese++",
+      "LinuxChinesePlusPlus"
+    ],
+    "category": "Clang/LLVM中文C/C++工具链／中文关键字扩展",
+    "author": "YoloLogic（官网署名张永乐）；Bilibili发布账号-Logic-罗辑-（UID485953759）。原视频简介与置顶评论分别关联官方仓库和官网。",
+    "first_publication": "首个GitHub发行v0.1发布于2026-09-26T21:18:27Z；原视频发布元数据为2026-09-26T23:16:16Z，两者北京时间日期均为2026-09-27。语言更早公开日期待核实。",
+    "description": "Chinese++是基于Clang/LLVM的中文C/C++工具链，为关键字、预处理指令、入口名称和诊断正文提供中文写法，支持中英文在同一程序中混用。示例以“整数”“类型”“公开”“对于”“返回”等词组织程序。官方Windows线提供工具链发行包、中文标准库头及编辑器配置；官方Linux线公开编译器补丁、生成器、测试和打包资料，两条平台线分别演进。项目原创部分采用自定义源码可见许可，各上游派生部件按其许可记录。",
+    "features": [
+      "中文关键字与Clang词元映射（公开补丁）",
+      "中文预处理指令及主函数入口映射（公开补丁）",
+      "中文诊断正文与英文回退（公开补丁）",
+      "Windows中文库层及Linux中文别名/C运行库层",
+      "Windows与Linux独立版本和编辑器配套"
+    ],
+    "code": "双精度 合计(常量 std::vector<商品>& 货物) {\n    双精度 和 = 0;\n    对于 (常量 自动& 件 : 货物)      // 对于 = for，自动 = auto\n        和 += 件.单价();\n    返回 和;                        // 返回 = return\n}",
+    "code_source": "https://github.com/YoloLogic/ChinesePlusPlus/blob/8a528b432a6df276dbe095a97adc868ae4831eac/vscode-kit/%E7%A4%BA%E4%BE%8B.cpp#L23-L28",
+    "code_context": "固定Windows提交vscode-kit/示例.cpp第23—28行连续原文，保留缩进和注释。该函数依赖同文件前文的商品类型及vector导入；用于展示中文类型、循环和返回语法。运行验证待核实。",
+    "implementation": "官方资料将底本记为LLVM/Clang 24.0.0git。Linux线的zh-keywords.patch使用AddKeyword将中文拼写注册到tok::kw_*，把“主函数”映射到main，并为中文预处理指令映射pp词元；zh-diagnostics.patch按诊断编号查找中文正文，配有英文回退和-fno-chinese-diagnostics开关。Windows固定树包含库头、安装脚本和发行二进制；Linux固定树提供核心修改补丁、生成器和测试。完整上游基线、补丁重放、发行包与源码对应性及运行能力待核实。",
+    "status": "已核验原视频、官网、固定源码/补丁与官方发行记录。本轮采用只读资料核验。项目原创部分自v0.3起采用自定义源码可见许可，规定内部修改和再发布范围；LLVM/MSVC等派生部件各按上游许可。",
+    "version": "Windows最新取得的正式发行为v0.3（2026-10-09T07:26:25Z）；Linux线为v0.4（2026-10-10T02:54:50Z）。原视频简介仍标注0.1。两条平台线分别记录版本与库层覆盖。",
+    "relations": "Windows ChinesePlusPlus与LinuxChinesePlusPlus为同作者的Chinese++平台线，合并为一个语言项目。Linux README明确关联Windows官方库并说明分别演进。Afiredream/ChinesePlusPlusCompiler的GitHub parent/source均指向YoloLogic/ChinesePlusPlus，按同源分叉处理。中文大战代码为官网另列的配套编辑器；同作者ChinesePython、ChineseTypeScript和ChineseJava分别保留各自项目身份。",
+    "references": [
+      {
+        "title": "原视频：作者、中文示例与官方仓库入口",
+        "url": "https://www.bilibili.com/video/BV1g6a46kEjx/"
+      },
+      {
+        "title": "官网作者说明",
+        "url": "https://logicyolo.com/about#%E4%BD%9C%E8%80%85"
+      },
+      {
+        "title": "官网Chinese++概览",
+        "url": "https://logicyolo.com/chinese-plusplus/"
+      },
+      {
+        "title": "固定中文程序原例",
+        "url": "https://github.com/YoloLogic/ChinesePlusPlus/blob/8a528b432a6df276dbe095a97adc868ae4831eac/vscode-kit/%E7%A4%BA%E4%BE%8B.cpp#L23-L28"
+      },
+      {
+        "title": "中文关键字词元注册补丁",
+        "url": "https://github.com/YoloLogic/LinuxChinesePlusPlus/blob/006ff08ebf22f7040f163f2c9192d67c5c26cae8/patches/zh-keywords.patch#L803-L819"
+      },
+      {
+        "title": "中文主函数入口映射",
+        "url": "https://github.com/YoloLogic/LinuxChinesePlusPlus/blob/006ff08ebf22f7040f163f2c9192d67c5c26cae8/patches/zh-keywords.patch#L890-L893"
+      },
+      {
+        "title": "中文预处理指令映射",
+        "url": "https://github.com/YoloLogic/LinuxChinesePlusPlus/blob/006ff08ebf22f7040f163f2c9192d67c5c26cae8/patches/zh-keywords.patch#L855-L861"
+      },
+      {
+        "title": "中文诊断选择与英文回退",
+        "url": "https://github.com/YoloLogic/LinuxChinesePlusPlus/blob/006ff08ebf22f7040f163f2c9192d67c5c26cae8/patches/zh-diagnostics.patch#L23918-L23931"
+      },
+      {
+        "title": "官方Linux线与Windows线关系",
+        "url": "https://github.com/YoloLogic/LinuxChinesePlusPlus/blob/006ff08ebf22f7040f163f2c9192d67c5c26cae8/README.md#L1-L13"
+      },
+      {
+        "title": "首个Windows发行v0.1",
+        "url": "https://github.com/YoloLogic/ChinesePlusPlus/releases/tag/v0.1"
+      },
+      {
+        "title": "Windows发行v0.3",
+        "url": "https://github.com/YoloLogic/ChinesePlusPlus/releases/tag/v0.3"
+      },
+      {
+        "title": "Linux发行v0.4与库层边界",
+        "url": "https://github.com/YoloLogic/LinuxChinesePlusPlus/releases/tag/v0.4"
+      },
+      {
+        "title": "自定义许可与第三方适用范围",
+        "url": "https://github.com/YoloLogic/ChinesePlusPlus/blob/8a528b432a6df276dbe095a97adc868ae4831eac/LICENSE"
+      },
+      {
+        "title": "作者与AI讨论译名的项目记录",
+        "url": "https://github.com/YoloLogic/LinuxChinesePlusPlus/blob/006ff08ebf22f7040f163f2c9192d67c5c26cae8/patches/zh-keywords.patch#L322-L328"
+      },
+      {
+        "title": "Afiredream分叉元数据",
+        "url": "https://api.github.com/repos/Afiredream/ChinesePlusPlusCompiler"
+      }
+    ],
+    "verification_notes": "2026-10-10只读核验。Windows固定提交8a528b432a6df276dbe095a97adc868ae4831eac，Linux固定提交006ff08ebf22f7040f163f2c9192d67c5c26cae8。原视频00:13画面可见中文预处理及入口代码，逐字短例采用清晰的固定仓库原文。原片UID、简介仓库、置顶官网和官网作者署名组成身份链。官方补丁及译名清单记录与AI讨论class译为“类型”；AI编写核心代码及贡献比例待核实。官网安装说明、自测数字和诊断计数存在版本差异，条目按对应平台发行与实际补丁记录功能。Windows v0.1资产后来更新，初次发行时间与当前附件时间分别处理。跨平台库覆盖、兼容性、性能与可重建性待核实。",
+    "code_source_detail": {
+      "repository": "YoloLogic/ChinesePlusPlus",
+      "branch": "main",
+      "commit": "8a528b432a6df276dbe095a97adc868ae4831eac",
+      "path": "vscode-kit/示例.cpp",
+      "lines": "23-28",
+      "blob_sha": "1b99ebc8355aa6edaa670745f75c4843c42747da",
+      "verification": "GitHub接口按固定commit读取，连续原文摘录"
+    },
+    "verified_at": "2026-10-10",
+    "id": "lang-046"
   }
 ]
