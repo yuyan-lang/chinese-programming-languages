@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>中文智能合约编译器（zhsc-compiler）｜中文编程语言百科</title><link rel="stylesheet" href="../style.css"></head><body><header><h1>中文智能合约编译器（zhsc-compiler）</h1></header><main><p><a href="../">返回语言目录</a></p>
+<h2>语言介绍</h2><p>中文智能合约编译器（zhsc-compiler）是中文Solidity DSL设计及部分实现原型。项目以.zhs表示中文合约源码，公开说明使用“合约、函数、构造函数、事件、返回”等关键字，并给出类型、可见性、状态可变性及链上内置变量的对应表。README保存完整问候合约及代币合约示例，并展示预期Solidity输出。当前公开实现包含Python AST节点、编译调度入口及命令行界面；入口按词法分析、语法分析、Solidity生成三个阶段组织。固定仓库树提供八个文件，三个核心模块的公开源码位置与完整转译效果待核实。中文名称转拼音、Solidity语义覆盖及链上部署能力按作者说明记录，独立实现验证继续待核实。</p>
+<h2>分类与别名</h2><p>中文Solidity DSL设计及部分实现原型；别名：zhsc-compiler；Chinese Solidity Compiler</p>
+<h2>作者与公开历史</h2><p>GitHub账号Anubisya维护；两次提交作者名为Evil，GitHub作者关联为Anubisya。LICENSE署名“2024 Chinese Solidity Compiler”，CLI作者显示为Your Name占位。真实作者姓名及AI参与范围待核实。</p><p>仓库创建时间为2025-10-24T12:07:05Z；根提交0a1d7837bff8fb1745e6aba09d43a0f7bc2b6049于2025-10-24T12:08:42Z上传README、AST、编译入口和CLI。LICENSE中的2024为版权署名年份；更早公开历史待核实。</p>
+<h2>设计与特征</h2><p>.zhs中文合约规范及连续原例；中文类型、可见性和状态可变性映射表；Python合约、函数、事件和表达式AST；词法、解析、Solidity生成的调度入口；CLI的编译、检查、版本及例程命令；0.1.0源码自标与MIT许可证</p>
+<h2>中文语法示例</h2><pre><code>合约 问候 {
+    公开 字符串 消息 = &quot;你好，世界！&quot;;
+    
+    函数 获取消息() 公开 只读 返回 字符串 {
+        返回 消息;
+    }
+    
+    函数 设置消息(字符串 新消息) 公开 {
+        消息 = 新消息;
+    }
+}</code></pre><p>固定README第29—39行的完整问候合约，共11行连续原文；含状态变量、读取函数及设置函数。已将全文对应范围与按行读取结果逐字比对。原文空白行缩进保留；该例按设计文档原例记录，实际编译及执行待核实。 <a href="https://github.com/Anubisya/zhsc-compiler/blob/f6d8665def53639a8b8b3adf473fdfa177e93632/README.md#L29-L39">示例来源</a></p>
+<h2>实现与运行环境</h2><p>Python实现。ast_nodes.py定义Program、Contract、Function、Constructor、StateVariable、Event、参数、语句和表达式节点；compiler.py第10—12行导入lexer.chinese_lexer、parser.chinese_parser、codegen.solidity_generator，compile方法依次调用tokenize→parse→generate_solidity。固定快照和根提交均只有README、LICENSE、.gitignore、__init__.py、ast_nodes.py、compiler.py、cli.py、requirements.txt八个文件；完整词法器、解析器及生成器源码待核实。requirements.txt列pypinyin&gt;=0.49.0，CLI还导入click和rich。转拼音实现、Solidity后端和完整依赖配置待核实。</p>
+<h2>版本与维护状态</h2><p>cli.py第20及138行自标0.1.0；README标Python3.11+。固定main提交f6d8665def53639a8b8b3adf473fdfa177e93632于2025-10-24T12:12:19Z修订README链接。源码版本、Git提交和公开发行分别记录；公开发行物待核实。</p><p>按中文Solidity DSL设计及部分实现原型形成分类资料；连续中文原例、AST、编译调度入口、CLI版本及MIT许可已核。词法器、解析器、Solidity生成器的公开源码及端到端运行待核实。</p>
+<h2>与其他项目的关系</h2><p>项目README、仓库名、CLI名称和MIT许可署名构成同一身份链，GitHub元数据fork=false。Solidity为规范映射的目标语言，pypinyin为已声明依赖。README列出zhsc.niubiui.com在线入口，当前页面内容和服务实现待核实。与其他中文合约前端的源码继承、完整实现上游及AI参与范围待核实。</p>
+<h2>核验说明</h2><p>2026-10-10只读核验。固定树8项且truncated=false；公开分支列表仅main，默认分支两次提交，初始上传与当前树的核心Python文件blob一致。README第163—175行列出的三个核心目录和examples属于文档布局描述，实际公开文件范围按Git树记录。requirements.txt仅列pypinyin；CLI中click和rich依赖另行识别。在线入口经普通网页工具读取返回不可访问；该结果按工具访问状态记录。MIT版权年份、仓库创建、Git提交及发行分别保存。独立安装、构建、执行、Solidity合法性与链上部署待核实。</p>
+<h2>参考资料</h2><ul><li><a href="https://github.com/Anubisya/zhsc-compiler/blob/f6d8665def53639a8b8b3adf473fdfa177e93632/README.md#L1-L39">固定README：语言名称与中文合约原例</a></li>
+<li><a href="https://github.com/Anubisya/zhsc-compiler/blob/f6d8665def53639a8b8b3adf473fdfa177e93632/README.md#L70-L123">固定中文类型、关键字、修饰符及内置变量规范</a></li>
+<li><a href="https://github.com/Anubisya/zhsc-compiler/blob/f6d8665def53639a8b8b3adf473fdfa177e93632/README.md#L51-L67">README所示Solidity输出</a></li>
+<li><a href="https://github.com/Anubisya/zhsc-compiler/blob/f6d8665def53639a8b8b3adf473fdfa177e93632/ast_nodes.py#L10-L255">固定Python AST节点</a></li>
+<li><a href="https://github.com/Anubisya/zhsc-compiler/blob/f6d8665def53639a8b8b3adf473fdfa177e93632/compiler.py#L10-L12">编译入口的三个模块导入</a></li>
+<li><a href="https://github.com/Anubisya/zhsc-compiler/blob/f6d8665def53639a8b8b3adf473fdfa177e93632/compiler.py#L93-L129">词法、解析和生成的调度调用</a></li>
+<li><a href="https://github.com/Anubisya/zhsc-compiler/blob/f6d8665def53639a8b8b3adf473fdfa177e93632/cli.py#L6-L59">固定CLI依赖、版本和编译命令</a></li>
+<li><a href="https://github.com/Anubisya/zhsc-compiler/blob/f6d8665def53639a8b8b3adf473fdfa177e93632/cli.py#L134-L140">CLI版本与作者占位字段</a></li>
+<li><a href="https://github.com/Anubisya/zhsc-compiler/blob/f6d8665def53639a8b8b3adf473fdfa177e93632/requirements.txt#L1">固定pypinyin依赖</a></li>
+<li><a href="https://github.com/Anubisya/zhsc-compiler/blob/f6d8665def53639a8b8b3adf473fdfa177e93632/LICENSE#L1-L21">固定MIT许可证署名</a></li>
+<li><a href="https://github.com/Anubisya/zhsc-compiler/tree/f6d8665def53639a8b8b3adf473fdfa177e93632">完整固定树与实际文件范围</a></li>
+<li><a href="https://github.com/Anubisya/zhsc-compiler/commit/0a1d7837bff8fb1745e6aba09d43a0f7bc2b6049">初始上传提交及文件清单</a></li>
+<li><a href="https://github.com/Anubisya/zhsc-compiler/commit/f6d8665def53639a8b8b3adf473fdfa177e93632">README链接修订提交</a></li>
+<li><a href="https://github.com/Anubisya/zhsc-compiler/releases">公开发行列表</a></li>
+<li><a href="https://zhsc.niubiui.com">作者README列出的在线编译器入口</a></li></ul><p>资料核验日期：2026-10-10</p><p><a href="https://github.com/yuyan-lang/chinese-programming-languages/issues/new">补充资料或纠错</a></p></main><footer>站点由<a href="https://yuyan-lang.org/">豫言编程语言</a>提供</footer></body></html>

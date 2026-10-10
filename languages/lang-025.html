@@ -1,15 +1,32 @@
 <!doctype html>
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>小易｜中文编程语言百科</title><link rel="stylesheet" href="../style.css"></head><body><header><h1>小易</h1></header><main><p><a href="../">返回语言目录</a></p>
-<h2>语言介绍</h2><p>【Python 中文方言／转译器】简化Python函数与类声明并支持中文关键字的转译型语言。</p>
-<h2>分类与别名</h2><p>Python 中文方言／转译器；别名：xiaoyi</p>
-<h2>作者与首次公开</h2><p>cnlnr；Gitee账号LZY4（README互链；实名待核实）。仓库创建 2025-08-01；语言首次公开发布日期待核实</p>
-<h2>设计与特征</h2><p>中文语法／关键字；有公开实现源码</p>
+<h2>语言介绍</h2><p>小易（xiaoyi）是一项将中文语法转成Python源码的语言项目，由包元数据署名liuzhongyi的作者维护。它保留Python缩进、表达式和类方法写法，使用“返回、导入、从、跳出”等中文关键字，并把“打印、输入、范围”等名称映射到Python内置接口。函数和类可直接用名称及冒号声明，转换器补入def和class。实现先以正则处理声明与关键字，再由LibCST解析并转换名称节点；命令行源码提供输出.py文件和交给Python子进程执行两条路径。项目保存中英语法对照、问候及静态方法原例，GitHub与Gitee入口由项目元数据互相关联。公开包资料列有0.1.2；GitHub当前处于归档状态，作者README说明减少后续投入。源码重构后的命令入口衔接、发行包内容及实际运行兼容性待核实。</p>
+<h2>分类与别名</h2><p>Python中文方言／源码转译层；别名：xiaoyi</p>
+<h2>作者与公开历史</h2><p>liuzhongyi（pyproject.toml署名）；LZY（Git提交署名）。项目使用GitHub cnlnr/xiaoyi与Gitee LZY4/xiaoyi入口；中文实名待核实。</p><p>PyPI官方项目页的可读索引列出0.1.0于2025-08-16发布、0.1.1于2025-08-17发布、0.1.2于2025-08-18发布。语言更早首次公开日期待核实。GitHub仓库创建于2025-08-01T02:25:13Z，根提交时间为当日02:25:14Z；仓库创建、Git记录和包发行分别保存。</p>
+<h2>设计与特征</h2><p>中文关键字及Python内置名称映射；省略def／class的函数和类声明；Python缩进、类型标注及async声明转换规则；正则预处理与LibCST名称节点转换；生成.py源码或调用Python子进程；中文问候程序及静态方法原例</p>
 <h2>中文语法示例</h2><pre><code>问候():
     返回 f&quot;你好，{输入(&quot;_&quot; * 20 + &quot;\r你的名字是:&quot;)}&quot;
-
-打印(问候())</code></pre><p>原始资料短摘录，用于展示中文语法；未在本轮执行，不保证单独运行。 <a href="https://github.com/cnlnr/xiaoyi/blob/58c6e6b7cbb35ade751aace13b61a6c8d4b7193e/README.md">示例来源</a></p>
-<h2>实现与运行环境</h2><p>Python实现，.xy源码可运行或转为.py。</p>
-<h2>版本与维护状态</h2><p>0.1.2（README命令输出）；已有实现；作者明确表示不会积极推送新代码</p>
-<h2>与其他项目的关系</h2><p>GitHub与Gitee https://gitee.com/LZY4/xiaoyi 为README互指的同一项目；不同于易语言。</p>
-<h2>核验说明</h2><p>2026-10-09只读核验。2星，非fork；最后推送2025-08-21T09:23:26Z。日期为仓库创建不代表首发。功能、性能、通过测试数量未独立复测。</p>
-<h2>参考资料</h2><ul><li><a href="https://github.com/cnlnr/xiaoyi/blob/58c6e6b7cbb35ade751aace13b61a6c8d4b7193e/README.md">项目README（核验快照）</a></li><li><a href="https://github.com/cnlnr/xiaoyi/blob/58c6e6b7cbb35ade751aace13b61a6c8d4b7193e/%E6%B5%8B%E8%AF%95.xy">实现或样例证据</a></li><li><a href="https://api.github.com/repos/cnlnr/xiaoyi">仓库元数据</a></li></ul><p>资料核验日期：2026-10-09</p><p><a href="https://github.com/yuyan-lang/chinese-programming-languages/issues/new">补充资料或纠错</a></p></main><footer>站点由<a href="https://yuyan-lang.org/">豫言编程语言</a>提供</footer></body></html>
+    
+打印(问候())</code></pre><p>固定提交测试.xy的完整连续4行原文，包含函数定义、返回、输入与打印调用。原始嵌套引号、第三行的四个空格及文件末尾无换行状态均保留。README也保存对应问候原例；Python版本、LibCST解析和程序运行结果待独立核实。 <a href="https://github.com/cnlnr/xiaoyi/blob/58c6e6b7cbb35ade751aace13b61a6c8d4b7193e/%E6%B5%8B%E8%AF%95.xy">示例来源</a></p>
+<h2>实现与运行环境</h2><p>Python实现，声明依赖libcst与regex。xiaoyi/xiaoyi.py的code依次调用re_class_def.compile_chinese_code和cst_name.rename_identifiers；前者暂存引号、注释、海象及部分括号内容，以字符串替换转换保留字，再补全class／def并恢复内容；后者通过LibCST的parse_module、CSTTransformer和.code转换名称及属性。leave_Name按名称节点匹配，涉及匹配名称的定义和引用。xiaoyi/cli.py读取UTF-8源文件，两参数路径写出Python文本，一参数路径以subprocess.run([sys.executable, '-c', code])启动Python。当前pyproject仍将命令入口配置为xiaoyi.xiaoyi:cli，cli函数实际位于xiaoyi/cli.py，xiaoyi/xiaoyi.py定义code；重构后的打包入口与导入衔接待核实。0.1.2标签的单文件实现保留cli定义，按发行阶段另行记录。</p>
+<h2>版本与维护状态</h2><p>当前pyproject.toml与CLI显示0.1.2。0.1.2注释标签于2025-08-18T15:23:24Z建立，指向f970fd8b689a4b307c4f608841e8c0d9e38aa87e；对应提交时间14:33:30Z。PyPI官方页面索引列同日上传源码包及wheel，并保留0.1.0、0.1.1发行历史；本轮直读页面与JSON接口返回读取失败，上传精确时刻和发行包内部内容待核实。GitHub Releases本轮返回空列表。根LICENSE与包元数据采用Apache-2.0。</p><p>2026-10-10核验时GitHub仓库已归档，README表明作者后续投入有限并欢迎Fork。固定main末次提交时间2025-08-21T09:18:42Z，最后推送2025-08-21T09:23:26Z。公开源码与包发行资料可读；安装、转换及运行结果待核实。</p>
+<h2>与其他项目的关系</h2><p>GitHub README与pyproject同时列GitHub cnlnr/xiaoyi和Gitee LZY4/xiaoyi，历史合并提交也记录Gitee来源，按同一项目合并记录。项目的语法和执行语义建立在Python之上，LibCST与regex承担源码转换。易语言在本百科保留独立条目；两个项目的源码继承关系待核实。当前Gitee页面直读结果待补。2025-08-18的一次提交说明使用AI格式化代码；具体模型、其他生成范围及占比待核实。</p>
+<h2>核验说明</h2><p>2026-10-10公开资料和静态源码核验。固定main为58c6e6b7cbb35ade751aace13b61a6c8d4b7193e，递归树19项且truncated=false；默认分支100次可达提交，下一页为空。README、测试.xy、中英语法对照、完整转换模块、CLI、pyproject、LICENSE、0.1.2标签源码及标签日期均已读取。当前关键字表为7项保留字与2项装饰器，内置名称5项、属性1项；语言覆盖范围以该表及转换规则为准。0.1.2标签README列出语法糖内中文关键字、exec代码转换与.xy模块导入的历史限制。当前依赖版本范围、分发入口及完整语言兼容性待核实。Python子进程属于代码执行路径，沙箱隔离能力待核实。公开PyPI日期按官方页面搜索索引记录，Git标签时间按标签元数据记录。</p>
+<h2>参考资料</h2><ul><li><a href="https://github.com/cnlnr/xiaoyi/blob/58c6e6b7cbb35ade751aace13b61a6c8d4b7193e/README.md">项目README（核验快照）</a></li>
+<li><a href="https://github.com/cnlnr/xiaoyi/blob/58c6e6b7cbb35ade751aace13b61a6c8d4b7193e/%E6%B5%8B%E8%AF%95.xy">实现或样例证据</a></li>
+<li><a href="https://api.github.com/repos/cnlnr/xiaoyi">仓库元数据</a></li>
+<li><a href="https://github.com/cnlnr/xiaoyi/blob/58c6e6b7cbb35ade751aace13b61a6c8d4b7193e/pyproject.toml">包元数据：作者、依赖、许可证、双仓入口及命令配置</a></li>
+<li><a href="https://github.com/cnlnr/xiaoyi/blob/58c6e6b7cbb35ade751aace13b61a6c8d4b7193e/docs/%E4%B8%AD%E8%8B%B1%E8%AF%AD%E6%B3%95%E5%AF%B9%E7%85%A7.md">中英语法对照</a></li>
+<li><a href="https://github.com/cnlnr/xiaoyi/blob/58c6e6b7cbb35ade751aace13b61a6c8d4b7193e/xiaoyi/config.py">中文关键字、内置名称及属性映射表</a></li>
+<li><a href="https://github.com/cnlnr/xiaoyi/blob/58c6e6b7cbb35ade751aace13b61a6c8d4b7193e/xiaoyi/xiaoyi.py">源码转换组合入口</a></li>
+<li><a href="https://github.com/cnlnr/xiaoyi/blob/58c6e6b7cbb35ade751aace13b61a6c8d4b7193e/xiaoyi/re_class_def.py">声明补全、占位处理及关键字转换</a></li>
+<li><a href="https://github.com/cnlnr/xiaoyi/blob/58c6e6b7cbb35ade751aace13b61a6c8d4b7193e/xiaoyi/cst_name.py">LibCST名称与属性转换</a></li>
+<li><a href="https://github.com/cnlnr/xiaoyi/blob/58c6e6b7cbb35ade751aace13b61a6c8d4b7193e/xiaoyi/cli.py">Python文本输出及子进程执行路径</a></li>
+<li><a href="https://github.com/cnlnr/xiaoyi/blob/f970fd8b689a4b307c4f608841e8c0d9e38aa87e/xiaoyi/xiaoyi.py">0.1.2标签的完整CLI及转译实现</a></li>
+<li><a href="https://github.com/cnlnr/xiaoyi/blob/f970fd8b689a4b307c4f608841e8c0d9e38aa87e/README.md">0.1.2阶段README及历史功能边界</a></li>
+<li><a href="https://api.github.com/repos/cnlnr/xiaoyi/git/tags/d134566e5db956c7654f191a8ae1f063c85c2578">0.1.2注释标签元数据与时间</a></li>
+<li><a href="https://pypi.org/project/xiaoyi/">PyPI官方项目及公开包发行历史（可读索引）</a></li>
+<li><a href="https://github.com/cnlnr/xiaoyi/blob/58c6e6b7cbb35ade751aace13b61a6c8d4b7193e/LICENSE">Apache-2.0许可证全文</a></li>
+<li><a href="https://github.com/cnlnr/xiaoyi/commit/3123dc997e4cfc0dbe84a4720f38a5004fcc6005">Git根提交与日期</a></li>
+<li><a href="https://github.com/cnlnr/xiaoyi/commit/44ef511eedb3bb9a8f471b83e80473684f716cc3">Gitee分支合并记录</a></li>
+<li><a href="https://github.com/cnlnr/xiaoyi/commit/102e4cc95b149b15fbd917d4501bf7ca9928ccb0">AI格式化代码的单次提交说明</a></li></ul><p>资料核验日期：2026-10-10</p><p><a href="https://github.com/yuyan-lang/chinese-programming-languages/issues/new">补充资料或纠错</a></p></main><footer>站点由<a href="https://yuyan-lang.org/">豫言编程语言</a>提供</footer></body></html>

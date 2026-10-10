@@ -1,0 +1,58 @@
+{
+  "source": "https://github.com/hualiang1k/YUNYIIDE/blob/53d814b5a36c7fae2f66e0a4358ef35b8e5d2375/%E4%B8%8D%E5%AE%8C%E6%95%B4%E7%9A%84%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83.zip",
+  "archive_bytes": 1965910,
+  "archive_git_blob_sha": "95e1a30b01bcefab55c6ed35eadbcbfea0efa66c",
+  "method": "zipfile文本静态读取；项目未运行",
+  "files": [
+    {
+      "archive_path": "工作区/循环演示/main.yy",
+      "bytes": 1185,
+      "sha256": "c6d9cc35be7cf0d8d29f0309c9a107688f66f6c01ec79122696764ea5f83a4c4"
+    },
+    {
+      "archive_path": "工作区/dll示例/main.yy",
+      "bytes": 3368,
+      "sha256": "f931c3afd97b906ef63c052c0dc752e77443920f6d518f869be0a1deb1a1bf87"
+    },
+    {
+      "archive_path": "工作区/test2/main.yy",
+      "bytes": 543,
+      "sha256": "e29368803b1ea4914327c64af46a8bf8eb5e7ee620cfab4e1491391eba34f0bd"
+    },
+    {
+      "archive_path": "yunyi/lexer.py",
+      "bytes": 12149,
+      "sha256": "ce34557c147984da58cfb58ae2614faff8dd17d64ec2a9eba4d52abb34a9aa78"
+    },
+    {
+      "archive_path": "yunyi/parser.py",
+      "bytes": 46945,
+      "sha256": "f7733e9dbac156496b4e30ae506e01b7fb6d1f787793d5ba14f62c1038c1e0d7"
+    },
+    {
+      "archive_path": "yunyi/builder.py",
+      "bytes": 60841,
+      "sha256": "49a29b1cedcc8c1dca09767407ded5fe60bf0c6dddbcd7647ad2f4f509ca9f5c"
+    },
+    {
+      "archive_path": "yunyi/codegen.py",
+      "bytes": 55873,
+      "sha256": "6c9078cc9d85a6f9c4fdc72bc6e628481ce717ac76a30285d8c78dce90562a13"
+    },
+    {
+      "archive_path": "yunyi/__init__.py",
+      "bytes": 77,
+      "sha256": "844998debd629799599224a51adbd1bc0157a153e499fa5d1173372d94d4d497"
+    },
+    {
+      "archive_path": "yunyi/checker.py",
+      "bytes": 19921,
+      "sha256": "83212db3a70a27e30db573a311119d6191138a40966d670bb5b7efcc38cb041b"
+    },
+    {
+      "archive_path": "yunyi/ast.py",
+      "bytes": 7236,
+      "sha256": "2be77ddccf3492724f179e303fdba7bf419c83665c23259b81e55468d6ba598d"
+    }
+  ]
+}

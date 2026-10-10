@@ -1,0 +1,192 @@
+[
+  {
+    "name": "中文智能合约编译器（zhsc-compiler）",
+    "discovery_status": "第七轮Issue #22旧候选；第十轮完成分类资料，保留后续字段核验",
+    "category": "中文Solidity DSL设计及部分实现原型",
+    "repository": "https://github.com/Anubisya/zhsc-compiler",
+    "snapshot": "f6d8665def53639a8b8b3adf473fdfa177e93632",
+    "evidence": "连续中文合约原例、关键字与类型规范、AST、编译调度和CLI、0.1.0自标、MIT许可已核；设计及部分实现阶段已明确。",
+    "pending": "lexer.chinese_lexer、parser.chinese_parser、codegen.solidity_generator完整源码，中文名称转拼音规则及冲突处理，Solidity语义覆盖、合法性与部署，CLI完整依赖，0.1.0公开发行，2024版权年份对应历史，真实作者姓名及AI参与范围待核实。",
+    "verification_scope": "公开静态源码、文档、原例及GitHub元数据；程序安装、构建、执行、发布与外部写入均在本分项范围之外。",
+    "verified_at": "2026-10-10",
+    "references": [
+      {
+        "title": "固定README：语言名称与中文合约原例",
+        "url": "https://github.com/Anubisya/zhsc-compiler/blob/f6d8665def53639a8b8b3adf473fdfa177e93632/README.md#L1-L39"
+      },
+      {
+        "title": "固定中文类型、关键字、修饰符及内置变量规范",
+        "url": "https://github.com/Anubisya/zhsc-compiler/blob/f6d8665def53639a8b8b3adf473fdfa177e93632/README.md#L70-L123"
+      },
+      {
+        "title": "README所示Solidity输出",
+        "url": "https://github.com/Anubisya/zhsc-compiler/blob/f6d8665def53639a8b8b3adf473fdfa177e93632/README.md#L51-L67"
+      },
+      {
+        "title": "固定Python AST节点",
+        "url": "https://github.com/Anubisya/zhsc-compiler/blob/f6d8665def53639a8b8b3adf473fdfa177e93632/ast_nodes.py#L10-L255"
+      },
+      {
+        "title": "编译入口的三个模块导入",
+        "url": "https://github.com/Anubisya/zhsc-compiler/blob/f6d8665def53639a8b8b3adf473fdfa177e93632/compiler.py#L10-L12"
+      },
+      {
+        "title": "词法、解析和生成的调度调用",
+        "url": "https://github.com/Anubisya/zhsc-compiler/blob/f6d8665def53639a8b8b3adf473fdfa177e93632/compiler.py#L93-L129"
+      },
+      {
+        "title": "固定CLI依赖、版本和编译命令",
+        "url": "https://github.com/Anubisya/zhsc-compiler/blob/f6d8665def53639a8b8b3adf473fdfa177e93632/cli.py#L6-L59"
+      },
+      {
+        "title": "CLI版本与作者占位字段",
+        "url": "https://github.com/Anubisya/zhsc-compiler/blob/f6d8665def53639a8b8b3adf473fdfa177e93632/cli.py#L134-L140"
+      },
+      {
+        "title": "固定pypinyin依赖",
+        "url": "https://github.com/Anubisya/zhsc-compiler/blob/f6d8665def53639a8b8b3adf473fdfa177e93632/requirements.txt#L1"
+      },
+      {
+        "title": "固定MIT许可证署名",
+        "url": "https://github.com/Anubisya/zhsc-compiler/blob/f6d8665def53639a8b8b3adf473fdfa177e93632/LICENSE#L1-L21"
+      },
+      {
+        "title": "完整固定树与实际文件范围",
+        "url": "https://github.com/Anubisya/zhsc-compiler/tree/f6d8665def53639a8b8b3adf473fdfa177e93632"
+      },
+      {
+        "title": "初始上传提交及文件清单",
+        "url": "https://github.com/Anubisya/zhsc-compiler/commit/0a1d7837bff8fb1745e6aba09d43a0f7bc2b6049"
+      },
+      {
+        "title": "README链接修订提交",
+        "url": "https://github.com/Anubisya/zhsc-compiler/commit/f6d8665def53639a8b8b3adf473fdfa177e93632"
+      },
+      {
+        "title": "公开发行列表",
+        "url": "https://github.com/Anubisya/zhsc-compiler/releases"
+      },
+      {
+        "title": "作者README列出的在线编译器入口",
+        "url": "https://zhsc.niubiui.com"
+      }
+    ]
+  },
+  {
+    "name": "chinalang（中国语言）",
+    "discovery_status": "第七轮Issue #22旧候选；第十轮完成分类资料，保留后续字段核验",
+    "category": "中文／英文双关键字戏仿语言／Go独立AST解释器",
+    "repository": "https://github.com/sjqtentacles/chinalang",
+    "snapshot": "59332f7c0d02c130257124cbbedbe8d2fd1cafc4",
+    "evidence": "连续中文宏原例、双语词元、rune词法、Pratt解析、AST、宏展开、解释执行、作者提交及Cursor共同署名已核。",
+    "pending": "语言正式版本、公开发行、仓库整体许可证、独立构建运行、AI具体生成比例、外部教材或同名项目的源码继承关系、裸null语法、异常宏参数及返回值行为、嵌套宏展开与REPL字符串／注释括号边界待核实。",
+    "verification_scope": "公开静态源码、文档、原例及GitHub元数据；程序安装、构建、执行、发布与外部写入均在本分项范围之外。",
+    "verified_at": "2026-10-10",
+    "references": [
+      {
+        "title": "固定README：项目定位与双语关键字",
+        "url": "https://github.com/sjqtentacles/chinalang/blob/59332f7c0d02c130257124cbbedbe8d2fd1cafc4/README.md#L1-L88"
+      },
+      {
+        "title": "固定连续中文宏定义及调用原例",
+        "url": "https://github.com/sjqtentacles/chinalang/blob/59332f7c0d02c130257124cbbedbe8d2fd1cafc4/examples/directives.cn#L8-L17"
+      },
+      {
+        "title": "固定中英文关键字查表",
+        "url": "https://github.com/sjqtentacles/chinalang/blob/59332f7c0d02c130257124cbbedbe8d2fd1cafc4/token/token.go#L70-L127"
+      },
+      {
+        "title": "rune词法扫描与关键字识别",
+        "url": "https://github.com/sjqtentacles/chinalang/blob/59332f7c0d02c130257124cbbedbe8d2fd1cafc4/lexer/lexer.go#L18-L138"
+      },
+      {
+        "title": "Unicode标识符与字符串扫描",
+        "url": "https://github.com/sjqtentacles/chinalang/blob/59332f7c0d02c130257124cbbedbe8d2fd1cafc4/lexer/lexer.go#L141-L209"
+      },
+      {
+        "title": "固定AST节点定义",
+        "url": "https://github.com/sjqtentacles/chinalang/blob/59332f7c0d02c130257124cbbedbe8d2fd1cafc4/ast/ast.go#L10-L429"
+      },
+      {
+        "title": "Pratt解析器注册及语句构造",
+        "url": "https://github.com/sjqtentacles/chinalang/blob/59332f7c0d02c130257124cbbedbe8d2fd1cafc4/parser/parser.go#L12-L199"
+      },
+      {
+        "title": "表达式优先级及中文宏解析",
+        "url": "https://github.com/sjqtentacles/chinalang/blob/59332f7c0d02c130257124cbbedbe8d2fd1cafc4/parser/parser.go#L310-L521"
+      },
+      {
+        "title": "文件读取、宏展开及AST执行完整入口",
+        "url": "https://github.com/sjqtentacles/chinalang/blob/59332f7c0d02c130257124cbbedbe8d2fd1cafc4/main.go#L14-L52"
+      },
+      {
+        "title": "AST解释、闭包及函数调用",
+        "url": "https://github.com/sjqtentacles/chinalang/blob/59332f7c0d02c130257124cbbedbe8d2fd1cafc4/evaluator/evaluator.go#L16-L120"
+      },
+      {
+        "title": "函数调用环境与实参绑定",
+        "url": "https://github.com/sjqtentacles/chinalang/blob/59332f7c0d02c130257124cbbedbe8d2fd1cafc4/evaluator/evaluator.go#L419-L466"
+      },
+      {
+        "title": "环境链和常量绑定",
+        "url": "https://github.com/sjqtentacles/chinalang/blob/59332f7c0d02c130257124cbbedbe8d2fd1cafc4/object/object.go#L217-L282"
+      },
+      {
+        "title": "宏定义提取、参数引用和AST替换",
+        "url": "https://github.com/sjqtentacles/chinalang/blob/59332f7c0d02c130257124cbbedbe8d2fd1cafc4/evaluator/macro_expansion.go#L8-L119"
+      },
+      {
+        "title": "引用与反引用的AST拼接",
+        "url": "https://github.com/sjqtentacles/chinalang/blob/59332f7c0d02c130257124cbbedbe8d2fd1cafc4/evaluator/quote_unquote.go#L11-L78"
+      },
+      {
+        "title": "宏展开的AST复制",
+        "url": "https://github.com/sjqtentacles/chinalang/blob/59332f7c0d02c130257124cbbedbe8d2fd1cafc4/ast/clone.go#L3-L96"
+      },
+      {
+        "title": "中英文内置库与打印",
+        "url": "https://github.com/sjqtentacles/chinalang/blob/59332f7c0d02c130257124cbbedbe8d2fd1cafc4/evaluator/builtins.go#L19-L54"
+      },
+      {
+        "title": "语义内的文本过滤与错误处理",
+        "url": "https://github.com/sjqtentacles/chinalang/blob/59332f7c0d02c130257124cbbedbe8d2fd1cafc4/evaluator/firewall.go#L11-L153"
+      },
+      {
+        "title": "运行时积分、惩罚及日志",
+        "url": "https://github.com/sjqtentacles/chinalang/blob/59332f7c0d02c130257124cbbedbe8d2fd1cafc4/evaluator/state.go#L5-L109"
+      },
+      {
+        "title": "五年计划循环及提前返回条件",
+        "url": "https://github.com/sjqtentacles/chinalang/blob/59332f7c0d02c130257124cbbedbe8d2fd1cafc4/evaluator/evaluator.go#L315-L339"
+      },
+      {
+        "title": "REPL宏展开执行链",
+        "url": "https://github.com/sjqtentacles/chinalang/blob/59332f7c0d02c130257124cbbedbe8d2fd1cafc4/repl/repl.go#L76-L137"
+      },
+      {
+        "title": "示例测试入口与宏原例断言",
+        "url": "https://github.com/sjqtentacles/chinalang/blob/59332f7c0d02c130257124cbbedbe8d2fd1cafc4/evaluator/examples_test.go#L183-L202"
+      },
+      {
+        "title": "Go模块工具链声明",
+        "url": "https://github.com/sjqtentacles/chinalang/blob/59332f7c0d02c130257124cbbedbe8d2fd1cafc4/go.mod#L1-L3"
+      },
+      {
+        "title": "初始源码提交与Cursor共同署名",
+        "url": "https://github.com/sjqtentacles/chinalang/commit/e0054f918848f8ab2e8349952a7bb00dc73c9f13"
+      },
+      {
+        "title": "README修订提交与Cursor共同署名",
+        "url": "https://github.com/sjqtentacles/chinalang/commit/59332f7c0d02c130257124cbbedbe8d2fd1cafc4"
+      },
+      {
+        "title": "公开发行列表",
+        "url": "https://github.com/sjqtentacles/chinalang/releases"
+      },
+      {
+        "title": "作者公开主页与本项目互链",
+        "url": "https://github.com/sjqtentacles"
+      }
+    ]
+  }
+]

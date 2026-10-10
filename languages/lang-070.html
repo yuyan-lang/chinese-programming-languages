@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>chinalang（中国语言）｜中文编程语言百科</title><link rel="stylesheet" href="../style.css"></head><body><header><h1>chinalang（中国语言）</h1></header><main><p><a href="../">返回语言目录</a></p>
+<h2>语言介绍</h2><p>chinalang（中国语言）是由sjqtentacles发布的中文／英文双关键字戏仿语言，以Go实现独立词法、Pratt解析、AST及树遍历解释器。程序以.cn保存，使用“宣布、函数、上交、如果、否则、当”等中文关键字，并为同一词元提供英文别名。它具有整数、字符串、布尔值、数组、哈希表、函数和闭包，提供中文内置库与文件、交互执行入口。“指示、引用、篡改”组成Lisp式宏机制：宏先以AST为数据完成展开，解释器再执行展开后的程序。运行时以文本过滤、积分、日志和特殊错误处理表达政治讽刺主题。固定原例及完整源码链已静态核验；两个公开提交保存Cursor共同署名，具体生成比例与独立运行结果待核实。</p>
+<h2>分类与别名</h2><p>中文／英文双关键字戏仿语言／Go独立AST解释器；别名：chinalang；中国语言；The People's Programming Language</p>
+<h2>作者与公开历史</h2><p>GitHub账号sjqtentacles维护，默认分支两次提交均由该账号署名。公开主页自述为编程语言爱好者并直接列出chinalang；账号所在地显示USA，作者身份及地域按公开自述记录。两次提交均含Cursor共同署名，具体人机分工待核实。</p><p>仓库创建时间2026-06-21T00:11:22Z。根提交e0054f918848f8ab2e8349952a7bb00dc73c9f13的作者与提交时间均为2026-06-21T00:11:05Z，保存解释器、原例及测试。Git时间早于仓库创建17秒，按各元数据原值分别记录；首次可公开访问时间待核实。</p>
+<h2>设计与特征</h2><p>中文／英文关键字整词映射与Unicode标识符；Go实现rune词法器、Pratt解析和AST解释执行；整数、布尔、字符串、数组、哈希表与闭包；指示／引用／篡改的AST宏展开；中文与英文内置库名称；文本过滤、积分和错误处理的戏仿运行时；文件运行、持久环境REPL及公开测试源码</p>
+<h2>中文语法示例</h2><pre><code>宣布 反之 = 指示(condition, consequence, alternative) {
+	引用(如果 (!(篡改(condition))) {
+		篡改(consequence);
+	} 否则 {
+		篡改(alternative);
+	});
+};
+
+说 &quot;Is the State ever wrong?&quot;;
+反之(假, 打印(&quot;The State is always right.&quot;), 打印(&quot;(this branch is unreachable)&quot;));</code></pre><p>固定examples/directives.cn第8—17行，共10行连续原文，含完整“反之”宏定义、输出及宏调用；中文关键字、英文参数名、制表符缩进和原例字符串均保留。全文与按行读取逐字一致。该例展示宏将分支AST拼接后交给解释器执行；运行结果待独立核实。 <a href="https://github.com/sjqtentacles/chinalang/blob/59332f7c0d02c130257124cbbedbe8d2fd1cafc4/examples/directives.cn#L8-L17">示例来源</a></p>
+<h2>实现与运行环境</h2><p>Go模块go.mod自标1.26.2。lexer按[]rune扫描，token.LookupIdent将中英文整词映射为词元；parser以前缀、中缀注册表和优先级解析表达式，并构造自有AST。main.go串接文件读取→lexer.New→parser.ParseProgram→DefineMacros→ExpandMacros→Eval。宏定义进入独立macroEnv，实参冻结为Quote，宏体经Clone复制后求值，ExpandMacros以返回的AST替换调用。Eval按节点类型执行，函数对象捕获环境并以外层环境链绑定调用参数。REPL沿用相同流水线并保存变量、宏和运行时状态。解释器核心由仓库内Go包和标准库组成。</p>
+<h2>版本与维护状态</h2><p>固定main提交59332f7c0d02c130257124cbbedbe8d2fd1cafc4时间2026-06-21T00:14:14Z，修改README项目定位；语言版本号待核实。README写Go1.26+，go.mod声明Go1.26.2；两者按工具链要求记录。公开发行和语言整体许可证待核实。</p><p>按双关键字戏仿语言与独立AST解释器形成分类资料。中文宏原例、词法／Pratt解析／AST展开及执行链、作者和提交时间已核；语言许可、正式发行、独立运行及具体AI生成比例待核实。</p>
+<h2>与其他项目的关系</h2><p>README、.cn原例、Go模块、main入口及作者主页互链确立该项目身份，GitHub元数据fork=false。宏机制采用Lisp式引用与AST重写；与外部解释器、教材源码的具体继承关系待原作者说明核实。GitHub同名检索另返回Rubell1on/chinalang，账号与仓库身份分别保留，二者同源关系待核实。</p>
+<h2>核验说明</h2><p>2026-10-10只读核验。固定递归树60项、52个文件、18份_test.go和14份.cn原例，truncated=false。初始提交加入52个文件，两次提交均带“Co-authored-by: Cursor”尾注，证据范围覆盖初始源码提交与README修改，具体文件或行级AI归属待核实。空值在运行时以object.Null表示，并由越界、缺键及默认分支产生；裸null语法及语义待核实。五年计划源码设5次循环并绑定规划，返回值、错误与Detained状态触发提前结束。宏返回值类型检查使用panic，参数异常、嵌套宏边界、REPL括号平衡与字符串／注释的交互待核实。测试文件按已保存测试源码记录，独立测试结果待核实。许可元数据为null，固定树的许可文本待核实。</p>
+<h2>参考资料</h2><ul><li><a href="https://github.com/sjqtentacles/chinalang/blob/59332f7c0d02c130257124cbbedbe8d2fd1cafc4/README.md#L1-L88">固定README：项目定位与双语关键字</a></li>
+<li><a href="https://github.com/sjqtentacles/chinalang/blob/59332f7c0d02c130257124cbbedbe8d2fd1cafc4/examples/directives.cn#L8-L17">固定连续中文宏定义及调用原例</a></li>
+<li><a href="https://github.com/sjqtentacles/chinalang/blob/59332f7c0d02c130257124cbbedbe8d2fd1cafc4/token/token.go#L70-L127">固定中英文关键字查表</a></li>
+<li><a href="https://github.com/sjqtentacles/chinalang/blob/59332f7c0d02c130257124cbbedbe8d2fd1cafc4/lexer/lexer.go#L18-L138">rune词法扫描与关键字识别</a></li>
+<li><a href="https://github.com/sjqtentacles/chinalang/blob/59332f7c0d02c130257124cbbedbe8d2fd1cafc4/lexer/lexer.go#L141-L209">Unicode标识符与字符串扫描</a></li>
+<li><a href="https://github.com/sjqtentacles/chinalang/blob/59332f7c0d02c130257124cbbedbe8d2fd1cafc4/ast/ast.go#L10-L429">固定AST节点定义</a></li>
+<li><a href="https://github.com/sjqtentacles/chinalang/blob/59332f7c0d02c130257124cbbedbe8d2fd1cafc4/parser/parser.go#L12-L199">Pratt解析器注册及语句构造</a></li>
+<li><a href="https://github.com/sjqtentacles/chinalang/blob/59332f7c0d02c130257124cbbedbe8d2fd1cafc4/parser/parser.go#L310-L521">表达式优先级及中文宏解析</a></li>
+<li><a href="https://github.com/sjqtentacles/chinalang/blob/59332f7c0d02c130257124cbbedbe8d2fd1cafc4/main.go#L14-L52">文件读取、宏展开及AST执行完整入口</a></li>
+<li><a href="https://github.com/sjqtentacles/chinalang/blob/59332f7c0d02c130257124cbbedbe8d2fd1cafc4/evaluator/evaluator.go#L16-L120">AST解释、闭包及函数调用</a></li>
+<li><a href="https://github.com/sjqtentacles/chinalang/blob/59332f7c0d02c130257124cbbedbe8d2fd1cafc4/evaluator/evaluator.go#L419-L466">函数调用环境与实参绑定</a></li>
+<li><a href="https://github.com/sjqtentacles/chinalang/blob/59332f7c0d02c130257124cbbedbe8d2fd1cafc4/object/object.go#L217-L282">环境链和常量绑定</a></li>
+<li><a href="https://github.com/sjqtentacles/chinalang/blob/59332f7c0d02c130257124cbbedbe8d2fd1cafc4/evaluator/macro_expansion.go#L8-L119">宏定义提取、参数引用和AST替换</a></li>
+<li><a href="https://github.com/sjqtentacles/chinalang/blob/59332f7c0d02c130257124cbbedbe8d2fd1cafc4/evaluator/quote_unquote.go#L11-L78">引用与反引用的AST拼接</a></li>
+<li><a href="https://github.com/sjqtentacles/chinalang/blob/59332f7c0d02c130257124cbbedbe8d2fd1cafc4/ast/clone.go#L3-L96">宏展开的AST复制</a></li>
+<li><a href="https://github.com/sjqtentacles/chinalang/blob/59332f7c0d02c130257124cbbedbe8d2fd1cafc4/evaluator/builtins.go#L19-L54">中英文内置库与打印</a></li>
+<li><a href="https://github.com/sjqtentacles/chinalang/blob/59332f7c0d02c130257124cbbedbe8d2fd1cafc4/evaluator/firewall.go#L11-L153">语义内的文本过滤与错误处理</a></li>
+<li><a href="https://github.com/sjqtentacles/chinalang/blob/59332f7c0d02c130257124cbbedbe8d2fd1cafc4/evaluator/state.go#L5-L109">运行时积分、惩罚及日志</a></li>
+<li><a href="https://github.com/sjqtentacles/chinalang/blob/59332f7c0d02c130257124cbbedbe8d2fd1cafc4/evaluator/evaluator.go#L315-L339">五年计划循环及提前返回条件</a></li>
+<li><a href="https://github.com/sjqtentacles/chinalang/blob/59332f7c0d02c130257124cbbedbe8d2fd1cafc4/repl/repl.go#L76-L137">REPL宏展开执行链</a></li>
+<li><a href="https://github.com/sjqtentacles/chinalang/blob/59332f7c0d02c130257124cbbedbe8d2fd1cafc4/evaluator/examples_test.go#L183-L202">示例测试入口与宏原例断言</a></li>
+<li><a href="https://github.com/sjqtentacles/chinalang/blob/59332f7c0d02c130257124cbbedbe8d2fd1cafc4/go.mod#L1-L3">Go模块工具链声明</a></li>
+<li><a href="https://github.com/sjqtentacles/chinalang/commit/e0054f918848f8ab2e8349952a7bb00dc73c9f13">初始源码提交与Cursor共同署名</a></li>
+<li><a href="https://github.com/sjqtentacles/chinalang/commit/59332f7c0d02c130257124cbbedbe8d2fd1cafc4">README修订提交与Cursor共同署名</a></li>
+<li><a href="https://github.com/sjqtentacles/chinalang/releases">公开发行列表</a></li>
+<li><a href="https://github.com/sjqtentacles">作者公开主页与本项目互链</a></li></ul><p>资料核验日期：2026-10-10</p><p><a href="https://github.com/yuyan-lang/chinese-programming-languages/issues/new">补充资料或纠错</a></p></main><footer>站点由<a href="https://yuyan-lang.org/">豫言编程语言</a>提供</footer></body></html>

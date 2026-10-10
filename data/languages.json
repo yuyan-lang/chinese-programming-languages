@@ -1737,19 +1737,23 @@
     "aliases": [
       "xiaoyi"
     ],
-    "category": "Python 中文方言／转译器",
-    "author": "cnlnr；Gitee账号LZY4（README互链；实名待核实）",
-    "first_publication": "仓库创建 2025-08-01；语言首次公开发布日期待核实",
-    "description": "【Python 中文方言／转译器】简化Python函数与类声明并支持中文关键字的转译型语言。",
+    "category": "Python中文方言／源码转译层",
+    "author": "liuzhongyi（pyproject.toml署名）；LZY（Git提交署名）。项目使用GitHub cnlnr/xiaoyi与Gitee LZY4/xiaoyi入口；中文实名待核实。",
+    "first_publication": "PyPI官方项目页的可读索引列出0.1.0于2025-08-16发布、0.1.1于2025-08-17发布、0.1.2于2025-08-18发布。语言更早首次公开日期待核实。GitHub仓库创建于2025-08-01T02:25:13Z，根提交时间为当日02:25:14Z；仓库创建、Git记录和包发行分别保存。",
+    "description": "小易（xiaoyi）是一项将中文语法转成Python源码的语言项目，由包元数据署名liuzhongyi的作者维护。它保留Python缩进、表达式和类方法写法，使用“返回、导入、从、跳出”等中文关键字，并把“打印、输入、范围”等名称映射到Python内置接口。函数和类可直接用名称及冒号声明，转换器补入def和class。实现先以正则处理声明与关键字，再由LibCST解析并转换名称节点；命令行源码提供输出.py文件和交给Python子进程执行两条路径。项目保存中英语法对照、问候及静态方法原例，GitHub与Gitee入口由项目元数据互相关联。公开包资料列有0.1.2；GitHub当前处于归档状态，作者README说明减少后续投入。源码重构后的命令入口衔接、发行包内容及实际运行兼容性待核实。",
     "features": [
-      "中文语法／关键字",
-      "有公开实现源码"
+      "中文关键字及Python内置名称映射",
+      "省略def／class的函数和类声明",
+      "Python缩进、类型标注及async声明转换规则",
+      "正则预处理与LibCST名称节点转换",
+      "生成.py源码或调用Python子进程",
+      "中文问候程序及静态方法原例"
     ],
-    "code": "问候():\n    返回 f\"你好，{输入(\"_\" * 20 + \"\\r你的名字是:\")}\"\n\n打印(问候())",
-    "implementation": "Python实现，.xy源码可运行或转为.py。",
-    "status": "已有实现；作者明确表示不会积极推送新代码",
-    "version": "0.1.2（README命令输出）",
-    "relations": "GitHub与Gitee https://gitee.com/LZY4/xiaoyi 为README互指的同一项目；不同于易语言。",
+    "code": "问候():\n    返回 f\"你好，{输入(\"_\" * 20 + \"\\r你的名字是:\")}\"\n    \n打印(问候())",
+    "implementation": "Python实现，声明依赖libcst与regex。xiaoyi/xiaoyi.py的code依次调用re_class_def.compile_chinese_code和cst_name.rename_identifiers；前者暂存引号、注释、海象及部分括号内容，以字符串替换转换保留字，再补全class／def并恢复内容；后者通过LibCST的parse_module、CSTTransformer和.code转换名称及属性。leave_Name按名称节点匹配，涉及匹配名称的定义和引用。xiaoyi/cli.py读取UTF-8源文件，两参数路径写出Python文本，一参数路径以subprocess.run([sys.executable, '-c', code])启动Python。当前pyproject仍将命令入口配置为xiaoyi.xiaoyi:cli，cli函数实际位于xiaoyi/cli.py，xiaoyi/xiaoyi.py定义code；重构后的打包入口与导入衔接待核实。0.1.2标签的单文件实现保留cli定义，按发行阶段另行记录。",
+    "status": "2026-10-10核验时GitHub仓库已归档，README表明作者后续投入有限并欢迎Fork。固定main末次提交时间2025-08-21T09:18:42Z，最后推送2025-08-21T09:23:26Z。公开源码与包发行资料可读；安装、转换及运行结果待核实。",
+    "version": "当前pyproject.toml与CLI显示0.1.2。0.1.2注释标签于2025-08-18T15:23:24Z建立，指向f970fd8b689a4b307c4f608841e8c0d9e38aa87e；对应提交时间14:33:30Z。PyPI官方页面索引列同日上传源码包及wheel，并保留0.1.0、0.1.1发行历史；本轮直读页面与JSON接口返回读取失败，上传精确时刻和发行包内部内容待核实。GitHub Releases本轮返回空列表。根LICENSE与包元数据采用Apache-2.0。",
+    "relations": "GitHub README与pyproject同时列GitHub cnlnr/xiaoyi和Gitee LZY4/xiaoyi，历史合并提交也记录Gitee来源，按同一项目合并记录。项目的语法和执行语义建立在Python之上，LibCST与regex承担源码转换。易语言在本百科保留独立条目；两个项目的源码继承关系待核实。当前Gitee页面直读结果待补。2025-08-18的一次提交说明使用AI格式化代码；具体模型、其他生成范围及占比待核实。",
     "references": [
       {
         "title": "项目README（核验快照）",
@@ -1762,31 +1766,98 @@
       {
         "title": "仓库元数据",
         "url": "https://api.github.com/repos/cnlnr/xiaoyi"
+      },
+      {
+        "title": "包元数据：作者、依赖、许可证、双仓入口及命令配置",
+        "url": "https://github.com/cnlnr/xiaoyi/blob/58c6e6b7cbb35ade751aace13b61a6c8d4b7193e/pyproject.toml"
+      },
+      {
+        "title": "中英语法对照",
+        "url": "https://github.com/cnlnr/xiaoyi/blob/58c6e6b7cbb35ade751aace13b61a6c8d4b7193e/docs/%E4%B8%AD%E8%8B%B1%E8%AF%AD%E6%B3%95%E5%AF%B9%E7%85%A7.md"
+      },
+      {
+        "title": "中文关键字、内置名称及属性映射表",
+        "url": "https://github.com/cnlnr/xiaoyi/blob/58c6e6b7cbb35ade751aace13b61a6c8d4b7193e/xiaoyi/config.py"
+      },
+      {
+        "title": "源码转换组合入口",
+        "url": "https://github.com/cnlnr/xiaoyi/blob/58c6e6b7cbb35ade751aace13b61a6c8d4b7193e/xiaoyi/xiaoyi.py"
+      },
+      {
+        "title": "声明补全、占位处理及关键字转换",
+        "url": "https://github.com/cnlnr/xiaoyi/blob/58c6e6b7cbb35ade751aace13b61a6c8d4b7193e/xiaoyi/re_class_def.py"
+      },
+      {
+        "title": "LibCST名称与属性转换",
+        "url": "https://github.com/cnlnr/xiaoyi/blob/58c6e6b7cbb35ade751aace13b61a6c8d4b7193e/xiaoyi/cst_name.py"
+      },
+      {
+        "title": "Python文本输出及子进程执行路径",
+        "url": "https://github.com/cnlnr/xiaoyi/blob/58c6e6b7cbb35ade751aace13b61a6c8d4b7193e/xiaoyi/cli.py"
+      },
+      {
+        "title": "0.1.2标签的完整CLI及转译实现",
+        "url": "https://github.com/cnlnr/xiaoyi/blob/f970fd8b689a4b307c4f608841e8c0d9e38aa87e/xiaoyi/xiaoyi.py"
+      },
+      {
+        "title": "0.1.2阶段README及历史功能边界",
+        "url": "https://github.com/cnlnr/xiaoyi/blob/f970fd8b689a4b307c4f608841e8c0d9e38aa87e/README.md"
+      },
+      {
+        "title": "0.1.2注释标签元数据与时间",
+        "url": "https://api.github.com/repos/cnlnr/xiaoyi/git/tags/d134566e5db956c7654f191a8ae1f063c85c2578"
+      },
+      {
+        "title": "PyPI官方项目及公开包发行历史（可读索引）",
+        "url": "https://pypi.org/project/xiaoyi/"
+      },
+      {
+        "title": "Apache-2.0许可证全文",
+        "url": "https://github.com/cnlnr/xiaoyi/blob/58c6e6b7cbb35ade751aace13b61a6c8d4b7193e/LICENSE"
+      },
+      {
+        "title": "Git根提交与日期",
+        "url": "https://github.com/cnlnr/xiaoyi/commit/3123dc997e4cfc0dbe84a4720f38a5004fcc6005"
+      },
+      {
+        "title": "Gitee分支合并记录",
+        "url": "https://github.com/cnlnr/xiaoyi/commit/44ef511eedb3bb9a8f471b83e80473684f716cc3"
+      },
+      {
+        "title": "AI格式化代码的单次提交说明",
+        "url": "https://github.com/cnlnr/xiaoyi/commit/102e4cc95b149b15fbd917d4501bf7ca9928ccb0"
       }
     ],
-    "verification_notes": "2026-10-09只读核验。2星，非fork；最后推送2025-08-21T09:23:26Z。日期为仓库创建不代表首发。功能、性能、通过测试数量未独立复测。",
-    "code_source": "https://github.com/cnlnr/xiaoyi/blob/58c6e6b7cbb35ade751aace13b61a6c8d4b7193e/README.md",
+    "verification_notes": "2026-10-10公开资料和静态源码核验。固定main为58c6e6b7cbb35ade751aace13b61a6c8d4b7193e，递归树19项且truncated=false；默认分支100次可达提交，下一页为空。README、测试.xy、中英语法对照、完整转换模块、CLI、pyproject、LICENSE、0.1.2标签源码及标签日期均已读取。当前关键字表为7项保留字与2项装饰器，内置名称5项、属性1项；语言覆盖范围以该表及转换规则为准。0.1.2标签README列出语法糖内中文关键字、exec代码转换与.xy模块导入的历史限制。当前依赖版本范围、分发入口及完整语言兼容性待核实。Python子进程属于代码执行路径，沙箱隔离能力待核实。公开PyPI日期按官方页面搜索索引记录，Git标签时间按标签元数据记录。",
+    "code_source": "https://github.com/cnlnr/xiaoyi/blob/58c6e6b7cbb35ade751aace13b61a6c8d4b7193e/%E6%B5%8B%E8%AF%95.xy",
     "id": "lang-025",
-    "verified_at": "2026-10-09"
+    "verified_at": "2026-10-10",
+    "code_context": "固定提交测试.xy的完整连续4行原文，包含函数定义、返回、输入与打印调用。原始嵌套引号、第三行的四个空格及文件末尾无换行状态均保留。README也保存对应问候原例；Python版本、LibCST解析和程序运行结果待独立核实。",
+    "repository_created_at": "2025-08-01T02:25:13Z",
+    "repository_pushed_at": "2025-08-21T09:23:26Z"
   },
   {
     "name": "档案管理语言",
     "aliases": [
       "DGY"
     ],
-    "category": "语言",
-    "author": "wwwwyyt（账号；实名待核实）",
-    "first_publication": "仓库创建 2026-04-22；语言首次公开发布日期待核实",
-    "description": "【语言】用于计算机教学、强调数据操作与参考文档的中文语言。",
+    "category": "独立中文教学语言／词典与栈式编译解释器原型",
+    "author": "wwwwyyt（GitHub仓库账号及主要Git提交署名）；中文实名待核实。",
+    "first_publication": "当前可达根提交97b8f6d30d81a3a136efabd365cd6bb2978177c1的作者与提交者时间均为2026-04-22T06:56:14Z，保存中文demo.md草案。GitHub仓库创建于同日09:01:49Z。2026-05-20开发日志记录参考Forth进行设计。语言首次公开日期及正式发行日期待核实，各类时间分别记录。",
+    "description": "档案管理语言（DGY）是一项面向计算机教学的中文语言项目，作者wwwwyyt明确以Forth为设计灵感，并强调以数据操作和参考文档组织编程。语言围绕词语、词典、栈中单元及寄存器构建模型，以“设”定义简单词语，以成对等号界定复杂词语，使用“存……到……”传递数据，以“令……结果存／无结果”表达调用，另设中文分支和循环语句。仓库保存BNF文法、完整九九乘法表原例及持续讨论语义的开发日志。C源码包含宽字符词法识别、逐句语法匹配、中间语句结构、词典与栈模块；语义分析器已编写部分词语处理函数，多种执行和控制流处理函数保留占位。当前程序入口接入测试框架，默认分析测试函数体为空。字节码虚拟机属于设计目标，完整执行链和原例运行结果待核实。",
     "features": [
-      "中文语法／关键字",
-      "有公开实现源码"
+      "面向教学的数据操作与文档中心设计",
+      "中文词语定义、存值、调用、分支和循环语法",
+      "词典、数据栈、代码栈与寄存器模型",
+      "BNF文法及完整中文九九乘法表原例",
+      "C词法器、逐句解析器与DgyStatement中间结构",
+      "开发中的语义分析与内置整数运算模块"
     ],
-    "code": "设 A = 1\n设 B = 2\n存 1 1 到 #A #B",
-    "implementation": "C实现lexer/parser/stack/core；已核对词法保留字表。",
-    "status": "开发中（README）",
-    "version": "待核实",
-    "relations": "作者明确受Forth启发；非档案管理业务DSL，README定位计算机教学。",
+    "code": "    设 A = 1\n    设 B = 2\n    存 1 到 #A\n    存 1 到 #B\n",
+    "implementation": "当前实现为C原型。dgyDoLexerOnce用fgetwc读取宽字符，按立即数、字符串、注释、中文保留字、操作符、词语和单元规则写入符号栈。dgyDoParserOnce调用词法器，按语句状态匹配并填充DgyStatement；README-dev将此方法描述为基于LR(0)原理的简化语句识别。dgyDoAnalyserOnce取得一条中间语句，按StatType分派到语义处理函数，词语声明代码操作词典和代码栈。parse_Mov、parse_Exec、分支、跳转及循环函数当前主要为占位；dgy_core提供初始化与销毁，DgyCore声明数据栈、代码栈、词典和16个寄存器。dgy_builtin保留相加、相减、相乘、相整除的C实现。main调用dgyUnitTest，当前有效分支调用空的test_analyser；从源文件到完整字节码执行的接通状态待核实。",
+    "status": "README标注开发中，2026-10-10核验时GitHub仓库公开且archived=false。固定main末次提交时间为2026-09-12T05:43:59Z，最后推送05:44:22Z。当前可核验内容为设计文档、中文原例和分阶段实现源码；完整构建、语言执行与教学使用情况待核实。",
+    "version": "固定源码为3d626fa851325d6cbe1c405ac7d88a633ef523ab。本轮GitHub Releases与标签引用集合均为空；正式版本编号和发行日期待核实。固定文件树保存dgy.exe与dgy.pdb，二进制来源、构建对应关系及可执行能力待核实。根树40项且truncated=false，项目许可证待核实；仓库元数据的license字段为null。",
+    "relations": "README明确以Forth为灵感；开发日志讨论词典、栈与中文后缀调用，2026-09-11进一步说明词典用于保存索引并讨论代码栈、数据栈和返回栈。该关系按设计借鉴记录，具体Forth实现的源码继承关系待核实。旧仓库路径wwwwyyt/datamate-lang的API重定向指向仓库ID1217829829，与当前dgy-lang一致；历史合并提交保留旧路径，按同一项目沿革记录。2026-04-22的demo.md和Python词法器占位属于早期草案，当前主要实现采用C。项目用途依据作者的计算机教学定位。",
     "references": [
       {
         "title": "项目README（核验快照）",
@@ -1799,12 +1870,91 @@
       {
         "title": "仓库元数据",
         "url": "https://api.github.com/repos/wwwwyyt/dgy-lang"
+      },
+      {
+        "title": "完整连续九九乘法表原始文件",
+        "url": "https://github.com/wwwwyyt/dgy-lang/blob/3d626fa851325d6cbe1c405ac7d88a633ef523ab/test/test_01_%E4%B9%9D%E4%B9%9D%E4%B9%98%E6%B3%95%E8%A1%A8.dgy"
+      },
+      {
+        "title": "开发文档：BNF文法、单元与寄存器、语法分析方法",
+        "url": "https://github.com/wwwwyyt/dgy-lang/blob/3d626fa851325d6cbe1c405ac7d88a633ef523ab/README-dev.md"
+      },
+      {
+        "title": "语言设计：词典、栈式模型与字节码目标",
+        "url": "https://github.com/wwwwyyt/dgy-lang/blob/3d626fa851325d6cbe1c405ac7d88a633ef523ab/design.md"
+      },
+      {
+        "title": "开发日志：Forth设计借鉴与2026年阶段记录",
+        "url": "https://github.com/wwwwyyt/dgy-lang/blob/3d626fa851325d6cbe1c405ac7d88a633ef523ab/log.md"
+      },
+      {
+        "title": "逐句语法匹配与词法器调用",
+        "url": "https://github.com/wwwwyyt/dgy-lang/blob/3d626fa851325d6cbe1c405ac7d88a633ef523ab/src/dgy_parser.c"
+      },
+      {
+        "title": "语句中间结构DgyStatement",
+        "url": "https://github.com/wwwwyyt/dgy-lang/blob/3d626fa851325d6cbe1c405ac7d88a633ef523ab/src/dgy_stat.h"
+      },
+      {
+        "title": "语义分析分派、词语处理与占位函数",
+        "url": "https://github.com/wwwwyyt/dgy-lang/blob/3d626fa851325d6cbe1c405ac7d88a633ef523ab/src/dgy_analyser.c"
+      },
+      {
+        "title": "运行状态、栈与16寄存器声明",
+        "url": "https://github.com/wwwwyyt/dgy-lang/blob/3d626fa851325d6cbe1c405ac7d88a633ef523ab/src/dgy_core.h"
+      },
+      {
+        "title": "核心初始化及销毁",
+        "url": "https://github.com/wwwwyyt/dgy-lang/blob/3d626fa851325d6cbe1c405ac7d88a633ef523ab/src/dgy_core.c"
+      },
+      {
+        "title": "内置整数运算模块",
+        "url": "https://github.com/wwwwyyt/dgy-lang/blob/3d626fa851325d6cbe1c405ac7d88a633ef523ab/src/dgy_builtin.c"
+      },
+      {
+        "title": "当前词典接口",
+        "url": "https://github.com/wwwwyyt/dgy-lang/blob/3d626fa851325d6cbe1c405ac7d88a633ef523ab/src/dgy_dict.h"
+      },
+      {
+        "title": "当前main入口",
+        "url": "https://github.com/wwwwyyt/dgy-lang/blob/3d626fa851325d6cbe1c405ac7d88a633ef523ab/src/dgy_main.c"
+      },
+      {
+        "title": "当前测试入口与空分析测试函数",
+        "url": "https://github.com/wwwwyyt/dgy-lang/blob/3d626fa851325d6cbe1c405ac7d88a633ef523ab/src/dgy_test.c"
+      },
+      {
+        "title": "Git根提交及日期",
+        "url": "https://github.com/wwwwyyt/dgy-lang/commit/97b8f6d30d81a3a136efabd365cd6bb2978177c1"
+      },
+      {
+        "title": "根提交中的中文设计草案",
+        "url": "https://github.com/wwwwyyt/dgy-lang/blob/97b8f6d30d81a3a136efabd365cd6bb2978177c1/demo.md"
+      },
+      {
+        "title": "早期Python词法器占位",
+        "url": "https://github.com/wwwwyyt/dgy-lang/blob/8aa3c3790bedb5a6cc82f8a6cb4c8e49317a6ba6/demo.py"
+      },
+      {
+        "title": "旧datamate-lang仓库路径的重定向",
+        "url": "https://api.github.com/repos/wwwwyyt/datamate-lang"
+      },
+      {
+        "title": "固定完整文件树",
+        "url": "https://github.com/wwwwyyt/dgy-lang/tree/3d626fa851325d6cbe1c405ac7d88a633ef523ab"
+      },
+      {
+        "title": "公开发行列表",
+        "url": "https://github.com/wwwwyyt/dgy-lang/releases"
       }
     ],
-    "verification_notes": "2026-10-09只读核验。1星，非fork；最后推送2026-09-12T05:44:22Z。日期为仓库创建不代表首发。功能、性能、通过测试数量未独立复测。",
-    "code_source": "https://github.com/wwwwyyt/dgy-lang/blob/3d626fa851325d6cbe1c405ac7d88a633ef523ab/README.md",
+    "verification_notes": "2026-10-10只读核验：读取固定README、README-dev、design、log、词法器／解析器／语义分析器、core、builtin、词典接口、测试入口及完整原例。默认分支71次可达提交，根提交无父提交。中文关键字表与语句匹配源码提供独立语法证据；字节码与虚拟机按设计阶段记录。当前builtin中的dgyDictAdd调用仍采用旧参数形式，dgy_dict.h声明为DictItem指针接口，接口协调和构建结果待核实。设计、README及test原例的语法差异分别保留，运行正确性待核实。AI参与开发、正式许可、对外发行及首发原件继续待核实。",
+    "code_source": "https://github.com/wwwwyyt/dgy-lang/blob/3d626fa851325d6cbe1c405ac7d88a633ef523ab/test/test_01_%E4%B9%9D%E4%B9%9D%E4%B9%98%E6%B3%95%E8%A1%A8.dgy#L21-L24",
     "id": "lang-026",
-    "verified_at": "2026-10-09"
+    "verified_at": "2026-10-10",
+    "code_context": "固定test/test_01_九九乘法表.dgy第21—24行连续原文，保留4空格缩进及行末换行，展示词语A／B定义与两条存值语句。完整37行九九乘法表原件见来源链接，后文继续调用、分支及循环。README对应初始化采用一条批量存值写法，主例依据test文件保存。此处为完整程序中的连续短片段；完整运行环境及执行结果待核实。",
+    "repository_created_at": "2026-04-22T09:01:49Z",
+    "repository_pushed_at": "2026-09-12T05:44:22Z"
   },
   {
     "name": "PythonCN",
@@ -4844,5 +4994,308 @@
     "verification_notes": "核验日期2026-10-10。默认分支仅含一个2024-06-18根提交；v0.0.3标签仍保留59条可达提交，其中根提交日期2024-01-16T15:37:10Z。仓库创建、提交和公开发行日期分别记录。中文关键字在发行标签与当前源码中均可核对。README使用的英文语法名称按说明性标签理解，实际中文拼写依据core/const.go和core/core_parser.go。项目根许可证为Apache-2.0，内置上游目录保留各自许可证。发行附件的实际内容、构建和运行，以及AI参与开发的范围待核实。",
     "verified_at": "2026-10-10",
     "id": "lang-068"
+  },
+  {
+    "name": "中文智能合约编译器（zhsc-compiler）",
+    "aliases": [
+      "zhsc-compiler",
+      "Chinese Solidity Compiler"
+    ],
+    "category": "中文Solidity DSL设计及部分实现原型",
+    "description": "中文智能合约编译器（zhsc-compiler）是中文Solidity DSL设计及部分实现原型。项目以.zhs表示中文合约源码，公开说明使用“合约、函数、构造函数、事件、返回”等关键字，并给出类型、可见性、状态可变性及链上内置变量的对应表。README保存完整问候合约及代币合约示例，并展示预期Solidity输出。当前公开实现包含Python AST节点、编译调度入口及命令行界面；入口按词法分析、语法分析、Solidity生成三个阶段组织。固定仓库树提供八个文件，三个核心模块的公开源码位置与完整转译效果待核实。中文名称转拼音、Solidity语义覆盖及链上部署能力按作者说明记录，独立实现验证继续待核实。",
+    "author": "GitHub账号Anubisya维护；两次提交作者名为Evil，GitHub作者关联为Anubisya。LICENSE署名“2024 Chinese Solidity Compiler”，CLI作者显示为Your Name占位。真实作者姓名及AI参与范围待核实。",
+    "first_publication": "仓库创建时间为2025-10-24T12:07:05Z；根提交0a1d7837bff8fb1745e6aba09d43a0f7bc2b6049于2025-10-24T12:08:42Z上传README、AST、编译入口和CLI。LICENSE中的2024为版权署名年份；更早公开历史待核实。",
+    "repository_created_at": "2025-10-24T12:07:05Z",
+    "repository_pushed_at": "2025-10-24T12:12:20Z",
+    "first_commit_at": "2025-10-24T12:08:42Z",
+    "latest_commit_at": "2025-10-24T12:12:19Z",
+    "release_status": "2026-10-10读取公开Releases集合为空；git/refs/tags返回404。0.1.0独立发行及发布日期待核实。",
+    "features": [
+      ".zhs中文合约规范及连续原例",
+      "中文类型、可见性和状态可变性映射表",
+      "Python合约、函数、事件和表达式AST",
+      "词法、解析、Solidity生成的调度入口",
+      "CLI的编译、检查、版本及例程命令",
+      "0.1.0源码自标与MIT许可证"
+    ],
+    "code": "合约 问候 {\n    公开 字符串 消息 = \"你好，世界！\";\n    \n    函数 获取消息() 公开 只读 返回 字符串 {\n        返回 消息;\n    }\n    \n    函数 设置消息(字符串 新消息) 公开 {\n        消息 = 新消息;\n    }\n}",
+    "code_source": "https://github.com/Anubisya/zhsc-compiler/blob/f6d8665def53639a8b8b3adf473fdfa177e93632/README.md#L29-L39",
+    "code_context": "固定README第29—39行的完整问候合约，共11行连续原文；含状态变量、读取函数及设置函数。已将全文对应范围与按行读取结果逐字比对。原文空白行缩进保留；该例按设计文档原例记录，实际编译及执行待核实。",
+    "implementation": "Python实现。ast_nodes.py定义Program、Contract、Function、Constructor、StateVariable、Event、参数、语句和表达式节点；compiler.py第10—12行导入lexer.chinese_lexer、parser.chinese_parser、codegen.solidity_generator，compile方法依次调用tokenize→parse→generate_solidity。固定快照和根提交均只有README、LICENSE、.gitignore、__init__.py、ast_nodes.py、compiler.py、cli.py、requirements.txt八个文件；完整词法器、解析器及生成器源码待核实。requirements.txt列pypinyin>=0.49.0，CLI还导入click和rich。转拼音实现、Solidity后端和完整依赖配置待核实。",
+    "version": "cli.py第20及138行自标0.1.0；README标Python3.11+。固定main提交f6d8665def53639a8b8b3adf473fdfa177e93632于2025-10-24T12:12:19Z修订README链接。源码版本、Git提交和公开发行分别记录；公开发行物待核实。",
+    "relations": "项目README、仓库名、CLI名称和MIT许可署名构成同一身份链，GitHub元数据fork=false。Solidity为规范映射的目标语言，pypinyin为已声明依赖。README列出zhsc.niubiui.com在线入口，当前页面内容和服务实现待核实。与其他中文合约前端的源码继承、完整实现上游及AI参与范围待核实。",
+    "status": "按中文Solidity DSL设计及部分实现原型形成分类资料；连续中文原例、AST、编译调度入口、CLI版本及MIT许可已核。词法器、解析器、Solidity生成器的公开源码及端到端运行待核实。",
+    "verification_notes": "2026-10-10只读核验。固定树8项且truncated=false；公开分支列表仅main，默认分支两次提交，初始上传与当前树的核心Python文件blob一致。README第163—175行列出的三个核心目录和examples属于文档布局描述，实际公开文件范围按Git树记录。requirements.txt仅列pypinyin；CLI中click和rich依赖另行识别。在线入口经普通网页工具读取返回不可访问；该结果按工具访问状态记录。MIT版权年份、仓库创建、Git提交及发行分别保存。独立安装、构建、执行、Solidity合法性与链上部署待核实。",
+    "verified_at": "2026-10-10",
+    "references": [
+      {
+        "title": "固定README：语言名称与中文合约原例",
+        "url": "https://github.com/Anubisya/zhsc-compiler/blob/f6d8665def53639a8b8b3adf473fdfa177e93632/README.md#L1-L39"
+      },
+      {
+        "title": "固定中文类型、关键字、修饰符及内置变量规范",
+        "url": "https://github.com/Anubisya/zhsc-compiler/blob/f6d8665def53639a8b8b3adf473fdfa177e93632/README.md#L70-L123"
+      },
+      {
+        "title": "README所示Solidity输出",
+        "url": "https://github.com/Anubisya/zhsc-compiler/blob/f6d8665def53639a8b8b3adf473fdfa177e93632/README.md#L51-L67"
+      },
+      {
+        "title": "固定Python AST节点",
+        "url": "https://github.com/Anubisya/zhsc-compiler/blob/f6d8665def53639a8b8b3adf473fdfa177e93632/ast_nodes.py#L10-L255"
+      },
+      {
+        "title": "编译入口的三个模块导入",
+        "url": "https://github.com/Anubisya/zhsc-compiler/blob/f6d8665def53639a8b8b3adf473fdfa177e93632/compiler.py#L10-L12"
+      },
+      {
+        "title": "词法、解析和生成的调度调用",
+        "url": "https://github.com/Anubisya/zhsc-compiler/blob/f6d8665def53639a8b8b3adf473fdfa177e93632/compiler.py#L93-L129"
+      },
+      {
+        "title": "固定CLI依赖、版本和编译命令",
+        "url": "https://github.com/Anubisya/zhsc-compiler/blob/f6d8665def53639a8b8b3adf473fdfa177e93632/cli.py#L6-L59"
+      },
+      {
+        "title": "CLI版本与作者占位字段",
+        "url": "https://github.com/Anubisya/zhsc-compiler/blob/f6d8665def53639a8b8b3adf473fdfa177e93632/cli.py#L134-L140"
+      },
+      {
+        "title": "固定pypinyin依赖",
+        "url": "https://github.com/Anubisya/zhsc-compiler/blob/f6d8665def53639a8b8b3adf473fdfa177e93632/requirements.txt#L1"
+      },
+      {
+        "title": "固定MIT许可证署名",
+        "url": "https://github.com/Anubisya/zhsc-compiler/blob/f6d8665def53639a8b8b3adf473fdfa177e93632/LICENSE#L1-L21"
+      },
+      {
+        "title": "完整固定树与实际文件范围",
+        "url": "https://github.com/Anubisya/zhsc-compiler/tree/f6d8665def53639a8b8b3adf473fdfa177e93632"
+      },
+      {
+        "title": "初始上传提交及文件清单",
+        "url": "https://github.com/Anubisya/zhsc-compiler/commit/0a1d7837bff8fb1745e6aba09d43a0f7bc2b6049"
+      },
+      {
+        "title": "README链接修订提交",
+        "url": "https://github.com/Anubisya/zhsc-compiler/commit/f6d8665def53639a8b8b3adf473fdfa177e93632"
+      },
+      {
+        "title": "公开发行列表",
+        "url": "https://github.com/Anubisya/zhsc-compiler/releases"
+      },
+      {
+        "title": "作者README列出的在线编译器入口",
+        "url": "https://zhsc.niubiui.com"
+      }
+    ],
+    "id": "lang-069"
+  },
+  {
+    "name": "chinalang（中国语言）",
+    "aliases": [
+      "chinalang",
+      "中国语言",
+      "The People's Programming Language"
+    ],
+    "category": "中文／英文双关键字戏仿语言／Go独立AST解释器",
+    "description": "chinalang（中国语言）是由sjqtentacles发布的中文／英文双关键字戏仿语言，以Go实现独立词法、Pratt解析、AST及树遍历解释器。程序以.cn保存，使用“宣布、函数、上交、如果、否则、当”等中文关键字，并为同一词元提供英文别名。它具有整数、字符串、布尔值、数组、哈希表、函数和闭包，提供中文内置库与文件、交互执行入口。“指示、引用、篡改”组成Lisp式宏机制：宏先以AST为数据完成展开，解释器再执行展开后的程序。运行时以文本过滤、积分、日志和特殊错误处理表达政治讽刺主题。固定原例及完整源码链已静态核验；两个公开提交保存Cursor共同署名，具体生成比例与独立运行结果待核实。",
+    "author": "GitHub账号sjqtentacles维护，默认分支两次提交均由该账号署名。公开主页自述为编程语言爱好者并直接列出chinalang；账号所在地显示USA，作者身份及地域按公开自述记录。两次提交均含Cursor共同署名，具体人机分工待核实。",
+    "first_publication": "仓库创建时间2026-06-21T00:11:22Z。根提交e0054f918848f8ab2e8349952a7bb00dc73c9f13的作者与提交时间均为2026-06-21T00:11:05Z，保存解释器、原例及测试。Git时间早于仓库创建17秒，按各元数据原值分别记录；首次可公开访问时间待核实。",
+    "repository_created_at": "2026-06-21T00:11:22Z",
+    "repository_pushed_at": "2026-06-21T00:14:23Z",
+    "first_commit_at": "2026-06-21T00:11:05Z",
+    "latest_commit_at": "2026-06-21T00:14:14Z",
+    "release_status": "2026-10-10读取公开Releases集合为空，git/refs/tags返回404。语言正式版本、公开发行物及发布日期待核实。",
+    "features": [
+      "中文／英文关键字整词映射与Unicode标识符",
+      "Go实现rune词法器、Pratt解析和AST解释执行",
+      "整数、布尔、字符串、数组、哈希表与闭包",
+      "指示／引用／篡改的AST宏展开",
+      "中文与英文内置库名称",
+      "文本过滤、积分和错误处理的戏仿运行时",
+      "文件运行、持久环境REPL及公开测试源码"
+    ],
+    "code": "宣布 反之 = 指示(condition, consequence, alternative) {\n\t引用(如果 (!(篡改(condition))) {\n\t\t篡改(consequence);\n\t} 否则 {\n\t\t篡改(alternative);\n\t});\n};\n\n说 \"Is the State ever wrong?\";\n反之(假, 打印(\"The State is always right.\"), 打印(\"(this branch is unreachable)\"));",
+    "code_source": "https://github.com/sjqtentacles/chinalang/blob/59332f7c0d02c130257124cbbedbe8d2fd1cafc4/examples/directives.cn#L8-L17",
+    "code_context": "固定examples/directives.cn第8—17行，共10行连续原文，含完整“反之”宏定义、输出及宏调用；中文关键字、英文参数名、制表符缩进和原例字符串均保留。全文与按行读取逐字一致。该例展示宏将分支AST拼接后交给解释器执行；运行结果待独立核实。",
+    "implementation": "Go模块go.mod自标1.26.2。lexer按[]rune扫描，token.LookupIdent将中英文整词映射为词元；parser以前缀、中缀注册表和优先级解析表达式，并构造自有AST。main.go串接文件读取→lexer.New→parser.ParseProgram→DefineMacros→ExpandMacros→Eval。宏定义进入独立macroEnv，实参冻结为Quote，宏体经Clone复制后求值，ExpandMacros以返回的AST替换调用。Eval按节点类型执行，函数对象捕获环境并以外层环境链绑定调用参数。REPL沿用相同流水线并保存变量、宏和运行时状态。解释器核心由仓库内Go包和标准库组成。",
+    "version": "固定main提交59332f7c0d02c130257124cbbedbe8d2fd1cafc4时间2026-06-21T00:14:14Z，修改README项目定位；语言版本号待核实。README写Go1.26+，go.mod声明Go1.26.2；两者按工具链要求记录。公开发行和语言整体许可证待核实。",
+    "relations": "README、.cn原例、Go模块、main入口及作者主页互链确立该项目身份，GitHub元数据fork=false。宏机制采用Lisp式引用与AST重写；与外部解释器、教材源码的具体继承关系待原作者说明核实。GitHub同名检索另返回Rubell1on/chinalang，账号与仓库身份分别保留，二者同源关系待核实。",
+    "status": "按双关键字戏仿语言与独立AST解释器形成分类资料。中文宏原例、词法／Pratt解析／AST展开及执行链、作者和提交时间已核；语言许可、正式发行、独立运行及具体AI生成比例待核实。",
+    "verification_notes": "2026-10-10只读核验。固定递归树60项、52个文件、18份_test.go和14份.cn原例，truncated=false。初始提交加入52个文件，两次提交均带“Co-authored-by: Cursor”尾注，证据范围覆盖初始源码提交与README修改，具体文件或行级AI归属待核实。空值在运行时以object.Null表示，并由越界、缺键及默认分支产生；裸null语法及语义待核实。五年计划源码设5次循环并绑定规划，返回值、错误与Detained状态触发提前结束。宏返回值类型检查使用panic，参数异常、嵌套宏边界、REPL括号平衡与字符串／注释的交互待核实。测试文件按已保存测试源码记录，独立测试结果待核实。许可元数据为null，固定树的许可文本待核实。",
+    "verified_at": "2026-10-10",
+    "references": [
+      {
+        "title": "固定README：项目定位与双语关键字",
+        "url": "https://github.com/sjqtentacles/chinalang/blob/59332f7c0d02c130257124cbbedbe8d2fd1cafc4/README.md#L1-L88"
+      },
+      {
+        "title": "固定连续中文宏定义及调用原例",
+        "url": "https://github.com/sjqtentacles/chinalang/blob/59332f7c0d02c130257124cbbedbe8d2fd1cafc4/examples/directives.cn#L8-L17"
+      },
+      {
+        "title": "固定中英文关键字查表",
+        "url": "https://github.com/sjqtentacles/chinalang/blob/59332f7c0d02c130257124cbbedbe8d2fd1cafc4/token/token.go#L70-L127"
+      },
+      {
+        "title": "rune词法扫描与关键字识别",
+        "url": "https://github.com/sjqtentacles/chinalang/blob/59332f7c0d02c130257124cbbedbe8d2fd1cafc4/lexer/lexer.go#L18-L138"
+      },
+      {
+        "title": "Unicode标识符与字符串扫描",
+        "url": "https://github.com/sjqtentacles/chinalang/blob/59332f7c0d02c130257124cbbedbe8d2fd1cafc4/lexer/lexer.go#L141-L209"
+      },
+      {
+        "title": "固定AST节点定义",
+        "url": "https://github.com/sjqtentacles/chinalang/blob/59332f7c0d02c130257124cbbedbe8d2fd1cafc4/ast/ast.go#L10-L429"
+      },
+      {
+        "title": "Pratt解析器注册及语句构造",
+        "url": "https://github.com/sjqtentacles/chinalang/blob/59332f7c0d02c130257124cbbedbe8d2fd1cafc4/parser/parser.go#L12-L199"
+      },
+      {
+        "title": "表达式优先级及中文宏解析",
+        "url": "https://github.com/sjqtentacles/chinalang/blob/59332f7c0d02c130257124cbbedbe8d2fd1cafc4/parser/parser.go#L310-L521"
+      },
+      {
+        "title": "文件读取、宏展开及AST执行完整入口",
+        "url": "https://github.com/sjqtentacles/chinalang/blob/59332f7c0d02c130257124cbbedbe8d2fd1cafc4/main.go#L14-L52"
+      },
+      {
+        "title": "AST解释、闭包及函数调用",
+        "url": "https://github.com/sjqtentacles/chinalang/blob/59332f7c0d02c130257124cbbedbe8d2fd1cafc4/evaluator/evaluator.go#L16-L120"
+      },
+      {
+        "title": "函数调用环境与实参绑定",
+        "url": "https://github.com/sjqtentacles/chinalang/blob/59332f7c0d02c130257124cbbedbe8d2fd1cafc4/evaluator/evaluator.go#L419-L466"
+      },
+      {
+        "title": "环境链和常量绑定",
+        "url": "https://github.com/sjqtentacles/chinalang/blob/59332f7c0d02c130257124cbbedbe8d2fd1cafc4/object/object.go#L217-L282"
+      },
+      {
+        "title": "宏定义提取、参数引用和AST替换",
+        "url": "https://github.com/sjqtentacles/chinalang/blob/59332f7c0d02c130257124cbbedbe8d2fd1cafc4/evaluator/macro_expansion.go#L8-L119"
+      },
+      {
+        "title": "引用与反引用的AST拼接",
+        "url": "https://github.com/sjqtentacles/chinalang/blob/59332f7c0d02c130257124cbbedbe8d2fd1cafc4/evaluator/quote_unquote.go#L11-L78"
+      },
+      {
+        "title": "宏展开的AST复制",
+        "url": "https://github.com/sjqtentacles/chinalang/blob/59332f7c0d02c130257124cbbedbe8d2fd1cafc4/ast/clone.go#L3-L96"
+      },
+      {
+        "title": "中英文内置库与打印",
+        "url": "https://github.com/sjqtentacles/chinalang/blob/59332f7c0d02c130257124cbbedbe8d2fd1cafc4/evaluator/builtins.go#L19-L54"
+      },
+      {
+        "title": "语义内的文本过滤与错误处理",
+        "url": "https://github.com/sjqtentacles/chinalang/blob/59332f7c0d02c130257124cbbedbe8d2fd1cafc4/evaluator/firewall.go#L11-L153"
+      },
+      {
+        "title": "运行时积分、惩罚及日志",
+        "url": "https://github.com/sjqtentacles/chinalang/blob/59332f7c0d02c130257124cbbedbe8d2fd1cafc4/evaluator/state.go#L5-L109"
+      },
+      {
+        "title": "五年计划循环及提前返回条件",
+        "url": "https://github.com/sjqtentacles/chinalang/blob/59332f7c0d02c130257124cbbedbe8d2fd1cafc4/evaluator/evaluator.go#L315-L339"
+      },
+      {
+        "title": "REPL宏展开执行链",
+        "url": "https://github.com/sjqtentacles/chinalang/blob/59332f7c0d02c130257124cbbedbe8d2fd1cafc4/repl/repl.go#L76-L137"
+      },
+      {
+        "title": "示例测试入口与宏原例断言",
+        "url": "https://github.com/sjqtentacles/chinalang/blob/59332f7c0d02c130257124cbbedbe8d2fd1cafc4/evaluator/examples_test.go#L183-L202"
+      },
+      {
+        "title": "Go模块工具链声明",
+        "url": "https://github.com/sjqtentacles/chinalang/blob/59332f7c0d02c130257124cbbedbe8d2fd1cafc4/go.mod#L1-L3"
+      },
+      {
+        "title": "初始源码提交与Cursor共同署名",
+        "url": "https://github.com/sjqtentacles/chinalang/commit/e0054f918848f8ab2e8349952a7bb00dc73c9f13"
+      },
+      {
+        "title": "README修订提交与Cursor共同署名",
+        "url": "https://github.com/sjqtentacles/chinalang/commit/59332f7c0d02c130257124cbbedbe8d2fd1cafc4"
+      },
+      {
+        "title": "公开发行列表",
+        "url": "https://github.com/sjqtentacles/chinalang/releases"
+      },
+      {
+        "title": "作者公开主页与本项目互链",
+        "url": "https://github.com/sjqtentacles"
+      }
+    ],
+    "id": "lang-070"
+  },
+  {
+    "name": "云易（云易IDE中文前端）",
+    "aliases": [
+      "云易",
+      "云易IDE",
+      "YUNYIIDE"
+    ],
+    "category": "易语言风格中文C++转译实现／Web IDE",
+    "author": "Bilibili账号“吃我一猫爪”（UID3546916505782992）；原片简介直接指向GitHub hualiang1k/YUNYIIDE。个人姓名与团队分工待核实。",
+    "first_publication": "已核对同作者云易IDE原片BV122ej6yE3b，video:release_date为2026-09-15T02:36:53.000Z（北京时间2026-09-15 10:36:53）。GitHub仓库创建于2026-10-01T08:56:17Z。更早首发日待核实。",
+    "description": "云易是云易IDE内以中文语法编写.yy文件的转译前端。作者将其描述为易语言语法的中文C++开发工具。公开归档包含Python实现的词法分析器、AST语法分析器、语义检查和C++代码生成器，构建模块调用MinGW g++生成Windows程序。源程序以“子程序”“变量”“整数型”“如果”“计次循环”“当循环”等组织结构，并提供DLL导出、API声明、数据类型及类函数语法。配套IDE采用HTML/JavaScript前端和Python HTTP后端，作者视频及源码资料介绍Qt、Sciter界面库与AI智能体。条目按独立中文转译实现记录，易语言完整兼容性及源码继承关系继续核实。",
+    "features": [
+      ".yy中文源文件与Python词法／AST解析",
+      "中文变量、类型、条件、循环和子程序结构",
+      "语义检查后生成C++，构建路径调用MinGW g++",
+      "导出子程序、API在库声明、数据类型与类函数",
+      "Web IDE及Qt／Sciter界面库材料",
+      "AI智能体模块与作者演示材料"
+    ],
+    "code": "  变量 整数型 剩余\n  剩余 = 3\n  输出(\"② 当循环：\")\n  当循环 剩余 > 0\n    输出(\"  剩余\", 到文本(剩余), \"颗糖\")\n    剩余 = 剩余 - 1\n  结束循环",
+    "code_source": "https://github.com/hualiang1k/YUNYIIDE/blob/53d814b5a36c7fae2f66e0a4358ef35b8e5d2375/%E4%B8%8D%E5%AE%8C%E6%95%B4%E7%9A%84%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83.zip",
+    "code_context": "固定提交归档“不完整的软件开发环境.zip”内“工作区/循环演示/main.yy”第11—17行连续原文，UTF-8读取，保留两空格缩进；这是“子程序 程序入口() 整数型”内部片段。完整文件39行，另演示计次循环、判断循环首和循环判断首，最后返回0。代码经过文本静态核验，运行结果待核实。",
+    "implementation": "公开归档中yunyi/lexer.py的tokenize处理.yy词法；yunyi/parser.py第979—994行把Token流转换为AST，第479—493行直接分派中文条件和循环关键字。yunyi/builder.py第365—434行读取.yy、调用parse_files及check_program，第477行调用generate_cpp；compile_yunyi第529行调用translate，第553—563行定位MinGW g++并加入C++17编译参数，第611行调用toolchain.run。yunyi/codegen.py第543—587行将IfStmt、ForRange、WhileStmt与DoWhileStmt生成C++控制结构。上述内容按静态源码可见记录；构建、执行和依赖完整性待核实。",
+    "version": "固定头提交53d814b5a36c7fae2f66e0a4358ef35b8e5d2375，提交时间2026-10-01T09:02:45Z。归档yunyi/__init__.py将编译器包版本设为1.0.0；GitHub Releases查询返回空数组。包版本与独立正式发行关系待核实。",
+    "relations": "2026-09-19同作者原片BV1PBeh67E31简介明确使用“易语言语法”表述；parser.py第592行也将判断链称为易语言式。所读实现有自身Python词法、AST解析和C++代码生成路径；顶层支持范围由parse_program分派定义，传统易语言源格式的兼容范围待核实。按易语言风格转译实现分类，完整兼容范围、上游代码继承以及与传统易语言或其他同名项目的版本关系待核实。GitHub fork=false只用于仓库元数据识别。",
+    "ai_involvement": "同作者BV1PBeh67E31标题称AI已上线。归档包含server/The_future_is_promising的Python智能体模块；其README说明与dsh／deepseek-harness路线的重写关系。编译器核心的AI生成范围、开发记录及智能体功能运行状态待核实。",
+    "status": "原作者视频与公开GitHub归档可读；归档内中文原例、词法器、解析器、语义检查及C++生成链已完成静态核验。原仓库LICENSE为AGPL-3.0；第三方依赖与归档全部内容的许可适用范围待核实。",
+    "verification_notes": "2026-10-10只读核验。GitHub文件树只有README.md、LICENSE及1965910字节ZIP；README另提供夸克盘“完整源码”入口，本轮证据采用GitHub固定归档。通过公开网页浏览器下载默认分支原文件后复算Git blob SHA=95e1a30b01bcefab55c6ed35eadbcbfea0efa66c，与固定提交树完全相同，固定来源可追溯。归档以Python标准库zipfile读取文本，项目模块、脚本和二进制均保持未执行。BV122ej6yE3b约00:32—00:34可见main.yy中的中文导出子程序和返回结构，画面精确字符转录待核实；代码采用归档原例。BV1D6aB63EUh页面初始显示2026-10-01 17:29:41，BV1PBeh67E31初始显示2026-09-19 21:23:40，二者精确UTC元数据待核实。",
+    "verified_at": "2026-10-10",
+    "references": [
+      {
+        "title": "原作者开源视频：简介直接给GitHub仓库",
+        "url": "https://www.bilibili.com/video/BV1D6aB63EUh/"
+      },
+      {
+        "title": "原作者云易IDE演示：2026-09-15元数据及中文代码画面",
+        "url": "https://www.bilibili.com/video/BV122ej6yE3b/"
+      },
+      {
+        "title": "原作者AI与Qt／Sciter演示：易语言语法定位",
+        "url": "https://www.bilibili.com/video/BV1PBeh67E31/"
+      },
+      {
+        "title": "作者主页",
+        "url": "https://space.bilibili.com/3546916505782992/"
+      },
+      {
+        "title": "固定README：Web架构与中文→C++→MinGW路线",
+        "url": "https://github.com/hualiang1k/YUNYIIDE/blob/53d814b5a36c7fae2f66e0a4358ef35b8e5d2375/README.md"
+      },
+      {
+        "title": "固定公开源码归档：中文.yy原例、yunyi解析器及构建链",
+        "url": "https://github.com/hualiang1k/YUNYIIDE/blob/53d814b5a36c7fae2f66e0a4358ef35b8e5d2375/%E4%B8%8D%E5%AE%8C%E6%95%B4%E7%9A%84%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83.zip"
+      },
+      {
+        "title": "固定提交完整树与归档Git blob SHA",
+        "url": "https://api.github.com/repos/hualiang1k/YUNYIIDE/git/trees/53d814b5a36c7fae2f66e0a4358ef35b8e5d2375?recursive=1"
+      },
+      {
+        "title": "固定LICENSE：AGPL-3.0",
+        "url": "https://github.com/hualiang1k/YUNYIIDE/blob/53d814b5a36c7fae2f66e0a4358ef35b8e5d2375/LICENSE"
+      }
+    ],
+    "id": "lang-071"
   }
 ]
