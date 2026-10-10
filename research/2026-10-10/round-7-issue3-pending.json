@@ -1,0 +1,162 @@
+[
+  {
+    "name": "PYCH",
+    "aliases": [
+      "PYCH-Language"
+    ],
+    "source_issue": "https://github.com/yuyan-lang/chinese-programming-languages/issues/3",
+    "classification": "Python宿主中文脚本语言候选",
+    "disposition": "继续待核实",
+    "author": "GitHub账号qingsububao，根提交与各发行作者一致。",
+    "date": "建库2026-07-16T16:27:38Z；根提交de4737e7df3fa0958617fa181745c270af73954b为2026-07-16T16:32:39Z。首个所读发行pych0发布于2026-07-16T16:59:35Z；pych1.0正式发行发布于2026-07-16T17:19:29Z。语言首次公开日期待核实。",
+    "findings": "固定main树包含README.md，全文2行，介绍Python宿主、.pych后缀及交互／脚本两种模式。Release列表取得8项，资产包括单文件main.py及早期多文件解释器。9个标签均指向同一个仅含README的提交de4737e7df3fa0958617fa181745c270af73954b；源码附件采用资产ID和SHA256标识。4.1.a发行说明计划增加“如果、当时、重复、对于”，这些词汇作为作者计划记录。可引用的连续中文原程序、源码中的词元处理与实际执行路径待核实。",
+    "versions": [
+      {
+        "tag": "4.1.a",
+        "name": "pych4.1第四版第一代半成品试验工程",
+        "published_at": "2026-07-17T07:04:11Z",
+        "url": "https://github.com/qingsububao/PYCH-Language/releases/tag/4.1.a"
+      },
+      {
+        "tag": "pych4.0",
+        "name": "pych4.0第四版正式发布",
+        "published_at": "2026-07-16T17:54:24Z",
+        "url": "https://github.com/qingsububao/PYCH-Language/releases/tag/pych4.0"
+      },
+      {
+        "tag": "pych3.2",
+        "name": "pych3.2第三版第二代正式发布",
+        "published_at": "2026-07-16T17:48:26Z",
+        "url": "https://github.com/qingsububao/PYCH-Language/releases/tag/pych3.2"
+      },
+      {
+        "tag": "pych3.1",
+        "name": "pych3.1第三版第一代正式发布",
+        "published_at": "2026-07-16T17:42:48Z",
+        "url": "https://github.com/qingsububao/PYCH-Language/releases/tag/pych3.1"
+      },
+      {
+        "tag": "pych3.0",
+        "name": "pych3.0第三版正式发布",
+        "published_at": "2026-07-16T17:38:18Z",
+        "url": "https://github.com/qingsububao/PYCH-Language/releases/tag/pych3.0"
+      },
+      {
+        "tag": "pych2.0",
+        "name": "pych2.0第二版正式发布",
+        "published_at": "2026-07-16T17:29:22Z",
+        "url": "https://github.com/qingsububao/PYCH-Language/releases/tag/pych2.0"
+      },
+      {
+        "tag": "pych1.0",
+        "name": "pych1.0第一版正式发布",
+        "published_at": "2026-07-16T17:19:29Z",
+        "url": "https://github.com/qingsububao/PYCH-Language/releases/tag/pych1.0"
+      },
+      {
+        "tag": "pych0",
+        "name": "pych最原始最早期的模型版本",
+        "published_at": "2026-07-16T16:59:35Z",
+        "url": "https://github.com/qingsububao/PYCH-Language/releases/tag/pych0"
+      }
+    ],
+    "assets": [
+      {
+        "id": 479462953,
+        "tag": "pych4.0",
+        "name": "main.py",
+        "size": 15508,
+        "sha256": "7169b20e365e86456fff8a627b2f33f7d79a12a392b02de3c7c8170cf8306e9a",
+        "url": "https://github.com/qingsububao/PYCH-Language/releases/download/pych4.0/main.py"
+      },
+      {
+        "id": 480076657,
+        "tag": "4.1.a",
+        "name": "main.1.py",
+        "size": 14387,
+        "sha256": "10bde4d680b6626e03518a1ceb45653c9a1fbb3ab8105df8d51642f5dfb4bfbe",
+        "url": "https://github.com/qingsububao/PYCH-Language/releases/download/4.1.a/main.1.py"
+      },
+      {
+        "id": 480078995,
+        "tag": "4.1.a",
+        "name": "main.py",
+        "size": 15048,
+        "sha256": "5833c3b0f00f72478625450383c059d9c9d5c02fd26fbf3e66801b88e2a246a4",
+        "url": "https://github.com/qingsububao/PYCH-Language/releases/download/4.1.a/main.py"
+      }
+    ],
+    "access_notes": "GitHub只读附件读取返回404，普通网页读取返回缓存未命中。公开云浏览器成功读取pych4.0发行页与资产SHA256；点击main.py时遇到浏览器URL协议安全限制，此处停止附件访问。公开Issues列表为空，公开Discussions页显示初始欢迎界面。固定仓库树的图片、独立例程与实现正文继续待核实。",
+    "next_step": "取得可公开静态阅读的发行源码文本或作者连续原例；按资产SHA256核对具体版本，再检查关键词、求值与脚本／交互入口。原作者安全公开文本镜像也可作为后续资料入口。",
+    "references": [
+      {
+        "title": "固定README",
+        "url": "https://github.com/qingsububao/PYCH-Language/blob/de4737e7df3fa0958617fa181745c270af73954b/README.md#L1-L2"
+      },
+      {
+        "title": "固定文件树",
+        "url": "https://github.com/qingsububao/PYCH-Language/tree/de4737e7df3fa0958617fa181745c270af73954b"
+      },
+      {
+        "title": "正式4.0发行、作者与源码资产摘要",
+        "url": "https://github.com/qingsububao/PYCH-Language/releases/tag/pych4.0"
+      },
+      {
+        "title": "4.1.a实验发行与控制流计划",
+        "url": "https://github.com/qingsububao/PYCH-Language/releases/tag/4.1.a"
+      },
+      {
+        "title": "发行沿革",
+        "url": "https://github.com/qingsububao/PYCH-Language/releases"
+      },
+      {
+        "title": "4.0源码资产元数据与SHA256",
+        "url": "https://api.github.com/repos/qingsububao/PYCH-Language/releases/assets/479462953"
+      },
+      {
+        "title": "所有标签与目标提交",
+        "url": "https://api.github.com/repos/qingsububao/PYCH-Language/git/refs/tags"
+      }
+    ],
+    "verified_at": "2026-10-10"
+  },
+  {
+    "name": "52zwbc中文CPython仓库组",
+    "aliases": [
+      "python313zw",
+      "python314zw"
+    ],
+    "classification": "CPython中文方言关联候选／归属及分组待核实",
+    "disposition": "外围关联线索留待后续核验",
+    "repositories": [
+      "https://github.com/52zwbc/python313zw",
+      "https://github.com/52zwbc/python314zw"
+    ],
+    "findings": "52zwbc账号仓库检索返回两个CPython中文修改仓库。python313zw当前固定提交84fee06c5dd87bc5547d7c715a1e760dc107c720，提交时间2026-10-09T10:59:36Z，递归树5495项；README.rst自标Python3.13.16，Lib/_zh_builtins.py含中文内置包装与启动加载说明。python314zw当前固定提交a14d42425a5f9c845555783e4ed1cadad7b7df43，提交时间2026-10-06T23:26:30Z，递归树5787项；README.rst自标Python3.14.8，test_zh.py提供中文“打印”“如果”原例。两树truncated=false。CPython版本字符串按仓库自标记录。",
+    "relations": "两仓由52zwbc账号维护，zw官网安装入口含zwpy313_2_win7.exe等文件名。zw／zwpy文档描述.zw转换和配套运行时。上述信息提供关联线索；具体发行附件对应、中文语法一致性、两仓分支沿革及与zwpy的统一项目关系待核实。当前放在一个关联线索组，最终条目分组待核实。",
+    "next_step": "从作者明确互链、发行说明、插件代码或共享提交建立关系，再决定作为zwpy实现阶段或独立CPython中文方言收录。核验原始CPython来源、中文关键词入口、内置注册及版本对应。",
+    "references": [
+      {
+        "title": "python314zw固定中文冒烟原例",
+        "url": "https://github.com/52zwbc/python314zw/blob/a14d42425a5f9c845555783e4ed1cadad7b7df43/test_zh.py#L1-L24"
+      },
+      {
+        "title": "python314zw固定版本自标",
+        "url": "https://github.com/52zwbc/python314zw/blob/a14d42425a5f9c845555783e4ed1cadad7b7df43/README.rst#L1"
+      },
+      {
+        "title": "python313zw固定中文内置源码",
+        "url": "https://github.com/52zwbc/python313zw/blob/84fee06c5dd87bc5547d7c715a1e760dc107c720/Lib/_zh_builtins.py"
+      },
+      {
+        "title": "python313zw固定版本自标",
+        "url": "https://github.com/52zwbc/python313zw/blob/84fee06c5dd87bc5547d7c715a1e760dc107c720/README.rst#L1"
+      },
+      {
+        "title": "zw官网固定发行文件名",
+        "url": "https://github.com/52zwbc/52zwbc.github.io/blob/c8deec64414b6bde6c56a3bb6e1f968895f4e4e0/index.html#L281-L297"
+      }
+    ],
+    "verified_at": "2026-10-10"
+  }
+]

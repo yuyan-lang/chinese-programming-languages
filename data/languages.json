@@ -1072,19 +1072,23 @@
     "aliases": [
       "WenYu"
     ],
-    "category": "语言",
-    "author": "bikthh（账号；实名待核实）",
-    "first_publication": "仓库创建 2026-07-14；语言首次公开发布日期待核实",
-    "description": "【语言】中文关键字通用语言，提供并发、通道及AI服务接口。",
+    "category": "中文关键字语言／JavaScript实现的字节码虚拟机",
+    "author": "bikthh（仓库账号）；现存Git提交署名sunchuan、孙川。仓库账号与提交者姓名的对应关系待核实。",
+    "first_publication": "仓库创建于2026-07-14T07:47:51Z；现存根提交bbeaab28的作者与提交者时间为2026-07-14T09:14:44Z，提交说明已使用“文语 v3.0”。语言首次对外公开的精确时点待核实。",
+    "description": "文语（WenYu）是一项以中文关键字组织程序、以JavaScript实现工具链的编程语言项目。源文件采用.wy后缀，通过“变量”“函数”“如果”“否则”“循环”“对于……在……”表达声明、分支、函数和迭代，使用花括号划定语句块，并提供数组、字典、切片和列表推导式等写法。默认命令行入口把源码依次交给词法分析器、递归下降与Pratt解析器、字节码编译器和栈式虚拟机。项目还保存斐波那契、排序、通道选择和多返回值等示例。通道实现采用缓冲队列及Promise等待；AI模块通过中文函数名封装外部模型服务的HTTP请求。README以Go风格并发和Python风格简洁说明设计取向。各功能按固定源码中的解析、编译、运行和服务调用路径分别记录，启动协程的端到端接入与服务可用性属于待核实范围。",
     "features": [
-      "中文语法／关键字",
-      "有公开实现源码"
+      "中文变量、函数、条件与循环语法",
+      "花括号语句块、数组与字典",
+      "切片、列表推导式与多返回值源码",
+      "JavaScript编译器及栈式字节码VM",
+      "Promise通道和选择指令源码",
+      "中文AI服务HTTP接口封装"
     ],
-    "code": "变量 回复 = AI.对话([\n    AI.系统(\"用中文回答\"),\n    AI.用户(\"什么是编程？\")\n])",
-    "implementation": "JavaScript 实现词法、递归下降/Pratt 解析、编译器与栈式字节码 VM。",
-    "status": "已有源码；未在本次研究中编译或执行",
-    "version": "3.1（README自述）",
-    "relations": "README明确自称Go风格并发与Python风格简洁；与文言是不同仓库，未发现继承或兼容声明；.wy同后缀不作合并依据。",
+    "code": "函数 斐波那契递归(n) {\n    如果 n <= 1 {\n        返回 n\n    }\n    返回 斐波那契递归(n - 1) + 斐波那契递归(n - 2)\n}",
+    "implementation": "JavaScript／Node.js实现。main.js的runSource依次调用Lexer、Parser.parseProgram、Compiler.compile及VM.run；launcher.js也采用该链路。Lexer先读完整标识符，再由token.js精确查询关键字；Parser注册前缀／中缀规则并按优先级构造AST，Compiler生成CodeObject，VM用栈、调用帧和指令分派执行并等待Promise。选择语句连接到SELECT_WAIT与Channel.select，channel.js以数组保存缓冲、发送者和接收者。AI由VM把模块名映射至stdlib/ai.js，后者用Node的http／https封装对话、流式、图像和向量接口；对话路径分别处理OpenAI兼容协议、Anthropic及本地Ollama。README标注MIT License；独立许可证正文与版权授权范围待补核实。",
+    "status": "公开源码、中文原例及VM主入口可读；仓库归档标记为false。启动协程的解析／编译接入、调度器所需VM方法、AI服务调用效果、构建产物及当前维护计划待核实。研究范围为静态资料核验。",
+    "version": "README标题标注v3.1；package.json和main.js的VERSION均为3.0.0，launcher.js显示v3.0。核验main固定提交c550aa8b80e6682914164d89b497c05f9e3d760b，作者时间2026-07-15T04:28:56Z、提交者时间04:41:50Z。GitHub Releases与标签引用集合均为空；正式发行物待核实。",
+    "relations": "README明确以Go风格并发和Python风格简洁描述设计取向。文语具有自己的JavaScript词法、解析、编译和VM文件，与文言项目按各自仓库分别记录。两者的源码继承、兼容关系及.wy后缀关系待核实。现存提交含Gitee提交者记录，相关Gitee仓库的同源关系待核实。",
     "references": [
       {
         "title": "项目README（核验快照）",
@@ -1097,12 +1101,71 @@
       {
         "title": "仓库元数据",
         "url": "https://api.github.com/repos/bikthh/wenyu"
+      },
+      {
+        "title": "固定中文递归原例",
+        "url": "https://github.com/bikthh/wenyu/blob/c550aa8b80e6682914164d89b497c05f9e3d760b/examples/fibonacci.wy#L4-L9"
+      },
+      {
+        "title": "默认运行链与CLI版本",
+        "url": "https://github.com/bikthh/wenyu/blob/c550aa8b80e6682914164d89b497c05f9e3d760b/main.js#L16-L63"
+      },
+      {
+        "title": "完整标识符与精确关键字查询",
+        "url": "https://github.com/bikthh/wenyu/blob/c550aa8b80e6682914164d89b497c05f9e3d760b/lexer.js#L126-L145"
+      },
+      {
+        "title": "Pratt前缀与中缀解析注册",
+        "url": "https://github.com/bikthh/wenyu/blob/c550aa8b80e6682914164d89b497c05f9e3d760b/parser.js#L65-L99"
+      },
+      {
+        "title": "AST编译与选择语句字节码",
+        "url": "https://github.com/bikthh/wenyu/blob/c550aa8b80e6682914164d89b497c05f9e3d760b/compiler.js"
+      },
+      {
+        "title": "栈式VM、并发指令与模块桥接",
+        "url": "https://github.com/bikthh/wenyu/blob/c550aa8b80e6682914164d89b497c05f9e3d760b/vm.js"
+      },
+      {
+        "title": "通道缓冲、等待及多路选择",
+        "url": "https://github.com/bikthh/wenyu/blob/c550aa8b80e6682914164d89b497c05f9e3d760b/channel.js"
+      },
+      {
+        "title": "协程调度器及VM调用边界",
+        "url": "https://github.com/bikthh/wenyu/blob/c550aa8b80e6682914164d89b497c05f9e3d760b/coroutine.js#L127-L179"
+      },
+      {
+        "title": "AI服务配置、HTTP请求与导出接口",
+        "url": "https://github.com/bikthh/wenyu/blob/c550aa8b80e6682914164d89b497c05f9e3d760b/stdlib/ai.js"
+      },
+      {
+        "title": "包版本及Node.js打包入口",
+        "url": "https://github.com/bikthh/wenyu/blob/c550aa8b80e6682914164d89b497c05f9e3d760b/package.json"
+      },
+      {
+        "title": "现存根提交与sunchuan署名",
+        "url": "https://github.com/bikthh/wenyu/commit/bbeaab28b54cf6fe836379950aed7f9a6abbd781"
+      },
+      {
+        "title": "核验提交与孙川署名",
+        "url": "https://github.com/bikthh/wenyu/commit/c550aa8b80e6682914164d89b497c05f9e3d760b"
+      },
+      {
+        "title": "发行记录集合",
+        "url": "https://api.github.com/repos/bikthh/wenyu/releases"
+      },
+      {
+        "title": "标签引用集合",
+        "url": "https://api.github.com/repos/bikthh/wenyu/git/matching-refs/tags"
       }
     ],
-    "verification_notes": "2026-10-09只读核验。1星，非fork；最后推送2026-07-26T06:22:33Z。日期为仓库创建不代表首发。功能、性能、通过测试数量未独立复测。",
-    "code_source": "https://github.com/bikthh/wenyu/blob/c550aa8b80e6682914164d89b497c05f9e3d760b/README.md",
+    "verification_notes": "2026-10-10只读复核，保留原有三项引用。仓库为独立仓库，1星，pushed_at为2026-07-26T06:22:33Z。源码快照与默认分支相同。词法实现采用完整标识符加精确查表；README的Trie说法对应实现待核实。并发证据已拆分：token含SPAWN、VM有OP.SPAWN，Parser／Compiler接入待核实；Scheduler引用的_doCallWithEnv对应VM实现待核实。AI默认服务商为Agnes，接口和模型名称为源码配置，在线可用性待核实。运行、性能和示例输出待独立验证。",
+    "code_source": "https://github.com/bikthh/wenyu/blob/c550aa8b80e6682914164d89b497c05f9e3d760b/examples/fibonacci.wy#L4-L9",
     "id": "lang-019",
-    "verified_at": "2026-10-09"
+    "verified_at": "2026-10-10",
+    "repository_created_at": "2026-07-14T07:47:51Z",
+    "repository_pushed_at": "2026-07-26T06:22:33Z",
+    "code_context": "固定提交examples/fibonacci.wy第4—9行连续原文，保留原始缩进与换行。这是完整的递归函数定义，展示“函数”“如果”“返回”；调用语句位于原文件后段。本轮核对原文及静态实现，执行结果待独立验证。"
   },
   {
     "name": "灵语",
@@ -1110,18 +1173,22 @@
       "LingYu"
     ],
     "category": "Python 中文方言／关键字转译层",
-    "author": "jzm（源码版权署名）",
-    "first_publication": "仓库创建 2026-09-02；语言首次公开发布日期待核实",
-    "description": "【Python 中文方言／关键字转译层】将中文关键字、内置函数与库别名映射到Python的中文编程实现。",
+    "author": "jzm（README、源码版权及Git提交署名）；仓库与发行账号为jzm3。",
+    "first_publication": "仓库创建于2026-09-02T02:24:37Z；现存根提交fc24eeb2的作者与提交者时间为2026-09-02T04:45:29Z。可核实的v1.0.0 GitHub发行发布时间为2026-09-02T08:17:14Z。语言更早的公开记录待核实。",
+    "description": "灵语（LingYu）是以Python语法和CPython运行时为基础的中文方言及关键字转译层，源文件使用.灵后缀。程序以“定义”“若”“否则”“循环”“于”“返回”等中文词表达Python对应结构，保留缩进语句块、函数、类、异常处理、生成器及异步语法的组织方式。核心翻译器调用Python标准库tokenize，按词元位置替换关键字、内置函数、特殊名称和预定义成员名，生成Python源码后交给compile与exec。普通字符串和注释保留内容，f-string表达式另有专门处理。标准库模块别名在导入语境建立绑定，第三方库中文接口通过词表和导入钩子组织。仓库提供命令行、交互式环境、中文诊断、多文件导入、桌面编辑器源码及多类中文示例，v1.0.0发行页提供Windows安装版和便携版。兼容性与性能范围按固定实现及独立验证状态分别记录。",
     "features": [
-      "中文语法／关键字",
-      "有公开实现源码"
+      "与Python结构对应的中文关键字及缩进语法",
+      "tokenize词元级转译和CPython执行",
+      "普通字符串、注释保留及f-string辅助翻译",
+      "预定义标准库模块、成员与对象方法别名",
+      "第三方库中文导入钩子与存在性检查",
+      "中文诊断、REPL及.灵多文件导入源码"
     ],
-    "code": "定义 斐波那契(n):\n    若 n <= 1:\n        返回 n",
-    "implementation": "Python token级转译为Python源码，由CPython执行；已核对keywords.py中文词法表。",
-    "status": "已有源码；未在本次研究中编译或执行",
-    "version": "1.0.0（README自述）",
-    "relations": "Python对应语法；与灵码、其他同名灵语关系待核实。",
+    "code": "定义 斐波那契(n):\n    若 n <= 1:\n        返回 n\n    返回 斐波那契(n - 1) + 斐波那契(n - 2)",
+    "implementation": "Python实现，pyproject.toml要求Python>=3.11。__main__.py将命令行源码或.灵文件交给compiler.py；compile_source调用translate后使用Python compile，执行阶段使用exec。文件路径还写出*_gen.py并使用代码缓存；importer.py为.灵模块安装导入钩子。translate.py仅对NAME／NUMBER／OP／ERRORTOKEN归一化全角字符，按词表及导入、点访问上下文替换名称；普通字符串和注释保留，普通引号f-string的花括号表达式另行翻译，三引号f-string在该辅助函数中保持原样。标准库别名由keywords.py维护；cnlib.py装载已安装的第三方模块，复制模块命名空间并按词表注入可解析的中文属性。LICENSE提供GNU AGPL v3正文；源码标注AGPL-3.0，包元数据标注AGPL-3.0-or-later。",
+    "status": "公开源码、中文原例、v1.0.0发行页及两个Windows发行附件可核实；仓库归档标记为false。固定实现的复杂f-string、各Python版本与第三方库版本适配、桌面运行效果及后续维护计划待核实。研究范围为静态资料核验。",
+    "version": "README、lingyu/__init__.py与pyproject.toml均标注1.0.0。GitHub v1.0.0为正式发行，published_at为2026-09-02T08:17:14Z；附注标签833d3bef指向固定源码fc24eeb21478bf60bf2184c8db02446c473b7980，标签时间为04:46:07Z。README另称桌面工作室v2，按工具版本说明记录。",
+    "relations": "源码复用Python标准库tokenize、compile／exec及importlib机制，语言语法按中文词表映射到Python结构。灵库是同仓库的第三方库中文加载与别名层；桌面工作室是同项目配套工具。README和发行页均指向pylingyu.com。与灵码及其他同名灵语项目的作者、源码继承和兼容关系待核实。",
     "references": [
       {
         "title": "项目README（核验快照）",
@@ -1134,12 +1201,67 @@
       {
         "title": "仓库元数据",
         "url": "https://api.github.com/repos/jzm3/lingyu"
+      },
+      {
+        "title": "完整中文递归函数原例",
+        "url": "https://github.com/jzm3/lingyu/blob/fc24eeb21478bf60bf2184c8db02446c473b7980/README.md#L52-L55"
+      },
+      {
+        "title": "词元替换、导入语境与字符串边界",
+        "url": "https://github.com/jzm3/lingyu/blob/fc24eeb21478bf60bf2184c8db02446c473b7980/lingyu/translate.py#L71-L257"
+      },
+      {
+        "title": "f-string表达式与三引号处理边界",
+        "url": "https://github.com/jzm3/lingyu/blob/fc24eeb21478bf60bf2184c8db02446c473b7980/lingyu/translate.py#L302-L415"
+      },
+      {
+        "title": "compile与exec执行链、生成文件及缓存",
+        "url": "https://github.com/jzm3/lingyu/blob/fc24eeb21478bf60bf2184c8db02446c473b7980/lingyu/compiler.py"
+      },
+      {
+        "title": "命令行、REPL和导出入口",
+        "url": "https://github.com/jzm3/lingyu/blob/fc24eeb21478bf60bf2184c8db02446c473b7980/lingyu/__main__.py"
+      },
+      {
+        "title": ".灵文件模块导入钩子",
+        "url": "https://github.com/jzm3/lingyu/blob/fc24eeb21478bf60bf2184c8db02446c473b7980/lingyu/importer.py"
+      },
+      {
+        "title": "灵库第三方模块装载与中文属性注入",
+        "url": "https://github.com/jzm3/lingyu/blob/fc24eeb21478bf60bf2184c8db02446c473b7980/lingyu/cnlib.py#L260-L329"
+      },
+      {
+        "title": "包版本、Python版本要求与许可标注",
+        "url": "https://github.com/jzm3/lingyu/blob/fc24eeb21478bf60bf2184c8db02446c473b7980/pyproject.toml"
+      },
+      {
+        "title": "源码版本及jzm版权署名",
+        "url": "https://github.com/jzm3/lingyu/blob/fc24eeb21478bf60bf2184c8db02446c473b7980/lingyu/__init__.py"
+      },
+      {
+        "title": "GNU AGPL v3许可证正文",
+        "url": "https://github.com/jzm3/lingyu/blob/fc24eeb21478bf60bf2184c8db02446c473b7980/LICENSE"
+      },
+      {
+        "title": "v1.0.0正式发行与Windows附件",
+        "url": "https://github.com/jzm3/lingyu/releases/tag/v1.0.0"
+      },
+      {
+        "title": "v1.0.0附注标签与固定提交对应",
+        "url": "https://api.github.com/repos/jzm3/lingyu/git/tags/833d3bef1ca4a6ceedbb701fba4e142d467ab60c"
+      },
+      {
+        "title": "现存根提交及作者日期",
+        "url": "https://github.com/jzm3/lingyu/commit/fc24eeb21478bf60bf2184c8db02446c473b7980"
       }
     ],
-    "verification_notes": "2026-10-09只读核验。0星，非fork；最后推送2026-09-02T04:46:12Z。日期为仓库创建不代表首发。功能、性能、通过测试数量未独立复测。",
-    "code_source": "https://github.com/jzm3/lingyu/blob/fc24eeb21478bf60bf2184c8db02446c473b7980/README.md",
+    "verification_notes": "2026-10-10只读复核，保留原有三项引用。仓库为独立仓库，0星，pushed_at为2026-09-02T04:46:12Z；默认分支和v1.0.0标签指向同一固定提交。转译规则与标准库表逐项按源码结构核对，覆盖范围以预定义表和上下文为界。README的“100%兼容”、测试通过数和约1.0x性能属于作者说明，独立运行结果待核实。发行附件仅核对名称、类型及元数据。官网本轮公开网页读取返回访问错误，在线运行及官网内容待核实。",
+    "code_source": "https://github.com/jzm3/lingyu/blob/fc24eeb21478bf60bf2184c8db02446c473b7980/README.md#L52-L55",
     "id": "lang-020",
-    "verified_at": "2026-10-09"
+    "verified_at": "2026-10-10",
+    "repository_created_at": "2026-09-02T02:24:37Z",
+    "repository_pushed_at": "2026-09-02T04:46:12Z",
+    "code_context": "固定README第52—55行连续原文，补齐原条目摘录中的递归返回分支，保留四空格缩进。这是完整的斐波那契函数定义，展示中文定义、条件和返回；原示例后段另有入口判断与调用。本轮为静态原文核对，执行结果待独立验证。"
   },
   {
     "name": "曜语",
@@ -3280,5 +3402,486 @@
       }
     ],
     "id": "lang-055"
+  },
+  {
+    "name": "PB（PengBooo）",
+    "aliases": [
+      "PB",
+      "pb-lang",
+      "ZHPY（nntandg）",
+      "CHPY（nntandg）"
+    ],
+    "description": "PB 是 PengBooo／彭博在 nntandg/pb-lang 仓库发布的中文语法转译语言，面向中文编程初学者。程序以“定义、返回、如果、否则、对于、在、执行”等词汇组织函数、条件和循环，并保留缩进结构。实现采用 Python 词法分析与语句翻译，将中文源码转换成 Python 后执行，配套中文标准库封装、交互环境和命令行工具。0.3.1 推荐 .pb 扩展名，同时保留 .zhpy 及 zhpy 命令。原仓库提供完整中文测试程序和 wheel、源码发行包；作者维护的状态文件记载了 ZHPY／CHPY 改名为 PB 的过程。",
+    "category": "Python 中文语法转译语言／教学工具",
+    "author": "PengBooo／彭博；固定 README 与 zhpy.py 第20—22行署名，pyproject.toml 署名 PengBooo / Pengbo。仓库与提交关联账号 nntandg。",
+    "first_publication": "pb-lang 仓库创建于2026-05-14T15:19:59Z，最早可见提交52f47bf7dc1f1e3a466e6a66397830e8832e724e的作者日期为2026-05-14T15:27:39Z，v0.3.1发布于2026-05-14T15:29:52Z。状态文件将开发阶段追溯到2026-05-11。同一GitHub账号下的2024年PengBooo仓库作为历史关联材料记录；PB的最早公开日期及两仓迁移关系待核实。",
+    "features": [
+      "中文函数、条件、循环及返回语法",
+      "中文运算符与保留缩进的程序结构",
+      "Python词法分析、语句翻译和执行入口",
+      "中文标准库封装与交互式命令行",
+      ".pb扩展名及.zhpy兼容入口",
+      "v0.3.1提供wheel与源码发行包"
+    ],
+    "code": "定义 平方(x):\n    返回 x 乘 x\n\n输出(平方(6))\n\n如果 平方(3) 等于 9 则\n    输出(\"条件判断正常\")\n否则:\n    输出(\"条件判断异常\")\n\n对于 i 在 范围(3) 执行\n    输出(i)",
+    "code_source": "https://github.com/nntandg/pb-lang/blob/ee2dc2845adf42a95e381d4b74b39dbd0552b9cb/tests/test_pb_extension.pb#L8-L19",
+    "code_context": "固定提交原文件第8—19行连续原文，展示平方函数、中文乘法、条件和循环。测试文件末尾的通过提示属于程序文本；独立运行结果待核实。",
+    "implementation": "Python实现。zhpy.py第443—486行的Lexer生成词元并处理缩进；第736—790行Translator遍历词元并输出Python语句。第988—1071行解析中文条件、循环和返回，第2054—2079行将Lexer、Translator、Python compile和exec串成执行路径。stdlib目录保存中文模块封装，pyproject.toml将pb与zhpy两命令指向同一main入口。",
+    "version": "固定源码版本为0.3.1，Python要求>=3.9，包分类为Alpha。GitHub v0.3.1发行时间2026-05-14T15:29:52Z，标签指向525f0957b0705922e765c27c061636d700c3f098，附件为pb-lang-0.3.1.tar.gz（30,881字节）及pb_lang-0.3.1-py3-none-any.whl（36,166字节）。本轮核验主分支提交ee2dc2845adf42a95e381d4b74b39dbd0552b9cb。 固定主分支提交的作者日期为2026-05-14T15:35:29Z。",
+    "relations": "PROJECT_STATE.json记载2026-05-14将ZHPY／CHPY展示名统一为PB，旧入口继续保留。同一GitHub账号下的nntandg/PengBooo在2024-08-28已有Python实现、.pb文件和“将…定义为／创建函数／函数创建结束”等语法；2024仓与2026仓的项目迁移、代码继承和连续版本关系待核实。目录中的周蟒使用gasolin/zhpy来源链，PB的同名ZHPY入口单独消歧。",
+    "status": "固定中文原例、Python转译与执行源码、作者署名及0.3.1发行元数据可读。完整运行验证、发行包内容复核、早期沿革和许可范围继续待核实。",
+    "verification_notes": "2026-10-10只读核验。完整仓库树、3条主分支提交、发行与标签引用已核对。README和状态文件中的测试成绩按作者说明记录。pyproject.toml声明MIT，完整许可证正文及授权范围待核实。AI参与情况待核实。2024年PengBooo作为本条关联材料保存，单独项目计数待关系核验。",
+    "verified_at": "2026-10-10",
+    "repository_created_at": "2026-05-14T15:19:59Z",
+    "repository_pushed_at": "2026-05-14T15:35:30Z",
+    "references": [
+      {
+        "title": "固定README：作者、语法、版本和改名说明",
+        "url": "https://github.com/nntandg/pb-lang/blob/ee2dc2845adf42a95e381d4b74b39dbd0552b9cb/README.md"
+      },
+      {
+        "title": "固定中文函数、条件与循环原例",
+        "url": "https://github.com/nntandg/pb-lang/blob/ee2dc2845adf42a95e381d4b74b39dbd0552b9cb/tests/test_pb_extension.pb#L8-L19"
+      },
+      {
+        "title": "固定词法器与翻译器源码",
+        "url": "https://github.com/nntandg/pb-lang/blob/ee2dc2845adf42a95e381d4b74b39dbd0552b9cb/zhpy.py#L443-L486"
+      },
+      {
+        "title": "固定中文条件、循环及返回处理",
+        "url": "https://github.com/nntandg/pb-lang/blob/ee2dc2845adf42a95e381d4b74b39dbd0552b9cb/zhpy.py#L988-L1071"
+      },
+      {
+        "title": "固定Python转译和执行入口",
+        "url": "https://github.com/nntandg/pb-lang/blob/ee2dc2845adf42a95e381d4b74b39dbd0552b9cb/zhpy.py#L2054-L2079"
+      },
+      {
+        "title": "固定包版本、作者、许可声明及命令入口",
+        "url": "https://github.com/nntandg/pb-lang/blob/ee2dc2845adf42a95e381d4b74b39dbd0552b9cb/pyproject.toml"
+      },
+      {
+        "title": "固定项目阶段与ZHPY／CHPY改名记录",
+        "url": "https://github.com/nntandg/pb-lang/blob/ee2dc2845adf42a95e381d4b74b39dbd0552b9cb/PROJECT_STATE.json"
+      },
+      {
+        "title": "v0.3.1发行与附件",
+        "url": "https://github.com/nntandg/pb-lang/releases/tag/v0.3.1"
+      },
+      {
+        "title": "v0.3.1标签对应提交",
+        "url": "https://api.github.com/repos/nntandg/pb-lang/git/ref/tags/v0.3.1"
+      },
+      {
+        "title": "同一GitHub账号下的2024年PengBooo语法材料",
+        "url": "https://github.com/nntandg/PengBooo/blob/4a33762d76ebc82691c2378c7ff831371e0e5f71/README.md"
+      },
+      {
+        "title": "同一GitHub账号下的2024年PengBooo解释器源码",
+        "url": "https://github.com/nntandg/PengBooo/blob/4a33762d76ebc82691c2378c7ff831371e0e5f71/pengbooo.py"
+      },
+      {
+        "title": "仓库创建与维护元数据",
+        "url": "https://api.github.com/repos/nntandg/pb-lang"
+      }
+    ],
+    "id": "lang-056"
+  },
+  {
+    "name": "chinese-interpreter（ling0x）",
+    "aliases": [
+      "chinese-interpreter",
+      "chinese-compiler（ling0x）"
+    ],
+    "description": "chinese-interpreter 是 ling0x 发布的微型中文解释器实验，使用 Rust 实现。原始 .zh 程序通过“变量”和“输出”两个中文关键字声明值并输出结果，支持中文或ASCII名称、中文数词、十进制数字、字符串和波浪号连接表达式。项目采用 pest 语法文件描述语句，运行时把变量保存到环境映射中，并按解析结果直接执行声明与输出。仓库提供中文数字示例和字符串连接示例，适合观察一套小型中文语法、解析规则与解释执行代码如何对应。Cargo包名为chinese-compiler，条目按实际执行链分类为解释器。",
+    "category": "微型中文语法语言／Rust解释器实验",
+    "author": "GitHub账号ling0x；仓库与4条可见提交的作者关联一致。个人实名及协作者待核实。",
+    "first_publication": "仓库创建于2025-11-01T02:55:14Z，最早可见提交7cd2ac31669a424107531133a3e0cf6408e785b8的作者日期为2025-11-01T02:55:49Z。语言首次公开日期待核实。",
+    "features": [
+      "“变量”“输出”中文关键字",
+      ".zh源文件和分号语句",
+      "中文数词与十进制数字",
+      "字符串及波浪号连接表达式",
+      "pest语法规则与Rust直接解释",
+      "HashMap变量环境"
+    ],
+    "code": "变量 年龄 = 二十五;\n输出 年龄;\n\n变量 计数 = 一百二十三;\n输出 计数;",
+    "code_source": "https://github.com/ling0x/chinese-interpreter/blob/e5e3a410508288f1b6d7701429137e956c11d818/programs/program.zh#L1-L5",
+    "code_context": "固定提交programs/program.zh第1—5行连续原文，包含中文变量声明、数词和输出；另有poem.zh展示字符串连接。独立运行结果待核实。",
+    "implementation": "Rust 2024 edition。chinese_lang.pest明确识别“变量”“输出”，PROGRAM由变量声明和输出语句组成。main.rs读取源文件，调用ChineseLangParser::parse后进入execute_program；executor.rs将声明写入Environment并以println输出求值结果。parser.rs处理数字、字符串与变量引用，chinese_number.rs实现汉字数字换算，evaluator.rs处理连接表达式。",
+    "version": "固定Cargo.toml的包名为chinese-compiler，版本0.1.0，依赖pest/pest_derive 2.8.3及clap 4.5.51。固定提交e5e3a410508288f1b6d7701429137e956c11d818的作者日期为2025-11-02T17:49:12Z。2026-10-10读取的GitHub Releases和标签引用列表均为空。",
+    "relations": "仓库名chinese-interpreter、Cargo包名chinese-compiler以及README中的中文解释器描述按同一项目记录。GitHub元数据fork=false。与其他中文解释器和同名compiler项目的代码继承关系待核实。",
+    "status": "固定中文原例、完整小型源码树、语法文件、解释执行入口和包版本可读。发行物、许可与独立构建运行继续待核实。",
+    "verification_notes": "2026-10-10只读核验。已读取完整语法文件及main、lib、parser、executor、evaluator、chinese_number六个Rust实现文件。运行时值明确为i64整数和String，核心语句范围按语法文件记录。作者AI参与情况、许可和语言正式中文名称待核实。",
+    "verified_at": "2026-10-10",
+    "repository_created_at": "2025-11-01T02:55:14Z",
+    "repository_pushed_at": "2025-11-02T17:49:13Z",
+    "references": [
+      {
+        "title": "固定README与运行方式",
+        "url": "https://github.com/ling0x/chinese-interpreter/blob/e5e3a410508288f1b6d7701429137e956c11d818/README.md"
+      },
+      {
+        "title": "固定中文数词与输出原例",
+        "url": "https://github.com/ling0x/chinese-interpreter/blob/e5e3a410508288f1b6d7701429137e956c11d818/programs/program.zh#L1-L5"
+      },
+      {
+        "title": "固定字符串连接原例",
+        "url": "https://github.com/ling0x/chinese-interpreter/blob/e5e3a410508288f1b6d7701429137e956c11d818/programs/poem.zh"
+      },
+      {
+        "title": "固定中文关键词与语法规则",
+        "url": "https://github.com/ling0x/chinese-interpreter/blob/e5e3a410508288f1b6d7701429137e956c11d818/src/chinese_lang.pest"
+      },
+      {
+        "title": "固定解析和执行入口",
+        "url": "https://github.com/ling0x/chinese-interpreter/blob/e5e3a410508288f1b6d7701429137e956c11d818/src/main.rs"
+      },
+      {
+        "title": "固定声明与输出执行器",
+        "url": "https://github.com/ling0x/chinese-interpreter/blob/e5e3a410508288f1b6d7701429137e956c11d818/src/executor.rs"
+      },
+      {
+        "title": "固定变量环境和运行时值",
+        "url": "https://github.com/ling0x/chinese-interpreter/blob/e5e3a410508288f1b6d7701429137e956c11d818/src/lib.rs"
+      },
+      {
+        "title": "固定数字、字符串与变量解析",
+        "url": "https://github.com/ling0x/chinese-interpreter/blob/e5e3a410508288f1b6d7701429137e956c11d818/src/parser.rs"
+      },
+      {
+        "title": "固定中文数字换算",
+        "url": "https://github.com/ling0x/chinese-interpreter/blob/e5e3a410508288f1b6d7701429137e956c11d818/src/chinese_number.rs"
+      },
+      {
+        "title": "固定包版本与依赖",
+        "url": "https://github.com/ling0x/chinese-interpreter/blob/e5e3a410508288f1b6d7701429137e956c11d818/Cargo.toml"
+      },
+      {
+        "title": "仓库创建与维护元数据",
+        "url": "https://api.github.com/repos/ling0x/chinese-interpreter"
+      }
+    ],
+    "id": "lang-057"
+  },
+  {
+    "name": "龙语言（仍然）",
+    "aliases": [
+      "龙语言",
+      "Long Language",
+      "LongLanguage",
+      "longc"
+    ],
+    "description": "龙语言是仍然在 RengRan199925/LongLanguage 仓库公开的中文编译语言及工具链项目。原始 .long 程序使用“函数、变量、如果、返回、当、循环、在”等关键字，提供递归、循环、数组和模块调用示例。编译器核心由Rust编写，公开源码串接词法分析、语法解析、模块合并、类型检查、寄存器式中间表示、目标代码生成和PE／ELF封装。项目同时保存C运行时、中文标准库、龙界面GUI框架及Tauri／Vue开发环境龙工坊。README将项目阶段标为开发中，并明确说明操作人为仍然，使用Cursor与Claude生成编译器及配套工具。",
+    "category": "实验性中文编译语言／原生代码工具链",
+    "author": "仍然，GitHub账号RengRan199925。固定README署名“操作人：仍然”，声明使用Cursor＋Claude开发；两条可见提交含Made-with: Cursor注记。",
+    "first_publication": "仓库创建于2026-04-13T12:26:59Z，最早可见提交d37b109c1884f7bcaa9b35ef20a849db12c58980的作者日期为2026-04-13T12:34:50Z。语言首次公开日期待核实。",
+    "features": [
+      ".long源文件及中文函数、条件、循环",
+      "Rust词法器、解析器及模块合并",
+      "类型检查诊断和寄存器式中间表示",
+      "x86、x86_64及AArch64代码生成模块",
+      "PE及ELF封装源码",
+      "C运行时、中文标准库与龙工坊配套IDE",
+      "作者明确标注Cursor与Claude开发"
+    ],
+    "code": "函数 斐波那契(n: 整数) -> 整数 {\n    如果 n <= 1 { 返回 n }\n    返回 斐波那契(n - 1) + 斐波那契(n - 2)\n}",
+    "code_source": "https://github.com/RengRan199925/LongLanguage/blob/01f569b5d2d8ca43dc4295fcbb1be942cc21fa6c/examples/%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91.long#L5-L8",
+    "code_context": "固定提交examples/斐波那契.long第5—8行连续原文，为完整递归函数。原文件另含迭代、数组和区间循环程序；本轮采用源码静态核验。",
+    "implementation": "Rust编译器longc的resolver.rs第36—62行调用Lexer、Parser并合并模块；lib.rs第117—130行执行类型检查、IrBuilder、codegen::generate与binary::emit_binary。类型检查错误当前以“类型警告”打印后继续代码生成。codegen按x86、x86_64、arm64分派，x86_64实现写入机器码字节并处理调用和分支修补。binary按Windows选择PE、Linux／Android选择ELF。PE发射器为x86_64构造PE32+头、导入表与代码节；其余架构进入emit_stub简化PE32分支。ELF发射器按架构构造32／64位ET_EXEC文件。各目标、动态库与APK输出能力的独立验证待核实。",
+    "version": "固定longc/Cargo.toml版本为0.1.0、Rust edition 2021。核验提交01f569b5d2d8ca43dc4295fcbb1be942cc21fa6c的作者日期为2026-04-13T12:38:25Z。2026-10-10读取的GitHub Releases和标签引用列表均为空；语言、IDE与运行时独立发行版本待核实。",
+    "relations": "longc、long-lsp、龙工坊long-studio、runtime_c、中文标准库和龙界面均位于同一仓库，按同一语言项目的配套组件记录。GitHub元数据fork=false。README关于自研程度和AI生成范围按作者声明记录，第三方组件来源及与其他同名龙语言项目的关系待核实。",
+    "status": "固定中文原例、词元定义、解析器、模块解析、IR、代码生成和二进制封装入口可读。作者将项目标为开发中；跨平台行为、发行物、完整许可及独立构建运行继续待核实。",
+    "verification_notes": "2026-10-10只读核验。已取得完整仓库树与两条主分支提交，静态读取Rust编译链和x86_64字节输出实现。README声明MIT；完整授权文件及随附stb等第三方代码的许可范围待核实。README性能、自研完整度、平台能力和AI生成范围采用作者声明层级。",
+    "verified_at": "2026-10-10",
+    "repository_created_at": "2026-04-13T12:26:59Z",
+    "repository_pushed_at": "2026-04-13T12:38:33Z",
+    "references": [
+      {
+        "title": "固定README：作者、AI参与及项目阶段",
+        "url": "https://github.com/RengRan199925/LongLanguage/blob/01f569b5d2d8ca43dc4295fcbb1be942cc21fa6c/README.md"
+      },
+      {
+        "title": "固定中文递归原例",
+        "url": "https://github.com/RengRan199925/LongLanguage/blob/01f569b5d2d8ca43dc4295fcbb1be942cc21fa6c/examples/%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91.long#L5-L8"
+      },
+      {
+        "title": "固定中文词元与关键字映射",
+        "url": "https://github.com/RengRan199925/LongLanguage/blob/01f569b5d2d8ca43dc4295fcbb1be942cc21fa6c/longc/src/lexer/token.rs"
+      },
+      {
+        "title": "固定语法解析器",
+        "url": "https://github.com/RengRan199925/LongLanguage/blob/01f569b5d2d8ca43dc4295fcbb1be942cc21fa6c/longc/src/parser/mod.rs"
+      },
+      {
+        "title": "固定词法、解析与模块合并",
+        "url": "https://github.com/RengRan199925/LongLanguage/blob/01f569b5d2d8ca43dc4295fcbb1be942cc21fa6c/longc/src/resolver.rs#L36-L62"
+      },
+      {
+        "title": "固定编译链与类型警告处理",
+        "url": "https://github.com/RengRan199925/LongLanguage/blob/01f569b5d2d8ca43dc4295fcbb1be942cc21fa6c/longc/src/lib.rs#L117-L130"
+      },
+      {
+        "title": "固定寄存器IR构建器",
+        "url": "https://github.com/RengRan199925/LongLanguage/blob/01f569b5d2d8ca43dc4295fcbb1be942cc21fa6c/longc/src/ir/builder.rs"
+      },
+      {
+        "title": "固定多架构代码生成分派",
+        "url": "https://github.com/RengRan199925/LongLanguage/blob/01f569b5d2d8ca43dc4295fcbb1be942cc21fa6c/longc/src/codegen/mod.rs"
+      },
+      {
+        "title": "固定x86_64代码生成实现",
+        "url": "https://github.com/RengRan199925/LongLanguage/blob/01f569b5d2d8ca43dc4295fcbb1be942cc21fa6c/longc/src/codegen/x86_64/mod.rs"
+      },
+      {
+        "title": "固定PE／ELF封装分派",
+        "url": "https://github.com/RengRan199925/LongLanguage/blob/01f569b5d2d8ca43dc4295fcbb1be942cc21fa6c/longc/src/binary/mod.rs"
+      },
+      {
+        "title": "固定包版本",
+        "url": "https://github.com/RengRan199925/LongLanguage/blob/01f569b5d2d8ca43dc4295fcbb1be942cc21fa6c/longc/Cargo.toml"
+      },
+      {
+        "title": "作者提交与Cursor标记",
+        "url": "https://github.com/RengRan199925/LongLanguage/commit/01f569b5d2d8ca43dc4295fcbb1be942cc21fa6c"
+      },
+      {
+        "title": "仓库创建与维护元数据",
+        "url": "https://api.github.com/repos/RengRan199925/LongLanguage"
+      },
+      {
+        "title": "固定PE架构分派",
+        "url": "https://github.com/RengRan199925/LongLanguage/blob/01f569b5d2d8ca43dc4295fcbb1be942cc21fa6c/longc/src/binary/pe.rs#L14-L17"
+      },
+      {
+        "title": "固定简化PE32封装",
+        "url": "https://github.com/RengRan199925/LongLanguage/blob/01f569b5d2d8ca43dc4295fcbb1be942cc21fa6c/longc/src/binary/pe.rs#L258-L288"
+      },
+      {
+        "title": "固定ELF64可执行文件封装",
+        "url": "https://github.com/RengRan199925/LongLanguage/blob/01f569b5d2d8ca43dc4295fcbb1be942cc21fa6c/longc/src/binary/elf.rs#L58-L114"
+      },
+      {
+        "title": "固定ELF32可执行文件类型",
+        "url": "https://github.com/RengRan199925/LongLanguage/blob/01f569b5d2d8ca43dc4295fcbb1be942cc21fa6c/longc/src/binary/elf.rs#L150-L155"
+      }
+    ],
+    "id": "lang-058"
+  },
+  {
+    "name": "zwpy（zw）",
+    "aliases": [
+      "zw",
+      "zwpython",
+      "中文Python（52中文编程）"
+    ],
+    "description": "zwpy 是 GitHub 账号52zwbc及“zw语言项目（52中文编程）”公开介绍的 Python 中文语法映射方案，简称zw。公开文档使用 .zw 文件，以中文关键字、内置函数和类型方法对应 Python 语法与接口。连续原例展示中文函数、条件、异常、返回及输出。官网介绍配套 VSCode 插件的中英转换、运行、错误解释和打包功能，并提供 Windows 运行环境入口。当前条目依据固定文档、原例和官网资料收录。",
+    "category": "Python中文语法映射方案／公开文档与原例",
+    "author": "GitHub账号52zwbc；初始提交作者名glsnh对应同一GitHub账号。官网署名“zw语言项目（52中文编程）”。实名、团队成员与其他平台账号关系待核实。",
+    "first_publication": "zw仓库创建于2026-05-27T10:34:47Z；根提交5189f7f36209f1533b6f5567be119a27fe2be063的提交时间为2026-05-27T10:35:50Z，内容为zw名称与中文编程语言介绍。2026-09-10T13:35:05Z的b7283ad2b4b6eeb30ef9981673f2d83a1857b8e0提交扩展为zwpy说明与中文语法。语言首次公开日期待核实。",
+    "features": [
+      ".zw中文源文件约定",
+      "函数、如果、抛出、返回等中文关键字",
+      "Python内置函数、类型、异常与方法的中文映射表",
+      "缩进代码块、条件分支和函数调用",
+      "官网介绍的VSCode中英双向转换和运行方案",
+      "官网提供的Windows运行环境及配套编辑器入口"
+    ],
+    "code": "函数 求平方根(x):\n    如果 x < 0:\n        抛出 异常_值错误(\"不能为负\")\n    返回 x ** 0.5\n\n数字 = 求平方根(9)\n打印(数字)",
+    "code_source": "https://github.com/52zwbc/zw/blob/36e929a0d4e868a8700f5ec5e7563b541c9518d4/README.md#L353-L359",
+    "code_context": "固定README第353—359行连续原文，包含完整求平方根函数及调用、输出。括号与标点按原例保留。该代码作为作者公开语法例程记录。",
+    "implementation": "README第76—81行描述Python运行时自动注册中文内置名及.zw执行入口；官网第207—239行介绍VSCode插件将中文程序转换为标准Python并运行。上述执行能力依据作者说明。zw及zwpy固定树各含README.md和微信赞赏.jpg；转换器、插件实现、运行时源码与发行附件对应性待核实。同账号python313zw、python314zw公开CPython中文修改源码，已作为关联候选单独记录；与本项运行环境的对应关系待核实。",
+    "version": "固定zw文档提交36e929a0d4e868a8700f5ec5e7563b541c9518d4，提交时间2026-09-10T13:57:25Z；zwpy对应文档提交74e561072b928abcfc688c3225ba6b860441c619。两仓Release列表为空，标签命名空间返回404。官网安装文件名包含zwpy2_2.exe与zwpy313_2_win7.exe；这些字符串按文件名记录，稳定版本号、发布时间与附件内容待核实。",
+    "relations": "zw的README明确将zwpy简称为zw；zw与zwpy的README共享blob SHA 04a763bf1cd19daea2ff17cf55a41b91e4b5afa2，全文一致，作为同一项目的两个入口。官网列出zwpython别名。华夏编程lang-054采用Bilibili UID3493272276175446与.hx原例；本项采用52zwbc仓库、52中文编程官网与.zw原例。两项的作者及代码沿革关系待核实。python313zw／python314zw的项目归属与技术沿革继续核验。",
+    "status": "名称、作者账号、固定中文原例、完整映射表、同源文档与官网入口已核。执行实现、映射规则完整性、发行版本、许可范围及独立运行待核实。",
+    "verification_notes": "2026-10-10只读核验。先读取55项语言目录、AGENTS.md、Issue #3正文及3条评论、round-6总日志与Gitee/Bilibili日志。zw默认分支4次提交；根提交父列表为空。两仓当前README逐字比对一致。已检查官网静态原页、同账号仓库列表、华夏近名检索与既有身份链。README首个遍历原例使用“在”，关键词表使用“属于”；标点约定与示例适用范围待核实。精确代码采用同文件第353—359行。研究依据公开静态资料，运行和测试结果待核实。",
+    "verified_at": "2026-10-10",
+    "references": [
+      {
+        "title": "固定项目名称与中文Python定位",
+        "url": "https://github.com/52zwbc/zw/blob/36e929a0d4e868a8700f5ec5e7563b541c9518d4/README.md#L1-L4"
+      },
+      {
+        "title": "固定函数、条件、异常与输出原例",
+        "url": "https://github.com/52zwbc/zw/blob/36e929a0d4e868a8700f5ec5e7563b541c9518d4/README.md#L353-L359"
+      },
+      {
+        "title": "固定运行方案的作者说明",
+        "url": "https://github.com/52zwbc/zw/blob/36e929a0d4e868a8700f5ec5e7563b541c9518d4/README.md#L76-L81"
+      },
+      {
+        "title": "固定中文关键字映射",
+        "url": "https://github.com/52zwbc/zw/blob/36e929a0d4e868a8700f5ec5e7563b541c9518d4/README.md#L90-L134"
+      },
+      {
+        "title": "固定zwpy同源README",
+        "url": "https://github.com/52zwbc/zwpy/blob/74e561072b928abcfc688c3225ba6b860441c619/README.md"
+      },
+      {
+        "title": "zw固定文件清单",
+        "url": "https://github.com/52zwbc/zw/tree/36e929a0d4e868a8700f5ec5e7563b541c9518d4"
+      },
+      {
+        "title": "zw根提交与作者账号",
+        "url": "https://github.com/52zwbc/zw/commit/5189f7f36209f1533b6f5567be119a27fe2be063"
+      },
+      {
+        "title": "zwpy语法文档扩展提交",
+        "url": "https://github.com/52zwbc/zw/commit/b7283ad2b4b6eeb30ef9981673f2d83a1857b8e0"
+      },
+      {
+        "title": "官网固定插件方案与功能介绍",
+        "url": "https://github.com/52zwbc/52zwbc.github.io/blob/c8deec64414b6bde6c56a3bb6e1f968895f4e4e0/index.html#L203-L239"
+      },
+      {
+        "title": "官网固定安装入口与作者署名",
+        "url": "https://github.com/52zwbc/52zwbc.github.io/blob/c8deec64414b6bde6c56a3bb6e1f968895f4e4e0/index.html#L281-L319"
+      },
+      {
+        "title": "华夏编程原作者安装教程与.hx资料",
+        "url": "https://www.bilibili.com/video/BV1Gtpg65EfU/"
+      }
+    ],
+    "id": "lang-059"
+  },
+  {
+    "name": "智语言（cnzkai）",
+    "aliases": [
+      "智语言",
+      "ZLang"
+    ],
+    "description": "智语言（ZLang）是GitHub账号cnzkai以开发者指南及.z验收例程公开的中文编程语言项目。文档以冒号和缩进组织函数及控制流，使用如果、否则、返回、计次循环、条件循环、导入和公开等中文词汇；同时描述自动类型推断、动态数组、结构体、指针、内存操作和模块可见性。固定test/text.z提供中文递归函数、条件与循环等连续原例。当前条目按公开规范与例程的证据层级收录。",
+    "category": "中文编程语言规范／开发者指南与验收例程",
+    "author": "GitHub账号cnzkai；固定提交作者署名Kaiser，GitHub作者对象对应cnzkai。实名及协作者待核实。",
+    "first_publication": "仓库创建于2026-04-09T16:03:27Z；当前可读默认分支的根提交39023dfd3acc362ed2b49859a37b102110226b9a的提交时间为2026-04-15T06:48:53Z，包含开发者指南。test/text.z的提交时间为2026-04-15T06:52:41Z。语言首次公开日期待核实。",
+    "features": [
+      ".z中文源文件例程",
+      "冒号与四空格缩进的控制流约定",
+      "中文条件、返回、计次循环与条件循环",
+      "递归函数及中文格式化输出原例",
+      "指南描述的数组、结构体、指针与内存接口",
+      "导入、模块命名空间与公开成员规范"
+    ],
+    "code": "斐波那契(n):\n    如果 n <= 1:\n        返回 n\n    返回 斐波那契(n - 1) + 斐波那契(n - 2)\n\n阶乘(n):\n    如果 n <= 1:\n        返回 1\n    返回 n * 阶乘(n - 1)",
+    "code_source": "https://github.com/cnzkai/Zlang/blob/8049eae6d22c10cbc764f8b253f561cd6ce7d378/test/text.z#L544-L552",
+    "code_context": "固定test/text.z第544—552行连续原文，包含斐波那契与阶乘两个完整递归函数。原文件为验收例程，以输出实际值和期望值的形式组织测试项目；测试通过状态待核实。",
+    "implementation": "当前固定公开文件为README.md与test/text.z。README第645—667行给出zlc0目录、build.bat、zlc0.exe编译命令及验收运行说明；仓库简介自述编译器自举。编译器源码、引导链、构建脚本、可执行发行物与自举完成度待核实。test/text.z第5行引用a_module，模块依赖源码与验收工程完整性待核实。指南第253行提到“函数”关键字，紧随的原例与验收函数使用函数名直接声明；两种声明形式的适用规则待核实。",
+    "version": "固定默认分支提交8049eae6d22c10cbc764f8b253f561cd6ce7d378，时间2026-04-15T06:52:41Z。读取到3次提交和1个main分支；Release列表为空，标签命名空间返回404。文档内zlc0按编译器目录及可执行文件名称记录。正式语言版本号与发布计划待核实。",
+    "relations": "本条身份以cnzkai/Zlang、提交作者Kaiser与文件标题“智语言（ZLang）”共同限定。其他名为ZLang、Z语言、智语言的项目各自保留来源链；项目间的继承、同源或改名关系待核实。",
+    "status": "作者账号、固定语法指南、中文验收原例与提交日期已核。编译器实现、自举、构建运行、规范一致性、稳定版本与许可范围待核实。",
+    "verification_notes": "2026-10-10只读核验。已读取55项目录、Issue #3及其评论并按名称、别名和仓库地址去重。递归树3项，truncated=false，含2个文件及test目录；默认分支提交共3条，根提交parents为空。已全文读取README与test/text.z，并再次按行取回第544—552行比对原例。公开Issues列表为空。普通网页作者精确检索结果有限；GitHub“智语言”检索包含同名的其他作者项目，当前条目采用作者限定名称。自举依据仓库简介的作者声明，执行状态采用待核实。",
+    "verified_at": "2026-10-10",
+    "references": [
+      {
+        "title": "固定开发者指南与语言命名",
+        "url": "https://github.com/cnzkai/Zlang/blob/8049eae6d22c10cbc764f8b253f561cd6ce7d378/README.md#L1-L38"
+      },
+      {
+        "title": "固定递归函数原例",
+        "url": "https://github.com/cnzkai/Zlang/blob/8049eae6d22c10cbc764f8b253f561cd6ce7d378/test/text.z#L544-L552"
+      },
+      {
+        "title": "固定条件与循环规范",
+        "url": "https://github.com/cnzkai/Zlang/blob/8049eae6d22c10cbc764f8b253f561cd6ce7d378/README.md#L164-L245"
+      },
+      {
+        "title": "固定函数声明与递归规范",
+        "url": "https://github.com/cnzkai/Zlang/blob/8049eae6d22c10cbc764f8b253f561cd6ce7d378/README.md#L249-L301"
+      },
+      {
+        "title": "固定模块与可见性规范",
+        "url": "https://github.com/cnzkai/Zlang/blob/8049eae6d22c10cbc764f8b253f561cd6ce7d378/README.md#L562-L604"
+      },
+      {
+        "title": "固定构建与验收命令说明",
+        "url": "https://github.com/cnzkai/Zlang/blob/8049eae6d22c10cbc764f8b253f561cd6ce7d378/README.md#L645-L667"
+      },
+      {
+        "title": "固定验收例程入口及模块依赖",
+        "url": "https://github.com/cnzkai/Zlang/blob/8049eae6d22c10cbc764f8b253f561cd6ce7d378/test/text.z#L1-L13"
+      },
+      {
+        "title": "固定公开文件清单",
+        "url": "https://github.com/cnzkai/Zlang/tree/8049eae6d22c10cbc764f8b253f561cd6ce7d378"
+      },
+      {
+        "title": "根提交、作者署名及文档日期",
+        "url": "https://github.com/cnzkai/Zlang/commit/39023dfd3acc362ed2b49859a37b102110226b9a"
+      },
+      {
+        "title": "验收例程提交及作者账号",
+        "url": "https://github.com/cnzkai/Zlang/commit/8049eae6d22c10cbc764f8b253f561cd6ce7d378"
+      },
+      {
+        "title": "原作者仓库简介与自举声明",
+        "url": "https://github.com/cnzkai/Zlang"
+      }
+    ],
+    "id": "lang-060"
+  },
+  {
+    "name": "灵创语言",
+    "aliases": [
+      "灵创汉语编程",
+      "LingChang Language"
+    ],
+    "description": "灵创语言是以中文关键字编写程序的语言及编译器生态。2025年原作者发布视频展示示例.lcc中的中文变量、类型和常量声明，并配套代码编辑与编译工具。公开的Rust实现将自身列为灵创语言生态的一部分，使用.cn源文件，提供词法分析、语法树解析、AST解释执行和C代码生成。该实现中的中文关键字包括“让”“如果”“否则”“当”“对于”“函数”“返回”“真”“假”。可执行文件、动态库和目标文件的生成路径调用MinGW GCC。条目分别记录视频中的.lcc阶段与公开Rust实现，版本及语法兼容性继续核实。",
+    "category": "中文通用语言生态／AST解释器与C转译编译器",
+    "author": "原视频账号“自研编译器与IDE”（Bilibili UID476787042）；Gitee账号xb880727显示名“灵创Compiler maniac”，Rust项目README署名“灵创-浪漫之夏”。",
+    "first_publication": "原作者《灵创汉语编程编译器发布》发表于2025-04-12T09:13:44Z（北京时间2025-04-12 17:13:44）。这是本轮核实的命名发布视频；语言首次公开日期、Rust实现公开日期和更早沿革待核实。",
+    "features": [
+      "原视频.lcc文件中的中文变量、类型与常量声明",
+      "Rust实现使用.cn源文件和中文词法关键字",
+      "词法分析、语法分析和AST解释执行",
+      "将语法树生成C源码",
+      "通过MinGW GCC生成可执行文件、动态库或目标文件的实现路径"
+    ],
+    "code": "// 变量声明\n让 年龄 = 25\n让 姓名 = \"张三\"\n\n// 打印变量\n打印(\"你的年龄是: \" + 年龄)\n打印(\"你的姓名是: \" + 姓名)",
+    "code_source": "https://gitee.com/xb880727/rust---LingChang-Compiler/blob/e1b16b226feb81a353894175d1a120727c4473ed/test_basic.cn",
+    "code_context": "固定提交e1b16b226feb81a353894175d1a120727c4473ed的test_basic.cn完整七行原例，网页代码区逐字读取。原视频BV1Lvd8YoEjp的00:28—00:45另可见示例.lcc的“定义 文本1 作为 字符串”声明，以及相邻四行“常量 MU = 1”“常量 MR = 2”“常量 MD = 3”“常量 ML = 4”。两组例子分别归属.lcc视频阶段和.cn Rust实现。",
+    "implementation": "固定Rust源码的src/lexer.rs直接将中文词映射为TokenType；src/main.rs依次调用Lexer、Parser和Interpreter实现解释执行，另一分支调用CodeGenerator。src/code_generator.rs先生成C代码，再调用写在源码中的Windows MinGW GCC路径输出exe、dll或目标文件。上述结构经过公开源码静态检查，独立构建与运行结果待核实。",
+    "version": "固定提交的Cargo.toml包名为chinese-programming-lang，版本0.1.0，二进制名cnlang；文件历史标签另出现0.15。2025-04-12原视频画面文字标注编译器更新至1.12。各编号的发布顺序、产品范围与兼容关系待核实。",
+    "relations": "Rust项目README明确将自身归入灵创语言生态。README及Cargo.toml给出的QQ群624826263与Bilibili作者主页相同，构成项目关联证据。视频.lcc语法和Rust仓库.cn语法分别记录。同账号的rust-Compiler、空灵KCL及后续sblang相关内容之间的继承、兼容与核心复用关系待核实。",
+    "status": "原作者命名视频、中文代码画面和公开Rust实现均可读；固定提交中的中文样例、词法器、执行入口和C生成路径已核验。README声明MIT，许可证文件及完整许可范围待核实。",
+    "verification_notes": "2026-10-10只读核验，使用公开网页、GitHub搜索与dot云浏览器；范围为原始资料静态核验。原视频UID与video:release_date由原站页面核对。独立许可证文件继续待核实，README中的MIT按作者声明记录。GCC路径写死为Windows本机路径，跨平台构建与源码所含功能的运行表现待核实。原视频声称旧IDE与插件开源，2025-05-24视频声称x64库和IDE开源；对应源码和许可范围继续核实。语言核心的AI参与、性能及独立测试结果待核实。",
+    "verified_at": "2026-10-10",
+    "references": [
+      {
+        "title": "原作者发布视频：灵创汉语编程编译器发布",
+        "url": "https://www.bilibili.com/video/BV1Lvd8YoEjp/"
+      },
+      {
+        "title": "原作者Bilibili主页及公开项目群号",
+        "url": "https://space.bilibili.com/476787042/"
+      },
+      {
+        "title": "Rust项目README：灵创语言生态、作者与群号",
+        "url": "https://gitee.com/xb880727/rust---LingChang-Compiler/blob/e1b16b226feb81a353894175d1a120727c4473ed/README.md"
+      },
+      {
+        "title": "固定提交中文程序原例test_basic.cn",
+        "url": "https://gitee.com/xb880727/rust---LingChang-Compiler/blob/e1b16b226feb81a353894175d1a120727c4473ed/test_basic.cn"
+      },
+      {
+        "title": "固定提交中文词法关键字",
+        "url": "https://gitee.com/xb880727/rust---LingChang-Compiler/blob/e1b16b226feb81a353894175d1a120727c4473ed/src/lexer.rs"
+      },
+      {
+        "title": "固定提交解释执行与代码生成入口",
+        "url": "https://gitee.com/xb880727/rust---LingChang-Compiler/blob/e1b16b226feb81a353894175d1a120727c4473ed/src/main.rs"
+      },
+      {
+        "title": "固定提交C生成及MinGW GCC调用",
+        "url": "https://gitee.com/xb880727/rust---LingChang-Compiler/blob/e1b16b226feb81a353894175d1a120727c4473ed/src/code_generator.rs"
+      },
+      {
+        "title": "固定提交包版本和作者信息",
+        "url": "https://gitee.com/xb880727/rust---LingChang-Compiler/blob/e1b16b226feb81a353894175d1a120727c4473ed/Cargo.toml"
+      },
+      {
+        "title": "原作者后续x64与IDE开源说明",
+        "url": "https://www.bilibili.com/video/BV1eZjxz4EyQ/"
+      }
+    ],
+    "id": "lang-061"
   }
 ]

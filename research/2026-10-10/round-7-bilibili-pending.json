@@ -1,0 +1,28 @@
+[
+  {
+    "name": "未命名中文编译器（Californium-252）",
+    "source_url": "https://www.bilibili.com/video/BV1bm421x7AK/",
+    "title": "整活——自制中文编程语言编译器",
+    "author": "Californium-252，Bilibili UID3494354284972407",
+    "author_url": "https://space.bilibili.com/3494354284972407/",
+    "publication": "video:release_date=2024-04-20T10:11:27.000Z；北京时间2024-04-20 18:11:27",
+    "duration_seconds": 164,
+    "evidence": "原视频展示中文类型声明、for循环、标准输入与标准输出。01:30.296可读完整两行循环原例；02:08.679可读完整两行输入输出原例。02:43.189终端显示./compiler 函数.zh及输出55，工作目录提示符显示zhpy。",
+    "code": "for循环 x 在 列表([1,2,3,4,5,6,999]):\n    标准输出(x)",
+    "code_context": "BV1bm421x7AK，01:30.296原视频暂停画面转录；缩进和空格按可读排版整理。",
+    "additional_code": "输入内容 : 字符串 = 标准输入(\"请输入内容:\")\n标准输出(\"你输入的内容是:\"+输入内容)",
+    "additional_code_context": "BV1bm421x7AK，02:08.679原视频暂停画面转录；空格按可读排版整理。",
+    "implementation_claims": "作者标题与简介称自己写了一个中文编译器，并表示原理以后介绍。原片展示.zh源文件、compiler命令和终端输出。编译／解释模型、实现语言、核心来源及源码待核实。",
+    "relations": "终端当前工作目录显示zhpy。现有目录中的周蟒项目亦使用zhpy名称，提供可扩展中文关键字转译功能。当前视频与gasolin/zhpy的继承、派生或独立实现关系待核实。工作目录名称按环境线索记录，语言正式名称待核实。",
+    "status": "中文编程语法与作者演示已确认。独立条目身份、正式名称和与周蟒的同源关系待核实，本轮计入候选1项。",
+    "next_step": "继续核对同UID原理说明、仓库或作者声明，确认compiler实现来源及zhpy目录含义。关系明确后按独立语言、周蟒派生实现或翻译层分类。",
+    "ai_involvement": "待核实",
+    "independent_verification": "本轮已独立检查原站元数据和多个代码画面；编译运行结果属于作者录像演示，独立复现待核实。",
+    "verified_at": "2026-10-10",
+    "references": [
+      {"title": "原作者视频及中文语法演示", "url": "https://www.bilibili.com/video/BV1bm421x7AK/"},
+      {"title": "原作者主页", "url": "https://space.bilibili.com/3494354284972407/"},
+      {"title": "现有周蟒项目的中文关键字实现，用于同源关系核对", "url": "https://github.com/gasolin/zhpy/blob/f4d932a5ab810158ef4e4113df337cbf7d83817a/zhpy2/zhpy/plugcn.py#L34-L93"}
+    ]
+  }
+]

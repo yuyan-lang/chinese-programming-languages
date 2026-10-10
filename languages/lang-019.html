@@ -1,15 +1,17 @@
 <!doctype html>
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>文语｜中文编程语言百科</title><link rel="stylesheet" href="../style.css"></head><body><header><h1>文语</h1></header><main><p><a href="../">返回语言目录</a></p>
-<h2>语言介绍</h2><p>【语言】中文关键字通用语言，提供并发、通道及AI服务接口。</p>
-<h2>分类与别名</h2><p>语言；别名：WenYu</p>
-<h2>作者与首次公开</h2><p>bikthh（账号；实名待核实）。仓库创建 2026-07-14；语言首次公开发布日期待核实</p>
-<h2>设计与特征</h2><p>中文语法／关键字；有公开实现源码</p>
-<h2>中文语法示例</h2><pre><code>变量 回复 = AI.对话([
-    AI.系统(&quot;用中文回答&quot;),
-    AI.用户(&quot;什么是编程？&quot;)
-])</code></pre><p>原始资料短摘录，用于展示中文语法；未在本轮执行，不保证单独运行。 <a href="https://github.com/bikthh/wenyu/blob/c550aa8b80e6682914164d89b497c05f9e3d760b/README.md">示例来源</a></p>
-<h2>实现与运行环境</h2><p>JavaScript 实现词法、递归下降/Pratt 解析、编译器与栈式字节码 VM。</p>
-<h2>版本与维护状态</h2><p>3.1（README自述）；已有源码；未在本次研究中编译或执行</p>
-<h2>与其他项目的关系</h2><p>README明确自称Go风格并发与Python风格简洁；与文言是不同仓库，未发现继承或兼容声明；.wy同后缀不作合并依据。</p>
-<h2>核验说明</h2><p>2026-10-09只读核验。1星，非fork；最后推送2026-07-26T06:22:33Z。日期为仓库创建不代表首发。功能、性能、通过测试数量未独立复测。</p>
-<h2>参考资料</h2><ul><li><a href="https://github.com/bikthh/wenyu/blob/c550aa8b80e6682914164d89b497c05f9e3d760b/README.md">项目README（核验快照）</a></li><li><a href="https://github.com/bikthh/wenyu/blob/c550aa8b80e6682914164d89b497c05f9e3d760b/token.js">实现或样例证据</a></li><li><a href="https://api.github.com/repos/bikthh/wenyu">仓库元数据</a></li></ul><p>资料核验日期：2026-10-09</p><p><a href="https://github.com/yuyan-lang/chinese-programming-languages/issues/new">补充资料或纠错</a></p></main><footer>站点由<a href="https://yuyan-lang.org/">豫言编程语言</a>提供</footer></body></html>
+<h2>语言介绍</h2><p>文语（WenYu）是一项以中文关键字组织程序、以JavaScript实现工具链的编程语言项目。源文件采用.wy后缀，通过“变量”“函数”“如果”“否则”“循环”“对于……在……”表达声明、分支、函数和迭代，使用花括号划定语句块，并提供数组、字典、切片和列表推导式等写法。默认命令行入口把源码依次交给词法分析器、递归下降与Pratt解析器、字节码编译器和栈式虚拟机。项目还保存斐波那契、排序、通道选择和多返回值等示例。通道实现采用缓冲队列及Promise等待；AI模块通过中文函数名封装外部模型服务的HTTP请求。README以Go风格并发和Python风格简洁说明设计取向。各功能按固定源码中的解析、编译、运行和服务调用路径分别记录，启动协程的端到端接入与服务可用性属于待核实范围。</p>
+<h2>分类与别名</h2><p>中文关键字语言／JavaScript实现的字节码虚拟机；别名：WenYu</p>
+<h2>作者与公开历史</h2><p>bikthh（仓库账号）；现存Git提交署名sunchuan、孙川。仓库账号与提交者姓名的对应关系待核实。</p><p>仓库创建于2026-07-14T07:47:51Z；现存根提交bbeaab28的作者与提交者时间为2026-07-14T09:14:44Z，提交说明已使用“文语 v3.0”。语言首次对外公开的精确时点待核实。</p>
+<h2>设计与特征</h2><p>中文变量、函数、条件与循环语法；花括号语句块、数组与字典；切片、列表推导式与多返回值源码；JavaScript编译器及栈式字节码VM；Promise通道和选择指令源码；中文AI服务HTTP接口封装</p>
+<h2>中文语法示例</h2><pre><code>函数 斐波那契递归(n) {
+    如果 n &lt;= 1 {
+        返回 n
+    }
+    返回 斐波那契递归(n - 1) + 斐波那契递归(n - 2)
+}</code></pre><p>固定提交examples/fibonacci.wy第4—9行连续原文，保留原始缩进与换行。这是完整的递归函数定义，展示“函数”“如果”“返回”；调用语句位于原文件后段。本轮核对原文及静态实现，执行结果待独立验证。 <a href="https://github.com/bikthh/wenyu/blob/c550aa8b80e6682914164d89b497c05f9e3d760b/examples/fibonacci.wy#L4-L9">示例来源</a></p>
+<h2>实现与运行环境</h2><p>JavaScript／Node.js实现。main.js的runSource依次调用Lexer、Parser.parseProgram、Compiler.compile及VM.run；launcher.js也采用该链路。Lexer先读完整标识符，再由token.js精确查询关键字；Parser注册前缀／中缀规则并按优先级构造AST，Compiler生成CodeObject，VM用栈、调用帧和指令分派执行并等待Promise。选择语句连接到SELECT_WAIT与Channel.select，channel.js以数组保存缓冲、发送者和接收者。AI由VM把模块名映射至stdlib/ai.js，后者用Node的http／https封装对话、流式、图像和向量接口；对话路径分别处理OpenAI兼容协议、Anthropic及本地Ollama。README标注MIT License；独立许可证正文与版权授权范围待补核实。</p>
+<h2>版本与维护状态</h2><p>README标题标注v3.1；package.json和main.js的VERSION均为3.0.0，launcher.js显示v3.0。核验main固定提交c550aa8b80e6682914164d89b497c05f9e3d760b，作者时间2026-07-15T04:28:56Z、提交者时间04:41:50Z。GitHub Releases与标签引用集合均为空；正式发行物待核实。</p><p>公开源码、中文原例及VM主入口可读；仓库归档标记为false。启动协程的解析／编译接入、调度器所需VM方法、AI服务调用效果、构建产物及当前维护计划待核实。研究范围为静态资料核验。</p>
+<h2>与其他项目的关系</h2><p>README明确以Go风格并发和Python风格简洁描述设计取向。文语具有自己的JavaScript词法、解析、编译和VM文件，与文言项目按各自仓库分别记录。两者的源码继承、兼容关系及.wy后缀关系待核实。现存提交含Gitee提交者记录，相关Gitee仓库的同源关系待核实。</p>
+<h2>核验说明</h2><p>2026-10-10只读复核，保留原有三项引用。仓库为独立仓库，1星，pushed_at为2026-07-26T06:22:33Z。源码快照与默认分支相同。词法实现采用完整标识符加精确查表；README的Trie说法对应实现待核实。并发证据已拆分：token含SPAWN、VM有OP.SPAWN，Parser／Compiler接入待核实；Scheduler引用的_doCallWithEnv对应VM实现待核实。AI默认服务商为Agnes，接口和模型名称为源码配置，在线可用性待核实。运行、性能和示例输出待独立验证。</p>
+<h2>参考资料</h2><ul><li><a href="https://github.com/bikthh/wenyu/blob/c550aa8b80e6682914164d89b497c05f9e3d760b/README.md">项目README（核验快照）</a></li><li><a href="https://github.com/bikthh/wenyu/blob/c550aa8b80e6682914164d89b497c05f9e3d760b/token.js">实现或样例证据</a></li><li><a href="https://api.github.com/repos/bikthh/wenyu">仓库元数据</a></li><li><a href="https://github.com/bikthh/wenyu/blob/c550aa8b80e6682914164d89b497c05f9e3d760b/examples/fibonacci.wy#L4-L9">固定中文递归原例</a></li><li><a href="https://github.com/bikthh/wenyu/blob/c550aa8b80e6682914164d89b497c05f9e3d760b/main.js#L16-L63">默认运行链与CLI版本</a></li><li><a href="https://github.com/bikthh/wenyu/blob/c550aa8b80e6682914164d89b497c05f9e3d760b/lexer.js#L126-L145">完整标识符与精确关键字查询</a></li><li><a href="https://github.com/bikthh/wenyu/blob/c550aa8b80e6682914164d89b497c05f9e3d760b/parser.js#L65-L99">Pratt前缀与中缀解析注册</a></li><li><a href="https://github.com/bikthh/wenyu/blob/c550aa8b80e6682914164d89b497c05f9e3d760b/compiler.js">AST编译与选择语句字节码</a></li><li><a href="https://github.com/bikthh/wenyu/blob/c550aa8b80e6682914164d89b497c05f9e3d760b/vm.js">栈式VM、并发指令与模块桥接</a></li><li><a href="https://github.com/bikthh/wenyu/blob/c550aa8b80e6682914164d89b497c05f9e3d760b/channel.js">通道缓冲、等待及多路选择</a></li><li><a href="https://github.com/bikthh/wenyu/blob/c550aa8b80e6682914164d89b497c05f9e3d760b/coroutine.js#L127-L179">协程调度器及VM调用边界</a></li><li><a href="https://github.com/bikthh/wenyu/blob/c550aa8b80e6682914164d89b497c05f9e3d760b/stdlib/ai.js">AI服务配置、HTTP请求与导出接口</a></li><li><a href="https://github.com/bikthh/wenyu/blob/c550aa8b80e6682914164d89b497c05f9e3d760b/package.json">包版本及Node.js打包入口</a></li><li><a href="https://github.com/bikthh/wenyu/commit/bbeaab28b54cf6fe836379950aed7f9a6abbd781">现存根提交与sunchuan署名</a></li><li><a href="https://github.com/bikthh/wenyu/commit/c550aa8b80e6682914164d89b497c05f9e3d760b">核验提交与孙川署名</a></li><li><a href="https://api.github.com/repos/bikthh/wenyu/releases">发行记录集合</a></li><li><a href="https://api.github.com/repos/bikthh/wenyu/git/matching-refs/tags">标签引用集合</a></li></ul><p>资料核验日期：2026-10-10</p><p><a href="https://github.com/yuyan-lang/chinese-programming-languages/issues/new">补充资料或纠错</a></p></main><footer>站点由<a href="https://yuyan-lang.org/">豫言编程语言</a>提供</footer></body></html>
