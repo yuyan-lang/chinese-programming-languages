@@ -1,0 +1,46 @@
+[
+  {
+    "name": "壬通中文编程",
+    "issue": "https://github.com/yuyan-lang/chinese-programming-languages/issues/36",
+    "lineage": "第十一轮既有视频线索，本轮补足中文单行原例，建议升为视频证据正式条目；其余字段继续跟进。",
+    "result": "09:18.450237第11行“返回 0;”已逐字转录；08:43.826018的C++标准库编译诊断已保存截图。",
+    "video": "https://www.bilibili.com/video/BV1DaBaBNEE9/?t=558",
+    "author": "沉默夏戌，UID264330594（发布者）",
+    "release_date_utc": "2025-12-26T04:42:01.000Z",
+    "evidence_files": ["evidence/BV1DaBaBNEE9-09m18s.png", "evidence/BV1DaBaBNEE9-08m43s.png"],
+    "pending": [
+      "完整连续中文函数及头文件、输入输出调用、标点和字符串的逐字原例",
+      ".cpp文件实际保存内容、中文显示与源文件语法边界",
+      "中文关键字的宏映射、预处理、转译或编译器扩展机制",
+      "原作者静态语法文档、公开源码、固定版本、许可和维护状态",
+      "实现作者关系、最早公开日期及与其他中文C++项目的继承关系",
+      "独立运行、兼容范围、AI参与情况"
+    ],
+    "verified_at": "2026-10-10"
+  },
+  {
+    "name": "飞鱼中文编程",
+    "issue": "https://github.com/yuyan-lang/chinese-programming-languages/issues/33",
+    "lineage": "第十轮已深入核验的旧候选，本轮补充精确UTC日期与框架相关演示。",
+    "result": "第五课原片meta确认2022-02-25T03:38:43.000Z；06:25.075831附近浏览器演示可见Vue开发提示、App Launch及App Show控制台日志和手机尺寸网页预览。",
+    "video": "https://www.bilibili.com/video/BV1rb4y1s74k/?t=380",
+    "author": "飞鱼中文编程，UID98575563",
+    "release_date_utc": "2022-02-25T03:38:43.000Z",
+    "duration_seconds": 734.866,
+    "video_frame_size": "672×360",
+    "observed_frames": [
+      {"time_seconds": 355.290341, "context": "中文条件示例编辑过程，正在输入分支代码。细字逐字转录待核。"},
+      {"time_seconds": 377.751999, "context": "暂停画面显示条件分支、中文输出调用和结束行。连续程序逐字转录待核。"},
+      {"time_seconds": 385.075831, "context": "暂停画面显示手机尺寸网页预览和浏览器开发者工具；Vue开发提示、App Launch及App Show可读。"}
+    ],
+    "pending": [
+      "原作者完整连续中文程序、精确关键字及标点",
+      "中文源文件保存格式及UNI／VUE生成边界",
+      "公开静态语法手册、源码仓库、固定版本及许可证",
+      "官网www.800.ink当前内容与可用文档入口",
+      "作者宣称平台支持范围与独立运行结果"
+    ],
+    "access_notes": "公开清晰度为360P，480P、720P、1080P菜单标为登录即享。站点公开试看按钮操作后所读video尺寸保持672×360；未进行登录。部分标签发生CDP Page.getLayoutMetrics／Page.getFrameTree／Runtime.evaluate超时；有限新页恢复取得上述画面，截图文件保存未成功，浏览器工具图像观察记录保留。",
+    "verified_at": "2026-10-10"
+  }
+]

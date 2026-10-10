@@ -1,0 +1,45 @@
+[
+  {
+    "name": "Z语言（zyw98020/Zlang）",
+    "new_discovery": true,
+    "formal_entry": false,
+    "category": "中文脚本语言候选／原作者README例程已核",
+    "author": "GitHub维护账号zyw98020；自然人身份与团队分工待核实。",
+    "repository": "https://github.com/zyw98020/Zlang---Chinese-programming-language",
+    "snapshot": "bf30f52927284d96950d87ac74abd483807d7ba6",
+    "checked_at": "2026-10-10",
+    "findings": "固定README提供中文设、函、匹配、情况、默认、回、对于等语法和连续程序，项目自述C++17解释器与Objective-C Cocoa macOS IDE，后缀.zzz。原仓根目录包含README.md、.gitignore和Z目录。实现调用链、正式版本及同名项目关系继续核实。",
+    "dates": {
+      "repository_created_at": "2026-07-16T13:58:11Z",
+      "head_committed_at": "2026-07-17T13:00:16Z",
+      "pushed_at": "2026-07-17T13:00:19Z",
+      "first_public": "待核实"
+    },
+    "code": "设 问候 = \"世界\"\n打印(\"你好, \\(问候)!\")\n\n// Lambda 与模式匹配\n函 评级(分数)\n    匹配 分数\n        情况 90..100: 回 \"优秀\"\n        情况 60..89:  回 \"及格\"\n        默认:         回 \"不及格\"\n\n设 学生 = [{\"名\": \"张三\", \"分\": 85}, {\"名\": \"李四\", \"分\": 92}]\n对于 学 在 学生\n    打印(学[\"名\"] + \": \" + 评级(学[\"分\"]))",
+    "code_source": "https://github.com/zyw98020/Zlang---Chinese-programming-language/blob/bf30f52927284d96950d87ac74abd483807d7ba6/README.md#L6-L18",
+    "code_context": "固定README第6—18行连续原例；作为作者语法文档证据保存。解析器与实际运行对应继续核实。",
+    "license": "README末段声明MIT，完整许可文件、版权主体及范围待核实；GitHub许可元数据null。",
+    "ai_involvement": "开发中的AI参与待核实。",
+    "relations": "同名cnzkai/Zlang及calvinwilliams/zlang各自按作者仓库标识。三者的设计借鉴、源码继承及作者关系待核实。",
+    "next_steps": [
+      "读取固定Z目录下词法器、解析器、解释入口和原例，核对中文专用语法。",
+      "核对现存历史、标签及正式发行，补充完整许可与AI声明。",
+      "取得作者公开发布链接与同名项目关系证据。"
+    ],
+    "references": [
+      {
+        "title": "固定原作者README与中文原例",
+        "url": "https://github.com/zyw98020/Zlang---Chinese-programming-language/blob/bf30f52927284d96950d87ac74abd483807d7ba6/README.md"
+      },
+      {
+        "title": "原仓元数据",
+        "url": "https://api.github.com/repos/zyw98020/Zlang---Chinese-programming-language"
+      },
+      {
+        "title": "固定源码目录",
+        "url": "https://github.com/zyw98020/Zlang---Chinese-programming-language/tree/bf30f52927284d96950d87ac74abd483807d7ba6/Z"
+      }
+    ],
+    "issue": "https://github.com/yuyan-lang/chinese-programming-languages/issues/45"
+  }
+]

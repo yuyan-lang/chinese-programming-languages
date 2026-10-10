@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>zlang（calvinwilliams）｜中文编程语言百科</title><link rel="stylesheet" href="../style.css"></head><body><header><h1>zlang（calvinwilliams）</h1></header><main><p><a href="../">返回语言目录</a></p>
+<h2>语言介绍</h2><p>zlang是采用对象克隆模型的通用解释语言，提供中英文关键字和中文对象接口。原作者中文编程章节用“导入”“函数”“如果”“否则”“返回”编写阶乘，另列接口、对象、继承、异常处理和循环等对应词。中文源文件用charset声明字符编码；所读实现将UTF-8或GB18030的中文词元识别为与英文关键字对应的内部类型。程序以.z文件组织，解释器和对象库采用C源码，并保存词法、语法、解释执行及平台工程目录。项目以简洁语法、对象属性与函数的统一管理为设计方向，文档提供命令行程序、Web开发、数据库和桌面界面库等使用资料。中文语法属于同一zlang工具链。2026年release分支持续更新，运行、性能及各平台兼容性按待核事项保留。</p>
+<h2>分类与别名</h2><p>中英文关键字通用解释语言／对象克隆模型；别名：zlang、Z语言（calvinwilliams）</p>
+<h2>作者与公开历史</h2><p>calvinwilliams（Gitee原仓维护账号）；固定AUTHORS署名calvin。自然人中文姓名及完整贡献者名单待核实。</p><p>原作者ChangeLog-CN记2022-03-22创建0.0.1.0、2022-05-29的0.0.2.0跑通hello.z；2024-02-08的0.2.1.0开始支持中文编程，2024-02-09添加存量对象中文别名。准确首次公开日与早期发行物待核实。</p>
+<h2>设计与特征</h2><p>中英文关键字及标准对象中文别名、对象克隆、接口与属性拦截器、条件、循环、函数和异常语法、UTF-8与GB18030中文词元识别、C实现的词法、语法与解释执行路径</p>
+<h2>中文语法示例</h2><pre><code>charset &quot;zh_CN.gbk&quot;
+
+导入 stdtypes stdio ;
+
+函数 整型 阶乘计算( 整型 输入数 )
+{
+        如果( 输入数 == 1 )
+                返回 1;
+        否则
+                返回 阶乘计算(输入数-1) * 输入数 ;
+}
+
+函数 整型 主函数( 数组 命令行参数集 )
+{
+        值 = 阶乘计算( 6 ) ;
+        标准输出.显示并换行( 值 );
+
+        返回 0;
+}
+</code></pre><p>固定提交doc/chinese_programming.md中“一些示例”的test_factorial_chinese.z完整连续19行原文，保留空行、缩进、charset和英文库名。文档随后的720为作者展示输出；本轮执行结果待核实。该章最后修改页面显示2026-08-03 21:46 +08:00；当前固定仓库头为2026-09-27。 <a href="https://gitee.com/calvinwilliams/zlang/blob/07a764e6ba76ee95bed61ee839a42c2ca51782cd/doc/chinese_programming.md">示例来源</a></p>
+<h2>实现与运行环境</h2><p>C实现。src/zlang/token.c处理词元和多字节字符，lexical.c的MATCH_ALL_CHARSET_ALIAS按编码匹配中文别名并设置TOKEN_TYPE_IF、TOKEN_TYPE_FUNCTION等；charset_UTF8.h含“如果”“函数”和主函数入口定义。src/zlang/interpret.c的InterpretStatement、InterpretKeywordStatement和InterpretExpression组织解释执行。文档声明Windows与Linux支持；第三方依赖、全部平台功能和运行表现待核实。</p>
+<h2>版本与维护状态</h2><p>固定头提交标题为UPDATE TO V0.12.8.0J；同一头ChangeLog-CN首项为0.12.8.0（2026-09-22），另记录0.12.2.0（2026-08-13）。源码修订后缀、正式发行附件与标签的一一对应待核实。 许可：固定根LICENSE为Apache License 2.0；所读token.c保留Apache-2.0头部。第三方对象库与依赖的逐项许可范围待核实。</p><p>原作者Gitee源码、语言手册、中文原例与更新记录可读；所读release头提交07a764e6ba76ee95bed61ee839a42c2ca51782cd，页面时间2026-09-27 23:32:54 +0800。安装、编译、执行和测试结果待核实。</p>
+<h2>与其他项目的关系</h2><p>中文关键字与英文语法共用zlang词法和解释器，按一项语言记录。原仓账号为calvinwilliams；已录智语言cnzkai/Zlang、zyw98020/Zlang---Chinese-programming-language及Xiaofei-it/Zlang分别按各自作者与原仓辨识，同源关系待原作者证据核实。zcrypto与gtk-zlang属于该语言的应用和配套库。</p>
+<h2>核验说明</h2><p>2026-10-10只读核验。普通搜索器的Gitee读取出现405或Cache miss后，使用公开网页浏览器正常公开页面读取。固定代码和当前原件已逐项核对。2024中文支持日期依据原作者版本日志，与2022项目创建记录分开。原作者的自主研发、性能提升及运行输出归入作者声明；独立复现待核实。2026社区转载用于发现，技术事实采用原仓。固定代码按页面pre原文提取。 AI开发参与：所读原作者README、AUTHORS、中文章节及版本记录中的AI开发参与声明待核实。</p>
+<h2>参考资料</h2><ul><li><a href="https://gitee.com/calvinwilliams/zlang">原作者Gitee仓库</a></li>
+<li><a href="https://gitee.com/calvinwilliams/zlang/blob/07a764e6ba76ee95bed61ee839a42c2ca51782cd/doc/chinese_programming.md">固定中文编程章节与19行阶乘原例</a></li>
+<li><a href="https://gitee.com/calvinwilliams/zlang/blob/release/doc/keyword.md">中英文关键字表（作者文档）</a></li>
+<li><a href="https://gitee.com/calvinwilliams/zlang/blob/07a764e6ba76ee95bed61ee839a42c2ca51782cd/src/zlang/charset_UTF8.h">固定UTF-8中文词元定义</a></li>
+<li><a href="https://gitee.com/calvinwilliams/zlang/blob/07a764e6ba76ee95bed61ee839a42c2ca51782cd/src/zlang/lexical.c">固定词法识别与中文别名分派</a></li>
+<li><a href="https://gitee.com/calvinwilliams/zlang/blob/07a764e6ba76ee95bed61ee839a42c2ca51782cd/src/zlang/interpret.c">固定解释执行入口</a></li>
+<li><a href="https://gitee.com/calvinwilliams/zlang/blob/07a764e6ba76ee95bed61ee839a42c2ca51782cd/src/zlang/token.c">固定词元与多字节处理</a></li>
+<li><a href="https://gitee.com/calvinwilliams/zlang/blob/07a764e6ba76ee95bed61ee839a42c2ca51782cd/AUTHORS">固定作者署名</a></li>
+<li><a href="https://gitee.com/calvinwilliams/zlang/blob/07a764e6ba76ee95bed61ee839a42c2ca51782cd/ChangeLog-CN">固定2022—2026版本与2024中文支持记录</a></li>
+<li><a href="https://gitee.com/calvinwilliams/zlang/blob/07a764e6ba76ee95bed61ee839a42c2ca51782cd/LICENSE">固定Apache-2.0许可证</a></li></ul><p>资料核验日期：2026-10-10</p><p><a href="https://github.com/yuyan-lang/chinese-programming-languages/issues/new">补充资料或纠错</a></p></main><footer>站点由<a href="https://yuyan-lang.org/">豫言编程语言</a>提供</footer></body></html>

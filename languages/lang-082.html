@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Zechariah｜中文编程语言百科</title><link rel="stylesheet" href="../style.css"></head><body><header><h1>Zechariah</h1></header><main><p><a href="../">返回语言目录</a></p>
+<h2>语言介绍</h2><p>Zechariah是qbr12公开维护的实验性中文脚本语言，源码后缀为.zc，项目以插件扩展数学、文件、网络与AI接口为设计方向。固定实现包含JavaScript编写的词法器、递归下降解析器和AST代码生成器，将中文源程序转换为Node.js程序；另保存一条按行匹配中文语句的解释路径。语言使用“设、若、则、否则、结束、循环、定义、返回、对每个”等中文关键词，原仓提供函数、条件、数组和遍历示例。插件通过JSON描述命令，以“说”进行语句调用或以“取”嵌入表达式。Windows分发路径生成C#启动器，并配套Node运行时与JavaScript程序体。项目同时提供网页编辑器和编译接口。两条执行路径的语法覆盖、函数作用域以及发行包环境要求分别记录，独立运行结果待核实。</p>
+<h2>分类与别名</h2><p>实验性中文脚本语言／JavaScript源码转译与逐行解释实现；别名：zechariah、hbr-c.zc</p>
+<h2>作者与公开历史</h2><p>GitHub维护账号qbr12；现存根提交署名qkw并关联qbr12，后续三条提交署名qbr12。自然人姓名、跨平台账号与开发分工待核实。</p><p>GitHub仓库创建于2026-08-22T10:38:42Z；现存无父根提交1b594de9857bb26b288cd1f20122bc82f54f5f2b记录2026-08-22T12:03:57Z；首个正式Release v1.0.0公开于2026-08-22T13:18:30Z。仓库、Git历史和发行各自记录；更早公开材料待核实。</p>
+<h2>设计与特征</h2><p>21个中文专用关键词的词法集合、中文条件、循环、函数、返回与遍历语句、专用AST与JavaScript源码生成、JSON描述的插件与说／取调用、原仓逐行解释路径与Node.js转译路径、Windows C#启动器与Node运行时捆绑设计、网页编辑器、HTTP及WebSocket服务源码</p>
+<h2>中文语法示例</h2><pre><code>定义 阶乘(n) {
+  若 n &lt;= 1 则
+    返回 1
+  否则
+    返回 n * 阶乘(n - 1)
+  结束
+}
+显示 阶乘(5)</code></pre><p>固定demo2.zc第5—12行连续8行，包含阶乘函数定义与调用，逐字保留两空格缩进和标点。blob为57b294aa3a8debe2c012d0a034f919c34ce4fca3。该片段取自综合例程，采用编译器的函数／返回路径；独立执行、输出和作用域语义待核实。 <a href="https://github.com/qbr12/hbr-c.zc/blob/15b107ae9f7ce112e678b385b65599d749b6cbdc/demo2.zc#L5-L12">示例来源</a></p>
+<h2>实现与运行环境</h2><p>JavaScript与Node.js实现。compiler/lexer.js定义21个中文关键词；parser.js构造If、Loop、While、Func、Return、ForIn等AST。compiler/compiler.js第16—23行调用Parser.parse和Codegen.generate生成JS。codegen.js把控制节点转为JS语句，把函数参数写入共享__v变量表，再生成函数体；函数局部作用域、递归重入与变量恢复结果待核实。run.js另调用interpreter.js的逐行正则匹配路径。插件字符串实现经Function构造或生成到产物。Windows打包由C#启动器启动同目录node.exe和_payload.js；.NET Framework路径使用v4.0.30319下的csc，dotnet publish路径以net8.0、SelfContained=false进行框架依赖式发布；依赖闭合及运行兼容待核实。</p>
+<h2>版本与维护状态</h2><p>GitHub首个正式Release v1.0.0（2026-08-22T13:18:30Z），标签指向acd3fb2a0730e7a03504b749305c9719194b2de3；固定main为15b107ae9f7ce112e678b385b65599d749b6cbdc，其README后续更新于2026-08-22T16:26:05Z。package.json保留0.1.0与MIT声明，包号、发行号和完整许可证文本分别待核。</p><p>公开仓库archived=false；本轮读取4条提交、1项正式Release和1个标签。最后推送2026-08-22T16:26:06Z。Release附件集合为空，源码树另保存打包样例；发行物对应、持续维护计划及独立运行待核实。</p>
+<h2>与其他项目的关系</h2><p>README、package.json、词法与编译器头注均使用Zechariah；仓库路径hbr-c.zc作为同一项目入口保存。JavaScript为源码生成目标，Node.js为运行时，C#用于Windows启动器。DeepSeek插件属于语言的外部API功能；其他同名账号、已有中文语言的继承与跨平台发布关系待核实。</p>
+<h2>核验说明</h2><p>2026-10-10静态核验，固定完整树49项、truncated=false。中文专用词元、AST分派和连续原例均有源码证据。编译器与逐行解释器分别记录语法范围；运行一致性、插件安全边界、生成器共享变量表语义和打包依赖待核实。package.json声明MIT；固定树许可证文件与版权主体待补。README的功能及便携分发描述按作者声明记录。仓库内AI对话插件与开发AI参与分别记录，具体AI编码工具、模型和比例待核实。</p>
+<h2>参考资料</h2><ul><li><a href="https://github.com/qbr12/hbr-c.zc">项目原仓</a></li>
+<li><a href="https://github.com/qbr12/hbr-c.zc/blob/15b107ae9f7ce112e678b385b65599d749b6cbdc/README.md">固定README：设计与两条运行路径</a></li>
+<li><a href="https://github.com/qbr12/hbr-c.zc/blob/15b107ae9f7ce112e678b385b65599d749b6cbdc/demo2.zc#L5-L12">固定连续8行中文阶乘原例</a></li>
+<li><a href="https://github.com/qbr12/hbr-c.zc/blob/15b107ae9f7ce112e678b385b65599d749b6cbdc/compiler/lexer.js#L5-L9">固定中文词法集合</a></li>
+<li><a href="https://github.com/qbr12/hbr-c.zc/blob/15b107ae9f7ce112e678b385b65599d749b6cbdc/compiler/parser.js">固定中文语句分派与函数解析</a></li>
+<li><a href="https://github.com/qbr12/hbr-c.zc/blob/15b107ae9f7ce112e678b385b65599d749b6cbdc/compiler/codegen.js">固定AST生成器与共享变量表</a></li>
+<li><a href="https://github.com/qbr12/hbr-c.zc/blob/15b107ae9f7ce112e678b385b65599d749b6cbdc/compiler/compiler.js">固定编译入口及Windows启动器</a></li>
+<li><a href="https://github.com/qbr12/hbr-c.zc/blob/15b107ae9f7ce112e678b385b65599d749b6cbdc/interpreter.js">固定逐行解释器</a></li>
+<li><a href="https://github.com/qbr12/hbr-c.zc/blob/15b107ae9f7ce112e678b385b65599d749b6cbdc/run.js">固定解释入口</a></li>
+<li><a href="https://github.com/qbr12/hbr-c.zc/blob/15b107ae9f7ce112e678b385b65599d749b6cbdc/plugin.js">固定插件加载接口</a></li>
+<li><a href="https://github.com/qbr12/hbr-c.zc/blob/15b107ae9f7ce112e678b385b65599d749b6cbdc/package.json">固定版本与MIT声明</a></li>
+<li><a href="https://github.com/qbr12/hbr-c.zc/releases/tag/v1.0.0">首个正式发行v1.0.0</a></li>
+<li><a href="https://github.com/qbr12/hbr-c.zc/commit/1b594de9857bb26b288cd1f20122bc82f54f5f2b">现存根提交</a></li>
+<li><a href="https://github.com/qbr12/hbr-c.zc/blob/15b107ae9f7ce112e678b385b65599d749b6cbdc/plugin-deepseek.json">固定DeepSeek API插件</a></li>
+<li><a href="https://api.github.com/repos/qbr12/hbr-c.zc/git/trees/15b107ae9f7ce112e678b385b65599d749b6cbdc?recursive=1">固定完整源码树</a></li></ul><p>资料核验日期：2026-10-10</p><p><a href="https://github.com/yuyan-lang/chinese-programming-languages/issues/new">补充资料或纠错</a></p></main><footer>站点由<a href="https://yuyan-lang.org/">豫言编程语言</a>提供</footer></body></html>

@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>知语言（知心编译器）｜中文编程语言百科</title><link rel="stylesheet" href="../style.css"></head><body><header><h1>知语言（知心编译器）</h1></header><main><p><a href="../">返回语言目录</a></p>
+<h2>语言介绍</h2><p>知语言是由知心编译器实现的中文C方言。原作者将编译器定位为Tiny C Compiler的中文化开发，README列出整数、字符、如果、否则、循环、返回以及导入、定义、条件编译等中文词，并展示中文程序入口“开始”。固定token.h分别保存GBK与UTF-8编码的中文数据类型和流程控制词元；编译器主程序zhi.c自身混用中文预处理、类型和控制语句，提供可追溯的实际中文代码。项目保存原生目标相关源码、运行组件和配套库目录，文档介绍编译输出及-run命令。知音编辑器是其配套开发环境。中文化实现、原有TCC来源和不同组件许可按层次记录；完整C标准兼容、自举过程、目标平台及运行效果继续待核实。</p>
+<h2>分类与别名</h2><p>中文C方言／基于Tiny C Compiler的编译器；别名：知语言、知心编译器、zhi、zhixin</p>
+<h2>作者与公开历史</h2><p>位中原（Gitee账号zhiyuyan及src/zhi.c中文版权署名）；上游Tiny C Compiler作者Fabrice Bellard在源码与README中具名。</p><p>固定src/zhi.c声明“版权 (C) 2019-现在 位中原”；该版权起年按源码记录。可核发行页zhixinV0.9.30显示2025-04-01 14:46。项目首次公开日、2019早期发行证据待核实。</p>
+<h2>设计与特征</h2><p>中文C类型、控制语句和预处理指令、GBK与UTF-8中文词元表、开始与main入口的发行说明、编译器本体包含中文源代码、配套知音编辑器与中文库资料</p>
+<h2>中文语法示例</h2><pre><code>    选项 = 解析命令行参数(状态, &amp;参数量9, &amp;参数组9, 1);
+    如果(选项 &lt; 0)
+    {
+        return 1;
+    }
+    如果 (文件数 == 0)
+    {
+        if (选项 == 选项码_HELP)
+        {
+            fputs(help, stdout);
+            if (!状态-&gt;显示详情)
+            {
+                return 0;
+            }
+            ++选项;
+        }
+        if (选项 == 选项码_HELP2)
+        {
+            fputs(help2, stdout);
+            返回 0;</code></pre><p>固定src/zhi.c第52—71行连续20行，属于编译器主函数中处理命令行帮助选项的局部片段；保留中文如果、返回与英文if、return的混用和原始缩进。相关状态、选项等变量在前文声明；该摘录的外层语句块在后文闭合。源码用于呈现真实语法和项目实现上下文，执行及自举结果待核实。README另有连续7行hello例程，保留全角括号等原始排版，示例字节兼容性待核实。 <a href="https://gitee.com/zhiyuyan/tcc/blob/04434cfef8000dd8f9868816016abdeb0f6b0214/src/zhi.c#L52-L71">示例来源</a></p>
+<h2>实现与运行环境</h2><p>基于Tiny C Compiler的中文C方言编译器。固定src/token.h第19—36行列中文类型的GBK／UTF-8字节串，第51—72行列如果、否则、选择、分支、执行、判断、循环、继续、转到、跳出和返回；固定src/zhi.c含中文入口、预处理和控制逻辑。公开目录另列词法分析、语法分析、运行、核心库及x86、ARM、RISC-V等目标相关文件；各目标完整可用性待核实。语法分析.c固定页面本轮要求登录，解析分派细节保留待核。</p>
+<h2>版本与维护状态</h2><p>发行页将zhixinV0.9.30标为最新版，页面时间2025-04-01 14:46，标签0.9.30、提交短名bea6483；该版说明同时支持main与开始入口。当前默认头README及token.h具有后续修改记录，发行版与默认分支分别记录。 许可：固定根LICENSE采用MulanPSL-2.0；README及src/zhi.c明确保留Fabrice Bellard／Tiny C Compiler来源与版权。上游代码各文件的完整许可、衍生贡献与根许可的适用范围待核实。</p><p>原作者仓库、README、token.h、zhi.c和0.9.30发行页可读；默认头04434cfef8000dd8f9868816016abdeb0f6b0214。独立编译、运行、自举及发行附件内容待核实。</p>
+<h2>与其他项目的关系</h2><p>知语言为中文C方言，知心编译器为其TCC衍生实现；知音／ZhiYin是配套编辑器。原作者README直接链接zhiyuyan/zhiyin，并明确Tiny C Compiler来源。其他中文TCC改造及同名知语言项目的同源关系待核实。</p>
+<h2>核验说明</h2><p>2026-10-10只读核验。中文词元及编译器本体原例支持中文C方言分类。原作者README的自举、C99及Linux内核编译说法按声明保留，独立复现待核实。所读src/examples/ex1.c为英文hello例程；本条采用原作者实际编译器源码的连续中文片段。README含全角括号的中文hello保留为文档排版待核事项。版权2019与首次公开日分开。语法分析.c跳转登录即止步。 AI开发参与：所读原作者README、中文源码、词元表及发行页中的AI开发参与声明待核实。</p>
+<h2>参考资料</h2><ul><li><a href="https://gitee.com/zhiyuyan/tcc">原作者Gitee仓库</a></li>
+<li><a href="https://gitee.com/zhiyuyan/tcc/blob/04434cfef8000dd8f9868816016abdeb0f6b0214/README.md">固定README：中文关键词、示例、TCC关系与知音链接</a></li>
+<li><a href="https://gitee.com/zhiyuyan/tcc/blob/04434cfef8000dd8f9868816016abdeb0f6b0214/src/zhi.c#L52-L71">固定编译器主程序及连续中文语法原例</a></li>
+<li><a href="https://gitee.com/zhiyuyan/tcc/blob/04434cfef8000dd8f9868816016abdeb0f6b0214/src/token.h#L19-L72">固定双编码中文词元定义</a></li>
+<li><a href="https://gitee.com/zhiyuyan/tcc/releases/tag/0.9.30">0.9.30正式发行页</a></li>
+<li><a href="https://gitee.com/zhiyuyan/tcc/blob/04434cfef8000dd8f9868816016abdeb0f6b0214/LICENSE">固定根MulanPSL-2.0许可证</a></li>
+<li><a href="https://gitee.com/zhiyuyan/tcc/tree/master/src">公开实现目录</a></li></ul><p>资料核验日期：2026-10-10</p><p><a href="https://github.com/yuyan-lang/chinese-programming-languages/issues/new">补充资料或纠错</a></p></main><footer>站点由<a href="https://yuyan-lang.org/">豫言编程语言</a>提供</footer></body></html>

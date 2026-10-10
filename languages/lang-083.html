@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>LightLang（NomiLight2026）｜中文编程语言百科</title><link rel="stylesheet" href="../style.css"></head><body><header><h1>LightLang（NomiLight2026）</h1></header><main><p><a href="../">返回语言目录</a></p>
+<h2>语言介绍</h2><p>LightLang是一门使用中文关键字、冒号和缩进代码块的实验性编译语言，面向脚本编写与Rust原生模块接入。源码包含“让”“打印”“如果”“否则如果”“否则”“函数”“返回”“当”“对于”“导入”等词元，文档使用.light文件，示例目录同时保存.lt程序。Rust实现的前端将源码解析为抽象语法树，经类型推导生成LLVM IR，再通过Clang编译并链接Rust运行时。工具链提供light临时编译运行及交互命令、lightc编译器、lightGo工程与FFI构建工具，并配套lightWeb运行时。公开固定例程展示变量、算术、中文字符串、条件分支与返回。README将项目定位为早期开发阶段；完整语义、平台兼容性和独立运行结果待核实。</p>
+<h2>分类与别名</h2><p>中文关键字编译语言／Rust—LLVM工具链；别名：LightLang、lightLang、Light、light-lang</p>
+<h2>作者与公开历史</h2><p>GitCode维护账号NomiLight2026；GitHub仓库归属oneone1565。现存Git提交使用NomiLight2026署名，最早根提交在GitHub映射到oneone1565账号。自然人身份与团队分工待核实。</p><p>现存历史包含两个2026-09-25的根提交：04:53:46Z的Initial commit与04:56:45Z的“初始化 Light 项目”。GitHub仓库创建时间为2026-09-25T05:19:32Z。上述时间分别属于Git提交记录和仓库元数据；语言最早对外公开时点、GitCode仓库创建及首发时间待核实。</p>
+<h2>设计与特征</h2><p>中文关键字、Unicode标识符与缩进代码块、变量、函数、条件、循环、容器及导入语法、Rust词法／语法前端与迭代类型推导、LLVM IR生成、Clang编译与Rust运行时链接、light临时编译运行与整段会话重编入口、lightGo调用Cargo构建Rust FFI静态库</p>
+<h2>中文语法示例</h2><pre><code>函数 main():
+    让 x = 10
+    让 y = 20
+    打印 x + y
+    让 名字 = &quot;世界&quot;
+    打印 &quot;你好, &quot; + 名字
+    如果 x &gt; 5:
+        打印 &quot;x 大于 5&quot;
+    否则:
+        打印 &quot;x 不大于 5&quot;
+    返回 0</code></pre><p>固定提交38aa05b295a53a2591617a5c3bc8f7b08595de25的examples/hello.lt第1—11行（文件blob：3599e1be5eede0603cb7c8e0cf812d9a528ac69d），完整连续main函数原文。保留四空格缩进、半角冒号、ASCII逗号与原数字；文件使用.lt后缀，当前README主要使用.light。独立编译与运行结果待核实。第十轮README五行输入判空原例继续保存在研究日志。 <a href="https://github.com/oneone1565/LightLang/blob/38aa05b295a53a2591617a5c3bc8f7b08595de25/examples/hello.lt#L1-L11">示例来源</a></p>
+<h2>实现与运行环境</h2><p>lightc/src/lexer.rs把中文关键字映射到词元并生成Indent/Dedent；parser.rs解析函数、表达式和语句并构造ast.rs中的Program。main.rs递归读取导入文件，调用Lexer::tokenize、Parser::parse_program、typeinfer::infer及CodeGen::gen；后端以文本生成LLVM IR，调用Clang产生目标文件并链接lightrt与外部静态库。codegen.rs生成函数、分支、打印及资源释放调用，lightrt以Rust实现字符串、数组、字典和输入输出。light源码将历史会话与当前输入重新写为源码，调用lightc并执行生成程序；lightGo源码调用Cargo构建FFI库，再通过--native交给lightc。上述内容为源码静态核验，执行正确性及覆盖范围待核实。</p>
+<h2>版本与维护状态</h2><p>固定提交中light、lightc、lightgo、lightrt与lightweb五个Cargo清单均标0.2.1，README及CI变量亦标0.2.1。GitHub标签0.2.0指向d507d3a03a993d3613f51e5fafee4ab9944a34e0，该快照的lightc清单为0.2.0，提交时间2026-09-26T07:07:53Z。GitHub另有beta与v0.1.0标签；本次发行集合返回空数组。第十轮GitCode侧栏显示0.2.0发行；发行正文、绝对发布时间及附件待核实。</p><p>公开GitHub源码、固定中文例程、许可及标签可读。所读main提交为2026-09-27T01:58:54Z，仓库archived=false。README与.gitcode/workflows/ci.yml记录跨平台构建及冒烟步骤；GitHub工作流运行集合为0项。项目实际构建、运行、CI完成结果、发行附件及持续维护计划待核实。</p>
+<h2>与其他项目的关系</h2><p>GitHub副本保留两条明确写出GitCode NomiLight2026/lightLang地址的双亲合并提交，配合相同项目名、工具链与README原例，建立与Issue #31旧候选的同源历史联系，目录按一个语言对象记录。两平台当前快照同步关系与维护安排待核实。光明lang-009的原仓为skywalk163/light，包元数据为guangming 0.4.0并采用Python入口；本项目为NomiLight2026署名的Rust工作区。两者均使用LightLang别名及.light扩展名，作者声明、设计借鉴或源码继承关系待核实。</p>
+<h2>核验说明</h2><p>2026-10-10通过GitHub只读接口完成固定源码审阅，树对象返回97项、67个文件且truncated=false，读取其中61个文本文件。目录基线含80项语言；Issue #31正文及全部1条评论已读。本轮把第十轮LightLang候选补为1项正式资料，真正新发现计数为0。GitCode既有访问边界继续保留；GitHub副本作为公开同源历史入口。展示原例逐字取自固定文件，项目构建、测试和运行结果待核实。README的输入判空原例使用字符串比较；当前gen_cmp对浮点走fcmp、其余走icmp i64，字符串比较语义与原例结果列入待核范围。AI范围、最早公开时间、发行附件及与光明的关系继续核实。 固定LICENSE保存GPL第3版正文，README声明GPL-3.0及第三方依赖各自许可；项目专属版权署名和第三方依赖许可明细待核实。</p>
+<h2>参考资料</h2><ul><li><a href="https://api.github.com/repos/oneone1565/LightLang">GitHub项目、公开状态及创建时间</a></li>
+<li><a href="https://gitcode.com/NomiLight2026/lightLang">GitCode原候选仓库</a></li>
+<li><a href="https://github.com/oneone1565/LightLang/blob/38aa05b295a53a2591617a5c3bc8f7b08595de25/README.md#L15-L36">固定README：项目定位、工具链和早期阶段</a></li>
+<li><a href="https://github.com/oneone1565/LightLang/blob/38aa05b295a53a2591617a5c3bc8f7b08595de25/examples/hello.lt#L1-L11">固定连续中文原例：完整main函数</a></li>
+<li><a href="https://github.com/oneone1565/LightLang/blob/38aa05b295a53a2591617a5c3bc8f7b08595de25/README.md#L99-L109">固定README：第十轮保存的输入判空原例</a></li>
+<li><a href="https://github.com/oneone1565/LightLang/blob/38aa05b295a53a2591617a5c3bc8f7b08595de25/lightc/src/lexer.rs#L211-L265">中文关键字与Unicode标识符的词法入口</a></li>
+<li><a href="https://github.com/oneone1565/LightLang/blob/38aa05b295a53a2591617a5c3bc8f7b08595de25/lightc/src/lexer.rs#L324-L394">缩进、去缩进与层级检查</a></li>
+<li><a href="https://github.com/oneone1565/LightLang/blob/38aa05b295a53a2591617a5c3bc8f7b08595de25/lightc/src/ast.rs#L1-L90">抽象语法树：函数、语句与表达式</a></li>
+<li><a href="https://github.com/oneone1565/LightLang/blob/38aa05b295a53a2591617a5c3bc8f7b08595de25/lightc/src/parser.rs#L53-L99">函数与顶层项目解析</a></li>
+<li><a href="https://github.com/oneone1565/LightLang/blob/38aa05b295a53a2591617a5c3bc8f7b08595de25/lightc/src/parser.rs#L414-L445">如果、否则如果与否则解析</a></li>
+<li><a href="https://github.com/oneone1565/LightLang/blob/38aa05b295a53a2591617a5c3bc8f7b08595de25/lightc/src/typeinfer.rs#L1-L103">类型推导：约束传播和迭代</a></li>
+<li><a href="https://github.com/oneone1565/LightLang/blob/38aa05b295a53a2591617a5c3bc8f7b08595de25/lightc/src/main.rs#L271-L368">源码读取、词法和语法分析调用链</a></li>
+<li><a href="https://github.com/oneone1565/LightLang/blob/38aa05b295a53a2591617a5c3bc8f7b08595de25/lightc/src/main.rs#L109-L154">类型推导、LLVM生成与IR写出入口</a></li>
+<li><a href="https://github.com/oneone1565/LightLang/blob/38aa05b295a53a2591617a5c3bc8f7b08595de25/lightc/src/main.rs#L198-L245">Clang目标文件编译与运行时链接</a></li>
+<li><a href="https://github.com/oneone1565/LightLang/blob/38aa05b295a53a2591617a5c3bc8f7b08595de25/lightc/src/codegen.rs#L437-L571">LLVM输出、函数与顶层main生成</a></li>
+<li><a href="https://github.com/oneone1565/LightLang/blob/38aa05b295a53a2591617a5c3bc8f7b08595de25/lightc/src/codegen.rs#L1280-L1328">LLVM条件分支链生成</a></li>
+<li><a href="https://github.com/oneone1565/LightLang/blob/38aa05b295a53a2591617a5c3bc8f7b08595de25/lightrt/src/lib.rs#L74-L103">Rust运行时对象定义</a></li>
+<li><a href="https://github.com/oneone1565/LightLang/blob/38aa05b295a53a2591617a5c3bc8f7b08595de25/lightrt/src/lib.rs#L209-L261">Rust运行时的整数、字符串与布尔打印</a></li>
+<li><a href="https://github.com/oneone1565/LightLang/blob/38aa05b295a53a2591617a5c3bc8f7b08595de25/light/src/main.rs#L243-L330">light交互会话重编与编译运行入口</a></li>
+<li><a href="https://github.com/oneone1565/LightLang/blob/38aa05b295a53a2591617a5c3bc8f7b08595de25/lightgo/src/main.rs#L297-L374">lightGo调用Cargo构建FFI并传给lightc</a></li>
+<li><a href="https://github.com/oneone1565/LightLang/blob/38aa05b295a53a2591617a5c3bc8f7b08595de25/lightc/Cargo.toml#L1-L10">当前lightc包版本0.2.1</a></li>
+<li><a href="https://github.com/oneone1565/LightLang/blob/38aa05b295a53a2591617a5c3bc8f7b08595de25/Cargo.toml#L1-L7">工作区组件与运行时构建配置</a></li>
+<li><a href="https://github.com/oneone1565/LightLang/blob/d507d3a03a993d3613f51e5fafee4ab9944a34e0/lightc/Cargo.toml#L1-L10">0.2.0标签指向的lightc版本原件</a></li>
+<li><a href="https://api.github.com/repos/oneone1565/LightLang/git/refs/tags">GitHub当前标签对象</a></li>
+<li><a href="https://api.github.com/repos/oneone1565/LightLang/releases?per_page=100">GitHub发行集合读取结果</a></li>
+<li><a href="https://github.com/oneone1565/LightLang/blob/38aa05b295a53a2591617a5c3bc8f7b08595de25/LICENSE#L1-L6">GPL v3许可证正文</a></li>
+<li><a href="https://github.com/oneone1565/LightLang/blob/38aa05b295a53a2591617a5c3bc8f7b08595de25/README.md#L593-L597">README项目许可与第三方依赖说明</a></li>
+<li><a href="https://github.com/oneone1565/LightLang/commit/07a25c1766f992e2debd2c9a6c4955882c3516e4">原仓链接写入合并提交历史</a></li>
+<li><a href="https://github.com/oneone1565/LightLang/commit/371da53cf89efcdce178fb7d9fbab20e855903ae">后续GitCode分支合并记录</a></li>
+<li><a href="https://github.com/oneone1565/LightLang/commit/3552c8d69a49429d1ad15f11cb730083e4c8a95b">最早可见根提交及署名映射</a></li>
+<li><a href="https://github.com/oneone1565/LightLang/commit/84b1b2f20d7b9d1d695c8f596ae0f10897142f4c">项目源码初始化根提交</a></li>
+<li><a href="https://github.com/oneone1565/LightLang/blob/38aa05b295a53a2591617a5c3bc8f7b08595de25/.gitcode/workflows/ci.yml#L1-L126">CI配置：Linux构建、冒烟步骤及打包</a></li>
+<li><a href="https://api.github.com/repos/oneone1565/LightLang/actions/runs?per_page=100">GitHub工作流运行集合读取结果</a></li>
+<li><a href="https://github.com/skywalk163/light/blob/f3cd01eec801360275a50a7ed01753cefb8b45a9/pyproject.toml#L5-L81">光明lang-009的包名、版本、署名与Python入口</a></li>
+<li><a href="https://github.com/oneone1565/LightLang/blob/38aa05b295a53a2591617a5c3bc8f7b08595de25/lightc/src/codegen.rs#L1652-L1685">当前比较运算的LLVM生成路径</a></li>
+<li><a href="https://github.com/oneone1565/LightLang/commit/8b37b51e3e0637009c4116bd4a7eebe4936350aa">gitee-bot署名的README更新记录</a></li></ul><p>资料核验日期：2026-10-10</p><p><a href="https://github.com/yuyan-lang/chinese-programming-languages/issues/new">补充资料或纠错</a></p></main><footer>站点由<a href="https://yuyan-lang.org/">豫言编程语言</a>提供</footer></body></html>
