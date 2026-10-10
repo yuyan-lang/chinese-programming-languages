@@ -1,12 +1,19 @@
 <!doctype html>
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>草蟒｜中文编程语言百科</title><link rel="stylesheet" href="../style.css"></head><body><header><h1>草蟒</h1></header><main><p><a href="../">返回语言目录</a></p>
-<h2>语言介绍</h2><p>中文化蟒蛇语言。</p>
-<h2>分类与别名</h2><p>待核实；别名：未确认</p>
-<h2>作者与首次公开</h2><p>待核实。待核实</p>
+<h2>语言介绍</h2><p>草蟒（grasspy）是对CPython进行中文化的编程语言及配套工具项目，由草蟒老吴维护。已核验的3.10路线在Python的PEG语法中加入“套路”“如果”“只要”“取…于”“导入”等词，并连接相应的Python抽象语法树构造，形成中文控制结构和模块语法。项目另有中文内置名称及结巴、词云等配套库，作者通过PyPI发布部分库。历史3.8.0仓库已标为存档，后续cpython仓库的中文分支文档标3.10.1，提供Windows构建说明及作者在统信UOS上的构建记录。语言内核、第三方中文库和编辑器辅助插件各有发布信息，适合分层核对。</p>
+<h2>分类与别名</h2><p>CPython源码中文化解释器／中文库与开发工具生态；别名：grasspy、草蟒（Python中文版）</p>
+<h2>作者与公开历史</h2><p>草蟒老吴（Gitee账号laowu2019_admin）；配套PyPI包署名Laowu Grasspy，维护账号laowu2020。实名待原作者材料核实。
+至少在2020-01-15（北京时间）已有laowu2017发布的原创入门视频；页面video:release_date为2020-01-14T16:35:58.000Z。最早公开发布日期待核实。</p>
+<h2>设计与特征</h2><p>在CPython PEG语法中加入中文关键字；中文函数、条件、循环、导入与返回结构；同一语法规则接受对应中英文关键字；结巴、词云等配套中文API库；作者提供Windows及UOS构建说明</p>
+<h2>中文语法示例</h2><pre><code>导入 结巴
+导入 词云
 
-<h2>中文语法示例</h2><p>待核实：尚未取得可引用的原始中文代码示例。</p>
-<h2>实现与运行环境</h2><p>待核实</p>
-<h2>版本与维护状态</h2><p>版本待核实；待核实</p>
-<h2>与其他项目的关系</h2><p>待核实</p>
-<h2>核验说明</h2><p>本页依据现有目录补齐入口，未完成新的资料核验。</p>
-<h2>参考资料</h2><ul><li><a href="https://github.com/yiung/china-programming-languages">参考资料</a></li></ul><p>资料核验日期：待核实</p><p><a href="https://github.com/yuyan-lang/chinese-programming-languages/issues/new">补充资料或纠错</a></p></main><footer>站点由<a href="https://yuyan-lang.org/">豫言编程语言</a>提供</footer></body></html>
+字符串 = '草蟒中文编程语言'
+词表 = 结巴.分词列表(字符串)
+文本 = ' '.连接(词表)</code></pre><p>作者发布的grasspy-wordcloud 0.0.1“使用说明”代码块开头六行连续原文，展示导入和分词准备；依赖草蟒及配套结巴、词云中文库。后续词云对象创建与文件输出在原文中另有展示。运行验证待核实。 <a href="https://pypi.org/project/grasspy-wordcloud/">示例来源</a></p>
+<h2>实现与运行环境</h2><p>基于CPython源码定制，以C实现解释器核心，并包含Python库代码。zwpython3.10分支的Grammar/python.gram将def/套路、while/只要、for/取、in/于、import/导入等映射到共同的解析规则及_PyAST_*构造。README.zh.md标3.10.1，记录Windows+Visual Studio和Linux构建方法，作者自述在统信UOS家庭版构建成功。macOS构建说明属于作者建议，实际支持状态待核实。</p>
+<h2>版本与维护状态</h2><p>已核验历史3.8.0 take 4仓库说明，以及后续zwpython3.10分支README.zh.md中的草蟒3.10.1。配套词云库grasspy-wordcloud独立版本为0.0.1，发布于2022-04-17。当前最新语言发行版本待核实。
+作者Gitee仓库与PyPI配套库资料可读。grasspy380简介明确标注存档；cpython的zwpython3.10分支头为aa81cfdecfe8d93b58c2942ec13a8bba1908a5ef，页面日期2022-06-06 12:07:02 +0800。配套grasspy-bs4包有2023-04-06发布记录。本体当前维护计划和最新发行待核实。本轮核验范围为网页与源码静态阅读。</p>
+<h2>与其他项目的关系</h2><p>grasspy380与cpython中文分支由同一Gitee作者维护，旧仓库说明将3.10.x资料指向作者名下其他仓库。grasspy-wordcloud、grasspy-jieba是配套库，autopunc是中文输入法下自动调整标点的编辑器插件，统一作为草蟒生态组件记录。草蟒采用CPython源码定制路线；周蟒采用Python源码转换路线。与中蟒、周蟒的直接代码继承关系待核实。</p>
+<h2>核验说明</h2><p>2026-10-10只读核验。通过原作者公开网页读取Gitee中文README与Grammar/python.gram；所读分支头aa81cfdecfe8d93b58c2942ec13a8bba1908a5ef，语法文件末次提交链接87c1395dc3d9ed9e22a9e201d4b3ed6dc07fd633，README末次提交链接63df03cbc19df16b86c56211874f795887360dc0。参考链接为当次可读分支页面，固定提交内容复核待核实。词云例子直接摘自作者PyPI说明，其Homepage指向同一Gitee作者的zwwordcloud。语言版本、CPython基线和配套库版本分开记录。视频仅核对标题、原创标记、简介及公开日期。旧grasspy-modules的PyPI入口本次显示404。首发日、实名、最新发行、全生态兼容性及运行结果待核实。</p>
+<h2>参考资料</h2><ul><li><a href="https://github.com/yiung/china-programming-languages">原有汇总入口</a></li><li><a href="https://gitee.com/laowu2019_admin">原作者Gitee主页与项目定位</a></li><li><a href="https://gitee.com/laowu2019_admin/cpython">草蟒3.10路线仓库</a></li><li><a href="https://gitee.com/laowu2019_admin/cpython/blob/zwpython3.10/README.zh.md">中文版本与构建说明</a></li><li><a href="https://gitee.com/laowu2019_admin/cpython/blob/zwpython3.10/Grammar/python.gram">中文PEG语法及AST构造</a></li><li><a href="https://gitee.com/laowu2019_admin/grasspy380">历史3.8.0源码与存档说明</a></li><li><a href="https://pypi.org/project/grasspy-wordcloud/">原作者词云库说明与连续中文程序</a></li><li><a href="https://pypi.org/project/grasspy-jieba/">原作者结巴库说明及导入示例</a></li><li><a href="https://pypi.org/project/grasspy-bs4">配套库2023年发布记录</a></li><li><a href="https://www.bilibili.com/video/BV1GJ411J7Df/">原创入门视频及早期公开日期</a></li></ul><p>资料核验日期：2026-10-10</p><p><a href="https://github.com/yuyan-lang/chinese-programming-languages/issues/new">补充资料或纠错</a></p></main><footer>站点由<a href="https://yuyan-lang.org/">豫言编程语言</a>提供</footer></body></html>
