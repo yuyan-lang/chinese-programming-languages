@@ -1,0 +1,128 @@
+[
+  {
+    "name": "中文Rust编程语法设计与Rust转译",
+    "aliases": [
+      "中文Rust语法设计与转译工具",
+      "Chinese-Rust-Syntax-Design-and-Transpilation-Tool",
+      "ZhongComputeRust（同仓工作区目录名）",
+      "cn_transpiler（同仓CLI二进制名）"
+    ],
+    "discovery_status": "第七轮Issue #22旧候选；第十二轮核明部分基础实现及原例缺口，继续待核实",
+    "category": "中文→Rust转译设计与部分基础模块原型",
+    "repository": "https://github.com/bo333/Chinese-Rust-Syntax-Design-and-Transpilation-Tool",
+    "snapshot": "4605fee9402c9ad6fe6e06771b6d2443105eada8",
+    "baseline": "9776f45bed00a6f1c9a594eb8142dd5b4428095d",
+    "evidence": "固定树81项、51文件，50个非空文件已读取，另1个同名设计文档为0字节。README为579行需求文档，7个围栏代码块均为PlantUML。Rust工作区包含14个crate；cn_types与cn_config含类型结构、33项关键词、27项类型、4项所有权映射注册和查询实现；12个其他crate的lib.rs合计声明51个外部模块，对应模块文件在固定树缺失。CLI main仅输出版本并返回。已查5次提交及已删除Compute文件，Compute内容为使用英文Python语法的NumPy／Matplotlib演示。",
+    "example_status": "当前固定树和已核5次提交历史范围内，连续中文用户程序原例待核实；正式条目code保留空缺。",
+    "implementation_status": "设计需求与部分基础模块原型；中文源码词法分析、语法解析、语义映射、代码生成和端到端转译实现待核实。load_from_str解析TOML后构造固定1.0内置映射；热加载注册与向后兼容检查含后续实现占位。",
+    "author": "仓库维护账号及5次提交作者署名bo333；真实姓名及其他作者待核实",
+    "dates": {
+      "repository_created_at": "2026-07-03T03:40:07Z",
+      "root_commit_at": "2026-07-03T03:40:08Z",
+      "workspace_upload_at": "2026-07-03T05:31:02Z",
+      "snapshot_commit_at": "2026-07-03T05:36:32Z",
+      "first_publication": "准确首次公开时间待核实；仓库创建、根提交与上传时间分别记录"
+    },
+    "version": "workspace.package与CLI自标0.1.0；内置关键词映射条目标1.0；Rust edition=2021、rust-version=1.70.0为工具链声明；2026-10-10公开release及标签引用列表均为空；正式版号与发行日期待核实",
+    "license": "workspace.package声明MIT。固定树许可证正文、版权署名及14个子包许可继承字段待补；GitHub license元数据为null。整体授权适用范围待核实。",
+    "naming": "ZhongComputeRust为原仓中承载14个crate的工作区目录，cn_transpiler为cn_cli声明的二进制名，按同一项目组保存。",
+    "pending": "连续中文用户程序原例；完整词法、解析、语法糖、语义映射、代码生成及CLI调度源码；配置自定义映射实际接入、热加载与向后兼容实现；正式版号和发行日期；完整许可证与各包适用范围；真实作者姓名、准确首次公开日期、AI参与范围。",
+    "next_evidence_needed": "优先取得作者发布的连续中文源程序及其固定来源；结合新增或补全的转译模块区分设计规范与已实现能力，达到原例条件后再决定正式收录。",
+    "verification_scope": "公开GitHub静态文本与元数据，含固定树所有非空文件及5次提交历史；程序安装、构建、运行、测试、桌面操作和外部写入均在本分项范围之外。",
+    "verified_at": "2026-10-10",
+    "references": [
+      {
+        "title": "固定README：项目名、输入输出和需求性质",
+        "url": "https://github.com/bo333/Chinese-Rust-Syntax-Design-and-Transpilation-Tool/blob/4605fee9402c9ad6fe6e06771b6d2443105eada8/README.md#L1-L20"
+      },
+      {
+        "title": "固定中文关键词、类型与所有权映射规范",
+        "url": "https://github.com/bo333/Chinese-Rust-Syntax-Design-and-Transpilation-Tool/blob/4605fee9402c9ad6fe6e06771b6d2443105eada8/README.md#L420-L507"
+      },
+      {
+        "title": "完整固定树：81项、51文件",
+        "url": "https://github.com/bo333/Chinese-Rust-Syntax-Design-and-Transpilation-Tool/tree/4605fee9402c9ad6fe6e06771b6d2443105eada8"
+      },
+      {
+        "title": "ZhongComputeRust工作区版本、工具链及MIT字段",
+        "url": "https://github.com/bo333/Chinese-Rust-Syntax-Design-and-Transpilation-Tool/blob/4605fee9402c9ad6fe6e06771b6d2443105eada8/ZhongComputeRust/Cargo.toml#L1-L31"
+      },
+      {
+        "title": "cn_transpiler二进制命名",
+        "url": "https://github.com/bo333/Chinese-Rust-Syntax-Design-and-Transpilation-Tool/blob/4605fee9402c9ad6fe6e06771b6d2443105eada8/ZhongComputeRust/crates/cn_cli/Cargo.toml#L1-L10"
+      },
+      {
+        "title": "CLI入口的版本输出",
+        "url": "https://github.com/bo333/Chinese-Rust-Syntax-Design-and-Transpilation-Tool/blob/4605fee9402c9ad6fe6e06771b6d2443105eada8/ZhongComputeRust/crates/cn_cli/src/main.rs#L1-L6"
+      },
+      {
+        "title": "词法模块声明",
+        "url": "https://github.com/bo333/Chinese-Rust-Syntax-Design-and-Transpilation-Tool/blob/4605fee9402c9ad6fe6e06771b6d2443105eada8/ZhongComputeRust/crates/cn_lexer/src/lib.rs#L1-L2"
+      },
+      {
+        "title": "解析模块声明",
+        "url": "https://github.com/bo333/Chinese-Rust-Syntax-Design-and-Transpilation-Tool/blob/4605fee9402c9ad6fe6e06771b6d2443105eada8/ZhongComputeRust/crates/cn_parser/src/lib.rs#L1-L2"
+      },
+      {
+        "title": "代码生成模块声明",
+        "url": "https://github.com/bo333/Chinese-Rust-Syntax-Design-and-Transpilation-Tool/blob/4605fee9402c9ad6fe6e06771b6d2443105eada8/ZhongComputeRust/crates/cn_codegen/src/lib.rs#L1-L5"
+      },
+      {
+        "title": "33关键词、27类型、4所有权内置映射",
+        "url": "https://github.com/bo333/Chinese-Rust-Syntax-Design-and-Transpilation-Tool/blob/4605fee9402c9ad6fe6e06771b6d2443105eada8/ZhongComputeRust/crates/cn_config/src/builtin_mappings.rs#L15-L127"
+      },
+      {
+        "title": "映射注册与反向索引实现",
+        "url": "https://github.com/bo333/Chinese-Rust-Syntax-Design-and-Transpilation-Tool/blob/4605fee9402c9ad6fe6e06771b6d2443105eada8/ZhongComputeRust/crates/cn_types/src/mapping_registry.rs#L27-L83"
+      },
+      {
+        "title": "映射正反向查询实现",
+        "url": "https://github.com/bo333/Chinese-Rust-Syntax-Design-and-Transpilation-Tool/blob/4605fee9402c9ad6fe6e06771b6d2443105eada8/ZhongComputeRust/crates/cn_config/src/mapping_query.rs#L27-L61"
+      },
+      {
+        "title": "配置字符串处理与回调占位",
+        "url": "https://github.com/bo333/Chinese-Rust-Syntax-Design-and-Transpilation-Tool/blob/4605fee9402c9ad6fe6e06771b6d2443105eada8/ZhongComputeRust/crates/cn_config/src/mapping_registry.rs#L22-L36"
+      },
+      {
+        "title": "兼容性校验占位",
+        "url": "https://github.com/bo333/Chinese-Rust-Syntax-Design-and-Transpilation-Tool/blob/4605fee9402c9ad6fe6e06771b6d2443105eada8/ZhongComputeRust/crates/cn_config/src/mapping_registry.rs#L162-L169"
+      },
+      {
+        "title": "根提交及初始README",
+        "url": "https://github.com/bo333/Chinese-Rust-Syntax-Design-and-Transpilation-Tool/commit/fd99a1de560a478f65276c3429b68bd71f02540c"
+      },
+      {
+        "title": "Rust工作区首次上传",
+        "url": "https://github.com/bo333/Chinese-Rust-Syntax-Design-and-Transpilation-Tool/commit/bd8ebc340636968c96200795525a374fbe88b6db"
+      },
+      {
+        "title": "历史Compute文件删除差异",
+        "url": "https://github.com/bo333/Chinese-Rust-Syntax-Design-and-Transpilation-Tool/commit/75b725895c34321b8bd670679160ff3973d803e8"
+      },
+      {
+        "title": "固定头提交",
+        "url": "https://github.com/bo333/Chinese-Rust-Syntax-Design-and-Transpilation-Tool/commit/4605fee9402c9ad6fe6e06771b6d2443105eada8"
+      },
+      {
+        "title": "公开发行列表",
+        "url": "https://github.com/bo333/Chinese-Rust-Syntax-Design-and-Transpilation-Tool/releases"
+      },
+      {
+        "title": "原仓元数据",
+        "url": "https://api.github.com/repos/bo333/Chinese-Rust-Syntax-Design-and-Transpilation-Tool"
+      },
+      {
+        "title": "Issue22原始候选",
+        "url": "https://github.com/yuyan-lang/chinese-programming-languages/issues/22"
+      },
+      {
+        "title": "Issue22第十一轮状态：累计7组分类，3组继续核实",
+        "url": "https://github.com/yuyan-lang/chinese-programming-languages/issues/22#issuecomment-6101471141"
+      },
+      {
+        "title": "标签引用列表（2026-10-10为空）",
+        "url": "https://api.github.com/repos/bo333/Chinese-Rust-Syntax-Design-and-Transpilation-Tool/git/matching-refs/tags/"
+      }
+    ]
+  }
+]

@@ -2130,20 +2130,22 @@
     "name": "NyaPlus",
     "aliases": [],
     "category": "嵌入式中文脚本框架／DSL",
-    "author": "nekonekods（账号；实名待核实）",
-    "first_publication": "仓库创建2025-02-15；首次公开发布日期待核实",
-    "description": "【嵌入式中文脚本框架／DSL】Java实现的可嵌入中文脚本框架，允许宿主定制输入输出与函数，语法借鉴QRspeed。",
+    "author": "nekonekods（GitHub账号）；Git提交署名nekods。作者实名及具体分工待核实。",
+    "first_publication": "仓库创建：2025-02-15T08:44:09Z。可达根提交与首次源码记录：2025-02-15T16:10:21Z，b16af523f11d70aebf60d7fbe4269769b168fb62。首次对外公告及仓库公开时间待核实。",
+    "description": "NyaPlus是nekonekods维护的Java中文脚本框架，采用输入驱动的词库式结构。脚本以空行分隔代码块，每块首行为匹配输入的正则表达式，其后保存执行语句；匹配成功后，捕获组作为变量交给解释器。语句支持“如果／如果尾”“循环／循环尾”“返回”，普通文本经过变量、JSON、算术和函数处理后成为输出。宿主通过输出器、变量管理器工厂及带中文名称注解的Java方法接入功能，适合在应用中嵌入交互逻辑。当前实现直接扫描并替换文本，算术和布尔表达式分别使用后缀表达式与栈求值。作者说明语法借鉴QRspeed，并提出两套语法的后续计划。项目提供中文语法文档、演示脚本及Maven构建清单，处于功能完善阶段；具体运行正确性、兼容性与后续维护计划待核实。",
     "features": [
-      "如果…如果尾",
-      "循环…循环尾",
-      "宿主扩展函数"
+      "输入正则匹配代码头，空行划分代码块，捕获组写入“括号n”等变量",
+      "中文条件、循环和返回语句，标签及“跳”函数控制同一代码块内的执行位置",
+      "百分号变量引用、方括号算术表达式及JSON对象／数组访问",
+      "美元符号函数调用；Java宿主以@Outside中文名称注解登记扩展方法",
+      "普通文本累积输出，支持换行、空格和制表符转义；变量保存在任务局部及共享全局映射"
     ],
     "code": "循环:  i:2; %i%<=10;  i:[%i%+1]\n第%i%个\\n\n循环尾",
     "code_source": "https://github.com/nekonekods/NyaPlus/blob/d00f5df7c7927dce3c93fdcff040ce274ea69560/have_a_try/test_dic.nya",
-    "implementation": "Java/Maven实现。README说明当前解析使用字符串替换；已核对脚本示例与pom.xml。",
-    "status": "开发中，README明确很多地方不完善；本次未运行。",
-    "version": "1.0-SNAPSHOT（pom.xml）",
-    "relations": "README明确借鉴QRspeed，计划两套语法，其中一套兼容QRspeed；计划不等于兼容性已实现。",
+    "implementation": "Java实现，pom.xml配置Java 21、Maven JAR及Fastjson 2.0.54。演示testMain设置宿主输出器和变量工厂，经TaskDistributer将输入放入ThreadPool；NyaThread读取脚本，以正则选取首个匹配代码块，再交给LineAnalyser。单行依次处理注释、变量、JSON索引、算术和反射函数调用；整块以行号、条件层数及循环栈调度。OperationAnalyser和BoolExprAnalyser转后缀表达式后用栈求值，输出由Controller交给宿主。",
+    "status": "README标为开发中，功能仍在完善。仓库archived=false，最后推送2025-04-09T07:20:57Z；后续维护计划待核实。当前JUnit样板测试为assertTrue(true)，功能测试覆盖及独立运行结果待核实。",
+    "version": "构建版本：1.0-SNAPSHOT，Maven坐标com.nekods:NyaPlus_。源码快照：d00f5df7c7927dce3c93fdcff040ce274ea69560，提交时间2025-04-09T07:19:25Z。正式发行与标签：2026-10-10读取列表均为空，正式版号及发布日期待核实。许可：LICENSE保存LGPL 2.1全文，README声明LGPL。",
+    "relations": "README明确语法借鉴QRspeed，并把兼容语法与优化语法列为计划；实际兼容范围待核实。OperationAnalyser注释说明算术解析代码取自网络，BoolExprAnalyser据此改造，原始来源与许可衔接待核实。仓库fork=false。与同名项目的代码继承关系待核实。",
     "references": [
       {
         "title": "作者README",
@@ -2160,31 +2162,109 @@
       {
         "title": "仓库元数据",
         "url": "https://api.github.com/repos/nekonekods/NyaPlus"
+      },
+      {
+        "title": "输入与代码块、变量及函数语法",
+        "url": "https://github.com/nekonekods/NyaPlus/blob/d00f5df7c7927dce3c93fdcff040ce274ea69560/docs/syntax/basic.md"
+      },
+      {
+        "title": "条件、循环和返回语法",
+        "url": "https://github.com/nekonekods/NyaPlus/blob/d00f5df7c7927dce3c93fdcff040ce274ea69560/docs/syntax/logic.md"
+      },
+      {
+        "title": "宿主演示入口",
+        "url": "https://github.com/nekonekods/NyaPlus/blob/d00f5df7c7927dce3c93fdcff040ce274ea69560/src/main/java/com/nekods/nyaPlus/test/testMain.java"
+      },
+      {
+        "title": "任务分发入口",
+        "url": "https://github.com/nekonekods/NyaPlus/blob/d00f5df7c7927dce3c93fdcff040ce274ea69560/src/main/java/com/nekods/nyaPlus/core/TaskDistributer.java"
+      },
+      {
+        "title": "任务队列与线程生命周期",
+        "url": "https://github.com/nekonekods/NyaPlus/blob/d00f5df7c7927dce3c93fdcff040ce274ea69560/src/main/java/com/nekods/nyaPlus/core/ThreadPool.java"
+      },
+      {
+        "title": "输入正则匹配与代码块读取",
+        "url": "https://github.com/nekonekods/NyaPlus/blob/d00f5df7c7927dce3c93fdcff040ce274ea69560/src/main/java/com/nekods/nyaPlus/core/NyaThread.java"
+      },
+      {
+        "title": "逐行文本解释与控制流",
+        "url": "https://github.com/nekonekods/NyaPlus/blob/d00f5df7c7927dce3c93fdcff040ce274ea69560/src/main/java/com/nekods/nyaPlus/core/LineAnalyser.java"
+      },
+      {
+        "title": "中文函数登记、反射接口及内置操作",
+        "url": "https://github.com/nekonekods/NyaPlus/blob/d00f5df7c7927dce3c93fdcff040ce274ea69560/src/main/java/com/nekods/nyaPlus/core/Functions.java"
+      },
+      {
+        "title": "算术后缀表达式与网络来源说明",
+        "url": "https://github.com/nekonekods/NyaPlus/blob/d00f5df7c7927dce3c93fdcff040ce274ea69560/src/main/java/com/nekods/nyaPlus/core/OperationAnalyser.java"
+      },
+      {
+        "title": "布尔表达式求值",
+        "url": "https://github.com/nekonekods/NyaPlus/blob/d00f5df7c7927dce3c93fdcff040ce274ea69560/src/main/java/com/nekods/nyaPlus/core/BoolExprAnalyser.java"
+      },
+      {
+        "title": "宿主输出器与变量工厂接口",
+        "url": "https://github.com/nekonekods/NyaPlus/blob/d00f5df7c7927dce3c93fdcff040ce274ea69560/src/main/java/com/nekods/nyaPlus/core/Controller.java"
+      },
+      {
+        "title": "JUnit样板测试范围",
+        "url": "https://github.com/nekonekods/NyaPlus/blob/d00f5df7c7927dce3c93fdcff040ce274ea69560/src/test/java/com/nekods/nyaPlus/AppTest.java"
+      },
+      {
+        "title": "LGPL 2.1许可证全文",
+        "url": "https://github.com/nekonekods/NyaPlus/blob/d00f5df7c7927dce3c93fdcff040ce274ea69560/LICENSE"
+      },
+      {
+        "title": "可达根提交与首次源码记录",
+        "url": "https://github.com/nekonekods/NyaPlus/commit/b16af523f11d70aebf60d7fbe4269769b168fb62"
+      },
+      {
+        "title": "当前快照提交与更新说明",
+        "url": "https://github.com/nekonekods/NyaPlus/commit/d00f5df7c7927dce3c93fdcff040ce274ea69560"
+      },
+      {
+        "title": "固定完整文件树",
+        "url": "https://github.com/nekonekods/NyaPlus/tree/d00f5df7c7927dce3c93fdcff040ce274ea69560"
+      },
+      {
+        "title": "公开发行列表",
+        "url": "https://github.com/nekonekods/NyaPlus/releases"
+      },
+      {
+        "title": "标签引用列表",
+        "url": "https://api.github.com/repos/nekonekods/NyaPlus/git/matching-refs/tags/"
       }
     ],
-    "verification_notes": "2026-10-09只读核验：2星、非fork，最后推送2025-04-09。不宜列作成熟通用语言。",
+    "verification_notes": "2026-10-10只读核验固定源码、中文文档、69文件完整树、25次可达提交、发行和标签。已核实际解释路径及宿主扩展接口。脚本函数定义列为文档后续计划，函数调用的文档范围为并排调用。循环初始条件为假时的调度、线程池初始化及动态调整、取变量函数返回值和文档括号算术的源码衔接待核实。AI参与声明、模型及范围待核实。项目安装、编译、测试和脚本执行均保持待验证。",
     "id": "lang-029",
-    "verified_at": "2026-10-09"
+    "verified_at": "2026-10-10",
+    "code_context": "连续摘自have_a_try/test_dic.nya第25—27行，保留原空格和字面量\\n。第24行代码头为“测试2”，宿主收到匹配输入后选择该块。初始化与更新语句带前导空格；LineAnalyser的单字符赋值按整行匹配，样例空白与执行行为的衔接待核实。",
+    "code_source_detail": {
+      "url": "https://github.com/nekonekods/NyaPlus/blob/d00f5df7c7927dce3c93fdcff040ce274ea69560/have_a_try/test_dic.nya",
+      "location": "have_a_try/test_dic.nya第25—27行；匹配代码头在第24行",
+      "excerpt_type": "连续原文片段；原有3行代码及空白保持",
+      "blob_sha": "62ada13cda45f79fbf179fc410a58f4bdb9042ab"
+    },
+    "license": "GNU LGPL 2.1许可证文本（固定LICENSE及GitHub元数据）；更具体的版本选择声明待核实。"
   },
   {
     "name": "Nuzo",
     "aliases": [],
     "category": "中英双语关键字语言；AI 辅助开发的实验性字节码语言",
-    "author": "魔114514（TRAE 社区）；其原帖指向 GitHub nimamasl114514",
-    "first_publication": "目前找到的原作者公开介绍为 2026-05-04；最早发布日期及仓库创建日期待核实",
-    "description": "【中英双语关键字语言；AI 辅助开发的实验性字节码语言】作者在 TRAE 社区展示的中英双语实验语言，并提供中文程序与项目地址。作者说明代码由 AI 开发、架构由人主导。",
+    "author": "魔114514（TRAE社区发帖账号）；原帖项目链接为nimamasl114514/nuzo。作者实名与跨平台账号归属的进一步说明待核实。",
+    "first_publication": "原作者介绍页显示2026-05-04 11:24，页面时区待核实。更早首次公开、仓库创建、根提交及正式发行日期待核实。",
+    "description": "Nuzo是TRAE社区用户魔114514在2026年5月展示的中英双语实验语言，目标是让中文母语初学者使用中文关键字，同时保留英文写法。原帖的递归函数展示了“函数”“如果”“返回”，另有类与计数器程序。作者把实现描述为Rust编写的词法分析、语法树、字节码编译器和栈式虚拟机，并列出闭包、继承、模式匹配、异常及模块导入。文章说明代码由AI开发、架构由人主导，属于可归属的作者声明。百科以原帖确认设计意图和语法展示；核心源码、发行包及测试报告的独立核对继续待核实。原帖中的许可声明为Apache License 2.0。",
     "features": [
-      "30 多组中英关键字对应（作者说明）",
-      "动态类型（作者说明，未独立验证）",
-      "类、继承与闭包（作者说明，未独立验证）",
-      "模式匹配及异常处理（作者说明，未独立验证）",
-      "模块导入（作者说明，未独立验证）"
+      "原帖中文代码展示函数、条件、返回和类语法",
+      "30多组双语关键字、动态类型及模块导入（作者说明）",
+      "闭包、继承、模式匹配及异常处理（作者说明）"
     ],
     "code": "函数 斐波那契(n) {\n    如果 n < 2 { 返回 n; }\n    返回 斐波那契(n - 1) + 斐波那契(n - 2);\n}",
-    "implementation": "Rust；词法/语法分析、字节码编译器与栈式虚拟机（原作者说明，未独立运行验证）",
-    "status": "原作者在 2026-05-04 声称 439 项测试通过；同时承认 GC 尚不完善、标准库较少。当前维护状态待核实。",
-    "version": "待核实",
-    "relations": "不是仅支持中文标识符；与同名 nuzo-memory 工具没有已证实关系，需避免误链。",
+    "implementation": "作者说明为Rust实现：双语词元统一进入语法树，经字节码编译器交给栈式虚拟机；语法使用递归下降与Pratt表达式解析。源码结构、指令及实际执行路径待独立核对。",
+    "status": "原帖自报439项测试通过，并将GC、错误提示和标准库列为待完善部分。测试源码、可复核报告和当前维护状态待核实。",
+    "version": "语言版号与正式发行日期：待核实。许可：原帖声明Apache License 2.0，许可证文件与发行物中的授权文本待核实。",
+    "relations": "原帖明确说明代码由AI开发、架构由人主导；具体模型及开发记录待核实。项目原地址为nimamasl114514/nuzo，新地址、改名、迁移以及与同名nuzo-memory的作者或代码关系待核实。",
     "references": [
       {
         "title": "作者原帖：用 SOLO 使用 RUST 从零迭代出一门 400+ 测试的复杂编程语言",
@@ -2195,15 +2275,17 @@
         "url": "https://github.com/nimamasl114514/nuzo"
       }
     ],
-    "verification_notes": "已读取作者原帖与中文语法示例。实现细节、功能及测试数均为作者自述，未独立运行验证。GitHub 接口访问原帖所列精确仓库返回 404，页面本次亦无法获取；这只说明本次不可访问，不能断言从未存在或已删除。",
+    "verification_notes": "2026-10-10重读作者原帖，核对原有中文连续代码与Apache License 2.0声明。精确原仓GitHub只读接口返回404；作者公开仓库及项目精确检索的结果以原帖为主要资料，可靠的新地址和发行线索待核实。该响应记录本次访问状态，仓库历史变化待核实。原帖自述、源码证据和独立执行分别记录；实际编译、运行和测试结果待核实。",
     "code_source": "https://forum.trae.cn/t/topic/14494",
     "id": "lang-030",
-    "verified_at": "2026-10-09",
+    "verified_at": "2026-10-10",
     "code_source_detail": {
       "url": "https://forum.trae.cn/t/topic/14494",
       "location": "四、成果展示 → 代码示例（中英文对照）→ 中文版",
       "excerpt_type": "连续原文片段；仅摘录函数定义"
-    }
+    },
+    "code_context": "原帖“四、成果展示→代码示例（中英文对照）→中文版”的连续函数定义，保留原有4行。它定义递归斐波那契函数，调用与打印位于原帖后续一行；独立运行结果待核实。",
+    "license": "Apache License 2.0（作者原帖声明）；许可证原件待核实。"
   },
   {
     "name": "Y++",
@@ -5688,5 +5770,388 @@
       }
     ],
     "id": "lang-073"
+  },
+  {
+    "name": "PyCN（Vincent-the-gamer）",
+    "aliases": [
+      "PyCN",
+      "pycn",
+      "Python Chinese"
+    ],
+    "category": "Python中文方言／Rust AST源码转译工具链",
+    "description": "PyCN是Vincent-the-gamer维护的趣味性Python中文语法项目，以.pycn保存程序，采用缩进代码块，并提供“定义、如果、迭代、返回”等流程词、中文数字、中文运算符及全角括号和标点。核心以Rust实现：logos词法器产生词元，手写递归下降解析器构造自有AST，再生成Python源码；CLI通过PyO3接入Python宿主执行。可读源码覆盖函数、条件、迭代、类、装饰器、容器、索引切片和中文列表方法，并为同目录.pycn模块设置内存导入钩子。项目另有C动态库执行接口、WASM转译绑定、HTTP转译接口、双语文档与15份中文原例。源码版本为1.0.5，采用MIT许可。已发布多平台发行附件；完整语法覆盖、复杂表达式、模块边界和发行物运行状态待核实。",
+    "author": "GitHub账号Vincent-the-gamer维护。默认main可达76条提交中，74条作者名为Vincent-the-gamer、2条为Vince，GitHub作者归属均为Vincent-the-gamer。LICENSE署名2025-PRESENT Vincent-the-gamer；实名和其他参与者待核实。",
+    "first_publication": "GitHub仓库创建于2025-07-09T07:33:56Z；可达根提交89e11caa8f38038c1a8ef87490655b5a9f975921的Git作者与提交时间均为07:34:17Z，保存Rust中文替换、PyO3执行入口和中文质数原例。v1.0.0发行发表于同日09:04:21Z。更早公开历史待核实。",
+    "repository_created_at": "2025-07-09T07:33:56Z",
+    "repository_pushed_at": "2026-08-29T09:29:19Z",
+    "first_commit_at": "2025-07-09T07:34:17Z",
+    "latest_commit_at": "2026-08-29T09:29:14Z",
+    "release_status": "2026-10-10 GitHub Releases集合有v1.0.0至v1.0.5共6条。v1.0.0 published_at为2025-07-09T09:04:21Z；v1.0.5为2026-07-19T06:55:17Z，对应4f26a4329c9c1100b4036df6310ac8f297fd2ce0，保存6个平台／架构的裸二进制及6份压缩包。发行物内部链接方式和独立运行状态待核实。",
+    "features": [
+      "Rust logos词法与手写递归下降AST",
+      "Python式缩进、中文流程词及全角标点",
+      "中文数字转阿拉伯数字及中文运算符",
+      "函数、类、装饰器与可变参数节点",
+      "列表、字典、集合、元组与索引切片",
+      "中文列表方法与魔法方法映射",
+      "PyO3宿主执行及同目录模块导入",
+      "C执行接口、WASM及HTTP转译接口"
+    ],
+    "code": "定义 是否是质数（被判断的数）：\n    如果 被判断的数 小于 二：\n        返回 假\n    迭代 数一 在 范围（二，整数（被判断的数 取幂 零点五）加 一）：\n        如果 被判断的数 取余 数一 等于 零：\n            返回 假\n    返回 真",
+    "code_source": "https://github.com/Vincent-the-gamer/pycn/blob/48acdd141a914fed636ea8c5631db22a4b709a9f/examples/函数.pycn#L1-L7",
+    "code_context": "固定examples/函数.pycn第1—7行连续原文，包含完整质数判断函数。四空格缩进、中文数字、全角括号和标点保持原文；全文切片与独立按行读取逐字一致。调用示例位于同文件后文，执行结果待独立核实。",
+    "implementation": "Rust实现。parser::parse_pycn依次调用lex、parse和ast_to_python；logos定义中英文词元，逐行缩进栈补入Indent/Dedent，chinese2digits转换中文数值，解析器按语句及表达式优先级构造AstNode。生成器输出Python文本并转换中文列表方法和魔法名称。run_pycn经PyO3的PyModule::from_code执行；文件入口收集同目录.pycn导入依赖，生成模块字典并插入Python sys.meta_path加载器，以builtins.exec运行模块和入口。CLI的--show-python打印生成结果。C ABI包装两个执行入口；WASM返回生成文本，Axum HTTP POST读取code并返回pythonCode。Python承担对象、库和运行语义。",
+    "version": "当前Cargo workspace自标1.0.5，固定main为48acdd141a914fed636ea8c5631db22a4b709a9f；该快照比公开v1.0.5标签4f26a432领先7条提交。最新发行v1.0.5发表于2026-07-19T06:55:17Z，首个v1.0.0发行发表于2025-07-09T09:04:21Z。MIT许可证署名2025-PRESENT Vincent-the-gamer。依赖声明logos 0.15.0、chinese2digits 1.0.0、PyO3 0.25.1；主干构建及标准库引导配置指向CPython 3.12.13／python-build-standalone 20260718。各发行物链接方式、主干构建和运行兼容性待核实。",
+    "license": "MIT；固定LICENSE.md版权署名2025-PRESENT Vincent-the-gamer。",
+    "relations": "Python为生成目标及执行宿主，logos提供词法生成，chinese2digits处理中文数字，PyO3连接Rust与Python。根提交采用全文字符串替换，2025-07-10的d0fa1832提交开始引入AST解析器，体现本仓实现演进。GitHub元数据fork=false。sunzi334481/PyCn（lang-072）、PythonDeveloper29042/PythonCN（lang-027）及LostPEople634/pchinese（lang-065）分别按仓库身份保留；跨项目代码继承、合作和改名关系待核实。官方文档另链接同作者VSCode高亮插件。",
+    "status": "公开转译器、宿主执行链、15份中文原例和6条发行记录已核。固定Rust源码有4个#[test]声明；Actions显示v1.0.5发布工作流成功。独立构建、安装、测试、完整语法兼容性及发行物运行状态待核实。",
+    "verification_notes": "2026-10-10公开静态核验。固定main递归树126项、95个文件、15份examples/*.pycn，truncated=false。词法器的While、Try、With、Match等声明与AST／语句实现范围分别记录；当前循环AST为For，完整Python语法覆盖待核实。lexer只追加成功词元，parser在语句解析失败后递增游标继续，错误诊断及保真性待核实。文件依赖扫描覆盖Program中的Import／ImportFrom，模块包、嵌套导入及同名文件边界待核实。WASM与HTTP正文直接返回转译文本。static-python为默认配置名：构建脚本按shared设置链接，Windows路径复制DLL，发布工作流另打包共享库；实际链接及初始化顺序待核实。主干4个Rust测试声明中1个打印中文数字转换结果、3个覆盖标准库引导，独立执行待核实。普通网页缓存展示63提交、旧官网及v1.0.5为2025-10-19；本次API返回76提交和2026-07-19发行时间，缓存与当前记录分别保存，历史发行调整原因待核实。 AI参与声明、模型及范围待原作者资料。",
+    "ai_involvement": "已检索43份固定公开原文和76条默认分支提交信息；可归属的AI开发声明、工具、模型及参与范围待核实。",
+    "verified_at": "2026-10-10",
+    "references": [
+      {
+        "title": "固定中文README：项目结构、安装及宿主打包说明",
+        "url": "https://github.com/Vincent-the-gamer/pycn/blob/48acdd141a914fed636ea8c5631db22a4b709a9f/README.md"
+      },
+      {
+        "title": "连续中文质数函数原例",
+        "url": "https://github.com/Vincent-the-gamer/pycn/blob/48acdd141a914fed636ea8c5631db22a4b709a9f/examples/函数.pycn#L1-L7"
+      },
+      {
+        "title": "词元、标识符、中文数字与标点定义",
+        "url": "https://github.com/Vincent-the-gamer/pycn/blob/48acdd141a914fed636ea8c5631db22a4b709a9f/parser/src/lexer.rs#L4-L246"
+      },
+      {
+        "title": "逐行缩进、名称映射与中文数字转换",
+        "url": "https://github.com/Vincent-the-gamer/pycn/blob/48acdd141a914fed636ea8c5631db22a4b709a9f/parser/src/lexer.rs#L249-L429"
+      },
+      {
+        "title": "自有AST与参数节点",
+        "url": "https://github.com/Vincent-the-gamer/pycn/blob/48acdd141a914fed636ea8c5631db22a4b709a9f/parser/src/ast.rs#L1-L52"
+      },
+      {
+        "title": "解析与Python生成入口",
+        "url": "https://github.com/Vincent-the-gamer/pycn/blob/48acdd141a914fed636ea8c5631db22a4b709a9f/parser/src/lib.rs#L6-L13"
+      },
+      {
+        "title": "函数、条件与迭代语句解析",
+        "url": "https://github.com/Vincent-the-gamer/pycn/blob/48acdd141a914fed636ea8c5631db22a4b709a9f/parser/src/parser.rs#L354-L506"
+      },
+      {
+        "title": "表达式优先级与一元操作解析",
+        "url": "https://github.com/Vincent-the-gamer/pycn/blob/48acdd141a914fed636ea8c5631db22a4b709a9f/parser/src/parser.rs#L618-L825"
+      },
+      {
+        "title": "解析失败处理与源码生成入口",
+        "url": "https://github.com/Vincent-the-gamer/pycn/blob/48acdd141a914fed636ea8c5631db22a4b709a9f/parser/src/parser.rs#L1116-L1156"
+      },
+      {
+        "title": "Python源码生成：表达式、字符串及容器",
+        "url": "https://github.com/Vincent-the-gamer/pycn/blob/48acdd141a914fed636ea8c5631db22a4b709a9f/parser/src/parser.rs#L1392-L1460"
+      },
+      {
+        "title": "Python源码生成：属性、导入及参数展开",
+        "url": "https://github.com/Vincent-the-gamer/pycn/blob/48acdd141a914fed636ea8c5631db22a4b709a9f/parser/src/parser.rs#L1512-L1560"
+      },
+      {
+        "title": "PyO3直接执行与文件入口",
+        "url": "https://github.com/Vincent-the-gamer/pycn/blob/48acdd141a914fed636ea8c5631db22a4b709a9f/pycn/src/lib.rs#L9-L51"
+      },
+      {
+        "title": "本地模块收集与Python内存导入钩子",
+        "url": "https://github.com/Vincent-the-gamer/pycn/blob/48acdd141a914fed636ea8c5631db22a4b709a9f/pycn/src/lib.rs#L55-L127"
+      },
+      {
+        "title": "CLI与生成Python源码选项",
+        "url": "https://github.com/Vincent-the-gamer/pycn/blob/48acdd141a914fed636ea8c5631db22a4b709a9f/pycn/src/cli.rs#L12-L38"
+      },
+      {
+        "title": "WASM接口返回转译文本",
+        "url": "https://github.com/Vincent-the-gamer/pycn/blob/48acdd141a914fed636ea8c5631db22a4b709a9f/parser-wasm/src/lib.rs#L1-L13"
+      },
+      {
+        "title": "HTTP接口返回pythonCode",
+        "url": "https://github.com/Vincent-the-gamer/pycn/blob/48acdd141a914fed636ea8c5631db22a4b709a9f/http-server/src/main.rs#L19-L32"
+      },
+      {
+        "title": "C ABI宿主执行包装",
+        "url": "https://github.com/Vincent-the-gamer/pycn/blob/48acdd141a914fed636ea8c5631db22a4b709a9f/pycn-dylib/src/lib.rs#L1-L19"
+      },
+      {
+        "title": "workspace源码版本",
+        "url": "https://github.com/Vincent-the-gamer/pycn/blob/48acdd141a914fed636ea8c5631db22a4b709a9f/Cargo.toml#L1-L10"
+      },
+      {
+        "title": "Rust运行时依赖与默认特性",
+        "url": "https://github.com/Vincent-the-gamer/pycn/blob/48acdd141a914fed636ea8c5631db22a4b709a9f/pycn/Cargo.toml#L1-L26"
+      },
+      {
+        "title": "MIT许可原文",
+        "url": "https://github.com/Vincent-the-gamer/pycn/blob/48acdd141a914fed636ea8c5631db22a4b709a9f/LICENSE.md#L1-L21"
+      },
+      {
+        "title": "构建脚本的运行时来源与链接分支",
+        "url": "https://github.com/Vincent-the-gamer/pycn/blob/48acdd141a914fed636ea8c5631db22a4b709a9f/pycn/build.rs#L21-L108"
+      },
+      {
+        "title": "标准库引导与下载配置",
+        "url": "https://github.com/Vincent-the-gamer/pycn/blob/48acdd141a914fed636ea8c5631db22a4b709a9f/pycn/src/bootstrap.rs#L12-L80"
+      },
+      {
+        "title": "Python初始化与PYTHONHOME设置顺序",
+        "url": "https://github.com/Vincent-the-gamer/pycn/blob/48acdd141a914fed636ea8c5631db22a4b709a9f/pycn/src/main.rs#L5-L49"
+      },
+      {
+        "title": "中文数字转换测试源码",
+        "url": "https://github.com/Vincent-the-gamer/pycn/blob/48acdd141a914fed636ea8c5631db22a4b709a9f/parser/tests/test.rs#L1-L8"
+      },
+      {
+        "title": "标准库引导测试源码",
+        "url": "https://github.com/Vincent-the-gamer/pycn/blob/48acdd141a914fed636ea8c5631db22a4b709a9f/pycn/src/bootstrap.rs#L304-L377"
+      },
+      {
+        "title": "发布构建与运行时打包流程",
+        "url": "https://github.com/Vincent-the-gamer/pycn/blob/48acdd141a914fed636ea8c5631db22a4b709a9f/.github/workflows/release.yml"
+      },
+      {
+        "title": "根提交：中文替换、宿主执行和原例",
+        "url": "https://github.com/Vincent-the-gamer/pycn/commit/89e11caa8f38038c1a8ef87490655b5a9f975921"
+      },
+      {
+        "title": "AST实现演进提交",
+        "url": "https://github.com/Vincent-the-gamer/pycn/commit/d0fa1832e304c3a4e75fb5c8b79b42034691ca9e"
+      },
+      {
+        "title": "首个公开发行v1.0.0",
+        "url": "https://github.com/Vincent-the-gamer/pycn/releases/tag/v1.0.0"
+      },
+      {
+        "title": "v1.0.5发行及12个附件",
+        "url": "https://github.com/Vincent-the-gamer/pycn/releases/tag/v1.0.5"
+      },
+      {
+        "title": "v1.0.5标签与主干快照差异",
+        "url": "https://github.com/Vincent-the-gamer/pycn/compare/4f26a4329c9c1100b4036df6310ac8f297fd2ce0...48acdd141a914fed636ea8c5631db22a4b709a9f"
+      },
+      {
+        "title": "仓库元数据",
+        "url": "https://api.github.com/repos/Vincent-the-gamer/pycn"
+      },
+      {
+        "title": "固定完整文件树",
+        "url": "https://github.com/Vincent-the-gamer/pycn/tree/48acdd141a914fed636ea8c5631db22a4b709a9f"
+      },
+      {
+        "title": "v1.0.5发布工作流成功记录",
+        "url": "https://github.com/Vincent-the-gamer/pycn/actions/runs/29677156050"
+      }
+    ],
+    "id": "lang-074"
+  },
+  {
+    "name": "hscript-c（中英双语关键字）",
+    "aliases": [
+      "hscript-c",
+      "hscript-C-"
+    ],
+    "category": "Haxe风格嵌入式脚本语言／中英双语词元前端与C++ AST解释器",
+    "description": "hscript-c由GitHub账号zxk-creator发布，是采用Haxe风格语法、嵌入C++宿主的脚本语言解释器。B站账号醪崑在2026年7月原片中展示中文脚本，并在简介直接链接原仓。项目通过扫描器把“类、函数、变量、如果、当、返回”等汉字词映射为语法词元，随后构造AST并由C++访问者解释执行；中文与英文写法共享解析体系。原例包含中文类、构造函数、实例字段、方法定义和调用。宿主可注册原生函数及类，脚本通过项目提供的包装接口继承C++类并访问其成员。类型注解与访问修饰符作为可消费的语法保存，当前解析器在消费后忽略其内容。2026年7月8日提交明确记载AI协助实现脚本类定义和实例化；具体工具与生成比例待核实。",
+    "author": "GitHub维护账号zxk-creator；六条默认分支提交由zxk-creator或kkplay署名，关联GitHub账号均为zxk-creator。B站发布者醪崑，UID533393738，原片简介直接指向原仓。自然人姓名和更广泛参与者待核实。",
+    "first_publication": "仓库created_at为2026-07-08T11:29:58Z；根提交f2eb253178c8d343b8b85c2ff949783968717e61为2026-07-08T11:50:08Z。2026-07-10T11:11:14Z的107dfbef提交补入UTF-8字节识别、中文构造函数查找及中文测试。B站原片发布于2026-07-11T13:24:37Z。Git记录、建库时间及视频公开日分别保存，准确最早公开时间待核实。",
+    "repository_created_at": "2026-07-08T11:29:58Z",
+    "first_commit_at": "2026-07-08T11:50:08Z",
+    "latest_commit_at": "2026-07-11T12:38:25Z",
+    "video_publication_at": "2026-07-11T13:24:37Z",
+    "video_bv": "BV11mNA6vE93",
+    "video_author_uid": "533393738",
+    "features": [
+      "25项中文词元映射的静态词表",
+      "中文类、构造函数、变量和方法原例",
+      "Scanner→Parser→AST访问者解释执行",
+      "C++原生函数及类的显式注册",
+      "源码可读的继承包装和成员访问机制",
+      "明确AI协助类定义与实例化的提交声明"
+    ],
+    "code": "类 测试类\n{\n    公开 变量 甲:Int = 10;\n    公开 变量 乙:Float = 20.5;\n    公开 变量 丙:String = \"你好，世界\";\n\n    公开 函数 新的(甲:Int, 乙:Float, 丙:String)\n    {\n        自己.甲 = 甲;\n        自己.乙 = 乙;\n        自己.丙 = 丙;\n    }\n\n    公开 函数 打印日志()\n    {\n        trace(甲.转字符串() + \", \" + 乙.转字符串() + \", \" + \"!\");\n        trace(自己.丙);\n    }\n}\n\n变量 实例 = 新的 测试类(15, 30.75, \"测试完成\");\n实例.打印日志();",
+    "code_source": "https://github.com/zxk-creator/hscript-C-/blob/f4502da497b9abc0b280d1b1e3e01239000b7ded/test/TestScriptChinese.hx#L1-L22",
+    "code_context": "固定提交f4502da的test/TestScriptChinese.hx全文22行，保留原始空行、四空格缩进与标点。全文获取与单独第1—22行获取逐字相等。原片约01:03可见中文类文件；截图前DOM video.currentTime=62.614239，公开播放画面为640×360。逐字原例采用固定源码，独立执行结果待核实。",
+    "implementation": "C++20实现，CMake项目名HaxeParser。Scanner::isAlpha接受ASCII字母、下划线及高位字节，identifier完整查表映射词元；Parser按CLASS、FUNCTION、VAR、IF、WHILE、RETURN等类型构造AST。main.cpp将源文件串接Scanner、Parser、原生trace／now／TestClass注册及Interpreter::interpret。Interpreter使用AST访问者、Environment作用域及闭包执行；visitThisExpr规范化到this环境名，visitNewExpr分别查找new和新的构造函数。原生类经registerNativeClass、Reflect::createInstance和HClass／HInstance包装接入，findMethod逐层查找脚本和原生方法。完整Haxe兼容性、所有语法分支与独立运行继续核实。",
+    "version": "固定main头f4502da497b9abc0b280d1b1e3e01239000b7ded，提交时间2026-07-11T12:38:25Z。CMake要求3.20与C++20。读取GitHub Releases集合与git/matching-refs/tags均为空数组；独立发行版本与打包附件待核实。 许可层级：Apache-2.0；固定LICENSE全文、README徽章和仓库许可元数据一致。LICENSE附录保留Copyright [yyyy] [name of copyright owner]模板，具体版权署名及上游代码许可范围待核实。",
+    "license": "Apache-2.0；固定LICENSE全文、README徽章和仓库许可元数据一致。LICENSE附录保留Copyright [yyyy] [name of copyright owner]模板，具体版权署名及上游代码许可范围待核实。",
+    "ai_involvement": "原仓提交7c143b3aec56750233b29faf2df6dcc598393bfd（2026-07-08T18:33:32Z）明确写“第二次提交。在AI帮助下实现了脚本类定义和实例化。”该提交差异含AST类与实例相关节点、解析和解释路径。AI证据限于作者声明的协作范围；具体模型、工具、文件贡献比例与后续中文扩展的人机分工待核实。",
+    "relations": "原片简介直接链接zxk-creator/hscript-C-，作为项目身份依据。项目自述Haxe风格，当前核心实现为C++词法、AST与解释器。与HaxeFoundation/hscript的代码继承、完整兼容及授权关系待核实。中英文词元属于同一项目和执行体系。",
+    "status": "原BV、发布者UID、UTC日期、固定中文原例、词法／解析／解释链、许可正文和AI协作提交已核；构建执行、完整语法兼容及发行版本待核实。",
+    "verification_notes": "2026-10-10公开静态核验，固定树32项且truncated=false。main六条提交可追至空parents根。中文词表共25项，词表数量与各项运行支持分别记录。Parser第344—427行消费注解、修饰符和类型注解后忽略；数组字面量、符号&&／||和字符串转义边界继续核实。原片时长153秒，页面初始时间2026-07-11 21:24:37，客户端后续显示06:24:37；采用video:release_date明确UTC元数据。原片显示620播放、账号535关注，为本次观测值。 AI来源与范围：原仓提交7c143b3aec56750233b29faf2df6dcc598393bfd（2026-07-08T18:33:32Z）明确写“第二次提交。在AI帮助下实现了脚本类定义和实例化。”该提交差异含AST类与实例相关节点、解析和解释路径。AI证据限于作者声明的协作范围；具体模型、工具、文件贡献比例与后续中文扩展的人机分工待核实。",
+    "verified_at": "2026-10-10",
+    "references": [
+      {
+        "title": "B站原作者视频：中文关键字与C++类继承",
+        "url": "https://www.bilibili.com/video/BV11mNA6vE93/"
+      },
+      {
+        "title": "B站原作者主页UID533393738",
+        "url": "https://space.bilibili.com/533393738/"
+      },
+      {
+        "title": "固定README：Haxe风格、中英词元及原例",
+        "url": "https://github.com/zxk-creator/hscript-C-/blob/f4502da497b9abc0b280d1b1e3e01239000b7ded/README.md"
+      },
+      {
+        "title": "固定连续中文类与实例原例",
+        "url": "https://github.com/zxk-creator/hscript-C-/blob/f4502da497b9abc0b280d1b1e3e01239000b7ded/test/TestScriptChinese.hx#L1-L22"
+      },
+      {
+        "title": "固定中文词元识别及查表",
+        "url": "https://github.com/zxk-creator/hscript-C-/blob/f4502da497b9abc0b280d1b1e3e01239000b7ded/token/Scanner.h#L52-L64"
+      },
+      {
+        "title": "固定25项中文词元表",
+        "url": "https://github.com/zxk-creator/hscript-C-/blob/f4502da497b9abc0b280d1b1e3e01239000b7ded/token/Scanner.h#L179-L255"
+      },
+      {
+        "title": "固定类与函数解析、修饰符和类型注解处理",
+        "url": "https://github.com/zxk-creator/hscript-C-/blob/f4502da497b9abc0b280d1b1e3e01239000b7ded/ast/Parser.h#L273-L427"
+      },
+      {
+        "title": "固定C++宿主扫描、解析与解释入口",
+        "url": "https://github.com/zxk-creator/hscript-C-/blob/f4502da497b9abc0b280d1b1e3e01239000b7ded/main.cpp#L43-L71"
+      },
+      {
+        "title": "固定类继承与中文构造函数求值",
+        "url": "https://github.com/zxk-creator/hscript-C-/blob/f4502da497b9abc0b280d1b1e3e01239000b7ded/ast/Interpreter.h#L354-L396"
+      },
+      {
+        "title": "固定中文构造函数查找",
+        "url": "https://github.com/zxk-creator/hscript-C-/blob/f4502da497b9abc0b280d1b1e3e01239000b7ded/ast/Interpreter.h#L511-L565"
+      },
+      {
+        "title": "固定C++类注册桥",
+        "url": "https://github.com/zxk-creator/hscript-C-/blob/f4502da497b9abc0b280d1b1e3e01239000b7ded/util/reflect/Reflect.h#L10-L26"
+      },
+      {
+        "title": "固定原生C++测试类",
+        "url": "https://github.com/zxk-creator/hscript-C-/blob/f4502da497b9abc0b280d1b1e3e01239000b7ded/test/TestClass.h"
+      },
+      {
+        "title": "固定构建配置",
+        "url": "https://github.com/zxk-creator/hscript-C-/blob/f4502da497b9abc0b280d1b1e3e01239000b7ded/CMakeLists.txt"
+      },
+      {
+        "title": "固定Apache-2.0全文",
+        "url": "https://github.com/zxk-creator/hscript-C-/blob/f4502da497b9abc0b280d1b1e3e01239000b7ded/LICENSE"
+      },
+      {
+        "title": "作者明确AI协助范围的提交",
+        "url": "https://github.com/zxk-creator/hscript-C-/commit/7c143b3aec56750233b29faf2df6dcc598393bfd"
+      },
+      {
+        "title": "中文扫描和构造函数支持提交",
+        "url": "https://github.com/zxk-creator/hscript-C-/commit/107dfbeff38dda1aac8bf120e1f5782bfca0c06b"
+      }
+    ],
+    "build_project_name": "HaxeParser",
+    "id": "lang-075"
+  },
+  {
+    "name": "可执行考鼎码（EC2）",
+    "aliases": [
+      "考鼎码",
+      "可执行考鼎码",
+      "Executable Coding Code",
+      "EC2"
+    ],
+    "category": "算法教学领域专用语言／洛书派生的C语言与WASM解释实现",
+    "description": "可执行考鼎码（Executable Coding Code，EC2）由飞漫软件考鼎学堂的魏永明设计，面向少儿信息学启蒙和算法教学。语言规范以“算始／算终”界定程序入口，以“函始／函终、若始／若终、当始／当终、返回”等中文关键词组织函数、分支和循环。洛书团队成员CHEN Chaochen、CHENG Tianyu及HUANG Dongqiao承担解释器和编辑器开发定制，魏永明完成练习场前后端。公开C源码直接识别中文词元，生成指令并交由虚拟机执行；Emscripten构建把解释器接入浏览器，配合CodeMirror编辑器、输入输出、拍手动画和语音接口。条目按具有独立教学规范的洛书派生语言整理，练习场作为配套平台记录。规范中的规划特性、保留词以及固定实现的行为按来源分别核验。",
+    "author": "语言设计者WEI Yongming／魏永明，GitHub VincentWei。固定index.html与README列解释器／编辑器开发者CHEN Chaochen、CHENG Tianyu、HUANG Dongqiao，并链接洛书团队；练习场前后端由WEI Yongming完成。具体贡献范围以各源码历史继续核实。",
+    "first_publication": "固定官方介绍称魏永明于2024年12月提出可执行考鼎码。Git历史根提交48235f0f88d7b5c5f233b32a68f9f690437f025a时间2024-12-25T03:50:37Z，parents为空，树中已含.ec2原例、解释器与WASM文件。GitHub仓库created_at为2024-12-26T06:57:59Z。设计提出月份、Git历史与GitHub建库分别保存，最早公开可访问时间待核实。",
+    "repository_created_at": "2024-12-26T06:57:59Z",
+    "first_commit_at": "2024-12-25T03:50:37Z",
+    "latest_commit_at": "2025-03-03T04:22:04Z",
+    "features": [
+      "中文程序入口、函数、分支及循环界定词",
+      "独立可执行考鼎码规范及.ec2算法示例",
+      "C词法解析、指令生成及VM执行",
+      "基于洛书核心的教学定制实现",
+      "WASM浏览器运行接口与CodeMirror编辑",
+      "输入、输出、动画、语音和运算统计接口"
+    ],
+    "code": "算始 函数测试()\n    返回 函数1()\n算终\n函始 函数1()\n    执行(\"拍手\")\n    执行(\"说出\",\"你好考鼎码\")\n    返回 1\n函终",
+    "code_source": "https://github.com/VincentWei/ec2playground/blob/2b2d11a06e823c828c81c86ac0dd00d910287b24/demo/基本语句/函数.ec2#L1-L8",
+    "code_context": "固定提交2b2d11a0的demo/基本语句/函数.ec2全文8行，包含算法入口与独立函数，保留原始四空格缩进与标点。全文获取与单独第1—8行获取逐字相等。算始、函始、返回及相应结束词均在固定词法与解析分派中；执行函数在WASM核心库中注册。实际运行与语音／动画效果待独立核实。",
+    "implementation": "ec2_wasm/ec2/ec2_sytax.c第355—377行保存汉字词元，第392—398行初始化；第1332—1380行将分支、循环、函数、算法、变量和返回交给各解析分支并生成指令。算法记录专用main入口和参数。ec2_api.c的vm_dostring经vm_loadstring及vm_execute处理源程序，VM按指令分派执行；wasmIOrunCode创建VM、初始化库、读取编辑器文本、提示算法实参、调用入口并输出返回值和统计。sh/build.sh以emcc编译C源码，导出运行／中断函数并启用ASYNCIFY。洛书内核来源由源码头注及项目开发者说明明确记录。",
+    "version": "解释器与练习场固定master头2b2d11a06e823c828c81c86ac0dd00d910287b24，提交时间2025-03-03T04:22:04Z。规范固定PLZS提交badd2e1b94807f11f77f4f5d5f555a86cbf42848，时间2025-02-17T13:03:00Z。读取GitHub Releases与git/matching-refs/tags均为空数组；语言版本号、正式发行与线上部署对应待核实。 许可层级：练习场README声明GNU AGPL第3版或后续版本，COPYING为AGPLv3全文，版权2024、2025 EC2 Community。所读洛书核心C文件及头文件附MIT许可和chen-chaochen版权说明。配套CodeMirror和课程规范各自许可范围继续核实。",
+    "license": "练习场README声明GNU AGPL第3版或后续版本，COPYING为AGPLv3全文，版权2024、2025 EC2 Community。所读洛书核心C文件及头文件附MIT许可和chen-chaochen版权说明。配套CodeMirror和课程规范各自许可范围继续核实。",
+    "ai_involvement": "已读项目README、官方设计介绍、固定规范、核心实现及部分提交历史；EC2开发的AI参与工具、范围和比例待原作者明确资料核实。课程介绍中的开源AI大模型为课程主题资料。",
+    "relations": "EC2采用自己的教学规范、算法入口及保留词体系，解释器以洛书核心定制。官方原页列GitHub VincentWei/ec2playground与Gitee vincentwei7/ec2playground两个入口。语言、考鼎伪代码教学表示和在线练习场分别记录；百科既有洛书lang-005保留其项目身份。跨仓完整继承范围与各阶段规范实现对应待核实。",
+    "status": "原作者身份链、独立规范、连续中文原例、固定C解析与VM链、WASM接口及分层许可已核；规范全量实现、发行版本和运行结果待核实。",
+    "verification_notes": "2026-10-10公开静态核验，固定练习场完整树489项、根树100项，truncated=false。固定词法器第1063—1072行对声明／导入／定义词元跳过至行尾；规范第155—174行分别规定相关语义。demo/基本语句/判断.ec2用若又，固定词表使用若另；循环demo的定义行按其源码单列。规范规定的循环／调用限制与VM中对应注释区域分层保存。官方网页普通读取出现不可访问结果，GitHub固定原始规范可读。 AI来源与范围：已读项目README、官方设计介绍、固定规范、核心实现及部分提交历史；EC2开发的AI参与工具、范围和比例待原作者明确资料核实。课程介绍中的开源AI大模型为课程主题资料。",
+    "verified_at": "2026-10-10",
+    "references": [
+      {
+        "title": "固定官方页面：设计者、2024年12月及开发分工",
+        "url": "https://github.com/VincentWei/ec2playground/blob/2b2d11a06e823c828c81c86ac0dd00d910287b24/index.html"
+      },
+      {
+        "title": "固定项目README与AGPL声明",
+        "url": "https://github.com/VincentWei/ec2playground/blob/2b2d11a06e823c828c81c86ac0dd00d910287b24/README.md"
+      },
+      {
+        "title": "固定独立可执行考鼎码规范",
+        "url": "https://github.com/VincentWei/PLZS/blob/badd2e1b94807f11f77f4f5d5f555a86cbf42848/slides/enlightenment-spec-of-executable-coding-code.md"
+      },
+      {
+        "title": "固定连续中文入口与函数原例",
+        "url": "https://github.com/VincentWei/ec2playground/blob/2b2d11a06e823c828c81c86ac0dd00d910287b24/demo/基本语句/函数.ec2#L1-L8"
+      },
+      {
+        "title": "固定中文词元及初始化",
+        "url": "https://github.com/VincentWei/ec2playground/blob/2b2d11a06e823c828c81c86ac0dd00d910287b24/ec2_wasm/ec2/ec2_sytax.c#L350-L398"
+      },
+      {
+        "title": "固定声明、导入、定义的当前词法行为",
+        "url": "https://github.com/VincentWei/ec2playground/blob/2b2d11a06e823c828c81c86ac0dd00d910287b24/ec2_wasm/ec2/ec2_sytax.c#L1049-L1078"
+      },
+      {
+        "title": "固定分支、循环、函数及算法解析分派",
+        "url": "https://github.com/VincentWei/ec2playground/blob/2b2d11a06e823c828c81c86ac0dd00d910287b24/ec2_wasm/ec2/ec2_sytax.c#L1325-L1380"
+      },
+      {
+        "title": "固定源程序载入与执行入口",
+        "url": "https://github.com/VincentWei/ec2playground/blob/2b2d11a06e823c828c81c86ac0dd00d910287b24/ec2_wasm/ec2/ec2_api.c#L169-L202"
+      },
+      {
+        "title": "固定VM函数与指令执行",
+        "url": "https://github.com/VincentWei/ec2playground/blob/2b2d11a06e823c828c81c86ac0dd00d910287b24/ec2_wasm/ec2/ec2_vm.c#L109-L140"
+      },
+      {
+        "title": "固定WASM算法入口和统计接口",
+        "url": "https://github.com/VincentWei/ec2playground/blob/2b2d11a06e823c828c81c86ac0dd00d910287b24/ec2_wasm/wasm/ec2_wasm_main.c#L16-L81"
+      },
+      {
+        "title": "固定动画语音与中文内置函数注册",
+        "url": "https://github.com/VincentWei/ec2playground/blob/2b2d11a06e823c828c81c86ac0dd00d910287b24/ec2_wasm/wasm/ec2_wasm_libcore.c#L518-L618"
+      },
+      {
+        "title": "固定Emscripten构建描述",
+        "url": "https://github.com/VincentWei/ec2playground/blob/2b2d11a06e823c828c81c86ac0dd00d910287b24/sh/build.sh"
+      },
+      {
+        "title": "固定练习场AGPLv3全文",
+        "url": "https://github.com/VincentWei/ec2playground/blob/2b2d11a06e823c828c81c86ac0dd00d910287b24/COPYING"
+      },
+      {
+        "title": "固定洛书核心MIT许可头注",
+        "url": "https://github.com/VincentWei/ec2playground/blob/2b2d11a06e823c828c81c86ac0dd00d910287b24/ec2_wasm/ec2/ec2_sytax.c#L1-L45"
+      },
+      {
+        "title": "最早Git历史根提交",
+        "url": "https://github.com/VincentWei/ec2playground/commit/48235f0f88d7b5c5f233b32a68f9f690437f025a"
+      },
+      {
+        "title": "官方在线练习场",
+        "url": "https://play.fmsoft.cn/ec2/"
+      }
+    ],
+    "id": "lang-076"
   }
 ]

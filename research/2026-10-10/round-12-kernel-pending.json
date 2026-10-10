@@ -1,0 +1,602 @@
+[
+  {
+    "id": "corez-os",
+    "name": "CoreZ-OS",
+    "aliases": [
+      "CoreZ OS",
+      "CoreZ"
+    ],
+    "checked_at": "2026-10-10",
+    "discovery_round": 12,
+    "selection_status": "待核实",
+    "short_description": "CoreZ-OS 是 lightfl0w 维护的 x86-64 实验操作系统项目，采用 C 与汇编实现引导及内核，包含任务调度、内存管理、ext2/ext4 接口、用户进程和简易 Win32/GDI 兼容层。作者原片直接关联源码；中国开发者或中国社区的明确公开归属继续待核实。",
+    "author": {
+      "people": [
+        {
+          "handle": "lightfl0w",
+          "public_alias": "Lightfl0w",
+          "github_url": "https://github.com/lightfl0w",
+          "bilibili_uid": "3690980152707649",
+          "bilibili_url": "https://space.bilibili.com/3690980152707649/"
+        }
+      ],
+      "attribution": {
+        "text": "原片BV1krYP6iEv5由Lightfl0w（UID3690980152707649）发布，简介直接给出lightfl0w/CoreZ-OS源码地址。GitHub项目和账号采用同一handle。",
+        "evidence_level": "作者发布页",
+        "source_ids": [
+          "cz1",
+          "cz2",
+          "cz3"
+        ]
+      },
+      "china_basis": {
+        "text": "中国开发者或中国社区的明确公开归属自述待核实。当前已读GitHub主页、固定README、B站简介、频道及动态为核对范围。",
+        "evidence_level": "待核实",
+        "source_ids": [
+          "cz1",
+          "cz2",
+          "cz3",
+          "cz5",
+          "cz28"
+        ]
+      }
+    },
+    "kernel_positioning": {
+      "text": "这是具有独立引导、内核链接目标和用户进程加载路径的实验系统。固定entry.asm以64位汇编进入kmain；内核自行初始化内存、GDT/TSS、IDT、系统调用、线程、设备和文件系统，再启动/bin/shell.elf。",
+      "evidence_level": "源码可见",
+      "source_ids": [
+        "cz6",
+        "cz7",
+        "cz8",
+        "cz12"
+      ]
+    },
+    "dates": {
+      "first_public": {
+        "date": null,
+        "status": "待核实",
+        "known_public_record": "GitHub仓库创建时间和原视频发布日期原值分别保存；最早对外公开时间继续待核实。",
+        "source_ids": [
+          "cz1",
+          "cz4",
+          "cz25"
+        ]
+      },
+      "repository_created": {
+        "at": "2026-08-30T04:51:40Z",
+        "meaning": "GitHub created_at元数据",
+        "source_ids": [
+          "cz4"
+        ]
+      },
+      "video_published": {
+        "date": null,
+        "status": "待核实",
+        "observed_values": [
+          {
+            "surface": "原片首次网页文本",
+            "value": "2026-10-01 11:17:06"
+          },
+          {
+            "surface": "原片后续客户端页面",
+            "value": "2026-09-30 20:17:06"
+          },
+          {
+            "surface": "作者投稿列表",
+            "value": "9月30日"
+          }
+        ],
+        "meaning": "页面显示存在时区/渲染差异，规范时间戳待核实。",
+        "source_ids": [
+          "cz1",
+          "cz3"
+        ]
+      }
+    },
+    "architectures": [
+      {
+        "text": "固定链接脚本指定elf64-x86-64与i386:x86-64，entry.asm使用bits 64；该快照的已核对内核目标为x86-64。",
+        "evidence_level": "源码可见",
+        "source_ids": [
+          "cz6",
+          "cz8",
+          "cz12"
+        ]
+      }
+    ],
+    "implementation_languages": [
+      {
+        "text": "内核以C及x86汇编实现，构建配置采用-ffreestanding、-fno-builtin，并独立生成kernel.elf。Python负责工程构建组织。",
+        "evidence_level": "源码可见",
+        "source_ids": [
+          "cz6",
+          "cz7",
+          "cz12"
+        ]
+      }
+    ],
+    "capabilities": {
+      "boot": [
+        {
+          "text": "BIOS路径包括位于0x7C00的主引导代码、活动分区读取、后续loader与长模式入口；boot.asm包含INT13磁盘读和55AA结尾。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "cz6",
+            "cz9",
+            "cz10"
+          ]
+        },
+        {
+          "text": "UEFI入口读取ELF内核、建立页表并获取固件内存映射；成功调用exit_boot_services后生成Multiboot2参数，经landing入口转交内核。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "cz11"
+          ]
+        }
+      ],
+      "scheduling": [
+        {
+          "text": "thread.c维护每CPU就绪位图和运行队列权重，依据虚拟运行时间与deadline选取任务，通过process_activate和switch_to切换。timer及重调度IPI路径调用调度器。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "cz13",
+            "cz14"
+          ]
+        },
+        {
+          "text": "固定SMP代码通过INIT/SIPI唤醒AP，建立每CPU描述符、TSS和idle任务，并切入任务上下文；完整多核运行行为待核实。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "cz26"
+          ]
+        }
+      ],
+      "memory": [
+        {
+          "text": "pool.c建立物理页位图与虚拟地址位图，包含PML4等四级页表访问、MMIO映射和page_cow_resolve写时复制处理。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "cz15"
+          ]
+        }
+      ],
+      "filesystem": [
+        {
+          "text": "fsapi.c定义ext2与ext4两组VFS操作表，包含查找、读写、目录项与inode分配接口，并按磁盘探测结果选择根文件系统操作表。具体文件系统格式覆盖和数据完整性待核实。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "cz16"
+          ]
+        }
+      ],
+      "drivers": [
+        {
+          "text": "固定README列出PS/2键鼠、IDE、E1000、RTL8139、ACPI/APIC及帧缓冲进展；固定Git树另有NVMe、VirtIO与VMware显示相关源码。各设备实际兼容范围待核实。",
+          "evidence_level": "作者声明与源码目录可见",
+          "source_ids": [
+            "cz5",
+            "cz23"
+          ]
+        }
+      ],
+      "applications": [
+        {
+          "text": "pe_load检查AMD64机器类型，建立PE映像并通过win32_resolve处理导入；API表提供窗口和GDI函数映射，未解析导入落入占位处理。兼容范围按具体API和示例程序核验。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "cz17",
+            "cz29"
+          ]
+        },
+        {
+          "text": "GDI实现设置4个应用、4个窗口、12个设备上下文等固定资源上限；win_gui.c示例调用TextOutA、Rectangle、Ellipse、LineTo并响应键盘字符。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "cz18",
+            "cz19"
+          ]
+        },
+        {
+          "text": "作者原片标题说明移植fish shell与简易WinGDI程序支持；固定README和构建脚本记录fish子模块及构建目标。fish运行版本与原片二进制对应待核实。",
+          "evidence_level": "作者声明与构建源码可见",
+          "source_ids": [
+            "cz1",
+            "cz5",
+            "cz12",
+            "cz20"
+          ]
+        }
+      ]
+    },
+    "project_relationships": [
+      {
+        "text": "项目固定README将其定位为教学型内核，并说明从16位引导到64位内核的开发路线。整体原创范围、参考工程继承和AI参与范围继续待核实。",
+        "evidence_level": "作者声明",
+        "source_ids": [
+          "cz5"
+        ]
+      },
+      {
+        "text": "固定.gitmodules与Git树共同记录musl、libc-testsuite、BusyBox、fish、PCRE2和flanterm的上游及固定提交。README给出对应许可声明；完整第三方文件及分发许可范围继续待核实。",
+        "evidence_level": "源码可见",
+        "source_ids": [
+          "cz5",
+          "cz20",
+          "cz23"
+        ]
+      },
+      {
+        "text": "同一固定README保留AP启动阶段和多核调度路线项；2026-10-01的7cdbd4f提交说明基础AP调度，当前thread.c和smp.c已经包含每CPU选取及AP任务切换路径。文档和较新源码分别记录，稳定性和覆盖范围待核实。",
+        "evidence_level": "作者文档与源码阶段对照",
+        "source_ids": [
+          "cz5",
+          "cz13",
+          "cz25",
+          "cz26"
+        ]
+      }
+    ],
+    "status": {
+      "source_snapshot": {
+        "branch": "main",
+        "commit": "8016bb2e8cf39001a7d2a89ece8c2ecf8381522e",
+        "committed_at": "2026-10-02T09:01:56Z",
+        "source_ids": [
+          "cz22",
+          "cz23"
+        ]
+      },
+      "latest_github_release": {
+        "version": null,
+        "status": "待核实",
+        "observed": "核验时Releases集合返回空数组。",
+        "source_ids": [
+          "cz24"
+        ]
+      },
+      "license": {
+        "name": "GPL-3.0",
+        "scope": "固定根LICENSE为GPLv3全文；历史声明署名CoreZ Team，写明GPLv3或更新版本。完整源码和第三方许可适用范围分别核实。",
+        "source_ids": [
+          "cz21",
+          "cz27",
+          "cz5",
+          "cz20"
+        ]
+      },
+      "runtime_verification": {
+        "status": "待核实",
+        "scope": "本轮完成公开页面、固定源码静态阅读与作者视频观察。独立构建、启动、功能与发行物运行验证待核实。"
+      }
+    },
+    "video_observations": [
+      {
+        "video_url": "https://www.bilibili.com/video/BV1krYP6iEv5/",
+        "timestamp": "00:26",
+        "text": "画面可见QEMU窗口及TianoCore引导标志。",
+        "evidence_level": "作者演示",
+        "source_ids": [
+          "cz1"
+        ]
+      },
+      {
+        "video_url": "https://www.bilibili.com/video/BV1krYP6iEv5/",
+        "timestamp": "01:01",
+        "text": "截图中播放器读数为01:01/01:08；桌面上可见终端和包含矩形、椭圆、斜线的测试窗口。该图案与win_gui.c示例相符，录屏二进制的固定提交对应待核实。",
+        "evidence_level": "作者演示",
+        "source_ids": [
+          "cz1",
+          "cz19"
+        ],
+        "observation_note": "同次AX文本读数为01:02；以截图自身可见时间01:01记录。"
+      }
+    ],
+    "links": {
+      "source": "https://github.com/lightfl0w/CoreZ-OS",
+      "video_channel": {
+        "url": "https://space.bilibili.com/3690980152707649/",
+        "source_ids": [
+          "cz1",
+          "cz3"
+        ]
+      },
+      "individual_video": {
+        "url": "https://www.bilibili.com/video/BV1krYP6iEv5/",
+        "published_date": null,
+        "evidence": "原片简介直接关联源码，规范日期待核实。"
+      }
+    },
+    "pending_verification": [
+      "中国开发者或中国社区的明确公开归属自述",
+      "项目最早公开日期、视频规范发布时间及正式版本",
+      "原片录屏二进制与固定源码的版本对应",
+      "README与较新调度、固件及中断源码的阶段对应",
+      "完整上游继承、原始代码来源和AI参与范围",
+      "根许可证适用范围与全部第三方许可、资源字库许可",
+      "fish、PE/GDI、网络和文件系统具体兼容与测试覆盖",
+      "独立构建、引导、任务调度及功能运行"
+    ],
+    "sources": [
+      {
+        "id": "cz1",
+        "title": "Lightfl0w发布的CoreZ-OS原片",
+        "url": "https://www.bilibili.com/video/BV1krYP6iEv5/",
+        "kind": "作者原视频发布页",
+        "supports": [
+          "B站作者与GitHub源码直接关联",
+          "fish shell与简易WinGDI声明",
+          "日期原值与01:08时长",
+          "01:01终端和绘图窗口画面"
+        ]
+      },
+      {
+        "id": "cz2",
+        "title": "Lightfl0w公开GitHub主页",
+        "url": "https://github.com/lightfl0w",
+        "kind": "作者公开主页",
+        "supports": [
+          "公开开发账号",
+          "中国归属自述待核实"
+        ]
+      },
+      {
+        "id": "cz3",
+        "title": "Lightfl0w公开B站投稿列表",
+        "url": "https://space.bilibili.com/3690980152707649/upload/video",
+        "kind": "作者公开频道",
+        "supports": [
+          "原片与UID关联",
+          "频道列4条视频",
+          "原片日期显示9月30日"
+        ]
+      },
+      {
+        "id": "cz4",
+        "title": "CoreZ-OS仓库元数据",
+        "url": "https://api.github.com/repos/lightfl0w/CoreZ-OS",
+        "kind": "仓库元数据",
+        "supports": [
+          "创建时间",
+          "主分支",
+          "GPL-3.0元数据"
+        ]
+      },
+      {
+        "id": "cz5",
+        "title": "CoreZ-OS 固定源码 README.md",
+        "url": "https://github.com/lightfl0w/CoreZ-OS/blob/8016bb2e8cf39001a7d2a89ece8c2ecf8381522e/README.md",
+        "kind": "固定源码",
+        "supports": [
+          "项目定位与作者功能说明",
+          "子模块许可声明",
+          "SMP等文档阶段说明"
+        ]
+      },
+      {
+        "id": "cz6",
+        "title": "CoreZ-OS 固定源码 arch/x86/asm/entry.asm",
+        "url": "https://github.com/lightfl0w/CoreZ-OS/blob/8016bb2e8cf39001a7d2a89ece8c2ecf8381522e/arch/x86/asm/entry.asm#L1-L89",
+        "kind": "固定源码",
+        "supports": [
+          "64位内核入口与kmain调用"
+        ]
+      },
+      {
+        "id": "cz7",
+        "title": "CoreZ-OS 固定源码 kernel/init/main.c",
+        "url": "https://github.com/lightfl0w/CoreZ-OS/blob/8016bb2e8cf39001a7d2a89ece8c2ecf8381522e/kernel/init/main.c#L58-L157",
+        "kind": "固定源码",
+        "supports": [
+          "内核初始化及用户进程入口"
+        ]
+      },
+      {
+        "id": "cz8",
+        "title": "CoreZ-OS 固定源码 linker/kernel.ld",
+        "url": "https://github.com/lightfl0w/CoreZ-OS/blob/8016bb2e8cf39001a7d2a89ece8c2ecf8381522e/linker/kernel.ld#L1-L9",
+        "kind": "固定源码",
+        "supports": [
+          "独立ELF64内核链接布局"
+        ]
+      },
+      {
+        "id": "cz9",
+        "title": "CoreZ-OS 固定源码 arch/x86/boot/boot.asm",
+        "url": "https://github.com/lightfl0w/CoreZ-OS/blob/8016bb2e8cf39001a7d2a89ece8c2ecf8381522e/arch/x86/boot/boot.asm",
+        "kind": "固定源码",
+        "supports": [
+          "MBR引导入口、INT13磁盘读与55AA标志"
+        ]
+      },
+      {
+        "id": "cz10",
+        "title": "CoreZ-OS 固定源码 arch/x86/boot/loader.asm",
+        "url": "https://github.com/lightfl0w/CoreZ-OS/blob/8016bb2e8cf39001a7d2a89ece8c2ecf8381522e/arch/x86/boot/loader.asm",
+        "kind": "固定源码",
+        "supports": [
+          "实模式到长模式引导",
+          "FAT32与VBE引导准备"
+        ]
+      },
+      {
+        "id": "cz11",
+        "title": "CoreZ-OS 固定源码 arch/x86/uefi/main.c",
+        "url": "https://github.com/lightfl0w/CoreZ-OS/blob/8016bb2e8cf39001a7d2a89ece8c2ecf8381522e/arch/x86/uefi/main.c#L680-L803",
+        "kind": "固定源码",
+        "supports": [
+          "UEFI引导、ExitBootServices与内核转交"
+        ]
+      },
+      {
+        "id": "cz12",
+        "title": "CoreZ-OS 固定源码 build.py",
+        "url": "https://github.com/lightfl0w/CoreZ-OS/blob/8016bb2e8cf39001a7d2a89ece8c2ecf8381522e/build.py",
+        "kind": "固定源码",
+        "supports": [
+          "freestanding C编译",
+          "kernel.elf生成",
+          "fish构建入口"
+        ]
+      },
+      {
+        "id": "cz13",
+        "title": "CoreZ-OS 固定源码 kernel/sched/thread.c",
+        "url": "https://github.com/lightfl0w/CoreZ-OS/blob/8016bb2e8cf39001a7d2a89ece8c2ecf8381522e/kernel/sched/thread.c#L595-L692",
+        "kind": "固定源码",
+        "supports": [
+          "每CPU就绪位图",
+          "虚拟运行时间和截止值选取",
+          "上下文切换"
+        ]
+      },
+      {
+        "id": "cz14",
+        "title": "CoreZ-OS 固定源码 arch/x86/interrupt/interrupt.c",
+        "url": "https://github.com/lightfl0w/CoreZ-OS/blob/8016bb2e8cf39001a7d2a89ece8c2ecf8381522e/arch/x86/interrupt/interrupt.c#L244-L282",
+        "kind": "固定源码",
+        "supports": [
+          "timer与IPI触发调度"
+        ]
+      },
+      {
+        "id": "cz15",
+        "title": "CoreZ-OS 固定源码 kernel/mm/pool/pool.c",
+        "url": "https://github.com/lightfl0w/CoreZ-OS/blob/8016bb2e8cf39001a7d2a89ece8c2ecf8381522e/kernel/mm/pool/pool.c",
+        "kind": "固定源码",
+        "supports": [
+          "物理页池、页表与COW处理"
+        ]
+      },
+      {
+        "id": "cz16",
+        "title": "CoreZ-OS 固定源码 kernel/fs/fsapi.c",
+        "url": "https://github.com/lightfl0w/CoreZ-OS/blob/8016bb2e8cf39001a7d2a89ece8c2ecf8381522e/kernel/fs/fsapi.c",
+        "kind": "固定源码",
+        "supports": [
+          "ext2和ext4 VFS操作表与探测"
+        ]
+      },
+      {
+        "id": "cz17",
+        "title": "CoreZ-OS 固定源码 kernel/userprog/pe.c",
+        "url": "https://github.com/lightfl0w/CoreZ-OS/blob/8016bb2e8cf39001a7d2a89ece8c2ecf8381522e/kernel/userprog/pe.c",
+        "kind": "固定源码",
+        "supports": [
+          "AMD64 PE加载与导入解析"
+        ]
+      },
+      {
+        "id": "cz18",
+        "title": "CoreZ-OS 固定源码 kernel/syscall/win32_gdi.c",
+        "url": "https://github.com/lightfl0w/CoreZ-OS/blob/8016bb2e8cf39001a7d2a89ece8c2ecf8381522e/kernel/syscall/win32_gdi.c",
+        "kind": "固定源码",
+        "supports": [
+          "窗口、DC、GDI对象上限",
+          "绘图函数实现"
+        ]
+      },
+      {
+        "id": "cz19",
+        "title": "CoreZ-OS 固定源码 apps/win_gui.c",
+        "url": "https://github.com/lightfl0w/CoreZ-OS/blob/8016bb2e8cf39001a7d2a89ece8c2ecf8381522e/apps/win_gui.c",
+        "kind": "固定源码",
+        "supports": [
+          "窗口、绘图与键盘输入示例"
+        ]
+      },
+      {
+        "id": "cz20",
+        "title": "CoreZ-OS 固定源码 .gitmodules",
+        "url": "https://github.com/lightfl0w/CoreZ-OS/blob/8016bb2e8cf39001a7d2a89ece8c2ecf8381522e/.gitmodules",
+        "kind": "固定源码",
+        "supports": [
+          "musl等6个第三方入口"
+        ]
+      },
+      {
+        "id": "cz21",
+        "title": "CoreZ-OS 固定源码 LICENSE",
+        "url": "https://github.com/lightfl0w/CoreZ-OS/blob/8016bb2e8cf39001a7d2a89ece8c2ecf8381522e/LICENSE",
+        "kind": "固定源码",
+        "supports": [
+          "根GPLv3全文"
+        ]
+      },
+      {
+        "id": "cz22",
+        "title": "CoreZ-OS固定提交",
+        "url": "https://github.com/lightfl0w/CoreZ-OS/commit/8016bb2e8cf39001a7d2a89ece8c2ecf8381522e",
+        "kind": "固定提交",
+        "supports": [
+          "2026-10-02T09:01:56Z快照"
+        ]
+      },
+      {
+        "id": "cz23",
+        "title": "CoreZ-OS固定递归Git树",
+        "url": "https://api.github.com/repos/lightfl0w/CoreZ-OS/git/trees/8016bb2e8cf39001a7d2a89ece8c2ecf8381522e?recursive=1",
+        "kind": "固定Git树",
+        "supports": [
+          "源码路径",
+          "6个固定gitlink"
+        ]
+      },
+      {
+        "id": "cz24",
+        "title": "CoreZ-OS Releases集合",
+        "url": "https://api.github.com/repos/lightfl0w/CoreZ-OS/releases?per_page=100",
+        "kind": "仓库元数据",
+        "supports": [
+          "核验时空集合"
+        ]
+      },
+      {
+        "id": "cz25",
+        "title": "CoreZ-OS公开提交列表（第1页）",
+        "url": "https://api.github.com/repos/lightfl0w/CoreZ-OS/commits?per_page=100&page=1",
+        "kind": "提交历史",
+        "supports": [
+          "fish、UEFI、PE/GDI、AP调度等阶段提交"
+        ]
+      },
+      {
+        "id": "cz26",
+        "title": "CoreZ-OS 固定源码 kernel/init/smp/smp.c",
+        "url": "https://github.com/lightfl0w/CoreZ-OS/blob/8016bb2e8cf39001a7d2a89ece8c2ecf8381522e/kernel/init/smp/smp.c",
+        "kind": "固定源码",
+        "supports": [
+          "AP启动、idle任务与上下文切换"
+        ]
+      },
+      {
+        "id": "cz27",
+        "title": "CoreZ-OS补充GPLv3全文提交",
+        "url": "https://github.com/lightfl0w/CoreZ-OS/commit/689bb08d0587e921fbb3d895d6a62cbbdc23345a",
+        "kind": "许可历史",
+        "supports": [
+          "旧文件署名CoreZ Team",
+          "旧文件GPLv3或更新版本声明",
+          "2026-09-13替换为全文"
+        ]
+      },
+      {
+        "id": "cz28",
+        "title": "Lightfl0w公开动态页",
+        "url": "https://space.bilibili.com/3690980152707649/dynamic",
+        "kind": "作者公开频道",
+        "supports": [
+          "当前可读动态为空"
+        ]
+      },
+      {
+        "id": "cz29",
+        "title": "CoreZ-OS 固定源码 kernel/syscall/win32.c",
+        "url": "https://github.com/lightfl0w/CoreZ-OS/blob/8016bb2e8cf39001a7d2a89ece8c2ecf8381522e/kernel/syscall/win32.c",
+        "kind": "固定源码",
+        "supports": [
+          "Win32 API映射与未解析导入处理"
+        ]
+      }
+    ]
+  }
+]

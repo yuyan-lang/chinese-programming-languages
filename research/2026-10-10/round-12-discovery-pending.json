@@ -1,0 +1,94 @@
+[
+  {
+    "name": "hscript-c（中英双语关键字）",
+    "record_type": "本轮新增建议条目的待补字段",
+    "new_candidate": false,
+    "source_project": "https://github.com/zxk-creator/hscript-C-",
+    "fixed_commit": "f4502da497b9abc0b280d1b1e3e01239000b7ded",
+    "pending": [
+      "核验完整Haxe语法兼容、HaxeFoundation/hscript代码继承及依赖许可关系。",
+      "核对25项词表对应语法与语义覆盖，重点为修饰符、数组字面量、&&／||、字符串转义和UTF-8标识符边界。",
+      "核验继承C++类的多实例状态、构造与成员访问，以及独立构建测试。",
+      "取得语义版本、发行附件和完整版权署名。",
+      "取得AI具体模型／工具、文件贡献范围、后续中文扩展人机分工及比例。",
+      "原片中文源码画面清晰转录和固定提交逐帧对应待核实。"
+    ],
+    "references": [
+      {
+        "title": "B站原作者视频：中文关键字与C++类继承",
+        "url": "https://www.bilibili.com/video/BV11mNA6vE93/"
+      },
+      {
+        "title": "B站原作者主页UID533393738",
+        "url": "https://space.bilibili.com/533393738/"
+      },
+      {
+        "title": "固定README：Haxe风格、中英词元及原例",
+        "url": "https://github.com/zxk-creator/hscript-C-/blob/f4502da497b9abc0b280d1b1e3e01239000b7ded/README.md"
+      },
+      {
+        "title": "固定连续中文类与实例原例",
+        "url": "https://github.com/zxk-creator/hscript-C-/blob/f4502da497b9abc0b280d1b1e3e01239000b7ded/test/TestScriptChinese.hx#L1-L22"
+      },
+      {
+        "title": "固定中文词元识别及查表",
+        "url": "https://github.com/zxk-creator/hscript-C-/blob/f4502da497b9abc0b280d1b1e3e01239000b7ded/token/Scanner.h#L52-L64"
+      },
+      {
+        "title": "固定25项中文词元表",
+        "url": "https://github.com/zxk-creator/hscript-C-/blob/f4502da497b9abc0b280d1b1e3e01239000b7ded/token/Scanner.h#L179-L255"
+      },
+      {
+        "title": "作者明确AI协助范围的提交",
+        "url": "https://github.com/zxk-creator/hscript-C-/commit/7c143b3aec56750233b29faf2df6dcc598393bfd"
+      }
+    ],
+    "verified_at": "2026-10-10"
+  },
+  {
+    "name": "可执行考鼎码（EC2）",
+    "record_type": "旧标题背景首次深入新增建议条目的待补字段",
+    "new_candidate": false,
+    "source_project": "https://github.com/VincentWei/ec2playground",
+    "fixed_commit": "2b2d11a06e823c828c81c86ac0dd00d910287b24",
+    "pending": [
+      "逐项核对独立规范与固定实现，包含声明／导入／定义、若另／若又、保留词、扩展数值和容器语义。",
+      "核实demo中定义初始化行被跳过、旧判断写法及部分裸终止调用的版本对应和运行结果。",
+      "核验循环／调用深度限制、统计数字、参数及返回值序列化、浏览器异步中断行为。",
+      "取得最早公开日、语言版本号、标签和线上WASM部署与源树对应。",
+      "补齐课程规范与CodeMirror等依赖许可、洛书完整继承范围和作者具体分工。",
+      "AI开发参与继续待原作者资料核实。"
+    ],
+    "references": [
+      {
+        "title": "固定官方页面：设计者、2024年12月及开发分工",
+        "url": "https://github.com/VincentWei/ec2playground/blob/2b2d11a06e823c828c81c86ac0dd00d910287b24/index.html"
+      },
+      {
+        "title": "固定项目README与AGPL声明",
+        "url": "https://github.com/VincentWei/ec2playground/blob/2b2d11a06e823c828c81c86ac0dd00d910287b24/README.md"
+      },
+      {
+        "title": "固定独立可执行考鼎码规范",
+        "url": "https://github.com/VincentWei/PLZS/blob/badd2e1b94807f11f77f4f5d5f555a86cbf42848/slides/enlightenment-spec-of-executable-coding-code.md"
+      },
+      {
+        "title": "固定连续中文入口与函数原例",
+        "url": "https://github.com/VincentWei/ec2playground/blob/2b2d11a06e823c828c81c86ac0dd00d910287b24/demo/基本语句/函数.ec2#L1-L8"
+      },
+      {
+        "title": "固定中文词元及初始化",
+        "url": "https://github.com/VincentWei/ec2playground/blob/2b2d11a06e823c828c81c86ac0dd00d910287b24/ec2_wasm/ec2/ec2_sytax.c#L350-L398"
+      },
+      {
+        "title": "固定声明、导入、定义的当前词法行为",
+        "url": "https://github.com/VincentWei/ec2playground/blob/2b2d11a06e823c828c81c86ac0dd00d910287b24/ec2_wasm/ec2/ec2_sytax.c#L1049-L1078"
+      },
+      {
+        "title": "最早Git历史根提交",
+        "url": "https://github.com/VincentWei/ec2playground/commit/48235f0f88d7b5c5f233b32a68f9f690437f025a"
+      }
+    ],
+    "verified_at": "2026-10-10"
+  }
+]
