@@ -1,1 +1,21 @@
-<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>凹语言｜中文编程语言百科</title><link rel="stylesheet" href="../style.css"></head><body><header><h1>凹语言</h1></header><main><p><a href="../">返回语言目录</a></p><h2>语言介绍</h2><p>支持中文语法的编程语言。</p><p>核验状态：有源码</p><h2>参考资料</h2><ul><li><a href="https://github.com/wa-lang/wa">参考资料</a></li></ul><p><a href="https://github.com/yuyan-lang/chinese-programming-languages/issues/new">补充资料或纠错</a></p></main><footer>站点由<a href="https://yuyan-lang.org/">豫言编程语言</a>提供</footer></body></html>
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>凹语言｜中文编程语言百科</title><link rel="stylesheet" href="../style.css"></head><body><header><h1>凹语言</h1></header><main><p><a href="../">返回语言目录</a></p>
+<h2>语言介绍</h2><p>凹语言（Wa）是一门最初面向WebAssembly设计的静态类型编译语言，现有英文.wa与中文.wz两种前端。中文版以“引入”“函数”“如果”“循环”“完毕”等词组织程序，配有中文类型、内置操作和标准库包；源码按.wz后缀进入专门的中文解析器，因此不只是允许中文变量名。两种语法属于同一语言工具链，无需重复计数。项目以Go实现编译器，提供WebAssembly代码生成，并逐步加入自研原生汇编后端及C转换路线。官方将其定位为工程试用阶段，仓库提供命令行、在线体验入口和游戏、绘图等样例；本次仅核对文档与源码，未验证执行效果或性能。</p>
+<h2>分类与别名</h2><p>中英文双语前端的静态类型编译语言；别名：Wa、Wa-lang、凹语言中文版</p>
+<h2>作者与首次公开</h2><p>凹语言开发组；柴树杉、丁尔男为创始成员，扈梦明等参与共建（官方作者材料及贡献者名单）。
+官网记载2019年立项、2022年7月开源；版本日志记2023-04-13（v0.6.0）增加中文语法、2025-11-01（v1.3.0）新版中文版正式上线。具体首个公开日待核实；GitHub仓库创建于2022-07-20，不代替首发日期。</p>
+<h2>设计与特征</h2><p>.wa英文与.wz中文语法模式；独立中文语法解析路径及中文关键字表；静态类型、函数、结构、接口与字典；中文标准库及WebAssembly应用示例；Wasm代码生成与原生构建工具</p>
+
+<h2>中文语法示例</h2><pre><code>注: 你好，世界！
+
+引入 &quot;书&quot;
+
+函数·主控:
+	书·说(&quot;你好，凹语言中文版！&quot;)
+完毕</code></pre><p>固定提交README-zh.md中“例子: 凹语言(中文版)”的完整连续原文程序；保留制表符、中文间隔号与标点。未运行。 <a href="https://github.com/wa-lang/wa/blob/68289efad08785938a1ea5225c23d0fcbf5bb9cb/README-zh.md">示例来源</a></p>
+<h2>实现与运行环境</h2><p>Go实现。internal/parser/interface.go对.wz文件调用w2parser.ParseFile，并在ParseDir中检查同一包不混放.wa/.wz；internal/token/const_wz.go定义中文关键字、类型及内置操作。当前README说明以Wasm暂作中间IR；版本日志列自研龙芯64、X64原生构建及实验性C后端。不能把设计架构图中的所有目标均当作已独立实测。</p>
+<h2>版本与维护状态</h2><p>所读master源码标注v1.9.0；GitHub latest Release为v1.8.0，发布于2026-03-02。开发版本号与已发布版本分开记录。；有公开源码；GitHub镜像未归档，所读master最新提交为2026-04-27。官方定位为工程试用；本次未安装、编译或运行。GitCode为README声明的主仓库，本次未独立核验其最新提交。</p>
+<h2>与其他项目的关系</h2><p>中文.wz是凹语言的中文前端，与英文.wa共用工具链，不另计一种无关语言。编译器以Go实现且部分前端文件保留Go Authors版权，不等同于仅使用Go的中文标识符。GitHub为官方声明的镜像，GitCode为主仓库；后端独立研发的自述不应扩大为整个仓库没有第三方代码。</p>
+<h2>核验说明</h2><p>2026-10-10只读核验。固定GitHub master提交68289efad08785938a1ea5225c23d0fcbf5bb9cb，提交时间2026-04-27T08:18:19Z；仓库pushed_at为2026-04-30T10:43:49Z，二者不混写。版本日志明确2023年已有中文语法、2025年为新版正式上线，不能写成2025年才首次支持中文。README中的“全自主”按其代码生成器及运行时语境引用，不扩为整个编译器无第三方来源。英文README标明GitCode主仓库、GitHub镜像。代码精确摘自固定提交；未运行。</p>
+
+<h2>参考资料</h2><ul><li><a href="https://github.com/wa-lang/wa">原有项目仓库（官方GitHub镜像）</a></li><li><a href="https://github.com/wa-lang/wa/blob/68289efad08785938a1ea5225c23d0fcbf5bb9cb/README-zh.md">中文版示例与双前端架构（固定提交）</a></li><li><a href="https://github.com/wa-lang/wa/blob/68289efad08785938a1ea5225c23d0fcbf5bb9cb/internal/parser/interface.go">按.wz选择中文解析器及包模式检查</a></li><li><a href="https://github.com/wa-lang/wa/blob/68289efad08785938a1ea5225c23d0fcbf5bb9cb/internal/token/const_wz.go">中文关键字、类型及内置操作表</a></li><li><a href="https://github.com/wa-lang/wa/blob/68289efad08785938a1ea5225c23d0fcbf5bb9cb/waroot/changelog.md">版本日志：中文语法沿革与后端状态</a></li><li><a href="https://github.com/wa-lang/wa/blob/68289efad08785938a1ea5225c23d0fcbf5bb9cb/internal/version/version.go">开发分支版本常量</a></li><li><a href="https://github.com/wa-lang/wa/releases/tag/v1.8.0">正式发行v1.8.0</a></li><li><a href="https://wa-lang.org/community/">官网简史</a></li><li><a href="https://wa-lang.org/smalltalk/st0031.html">官方作者文章：开源一周年及创始成员</a></li><li><a href="https://wa-lang.org/smalltalk/st0089.html">开发组：中文版重新起航（2025-10-23）</a></li></ul><p>资料核验日期：2026-10-10</p><p><a href="https://github.com/yuyan-lang/chinese-programming-languages/issues/new">补充资料或纠错</a></p></main><footer>站点由<a href="https://yuyan-lang.org/">豫言编程语言</a>提供</footer></body></html>
