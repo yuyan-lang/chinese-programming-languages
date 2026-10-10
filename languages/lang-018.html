@@ -1,12 +1,19 @@
 <!doctype html>
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>CNPL｜中文编程语言百科</title><link rel="stylesheet" href="../style.css"></head><body><header><h1>CNPL</h1></header><main><p><a href="../">返回语言目录</a></p>
-<h2>语言介绍</h2><p>中文编程语言编译器项目。</p>
-<h2>分类与别名</h2><p>待核实；别名：未确认</p>
-<h2>作者与首次公开</h2><p>待核实。待核实</p>
+<h2>语言介绍</h2><p>CNPL是一项采用白话中文语法的编程语言实现，原作者将其定位为《计算机语言编译原理》内部分享课程的配套源码。程序以“有一个数字”“取名为”“有一种方法”“如果”“当”等短语表达变量、函数和流程控制，变量名使用方括号，函数调用使用尖括号或书名号，并提供中文数字与中英文标点写法。项目支持数字、字符串、逻辑量、二维阵列、条件、循环及宿主函数调用，仓库包含斐波那契、排序和贪吃蛇等样例。C#前端可以直接解释抽象语法树，也可以生成字节码汇编、字节码文件或附带平台加载器的可执行文件；C++虚拟机使用计算栈、数据栈和指令位置组织执行。README记载语言受到文言项目启发。现存资料集中于2020年源码与二进制包，现代系统兼容性和后续维护计划待核实。</p>
+<h2>分类与别名</h2><p>白话中文语法语言／教学型编译器、解释器与字节码虚拟机；别名：cnpl</p>
+<h2>作者与公开历史</h2><p>仓库作者账号Zhou-zhi-peng，GitHub提交署名Zhouzhipeng；早期源码及后续修复提交使用Kevin署名。作者中文姓名待核实。</p><p>仓库创建于2020-01-15T08:36:01Z，现存初始源码提交f2bad2a日期为2020-01-15T10:49:21Z。README说明项目源自公司内部《计算机语言编译原理》分享课程，随后整理开源。课程开展时间及语言首次对外公开的具体时点待核实。</p>
+<h2>设计与特征</h2><p>白话中文短语语法与中文数字；方括号名称和书名号函数调用；数字、字符串、逻辑量及二维阵列；函数、条件、定次循环和条件循环；C#抽象语法树解释与字节码编译；C++栈式虚拟机和平台宿主函数导入</p>
+<h2>中文语法示例</h2><pre><code>有一个数字0，取名为【甲】；
+有一个数字一百零三，取名为【乙】；
+有一个阵列：20行 35列，取名为【地图】；
+下列操作执行100次：
+  如果【乙】、2取余数等于0，则：设【甲】的值为：【甲】、【乙】相加的结果。
+  设【乙】的值为：【乙】、1相加的结果。
 
-<h2>中文语法示例</h2><p>待核实：尚未取得可引用的原始中文代码示例。</p>
-<h2>实现与运行环境</h2><p>待核实</p>
-<h2>版本与维护状态</h2><p>版本待核实；待核实</p>
-<h2>与其他项目的关系</h2><p>待核实</p>
-<h2>核验说明</h2><p>本页依据现有目录补齐入口，未完成新的资料核验。</p>
-<h2>参考资料</h2><ul><li><a href="https://github.com/Zhou-zhi-peng/cnpl">参考资料</a></li></ul><p>资料核验日期：待核实</p><p><a href="https://github.com/yuyan-lang/chinese-programming-languages/issues/new">补充资料或纠错</a></p></main><footer>站点由<a href="https://yuyan-lang.org/">豫言编程语言</a>提供</footer></body></html>
+《输出》：【甲】,《换行符》；</code></pre><p>固定提交“DEMO程序/样例0-基础测试.程序”第11—18行连续原文，保留两空格缩进、中英文标点和原始换行。摘录展示数字与阵列声明、定次循环、条件赋值和输出；同文件前段另含命令行参数处理，后段另含递减循环。输出和换行符使用项目提供的宿主函数；独立执行结果待核实。 <a href="https://github.com/Zhou-zhi-peng/cnpl/blob/f2a60c0ae7e6264f8a9406e5b8fbda6114b08ccd/DEMO%E7%A8%8B%E5%BA%8F/%E6%A0%B7%E4%BE%8B0-%E5%9F%BA%E7%A1%80%E6%B5%8B%E8%AF%95.%E7%A8%8B%E5%BA%8F#L11-L18">示例来源</a></p>
+<h2>实现与运行环境</h2><p>C#实现词法分析、语法分析、抽象语法树、解释执行和字节码编译；cnpl.csproj目标框架为.NET Framework 4.6。Program.cs的-RUN路径调用ast.Execute，编译路径调用ast.Compile。Compiler.cs提供ASM、BIN和EXE输出；EXE路径先复制平台加载器，再追加字节码及长度。C++的VM/VM.h与VM/VM.cpp实现栈式执行器，包含计算栈、数据栈、指令位置、宿主调用和垃圾回收结构。README列Windows、Linux及x86、x86_64、arm32、arm64宿主目标，各组合的当前实测状态待核实。</p>
+<h2>版本与维护状态</h2><p>Properties/AssemblyInfo.cs标注AssemblyVersion与AssemblyFileVersion均为1.0.0.0；该值是程序集版本。仓库另提供release.bin.zip，最新提交说明其更新了小于比较修复后的二进制包。独立语言版本和正式发行编号待核实。</p><p>公开历史源码、中文原例和release.bin.zip入口可读。所读master最近提交日期为2020-03-16，仓库归档标记为false。GitHub Releases列表为空。后续维护计划、二进制运行及现代平台兼容性待核实。</p>
+<h2>与其他项目的关系</h2><p>README明确记载设计灵感来自LingDong的文言编程语言，并以白话文方式组织自己的语法。CNPL具有独立的C#词法、语法、解释和编译实现，以及C++字节码虚拟机。文言与CNPL按各自实现分别记录；这里的CNPL限定为Zhou-zhi-peng/cnpl项目。</p>
+<h2>核验说明</h2><p>2026-10-10只读静态核验。固定master提交f2a60c0ae7e6264f8a9406e5b8fbda6114b08ccd，时间2020-03-16T03:03:48Z；仓库pushed_at为2020-03-16T03:04:50Z。完整提交列表返回28条，根提交为2020-01-15T08:36:02Z的f6b12db，源码加入提交为当日10:49:21Z的f2bad2a。AssemblyInfo.cs的2019版权年份作为文件元数据记录，项目首发年份另行核实。源码确认EXE产物由平台加载器与字节码组成。中文姓名、内部课程日期、精确首发时点、独立语言版本及当前维护计划待核实。代码经字符串核对确认为原文件连续子串；二进制包、样例执行和平台支持属于后续验证范围。</p>
+<h2>参考资料</h2><ul><li><a href="https://github.com/Zhou-zhi-peng/cnpl">参考资料</a></li><li><a href="https://github.com/Zhou-zhi-peng/cnpl/blob/f2a60c0ae7e6264f8a9406e5b8fbda6114b08ccd/README.md">课程背景、语法、平台与文言关系（固定提交）</a></li><li><a href="https://github.com/Zhou-zhi-peng/cnpl/blob/f2a60c0ae7e6264f8a9406e5b8fbda6114b08ccd/DEMO%E7%A8%8B%E5%BA%8F/%E6%A0%B7%E4%BE%8B0-%E5%9F%BA%E7%A1%80%E6%B5%8B%E8%AF%95.%E7%A8%8B%E5%BA%8F#L11-L18">原始基础测试程序</a></li><li><a href="https://github.com/Zhou-zhi-peng/cnpl/blob/f2a60c0ae7e6264f8a9406e5b8fbda6114b08ccd/Lexer.cs">中文词法与数字、标点处理</a></li><li><a href="https://github.com/Zhou-zhi-peng/cnpl/blob/f2a60c0ae7e6264f8a9406e5b8fbda6114b08ccd/GrammarParser.cs">中文语句解析实现</a></li><li><a href="https://github.com/Zhou-zhi-peng/cnpl/blob/f2a60c0ae7e6264f8a9406e5b8fbda6114b08ccd/Program.cs">直接解释与编译两条命令行路径</a></li><li><a href="https://github.com/Zhou-zhi-peng/cnpl/blob/f2a60c0ae7e6264f8a9406e5b8fbda6114b08ccd/Compiler.cs#L256-L319">字节码输出与加载器封装</a></li><li><a href="https://github.com/Zhou-zhi-peng/cnpl/blob/f2a60c0ae7e6264f8a9406e5b8fbda6114b08ccd/VM/VM.h">C++虚拟机、计算栈和数据栈</a></li><li><a href="https://github.com/Zhou-zhi-peng/cnpl/blob/f2a60c0ae7e6264f8a9406e5b8fbda6114b08ccd/Properties/AssemblyInfo.cs">程序集版本信息</a></li><li><a href="https://github.com/Zhou-zhi-peng/cnpl/commit/f2bad2a57642573eaef046854d7de9890358197a">2020年初始源码提交</a></li></ul><p>资料核验日期：2026-10-10</p><p><a href="https://github.com/yuyan-lang/chinese-programming-languages/issues/new">补充资料或纠错</a></p></main><footer>站点由<a href="https://yuyan-lang.org/">豫言编程语言</a>提供</footer></body></html>
