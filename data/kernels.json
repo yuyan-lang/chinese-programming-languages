@@ -3331,5 +3331,654 @@
         ]
       }
     ]
+  },
+  {
+    "id": "textos",
+    "name": "TextOS",
+    "aliases": [
+      "TextOS Kernel"
+    ],
+    "checked_at": "2026-10-10",
+    "selection_status": "可收录",
+    "short_description": "TextOS 是 Maouai233（ljQAQ233）维护的 x86-64 实验操作系统项目，采用 C 与汇编实现内核，配套 SigmaBoot 引导器和用户态程序。当前源码包含 UEFI 与 Multiboot 启动、任务调度、内存管理、VFS、设备驱动及 ELF 用户程序加载。",
+    "author": {
+      "people": [
+        {
+          "handle": "ljQAQ233",
+          "public_alias": "Maouai233",
+          "github_url": "https://github.com/ljQAQ233",
+          "bilibili_url": "https://space.bilibili.com/503518259"
+        }
+      ],
+      "organization": null,
+      "attribution": {
+        "text": "固定 README 将 GitHub ljQAQ233 与 B站 Maouai233（UID503518259）并列；同一B站作者专栏直接给出 textos-dev 和 textos-pre 两个仓库，说明视频与源码的同步关系。",
+        "evidence_level": "作者声明",
+        "source_ids": [
+          "tx1",
+          "tx2",
+          "tx3"
+        ]
+      },
+      "china_basis": {
+        "text": "2026-10-10 的作者 GitHub 公开主页将所在地标为 Guangxi China。该主页置顶 textos-dev，提供中国开发者公开归属依据。",
+        "evidence_level": "作者自述",
+        "source_ids": [
+          "tx1"
+        ]
+      }
+    },
+    "kernel_positioning": {
+      "text": "这是配套引导器、内核及用户态的实验操作系统。SigmaBoot 读取 ELF 内核并退出 UEFI Boot Services 后转交控制；独立内核构建生成 kernel.elf，内核自行初始化中断、内存、任务和设备。",
+      "evidence_level": "源码可见",
+      "source_ids": [
+        "tx5",
+        "tx6",
+        "tx7"
+      ]
+    },
+    "dates": {
+      "first_public": {
+        "date": null,
+        "status": "待核实",
+        "known_public_record": "B站作者频道列出 2023-05-20 的《操作系统实现 / x64 / Uefi | 000 工作区整理》；原片精确发布时间及更早公开记录待核实。",
+        "source_ids": [
+          "tx4",
+          "tx27"
+        ]
+      },
+      "repository_created": {
+        "at": "2023-05-01T14:53:11Z",
+        "meaning": "textos-dev 的 GitHub created_at 元数据",
+        "source_ids": [
+          "tx8"
+        ]
+      },
+      "related_repository_created": {
+        "at": "2023-07-02T01:28:38Z",
+        "repository": "ljQAQ233/textos-pre",
+        "meaning": "独立仓库的 GitHub created_at 元数据",
+        "source_ids": [
+          "tx24"
+        ]
+      },
+      "author_article": {
+        "date": "2024-08-01",
+        "precision": "日",
+        "meaning": "作者专栏当前页面的最后编辑日期；频道列表显示其原发布记录为2023-07-30。",
+        "source_ids": [
+          "tx3",
+          "tx4"
+        ]
+      }
+    },
+    "architectures": [
+      {
+        "text": "README 明确为 x64；固定内核架构目录与构建入口为 x86_64，包含 UEFI、Multiboot、GDT、中断和 AP 入口。",
+        "evidence_level": "作者声明与源码可见",
+        "source_ids": [
+          "tx2",
+          "tx9",
+          "tx10"
+        ]
+      }
+    ],
+    "capabilities": {
+      "boot": [
+        {
+          "text": "SigmaBoot 调用 KernelLoad 读取 ELF，取得内存映射并调用 ExitBootServices，随后将引导参数和入口地址传给内核。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "tx5",
+            "tx26"
+          ]
+        },
+        {
+          "text": "kernel_main 初始化 GDT、IDT、ACPI、APIC、内存、任务、设备与系统调用；initproc2 组织挂载与设备节点后调用 /bin/init。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "tx7",
+            "tx11"
+          ]
+        }
+      ],
+      "scheduling": [
+        {
+          "text": "task.c 通过循环扫描任务表选取 TASK_PRE 任务，递减并恢复时间片计数，更新 TSS 与 CR3 后调用上下文切换；同时定义阻塞、唤醒和睡眠接口。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "tx12"
+          ]
+        }
+      ],
+      "memory": [
+        {
+          "text": "pmm.c 从 UEFI 或 Multiboot 内存映射建立空闲区链表，提供连续页分配、占用区保留和页释放。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "tx13"
+          ]
+        },
+        {
+          "text": "vmm.c 包含规范地址处理、物理页分配与页映射入口，文件仍保存虚拟内存设计 TODO；README 将完整虚拟内存管理和写时复制列为待完成。",
+          "evidence_level": "源码可见与作者声明",
+          "source_ids": [
+            "tx14",
+            "tx2"
+          ]
+        }
+      ],
+      "filesystem": [
+        {
+          "text": "文件系统构建清单包含 VFS 操作、管道、FAT32、Minix、procfs 和 tmpfs。mount.c 按分区类型选择 FAT32 或 Minix 初始化；fat32.c 定义引导记录、FSInfo 和目录项结构。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "tx15",
+            "tx16",
+            "tx17"
+          ]
+        }
+      ],
+      "drivers": [
+        {
+          "text": "E1000 驱动定义收发描述符、寄存器和设备状态，初始化时选择端口或 MMIO 访问；中断路径调用 LAI 的 PCI 路由接口或 MSI。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "tx18"
+          ]
+        },
+        {
+          "text": "README 列出 PS/2、串口、IDE、帧缓冲、ACPI/LAI 与网络设备进展；AHCI/SATA 的检测项和 MSI 的测试提示单独记录。",
+          "evidence_level": "作者声明",
+          "source_ids": [
+            "tx2"
+          ]
+        }
+      ]
+    },
+    "implementation_languages": [
+      {
+        "text": "固定内核构建采用 C11、freestanding 与 nostdlib 选项；x86-64 启动、中断和任务切换使用汇编。",
+        "evidence_level": "源码可见",
+        "source_ids": [
+          "tx6",
+          "tx9",
+          "tx10"
+        ]
+      }
+    ],
+    "project_relationships": [
+      {
+        "text": "SigmaBoot 为本项目引导器，TextOS 为内核及系统名称。作者专栏分别列出引导与内核的实现路线。",
+        "evidence_level": "作者声明",
+        "source_ids": [
+          "tx2",
+          "tx3"
+        ]
+      },
+      {
+        "text": "作者专栏说明 textos-dev 是与 B站视频对应的有序仓库，textos-pre 保存较多变基的开发阶段；2025-08-03 README 记述将开发集中到 textos-dev，当前 textos-pre 的仓库元数据为 archived=true。两仓按同一项目沿革整理。",
+        "evidence_level": "作者声明与仓库元数据",
+        "source_ids": [
+          "tx2",
+          "tx3",
+          "tx24"
+        ]
+      },
+      {
+        "text": "history.md 记述 2024-06-16 将内核代码改用类 Linux 的书写风格，并提到 xv6 风格；README 将 lyos、ToaruOS、LunaixOS、Onix 和 UEFI 学习项目列为参考。各参考项目的实际代码继承范围待核实。",
+        "evidence_level": "作者声明",
+        "source_ids": [
+          "tx2",
+          "tx25"
+        ]
+      },
+      {
+        "text": "固定 .gitmodules 与 gitlink 记录 EDK2、LVGL、OpenLibm 和 Lua。EDK2 指向作者维护仓库；README 与作者专栏将其说明为 vUDK2018 路线，专栏记述罗冰来源。",
+        "evidence_level": "源码可见与作者声明",
+        "source_ids": [
+          "tx2",
+          "tx3",
+          "tx10",
+          "tx19"
+        ]
+      },
+      {
+        "text": "内核内附 LAI，其许可证为 MIT；用户态 libc 内附 dlmalloc 2.8.6，文件头列出删减上游配置的修改及 MIT-0 许可。",
+        "evidence_level": "源码可见",
+        "source_ids": [
+          "tx20",
+          "tx28"
+        ]
+      },
+      {
+        "text": "README 说明应用使用项目 C library 和 amd64 Linux 系统调用包装层。跨系统兼容范围、ABI 完整性与测试覆盖待核实。",
+        "evidence_level": "作者声明",
+        "source_ids": [
+          "tx2"
+        ]
+      },
+      {
+        "text": "README 自述代码多数亲自编写，Agent 编写部分标注模型；dlmalloc 文件头明确署出作者与 DeepSeek 的修改参与。该记录属于作者的 AI 使用声明。",
+        "evidence_level": "作者声明与源码注释",
+        "source_ids": [
+          "tx2",
+          "tx28"
+        ]
+      }
+    ],
+    "status": {
+      "latest_github_release": {
+        "version": "buildable-20261001",
+        "published_at": "2026-10-01T13:58:46Z",
+        "label": "GitHub 发布的构建快照",
+        "asset": "root.tar.gz",
+        "source_ids": [
+          "tx22",
+          "tx23"
+        ]
+      },
+      "previous_observed_release": {
+        "version": "kit-202604",
+        "published_at": "2026-04-26T05:56:05Z",
+        "asset": "image.img.gz",
+        "source_ids": [
+          "tx22"
+        ]
+      },
+      "source_snapshot": {
+        "branch": "main",
+        "commit": "75ebadf4134f6144ed1ffc0b1d3229582766db4f",
+        "committed_at": "2026-10-01T13:53:49Z",
+        "source_ids": [
+          "tx21",
+          "tx23"
+        ]
+      },
+      "activity": {
+        "text": "核验时 main 最新提交为 2026-10-01 的发布工作流更新；同一提交被 buildable-20261001 标签引用。",
+        "evidence_level": "仓库元数据",
+        "source_ids": [
+          "tx21",
+          "tx23"
+        ]
+      },
+      "license": {
+        "name": "MIT",
+        "scope": "项目根 LICENSE；LAI、dlmalloc 与各子模块分别保留其许可范围。",
+        "source_ids": [
+          "tx29",
+          "tx20",
+          "tx28"
+        ]
+      },
+      "runtime_verification": {
+        "status": "待核实",
+        "scope": "本轮覆盖公开作者资料、固定源码静态阅读、仓库元数据与原片发布页。独立构建和运行、发布包内容以及原片功能画面的可靠时间点待核实。"
+      }
+    },
+    "video_observations": [],
+    "links": {
+      "source": "https://github.com/ljQAQ233/textos-dev",
+      "historical_source": "https://github.com/ljQAQ233/textos-pre",
+      "video_channel": {
+        "url": "https://space.bilibili.com/503518259",
+        "evidence": "固定 README 明确关联，作者专栏反向链接仓库。",
+        "source_ids": [
+          "tx2",
+          "tx3",
+          "tx4"
+        ]
+      },
+      "individual_video": {
+        "url": "https://www.bilibili.com/video/BV1mtFke9EGg/",
+        "published_date": "2025-02-02",
+        "evidence": "已核对原片页标题、作者、日期及使用 LAI 解析 ACPI 的简介；原片功能时间点待核实。"
+      },
+      "related_videos": [
+        {
+          "url": "https://www.bilibili.com/video/BV1Nw4m1d7Lm/",
+          "published_date": "2024-03-23",
+          "purpose": "作者频道列出的 Protocol 开发视频，原片逐帧内容待核实。"
+        },
+        {
+          "url": "https://www.bilibili.com/video/BV1Ma4y1g7Z8/",
+          "published_date": "2023-05-20",
+          "purpose": "作者频道与专栏关联的早期工作区整理视频；作为已知公开记录。"
+        }
+      ],
+      "author_article": "https://www.bilibili.com/opus/824406955174920192"
+    },
+    "pending_verification": [
+      "项目最早公开日期及早期完整历史",
+      "原片的可靠功能画面时间点与固定源码、发布包的对应关系",
+      "固定快照与发布包的独立构建、启动、用户态及设备运行",
+      "内核核心与参考项目的实际代码继承范围",
+      "EDK2 等子模块的完整第三方许可、版本与修改范围",
+      "虚拟内存、MSI、网络协议和应用兼容的实现完整性与正确性"
+    ],
+    "sources": [
+      {
+        "id": "tx1",
+        "title": "Maouai233 的 GitHub 公开主页",
+        "url": "https://github.com/ljQAQ233",
+        "kind": "作者自述",
+        "supports": [
+          "Guangxi China所在地",
+          "textos-dev归属"
+        ]
+      },
+      {
+        "id": "tx2",
+        "title": "TextOS 固定 README",
+        "url": "https://github.com/ljQAQ233/textos-dev/blob/75ebadf4134f6144ed1ffc0b1d3229582766db4f/README.md",
+        "kind": "固定文档快照",
+        "supports": [
+          "作者与频道关联",
+          "x64定位",
+          "功能声明",
+          "项目关系",
+          "AI使用声明"
+        ]
+      },
+      {
+        "id": "tx3",
+        "title": "TextOS 项目调整作者专栏",
+        "url": "https://www.bilibili.com/opus/824406955174920192",
+        "kind": "作者专栏",
+        "supports": [
+          "B站与仓库反向关联",
+          "SigmaBoot和内核边界",
+          "EDK2来源",
+          "编辑日期"
+        ]
+      },
+      {
+        "id": "tx4",
+        "title": "Maouai233 B站频道",
+        "url": "https://space.bilibili.com/503518259",
+        "kind": "作者频道",
+        "supports": [
+          "原片入口",
+          "频道列示日期"
+        ]
+      },
+      {
+        "id": "tx5",
+        "title": "SigmaBoot 引导主程序",
+        "url": "https://github.com/ljQAQ233/textos-dev/blob/75ebadf4134f6144ed1ffc0b1d3229582766db4f/src/boot/SigmaBootPkg/Main.c",
+        "kind": "固定源码快照",
+        "supports": [
+          "ExitBootServices",
+          "内核转交",
+          "UEFI内存映射"
+        ]
+      },
+      {
+        "id": "tx6",
+        "title": "独立内核构建配置",
+        "url": "https://github.com/ljQAQ233/textos-dev/blob/75ebadf4134f6144ed1ffc0b1d3229582766db4f/src/kernel/Makefile",
+        "kind": "固定源码快照",
+        "supports": [
+          "C11 freestanding",
+          "kernel.elf生成",
+          "编译源文件"
+        ]
+      },
+      {
+        "id": "tx7",
+        "title": "内核与初始任务入口",
+        "url": "https://github.com/ljQAQ233/textos-dev/blob/75ebadf4134f6144ed1ffc0b1d3229582766db4f/src/kernel/main.c",
+        "kind": "固定源码快照",
+        "supports": [
+          "中断与设备初始化",
+          "内核任务创建"
+        ]
+      },
+      {
+        "id": "tx8",
+        "title": "textos-dev 仓库元数据",
+        "url": "https://api.github.com/repos/ljQAQ233/textos-dev",
+        "kind": "平台元数据",
+        "supports": [
+          "仓库创建日期",
+          "维护账号",
+          "根许可证识别"
+        ]
+      },
+      {
+        "id": "tx9",
+        "title": "x86-64 架构构建文件",
+        "url": "https://github.com/ljQAQ233/textos-dev/blob/75ebadf4134f6144ed1ffc0b1d3229582766db4f/src/kernel/arch/x86_64/arch.mk",
+        "kind": "固定源码快照",
+        "supports": [
+          "启动与中断汇编",
+          "UEFI和Multiboot路径"
+        ]
+      },
+      {
+        "id": "tx10",
+        "title": "完整源码树",
+        "url": "https://api.github.com/repos/ljQAQ233/textos-dev/git/trees/75ebadf4134f6144ed1ffc0b1d3229582766db4f?recursive=1",
+        "kind": "源码树元数据",
+        "supports": [
+          "架构路径",
+          "子模块固定提交",
+          "文件清单"
+        ]
+      },
+      {
+        "id": "tx11",
+        "title": "用户态初始进程入口",
+        "url": "https://github.com/ljQAQ233/textos-dev/blob/75ebadf4134f6144ed1ffc0b1d3229582766db4f/src/kernel/user/initproc2.c",
+        "kind": "固定源码快照",
+        "supports": [
+          "挂载和设备节点",
+          "执行/bin/init"
+        ]
+      },
+      {
+        "id": "tx12",
+        "title": "任务调度与切换源码",
+        "url": "https://github.com/ljQAQ233/textos-dev/blob/75ebadf4134f6144ed1ffc0b1d3229582766db4f/src/kernel/task.c#L426-L533",
+        "kind": "固定源码快照",
+        "supports": [
+          "任务表轮转",
+          "时间片",
+          "CR3与上下文切换",
+          "阻塞与唤醒"
+        ]
+      },
+      {
+        "id": "tx13",
+        "title": "物理内存管理源码",
+        "url": "https://github.com/ljQAQ233/textos-dev/blob/75ebadf4134f6144ed1ffc0b1d3229582766db4f/src/kernel/mm/pmm.c",
+        "kind": "固定源码快照",
+        "supports": [
+          "空闲区链表",
+          "连续页分配释放",
+          "引导内存映射"
+        ]
+      },
+      {
+        "id": "tx14",
+        "title": "虚拟内存管理源码",
+        "url": "https://github.com/ljQAQ233/textos-dev/blob/75ebadf4134f6144ed1ffc0b1d3229582766db4f/src/kernel/mm/vmm.c",
+        "kind": "固定源码快照",
+        "supports": [
+          "页映射入口",
+          "待完成说明"
+        ]
+      },
+      {
+        "id": "tx15",
+        "title": "文件系统构建列表",
+        "url": "https://github.com/ljQAQ233/textos-dev/blob/75ebadf4134f6144ed1ffc0b1d3229582766db4f/src/kernel/fs/fs.mk",
+        "kind": "固定源码快照",
+        "supports": [
+          "VFS和文件系统实现清单"
+        ]
+      },
+      {
+        "id": "tx16",
+        "title": "文件系统挂载选择",
+        "url": "https://github.com/ljQAQ233/textos-dev/blob/75ebadf4134f6144ed1ffc0b1d3229582766db4f/src/kernel/fs/mount.c",
+        "kind": "固定源码快照",
+        "supports": [
+          "FAT32与Minix注册和分区选择"
+        ]
+      },
+      {
+        "id": "tx17",
+        "title": "FAT32实现结构",
+        "url": "https://github.com/ljQAQ233/textos-dev/blob/75ebadf4134f6144ed1ffc0b1d3229582766db4f/src/kernel/fs/phy/fat32.c#L1-L110",
+        "kind": "固定源码快照",
+        "supports": [
+          "FAT32磁盘与目录结构"
+        ]
+      },
+      {
+        "id": "tx18",
+        "title": "E1000网络驱动",
+        "url": "https://github.com/ljQAQ233/textos-dev/blob/75ebadf4134f6144ed1ffc0b1d3229582766db4f/src/kernel/dev/nic/e1000.c",
+        "kind": "固定源码快照",
+        "supports": [
+          "收发描述符",
+          "LAI路由",
+          "MSI",
+          "PCI与MMIO"
+        ]
+      },
+      {
+        "id": "tx19",
+        "title": "上游子模块地址",
+        "url": "https://github.com/ljQAQ233/textos-dev/blob/75ebadf4134f6144ed1ffc0b1d3229582766db4f/.gitmodules",
+        "kind": "固定配置快照",
+        "supports": [
+          "EDK2",
+          "LVGL",
+          "OpenLibm",
+          "Lua"
+        ]
+      },
+      {
+        "id": "tx20",
+        "title": "内附LAI许可证",
+        "url": "https://github.com/ljQAQ233/textos-dev/blob/75ebadf4134f6144ed1ffc0b1d3229582766db4f/src/kernel/lai/LICENSE",
+        "kind": "第三方许可证",
+        "supports": [
+          "LAI MIT许可"
+        ]
+      },
+      {
+        "id": "tx21",
+        "title": "核验时最新main提交",
+        "url": "https://github.com/ljQAQ233/textos-dev/commit/75ebadf4134f6144ed1ffc0b1d3229582766db4f",
+        "kind": "提交元数据",
+        "supports": [
+          "固定提交与日期"
+        ]
+      },
+      {
+        "id": "tx22",
+        "title": "GitHub Releases 集合",
+        "url": "https://api.github.com/repos/ljQAQ233/textos-dev/releases?per_page=100",
+        "kind": "平台元数据",
+        "supports": [
+          "buildable-20261001",
+          "kit-202604",
+          "附件与发布时间"
+        ]
+      },
+      {
+        "id": "tx23",
+        "title": "buildable-20261001 标签引用",
+        "url": "https://api.github.com/repos/ljQAQ233/textos-dev/git/ref/tags/buildable-20261001",
+        "kind": "平台元数据",
+        "supports": [
+          "发布标签与固定提交一致"
+        ]
+      },
+      {
+        "id": "tx24",
+        "title": "textos-pre 仓库元数据",
+        "url": "https://api.github.com/repos/ljQAQ233/textos-pre",
+        "kind": "平台元数据",
+        "supports": [
+          "创建日期",
+          "已归档状态"
+        ]
+      },
+      {
+        "id": "tx25",
+        "title": "作者记录的代码风格调整",
+        "url": "https://github.com/ljQAQ233/textos-dev/blob/75ebadf4134f6144ed1ffc0b1d3229582766db4f/docs/history.md",
+        "kind": "固定作者文档",
+        "supports": [
+          "2024-06-16重整",
+          "旧分支沿革"
+        ]
+      },
+      {
+        "id": "tx26",
+        "title": "SigmaBoot 的 ELF 内核加载",
+        "url": "https://github.com/ljQAQ233/textos-dev/blob/75ebadf4134f6144ed1ffc0b1d3229582766db4f/src/boot/SigmaBootPkg/Kernel.c",
+        "kind": "固定源码快照",
+        "supports": [
+          "文件读取",
+          "ElfLoad入口"
+        ]
+      },
+      {
+        "id": "tx27",
+        "title": "作者频道关联的早期工作区视频",
+        "url": "https://www.bilibili.com/video/BV1Ma4y1g7Z8/",
+        "kind": "原视频入口",
+        "supports": [
+          "早期公开记录"
+        ]
+      },
+      {
+        "id": "tx28",
+        "title": "用户态dlmalloc来源、修改与许可",
+        "url": "https://github.com/ljQAQ233/textos-dev/blob/75ebadf4134f6144ed1ffc0b1d3229582766db4f/src/app/libc/3rdparty/dlmalloc.c#L1-L35",
+        "kind": "第三方源码声明",
+        "supports": [
+          "dlmalloc 2.8.6",
+          "MIT-0",
+          "DeepSeek参与声明"
+        ]
+      },
+      {
+        "id": "tx29",
+        "title": "TextOS根许可证",
+        "url": "https://github.com/ljQAQ233/textos-dev/blob/75ebadf4134f6144ed1ffc0b1d3229582766db4f/LICENSE",
+        "kind": "固定许可证文件",
+        "supports": [
+          "MIT",
+          "Maouai233署名"
+        ]
+      },
+      {
+        "id": "tx30",
+        "title": "APIC与LAI作者原片（2025-02-02）",
+        "url": "https://www.bilibili.com/video/BV1mtFke9EGg/",
+        "kind": "作者原视频发布页",
+        "supports": [
+          "原作者账号",
+          "日期",
+          "ACPI路由的作者说明"
+        ]
+      },
+      {
+        "id": "tx31",
+        "title": "Protocol作者原片入口（2024-03-23）",
+        "url": "https://www.bilibili.com/video/BV1Nw4m1d7Lm/",
+        "kind": "频道关联原片入口",
+        "supports": [
+          "2024年开发记录"
+        ]
+      }
+    ]
   }
 ]

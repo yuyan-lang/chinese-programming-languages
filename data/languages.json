@@ -1484,18 +1484,23 @@
       "JISHI"
     ],
     "category": "语言",
-    "author": "benxiaoniao（账号；实名待核实）",
-    "first_publication": "仓库创建 2026-09-05；语言首次公开发布日期待核实",
-    "description": "【语言】以中文关键字表达控制流、函数、对象与模块的语言，提供原生工具链和浏览器WASM运行入口。",
+    "author": "陈柏林（公开提交及发布脚本署名；GitHub：benxiaoniao）",
+    "first_publication": "2026-09-05（CHANGELOG标注v0.1.0为首个对外发行版；仓库于当日01:30:49Z创建）；首发原始公告与v0.1.0发行物待核实",
+    "description": "【语言】基石以“令、如果、循环、函数、返回、类”等中文关键字和缩进组织程序，源码使用.jsh扩展名。语言提供分支、循环、函数与闭包、类与继承、异常、模块和中文标准库，并配有命令行、交互环境、编辑器协议及浏览器试玩入口。当前发行工具链由Rust前端将源码解析为AST，再编译为字节码，交给Rust虚拟机执行；仓库同时保留独立C栈式虚拟机。Python与Node实现自2026年10月8日起归入oracle参考与一致性检验链。浏览器版复用Rust前端和虚拟机并编译为WebAssembly。作者在README声明使用大模型协助开发；语言卡、结构化报错和MCP属于其面向AI工具的接口。项目采用MIT-0许可，v0.2.2已提供Windows、Linux及macOS发行物。",
     "features": [
-      "中文语法／关键字",
-      "有公开实现源码"
+      "中文关键字、缩进代码块与全角标点归一化",
+      "函数、闭包、类继承、异常与模块",
+      "Rust前端、Rust字节码虚拟机及原生标准库",
+      "独立C栈式虚拟机与公开宿主回调ABI",
+      "CLI、REPL、LSP、树遍历调试器及MCP接口",
+      "复用Rust引擎的WebAssembly浏览器入口",
+      "有公开实现源码及三平台发行包"
     ],
-    "code": "循环 10 次：\n    令 猜测 = 整数(输入(\"猜一个 1-100 的数：\"))",
-    "implementation": "当前正式实现Rust前端、Rust字节码VM与C VM；Python/Node实现已退役为参考判据。核对Rust Cargo清单。",
-    "status": "已有源码；未在本次研究中编译或执行",
-    "version": "0.2.2（README，2026-10-09）",
-    "relations": "不要依据仓库主语言Python误记当前实现；README明确2026-10-08退役旧Python/Node分发。",
+    "code": "# 猜数字小游戏 —— 基石语言第一个完整程序\n# 运行：jishi examples/01_猜数字.jsh\n\n导入 随机\n\n令 答案 = 随机.随机整数(1, 100)\n打印(\"我想好了一个 1 到 100 之间的数，你来猜！\")\n\n循环 10 次：\n    令 猜测 = 整数(输入(\"猜一个数：\"))\n\n    如果 猜测 < 答案：\n        打印(\"太小了，再大一点\")\n    否则如果 猜测 > 答案：\n        打印(\"太大了，再小一点\")\n    否则：\n        打印(\"恭喜你，猜对了！答案就是\", 答案)\n        中断\n\n打印(\"游戏结束，答案是\", 答案)",
+    "implementation": "正式发行的jishi命令来自rust/Cargo.toml的jishi-rs二进制。rust/src/main.rs把普通文件交给run::main_cli；run.rs读取源码，调用jishi_frontend::parser::parse、compiler::compile_program、serialize::dump_json，再以load_module载入Rust VM并调用vm.run。frontend/src/tokenizer.rs保存中文关键字表；Rust树遍历参考执行器由--walk入口及调试链使用。cvm/src/jsvm.c实现独立C栈式VM，cvm/include/jsvm.h公开ABI v2及JsHost回调；oracle/jishi/cvm_bind.py提供ctypes加载、扁平字节码转换和Python宿主回调，examples/embed/hello.c展示C宿主加载常量字节码。发行脚本及Release工作流采用--engine rust，cargo产物改名为jishi。Python／Node参考实现位于oracle/jishi与oracle/node。wasm crate复用jishi-ffi及jishi-frontend，通过裸C ABI和手写JS胶水运行同步沙箱，采用循环步数预算。",
+    "status": "源码、WebAssembly入口及三平台发行物已公开；本轮完成原始资料与调用链只读核验，独立构建、程序执行、安装包内容校验和性能复现待核实",
+    "version": "v0.2.2（正式Release发布于2026-10-10 15:55:49 UTC，标签指向65bb012c1c5a07e21a081b4d33cc88f5ecc046cc）；CHANGELOG版本日期为2026-10-09。frontend crate为0.2.2，jishi-ffi与jishi-wasm crate各为0.1.0，分别记录组件编号",
+    "relations": "当前项目由Python参考实现逐步迁移为Rust前端与宿主，保留C VM；2026-10-08退役Python／Node分发，2026-10-09完成0.2.2文档阶段。公开仓库采用单次孤儿快照发布，master当前根提交日期表示本次快照日期。README部分架构段、rust/README.md及嵌入示例说明保留早期阶段描述，当前执行与ABI字段以固定源码、发行脚本和发布记录交叉核定。",
     "references": [
       {
         "title": "项目README（核验快照）",
@@ -1508,12 +1513,105 @@
       {
         "title": "仓库元数据",
         "url": "https://api.github.com/repos/benxiaoniao/JISHI"
+      },
+      {
+        "title": "当前README：Rust／C实现、Python／Node退役及大模型协助声明",
+        "url": "https://github.com/benxiaoniao/JISHI/blob/65bb012c1c5a07e21a081b4d33cc88f5ecc046cc/README.md"
+      },
+      {
+        "title": "完整中文原例：猜数字",
+        "url": "https://github.com/benxiaoniao/JISHI/blob/65bb012c1c5a07e21a081b4d33cc88f5ecc046cc/examples/01_%E7%8C%9C%E6%95%B0%E5%AD%97.jsh"
+      },
+      {
+        "title": "Rust源码执行入口：解析、编译、载入与VM运行",
+        "url": "https://github.com/benxiaoniao/JISHI/blob/65bb012c1c5a07e21a081b4d33cc88f5ecc046cc/rust/src/run.rs#L136-L206"
+      },
+      {
+        "title": "Rust CLI、树遍历与调试入口",
+        "url": "https://github.com/benxiaoniao/JISHI/blob/65bb012c1c5a07e21a081b4d33cc88f5ecc046cc/rust/src/main.rs#L397-L538"
+      },
+      {
+        "title": "Rust虚拟机执行循环",
+        "url": "https://github.com/benxiaoniao/JISHI/blob/65bb012c1c5a07e21a081b4d33cc88f5ecc046cc/rust/src/lib.rs#L1805-L1875"
+      },
+      {
+        "title": "Rust前端中文关键字表",
+        "url": "https://github.com/benxiaoniao/JISHI/blob/65bb012c1c5a07e21a081b4d33cc88f5ecc046cc/frontend/src/tokenizer.rs#L20-L32"
+      },
+      {
+        "title": "当前Rust宿主Cargo配置",
+        "url": "https://github.com/benxiaoniao/JISHI/blob/65bb012c1c5a07e21a081b4d33cc88f5ecc046cc/rust/Cargo.toml"
+      },
+      {
+        "title": "前端组件0.2.2与许可",
+        "url": "https://github.com/benxiaoniao/JISHI/blob/65bb012c1c5a07e21a081b4d33cc88f5ecc046cc/frontend/Cargo.toml"
+      },
+      {
+        "title": "C虚拟机公开ABI v2与宿主接口",
+        "url": "https://github.com/benxiaoniao/JISHI/blob/65bb012c1c5a07e21a081b4d33cc88f5ecc046cc/cvm/include/jsvm.h"
+      },
+      {
+        "title": "C虚拟机实现",
+        "url": "https://github.com/benxiaoniao/JISHI/blob/65bb012c1c5a07e21a081b4d33cc88f5ecc046cc/cvm/src/jsvm.c"
+      },
+      {
+        "title": "C虚拟机Python参考绑定与回调",
+        "url": "https://github.com/benxiaoniao/JISHI/blob/65bb012c1c5a07e21a081b4d33cc88f5ecc046cc/oracle/jishi/cvm_bind.py"
+      },
+      {
+        "title": "C宿主字节码嵌入原例",
+        "url": "https://github.com/benxiaoniao/JISHI/blob/65bb012c1c5a07e21a081b4d33cc88f5ecc046cc/examples/embed/hello.c"
+      },
+      {
+        "title": "Rust发行包构建：cargo产物改名jishi",
+        "url": "https://github.com/benxiaoniao/JISHI/blob/65bb012c1c5a07e21a081b4d33cc88f5ecc046cc/tools/build_release.py#L187-L308"
+      },
+      {
+        "title": "正式Release工作流：三平台及--engine rust",
+        "url": "https://github.com/benxiaoniao/JISHI/blob/65bb012c1c5a07e21a081b4d33cc88f5ecc046cc/.github/workflows/release.yml"
+      },
+      {
+        "title": "WebAssembly入口与步数预算",
+        "url": "https://github.com/benxiaoniao/JISHI/blob/65bb012c1c5a07e21a081b4d33cc88f5ecc046cc/wasm/src/lib.rs"
+      },
+      {
+        "title": "WebAssembly组件与依赖",
+        "url": "https://github.com/benxiaoniao/JISHI/blob/65bb012c1c5a07e21a081b4d33cc88f5ecc046cc/wasm/Cargo.toml"
+      },
+      {
+        "title": "当前变更记录：首发、许可调整与实现迁移",
+        "url": "https://github.com/benxiaoniao/JISHI/blob/65bb012c1c5a07e21a081b4d33cc88f5ecc046cc/CHANGELOG.md"
+      },
+      {
+        "title": "MIT-0许可证全文",
+        "url": "https://github.com/benxiaoniao/JISHI/blob/65bb012c1c5a07e21a081b4d33cc88f5ecc046cc/LICENSE"
+      },
+      {
+        "title": "公开快照发布方式与作者署名",
+        "url": "https://github.com/benxiaoniao/JISHI/blob/65bb012c1c5a07e21a081b4d33cc88f5ecc046cc/tools/publish_github.py#L1-L72"
+      },
+      {
+        "title": "v0.2.2正式发行及下载资产",
+        "url": "https://github.com/benxiaoniao/JISHI/releases/tag/v0.2.2"
+      },
+      {
+        "title": "v0.2.2发行元数据及精确发布时间",
+        "url": "https://api.github.com/repos/benxiaoniao/JISHI/releases/tags/v0.2.2"
+      },
+      {
+        "title": "v0.2.2标签固定提交",
+        "url": "https://api.github.com/repos/benxiaoniao/JISHI/git/ref/tags/v0.2.2"
+      },
+      {
+        "title": "当前公开快照提交署名与时间",
+        "url": "https://github.com/benxiaoniao/JISHI/commit/65bb012c1c5a07e21a081b4d33cc88f5ecc046cc"
       }
     ],
-    "verification_notes": "2026-10-09只读核验。0星，非fork；最后推送2026-10-09T14:37:47Z。日期为仓库创建不代表首发。功能、性能、通过测试数量未独立复测。",
-    "code_source": "https://github.com/benxiaoniao/JISHI/blob/491733465dadd79fa82cbf9fb01b60ee2ddf214c/README.md",
+    "verification_notes": "2026-10-10只读核验，固定master及v0.2.2标签为65bb012c1c5a07e21a081b4d33cc88f5ecc046cc，提交署名陈柏林、日期2026-10-10 14:24:59 UTC。保留此前3条参考。完整猜数字程序逐字取自examples/01_猜数字.jsh。根LICENSE为MIT No Attribution（MIT-0），CHANGELOG在0.2.0节记录由Unlicense调整为MIT-0。README的作者声明确认大模型辅助开发，具体模型与生成比例待核实；已核对执行入口为本地词法、语法、字节码和VM处理，AI相关代码提供语言元数据、结构化结果和MCP调用接口。Rust调试入口当前支持树遍历执行器；C VM的保留状态与Rust发行默认执行链分别记录。README的3404项测试、跨引擎一致性及速度倍数属于项目自述，独立复现待核实。v0.1.0日期有当前CHANGELOG回溯陈述；该版本原始发行物与更早公开记录待核实。",
+    "code_source": "https://github.com/benxiaoniao/JISHI/blob/65bb012c1c5a07e21a081b4d33cc88f5ecc046cc/examples/01_%E7%8C%9C%E6%95%B0%E5%AD%97.jsh",
     "id": "lang-023",
-    "verified_at": "2026-10-09"
+    "verified_at": "2026-10-10",
+    "code_context": "固定提交examples/01_猜数字.jsh完整原例，展示模块导入、中文循环次数、条件分支和中断。按原文件保留代码与说明；本轮采用静态资料核验，运行结果待独立验证。"
   },
   {
     "name": "易码",
@@ -1521,18 +1619,23 @@
       "Yima"
     ],
     "category": "解释型语言",
-    "author": "景磊（Jing Lei，词法分析器源码署名）",
-    "first_publication": "仓库创建 2026-02-22；语言首次公开发布日期待核实",
-    "description": "【解释型语言】面向初学者的中文语言，使用“功能”“如果…就”“定义图纸”等语法。",
+    "author": "景磊（Jing Lei；源码及NOTICE署名）；GitHub仓库账号jinglei88",
+    "first_publication": "现存Git根提交的作者及提交者日期为2026-02-21 04:50:59 UTC；GitHub仓库创建于2026-02-22 08:06:28 UTC。2026-02-20论坛易码2.0帖与仓库的账号身份关联及准确公开首发日期待核实",
+    "description": "【解释型语言】易码是一门面向初学者的中文编程语言，由景磊署名维护，以Python实现词法分析、语法分析和抽象语法树解释执行。源码使用.ym后缀，以缩进组织代码块，采用“显示、输入、功能、如果…就、当…的时候、遍历…里的每一个”等句式，支持中文标识符和【变量】模板字符串。语言包含列表、字典、函数、异常、模块，以及“定义图纸、造一个、它的”对象机制；模块导入可接入内置功能、易码源文件和Python模块。项目配有命令行、交互入口、Tkinter图形编辑器、教程与回归脚本，并以生成Python启动器和PyInstaller封装应用。当前VERSION为1.0.0，README将其列为核心语法冻结的v1.0稳定期，2026年2月25日发布Windows编辑器包。源码采用Apache-2.0许可。",
     "features": [
-      "中文语法／关键字",
-      "有公开实现源码"
+      "中文关键字、中文标识符与缩进代码块",
+      "【变量】模板字符串",
+      "函数、列表、字典、异常及图纸对象机制",
+      "内置模块、.ym模块及Python模块导入",
+      "Python实现的AST树遍历解释器",
+      "命令行、交互入口和Tkinter图形编辑器",
+      "PyInstaller应用封装与Windows编辑器发布包"
     ],
-    "code": "功能 求和(a, b)\n    返回 a + b\n\n显示 求和(3, 4)",
-    "implementation": "Python实现词法分析与解释器，含CLI、图形化编辑器和回归脚本。",
-    "status": "已有源码；未在本次研究中编译或执行",
-    "version": "v1.0稳定期（README自述）",
-    "relations": "与易语言为不同项目；未发现继承或兼容声明。",
+    "code": "# 🎉 欢迎使用易码！极简中文编程 🎉\n# 点击左上角绿色 ▶ 按钮即可运行\n\n显示 \"你好！我是易码，一门用大白话写代码的语言。\"\n\n# ✉️ 赋值与输入\n名字 = 输入 \"请问你叫什么名字？ \"\n\n如果 名字 == 空 就\n    显示 \"你怎么不说话呢？那我叫你小神秘吧。\"\n    名字 = \"小神秘\"\n\n显示 \"很高兴认识你，【名字】！\"\n\n# 📦 列表（原生数据结构）\n爱好 = [\"编程\", \"画画\", \"打游戏\"]\n遍历 爱好 里的每一个 叫做 当前\n    显示 \"❤️ 【当前】\"\n\n# 🔧 自定义功能\n功能 倒计时(起点)\n    当 起点 > 0 的时候\n        显示 \"⏳ 倒计时：【起点】\"\n        起点 = 起点 - 1\n    显示 \"🎉 时间到！\"\n\n倒计时(3)\n显示 \"快试试自己动手写点什么吧！\"",
+    "implementation": "Python 3.9+实现。易码.py读取UTF-8源码，调用词法分析器.分析得到Token，再经语法分析器.解析生成AST，交给解释器.执行；yima/解释器.py依AST节点类型分派到_做_方法，在环境作用域链上执行语句、函数和对象方法。引入语句依次查内置虚拟模块、.ym文件、Python原生库，最后一项调用importlib.import_module；.ym模块具有路径及修改时间缓存。易码编辑器.py提供Tkinter图形入口。易码打包工具.py生成Python启动脚本，读入包内.ym源文件后继续词法、语法与AST解释链，再以PyInstaller封装为应用。",
+    "status": "源码、规范、编辑器和Windows发行物已公开；本轮完成原始资料与执行链只读核验，独立运行、回归测试及安装包内容校验待核实",
+    "version": "1.0.0（VERSION）；README称v1.0稳定期。2026-02-25 09:01:29 UTC正式Release名为“易码编辑器”，标签为“中文编程语言”，资产为-windows-v1.0.exe；当前固定提交de50f04b0211daa3c4401c4610c83dbcc1060e0e",
+    "relations": "当前仓库根提交保存“语法2.0”词法标注、“说／让／问／结束”README及勇者大冒险RPG原例；2026-02-23的e51f8a50提交新增VERSION=1.0.0并确立核心语法冻结策略。2026-02-20 linux.do的jinglei（道友）帖展示同名易码2.0及内容对应的RPG，构成语法与示例沿革线索；论坛jinglei与仓库jinglei88的显式身份互链、版本重编号说明待核实。易码与易语言按各自项目资料记录，二者继承或兼容关系待核实。",
     "references": [
       {
         "title": "项目README（核验快照）",
@@ -1545,12 +1648,89 @@
       {
         "title": "仓库元数据",
         "url": "https://api.github.com/repos/jinglei88/Yima---Minimalist-Chinese-Programming-Language"
+      },
+      {
+        "title": "完整中文原例：欢迎.ym",
+        "url": "https://github.com/jinglei88/Yima---Minimalist-Chinese-Programming-Language/blob/de50f04b0211daa3c4401c4610c83dbcc1060e0e/%E7%A4%BA%E4%BE%8B/%E6%AC%A2%E8%BF%8E.ym#L1-L28"
+      },
+      {
+        "title": "作者署名及词法、语法、AST执行入口",
+        "url": "https://github.com/jinglei88/Yima---Minimalist-Chinese-Programming-Language/blob/de50f04b0211daa3c4401c4610c83dbcc1060e0e/%E6%98%93%E7%A0%81.py#L1-L123"
+      },
+      {
+        "title": "AST节点分派与程序执行",
+        "url": "https://github.com/jinglei88/Yima---Minimalist-Chinese-Programming-Language/blob/de50f04b0211daa3c4401c4610c83dbcc1060e0e/yima/%E8%A7%A3%E9%87%8A%E5%99%A8.py#L2125-L2149"
+      },
+      {
+        "title": "内置、易码及Python模块导入链",
+        "url": "https://github.com/jinglei88/Yima---Minimalist-Chinese-Programming-Language/blob/de50f04b0211daa3c4401c4610c83dbcc1060e0e/yima/%E8%A7%A3%E9%87%8A%E5%99%A8.py#L2367-L2418"
+      },
+      {
+        "title": "打包生成的Python启动器与解释链",
+        "url": "https://github.com/jinglei88/Yima---Minimalist-Chinese-Programming-Language/blob/de50f04b0211daa3c4401c4610c83dbcc1060e0e/%E6%98%93%E7%A0%81%E6%89%93%E5%8C%85%E5%B7%A5%E5%85%B7.py#L530-L581"
+      },
+      {
+        "title": "当前架构设计",
+        "url": "https://github.com/jinglei88/Yima---Minimalist-Chinese-Programming-Language/blob/de50f04b0211daa3c4401c4610c83dbcc1060e0e/%E6%96%87%E6%A1%A3/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1.md"
+      },
+      {
+        "title": "当前语言规范及v1.0边界",
+        "url": "https://github.com/jinglei88/Yima---Minimalist-Chinese-Programming-Language/blob/de50f04b0211daa3c4401c4610c83dbcc1060e0e/%E6%96%87%E6%A1%A3/%E8%AF%AD%E8%A8%80%E8%A7%84%E8%8C%83.md"
+      },
+      {
+        "title": "1.0.0版本文件",
+        "url": "https://github.com/jinglei88/Yima---Minimalist-Chinese-Programming-Language/blob/de50f04b0211daa3c4401c4610c83dbcc1060e0e/VERSION"
+      },
+      {
+        "title": "Apache-2.0许可证全文",
+        "url": "https://github.com/jinglei88/Yima---Minimalist-Chinese-Programming-Language/blob/de50f04b0211daa3c4401c4610c83dbcc1060e0e/LICENSE"
+      },
+      {
+        "title": "NOTICE作者及版权声明",
+        "url": "https://github.com/jinglei88/Yima---Minimalist-Chinese-Programming-Language/blob/de50f04b0211daa3c4401c4610c83dbcc1060e0e/NOTICE"
+      },
+      {
+        "title": "2026-02-25易码编辑器正式发行",
+        "url": "https://github.com/jinglei88/Yima---Minimalist-Chinese-Programming-Language/releases/tag/%E4%B8%AD%E6%96%87%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80"
+      },
+      {
+        "title": "发行元数据",
+        "url": "https://api.github.com/repos/jinglei88/Yima---Minimalist-Chinese-Programming-Language/releases"
+      },
+      {
+        "title": "当前固定提交",
+        "url": "https://github.com/jinglei88/Yima---Minimalist-Chinese-Programming-Language/commit/de50f04b0211daa3c4401c4610c83dbcc1060e0e"
+      },
+      {
+        "title": "根提交及历史日期",
+        "url": "https://github.com/jinglei88/Yima---Minimalist-Chinese-Programming-Language/commit/7aa68b8f3f52bed963f2f9296d4a2ec3b3a61885"
+      },
+      {
+        "title": "根提交README的早期中文句式",
+        "url": "https://github.com/jinglei88/Yima---Minimalist-Chinese-Programming-Language/blob/7aa68b8f3f52bed963f2f9296d4a2ec3b3a61885/README.md"
+      },
+      {
+        "title": "根提交词法器的语法2.0标注",
+        "url": "https://github.com/jinglei88/Yima---Minimalist-Chinese-Programming-Language/blob/7aa68b8f3f52bed963f2f9296d4a2ec3b3a61885/yima/%E8%AF%8D%E6%B3%95%E5%88%86%E6%9E%90.py"
+      },
+      {
+        "title": "根提交勇者大冒险原例与2.0注释",
+        "url": "https://github.com/jinglei88/Yima---Minimalist-Chinese-Programming-Language/blob/7aa68b8f3f52bed963f2f9296d4a2ec3b3a61885/%E7%A4%BA%E4%BE%8B/%E5%8B%87%E8%80%85%E5%A4%A7%E5%86%92%E9%99%A9.ym"
+      },
+      {
+        "title": "2026-02-23建立v1.0冻结策略及VERSION的提交",
+        "url": "https://github.com/jinglei88/Yima---Minimalist-Chinese-Programming-Language/commit/e51f8a50ab6abcdf60f24ef46b5dd03a52bc72af"
+      },
+      {
+        "title": "2026-02-20易码2.0论坛原帖与AI开发自述",
+        "url": "https://linux.do/t/topic/1631327?tl=en"
       }
     ],
-    "verification_notes": "2026-10-09只读核验。1星，非fork；最后推送2026-02-25T08:58:46Z。日期为仓库创建不代表首发。功能、性能、通过测试数量未独立复测。 社区线索：jinglei于2026-02-20在linux.do发布AI制作的.ym语言（https://linux.do/t/topic/1631327?tl=en）；仓库归属与2.0旧语法沿革尚待建立互链，暂不把该帖日期认作已核实首发。",
-    "code_source": "https://github.com/jinglei88/Yima---Minimalist-Chinese-Programming-Language/blob/de50f04b0211daa3c4401c4610c83dbcc1060e0e/README.md",
+    "verification_notes": "2026-10-10只读核验，当前main固定为de50f04b0211daa3c4401c4610c83dbcc1060e0e，提交日期2026-02-25 08:52:18 UTC；保留此前3条参考。代码来自示例/欢迎.ym第1—28行，展示文本移除文件开头BOM和末尾空行，其余内容保留。根LICENSE为Apache License 2.0，NOTICE署名Copyright (c) 2026 景磊。根提交7aa68b8f3f52bed963f2f9296d4a2ec3b3a61885的作者名为YiMa Developer；该提交时间按Git历史字段保存，公开首发日期继续待核实。旧RPG保存易码2.0注释与相同人物属性、怪物名单及战斗／商店内容，句式已有阶段调整。AI开发说法的现有证据来自linux.do发帖者自述；仓库作者对应声明、具体模型及生成比例待核实。论坛首帖实页可读，后段回复及个人资料读取超时，身份互链继续核验。当前语言规范以缩进、符号算术比较及官方关键词定义v1.0契约，旧帖程序的当前兼容性待核实。功能数量、性能及回归通过情况的独立复现待核实。",
+    "code_source": "https://github.com/jinglei88/Yima---Minimalist-Chinese-Programming-Language/blob/de50f04b0211daa3c4401c4610c83dbcc1060e0e/%E7%A4%BA%E4%BE%8B/%E6%AC%A2%E8%BF%8E.ym#L1-L28",
     "id": "lang-024",
-    "verified_at": "2026-10-09"
+    "verified_at": "2026-10-10",
+    "code_context": "固定提交示例/欢迎.ym第1—28行的连续原例，展示输入、分支、列表遍历、模板字符串与功能定义。展示文本移除文件开头BOM和末尾空行，其余内容保留；运行结果待独立验证。"
   },
   {
     "name": "小易",
@@ -4323,5 +4503,346 @@
     "verification_notes": "2026-10-10只读核验，固定main提交ef07fb31b911a64ce0875738de8be641b3a2be91（作者及提交者日期2026-09-29T09:32:09Z）。递归树630项、truncated=false。仓库pushed_at为2026-10-07T13:47:13Z，按平台推送字段单独理解。README中的完整生态、全语义兼容和教学效果属于作者定位与说明，独立验证待核实。源码已确认Rust转译与编译运行入口；本轮保持静态阅读。原页的AI库映射功能说明按工具功能记录，开发过程使用AI的范围待核实。GitHub的最新发行元数据与附加文件名已读，附件内部内容待核实。许可证为MIT。",
     "verified_at": "2026-10-10",
     "id": "lang-064"
+  },
+  {
+    "name": "pchinese",
+    "aliases": [
+      "pchinese（LostPEople634）"
+    ],
+    "description": "pchinese 是GitHub账号LostPEople634发布的中文Python语法转译项目。它以.pcn保存程序，采用Python的缩进、冒号及表达式结构，将“定义、如果、返回、类、对于、导入”等整词映射为Python关键字，并提供中文内置函数名、全角标点和中文引号。翻译器逐字符区分代码、字符串与注释，在代码区完成标识符词元映射，再由Python的compile与exec执行。命令行提供文件运行、源码导出和交互解释入口，原例覆盖阶乘、类、异常及列表推导式。1.2.0源码加入PyQt5与PyQt-Fluent-Widgets中文词表和信号绑定助手；库名、方法名与变量名共用全局词表，GUI依赖、词表覆盖及运行结果按材料分别记录。",
+    "category": "Python中文语法转译层／标识符词元映射运行器",
+    "author": "LostPEople634；固定MIT许可证署名“Copyright (c) 2026 LostPEople634”，默认分支7次提交的作者账号均对应LostPEople634。作者实名及具体AI参与范围待核实。",
+    "first_publication": "仓库创建于2026-08-06T05:30:41Z；根提交7595e93ebf7e00be624fa834dfbfbaed1bdca266于2026-08-06T05:30:42Z保存中文Python实验解释器简介。README语法扩写提交fcaf332dd94561172d4cf834f4ab5187d480b327于05:48:41Z提交，核心源码与.pcn原例于06:00:52Z进入提交81aca58ac5b042809f2888c3689dc8a86bd7cd3f。发行说明提及更早本地版本，早期设计及首次公开日期待核实。",
+    "features": [
+      ".pcn中文源码与Python缩进、冒号结构",
+      "中文关键字、内置函数及Unicode整词映射",
+      "代码区全角标点转换与中文引号处理",
+      "中文阶乘、类、异常、推导式和GUI原例",
+      "文件运行、Python源码导出及REPL",
+      "PyQt5／PyQt-Fluent-Widgets词表与绑定助手",
+      "MIT许可及Windows预发行附件"
+    ],
+    "code": "定义 阶乘（数）：\n    如果 数 <= 1：\n        返回 1\n    返回 数 * 阶乘（数 - 1）\n\n打印（“5 的阶乘 =”，阶乘（5））",
+    "code_source": "https://github.com/LostPEople634/pchinese/blob/8c1a0957d3177dd85a7723c4dcb6ab042b6a2752/examples/综合示例.pcn#L4-L9",
+    "code_context": "固定examples/综合示例.pcn第4—9行连续原文，含完整递归阶乘函数及调用。已将全文相应行与按行读取结果逐字比对。中文关键字、全角括号和中文引号沿用原例；独立运行结果待核实。",
+    "implementation": "pchinese/translator.py逐字符扫描，优先读取注释及引号字符串，使用Unicode正则\\w+识别连续标识符，以MAP.get(word, word)做整词映射，再转换代码区全角标点。keywords.py合并Python内置、关键字及PyQt词表。runner.py串接translate／translate_file→compile(..., 'exec')→exec(code, g)，Python承担语法解析与执行；g注册中文容器助手及绑定函数。cli.py的compile子命令输出.py文本，REPL通过codeop判断翻译语句完整性后执行。build.py提供PyInstaller单文件打包入口。",
+    "version": "固定main提交8c1a0957d3177dd85a7723c4dcb6ab042b6a2752时间为2026-10-01T04:58:24Z；pchinese/__init__.py自标1.2.0。2026-10-10读取的公开发行仅有v1.1.0-alpha1，发布于2026-08-06T06:09:26Z，标签指向81aca58ac5b042809f2888c3689dc8a86bd7cd3f，附件pchinese.exe为8,432,661字节。源码1.2.0与预发行1.1.0-alpha1分别记录；1.2.0独立发行及附件内容验证待核实。README声明Python3.13.x运行环境。",
+    "relations": "README、同名Python包、CLI、MIT署名及作者提交形成同一项目证据链；GitHub元数据fork=false。实现以Python为语义与执行基础，Qt中文名称归于配套词表扩展。与目录中其他中文Python项目、外部同名仓库的历史或源码继承关系待核实。",
+    "status": "固定中文原例、代码区词元映射、Python编译执行链、REPL、MIT许可证及预发行元数据已核，按Python中文语法转译层收录。独立运行、第三方GUI兼容性、源码1.2.0发行及AI参与范围待核实。",
+    "verification_notes": "2026-10-10只读核验；固定递归树24项、truncated=false。Qt词表静态计数为604条字面条目、601个唯一键；“事件”“取项”“固定”各出现两次，字典形成后分别取后值event、getItem、PIN。测试的重复键检查位于字典形成后，源码重复键及API对应关系应分别核验。ASCII前缀字符串整体保留，跨行全角字符串中的换行转义与行号对应关系、f-string插值中的中文转译范围待核实。pchinese.spec保存含Doubao/chats的打包输入路径，具体AI生成范围待作者材料核实。测试文件提供静态检查与offscreen运行测试入口，执行结果待独立验证。",
+    "verified_at": "2026-10-10",
+    "repository_created_at": "2026-08-06T05:30:41Z",
+    "repository_pushed_at": "2026-10-01T04:58:24Z",
+    "references": [
+      {
+        "title": "固定README与中文Python语法定位",
+        "url": "https://github.com/LostPEople634/pchinese/blob/8c1a0957d3177dd85a7723c4dcb6ab042b6a2752/README.md"
+      },
+      {
+        "title": "固定连续中文阶乘原例",
+        "url": "https://github.com/LostPEople634/pchinese/blob/8c1a0957d3177dd85a7723c4dcb6ab042b6a2752/examples/综合示例.pcn#L4-L9"
+      },
+      {
+        "title": "固定代码分区与标识符词元映射",
+        "url": "https://github.com/LostPEople634/pchinese/blob/8c1a0957d3177dd85a7723c4dcb6ab042b6a2752/pchinese/translator.py#L43-L156"
+      },
+      {
+        "title": "固定Python关键字及词表合并",
+        "url": "https://github.com/LostPEople634/pchinese/blob/8c1a0957d3177dd85a7723c4dcb6ab042b6a2752/pchinese/keywords.py#L10-L124"
+      },
+      {
+        "title": "固定Python编译及执行入口",
+        "url": "https://github.com/LostPEople634/pchinese/blob/8c1a0957d3177dd85a7723c4dcb6ab042b6a2752/pchinese/runner.py#L42-L136"
+      },
+      {
+        "title": "固定Python源码导出",
+        "url": "https://github.com/LostPEople634/pchinese/blob/8c1a0957d3177dd85a7723c4dcb6ab042b6a2752/pchinese/cli.py#L140-L157"
+      },
+      {
+        "title": "固定REPL翻译和执行",
+        "url": "https://github.com/LostPEople634/pchinese/blob/8c1a0957d3177dd85a7723c4dcb6ab042b6a2752/pchinese/repl.py#L119-L151"
+      },
+      {
+        "title": "固定Qt词表机制与依赖说明",
+        "url": "https://github.com/LostPEople634/pchinese/blob/8c1a0957d3177dd85a7723c4dcb6ab042b6a2752/pchinese/qt_words.py#L1-L39"
+      },
+      {
+        "title": "固定Qt全表与重复键位置",
+        "url": "https://github.com/LostPEople634/pchinese/blob/8c1a0957d3177dd85a7723c4dcb6ab042b6a2752/pchinese/qt_words.py"
+      },
+      {
+        "title": "固定Qt测试范围及字典检查",
+        "url": "https://github.com/LostPEople634/pchinese/blob/8c1a0957d3177dd85a7723c4dcb6ab042b6a2752/tests/test_qt_support.py#L1-L52"
+      },
+      {
+        "title": "固定源码1.2.0版本",
+        "url": "https://github.com/LostPEople634/pchinese/blob/8c1a0957d3177dd85a7723c4dcb6ab042b6a2752/pchinese/__init__.py#L1-L10"
+      },
+      {
+        "title": "固定MIT许可证",
+        "url": "https://github.com/LostPEople634/pchinese/blob/8c1a0957d3177dd85a7723c4dcb6ab042b6a2752/LICENSE"
+      },
+      {
+        "title": "固定打包配置中的开发路径线索",
+        "url": "https://github.com/LostPEople634/pchinese/blob/8c1a0957d3177dd85a7723c4dcb6ab042b6a2752/pchinese.spec#L1-L10"
+      },
+      {
+        "title": "核心源码与原例首次上传提交",
+        "url": "https://github.com/LostPEople634/pchinese/commit/81aca58ac5b042809f2888c3689dc8a86bd7cd3f"
+      },
+      {
+        "title": "根提交与初始项目简介",
+        "url": "https://github.com/LostPEople634/pchinese/commit/7595e93ebf7e00be624fa834dfbfbaed1bdca266"
+      },
+      {
+        "title": "v1.1.0-alpha1预发行及Windows附件",
+        "url": "https://github.com/LostPEople634/pchinese/releases/tag/v1.1.0-alpha1"
+      }
+    ],
+    "id": "lang-065"
+  },
+  {
+    "name": "MiniLang（FI0m9ySans）",
+    "aliases": [
+      "MiniLang",
+      "minilang（FI0m9ySans）"
+    ],
+    "description": "MiniLang 是GitHub账号FI0m9ySans公开的中文教学型解释语言，以.kalop作为源码后缀，使用“定义、函数、返回、如果、否则、当、真、假”等中文关键字，配合花括号、圆括号和分号组织程序。原始例程展示平方、迭代阶乘、斐波那契及条件循环，内置kio函数负责输出。项目以一个Python源文件实现词法分析、递归下降解析、抽象语法树和树遍历解释执行，词法规则识别中文关键字及指定范围的汉字标识符，解析器为变量、赋值、函数、条件和循环建立节点。函数调用保存并恢复变量环境，通过返回异常传递结果；命令行提供文件运行及词元、语法树调试输出。仓库还保存数学库样例和包元数据，语言版本、整体许可及包管理机制继续核实。",
+    "category": "中文语法语言／Python实现的独立AST解释器",
+    "author": "GitHub账号FI0m9ySans；默认分支20次提交的作者账号均对应FI0m9ySans。数学库包元数据另署“MiniLang社区”，社区成员、作者实名及AI参与情况待核实。",
+    "first_publication": "仓库创建于2025-11-04T05:49:43Z；根提交4770c5120be73d9e5667fe013e1cbc921039e625于05:49:44Z保存面向中文用户的MiniLang项目简介。README中文语法说明于05:50:10Z进入提交5f7a1c511f16069c33a03aa245cfe178bd16ca5d；词法、解析及解释器于05:51:11Z进入提交6144cf4b94b6b582f8b05c3d69cd6db411435dbf，数学原例于05:52:43Z进入提交6f28e6485442c219136bcf6193f903f8231a8cc4。更早设计及公开时间待核实。",
+    "features": [
+      ".kalop中文源文件",
+      "中文变量声明、函数、返回、条件与循环语法",
+      "花括号代码块及分号语句",
+      "整数、小数、字符串、布尔值和算术比较表达式",
+      "kio输出函数及迭代算法原例",
+      "Python词法器、递归下降解析器和AST解释器",
+      "--debug词元和语法树输出"
+    ],
+    "code": "函数 阶乘(恩) {\n    定义 结果 = 1;\n    定义 艾 = 1;\n    当 (艾 <= 恩) {\n        结果 = 结果 * 艾;\n        艾 = 艾 + 1;\n    }\n    返回 结果;\n}",
+    "code_source": "https://github.com/FI0m9ySans/minilang/blob/2778f3d3df8d6806c5b9b763e31e7d0d3ac19c7d/Code/MLCode/math_simple.kalop#L9-L17",
+    "code_context": "固定Code/MLCode/math_simple.kalop第9—17行连续原文，为完整迭代阶乘函数，包含函数、定义、当、返回关键字。已将全文相应行与按行读取结果逐字比对；该文件第19—21行另有调用。独立运行结果待核实。",
+    "implementation": "Code/minilang.py的Lexer按正则规则生成带行列信息的Token，中文关键字在标识符规则之前匹配，汉字标识符范围为U+4E00—U+9FA5。Parser按语句及比较、加减、乘除、基本表达式层级递归下降，生成Program、VarDeclaration、IfStatement、WhileStatement、FunctionDeclaration等AST节点。Interpreter.execute和evaluate直接遍历节点，在字典中管理变量及函数；函数调用复制当前变量环境并在正常完成或捕获ReturnException后恢复，ReturnException传递返回值。MiniLang.run串接Lexer.tokenize→Parser.parse→Interpreter.interpret；run_file以UTF-8读取.kalop。当前运行入口注册的内置函数为kio。",
+    "version": "固定main提交2778f3d3df8d6806c5b9b763e31e7d0d3ac19c7d时间为2025-11-04T06:07:45Z。2026-10-10读取Releases为空，标签引用命名空间返回404，语言正式版本及发行物待核实。数学库/minilang-package.json自标数学库1.0.0、作者MiniLang社区、license为MIT；这些字段按数学库包元数据记录，整个语言仓库的许可证待核实。",
+    "relations": "项目名MiniLang、仓库minilang与.kalop原例由README和Code/minilang.py建立对应；GitHub元数据fork=false。数学库/main.kalop与minilang-packages/packages/数学库/1.0.0/main.kalop具有相同blob SHA，两个数学库元数据文件也具有相同blob SHA，属于同仓配套包资料。与其他MiniLang同名项目及中文解释器的源码继承关系待核实。",
+    "status": "固定中文原例、中文词元、独立解析器、AST节点及解释执行入口已核，按教学型中文AST解释器收录。独立运行、正式语言版本、整体许可证、包管理实现及AI参与待核实。",
+    "verification_notes": "2026-10-10只读核验；固定递归树24项、truncated=false，默认分支20次提交。词法规则明确覆盖中文关键字和U+4E00—U+9FA5标识符，完整Unicode标识符覆盖待核实。数学库包的版本／MIT元数据单独记录；字符串工具及网络请求目录中的main.kalop与package.json各为1字节，包管理实现与发行状态待核实。解释器声明UnaryOperation节点并保留求值分支，当前表达式解析链的一元语法接通情况待核实。研究读取范围为公开静态材料，程序运行及教学使用效果待独立验证。 函数调用的其他异常退出路径及变量环境恢复行为待核实。",
+    "verified_at": "2026-10-10",
+    "repository_created_at": "2025-11-04T05:49:43Z",
+    "repository_pushed_at": "2025-11-04T06:07:45Z",
+    "references": [
+      {
+        "title": "固定MiniLang中文说明及语法原例",
+        "url": "https://github.com/FI0m9ySans/minilang/blob/2778f3d3df8d6806c5b9b763e31e7d0d3ac19c7d/README.md#L1-L25"
+      },
+      {
+        "title": "固定连续中文阶乘原例",
+        "url": "https://github.com/FI0m9ySans/minilang/blob/2778f3d3df8d6806c5b9b763e31e7d0d3ac19c7d/Code/MLCode/math_simple.kalop#L9-L17"
+      },
+      {
+        "title": "固定中文词元及标识符范围",
+        "url": "https://github.com/FI0m9ySans/minilang/blob/2778f3d3df8d6806c5b9b763e31e7d0d3ac19c7d/Code/minilang.py#L15-L130"
+      },
+      {
+        "title": "固定AST节点定义",
+        "url": "https://github.com/FI0m9ySans/minilang/blob/2778f3d3df8d6806c5b9b763e31e7d0d3ac19c7d/Code/minilang.py#L132-L229"
+      },
+      {
+        "title": "固定声明、条件、循环及函数解析",
+        "url": "https://github.com/FI0m9ySans/minilang/blob/2778f3d3df8d6806c5b9b763e31e7d0d3ac19c7d/Code/minilang.py#L231-L381"
+      },
+      {
+        "title": "固定表达式递归下降解析",
+        "url": "https://github.com/FI0m9ySans/minilang/blob/2778f3d3df8d6806c5b9b763e31e7d0d3ac19c7d/Code/minilang.py#L383-L460"
+      },
+      {
+        "title": "固定解释器、变量环境及函数返回",
+        "url": "https://github.com/FI0m9ySans/minilang/blob/2778f3d3df8d6806c5b9b763e31e7d0d3ac19c7d/Code/minilang.py#L462-L616"
+      },
+      {
+        "title": "固定词法至AST执行与文件入口",
+        "url": "https://github.com/FI0m9ySans/minilang/blob/2778f3d3df8d6806c5b9b763e31e7d0d3ac19c7d/Code/minilang.py#L617-L718"
+      },
+      {
+        "title": "固定数学库包元数据",
+        "url": "https://github.com/FI0m9ySans/minilang/blob/2778f3d3df8d6806c5b9b763e31e7d0d3ac19c7d/数学库/minilang-package.json"
+      },
+      {
+        "title": "固定文件树与包资料",
+        "url": "https://github.com/FI0m9ySans/minilang/tree/2778f3d3df8d6806c5b9b763e31e7d0d3ac19c7d"
+      },
+      {
+        "title": "根提交与初始项目简介",
+        "url": "https://github.com/FI0m9ySans/minilang/commit/4770c5120be73d9e5667fe013e1cbc921039e625"
+      },
+      {
+        "title": "解释器首次上传提交",
+        "url": "https://github.com/FI0m9ySans/minilang/commit/6144cf4b94b6b582f8b05c3d69cd6db411435dbf"
+      },
+      {
+        "title": "中文数学原例首次上传提交",
+        "url": "https://github.com/FI0m9ySans/minilang/commit/6f28e6485442c219136bcf6193f903f8231a8cc4"
+      },
+      {
+        "title": "公开发行列表",
+        "url": "https://github.com/FI0m9ySans/minilang/releases"
+      }
+    ],
+    "id": "lang-066"
+  },
+  {
+    "name": "汉语程序设计语言（沈志斌）",
+    "aliases": [
+      "汉语编程",
+      "汉编"
+    ],
+    "category": "历史中文程序设计语言／词典与数摞体系",
+    "author": "沈志斌。CN1100543A公开说明书首页列其为发明人；元易达保存文档将《汉语程序设计语言》署名于沈志斌，并把语言开发机构记为北京元易达科技发展有限责任公司。",
+    "first_publication": "本轮直接核验的早期公开原件为1995-03-22公布的CN1100543A，申请日为1994-07-04。语言最早公开日期待核实；1994年5月出版的同名图书已有后续文献引用，原书版权页与书目原件继续待核实。",
+    "description": "汉语程序设计语言是沈志斌相关历史资料中使用的中文语言名称，保存的元易达文档简称汉语编程或汉编。1995年公开说明书以词典和数摞组织程序，使用“编”和中文句号定义新词；定义后的词可以直接执行，也可以在后续定义中复用。说明书同时描述与单片机、ROM、RAM和串行终端配合的运行环境，中文语言规则与配套硬件方案分别记录。元易达企业管理软件文档继续使用相同语言名，展示窗口属性程序，并记录32位汉语编程系统及数据库开发环境。该历史项目按已公开的语言规范、中文原例与应用文档收录；编译解释器源码、各阶段兼容关系和独立运行结果待核实。",
+    "features": [
+      "中文“编／。”词定义与已定义词的复用",
+      "以数摞表达数据运算",
+      "文献中的词典、解释状态及编译状态",
+      "单片机与串行终端配套方案",
+      "后续Windows应用文档中的窗口属性与对象事件"
+    ],
+    "code": "编 四次方 平方 平方。",
+    "code_source": "https://patentimages.storage.googleapis.com/b7/92/71/a0f6acb00eacf0/CN1100543A.pdf#page=8",
+    "code_context": "CN1100543A，PDF第8页、说明书印刷页码5，“汉语编程单片机系统的编程特点”段落中的完整单行词定义。原件先定义平方，再以此定义四次方；随后列出命令“3 四次方 显”及文献所示结果81。空格按可读排版统一。影印页和Google Patents中文正文已交叉核对；本轮证据为文献原例。",
+    "implementation": "CN1100543A说明书描述词典驱动的解释、编译与运行机制：编定义进入编译状态，结束符完成定义；内建词典位于ROM，新增词进入RAM，配套总线仲裁器用于存储访问。元易达《操作手册》2.1.2记载32位汉语编程系统2.01.0061，并说明汉编编程发展系统用汉语程序设计语言编写。以上分别为原始设计说明和开发者文档声明；核心源码、宿主实现语言、完整引导链及独立运行待核实。",
+    "status": "早期公开说明书及元易达保存文档可读。当前维护状态、可取得的发行物与核心源码继续待核实。",
+    "version": "1995年公开说明书与2002年CN1093663C分别按文献阶段记录。元易达《操作手册》2.1.2给出32位汉语编程系统2.01.0061；该版本号属于文档所述编译系统。具体发行日和版本沿革待核实。",
+    "relations": "CN1100543A和CN1093663C为同一申请的不同公开文献。元易达《可行性研究报告》1.3区分汉语程序设计语言、基于该语言开发的数据库环境及企业管理应用；1.4引用沈志斌同名著作，《操作手册》7.1保留编／。定义规则。上述入口合并为一个历史项目组，单片机硬件、数据库环境和企业管理应用作为相关层次记录。各阶段源码继承及兼容范围待核实。Issue #5的现代Hanyu-Lang维护者为另一身份链，单独保留。与Forth、Win32Forth的继承、改写或实现关系待核实；当前分类依据为原文的词典与数摞结构。",
+    "references": [
+      {
+        "title": "1995年公开说明书：作者、日期及中文规范正文",
+        "url": "https://patents.google.com/patent/CN1100543A/zh"
+      },
+      {
+        "title": "1995年说明书影印版：PDF第8页／说明书第5页的中文词定义",
+        "url": "https://patentimages.storage.googleapis.com/b7/92/71/a0f6acb00eacf0/CN1100543A.pdf#page=8"
+      },
+      {
+        "title": "2002年CN1093663C：同申请后续文献及编程特点",
+        "url": "https://patents.google.com/patent/CN1093663C/zh"
+      },
+      {
+        "title": "元易达保存的可行性研究报告：1.3语言与应用关系、1.4著作署名、2.4工程时间",
+        "url": "https://www.uml.org.cn/yyal/yyaL25.htm?artid=221"
+      },
+      {
+        "title": "元易达保存的操作手册：2.1.2编译系统版本、7.1语法、7.2窗口属性原例",
+        "url": "https://www.uml.org.cn/yyal/yyaL26.htm"
+      },
+      {
+        "title": "1994年5月同名图书的后续引文：CN1275732A说明书第13节",
+        "url": "https://patents.google.com/patent/CN1275732A/zh"
+      }
+    ],
+    "verification_notes": "2026-10-10核对公开网页与影印原件。CN1100543A影印版共47页，PDF首页直接显示1995年3月22日公开，PDF第8页对应说明书第5页。平方定义中的图形符号在两个版本的HTML识别结果存在差别，主例采用影印版与正文一致的四次方定义；平方运算符的原始字符编码待核实。元易达页面明确标注摘自元易达，按保存的开发者文档记录；报告中的2001.4.16—2001.5.16为工程计划时间，网页首发日待核实。核心源码、完整自举、性能和当前运行能力继续待核实。专利文献用于技术历史与语法证据。",
+    "verified_at": "2026-10-10",
+    "id": "lang-067"
+  },
+  {
+    "name": "Y4-Lang",
+    "aliases": [
+      "y4-lang",
+      "Y4",
+      "y4lang"
+    ],
+    "category": "独立语言／中文解释型脚本语言",
+    "author": "4ra1n（GitHub与V2EX同名公开账号；V2EX作者帖直接链接原仓库）。",
+    "first_publication": "至少在2024-02-01已有v0.0.3公开发行，发布时间2024-02-01T10:16:34Z。GitHub仓库创建于2023-12-21；发行标签可达历史的最早根提交日期为2024-01-16。更早公开日期待核实。",
+    "description": "Y4-Lang是以Go实现的中文解释型脚本语言，作者将其定位为学习和娱乐项目，并说明参考了《两周自制脚本语言》。源码包含词法分析器、语法规则组合器、AST节点和解释执行环境，使用“函数、如果、另外、当、循环、返回、启动”等中文关键字。项目提供数组、列表、映射、函数及递归调用，并以“#引入”组织多文件脚本。“启动”语句通过任务池提交函数执行。仓库保留排序、二分查找、最长公共子序列和八皇后等中文原例，另有HTTP、编码和文件处理的内置接口。公开源码、发行元数据及中文语法已静态核验，运行行为待独立核实。",
+    "features": [
+      "中文函数声明、分支、循环与返回",
+      "数组、列表、映射和递归函数",
+      "AST解释执行与符号环境",
+      "#引入多文件脚本入口",
+      "启动语句与任务池",
+      "Go原生库接口及中文算法示例"
+    ],
+    "code": "函数 快排(数组, 低位, 高位) {\n    如果 低位 < 高位 {\n        目标 = 分区(数组, 低位, 高位);\n        快排(数组, 低位, 目标-1);\n        快排(数组, 目标+1, 高位);\n    }\n}",
+    "code_source": "https://github.com/4ra1n/y4-lang/blob/5efbabf5a3dd49ab2184ee844e6ad4782832caec/y4-examples/002.y4#L20-L26",
+    "code_context": "固定提交y4-examples/002.y4第20—26行，连续摘录完整“快排”函数。该函数调用同文件前半部分的“分区”；完整文件还保留主函数、输入数组及打印调用。核验采用静态源码阅读。",
+    "implementation": "Go 1.21模块。lexer读取词元，core/core_parser.go以parser.Rule构造中文语法规则并生成AST；core/interpreter.go依次执行Lookup和Eval，结束时查找主函数。ast/go_stmt.go复制环境并调用NewJob安排并发任务。核心语言代码使用仓库内包及Go标准库；测试依赖testify，仓库内置的字符编码检测代码来自saintfish/chardet，构建工具代码来自mitchellh/gox。项目提供Windows、macOS与Linux发行附件；各架构运行情况待核实。",
+    "status": "2026-10-10核验时GitHub仓库处于归档状态。默认master为5efbabf5a3dd49ab2184ee844e6ad4782832caec，提交日期2024-06-18T10:28:50Z。原源码、示例与v0.0.3发行页面公开可读。",
+    "version": "最新可见公开发行是v0.0.3（2024-02-01），标签指向3de99aafe3d0219dc2f11f40f2a50968e49a23c9。默认分支CHANGELOG保留v0.0.4的todo占位；该占位按开发记录理解。cli/const.go中的Version和BuildTime默认值为NONE，发行版本依据公开Release记录。",
+    "relations": "作者在2024-06-18的V2EX原帖说明参考《两周自制脚本语言》，并以Go重新实现相关功能。项目按独立语言分类。字符编码检测与构建工具的上游来源在各目录README中分别注明。与其他中文编程语言的直接继承关系待核实。",
+    "references": [
+      {
+        "title": "作者V2EX原帖：中文脚本语言、原仓链接及设计来源",
+        "url": "https://v2ex.com/t/1050623"
+      },
+      {
+        "title": "固定README：项目名称、原例和功能说明",
+        "url": "https://github.com/4ra1n/y4-lang/blob/5efbabf5a3dd49ab2184ee844e6ad4782832caec/README.md"
+      },
+      {
+        "title": "中文关键字常量",
+        "url": "https://github.com/4ra1n/y4-lang/blob/5efbabf5a3dd49ab2184ee844e6ad4782832caec/core/const.go"
+      },
+      {
+        "title": "中文语法规则与AST构造",
+        "url": "https://github.com/4ra1n/y4-lang/blob/5efbabf5a3dd49ab2184ee844e6ad4782832caec/core/core_parser.go"
+      },
+      {
+        "title": "解释执行和主函数调用",
+        "url": "https://github.com/4ra1n/y4-lang/blob/5efbabf5a3dd49ab2184ee844e6ad4782832caec/core/interpreter.go"
+      },
+      {
+        "title": "启动语句和任务池调用",
+        "url": "https://github.com/4ra1n/y4-lang/blob/5efbabf5a3dd49ab2184ee844e6ad4782832caec/ast/go_stmt.go"
+      },
+      {
+        "title": "快速排序完整中文原例",
+        "url": "https://github.com/4ra1n/y4-lang/blob/5efbabf5a3dd49ab2184ee844e6ad4782832caec/y4-examples/002.y4"
+      },
+      {
+        "title": "Go版本及测试依赖",
+        "url": "https://github.com/4ra1n/y4-lang/blob/5efbabf5a3dd49ab2184ee844e6ad4782832caec/go.mod"
+      },
+      {
+        "title": "字符编码检测上游说明",
+        "url": "https://github.com/4ra1n/y4-lang/blob/5efbabf5a3dd49ab2184ee844e6ad4782832caec/chardet/README.md"
+      },
+      {
+        "title": "构建工具上游说明",
+        "url": "https://github.com/4ra1n/y4-lang/blob/5efbabf5a3dd49ab2184ee844e6ad4782832caec/gox/README.md"
+      },
+      {
+        "title": "Apache-2.0项目许可证",
+        "url": "https://github.com/4ra1n/y4-lang/blob/5efbabf5a3dd49ab2184ee844e6ad4782832caec/LICENSE"
+      },
+      {
+        "title": "版本记录",
+        "url": "https://github.com/4ra1n/y4-lang/blob/5efbabf5a3dd49ab2184ee844e6ad4782832caec/CHANGELOG.md"
+      },
+      {
+        "title": "v0.0.3公开发行",
+        "url": "https://github.com/4ra1n/y4-lang/releases/tag/v0.0.3"
+      },
+      {
+        "title": "v0.0.3固定中文关键字表",
+        "url": "https://github.com/4ra1n/y4-lang/blob/3de99aafe3d0219dc2f11f40f2a50968e49a23c9/core/const.go"
+      },
+      {
+        "title": "发行标签历史的根提交",
+        "url": "https://github.com/4ra1n/y4-lang/commit/cd90cba6e5b26a7373068517a72f394b3f13c761"
+      },
+      {
+        "title": "CLI默认版本字段",
+        "url": "https://github.com/4ra1n/y4-lang/blob/5efbabf5a3dd49ab2184ee844e6ad4782832caec/cli/const.go"
+      },
+      {
+        "title": "文件、编码、引入处理与解释器启动",
+        "url": "https://github.com/4ra1n/y4-lang/blob/5efbabf5a3dd49ab2184ee844e6ad4782832caec/cli/start.go"
+      }
+    ],
+    "verification_notes": "核验日期2026-10-10。默认分支仅含一个2024-06-18根提交；v0.0.3标签仍保留59条可达提交，其中根提交日期2024-01-16T15:37:10Z。仓库创建、提交和公开发行日期分别记录。中文关键字在发行标签与当前源码中均可核对。README使用的英文语法名称按说明性标签理解，实际中文拼写依据core/const.go和core/core_parser.go。项目根许可证为Apache-2.0，内置上游目录保留各自许可证。发行附件的实际内容、构建和运行，以及AI参与开发的范围待核实。",
+    "verified_at": "2026-10-10",
+    "id": "lang-068"
   }
 ]
