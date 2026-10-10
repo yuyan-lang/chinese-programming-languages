@@ -1,0 +1,114 @@
+[
+  {
+    "name": "玄（xuan.ide）",
+    "aliases": [
+      "《玄》",
+      "玄语言",
+      "xuan.ide"
+    ],
+    "discovery_status": "第十三轮真正新发现；原始资料继续核实",
+    "category": "中文C++转译前端／Win32 IDE候选",
+    "author": "GitCode／AtomGit维护账号2301_77161129；转载署名学习智者。转载页“点击查看原文”打开同账号CSDN文章165223767，作者公开署名与原文正文继续核实。",
+    "first_publication": "转载索引显示2026-09-14 08:09，公开网页浏览器客户端显示2026-09-13 17:09；时区解释、原作者首次公开和建库日期待核实。",
+    "description": "原仓项目简介将《玄》定位为以中文书写、生成C++的语言，项目标题标IDE v3.8.2。搜索索引原仓目录列xuan_ide.cpp和data目录，提交摘要列中文关键字映射表、类型表和18章内置手册。转载提供中文控制结构、连续求和程序以及较完整转译器文本；该材料按二手线索保留，原作者原件与固定提交正文继续核实。",
+    "code": "整数 求和（整数 x，整数 y）《\n    返回 x 加 y；\n》",
+    "code_source": "https://jishuzhan.net/article/2099289452661886978",
+    "code_context": "转载正文“一段完整程序”中连续三行函数片段。来源页明确标示为转载。本例仅供核验线索保存，原作者CSDN正文与仓库固定文件的对应待核实，正式条目原例尚待补证。",
+    "implementation": "原仓提交摘要提及translate_xuan()中文转C++与外部g++。转载文本展示逐字符扫描、字符串和注释跳过、data/patterns.txt映射，以及重复／遍历／区间循环等专门分支，再由CompileAndRunTask生成output.cpp并调用g++。原仓源文件正文和与转载文本的一致性待核实。",
+    "version": "原仓当前标题及提交摘要标v3.8.2，公开根页显示main、1个分支、0标签、1次提交；2026-10-10浏览器观测0星、0Fork。正式发行、完整提交SHA、维护日期及许可证正文待核实。",
+    "relations": "原仓2301_77161129/xuan.ide与已有lang-044玄语的chy818/xuanyu分别保存身份。玄语／XY Language／ZHCC现有条目为Rust宿主LLVM路线，本候选公开标题指C++转译与Win32 IDE。两者的作者、代码继承和命名关系待核实。与玄铁MARKJY-China/XuanTie-Lang的关系亦待原作者来源确认。同一2301_77161129账号的GitCode与AtomGit入口按一个候选记录。",
+    "status": "新候选原仓身份、标题、低关注元数据及原文入口已取得；原始连续语法程序、固定实现、作者日期与许可继续核实。",
+    "verification_notes": "AI参与的原作者明确声明待核实。广告或通用平台AI标识与开发协作证据分别处理。GitCode公开root/tree页面可读项目头部，文件区持续占位；提交入口显示登录。CSDN原文标题为“啊呜啊呜～中文编程新突破：《玄》让代码更懂中文！”，读取两页均发生浏览器超时。原仓登录入口保持原样。",
+    "references": [
+      {
+        "title": "原仓标题及项目简介",
+        "url": "https://gitcode.com/2301_77161129/xuan.ide"
+      },
+      {
+        "title": "AtomGit同账号原仓入口",
+        "url": "https://atomgit.com/2301_77161129/xuan.ide"
+      },
+      {
+        "title": "公开目录入口，源文件正文待核",
+        "url": "https://gitcode.com/2301_77161129/xuan.ide/tree/main"
+      },
+      {
+        "title": "转载注明的CSDN原文入口，正文待核",
+        "url": "https://blog.csdn.net/2301_77161129/article/details/165223767"
+      },
+      {
+        "title": "二手转载：连续例程与转译器线索",
+        "url": "https://jishuzhan.net/article/2099289452661886978"
+      }
+    ],
+    "pending": [
+      "读取原作者中文连续程序、完整语法和固定实现，核对转载与原件对应。",
+      "取得固定提交SHA、根提交／创建时间、发行与许可证。",
+      "确认作者署名、AI协作声明及同名玄语／玄铁关系。",
+      "按源码区分简单词替换、专门语法糖和C++后端；独立运行结果待核。"
+    ],
+    "verified_at": "2026-10-10"
+  },
+  {
+    "name": "Lua 5.4中文版（lyzavng）",
+    "aliases": [
+      "lyzavng/lua",
+      "Lua 5.4 中文版"
+    ],
+    "discovery_status": "第十三轮真正新发现；历史项目，连续中文用户程序待核",
+    "category": "Lua派生中英双语词法前端候选",
+    "author": "Gitee维护账号lyzavng；公开文件页提交署名lyzavng。自然人姓名及完整参与者待核实。",
+    "first_publication": "公开头提交c0e0b83与词法文件最近提交fa00ad3均显示“6年前”；doc目录提交消息为5.4.0.20200523。上述相对时间及消息中的日期分别保存，仓库创建、根提交、绝对提交时间和首次公开日期待核实。",
+    "description": "原仓定位Lua 5.4中文版。固定src/llex.c保存22项中文保留字与22项英文保留字，并在luaX_init中将成对字符串注册为相同的词元编号；llex识别高位字节组成的名称后按reserved标记返回语法词元。中文词包括果真、即、否则、要么、因为、当、重复、直至、函数、返回、局部。公开src目录列Lua C词法、解析、代码生成和VM文件。中文控制词前端具有直接源码证据，连续中文用户程序原例与完整执行链仍待补证。",
+    "code": "",
+    "code_source": "",
+    "code_context": "固定词法器第42—45行是中文保留字表，属于实现片段。连续中文用户程序原例待核实。",
+    "implementation": "固定c0e0b83的src/llex.c第39—56行保存中英词表，第78—91行luaX_init对两表设置相同extra=i+1，末段llex扫描>=0x80字节并按isreserved(ts)返回ts->extra-1+FIRST_RESERVED。目录可见lparser.c、lcode.c、lvm.c、lua.c及库文件；本轮词法文件已完整读取，解析／字节码／执行链具体改动待核实。",
+    "version": "原仓头c0e0b83f7bd323bac7e0326886652075d85d55db，消息5.4.0，公开根页显示3分支、0标签、12提交、暂无发行版。本轮浏览器观测16星、4Watching、10Fork。项目侧栏标MulanPSL-2.0；公开doc/readme.html保留Lua.org／PUC-Rio的MIT许可及1994—2019版权、Lua 5.4.0-beta说明。许可适用层级、贡献权利和准确发行版本待核实。",
+    "relations": "项目README屏蔽状态保持原样。公开doc/readme.html的Lua.org／PUC-Rio说明与源码目录支持Lua派生方向；全部上游版本与差异待核。OldDragon/lua页面明确标Forked from lyzavng/lua，合并为同源发现入口。已有言序lang-007原仓为YanXuLang/yanxu；粤语lang-006为Cantonese。lyzavng原仓及22项词表按单独候选保存，与言序、CNlua及其他中文Lua实现的作者／代码同源关系继续核实。",
+    "status": "固定中文词元、共用编号及扫描规则已核；原始中文用户程序、完整解析执行链、绝对日期与许可层级继续核实。",
+    "verification_notes": "AI开发或辅助的原作者声明待核实。发现来自2024—2026目标搜索，公开源码和相对时间指向更早阶段，按历史项目记录。根README正文显示平台内容屏蔽；停止该内容读取，继续正常公开独立doc与source页面。提交详情转登录后停止。固定llex.c通过公开blob页面完整读取608行；lparser.c固定页面可打开，正文读取超时。",
+    "references": [
+      {
+        "title": "原仓简介、头提交与项目元数据",
+        "url": "https://gitee.com/lyzavng/lua"
+      },
+      {
+        "title": "固定完整中文词法器",
+        "url": "https://gitee.com/lyzavng/lua/blob/c0e0b83f7bd323bac7e0326886652075d85d55db/src/llex.c"
+      },
+      {
+        "title": "固定中文和英文保留字表",
+        "url": "https://gitee.com/lyzavng/lua/blob/c0e0b83f7bd323bac7e0326886652075d85d55db/src/llex.c#L39-L56"
+      },
+      {
+        "title": "固定双语词元初始化",
+        "url": "https://gitee.com/lyzavng/lua/blob/c0e0b83f7bd323bac7e0326886652075d85d55db/src/llex.c#L78-L91"
+      },
+      {
+        "title": "公开源文件目录",
+        "url": "https://gitee.com/lyzavng/lua/tree/master/src"
+      },
+      {
+        "title": "公开文档目录与Lua上游readme",
+        "url": "https://gitee.com/lyzavng/lua/tree/master/doc"
+      },
+      {
+        "title": "原仓公开Lua说明文档",
+        "url": "https://gitee.com/lyzavng/lua/blob/master/doc/readme.html"
+      },
+      {
+        "title": "公开Fork关系的发现入口",
+        "url": "https://gitee.com/OldDragon"
+      }
+    ],
+    "pending": [
+      "取得作者公开连续中文用户程序及对应规范，作为正式条目原例。",
+      "核对固定lparser.c、lcode.c、lvm.c、lua.c和lbaselib.c的语义执行链。",
+      "取得绝对提交／建库／首次公开日期以及分支、标签、正式版本关系。",
+      "核实MulanPSL与保留Lua MIT的适用层级、作者署名和AI参与。",
+      "比较言序、CNlua和其他中文Lua项目的源码继承关系。"
+    ],
+    "verified_at": "2026-10-10"
+  }
+]

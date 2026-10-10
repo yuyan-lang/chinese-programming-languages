@@ -1,0 +1,392 @@
+{
+  "round": 13,
+  "verified_at": "2026-10-10T20:33:24Z",
+  "repository": "lightfl0w/lgc",
+  "repository_url": "https://github.com/lightfl0w/lgc",
+  "scope": "只读静态核验。仅GitHub公开API/文件与普通网页，不克隆、不安装、不构建、不执行项目、不修改外部服务。仅写本次研究交付文件。",
+  "decision": {
+    "formal_entry": false,
+    "classification": "英文语法的自制编译语言／lgc-os配套编译工具",
+    "chinese_keyword_language": false,
+    "confidence": "high",
+    "reason": "完整C版词法关键词表与自举版词法关键词表均为英文。中文README及其中的中文语法占位说明不构成中文语法；示例程序也使用英文关键字。",
+    "source_ids": [
+      "lgc-readme",
+      "lgc-c-keywords",
+      "lgc-c-lexer",
+      "lgc-selfhost-lexer",
+      "lgc-selfhost-keywords",
+      "lgc-fac-example"
+    ]
+  },
+  "snapshot": {
+    "branch": "main",
+    "sha": "0f92930ead271723e615623d5e85d488903ea3fa",
+    "commit_date": "2026-10-05T11:19:41Z",
+    "commit_message": "feat: 添加许可证",
+    "source_ids": [
+      "lgc-commit"
+    ]
+  },
+  "description": {
+    "text": "README自述为单文件、零依赖、教学用的类C小语言编译器，直接生成原生x86-64机器码；C实现位于src/main.c，自举实现位于src/lgc.lg。README称支持Linux ELF与Windows PE32+，并称自举版为ELF后端。本轮仅静态核验，未运行验证这些功能。",
+    "source_ids": [
+      "lgc-readme",
+      "lgc-selfhost-readme",
+      "lgc-tree"
+    ]
+  },
+  "lexical_evidence": {
+    "c_implementation": {
+      "path": "src/main.c",
+      "keywords": [
+        "let",
+        "print",
+        "if",
+        "else",
+        "while",
+        "return",
+        "func",
+        "sizeof",
+        "int",
+        "char",
+        "const",
+        "break",
+        "continue",
+        "extern",
+        "for",
+        "switch",
+        "case",
+        "default",
+        "struct",
+        "enum",
+        "in",
+        "naked"
+      ],
+      "keyword_count": 22,
+      "verbatim_keyword_table": "static const char *LEX_KEYWORDS[] = { \"let\", \"print\", \"if\", \"else\", \"while\", \"return\", \"func\", \"sizeof\", \"int\", \"char\", \"const\", \"break\", \"continue\", \"extern\", \"for\", \"switch\", \"case\", \"default\", \"struct\", \"enum\", \"in\", \"naked\" };\r",
+      "recognition": "    if (isalpha(c) || c == '_') {\r\n        while (isalnum(lx->src[lx->pos]) || lx->src[lx->pos] == '_') lx->pos++;\r\n        int len = lx->pos - s;\r\n        for (int i = 0; i < (int)(sizeof LEX_KEYWORDS / sizeof *LEX_KEYWORDS); i++)\r\n            if (len == (int)strlen(LEX_KEYWORDS[i]) && !memcmp(&lx->src[s], LEX_KEYWORDS[i], len))\r\n                return lex_make_token(TOK_LET + i, &lx->src[s], len, line);\r\n        return lex_make_token(TOK_IDENTIFIER, &lx->src[s], len, line);\r",
+      "source_ids": [
+        "lgc-c-keywords",
+        "lgc-c-lexer"
+      ]
+    },
+    "self_hosted_implementation": {
+      "path": "src/lgc.lg",
+      "base_keywords": [
+        "let",
+        "print",
+        "if",
+        "else",
+        "while",
+        "return",
+        "func",
+        "sizeof",
+        "int",
+        "char",
+        "break",
+        "continue",
+        "extern"
+      ],
+      "additional_keywords": [
+        "const",
+        "for",
+        "in",
+        "naked"
+      ],
+      "directive_name": "import",
+      "verbatim_initialization": "    lex_keywords[0] = lex_intern(\"let\");\r\n    lex_keywords[1] = lex_intern(\"print\");\r\n    lex_keywords[2] = lex_intern(\"if\");\r\n    lex_keywords[3] = lex_intern(\"else\");\r\n    lex_keywords[4] = lex_intern(\"while\");\r\n    lex_keywords[5] = lex_intern(\"return\");\r\n    lex_keywords[6] = lex_intern(\"func\");\r\n    lex_keywords[7] = lex_intern(\"sizeof\");\r\n    lex_keywords[8] = lex_intern(\"int\");\r\n    lex_keywords[9] = lex_intern(\"char\");\r\n    lex_keywords[10] = lex_intern(\"break\");\r\n    lex_keywords[11] = lex_intern(\"continue\");\r\n    lex_keywords[12] = lex_intern(\"extern\");\r\n    lex_name_import = lex_intern(\"import\");\r",
+      "verbatim_additional": "    lex_name_const = lex_intern(\"const\");\r\n    lex_name_for = lex_intern(\"for\");\r\n    lex_name_in = lex_intern(\"in\");\r\n    lex_name_naked = lex_intern(\"naked\");\r",
+      "source_ids": [
+        "lgc-selfhost-keywords",
+        "lgc-selfhost-lexer"
+      ]
+    },
+    "interpretation": "两个实现的关键词集合不完全相同，不据此声称语法覆盖一致；二者均无中文关键词。"
+  },
+  "original_programs": [
+    {
+      "path": "tests/fac.lg",
+      "start_line": 1,
+      "end_line": 8,
+      "complete_file": true,
+      "verbatim": true,
+      "code": "func fac(n) {\n    if (n <= 1) {\n        return 1;\n    } else {\n        return n * fac(n - 1);\n    }\n}\nprint fac(35);\n",
+      "code_source": "https://github.com/lightfl0w/lgc/blob/0f92930ead271723e615623d5e85d488903ea3fa/tests/fac.lg#L1-L8",
+      "source_ids": [
+        "lgc-fac-example"
+      ],
+      "execution_status": "未执行"
+    },
+    {
+      "path": "examples/hello.lg",
+      "start_line": 1,
+      "end_line": 20,
+      "complete_file": true,
+      "verbatim": true,
+      "code": "@boot;\n\nlet char* vid = 0xB8000;\nlet int pos = 0;\n\nfunc putc(ch) {\n    vid[pos * 2] = ch;\n    vid[pos * 2 + 1] = 7;\n    pos = pos + 1;\n    return 0;\n}\n\nfunc main() {\n    putc('O');\n    putc('K');\n    print 42;\n    print 20 + 22;\n    while (1) { }\n    return 0;\n}",
+      "code_source": "https://github.com/lightfl0w/lgc/blob/0f92930ead271723e615623d5e85d488903ea3fa/examples/hello.lg#L1-L20",
+      "source_ids": [
+        "lgc-boot-example"
+      ],
+      "execution_status": "未执行"
+    }
+  ],
+  "license": {
+    "conclusion": "GPL-3.0-or-later（按仓库LICENSE原文）",
+    "note": "LICENSE是GPL v3-or-later授权通知，未包含GPL全文。GitHub仓库元数据自动识别为Other/NOASSERTION，不能据此忽略明确原文。",
+    "copyright": "Copyright (C) 2026  lightfl0w",
+    "source_ids": [
+      "lgc-license"
+    ]
+  },
+  "version": {
+    "version_number": null,
+    "identification": "main@0f92930ead271723e615623d5e85d488903ea3fa",
+    "releases": [],
+    "tags": [],
+    "note": "截至读取时release集合与tag refs为空；独立版本号待核实，版本采用固定提交标识。空集合按读取时状态保存，对应来源标为动态。",
+    "source_ids": [
+      "lgc-commit",
+      "lgc-readme",
+      "lgc-tree",
+      "lgc-releases-observation",
+      "lgc-tags-observation"
+    ]
+  },
+  "relationship_to_lgc_os": {
+    "os_revision": "ba606a063fd557bf28ad13a4c16f9e214b0deddd",
+    "conclusion": "lgc是lgc-os使用的语言编译器；lgc-os构建从外部路径读取自举版lgc.lg，生成并嵌入usr/lgc.elf。",
+    "source_ids": [
+      "lgc-os-readme",
+      "lgc-os-build",
+      "lgc-os-tree"
+    ],
+    "copied_source_in_os_repo": false,
+    "binary_blob_sha": "08baf7259a8b0cf4d7718978b2fec13ae8843ad1",
+    "version_binding": "lgc-os所含usr/lgc.elf与lgc具体源码提交的对应待核实。build.py通过外部LGC_SRC提供源码。编译器版本绑定、字节一致性及独立复现结果待核实。"
+  },
+  "verification_limits": [
+    "未执行编译器、测试、自举、生成二进制或lgc-os。",
+    "不把README自述的可执行格式、自举能力等当作本轮运行测试结果。",
+    "README中的中文说明／占位符与中文关键词严格区分。",
+    "不把C版22项词法表与自举版17项关键词当作功能等价。",
+    "公开项目身份和OS关联有源码证据；作者个人身份、AI使用与视频原片由父任务核验，不在本文件另作断言。"
+  ],
+  "source_ids": [
+    "lgc-commit",
+    "lgc-readme",
+    "lgc-selfhost-readme",
+    "lgc-c-keywords",
+    "lgc-c-lexer",
+    "lgc-selfhost-lexer",
+    "lgc-selfhost-keywords",
+    "lgc-fac-example",
+    "lgc-boot-example",
+    "lgc-license",
+    "lgc-tree",
+    "lgc-releases-observation",
+    "lgc-tags-observation",
+    "lgc-os-readme",
+    "lgc-os-build",
+    "lgc-os-tree"
+  ],
+  "sources": [
+    {
+      "id": "lgc-commit",
+      "title": "lgc main 固定提交",
+      "url": "https://github.com/lightfl0w/lgc/commit/0f92930ead271723e615623d5e85d488903ea3fa",
+      "api_url": "https://api.github.com/repos/lightfl0w/lgc/commits/0f92930ead271723e615623d5e85d488903ea3fa",
+      "revision": "0f92930ead271723e615623d5e85d488903ea3fa",
+      "fixed": true,
+      "description": "2026-10-05T11:19:41Z，提交说明 feat: 添加许可证",
+      "accessed_at": "2026-10-10T20:33:24Z"
+    },
+    {
+      "id": "lgc-readme",
+      "title": "lightfl0w/lgc README.md L1–L49",
+      "url": "https://github.com/lightfl0w/lgc/blob/0f92930ead271723e615623d5e85d488903ea3fa/README.md#L1-L49",
+      "repository": "lightfl0w/lgc",
+      "revision": "0f92930ead271723e615623d5e85d488903ea3fa",
+      "path": "README.md",
+      "blob_sha": "6124a736e268ed0cce15407bdf20cd21b8dd88ac",
+      "line_start": 1,
+      "line_end": 49,
+      "fixed": true,
+      "description": "教学用类 C 小语言、原生 x86-64 输出、语言特性与英文关键字",
+      "accessed_at": "2026-10-10T20:33:24Z"
+    },
+    {
+      "id": "lgc-selfhost-readme",
+      "title": "lightfl0w/lgc README.md L98–L100",
+      "url": "https://github.com/lightfl0w/lgc/blob/0f92930ead271723e615623d5e85d488903ea3fa/README.md#L98-L100",
+      "repository": "lightfl0w/lgc",
+      "revision": "0f92930ead271723e615623d5e85d488903ea3fa",
+      "path": "README.md",
+      "blob_sha": "6124a736e268ed0cce15407bdf20cd21b8dd88ac",
+      "line_start": 98,
+      "line_end": 100,
+      "fixed": true,
+      "description": "自举版源文件与ELF后端声明",
+      "accessed_at": "2026-10-10T20:33:24Z"
+    },
+    {
+      "id": "lgc-c-keywords",
+      "title": "lightfl0w/lgc src/main.c L68–L95",
+      "url": "https://github.com/lightfl0w/lgc/blob/0f92930ead271723e615623d5e85d488903ea3fa/src/main.c#L68-L95",
+      "repository": "lightfl0w/lgc",
+      "revision": "0f92930ead271723e615623d5e85d488903ea3fa",
+      "path": "src/main.c",
+      "blob_sha": "f287199c8c81ee88de88488ede3877624fc8a9f5",
+      "line_start": 68,
+      "line_end": 95,
+      "fixed": true,
+      "description": "C实现token枚举与完整22项LEX_KEYWORDS表",
+      "accessed_at": "2026-10-10T20:33:24Z"
+    },
+    {
+      "id": "lgc-c-lexer",
+      "title": "lightfl0w/lgc src/main.c L126–L221",
+      "url": "https://github.com/lightfl0w/lgc/blob/0f92930ead271723e615623d5e85d488903ea3fa/src/main.c#L126-L221",
+      "repository": "lightfl0w/lgc",
+      "revision": "0f92930ead271723e615623d5e85d488903ea3fa",
+      "path": "src/main.c",
+      "blob_sha": "f287199c8c81ee88de88488ede3877624fc8a9f5",
+      "line_start": 126,
+      "line_end": 221,
+      "fixed": true,
+      "description": "注释跳过、英文关键词匹配和单字节词法处理",
+      "accessed_at": "2026-10-10T20:33:24Z"
+    },
+    {
+      "id": "lgc-selfhost-lexer",
+      "title": "lightfl0w/lgc src/lgc.lg L283–L308",
+      "url": "https://github.com/lightfl0w/lgc/blob/0f92930ead271723e615623d5e85d488903ea3fa/src/lgc.lg#L283-L308",
+      "repository": "lightfl0w/lgc",
+      "revision": "0f92930ead271723e615623d5e85d488903ea3fa",
+      "path": "src/lgc.lg",
+      "blob_sha": "5cb212056dfd91f322cd2319c4a2a14ef784e4c7",
+      "line_start": 283,
+      "line_end": 308,
+      "fixed": true,
+      "description": "自举词法匹配主表及const/for/in/naked补充",
+      "accessed_at": "2026-10-10T20:33:24Z"
+    },
+    {
+      "id": "lgc-selfhost-keywords",
+      "title": "lightfl0w/lgc src/lgc.lg L1850–L1881",
+      "url": "https://github.com/lightfl0w/lgc/blob/0f92930ead271723e615623d5e85d488903ea3fa/src/lgc.lg#L1850-L1881",
+      "repository": "lightfl0w/lgc",
+      "revision": "0f92930ead271723e615623d5e85d488903ea3fa",
+      "path": "src/lgc.lg",
+      "blob_sha": "5cb212056dfd91f322cd2319c4a2a14ef784e4c7",
+      "line_start": 1850,
+      "line_end": 1881,
+      "fixed": true,
+      "description": "自举版英文关键字表及补充关键词初始化",
+      "accessed_at": "2026-10-10T20:33:24Z"
+    },
+    {
+      "id": "lgc-fac-example",
+      "title": "lightfl0w/lgc tests/fac.lg L1–L8",
+      "url": "https://github.com/lightfl0w/lgc/blob/0f92930ead271723e615623d5e85d488903ea3fa/tests/fac.lg#L1-L8",
+      "repository": "lightfl0w/lgc",
+      "revision": "0f92930ead271723e615623d5e85d488903ea3fa",
+      "path": "tests/fac.lg",
+      "blob_sha": "644032fbde8f64d13fc7b6e77815d406d3455e57",
+      "line_start": 1,
+      "line_end": 8,
+      "fixed": true,
+      "description": "连续完整阶乘源程序",
+      "accessed_at": "2026-10-10T20:33:24Z"
+    },
+    {
+      "id": "lgc-boot-example",
+      "title": "lightfl0w/lgc examples/hello.lg L1–L20",
+      "url": "https://github.com/lightfl0w/lgc/blob/0f92930ead271723e615623d5e85d488903ea3fa/examples/hello.lg#L1-L20",
+      "repository": "lightfl0w/lgc",
+      "revision": "0f92930ead271723e615623d5e85d488903ea3fa",
+      "path": "examples/hello.lg",
+      "blob_sha": "45a8dbd35d1a349a1a67350ac8d259cb4c415cd0",
+      "line_start": 1,
+      "line_end": 20,
+      "fixed": true,
+      "description": "连续完整引导示例源程序",
+      "accessed_at": "2026-10-10T20:33:24Z"
+    },
+    {
+      "id": "lgc-license",
+      "title": "lightfl0w/lgc LICENSE L1–L8",
+      "url": "https://github.com/lightfl0w/lgc/blob/0f92930ead271723e615623d5e85d488903ea3fa/LICENSE#L1-L8",
+      "repository": "lightfl0w/lgc",
+      "revision": "0f92930ead271723e615623d5e85d488903ea3fa",
+      "path": "LICENSE",
+      "blob_sha": "5339911e8427138cf71414aeeda5d5c940c8ec42",
+      "line_start": 1,
+      "line_end": 8,
+      "fixed": true,
+      "description": "GNU GPL v3 or later简短授权声明；完整许可证正文待补",
+      "accessed_at": "2026-10-10T20:33:24Z"
+    },
+    {
+      "id": "lgc-tree",
+      "title": "lgc固定递归树",
+      "url": "https://github.com/lightfl0w/lgc/tree/0f92930ead271723e615623d5e85d488903ea3fa",
+      "api_url": "https://api.github.com/repos/lightfl0w/lgc/git/trees/0f92930ead271723e615623d5e85d488903ea3fa?recursive=1",
+      "revision": "0f92930ead271723e615623d5e85d488903ea3fa",
+      "fixed": true,
+      "description": "完整递归树truncated=false，共23项；独立版本清单待取得",
+      "accessed_at": "2026-10-10T20:33:24Z"
+    },
+    {
+      "id": "lgc-releases-observation",
+      "title": "lgc Releases读取时状态",
+      "url": "https://api.github.com/repos/lightfl0w/lgc/releases",
+      "fixed": false,
+      "description": "读取返回[]；发行集合为空，记录本次读取状态",
+      "observed_response": [],
+      "accessed_at": "2026-10-10T20:33:24Z"
+    },
+    {
+      "id": "lgc-tags-observation",
+      "title": "lgc tags refs读取时状态",
+      "url": "https://api.github.com/repos/lightfl0w/lgc/git/matching-refs/tags/",
+      "fixed": false,
+      "description": "读取返回[]；标签集合为空，记录本次读取状态",
+      "observed_response": [],
+      "accessed_at": "2026-10-10T20:33:24Z"
+    },
+    {
+      "id": "lgc-os-readme",
+      "title": "lgc-os固定README",
+      "url": "https://github.com/lightfl0w/lgc-os/blob/ba606a063fd557bf28ad13a4c16f9e214b0deddd/README.md#L1-L25",
+      "revision": "ba606a063fd557bf28ad13a4c16f9e214b0deddd",
+      "path": "README.md",
+      "blob_sha": "9f56f7e9c29be1f4b490e2c916f1ab74c83f90ec",
+      "fixed": true,
+      "description": "明示用lgc编译器写的64位微内核；构建通过LGC_SRC提供自举源码路径",
+      "accessed_at": "2026-10-10T20:33:24Z"
+    },
+    {
+      "id": "lgc-os-build",
+      "title": "lgc-os外部自举编译器源码入口",
+      "url": "https://github.com/lightfl0w/lgc-os/blob/ba606a063fd557bf28ad13a4c16f9e214b0deddd/build.py#L14-L52",
+      "revision": "ba606a063fd557bf28ad13a4c16f9e214b0deddd",
+      "path": "build.py",
+      "blob_sha": "df42f8d49592a8a2ca0b774e22b81612e7118dfb",
+      "fixed": true,
+      "description": "LGC_SRC环境变量/default路径与lgc -f elf -b 0x180000 LGC_SRC usr/lgc.elf构建命令；未绑定lgc提交或版本",
+      "accessed_at": "2026-10-10T20:33:24Z"
+    },
+    {
+      "id": "lgc-os-tree",
+      "title": "lgc-os固定递归树",
+      "url": "https://github.com/lightfl0w/lgc-os/tree/ba606a063fd557bf28ad13a4c16f9e214b0deddd",
+      "api_url": "https://api.github.com/repos/lightfl0w/lgc-os/git/trees/ba606a063fd557bf28ad13a4c16f9e214b0deddd?recursive=1",
+      "revision": "ba606a063fd557bf28ad13a4c16f9e214b0deddd",
+      "fixed": true,
+      "description": "truncated=false；保存usr/lgc.elf，编译器源码由外部LGC_SRC提供",
+      "accessed_at": "2026-10-10T20:33:24Z"
+    }
+  ]
+}

@@ -1,13 +1,40 @@
 <!doctype html>
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>中文Python解释器｜中文编程语言百科</title><link rel="stylesheet" href="../style.css"></head><body><header><h1>中文Python解释器</h1></header><main><p><a href="../">返回语言目录</a></p>
-<h2>语言介绍</h2><p>【Python 中文关键字转换层；教学工具】把预定义中文关键字及部分标点转换为标准 Python 后执行的工具，支持桌面和浏览器版本。作者明确将其定位为文本转换器。</p>
-<h2>分类与别名</h2><p>Python 中文关键字转换层；教学工具；别名：Chinese Python Interpreter、ikdxhz/chinese-python</p>
-<h2>作者与首次公开</h2><p>ikdxhz。待核实；README 自署 2024年6月24日，与仓库创建于 2025-06-22 的元数据不一致。可能迁移或日期有误，原因待核实，不据此认定 2024 年首发。</p>
-<h2>设计与特征</h2><p>中文关键字及多个同义词映射；中文标点转换；显示转换后的 Python；.cnpy 文件；桌面 GUI 与在线编辑器</p>
-<h2>中文语法示例</h2><pre><code>定义 计算平方(数字):
-    返回 数字 * 数字</code></pre><p>原始资料短摘录，用于展示中文语法；未在本轮执行，不保证单独运行。 <a href="https://github.com/ikdxhz/chinese-python/blob/ba31921bd379ca1d72f437a3f01528aaa2fe2a57/README.md">示例来源</a></p>
-<h2>实现与运行环境</h2><p>桌面版 Python；在线版 JavaScript 转换 + Pyodide；基于映射表和正则替换，非独立语法/运行时系统。</p>
-<h2>版本与维护状态</h2><p>README 徽章自称 1.0；正式发行版本待核实；公开仓库可读；GitHub 仓库元数据最后推送时间为 2025-06-24T12:29:02Z，main 分支，MIT；不据此断言停止维护。本次未执行代码。</p>
-<h2>与其他项目的关系</h2><p>依赖 Python 生态；不是中蟒、周蟒或草蟒的已证实别名。作者明确说明并非完整语言实现，也非 AI 系统；README 建议借助 AI 排错不等于 AI 编译。</p>
-<h2>核验说明</h2><p>已读取仓库 README、文件清单及语法例子；未逐行审核实现或运行。适合放在「中文化实现/转换层」而非原创语言主列表。GitHub 元数据创建时间为 2025-06-22T14:17:18Z；仓库创建时间不是语言首次公开时间。README 自署日期与仓库时间不同，迁移历史或日期准确性待核实。README.md、mapping.py、chinese_python.py 文件名已从仓库清单核实；main 固定提交为 ba31921bd379ca1d72f437a3f01528aaa2fe2a57。</p>
-<h2>参考资料</h2><ul><li><a href="https://github.com/ikdxhz/chinese-python">项目仓库与原作者 README</a></li><li><a href="https://github.com/ikdxhz/chinese-python/blob/ba31921bd379ca1d72f437a3f01528aaa2fe2a57/mapping.py">中文关键字映射实现</a></li><li><a href="https://github.com/ikdxhz/chinese-python/blob/ba31921bd379ca1d72f437a3f01528aaa2fe2a57/chinese_python.py">转换及执行程序</a></li><li><a href="https://api.github.com/repos/ikdxhz/chinese-python">GitHub 仓库元数据</a></li><li><a href="https://github.com/ikdxhz/chinese-python/blob/ba31921bd379ca1d72f437a3f01528aaa2fe2a57/README.md">固定版本 README</a></li></ul><p>资料核验日期：2026-10-09</p><p><a href="https://github.com/yuyan-lang/chinese-programming-languages/issues/new">补充资料或纠错</a></p></main><footer>站点由<a href="https://yuyan-lang.org/">豫言编程语言</a>提供</footer></body></html>
+<h2>语言介绍</h2><p>中文Python解释器是ikdxhz面向中文编程教学制作的Python源码转换工具。项目提供预定义中文关键字、常用函数与标点映射，用户可用定义、返回、对于、如果等词编写程序，并查看转换后的Python代码。桌面部分包含.cnpy文件执行器、累积多行输入的交互入口和Tkinter图形编辑器；转换器用正则及占位符处理关键字、字符串、注释和部分变量位置，再交给宿主Python执行。浏览器部分在单个HTML文件内维护JavaScript转换表，以CodeMirror编辑代码，再通过Pyodide执行转换结果。两端的映射与变量保护细节分别实现，兼容范围需按对应代码核对。README将它用于编程启蒙与过渡学习，并建议借助外部AI解释报错。该条按中文关键字转换层和教学工具收录，源码、MIT许可与原始例子可追溯至固定提交。</p>
+<h2>分类与别名</h2><p>Python 中文关键字转换层；教学工具；别名：Chinese Python Interpreter；ikdxhz/chinese-python</p>
+<h2>作者与公开历史</h2><p>ikdxhz；README“联系方式”、提交作者账号及MIT版权行相互对应。</p><p>README“最近更新”自署2024年6月24日，记述在线版发布。GitHub仓库创建与仅含LICENSE的根提交时间均为2025-06-22T14:17:18Z；README及程序首次进入当前可追溯提交链的时间为2025-06-22T14:19:36Z。两个时间层级分别记录，项目最早公开时间及2024自署日期的历史依据待核实。</p>
+<h2>设计与特征</h2><p>预定义中文关键字、函数名称与同义词映射；中文标点转换及字符串／注释占位保护；显示转换后的Python代码；.cnpy文件执行及多行交互输入；Tkinter桌面GUI、CodeMirror浏览器编辑器和Pyodide执行；Python与JavaScript两个转换实现分别维护</p>
+<h2>中文语法示例</h2><pre><code># 这是一个简单的中文Python示例
+
+打印（&quot;你好，世界！&quot;）
+
+# 定义一个函数
+定义 计算平方(数字):
+    返回 数字 * 数字
+
+# 使用for循环
+对于 i 在 范围(1, 6):
+    打印(f&quot;{i} 的平方是 {计算平方(i)}&quot;)
+
+# 条件语句
+如果 计算平方(3) &gt; 5:
+    打印(&quot;3的平方大于5&quot;)
+否则:
+    打印(&quot;3的平方不大于5&quot;)</code></pre><p>固定README第129—145行“代码示例”完整17行，原2行计算平方函数保留其中；空行、缩进及全角标点按原文，实际执行待核实。 <a href="https://github.com/ikdxhz/chinese-python/blob/ba31921bd379ca1d72f437a3f01528aaa2fe2a57/README.md">示例来源</a></p>
+<h2>实现与运行环境</h2><p>固定提交ba31921bd379ca1d72f437a3f01528aaa2fe2a57：mapping.py的translate_to_python先提取三引号、单行字符串、注释及部分变量／形参位置，再按词长排序用正则替换映射、转换标点并恢复占位内容；chinese_python.py通过exec执行转换结果，交互入口共用namespace。chinese_python_gui.py使用Tkinter并调用同一转换器及exec。index.html独立实现JavaScript映射与translateToPython，引用CodeMirror 5.65.3、Pyodide 0.23.4，以pyodide.runPython执行。语法与运行语义由转换后的Python承担；独立构建与执行验证待核实。</p>
+<h2>版本与维护状态</h2><p>README版本徽章为1.0；chinese_python.py交互横幅与帮助文本为v0.1，二者属于不同位置的自署版本。GitHub正式Release及标签在核验时为0。固定LICENSE为MIT，版权行为Copyright (c) 2025 ikdxhz。</p><p>2026-10-10核验时仓库为公开main分支，archived=false、disabled=false。当前提交链共12条，最新提交ba31921日期及pushed_at均为2025-06-24T12:29:02Z。GitHub Releases与标签引用列表均为空，维护计划待核实。README提供在线编辑器入口，本轮只核对网页源码；桌面与在线版本的实际运行、第三方库兼容及停止执行效果待核实。</p>
+<h2>与其他项目的关系</h2><p>本项目属于Python中文关键字转换层，桌面版依赖宿主Python，在线版依赖Pyodide中的Python运行环境。中蟒、周蟒、草蟒及其他中文Python项目分别保留各自作者和实现归属；本仓与这些项目的代码继承关系待核实。</p>
+<h2>核验说明</h2><p>完整读取固定README、7文件目录树、mapping.py、chinese_python.py、Tkinter GUI、index.html与LICENSE，并核对仓库元数据、12条提交、Releases和标签引用。code扩展为README“代码示例”的17行完整连续代码块，原有2行计算平方函数保留其中，来源固定提交保持不变。静态映射表可见重复键：桌面“方法”的最终值为method、“数组”为array、“输出”为return；浏览器“方法”为def、“数组”为list、“输出”的最终值为print，两端对照与例子执行结果待核实。README的2024年6月24日为作者自署更新日期；可追溯源码上传日期为2025年6月22日，两者的历史关系待核实。AI依据为README“学习方法／如何使用AI助手解决问题”提出的外部排错与解释建议；已读执行路径为确定性映射加Python执行，项目开发阶段的AI参与声明待核实。完整技术审计、测试与运行结果待核实。</p>
+<h2>参考资料</h2><ul><li><a href="https://github.com/ikdxhz/chinese-python">项目仓库与原作者 README</a></li>
+<li><a href="https://github.com/ikdxhz/chinese-python/blob/ba31921bd379ca1d72f437a3f01528aaa2fe2a57/mapping.py">中文关键字映射实现</a></li>
+<li><a href="https://github.com/ikdxhz/chinese-python/blob/ba31921bd379ca1d72f437a3f01528aaa2fe2a57/chinese_python.py">转换及执行程序</a></li>
+<li><a href="https://api.github.com/repos/ikdxhz/chinese-python">GitHub 仓库元数据</a></li>
+<li><a href="https://github.com/ikdxhz/chinese-python/blob/ba31921bd379ca1d72f437a3f01528aaa2fe2a57/README.md">固定版本 README</a></li>
+<li><a href="https://github.com/ikdxhz/chinese-python/blob/ba31921bd379ca1d72f437a3f01528aaa2fe2a57/LICENSE">固定MIT许可证及2025版权行</a></li>
+<li><a href="https://github.com/ikdxhz/chinese-python/blob/ba31921bd379ca1d72f437a3f01528aaa2fe2a57/index.html">固定在线转换器与Pyodide执行入口</a></li>
+<li><a href="https://github.com/ikdxhz/chinese-python/blob/ba31921bd379ca1d72f437a3f01528aaa2fe2a57/chinese_python_gui.py">固定Tkinter界面及Python执行路径</a></li>
+<li><a href="https://github.com/ikdxhz/chinese-python/commit/5fac2bf57b13d8e224eec44d30dc6bf16db596bb">首次源码上传提交（2025-06-22）</a></li>
+<li><a href="https://api.github.com/repos/ikdxhz/chinese-python/git/trees/3d8d62f9b5a7c98bab40d52ec8faee564811e05f?recursive=1">根提交目录树：初始LICENSE</a></li>
+<li><a href="https://api.github.com/repos/ikdxhz/chinese-python/releases">GitHub正式发行列表</a></li>
+<li><a href="https://api.github.com/repos/ikdxhz/chinese-python/git/matching-refs/tags/">GitHub标签引用列表</a></li>
+<li><a href="https://github.com/ikdxhz/chinese-python/commits/main/">GitHub可追溯提交历史</a></li></ul><p>资料核验日期：2026-10-10</p><p><a href="https://github.com/yuyan-lang/chinese-programming-languages/issues/new">补充资料或纠错</a></p></main><footer>站点由<a href="https://yuyan-lang.org/">豫言编程语言</a>提供</footer></body></html>
