@@ -1,0 +1,149 @@
+[
+  {
+    "name": "pchinese",
+    "discovery_status": "第七轮旧候选；第九轮完成分类资料，保留后续字段核验",
+    "category": "Python中文语法转译层／标识符词元映射运行器",
+    "repository": "https://github.com/LostPEople634/pchinese",
+    "snapshot": "8c1a0957d3177dd85a7723c4dcb6ab042b6a2752",
+    "evidence": "固定连续中文阶乘原例、标识符词元映射、Python compile／exec、REPL、1.2.0源码版本、v1.1.0-alpha1预发行和MIT许可已核。",
+    "pending": "源码1.2.0的独立发行、预发行exe与源码的二进制对应、第三方GUI依赖兼容性、词表重复键覆盖及API映射效果、f-string插值和跨行全角字符串边界、AI参与范围、早期本地版本及其他中文Python项目继承关系待核实。",
+    "verification_scope": "公开静态源码、文档、原例和GitHub元数据；独立构建及运行待核实。",
+    "verified_at": "2026-10-10",
+    "references": [
+      {
+        "title": "固定README与中文Python语法定位",
+        "url": "https://github.com/LostPEople634/pchinese/blob/8c1a0957d3177dd85a7723c4dcb6ab042b6a2752/README.md"
+      },
+      {
+        "title": "固定连续中文阶乘原例",
+        "url": "https://github.com/LostPEople634/pchinese/blob/8c1a0957d3177dd85a7723c4dcb6ab042b6a2752/examples/综合示例.pcn#L4-L9"
+      },
+      {
+        "title": "固定代码分区与标识符词元映射",
+        "url": "https://github.com/LostPEople634/pchinese/blob/8c1a0957d3177dd85a7723c4dcb6ab042b6a2752/pchinese/translator.py#L43-L156"
+      },
+      {
+        "title": "固定Python关键字及词表合并",
+        "url": "https://github.com/LostPEople634/pchinese/blob/8c1a0957d3177dd85a7723c4dcb6ab042b6a2752/pchinese/keywords.py#L10-L124"
+      },
+      {
+        "title": "固定Python编译及执行入口",
+        "url": "https://github.com/LostPEople634/pchinese/blob/8c1a0957d3177dd85a7723c4dcb6ab042b6a2752/pchinese/runner.py#L42-L136"
+      },
+      {
+        "title": "固定Python源码导出",
+        "url": "https://github.com/LostPEople634/pchinese/blob/8c1a0957d3177dd85a7723c4dcb6ab042b6a2752/pchinese/cli.py#L140-L157"
+      },
+      {
+        "title": "固定REPL翻译和执行",
+        "url": "https://github.com/LostPEople634/pchinese/blob/8c1a0957d3177dd85a7723c4dcb6ab042b6a2752/pchinese/repl.py#L119-L151"
+      },
+      {
+        "title": "固定Qt词表机制与依赖说明",
+        "url": "https://github.com/LostPEople634/pchinese/blob/8c1a0957d3177dd85a7723c4dcb6ab042b6a2752/pchinese/qt_words.py#L1-L39"
+      },
+      {
+        "title": "固定Qt全表与重复键位置",
+        "url": "https://github.com/LostPEople634/pchinese/blob/8c1a0957d3177dd85a7723c4dcb6ab042b6a2752/pchinese/qt_words.py"
+      },
+      {
+        "title": "固定Qt测试范围及字典检查",
+        "url": "https://github.com/LostPEople634/pchinese/blob/8c1a0957d3177dd85a7723c4dcb6ab042b6a2752/tests/test_qt_support.py#L1-L52"
+      },
+      {
+        "title": "固定源码1.2.0版本",
+        "url": "https://github.com/LostPEople634/pchinese/blob/8c1a0957d3177dd85a7723c4dcb6ab042b6a2752/pchinese/__init__.py#L1-L10"
+      },
+      {
+        "title": "固定MIT许可证",
+        "url": "https://github.com/LostPEople634/pchinese/blob/8c1a0957d3177dd85a7723c4dcb6ab042b6a2752/LICENSE"
+      },
+      {
+        "title": "固定打包配置中的开发路径线索",
+        "url": "https://github.com/LostPEople634/pchinese/blob/8c1a0957d3177dd85a7723c4dcb6ab042b6a2752/pchinese.spec#L1-L10"
+      },
+      {
+        "title": "核心源码与原例首次上传提交",
+        "url": "https://github.com/LostPEople634/pchinese/commit/81aca58ac5b042809f2888c3689dc8a86bd7cd3f"
+      },
+      {
+        "title": "根提交与初始项目简介",
+        "url": "https://github.com/LostPEople634/pchinese/commit/7595e93ebf7e00be624fa834dfbfbaed1bdca266"
+      },
+      {
+        "title": "v1.1.0-alpha1预发行及Windows附件",
+        "url": "https://github.com/LostPEople634/pchinese/releases/tag/v1.1.0-alpha1"
+      }
+    ]
+  },
+  {
+    "name": "MiniLang（FI0m9ySans）",
+    "discovery_status": "第七轮旧候选；第九轮完成分类资料，保留后续字段核验",
+    "category": "中文语法语言／Python实现的独立AST解释器",
+    "repository": "https://github.com/FI0m9ySans/minilang",
+    "snapshot": "2778f3d3df8d6806c5b9b763e31e7d0d3ac19c7d",
+    "evidence": "固定连续中文阶乘原例、中文词元、递归下降解析、AST解释执行、作者与提交时间、同仓数学库blob对应已核。",
+    "pending": "语言正式版本、发行物、整个语言仓库许可证、包管理实现、数学库包许可适用范围、字符串工具及网络请求包状态、一元表达式语法接通、完整Unicode标识符覆盖、AI参与及其他MiniLang同名关系待核实。",
+    "verification_scope": "公开静态源码、文档、原例和GitHub元数据；独立构建及运行待核实。",
+    "verified_at": "2026-10-10",
+    "references": [
+      {
+        "title": "固定MiniLang中文说明及语法原例",
+        "url": "https://github.com/FI0m9ySans/minilang/blob/2778f3d3df8d6806c5b9b763e31e7d0d3ac19c7d/README.md#L1-L25"
+      },
+      {
+        "title": "固定连续中文阶乘原例",
+        "url": "https://github.com/FI0m9ySans/minilang/blob/2778f3d3df8d6806c5b9b763e31e7d0d3ac19c7d/Code/MLCode/math_simple.kalop#L9-L17"
+      },
+      {
+        "title": "固定中文词元及标识符范围",
+        "url": "https://github.com/FI0m9ySans/minilang/blob/2778f3d3df8d6806c5b9b763e31e7d0d3ac19c7d/Code/minilang.py#L15-L130"
+      },
+      {
+        "title": "固定AST节点定义",
+        "url": "https://github.com/FI0m9ySans/minilang/blob/2778f3d3df8d6806c5b9b763e31e7d0d3ac19c7d/Code/minilang.py#L132-L229"
+      },
+      {
+        "title": "固定声明、条件、循环及函数解析",
+        "url": "https://github.com/FI0m9ySans/minilang/blob/2778f3d3df8d6806c5b9b763e31e7d0d3ac19c7d/Code/minilang.py#L231-L381"
+      },
+      {
+        "title": "固定表达式递归下降解析",
+        "url": "https://github.com/FI0m9ySans/minilang/blob/2778f3d3df8d6806c5b9b763e31e7d0d3ac19c7d/Code/minilang.py#L383-L460"
+      },
+      {
+        "title": "固定解释器、变量环境及函数返回",
+        "url": "https://github.com/FI0m9ySans/minilang/blob/2778f3d3df8d6806c5b9b763e31e7d0d3ac19c7d/Code/minilang.py#L462-L616"
+      },
+      {
+        "title": "固定词法至AST执行与文件入口",
+        "url": "https://github.com/FI0m9ySans/minilang/blob/2778f3d3df8d6806c5b9b763e31e7d0d3ac19c7d/Code/minilang.py#L617-L718"
+      },
+      {
+        "title": "固定数学库包元数据",
+        "url": "https://github.com/FI0m9ySans/minilang/blob/2778f3d3df8d6806c5b9b763e31e7d0d3ac19c7d/数学库/minilang-package.json"
+      },
+      {
+        "title": "固定文件树与包资料",
+        "url": "https://github.com/FI0m9ySans/minilang/tree/2778f3d3df8d6806c5b9b763e31e7d0d3ac19c7d"
+      },
+      {
+        "title": "根提交与初始项目简介",
+        "url": "https://github.com/FI0m9ySans/minilang/commit/4770c5120be73d9e5667fe013e1cbc921039e625"
+      },
+      {
+        "title": "解释器首次上传提交",
+        "url": "https://github.com/FI0m9ySans/minilang/commit/6144cf4b94b6b582f8b05c3d69cd6db411435dbf"
+      },
+      {
+        "title": "中文数学原例首次上传提交",
+        "url": "https://github.com/FI0m9ySans/minilang/commit/6f28e6485442c219136bcf6193f903f8231a8cc4"
+      },
+      {
+        "title": "公开发行列表",
+        "url": "https://github.com/FI0m9ySans/minilang/releases"
+      }
+    ]
+  }
+]
+

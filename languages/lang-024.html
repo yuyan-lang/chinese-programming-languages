@@ -1,15 +1,39 @@
 <!doctype html>
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>易码｜中文编程语言百科</title><link rel="stylesheet" href="../style.css"></head><body><header><h1>易码</h1></header><main><p><a href="../">返回语言目录</a></p>
-<h2>语言介绍</h2><p>【解释型语言】面向初学者的中文语言，使用“功能”“如果…就”“定义图纸”等语法。</p>
+<h2>语言介绍</h2><p>【解释型语言】易码是一门面向初学者的中文编程语言，由景磊署名维护，以Python实现词法分析、语法分析和抽象语法树解释执行。源码使用.ym后缀，以缩进组织代码块，采用“显示、输入、功能、如果…就、当…的时候、遍历…里的每一个”等句式，支持中文标识符和【变量】模板字符串。语言包含列表、字典、函数、异常、模块，以及“定义图纸、造一个、它的”对象机制；模块导入可接入内置功能、易码源文件和Python模块。项目配有命令行、交互入口、Tkinter图形编辑器、教程与回归脚本，并以生成Python启动器和PyInstaller封装应用。当前VERSION为1.0.0，README将其列为核心语法冻结的v1.0稳定期，2026年2月25日发布Windows编辑器包。源码采用Apache-2.0许可。</p>
 <h2>分类与别名</h2><p>解释型语言；别名：Yima</p>
-<h2>作者与首次公开</h2><p>景磊（Jing Lei，词法分析器源码署名）。仓库创建 2026-02-22；语言首次公开发布日期待核实</p>
-<h2>设计与特征</h2><p>中文语法／关键字；有公开实现源码</p>
-<h2>中文语法示例</h2><pre><code>功能 求和(a, b)
-    返回 a + b
+<h2>作者与公开历史</h2><p>景磊（Jing Lei；源码及NOTICE署名）；GitHub仓库账号jinglei88</p><p>现存Git根提交的作者及提交者日期为2026-02-21 04:50:59 UTC；GitHub仓库创建于2026-02-22 08:06:28 UTC。2026-02-20论坛易码2.0帖与仓库的账号身份关联及准确公开首发日期待核实</p>
+<h2>设计与特征</h2><p>中文关键字、中文标识符与缩进代码块；【变量】模板字符串；函数、列表、字典、异常及图纸对象机制；内置模块、.ym模块及Python模块导入；Python实现的AST树遍历解释器；命令行、交互入口和Tkinter图形编辑器；PyInstaller应用封装与Windows编辑器发布包</p>
+<h2>中文语法示例</h2><pre><code># 🎉 欢迎使用易码！极简中文编程 🎉
+# 点击左上角绿色 ▶ 按钮即可运行
 
-显示 求和(3, 4)</code></pre><p>原始资料短摘录，用于展示中文语法；未在本轮执行，不保证单独运行。 <a href="https://github.com/jinglei88/Yima---Minimalist-Chinese-Programming-Language/blob/de50f04b0211daa3c4401c4610c83dbcc1060e0e/README.md">示例来源</a></p>
-<h2>实现与运行环境</h2><p>Python实现词法分析与解释器，含CLI、图形化编辑器和回归脚本。</p>
-<h2>版本与维护状态</h2><p>v1.0稳定期（README自述）；已有源码；未在本次研究中编译或执行</p>
-<h2>与其他项目的关系</h2><p>与易语言为不同项目；未发现继承或兼容声明。</p>
-<h2>核验说明</h2><p>2026-10-09只读核验。1星，非fork；最后推送2026-02-25T08:58:46Z。日期为仓库创建不代表首发。功能、性能、通过测试数量未独立复测。 社区线索：jinglei于2026-02-20在linux.do发布AI制作的.ym语言（https://linux.do/t/topic/1631327?tl=en）；仓库归属与2.0旧语法沿革尚待建立互链，暂不把该帖日期认作已核实首发。</p>
-<h2>参考资料</h2><ul><li><a href="https://github.com/jinglei88/Yima---Minimalist-Chinese-Programming-Language/blob/de50f04b0211daa3c4401c4610c83dbcc1060e0e/README.md">项目README（核验快照）</a></li><li><a href="https://github.com/jinglei88/Yima---Minimalist-Chinese-Programming-Language/blob/de50f04b0211daa3c4401c4610c83dbcc1060e0e/yima/%E8%AF%8D%E6%B3%95%E5%88%86%E6%9E%90.py">实现或样例证据</a></li><li><a href="https://api.github.com/repos/jinglei88/Yima---Minimalist-Chinese-Programming-Language">仓库元数据</a></li></ul><p>资料核验日期：2026-10-09</p><p><a href="https://github.com/yuyan-lang/chinese-programming-languages/issues/new">补充资料或纠错</a></p></main><footer>站点由<a href="https://yuyan-lang.org/">豫言编程语言</a>提供</footer></body></html>
+显示 &quot;你好！我是易码，一门用大白话写代码的语言。&quot;
+
+# ✉️ 赋值与输入
+名字 = 输入 &quot;请问你叫什么名字？ &quot;
+
+如果 名字 == 空 就
+    显示 &quot;你怎么不说话呢？那我叫你小神秘吧。&quot;
+    名字 = &quot;小神秘&quot;
+
+显示 &quot;很高兴认识你，【名字】！&quot;
+
+# 📦 列表（原生数据结构）
+爱好 = [&quot;编程&quot;, &quot;画画&quot;, &quot;打游戏&quot;]
+遍历 爱好 里的每一个 叫做 当前
+    显示 &quot;❤️ 【当前】&quot;
+
+# 🔧 自定义功能
+功能 倒计时(起点)
+    当 起点 &gt; 0 的时候
+        显示 &quot;⏳ 倒计时：【起点】&quot;
+        起点 = 起点 - 1
+    显示 &quot;🎉 时间到！&quot;
+
+倒计时(3)
+显示 &quot;快试试自己动手写点什么吧！&quot;</code></pre><p>固定提交示例/欢迎.ym第1—28行的连续原例，展示输入、分支、列表遍历、模板字符串与功能定义。展示文本移除文件开头BOM和末尾空行，其余内容保留；运行结果待独立验证。 <a href="https://github.com/jinglei88/Yima---Minimalist-Chinese-Programming-Language/blob/de50f04b0211daa3c4401c4610c83dbcc1060e0e/%E7%A4%BA%E4%BE%8B/%E6%AC%A2%E8%BF%8E.ym#L1-L28">示例来源</a></p>
+<h2>实现与运行环境</h2><p>Python 3.9+实现。易码.py读取UTF-8源码，调用词法分析器.分析得到Token，再经语法分析器.解析生成AST，交给解释器.执行；yima/解释器.py依AST节点类型分派到_做_方法，在环境作用域链上执行语句、函数和对象方法。引入语句依次查内置虚拟模块、.ym文件、Python原生库，最后一项调用importlib.import_module；.ym模块具有路径及修改时间缓存。易码编辑器.py提供Tkinter图形入口。易码打包工具.py生成Python启动脚本，读入包内.ym源文件后继续词法、语法与AST解释链，再以PyInstaller封装为应用。</p>
+<h2>版本与维护状态</h2><p>1.0.0（VERSION）；README称v1.0稳定期。2026-02-25 09:01:29 UTC正式Release名为“易码编辑器”，标签为“中文编程语言”，资产为-windows-v1.0.exe；当前固定提交de50f04b0211daa3c4401c4610c83dbcc1060e0e</p><p>源码、规范、编辑器和Windows发行物已公开；本轮完成原始资料与执行链只读核验，独立运行、回归测试及安装包内容校验待核实</p>
+<h2>与其他项目的关系</h2><p>当前仓库根提交保存“语法2.0”词法标注、“说／让／问／结束”README及勇者大冒险RPG原例；2026-02-23的e51f8a50提交新增VERSION=1.0.0并确立核心语法冻结策略。2026-02-20 linux.do的jinglei（道友）帖展示同名易码2.0及内容对应的RPG，构成语法与示例沿革线索；论坛jinglei与仓库jinglei88的显式身份互链、版本重编号说明待核实。易码与易语言按各自项目资料记录，二者继承或兼容关系待核实。</p>
+<h2>核验说明</h2><p>2026-10-10只读核验，当前main固定为de50f04b0211daa3c4401c4610c83dbcc1060e0e，提交日期2026-02-25 08:52:18 UTC；保留此前3条参考。代码来自示例/欢迎.ym第1—28行，展示文本移除文件开头BOM和末尾空行，其余内容保留。根LICENSE为Apache License 2.0，NOTICE署名Copyright (c) 2026 景磊。根提交7aa68b8f3f52bed963f2f9296d4a2ec3b3a61885的作者名为YiMa Developer；该提交时间按Git历史字段保存，公开首发日期继续待核实。旧RPG保存易码2.0注释与相同人物属性、怪物名单及战斗／商店内容，句式已有阶段调整。AI开发说法的现有证据来自linux.do发帖者自述；仓库作者对应声明、具体模型及生成比例待核实。论坛首帖实页可读，后段回复及个人资料读取超时，身份互链继续核验。当前语言规范以缩进、符号算术比较及官方关键词定义v1.0契约，旧帖程序的当前兼容性待核实。功能数量、性能及回归通过情况的独立复现待核实。</p>
+<h2>参考资料</h2><ul><li><a href="https://github.com/jinglei88/Yima---Minimalist-Chinese-Programming-Language/blob/de50f04b0211daa3c4401c4610c83dbcc1060e0e/README.md">项目README（核验快照）</a></li><li><a href="https://github.com/jinglei88/Yima---Minimalist-Chinese-Programming-Language/blob/de50f04b0211daa3c4401c4610c83dbcc1060e0e/yima/%E8%AF%8D%E6%B3%95%E5%88%86%E6%9E%90.py">实现或样例证据</a></li><li><a href="https://api.github.com/repos/jinglei88/Yima---Minimalist-Chinese-Programming-Language">仓库元数据</a></li><li><a href="https://github.com/jinglei88/Yima---Minimalist-Chinese-Programming-Language/blob/de50f04b0211daa3c4401c4610c83dbcc1060e0e/%E7%A4%BA%E4%BE%8B/%E6%AC%A2%E8%BF%8E.ym#L1-L28">完整中文原例：欢迎.ym</a></li><li><a href="https://github.com/jinglei88/Yima---Minimalist-Chinese-Programming-Language/blob/de50f04b0211daa3c4401c4610c83dbcc1060e0e/%E6%98%93%E7%A0%81.py#L1-L123">作者署名及词法、语法、AST执行入口</a></li><li><a href="https://github.com/jinglei88/Yima---Minimalist-Chinese-Programming-Language/blob/de50f04b0211daa3c4401c4610c83dbcc1060e0e/yima/%E8%A7%A3%E9%87%8A%E5%99%A8.py#L2125-L2149">AST节点分派与程序执行</a></li><li><a href="https://github.com/jinglei88/Yima---Minimalist-Chinese-Programming-Language/blob/de50f04b0211daa3c4401c4610c83dbcc1060e0e/yima/%E8%A7%A3%E9%87%8A%E5%99%A8.py#L2367-L2418">内置、易码及Python模块导入链</a></li><li><a href="https://github.com/jinglei88/Yima---Minimalist-Chinese-Programming-Language/blob/de50f04b0211daa3c4401c4610c83dbcc1060e0e/%E6%98%93%E7%A0%81%E6%89%93%E5%8C%85%E5%B7%A5%E5%85%B7.py#L530-L581">打包生成的Python启动器与解释链</a></li><li><a href="https://github.com/jinglei88/Yima---Minimalist-Chinese-Programming-Language/blob/de50f04b0211daa3c4401c4610c83dbcc1060e0e/%E6%96%87%E6%A1%A3/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1.md">当前架构设计</a></li><li><a href="https://github.com/jinglei88/Yima---Minimalist-Chinese-Programming-Language/blob/de50f04b0211daa3c4401c4610c83dbcc1060e0e/%E6%96%87%E6%A1%A3/%E8%AF%AD%E8%A8%80%E8%A7%84%E8%8C%83.md">当前语言规范及v1.0边界</a></li><li><a href="https://github.com/jinglei88/Yima---Minimalist-Chinese-Programming-Language/blob/de50f04b0211daa3c4401c4610c83dbcc1060e0e/VERSION">1.0.0版本文件</a></li><li><a href="https://github.com/jinglei88/Yima---Minimalist-Chinese-Programming-Language/blob/de50f04b0211daa3c4401c4610c83dbcc1060e0e/LICENSE">Apache-2.0许可证全文</a></li><li><a href="https://github.com/jinglei88/Yima---Minimalist-Chinese-Programming-Language/blob/de50f04b0211daa3c4401c4610c83dbcc1060e0e/NOTICE">NOTICE作者及版权声明</a></li><li><a href="https://github.com/jinglei88/Yima---Minimalist-Chinese-Programming-Language/releases/tag/%E4%B8%AD%E6%96%87%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80">2026-02-25易码编辑器正式发行</a></li><li><a href="https://api.github.com/repos/jinglei88/Yima---Minimalist-Chinese-Programming-Language/releases">发行元数据</a></li><li><a href="https://github.com/jinglei88/Yima---Minimalist-Chinese-Programming-Language/commit/de50f04b0211daa3c4401c4610c83dbcc1060e0e">当前固定提交</a></li><li><a href="https://github.com/jinglei88/Yima---Minimalist-Chinese-Programming-Language/commit/7aa68b8f3f52bed963f2f9296d4a2ec3b3a61885">根提交及历史日期</a></li><li><a href="https://github.com/jinglei88/Yima---Minimalist-Chinese-Programming-Language/blob/7aa68b8f3f52bed963f2f9296d4a2ec3b3a61885/README.md">根提交README的早期中文句式</a></li><li><a href="https://github.com/jinglei88/Yima---Minimalist-Chinese-Programming-Language/blob/7aa68b8f3f52bed963f2f9296d4a2ec3b3a61885/yima/%E8%AF%8D%E6%B3%95%E5%88%86%E6%9E%90.py">根提交词法器的语法2.0标注</a></li><li><a href="https://github.com/jinglei88/Yima---Minimalist-Chinese-Programming-Language/blob/7aa68b8f3f52bed963f2f9296d4a2ec3b3a61885/%E7%A4%BA%E4%BE%8B/%E5%8B%87%E8%80%85%E5%A4%A7%E5%86%92%E9%99%A9.ym">根提交勇者大冒险原例与2.0注释</a></li><li><a href="https://github.com/jinglei88/Yima---Minimalist-Chinese-Programming-Language/commit/e51f8a50ab6abcdf60f24ef46b5dd03a52bc72af">2026-02-23建立v1.0冻结策略及VERSION的提交</a></li><li><a href="https://linux.do/t/topic/1631327?tl=en">2026-02-20易码2.0论坛原帖与AI开发自述</a></li></ul><p>资料核验日期：2026-10-10</p><p><a href="https://github.com/yuyan-lang/chinese-programming-languages/issues/new">补充资料或纠错</a></p></main><footer>站点由<a href="https://yuyan-lang.org/">豫言编程语言</a>提供</footer></body></html>

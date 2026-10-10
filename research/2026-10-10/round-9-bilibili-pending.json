@@ -1,0 +1,86 @@
+[
+  {
+    "name": "如意III中文编程",
+    "source_issue": "https://github.com/yuyan-lang/chinese-programming-languages/issues/4",
+    "source_url": "https://www.bilibili.com/video/BV1GC4y1k7E8/",
+    "title": "如意III中文编程v1.2测试版IDE操作示例",
+    "author": "jjh345，Bilibili UID449120289",
+    "author_url": "https://space.bilibili.com/449120289",
+    "publication": "原片video:release_date=2024-01-24T18:46:24.000Z；北京时间2024-01-25 02:46:24。语言首次公开日待核实。",
+    "duration_seconds": 1160,
+    "version": "原片标题标明v1.2测试版；简介将转换核心称为第三代。",
+    "category": "中文／英文混合的C++转译前端与可视化IDE候选",
+    "description": "如意III是jjh345公开演示的中文编程IDE。作者说明它将中文和英文混合代码转换成C++，再交给Visual Studio工具编译、链接；环境搭建教程进一步列出Visual Studio 2019。作者介绍的中文层功能包括自动生成头文件、简化成员指针运算、嵌入C++代码、类库别名封装和中文层调试。语法教程原图将定义分为类型行、函数行、参数行、变量行、常量行。当前证据包括原片、同作者教程和公开回复；精确连续程序继续待核实。",
+    "code": "",
+    "code_context": "原片05:06附近及12:16.435暂停画面可见中文编辑器和程序；后一画面含子程序、类型和调用区域。当前360P字形不足以可靠逐字转录连续代码。2024-03-06语法教程00:06附近可读五种行定义图，02:07与02:39.984可见表格式定义和属性设置。连续中文源程序、参数顺序、标点与文本导出格式待核实。",
+    "implementation_claims": "原片简介称IDE初版使用易语言，随后自举生成C++程序，转换核心发展到第三代，完成度99%。上述内容按作者自述保存，自举过程、完成度和内部实现待核实。2024-02-06环境教程简介说明转译CPP后用Visual Studio 2019编译链接，支持中文层调试、C++嵌入和类库别名封装。2024-03-06语法教程简介使用C++中文预处理IDE定位；公开作者回复将其称为c/c++中文壳。",
+    "relations": "2020年REIDE原片BV1WD4y1X766和2024年如意III／如意系列教程均由UID449120289（jjh345）发布，简介均描述中文代码转换为C++的路线。已核实发布账号一致及技术方向连续。REIDE、早期如意和如意III的正式更名记录、版本继承关系及源码兼容性待核实。本轮将这些材料集中到同一旧线索，别名计数保持审慎。",
+    "source_status": "已读取原视频、两篇同作者教程简介、REIDE原片简介、作者主页及公开可见评论。源码仓库、正式语法手册、许可证和可确认归属的发行地址待核实。",
+    "independent_verification": "本轮完成公开文字与视频画面的只读核对。构建、执行、调试能力及自举复现待核实。",
+    "new_evidence_this_round": [
+      "环境搭建教程BV1M2421A7zW的video:release_date为2024-02-06T14:54:39.000Z；明确Visual Studio 2019、中文调试层、头文件省略、成员指针运算简化、C++嵌入与别名封装。",
+      "语法教程BV1Rj421U7W7的video:release_date为2024-03-06T06:32:25.000Z；00:06附近原图列五种行定义：类型、函数、参数、变量、常量。",
+      "语法教程公开回复由同一UID的jjh345说明为c/c++中文壳；作者对火山关系的说明按自述保存，技术来源继续待核实。",
+      "REIDE—零基础中文C++编程BV1WD4y1X766原页显示2020-11-25 19:14:26，同一UID449120289；简介说明中文转C++并调用第三方编译器。该页精确UTC元数据待核实。"
+    ],
+    "access_note": "原片清晰度菜单显示360P流畅，480P／720P／1080P标为登录即享。公开评论中原片显示72条，当前可见两条顶层评论；展开回复触发登录页，核验止于公开层。语法教程显示7条评论，当前可见两条顶层评论及一条作者回复。环境教程显示10条评论，当前可见两条顶层评论。作者主页显示投稿8，同时视频区域显示空状态，完整投稿列表待核实。部分播放器标签出现DOMSnapshot.captureSnapshot、CDP或Emulation.setFocusEmulationEnabled超时，按工具文档在同一公开网页浏览器新页恢复；图文事实和清晰度限制分别记录。",
+    "status": "旧Issue #4线索推进；本轮保留待核实候选，目录新增数0。",
+    "next_step": "优先取得原作者的可公开阅读语法手册、中文源码或清晰代码图；核对如意III的连续程序和文本保存格式；取得REIDE至如意III的作者版本说明后判断别名关系。",
+    "verified_at": "2026-10-10",
+    "references": [
+      {
+        "title": "如意III v1.2测试版原片与实现路线自述",
+        "url": "https://www.bilibili.com/video/BV1GC4y1k7E8/"
+      },
+      {
+        "title": "作者教程：环境搭建与Visual Studio 2019转译链",
+        "url": "https://www.bilibili.com/video/BV1M2421A7zW/"
+      },
+      {
+        "title": "作者教程：语法定义、封装及流程结构与公开回复",
+        "url": "https://www.bilibili.com/video/BV1Rj421U7W7/"
+      },
+      {
+        "title": "同账号2020年REIDE中文C++演示",
+        "url": "https://www.bilibili.com/video/BV1WD4y1X766/"
+      },
+      {
+        "title": "jjh345公开主页",
+        "url": "https://space.bilibili.com/449120289"
+      }
+    ]
+  },
+  {
+    "name": "中文GO语言代码编辑器（唐姝）",
+    "source_issue": "https://github.com/yuyan-lang/chinese-programming-languages/issues/27",
+    "source_url": "https://www.bilibili.com/video/BV19F5k6VEED/",
+    "title": "【整活】中文GO语言代码编辑器",
+    "author": "唐姝，Bilibili UID28695954",
+    "author_url": "https://space.bilibili.com/28695954",
+    "publication": "沿用第八轮原站video:release_date=2026-05-16T02:24:19.000Z；北京时间2026-05-16 10:24:19。本轮初始公开页面再次显示相同北京时间。",
+    "duration_seconds": 192,
+    "category": "Go代码中文映射／编辑器中间层翻译工具候选",
+    "evidence": "本轮重读原作者简介，确认使用编辑器目录中的JSON翻译映射文件，支持Go原文、拼音及拼音缩写补全；作者介绍把翻译文档规则交给AI处理。选集保留P1中文代码编辑器03:12和P2视窗界面拖拽式设计器01:48。P1约00:06全屏可见中文编辑区、文件列表和终端。",
+    "code": "",
+    "code_context": "本轮00:06附近画面中字形仍不足以可靠转录完整连续程序。通过公开播放器定位01:08后，暂停操作发生Input.dispatchMouseEvent超时；该时间点仅确认播放器定位状态，实际相应代码画面继续待核实。",
+    "implementation_claims": "作者自称编辑器中间层翻译，使用JSON映射，声称可直接使用现有Go库。保存文件的实际内容、中文显示层与英文源文件之间的边界、翻译时机、词法／解析方式和编译链待核实。",
+    "ai_involvement": "作者简介说明用AI翻译映射文档规则。AI参与运行或编辑器开发的具体范围待核实。",
+    "source_status": "原片及作者说明本轮可读；源码仓库、原始映射JSON、发行物与许可证入口待核实。",
+    "relations": "与固定基线64项目录按名称、作者、别名和原BV去重；本项继续归入旧Issue #27。与其他Go中文前端、显示插件或同类工具的同源关系待核实。",
+    "status": "旧Issue #27线索复核；本轮保留待核实候选，目录新增数0。",
+    "next_step": "在公开播放器稳定或作者提供静态示例后，逐字转录连续中文程序，核对保存文件、Go原文与中文映射边界，再判断百科分类。",
+    "independent_verification": "本轮只读核对原片简介、作者UID、选集与早期代码画面；独立构建和执行待核实。",
+    "access_note": "原页正文及00:06附近画面可取得；01:08定位后的暂停操作返回Input.dispatchMouseEvent timed out。依据本轮范围约束保存缺口后，将核验时间转给如意III。",
+    "verified_at": "2026-10-10",
+    "references": [
+      {
+        "title": "中文Go原作者视频与中间层翻译说明",
+        "url": "https://www.bilibili.com/video/BV19F5k6VEED/"
+      },
+      {
+        "title": "第八轮已保存候选证据",
+        "url": "https://github.com/yuyan-lang/chinese-programming-languages/blob/d4b23b6fb82c695a34f600582a4fa6399c44fb89/research/2026-10-10/round-8-bilibili-pending.json"
+      }
+    ]
+  }
+]

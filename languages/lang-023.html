@@ -1,13 +1,31 @@
 <!doctype html>
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>基石｜中文编程语言百科</title><link rel="stylesheet" href="../style.css"></head><body><header><h1>基石</h1></header><main><p><a href="../">返回语言目录</a></p>
-<h2>语言介绍</h2><p>【语言】以中文关键字表达控制流、函数、对象与模块的语言，提供原生工具链和浏览器WASM运行入口。</p>
-<h2>分类与别名</h2><p>语言；别名：jishi、JISHI</p>
-<h2>作者与首次公开</h2><p>benxiaoniao（账号；实名待核实）。仓库创建 2026-09-05；语言首次公开发布日期待核实</p>
-<h2>设计与特征</h2><p>中文语法／关键字；有公开实现源码</p>
-<h2>中文语法示例</h2><pre><code>循环 10 次：
-    令 猜测 = 整数(输入(&quot;猜一个 1-100 的数：&quot;))</code></pre><p>原始资料短摘录，用于展示中文语法；未在本轮执行，不保证单独运行。 <a href="https://github.com/benxiaoniao/JISHI/blob/491733465dadd79fa82cbf9fb01b60ee2ddf214c/README.md">示例来源</a></p>
-<h2>实现与运行环境</h2><p>当前正式实现Rust前端、Rust字节码VM与C VM；Python/Node实现已退役为参考判据。核对Rust Cargo清单。</p>
-<h2>版本与维护状态</h2><p>0.2.2（README，2026-10-09）；已有源码；未在本次研究中编译或执行</p>
-<h2>与其他项目的关系</h2><p>不要依据仓库主语言Python误记当前实现；README明确2026-10-08退役旧Python/Node分发。</p>
-<h2>核验说明</h2><p>2026-10-09只读核验。0星，非fork；最后推送2026-10-09T14:37:47Z。日期为仓库创建不代表首发。功能、性能、通过测试数量未独立复测。</p>
-<h2>参考资料</h2><ul><li><a href="https://github.com/benxiaoniao/JISHI/blob/491733465dadd79fa82cbf9fb01b60ee2ddf214c/README.md">项目README（核验快照）</a></li><li><a href="https://github.com/benxiaoniao/JISHI/blob/491733465dadd79fa82cbf9fb01b60ee2ddf214c/rust/Cargo.toml">实现或样例证据</a></li><li><a href="https://api.github.com/repos/benxiaoniao/JISHI">仓库元数据</a></li></ul><p>资料核验日期：2026-10-09</p><p><a href="https://github.com/yuyan-lang/chinese-programming-languages/issues/new">补充资料或纠错</a></p></main><footer>站点由<a href="https://yuyan-lang.org/">豫言编程语言</a>提供</footer></body></html>
+<h2>语言介绍</h2><p>【语言】基石以“令、如果、循环、函数、返回、类”等中文关键字和缩进组织程序，源码使用.jsh扩展名。语言提供分支、循环、函数与闭包、类与继承、异常、模块和中文标准库，并配有命令行、交互环境、编辑器协议及浏览器试玩入口。当前发行工具链由Rust前端将源码解析为AST，再编译为字节码，交给Rust虚拟机执行；仓库同时保留独立C栈式虚拟机。Python与Node实现自2026年10月8日起归入oracle参考与一致性检验链。浏览器版复用Rust前端和虚拟机并编译为WebAssembly。作者在README声明使用大模型协助开发；语言卡、结构化报错和MCP属于其面向AI工具的接口。项目采用MIT-0许可，v0.2.2已提供Windows、Linux及macOS发行物。</p>
+<h2>分类与别名</h2><p>语言；别名：jishi；JISHI</p>
+<h2>作者与公开历史</h2><p>陈柏林（公开提交及发布脚本署名；GitHub：benxiaoniao）</p><p>2026-09-05（CHANGELOG标注v0.1.0为首个对外发行版；仓库于当日01:30:49Z创建）；首发原始公告与v0.1.0发行物待核实</p>
+<h2>设计与特征</h2><p>中文关键字、缩进代码块与全角标点归一化；函数、闭包、类继承、异常与模块；Rust前端、Rust字节码虚拟机及原生标准库；独立C栈式虚拟机与公开宿主回调ABI；CLI、REPL、LSP、树遍历调试器及MCP接口；复用Rust引擎的WebAssembly浏览器入口；有公开实现源码及三平台发行包</p>
+<h2>中文语法示例</h2><pre><code># 猜数字小游戏 —— 基石语言第一个完整程序
+# 运行：jishi examples/01_猜数字.jsh
+
+导入 随机
+
+令 答案 = 随机.随机整数(1, 100)
+打印(&quot;我想好了一个 1 到 100 之间的数，你来猜！&quot;)
+
+循环 10 次：
+    令 猜测 = 整数(输入(&quot;猜一个数：&quot;))
+
+    如果 猜测 &lt; 答案：
+        打印(&quot;太小了，再大一点&quot;)
+    否则如果 猜测 &gt; 答案：
+        打印(&quot;太大了，再小一点&quot;)
+    否则：
+        打印(&quot;恭喜你，猜对了！答案就是&quot;, 答案)
+        中断
+
+打印(&quot;游戏结束，答案是&quot;, 答案)</code></pre><p>固定提交examples/01_猜数字.jsh完整原例，展示模块导入、中文循环次数、条件分支和中断。按原文件保留代码与说明；本轮采用静态资料核验，运行结果待独立验证。 <a href="https://github.com/benxiaoniao/JISHI/blob/65bb012c1c5a07e21a081b4d33cc88f5ecc046cc/examples/01_%E7%8C%9C%E6%95%B0%E5%AD%97.jsh">示例来源</a></p>
+<h2>实现与运行环境</h2><p>正式发行的jishi命令来自rust/Cargo.toml的jishi-rs二进制。rust/src/main.rs把普通文件交给run::main_cli；run.rs读取源码，调用jishi_frontend::parser::parse、compiler::compile_program、serialize::dump_json，再以load_module载入Rust VM并调用vm.run。frontend/src/tokenizer.rs保存中文关键字表；Rust树遍历参考执行器由--walk入口及调试链使用。cvm/src/jsvm.c实现独立C栈式VM，cvm/include/jsvm.h公开ABI v2及JsHost回调；oracle/jishi/cvm_bind.py提供ctypes加载、扁平字节码转换和Python宿主回调，examples/embed/hello.c展示C宿主加载常量字节码。发行脚本及Release工作流采用--engine rust，cargo产物改名为jishi。Python／Node参考实现位于oracle/jishi与oracle/node。wasm crate复用jishi-ffi及jishi-frontend，通过裸C ABI和手写JS胶水运行同步沙箱，采用循环步数预算。</p>
+<h2>版本与维护状态</h2><p>v0.2.2（正式Release发布于2026-10-10 15:55:49 UTC，标签指向65bb012c1c5a07e21a081b4d33cc88f5ecc046cc）；CHANGELOG版本日期为2026-10-09。frontend crate为0.2.2，jishi-ffi与jishi-wasm crate各为0.1.0，分别记录组件编号</p><p>源码、WebAssembly入口及三平台发行物已公开；本轮完成原始资料与调用链只读核验，独立构建、程序执行、安装包内容校验和性能复现待核实</p>
+<h2>与其他项目的关系</h2><p>当前项目由Python参考实现逐步迁移为Rust前端与宿主，保留C VM；2026-10-08退役Python／Node分发，2026-10-09完成0.2.2文档阶段。公开仓库采用单次孤儿快照发布，master当前根提交日期表示本次快照日期。README部分架构段、rust/README.md及嵌入示例说明保留早期阶段描述，当前执行与ABI字段以固定源码、发行脚本和发布记录交叉核定。</p>
+<h2>核验说明</h2><p>2026-10-10只读核验，固定master及v0.2.2标签为65bb012c1c5a07e21a081b4d33cc88f5ecc046cc，提交署名陈柏林、日期2026-10-10 14:24:59 UTC。保留此前3条参考。完整猜数字程序逐字取自examples/01_猜数字.jsh。根LICENSE为MIT No Attribution（MIT-0），CHANGELOG在0.2.0节记录由Unlicense调整为MIT-0。README的作者声明确认大模型辅助开发，具体模型与生成比例待核实；已核对执行入口为本地词法、语法、字节码和VM处理，AI相关代码提供语言元数据、结构化结果和MCP调用接口。Rust调试入口当前支持树遍历执行器；C VM的保留状态与Rust发行默认执行链分别记录。README的3404项测试、跨引擎一致性及速度倍数属于项目自述，独立复现待核实。v0.1.0日期有当前CHANGELOG回溯陈述；该版本原始发行物与更早公开记录待核实。</p>
+<h2>参考资料</h2><ul><li><a href="https://github.com/benxiaoniao/JISHI/blob/491733465dadd79fa82cbf9fb01b60ee2ddf214c/README.md">项目README（核验快照）</a></li><li><a href="https://github.com/benxiaoniao/JISHI/blob/491733465dadd79fa82cbf9fb01b60ee2ddf214c/rust/Cargo.toml">实现或样例证据</a></li><li><a href="https://api.github.com/repos/benxiaoniao/JISHI">仓库元数据</a></li><li><a href="https://github.com/benxiaoniao/JISHI/blob/65bb012c1c5a07e21a081b4d33cc88f5ecc046cc/README.md">当前README：Rust／C实现、Python／Node退役及大模型协助声明</a></li><li><a href="https://github.com/benxiaoniao/JISHI/blob/65bb012c1c5a07e21a081b4d33cc88f5ecc046cc/examples/01_%E7%8C%9C%E6%95%B0%E5%AD%97.jsh">完整中文原例：猜数字</a></li><li><a href="https://github.com/benxiaoniao/JISHI/blob/65bb012c1c5a07e21a081b4d33cc88f5ecc046cc/rust/src/run.rs#L136-L206">Rust源码执行入口：解析、编译、载入与VM运行</a></li><li><a href="https://github.com/benxiaoniao/JISHI/blob/65bb012c1c5a07e21a081b4d33cc88f5ecc046cc/rust/src/main.rs#L397-L538">Rust CLI、树遍历与调试入口</a></li><li><a href="https://github.com/benxiaoniao/JISHI/blob/65bb012c1c5a07e21a081b4d33cc88f5ecc046cc/rust/src/lib.rs#L1805-L1875">Rust虚拟机执行循环</a></li><li><a href="https://github.com/benxiaoniao/JISHI/blob/65bb012c1c5a07e21a081b4d33cc88f5ecc046cc/frontend/src/tokenizer.rs#L20-L32">Rust前端中文关键字表</a></li><li><a href="https://github.com/benxiaoniao/JISHI/blob/65bb012c1c5a07e21a081b4d33cc88f5ecc046cc/rust/Cargo.toml">当前Rust宿主Cargo配置</a></li><li><a href="https://github.com/benxiaoniao/JISHI/blob/65bb012c1c5a07e21a081b4d33cc88f5ecc046cc/frontend/Cargo.toml">前端组件0.2.2与许可</a></li><li><a href="https://github.com/benxiaoniao/JISHI/blob/65bb012c1c5a07e21a081b4d33cc88f5ecc046cc/cvm/include/jsvm.h">C虚拟机公开ABI v2与宿主接口</a></li><li><a href="https://github.com/benxiaoniao/JISHI/blob/65bb012c1c5a07e21a081b4d33cc88f5ecc046cc/cvm/src/jsvm.c">C虚拟机实现</a></li><li><a href="https://github.com/benxiaoniao/JISHI/blob/65bb012c1c5a07e21a081b4d33cc88f5ecc046cc/oracle/jishi/cvm_bind.py">C虚拟机Python参考绑定与回调</a></li><li><a href="https://github.com/benxiaoniao/JISHI/blob/65bb012c1c5a07e21a081b4d33cc88f5ecc046cc/examples/embed/hello.c">C宿主字节码嵌入原例</a></li><li><a href="https://github.com/benxiaoniao/JISHI/blob/65bb012c1c5a07e21a081b4d33cc88f5ecc046cc/tools/build_release.py#L187-L308">Rust发行包构建：cargo产物改名jishi</a></li><li><a href="https://github.com/benxiaoniao/JISHI/blob/65bb012c1c5a07e21a081b4d33cc88f5ecc046cc/.github/workflows/release.yml">正式Release工作流：三平台及--engine rust</a></li><li><a href="https://github.com/benxiaoniao/JISHI/blob/65bb012c1c5a07e21a081b4d33cc88f5ecc046cc/wasm/src/lib.rs">WebAssembly入口与步数预算</a></li><li><a href="https://github.com/benxiaoniao/JISHI/blob/65bb012c1c5a07e21a081b4d33cc88f5ecc046cc/wasm/Cargo.toml">WebAssembly组件与依赖</a></li><li><a href="https://github.com/benxiaoniao/JISHI/blob/65bb012c1c5a07e21a081b4d33cc88f5ecc046cc/CHANGELOG.md">当前变更记录：首发、许可调整与实现迁移</a></li><li><a href="https://github.com/benxiaoniao/JISHI/blob/65bb012c1c5a07e21a081b4d33cc88f5ecc046cc/LICENSE">MIT-0许可证全文</a></li><li><a href="https://github.com/benxiaoniao/JISHI/blob/65bb012c1c5a07e21a081b4d33cc88f5ecc046cc/tools/publish_github.py#L1-L72">公开快照发布方式与作者署名</a></li><li><a href="https://github.com/benxiaoniao/JISHI/releases/tag/v0.2.2">v0.2.2正式发行及下载资产</a></li><li><a href="https://api.github.com/repos/benxiaoniao/JISHI/releases/tags/v0.2.2">v0.2.2发行元数据及精确发布时间</a></li><li><a href="https://api.github.com/repos/benxiaoniao/JISHI/git/ref/tags/v0.2.2">v0.2.2标签固定提交</a></li><li><a href="https://github.com/benxiaoniao/JISHI/commit/65bb012c1c5a07e21a081b4d33cc88f5ecc046cc">当前公开快照提交署名与时间</a></li></ul><p>资料核验日期：2026-10-10</p><p><a href="https://github.com/yuyan-lang/chinese-programming-languages/issues/new">补充资料或纠错</a></p></main><footer>站点由<a href="https://yuyan-lang.org/">豫言编程语言</a>提供</footer></body></html>

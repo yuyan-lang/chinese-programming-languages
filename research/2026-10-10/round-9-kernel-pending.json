@@ -1,0 +1,206 @@
+[
+  {
+    "id": "bianjubenben-ai-rust-os",
+    "name": "未定名 AI Rust 操作系统（编剧笨笨）",
+    "aliases": [],
+    "checked_at": "2026-10-10",
+    "selection_status": "待核实",
+    "discovery_round": 9,
+    "short_description": "B站账号编剧笨笨于2026年9月发布的实验操作系统线索。作者自述使用AI与Rust开发，公布图形界面、字体和引导器方面的更新；项目正式名称、自身内核实现、源码与版本资料待核实。",
+    "author": {
+      "people": [
+        {
+          "handle": "编剧笨笨",
+          "bilibili_uid": "595021134",
+          "bilibili_url": "https://space.bilibili.com/595021134/"
+        }
+      ],
+      "attribution": {
+        "text": "两条已读取原片均由编剧笨笨发布；2026-09-25简介以第一人称说明边学习边开发。",
+        "evidence_level": "作者声明",
+        "source_ids": [
+          "ai1",
+          "ai2"
+        ]
+      },
+      "china_basis": {
+        "text": "2026-09-25原视频使用“国产”标签，标题与简介将项目称为中国AI开发的操作系统。该记录作为作者公开归属声明保存。",
+        "evidence_level": "作者声明",
+        "source_ids": [
+          "ai1"
+        ]
+      }
+    },
+    "kernel_positioning": {
+      "text": "作者将其称为AI编写的Rust操作系统。当前所取得资料层级为作者原片发布说明；独立内核、固件服务、现有内核与界面层之间的实际关系待核实。",
+      "evidence_level": "作者声明",
+      "source_ids": [
+        "ai1",
+        "ai2"
+      ]
+    },
+    "dates": {
+      "first_public": {
+        "date": null,
+        "status": "待核实",
+        "known_public_record": "2026-09-25的作者原视频",
+        "source_ids": [
+          "ai1"
+        ]
+      }
+    },
+    "architectures": [
+      {
+        "text": "处理器体系结构待核实。",
+        "evidence_level": "待核实",
+        "source_ids": []
+      }
+    ],
+    "capabilities": {
+      "boot": [
+        {
+          "text": "2026-09-29简介自述将基本硬件识别功能放入bootloader。",
+          "evidence_level": "作者声明",
+          "source_ids": [
+            "ai2"
+          ]
+        }
+      ],
+      "scheduling": [],
+      "memory": [],
+      "filesystem": [],
+      "drivers": [],
+      "graphics": [
+        {
+          "text": "2026-09-25简介自述多语言显示与主题支持；2026-09-29简介记述矢量字体、矢量图标及GUI资源占用、脏区与配色调整。",
+          "evidence_level": "作者声明",
+          "source_ids": [
+            "ai1",
+            "ai2"
+          ]
+        }
+      ]
+    },
+    "implementation_languages": [
+      {
+        "text": "作者原片标题与简介自述使用Rust和AI完成。具体模型、代码范围与实现源码待核实。",
+        "evidence_level": "作者声明",
+        "source_ids": [
+          "ai1"
+        ]
+      }
+    ],
+    "project_relationships": [
+      {
+        "text": "两条原片出自同一作者，2026-09-29页面推荐同作者的2026-09-25视频与扫雷应用视频。项目名称、源码关联、上游内核、引导组件及版本沿革待核实。",
+        "evidence_level": "作者发布页",
+        "source_ids": [
+          "ai1",
+          "ai2",
+          "ai3"
+        ]
+      }
+    ],
+    "status": {
+      "latest_formal_release": {
+        "version": null,
+        "status": "待核实"
+      },
+      "source_snapshot": {
+        "commit": null,
+        "status": "待核实"
+      },
+      "license": {
+        "name": null,
+        "status": "待核实"
+      },
+      "runtime_verification": {
+        "status": "待核实",
+        "scope": "本轮核对原片页面、账号、日期及作者简介。2026-09-29播放器读到00:13，截图为黑色区域，可靠功能画面时间点待核实；后续部分页面读取超时。",
+        "author_claim": {
+          "text": "2026-09-29简介自述完成24小时空载稳定性测试。",
+          "evidence_level": "作者声明",
+          "source_ids": [
+            "ai2"
+          ]
+        }
+      }
+    },
+    "video_observations": [],
+    "links": {
+      "video_channel": {
+        "url": "https://space.bilibili.com/595021134/",
+        "source_ids": [
+          "ai1",
+          "ai2"
+        ]
+      },
+      "individual_video": {
+        "url": "https://www.bilibili.com/video/BV1Thh264EtM/",
+        "published_date": "2026-09-25",
+        "evidence": "原视频标题、作者、日期、国产标签和简介已核对。"
+      },
+      "related_videos": [
+        {
+          "url": "https://www.bilibili.com/video/BV1oZap6CE8X/",
+          "published_date": "2026-09-29",
+          "purpose": "大更新原视频，作者、日期和更新简介已核对。"
+        },
+        {
+          "url": "https://www.bilibili.com/video/BV1hwYA65EqL/",
+          "published_date": null,
+          "purpose": "同作者扫雷应用原片入口，来自推荐位；原片日期与内容待核实。"
+        }
+      ]
+    },
+    "pending_verification": [
+      "项目正式名称与历史别名",
+      "自身内核、引导器、固件服务和图形界面的实现边界",
+      "公开源码、固定版本、处理器架构与核心实现",
+      "上游组件、第三方许可与项目许可",
+      "原片功能画面、可靠时间点与版本对应",
+      "独立构建、运行和作者稳定性声明",
+      "AI参与范围、模型与原始开发记录"
+    ],
+    "sources": [
+      {
+        "id": "ai1",
+        "title": "编剧笨笨的AI Rust操作系统原片（2026-09-25）",
+        "url": "https://www.bilibili.com/video/BV1Thh264EtM/",
+        "kind": "作者原视频发布页",
+        "supports": [
+          "作者身份",
+          "日期",
+          "国产自述",
+          "AI与Rust声明"
+        ]
+      },
+      {
+        "id": "ai2",
+        "title": "同作者的大更新原片（2026-09-29）",
+        "url": "https://www.bilibili.com/video/BV1oZap6CE8X/",
+        "kind": "作者原视频发布页",
+        "supports": [
+          "字体图标与bootloader更新声明",
+          "作者稳定性声明",
+          "关联原片入口"
+        ]
+      },
+      {
+        "id": "ai3",
+        "title": "同作者扫雷应用视频入口",
+        "url": "https://www.bilibili.com/video/BV1hwYA65EqL/",
+        "kind": "原片推荐位链接",
+        "supports": [
+          "后续核验入口"
+        ]
+      }
+    ],
+    "research_notes": [
+      "标题的“第一个”“高性能”“全功能”按宣传语处理，项目介绍仅记录可分层核实的内容。",
+      "原片发布日按日历日期保存，页面时分秒的时区待核实。",
+      "本轮正式候选为TextOS；本项目保留1组新待核实线索。"
+    ],
+    "source_issue": "https://github.com/yuyan-lang/chinese-programming-languages/issues/29"
+  }
+]
