@@ -1,15 +1,30 @@
 <!doctype html>
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>将军令｜中文编程语言百科</title><link rel="stylesheet" href="../style.css"></head><body><header><h1>将军令</h1></header><main><p><a href="../">返回语言目录</a></p>
-<h2>语言介绍</h2><p>【实验解释型语言】用“令”“策”“若…则”“访…于”“报”等中文关键字表达程序的实验语言。</p>
-<h2>分类与别名</h2><p>实验解释型语言；别名：jiangjunling-lang</p>
-<h2>作者与首次公开</h2><p>jiangjun-ling组织；个人作者待核实。仓库创建 2025-11-12；语言首次公开发布日期待核实</p>
-<h2>设计与特征</h2><p>中文语法／关键字；有公开实现源码</p>
+<h2>语言介绍</h2><p>将军令是将军令项目组发布的中文语法实验语言，早期介绍以中式军事指挥思想组织命名，希望为中文母语者提供直观的编程学习体验。程序使用.jl后缀，以“令”声明变量、“策”定义函数、“策行”调用函数、“令行”赋值，并用“报”输出、“若…则”表达条件、“访…于”遍历集合、“返”给出返回值。代码块由缩进组织，词法器识别中文标识符以及中英文冒号、逗号。项目使用Python编写专门的词法分析器、语法分析器、抽象语法树和遍历式解释器；数值、字符串、列表和函数经运行环境求值。命令入口提供文件运行、交互模式及帮助，仓库保存基础语法、控制流和函数三份中文示例。当前定位为实验版本，算术和比较运算处于同一解析层，部分条件、返回传播和样例语法的衔接继续核实。</p>
+<h2>分类与别名</h2><p>中文语法实验语言／独立AST解释器；别名：jiangjunling-lang</p>
+<h2>作者与公开历史</h2><p>将军令项目组（GitHub组织jiangjun-ling）；现存5次提交作者账号均为z200215，MIT版权署名为2025 jiangjun-ling。自然人实名及具体设计分工待核实。</p><p>仓库创建：2025-11-12T06:02:46Z。可达根提交5ccf22ed85c7599d56ff9b9ae911760bb09583d2同为2025-11-12T06:02:46Z，保存README与LICENSE。首次源码上传：59405d4c7ec6c4f0928a7c91d799178519bc330e，2025-11-12T06:39:38Z。首次对外公告与设为公开的时间待核实。</p>
+<h2>设计与特征</h2><p>.jl中文源码与缩进代码块；中文声明、赋值、函数、条件、遍历及返回关键字；中文标识符及中英文冒号、逗号；自有词法器、语法分析器与AST节点；数值、字符串、列表及报／长度／类型／范围内置函数；文件运行与单行交互入口；MIT许可证原件</p>
 <h2>中文语法示例</h2><pre><code>若 年龄 &gt;= 18 则：
     报 姓名 + &quot;是成年人&quot;
 否则：
-    报 姓名 + &quot;是未成年人&quot;</code></pre><p>固定提交原文的连续条件分支摘录；依赖原示例前文已声明的年龄、姓名，不作为独立完整程序。 <a href="https://github.com/jiangjun-ling/jiangjunling-lang/blob/72943b33184bc4bab505c787bc3c29e022e2ceb3/%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95.jl">示例来源</a></p>
-<h2>实现与运行环境</h2><p>Python实现中文命名词法分析器、语法分析器、AST和解释器；有.jl样例。</p>
-<h2>版本与维护状态</h2><p>实验版本；具体版本待核实；已有源码；未在本次研究中编译或执行</p>
-<h2>与其他项目的关系</h2><p>未发现与其他项目继承关系。</p>
-<h2>核验说明</h2><p>2026-10-09只读核验。0星，非fork；最后推送2025-11-12T06:59:12Z。日期为仓库创建不代表首发。功能、性能、通过测试数量未独立复测。 2026-10-09源码摘录QA：按固定提交重新读取核验，已改为单段连续原文，未拼接变量声明。</p>
-<h2>参考资料</h2><ul><li><a href="https://github.com/jiangjun-ling/jiangjunling-lang/blob/72943b33184bc4bab505c787bc3c29e022e2ceb3/README.md">项目README（核验快照）</a></li><li><a href="https://github.com/jiangjun-ling/jiangjunling-lang/blob/72943b33184bc4bab505c787bc3c29e022e2ceb3/%E8%AF%8D%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8.py">实现或样例证据</a></li><li><a href="https://api.github.com/repos/jiangjun-ling/jiangjunling-lang">仓库元数据</a></li><li><a href="https://github.com/jiangjun-ling/jiangjunling-lang/blob/72943b33184bc4bab505c787bc3c29e022e2ceb3/%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95.jl">中文示例</a></li></ul><p>资料核验日期：2026-10-09</p><p><a href="https://github.com/yuyan-lang/chinese-programming-languages/issues/new">补充资料或纠错</a></p></main><footer>站点由<a href="https://yuyan-lang.org/">豫言编程语言</a>提供</footer></body></html>
+    报 姓名 + &quot;是未成年人&quot;
+</code></pre><p>固定基础语法.jl第17—20行连续条件分支原文，保留4空格缩进、CRLF换行和第20行行末换行。依赖原文件第5—8行声明的姓名与年龄；完整原件为55行、1169字节。代码文本、字节数与Git blob SHA已核，执行结果待独立验证。 <a href="https://github.com/jiangjun-ling/jiangjunling-lang/blob/72943b33184bc4bab505c787bc3c29e022e2ceb3/%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95.jl#L17-L20">示例来源</a></p>
+<h2>实现与运行环境</h2><p>根目录main.py以UTF-8读取文件，串接将军令词法分析器.分析→将军令语法分析器.解析程序→将军令解释器.解释。词法器逐行计算缩进，生成INDENT／DEDENT和带行列信息的令牌；解析器按语句和表达式递归构造自有AST。解释器按节点类型分派，变量与函数存入字典，查询沿父环境链进行；用户函数创建以调用环境为父级的子环境。内置函数登记报、长度、类型、范围。二元表达式在同一层从左向右组合，括号显式分组。交互入口复用解释器的全局环境。</p>
+<h2>版本与维护状态</h2><p>仓库描述和早期README自称实验版本，数字版本号待核实。固定main为72943b33184bc4bab505c787bc3c29e022e2ceb3；2026-10-10读取Releases与标签引用均为空列表，正式发行日期待核实。根目录LICENSE为MIT，版权署名Copyright (c) 2025 jiangjun-ling。</p><p>公开源码与MIT许可证可读；GitHub元数据archived=false，当前main最后提交为2025-11-12T06:59:12Z。项目自述实验版本，后续维护计划、独立运行和测试结果待核实。</p>
+<h2>与其他项目的关系</h2><p>README、.jl原例、main.py入口和MIT署名形成将军令项目资料链。2025-11-12的历史README曾将jiangjun-ling/lang标为语言核心主仓库，该路径本轮API返回404；具体迁移和代码同源关系待核实。GitHub元数据fork=false；Python是实现语言，与其他中文解释器的源码继承关系待核实。</p>
+<h2>核验说明</h2><p>2026-10-10只读核验。固定头与原参考相同，完整树含19个文件；源码主体于59405d4c7ec6c4f0928a7c91d799178519bc330e首次上传。否则若生成ELIF，条件解析分支递归调用期待IF的方法，令牌衔接待核实。用户函数在顶层RETURN节点终止，条件解释返回None，嵌套返回的控制流传播待核实。样例中的裸赋值、且和列表索引与当前解析规则的对应关系待核实。README示例指向示例/目录，main.py测试分支导入测试.测试套件，固定树将样例和测试套件.py平铺根目录，文档路径与测试入口衔接待核实。语言规范.md、贡献指南.md、requirements.txt和__init__.py为零字节文件。AI参与证据待核实。原有4条参考标题和URL完整保留；code按固定原件连续截取并保留CRLF。</p>
+<h2>参考资料</h2><ul><li><a href="https://github.com/jiangjun-ling/jiangjunling-lang/blob/72943b33184bc4bab505c787bc3c29e022e2ceb3/README.md">项目README（核验快照）</a></li>
+<li><a href="https://github.com/jiangjun-ling/jiangjunling-lang/blob/72943b33184bc4bab505c787bc3c29e022e2ceb3/%E8%AF%8D%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8.py">实现或样例证据</a></li>
+<li><a href="https://api.github.com/repos/jiangjun-ling/jiangjunling-lang">仓库元数据</a></li>
+<li><a href="https://github.com/jiangjun-ling/jiangjunling-lang/blob/72943b33184bc4bab505c787bc3c29e022e2ceb3/%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95.jl">中文示例</a></li>
+<li><a href="https://github.com/jiangjun-ling/jiangjunling-lang/blob/72943b33184bc4bab505c787bc3c29e022e2ceb3/main.py">文件运行、交互与测试调度实际入口</a></li>
+<li><a href="https://github.com/jiangjun-ling/jiangjunling-lang/blob/72943b33184bc4bab505c787bc3c29e022e2ceb3/%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8.py">中文语句解析与单层二元表达式</a></li>
+<li><a href="https://github.com/jiangjun-ling/jiangjunling-lang/blob/72943b33184bc4bab505c787bc3c29e022e2ceb3/%E6%8A%BD%E8%B1%A1%E8%AF%AD%E6%B3%95%E6%A0%91.py">自有AST节点定义</a></li>
+<li><a href="https://github.com/jiangjun-ling/jiangjunling-lang/blob/72943b33184bc4bab505c787bc3c29e022e2ceb3/%E8%A7%A3%E9%87%8A%E5%99%A8.py">AST解释、环境与函数返回处理</a></li>
+<li><a href="https://github.com/jiangjun-ling/jiangjunling-lang/blob/72943b33184bc4bab505c787bc3c29e022e2ceb3/LICENSE">MIT许可证原件与版权署名</a></li>
+<li><a href="https://github.com/jiangjun-ling/jiangjunling-lang/commit/5ccf22ed85c7599d56ff9b9ae911760bb09583d2">根提交：项目简介与许可证</a></li>
+<li><a href="https://github.com/jiangjun-ling/jiangjunling-lang/commit/59405d4c7ec6c4f0928a7c91d799178519bc330e">词法、语法、解释器与原例首次上传</a></li>
+<li><a href="https://github.com/jiangjun-ling/jiangjunling-lang/blob/7ee2a789ae3ad74642bd79b7a626167ba30702ba/README.md">历史README：军事命名思想与核心仓库指向</a></li>
+<li><a href="https://github.com/jiangjun-ling/jiangjunling-lang/tree/72943b33184bc4bab505c787bc3c29e022e2ceb3">固定完整文件树及平铺源码布局</a></li>
+<li><a href="https://github.com/jiangjun-ling/jiangjunling-lang/releases">公开发行列表</a></li>
+<li><a href="https://api.github.com/repos/jiangjun-ling/jiangjunling-lang/git/matching-refs/tags">标签引用列表</a></li></ul><p>资料核验日期：2026-10-10</p><p><a href="https://github.com/yuyan-lang/chinese-programming-languages/issues/new">补充资料或纠错</a></p></main><footer>站点由<a href="https://yuyan-lang.org/">豫言编程语言</a>提供</footer></body></html>

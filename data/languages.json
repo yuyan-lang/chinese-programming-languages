@@ -1959,19 +1959,22 @@
   {
     "name": "PythonCN",
     "aliases": [],
-    "category": "Python 关键字翻译层",
-    "author": "PythonDeveloper29042（源码@author）",
-    "first_publication": "仓库创建 2025-05-12；语言首次公开发布日期待核实",
-    "description": "【Python 关键字翻译层】极小型中文Python关键词与标点替换实现。",
+    "category": "Python中文关键字与全角字符转译层",
+    "author": "GitHub账号PythonDeveloper29042；compiler.py的@author与两次Git提交署名一致。作者实名待核实。",
+    "first_publication": "仓库创建：2025-05-12T10:18:19Z。可达根提交：37eca6d525916c38b98c6bce63541963476cfe08，2025-05-12T10:18:21Z，加入双语README、编译脚本和中文原例。首次对外公开日期及更早发布材料待核实。",
+    "description": "PythonCN是PythonDeveloper29042发布的中文Python语法实验，面向希望使用中文关键字学习编程的初学者。源码以.pycn保存，采用Python式缩进，并提供“如果、否则、函数、返回、导入”等名称映射，以及“输出、输入、整数、字符串”等内置函数别名。项目还将全角空格、标点、引号和数字转换为半角字符，原例展示中文输入和条件分支。实际实现集中于一个Python脚本：命令行读取文件，依字典顺序对全文进行字符串替换，写入temp.py，再调用系统中的python执行。语言的表达式、类型及运行语义由Python承担。仓库提供中英文说明和一份中文示例；编辑器插件、IDE、Gitee发布及库适配列为作者后续计划。当前材料适合研究轻量中文转译方案，整词识别、替换顺序、示例输入类型和跨平台运行情况继续核实。",
     "features": [
-      "中文语法／关键字",
-      "有公开实现源码"
+      ".pycn中文源文件与Python式缩进",
+      "中文条件、函数、导入及内置名称映射",
+      "全角空格、标点、引号及数字转换",
+      "单文件文本转译与temp.py输出",
+      "系统python命令执行入口"
     ],
     "code": "如果　数　％　２　＝＝　０：\n　　　　输出（字符串（数）＋＂为一个偶数＂）\n否则：\n　　　　输出（字符串（数）＋＂为一个奇数＂）",
-    "implementation": "compiler.py依字典逐项str.replace替换后写temp.py并调用python；非独立解析器。",
-    "status": "已有源码；未在本次研究中编译或执行",
-    "version": "待核实",
-    "relations": "Python翻译层；与中蟒/草蟒/其他ChinesePython不可凭同名合并。",
+    "implementation": "compiler.py的main以UTF-8读取输入文件，调用compile_code；translate_code依次遍历合并后的builtins、keywords与symbols词表，对全文调用str.replace。compile_code写出UTF-8的temp.py，再经os.system(\"python temp.py\")交给系统Python解释器。转换范围涵盖字符串、注释及标识符内的匹配文本，Python负责后续解析与执行。文件存在性异常、输出覆盖、命令环境和跨平台行为待核实。",
+    "status": "公开源码可读，GitHub元数据archived=false；默认main最后提交为2025-05-12T11:12:12Z。后续维护计划、独立安装及执行状态待核实。",
+    "version": "固定main为e41006e637f5381801551e4b2554a1b05a5918fa，源码编号版本待核实。2026-10-10读取Releases与标签引用均为空列表，正式发行日期与发行物待核实。README声明Python3.x环境和MIT许可；完整递归树保存5个文件，许可证全文待核实，仓库license元数据为null。",
+    "relations": "Python为转译目标及执行依赖。README将PythonCN/PythonCN列为下载地址，该路径本轮返回404；与当前PythonDeveloper29042/PythonCN的迁移关系待核实。GitHub元数据fork=false；与中蟒、草蟒及其他中文Python实现的源码继承关系待核实。",
     "references": [
       {
         "title": "项目README（核验快照）",
@@ -1988,31 +1991,67 @@
       {
         "title": "仓库原始中文代码示例",
         "url": "https://github.com/PythonDeveloper29042/PythonCN/blob/e41006e637f5381801551e4b2554a1b05a5918fa/chinese_code.pycn"
+      },
+      {
+        "title": "中文README：面向初学者、环境与MIT声明",
+        "url": "https://github.com/PythonDeveloper29042/PythonCN/blob/e41006e637f5381801551e4b2554a1b05a5918fa/README_CN.md"
+      },
+      {
+        "title": "根提交：双语说明、转译脚本与中文原例",
+        "url": "https://github.com/PythonDeveloper29042/PythonCN/commit/37eca6d525916c38b98c6bce63541963476cfe08"
+      },
+      {
+        "title": "末次提交：补充源码日期",
+        "url": "https://github.com/PythonDeveloper29042/PythonCN/commit/e41006e637f5381801551e4b2554a1b05a5918fa"
+      },
+      {
+        "title": "固定完整文件树",
+        "url": "https://github.com/PythonDeveloper29042/PythonCN/tree/e41006e637f5381801551e4b2554a1b05a5918fa"
+      },
+      {
+        "title": "公开发行列表",
+        "url": "https://github.com/PythonDeveloper29042/PythonCN/releases"
+      },
+      {
+        "title": "标签引用列表",
+        "url": "https://api.github.com/repos/PythonDeveloper29042/PythonCN/git/matching-refs/tags/"
       }
     ],
-    "verification_notes": "2026-10-09只读核验。0星，非fork；最后推送2025-05-12T11:12:30Z。日期为仓库创建不代表首发。功能、性能、通过测试数量未独立复测。示例为仓库原文节选，未修正其输入值未转换为整数的潜在问题；源码重复“是”键且简单替换可能改动字符串，不宜宣称完全兼容。",
+    "verification_notes": "2026-10-10只读核验。当前main与原参考固定提交相同；递归树5项、truncated=false，默认分支2次提交。末次提交只补源码头部日期。keywords中“是”重复出现，字典后值is覆盖True；按有序替换规则，“循环”先替换为for，随后“循环当”的匹配范围发生变化，静态可推得for当。内置input的文本结果在原例直接参与取模，整数转换待核实。README的跨平台和功能描述按作者材料记录，运行与兼容性待独立验证。原有4条参考标题及URL完整保留；代码与固定文件第4—7行逐字一致。 已核双语README、源码和2次提交；AI开发声明与参与范围待核实。",
     "code_source": "https://github.com/PythonDeveloper29042/PythonCN/blob/e41006e637f5381801551e4b2554a1b05a5918fa/chinese_code.pycn",
     "id": "lang-027",
-    "verified_at": "2026-10-09"
+    "verified_at": "2026-10-10",
+    "repository_created_at": "2025-05-12T10:18:19Z",
+    "repository_pushed_at": "2025-05-12T11:12:30Z",
+    "first_commit_at": "2025-05-12T10:18:21Z",
+    "latest_commit_at": "2025-05-12T11:12:12Z",
+    "release_status": "2026-10-10读取GitHub Releases与git/matching-refs/tags/均为空列表；编号版本、发行物和正式发布日期待核实。",
+    "code_context": "固定chinese_code.pycn第4—7行连续原文，保持原有全角空格、数字、引号和标点；依赖第3行输入赋值。该例以输入值参与取模，输入值的整数转换及运行结果待核实。原文件共7行、291字节，末尾无换行。",
+    "ai_involvement": "已核两份README、compiler.py及默认分支2次提交；可明确归属的AI开发声明、模型和参与范围待核实。"
   },
   {
     "name": "将军令",
     "aliases": [
       "jiangjunling-lang"
     ],
-    "category": "实验解释型语言",
-    "author": "jiangjun-ling组织；个人作者待核实",
-    "first_publication": "仓库创建 2025-11-12；语言首次公开发布日期待核实",
-    "description": "【实验解释型语言】用“令”“策”“若…则”“访…于”“报”等中文关键字表达程序的实验语言。",
+    "category": "中文语法实验语言／独立AST解释器",
+    "author": "将军令项目组（GitHub组织jiangjun-ling）；现存5次提交作者账号均为z200215，MIT版权署名为2025 jiangjun-ling。自然人实名及具体设计分工待核实。",
+    "first_publication": "仓库创建：2025-11-12T06:02:46Z。可达根提交5ccf22ed85c7599d56ff9b9ae911760bb09583d2同为2025-11-12T06:02:46Z，保存README与LICENSE。首次源码上传：59405d4c7ec6c4f0928a7c91d799178519bc330e，2025-11-12T06:39:38Z。首次对外公告与设为公开的时间待核实。",
+    "description": "将军令是将军令项目组发布的中文语法实验语言，早期介绍以中式军事指挥思想组织命名，希望为中文母语者提供直观的编程学习体验。程序使用.jl后缀，以“令”声明变量、“策”定义函数、“策行”调用函数、“令行”赋值，并用“报”输出、“若…则”表达条件、“访…于”遍历集合、“返”给出返回值。代码块由缩进组织，词法器识别中文标识符以及中英文冒号、逗号。项目使用Python编写专门的词法分析器、语法分析器、抽象语法树和遍历式解释器；数值、字符串、列表和函数经运行环境求值。命令入口提供文件运行、交互模式及帮助，仓库保存基础语法、控制流和函数三份中文示例。当前定位为实验版本，算术和比较运算处于同一解析层，部分条件、返回传播和样例语法的衔接继续核实。",
     "features": [
-      "中文语法／关键字",
-      "有公开实现源码"
+      ".jl中文源码与缩进代码块",
+      "中文声明、赋值、函数、条件、遍历及返回关键字",
+      "中文标识符及中英文冒号、逗号",
+      "自有词法器、语法分析器与AST节点",
+      "数值、字符串、列表及报／长度／类型／范围内置函数",
+      "文件运行与单行交互入口",
+      "MIT许可证原件"
     ],
-    "code": "若 年龄 >= 18 则：\n    报 姓名 + \"是成年人\"\n否则：\n    报 姓名 + \"是未成年人\"",
-    "implementation": "Python实现中文命名词法分析器、语法分析器、AST和解释器；有.jl样例。",
-    "status": "已有源码；未在本次研究中编译或执行",
-    "version": "实验版本；具体版本待核实",
-    "relations": "未发现与其他项目继承关系。",
+    "code": "若 年龄 >= 18 则：\r\n    报 姓名 + \"是成年人\"\r\n否则：\r\n    报 姓名 + \"是未成年人\"\r\n",
+    "implementation": "根目录main.py以UTF-8读取文件，串接将军令词法分析器.分析→将军令语法分析器.解析程序→将军令解释器.解释。词法器逐行计算缩进，生成INDENT／DEDENT和带行列信息的令牌；解析器按语句和表达式递归构造自有AST。解释器按节点类型分派，变量与函数存入字典，查询沿父环境链进行；用户函数创建以调用环境为父级的子环境。内置函数登记报、长度、类型、范围。二元表达式在同一层从左向右组合，括号显式分组。交互入口复用解释器的全局环境。",
+    "status": "公开源码与MIT许可证可读；GitHub元数据archived=false，当前main最后提交为2025-11-12T06:59:12Z。项目自述实验版本，后续维护计划、独立运行和测试结果待核实。",
+    "version": "仓库描述和早期README自称实验版本，数字版本号待核实。固定main为72943b33184bc4bab505c787bc3c29e022e2ceb3；2026-10-10读取Releases与标签引用均为空列表，正式发行日期待核实。根目录LICENSE为MIT，版权署名Copyright (c) 2025 jiangjun-ling。",
+    "relations": "README、.jl原例、main.py入口和MIT署名形成将军令项目资料链。2025-11-12的历史README曾将jiangjun-ling/lang标为语言核心主仓库，该路径本轮API返回404；具体迁移和代码同源关系待核实。GitHub元数据fork=false；Python是实现语言，与其他中文解释器的源码继承关系待核实。",
     "references": [
       {
         "title": "项目README（核验快照）",
@@ -2029,13 +2068,63 @@
       {
         "title": "中文示例",
         "url": "https://github.com/jiangjun-ling/jiangjunling-lang/blob/72943b33184bc4bab505c787bc3c29e022e2ceb3/%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95.jl"
+      },
+      {
+        "title": "文件运行、交互与测试调度实际入口",
+        "url": "https://github.com/jiangjun-ling/jiangjunling-lang/blob/72943b33184bc4bab505c787bc3c29e022e2ceb3/main.py"
+      },
+      {
+        "title": "中文语句解析与单层二元表达式",
+        "url": "https://github.com/jiangjun-ling/jiangjunling-lang/blob/72943b33184bc4bab505c787bc3c29e022e2ceb3/%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8.py"
+      },
+      {
+        "title": "自有AST节点定义",
+        "url": "https://github.com/jiangjun-ling/jiangjunling-lang/blob/72943b33184bc4bab505c787bc3c29e022e2ceb3/%E6%8A%BD%E8%B1%A1%E8%AF%AD%E6%B3%95%E6%A0%91.py"
+      },
+      {
+        "title": "AST解释、环境与函数返回处理",
+        "url": "https://github.com/jiangjun-ling/jiangjunling-lang/blob/72943b33184bc4bab505c787bc3c29e022e2ceb3/%E8%A7%A3%E9%87%8A%E5%99%A8.py"
+      },
+      {
+        "title": "MIT许可证原件与版权署名",
+        "url": "https://github.com/jiangjun-ling/jiangjunling-lang/blob/72943b33184bc4bab505c787bc3c29e022e2ceb3/LICENSE"
+      },
+      {
+        "title": "根提交：项目简介与许可证",
+        "url": "https://github.com/jiangjun-ling/jiangjunling-lang/commit/5ccf22ed85c7599d56ff9b9ae911760bb09583d2"
+      },
+      {
+        "title": "词法、语法、解释器与原例首次上传",
+        "url": "https://github.com/jiangjun-ling/jiangjunling-lang/commit/59405d4c7ec6c4f0928a7c91d799178519bc330e"
+      },
+      {
+        "title": "历史README：军事命名思想与核心仓库指向",
+        "url": "https://github.com/jiangjun-ling/jiangjunling-lang/blob/7ee2a789ae3ad74642bd79b7a626167ba30702ba/README.md"
+      },
+      {
+        "title": "固定完整文件树及平铺源码布局",
+        "url": "https://github.com/jiangjun-ling/jiangjunling-lang/tree/72943b33184bc4bab505c787bc3c29e022e2ceb3"
+      },
+      {
+        "title": "公开发行列表",
+        "url": "https://github.com/jiangjun-ling/jiangjunling-lang/releases"
+      },
+      {
+        "title": "标签引用列表",
+        "url": "https://api.github.com/repos/jiangjun-ling/jiangjunling-lang/git/matching-refs/tags"
       }
     ],
-    "verification_notes": "2026-10-09只读核验。0星，非fork；最后推送2025-11-12T06:59:12Z。日期为仓库创建不代表首发。功能、性能、通过测试数量未独立复测。 2026-10-09源码摘录QA：按固定提交重新读取核验，已改为单段连续原文，未拼接变量声明。",
-    "code_source": "https://github.com/jiangjun-ling/jiangjunling-lang/blob/72943b33184bc4bab505c787bc3c29e022e2ceb3/%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95.jl",
-    "code_context": "固定提交原文的连续条件分支摘录；依赖原示例前文已声明的年龄、姓名，不作为独立完整程序。",
+    "verification_notes": "2026-10-10只读核验。固定头与原参考相同，完整树含19个文件；源码主体于59405d4c7ec6c4f0928a7c91d799178519bc330e首次上传。否则若生成ELIF，条件解析分支递归调用期待IF的方法，令牌衔接待核实。用户函数在顶层RETURN节点终止，条件解释返回None，嵌套返回的控制流传播待核实。样例中的裸赋值、且和列表索引与当前解析规则的对应关系待核实。README示例指向示例/目录，main.py测试分支导入测试.测试套件，固定树将样例和测试套件.py平铺根目录，文档路径与测试入口衔接待核实。语言规范.md、贡献指南.md、requirements.txt和__init__.py为零字节文件。AI参与证据待核实。原有4条参考标题和URL完整保留；code按固定原件连续截取并保留CRLF。",
+    "code_source": "https://github.com/jiangjun-ling/jiangjunling-lang/blob/72943b33184bc4bab505c787bc3c29e022e2ceb3/%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95.jl#L17-L20",
+    "code_context": "固定基础语法.jl第17—20行连续条件分支原文，保留4空格缩进、CRLF换行和第20行行末换行。依赖原文件第5—8行声明的姓名与年龄；完整原件为55行、1169字节。代码文本、字节数与Git blob SHA已核，执行结果待独立验证。",
     "id": "lang-028",
-    "verified_at": "2026-10-09"
+    "verified_at": "2026-10-10",
+    "repository_created_at": "2025-11-12T06:02:46Z",
+    "repository_pushed_at": "2025-11-12T06:59:12Z",
+    "first_commit_at": "2025-11-12T06:02:46Z",
+    "latest_commit_at": "2025-11-12T06:59:12Z",
+    "release_status": "2026-10-10读取GitHub Releases与标签引用均为空列表；编号版本、正式发行物与发布日期待核实。",
+    "ai_involvement": "已核全部当前源码和文档、5次可达提交及议题记录；可明确归属的AI开发声明、模型与参与范围待核实。模板占位、代码风格及实现缺口按资料特征记录。"
   },
   {
     "name": "NyaPlus",
@@ -5297,5 +5386,307 @@
       }
     ],
     "id": "lang-071"
+  },
+  {
+    "name": "PyCn（sunzi334481）",
+    "aliases": [
+      "PyCn",
+      "PyCn Language",
+      "pycn-lang"
+    ],
+    "category": "Python中文方言／词元级源码转译层",
+    "description": "PyCn是sunzi334481维护的Python中文方言及词元级源码转译层，源码使用.pycn后缀。程序保留Python缩进结构，以“定义、如果、返回、对于、导入”等中文词表达控制流，并提供内置函数、异常、模块和库API映射。手写扫描器分别处理注释、字符串、数字和名称，先收集用户定义名，再按关键字、属性位置及全局名字查表生成Python源码。CLI和模块加载器调用Python的compile与exec执行转译结果，交互环境使用compile_command判断输入完整性。项目提供中文字符串前缀、导入别名、跨文件模块加载，以及VSCode、JetBrains和Visual Studio插件源码。包版本自标0.1.0，采用MIT许可。公开测试源码包含86个测试方法；测试通过状态、复杂作用域与字符串边界、完整Python生态兼容性待核实。",
+    "author": "GitHub账号sunzi334481维护，默认分支24条提交的作者名均为sunzi334481。pyproject.toml作者字段为PyCn Language，LICENSE署名2026 PyCn contributors。真实姓名、团队成员及AI参与范围待核实。",
+    "first_publication": "仓库创建于2026-10-05T11:54:33Z；根提交6978f23f于11:54:34Z保存两行项目简介。同日11:59:30Z加入CLI、导入器、REPL和包配置，12:08:10Z加入translator.py，12:16:40Z加入mappings.py。各时间为GitHub仓库及Git提交记录，更早公开历史待核实。",
+    "repository_created_at": "2026-10-05T11:54:33Z",
+    "repository_pushed_at": "2026-10-06T10:43:43Z",
+    "first_commit_at": "2026-10-05T11:54:34Z",
+    "latest_commit_at": "2026-10-06T10:43:42Z",
+    "release_status": "2026-10-10读取GitHub Releases集合为空，git/refs/tags返回404。0.1.0独立发行、PyPI pycn-lang发布、VSIX附件及插件市场上架状态待核实。",
+    "features": [
+      "40项中文关键字映射与65项内置函数映射",
+      "中文模块名、属性名和关键字实参映射",
+      "格／原／字字符串前缀与f-string表达式转译",
+      "全文件定义名预扫描",
+      "CLI运行、Python源码导出和REPL",
+      "通过导入钩子加载.pycn模块与包",
+      "三套编辑器插件源码",
+      "86个静态可读测试方法、9份.pycn原例"
+    ],
+    "code": "定义 阶乘(数):\n    如果 数 <= 1:\n        返回 1\n    返回 数 * 阶乘(数 - 1)\n\n打印(\"5 的阶乘 =\", 阶乘(5))",
+    "code_source": "https://github.com/sunzi334481/PyCn/blob/f840307aab9f55e7d25d798768db0ad4db24edb0/README.md#L11-L16",
+    "code_context": "固定README第11—16行连续原文，共6行，包含完整阶乘函数及一次调用。全文切片与独立按行读取逐字相等。代码按作者原例保存，执行结果待独立核实。",
+    "implementation": "Python实现。translator.py的translate先调用_collect_user_defined_names，再以手写扫描器区分注释、字符串、数字和名称；普通名称先查KEYWORD_MAP及GLOBAL_NAME_MAP，点号后查ATTRIBUTE_MAP，导入语句另做模块映射与中文别名生成。mappings.py合并内置函数、常量、异常和魔术名字到全局表，合并类型方法、库API及魔术名字到属性表。cli.cmd_run串接读取→translate→compile(...,'exec')→exec；cmd_compile导出.py文本。PycnLoader使用相同转译、编译和执行链，并把原始源码登记到linecache；PycnFinder查找.pycn及__init__.pycn，install将其置于PathFinder之前。REPL经translate→code.compile_command→exec。三个编辑器运行入口调用pycn CLI或python -m pycn_lang run。",
+    "version": "pyproject.toml与pycn_lang.__version__均自标0.1.0；VSCode、JetBrains、Visual Studio插件配置也自标0.1.0。包声明Python>=3.10，README记开发环境为Python3.14。2026-10-10读取GitHub Releases为空，git/refs/tags返回404；0.1.0独立发行、PyPI发布及跨版本运行兼容性待核实。MIT许可证署名为2026 PyCn contributors。",
+    "license": "MIT；固定LICENSE版权署名为2026 PyCn contributors。",
+    "relations": "Python承担转译后的语法编译和运行，标准库与第三方Python模块通过宿主导入机制接入。GitHub元数据fork=false。同名PyPI Pycn 0.0.1由Wry／Ruoyu Wang于2021年发布；Vincent-the-gamer/pycn文档描述Rust词法／递归下降解析及PyO3工具链。目录lang-027是PythonDeveloper29042/PythonCN，lang-065是LostPEople634/pchinese；本条按sunzi334481仓库单列。上述项目间的代码继承、合作或改名关系待核实。",
+    "status": "公开转译器、词表、CLI、导入器、REPL、编辑器插件及测试源码已核；独立构建、安装和执行待核实。",
+    "verification_notes": "2026-10-10公开静态核验，固定f840307aab9f55e7d25d798768db0ad4db24edb0，默认main头一致，递归树90项、65个文件、9份.pycn原例，truncated=false。四份测试文件按def test_文本计数为72+4+9+1=86；README“全部通过”按作者自述记录，Actions集合total_count=0。多模块导入源码和测试会将一条导入展开为多行；源码行号对应按具体路径待核实。定义名采用全文件集合，属性映射按词表匹配，f-string表达式另行递归translate，词法作用域、同名属性及复杂插值语义待核实。README已打包VSIX与安装验证按作者说明保存；固定树中三套插件源码可读，打包附件、插件市场状态和IDE可用性待核实。AI参与工具、范围和比例待原始声明核实。",
+    "verified_at": "2026-10-10",
+    "references": [
+      {
+        "title": "固定README：中文语法定位及连续阶乘原例",
+        "url": "https://github.com/sunzi334481/PyCn/blob/f840307aab9f55e7d25d798768db0ad4db24edb0/README.md#L1-L16"
+      },
+      {
+        "title": "固定手写扫描、名称查表及字符串前缀",
+        "url": "https://github.com/sunzi334481/PyCn/blob/f840307aab9f55e7d25d798768db0ad4db24edb0/pycn_lang/translator.py#L21-L72"
+      },
+      {
+        "title": "固定词元级主转译入口",
+        "url": "https://github.com/sunzi334481/PyCn/blob/f840307aab9f55e7d25d798768db0ad4db24edb0/pycn_lang/translator.py#L591-L717"
+      },
+      {
+        "title": "固定全文件用户定义名收集",
+        "url": "https://github.com/sunzi334481/PyCn/blob/f840307aab9f55e7d25d798768db0ad4db24edb0/pycn_lang/translator.py#L447-L585"
+      },
+      {
+        "title": "固定f-string表达式递归转译",
+        "url": "https://github.com/sunzi334481/PyCn/blob/f840307aab9f55e7d25d798768db0ad4db24edb0/pycn_lang/translator.py#L113-L187"
+      },
+      {
+        "title": "固定import整句处理及中文别名",
+        "url": "https://github.com/sunzi334481/PyCn/blob/f840307aab9f55e7d25d798768db0ad4db24edb0/pycn_lang/translator.py#L342-L441"
+      },
+      {
+        "title": "固定40项关键字及65项内置函数映射",
+        "url": "https://github.com/sunzi334481/PyCn/blob/f840307aab9f55e7d25d798768db0ad4db24edb0/pycn_lang/mappings.py#L25-L137"
+      },
+      {
+        "title": "固定模块、类型方法及标准库API词表",
+        "url": "https://github.com/sunzi334481/PyCn/blob/f840307aab9f55e7d25d798768db0ad4db24edb0/pycn_lang/mappings.py#L335-L1343"
+      },
+      {
+        "title": "固定全局名字表与属性表合并",
+        "url": "https://github.com/sunzi334481/PyCn/blob/f840307aab9f55e7d25d798768db0ad4db24edb0/pycn_lang/mappings.py#L1368-L1399"
+      },
+      {
+        "title": "固定CLI运行：translate、compile、exec",
+        "url": "https://github.com/sunzi334481/PyCn/blob/f840307aab9f55e7d25d798768db0ad4db24edb0/pycn_lang/cli.py#L34-L87"
+      },
+      {
+        "title": "固定CLI导出Python源码",
+        "url": "https://github.com/sunzi334481/PyCn/blob/f840307aab9f55e7d25d798768db0ad4db24edb0/pycn_lang/cli.py#L90-L119"
+      },
+      {
+        "title": "固定模块加载器、finder及安装顺序",
+        "url": "https://github.com/sunzi334481/PyCn/blob/f840307aab9f55e7d25d798768db0ad4db24edb0/pycn_lang/importer.py#L22-L99"
+      },
+      {
+        "title": "固定交互式环境",
+        "url": "https://github.com/sunzi334481/PyCn/blob/f840307aab9f55e7d25d798768db0ad4db24edb0/pycn_lang/repl.py#L14-L44"
+      },
+      {
+        "title": "固定包初始化与0.1.0版本",
+        "url": "https://github.com/sunzi334481/PyCn/blob/f840307aab9f55e7d25d798768db0ad4db24edb0/pycn_lang/__init__.py#L1-L10"
+      },
+      {
+        "title": "固定包配置：Python要求、作者字段与项目链接",
+        "url": "https://github.com/sunzi334481/PyCn/blob/f840307aab9f55e7d25d798768db0ad4db24edb0/pyproject.toml#L1-L35"
+      },
+      {
+        "title": "固定MIT许可与署名",
+        "url": "https://github.com/sunzi334481/PyCn/blob/f840307aab9f55e7d25d798768db0ad4db24edb0/LICENSE#L1-L21"
+      },
+      {
+        "title": "固定转译测试：多模块导入扩为两行",
+        "url": "https://github.com/sunzi334481/PyCn/blob/f840307aab9f55e7d25d798768db0ad4db24edb0/tests/test_translator.py#L254-L268"
+      },
+      {
+        "title": "固定转译测试：三行打印的行数断言",
+        "url": "https://github.com/sunzi334481/PyCn/blob/f840307aab9f55e7d25d798768db0ad4db24edb0/tests/test_translator.py#L309-L312"
+      },
+      {
+        "title": "固定端到端测试源码",
+        "url": "https://github.com/sunzi334481/PyCn/blob/f840307aab9f55e7d25d798768db0ad4db24edb0/tests/test_e2e.py#L12-L71"
+      },
+      {
+        "title": "固定模块导入测试源码",
+        "url": "https://github.com/sunzi334481/PyCn/blob/f840307aab9f55e7d25d798768db0ad4db24edb0/tests/test_importer.py#L28-L60"
+      },
+      {
+        "title": "固定词表重复键测试源码",
+        "url": "https://github.com/sunzi334481/PyCn/blob/f840307aab9f55e7d25d798768db0ad4db24edb0/tests/test_check_mappings.py#L14-L37"
+      },
+      {
+        "title": "固定VSCode扩展执行入口",
+        "url": "https://github.com/sunzi334481/PyCn/blob/f840307aab9f55e7d25d798768db0ad4db24edb0/editors/vscode-pycn/extension.js#L33-L50"
+      },
+      {
+        "title": "固定JetBrains扩展执行入口",
+        "url": "https://github.com/sunzi334481/PyCn/blob/f840307aab9f55e7d25d798768db0ad4db24edb0/editors/jetbrains-pycn/src/main/kotlin/com/pycn/plugin/PycnRunConfiguration.kt#L60-L79"
+      },
+      {
+        "title": "固定Visual Studio扩展执行入口",
+        "url": "https://github.com/sunzi334481/PyCn/blob/f840307aab9f55e7d25d798768db0ad4db24edb0/editors/visualstudio-pycn/PycnVsPackage/PycnRunner.cs#L25-L70"
+      },
+      {
+        "title": "根提交与初始简介",
+        "url": "https://github.com/sunzi334481/PyCn/commit/6978f23f4aaf4f92d36e5a4cfb9c54855a086d1c"
+      },
+      {
+        "title": "运行入口和包配置首次加入",
+        "url": "https://github.com/sunzi334481/PyCn/commit/ac32135ef62a48b4a530dfc2b0eb6de16caed4e7"
+      },
+      {
+        "title": "转译器首次加入",
+        "url": "https://github.com/sunzi334481/PyCn/commit/114e7b75a986142183f4ac41e780f5c19d28432e"
+      },
+      {
+        "title": "词表首次加入",
+        "url": "https://github.com/sunzi334481/PyCn/commit/3c65d09e7f2aa9f8e2cea71007660e2f40fcf624"
+      },
+      {
+        "title": "固定完整文件树",
+        "url": "https://github.com/sunzi334481/PyCn/tree/f840307aab9f55e7d25d798768db0ad4db24edb0"
+      },
+      {
+        "title": "仓库元数据",
+        "url": "https://api.github.com/repos/sunzi334481/PyCn"
+      },
+      {
+        "title": "公开发行集合",
+        "url": "https://github.com/sunzi334481/PyCn/releases"
+      },
+      {
+        "title": "公开Actions运行集合",
+        "url": "https://api.github.com/repos/sunzi334481/PyCn/actions/runs?per_page=100"
+      },
+      {
+        "title": "同名项目排重：Vincent-the-gamer的Rust/PyO3项目",
+        "url": "https://github.com/Vincent-the-gamer/pycn/blob/48acdd141a914fed636ea8c5631db22a4b709a9f/README.md"
+      },
+      {
+        "title": "同名包排重：Wry的2021年Pycn 0.0.1",
+        "url": "https://pypi.org/project/Pycn/"
+      }
+    ],
+    "id": "lang-072"
+  },
+  {
+    "name": "折言（Origami中文关键字扩展）",
+    "aliases": [
+      "折言",
+      "Origami",
+      "Origami-lang",
+      "origami-lang"
+    ],
+    "category": "融合脚本语言的中文词元扩展／Go AST解释实现（历史默认启用阶段）",
+    "description": "折言（Origami-lang）由php-any项目发布，是采用PHP风格并吸收Go、Java及TypeScript用法的融合脚本语言。其中文编程部分通过词元注册接口，把“函数”和“输出”分别绑定到函数声明与输出语句，并为逗号、分号、乘除号加入中文输入法常用写法。2025年7月至8月初的公开源码在命令行入口创建解析器之前完成注册，中文与英文写法共用同一词法、AST与解释执行路径。原README和作者V2EX帖子保存完整的中文函数定义及调用。2025年8月15日提交移除了主入口的这组默认注册；2026年固定快照仍提供扩展接口及中文支持说明。条目按折言内的中文词元扩展及其历史启用阶段整理，当前发行物的中文启用方式继续核实。",
+    "author": "原仓维护组织php-any；2025-07-30根提交与2026-08-13当前头提交均署名ctfang，GitHub关联账号cyz-home。V2EX账号2024在2025-08-01原帖介绍项目并直接链接php-any/origami；该账号与GitHub个人账号的进一步身份对应及团队分工待核实。",
+    "first_publication": "2025-08-01，V2EX账号2024发布《使用go和仓颉重构了整个PHP》及《大家愿意中文编程吗》，原帖含仓库链接、中文扩展说明及连续程序。Git历史根提交b6486d8583598c420cdb3d42e9ae94217d451634的作者、提交时间均为2025-07-30T16:34:12Z，已含中文原例和入口注册。仓库创建时间为2025-05-28T07:04:16Z；创建、Git记录及社区公开日分别保存，首次公开可访问时间待核实。",
+    "repository_created_at": "2025-05-28T07:04:16Z",
+    "first_commit_at": "2025-07-30T16:34:12Z",
+    "community_publication_date": "2025-08-01",
+    "latest_commit_at": "2026-08-13T07:55:28Z",
+    "features": [
+      "可注册中文关键字与全角标点",
+      "函数／输出和英文词元共用解析分派",
+      "Go实现rune词法匹配、AST构造及求值",
+      "原始连续中文函数定义与调用",
+      "2025年默认启用与后续注册移除的明确提交沿革"
+    ],
+    "code": "函数 用户(名称) {\n  输出 名称;\n}\n用户(\"张三\");",
+    "code_source": "https://github.com/php-any/origami/blob/e6e8b403b6d107e2d694639ffa9786c4277f3da2/README.md#L179-L182",
+    "code_context": "2025-08-01固定提交e6e8b403b6d107e2d694639ffa9786c4277f3da2的README.md第179—182行，完整四行连续原文；原始空格、引号和换行保留。2025-07-30根提交README及V2EX原帖亦保存同一程序。此快照origami.go第37—42行在NewParser之前注册中文词元；中文关键字启用状态已静态核实，执行结果待独立核实。",
+    "implementation": "2025-08-01快照采用Go1.23.6。origami.go先调用token.NewKeyword／NewOperator，再创建parser与runtime.VM。token/ext.go向TokenDefinitions追加别名；lexer.NewLexer遍历词元表并以rune节点建立匹配树。parser.ParseFile读取源文件、词法化并构造Program；all_parser.go将FUNC与ECHO分派到函数和输出解析器。FunctionParser构建FunctionStatement并加入VM函数表；runtime.LoadAndRun调用ParseFile、创建上下文，再由Program.GetValue逐条访问AST节点。EchoStatement对表达式求值后使用fmt.Printf输出。上述实现链支持词法级别名扩展及AST解释分类，原始项目构建、执行与兼容性待核实。",
+    "version": "中文扩展证据快照e6e8b403b6d107e2d694639ffa9786c4277f3da2，2025-08-01T01:06:40Z。2025-08-15T10:36:52Z提交5015c8d005d94656e399f1a670da3bbd41c99490移除入口默认中文注册块。当前头提交49725fc86250f46515b1d5f0e49ed2c71da5c401时间2026-08-13T07:55:28Z，go.mod为Go1.25.0。公开发行列表可见v0.0.4（2025-08-16）至v1.0.5-symfony-support（2026-03-26）；发行版本、工具链要求和中文支持范围分别核验。早期.cjp与当前.zy后缀有提交沿革。 README声明MIT，完整许可正文与版权署名待核实。",
+    "license": "历史与当前README均声明MIT；GitHub许可元数据为null。完整许可证正文、版权署名和第三方内容适用范围待核实。",
+    "ai_involvement": "当前固定树可见Cursor、Claude、Qoder相关配置／文档，以及OpenAI扩展模块目录；具体开发中的AI使用范围、生成比例和中文扩展的人机分工待核实。历史中文执行链按固定词法与AST源码记录。",
+    "relations": "中文关键字扩展属于php-any/origami折言项目的同一源码与运行时。作者原帖和README将其定位为PHP风格融合语言，Go实现与PHP完整兼容范围、源码借鉴及第三方继承关系待核实。2025-08-15的注册移除属于本项目沿革。71项语言、18个开放Issue及第十轮记录中的名称、别名与原仓地址已排重。",
+    "status": "原作者社区帖子、固定连续中文原例、历史默认注册、词法／解析／执行链及后续注册移除提交已核。按中文词元扩展的历史阶段形成分类资料；当前启用方式、发行附件支持范围、完整许可和独立运行继续核实。",
+    "verification_notes": "2026-10-10公开只读核验。2025-08-01递归树458项，当前递归树2827项，二者truncated=false。2025-07-30提交parents为空，按可见Git历史根记录；仓库创建早于该根约两个月，创建时间与源码首次公开日期分别保存。当前NewKeyword代码搜索返回接口定义及Qoder文档两项；当前zy.go／cmd/runtime.go所读入口另行核对。默认注册移除有2025-08-15准确差异证据；当前README中文支持属于原作者说明。 当前树的Cursor／Claude／Qoder配置与OpenAI扩展按工具线索保存，AI参与开发的范围、生成比例和中文扩展人机分工待核实。",
+    "verified_at": "2026-10-10",
+    "references": [
+      {
+        "title": "原作者V2EX项目介绍与直接仓库链接（2025-08-01）",
+        "url": "https://www.v2ex.com/t/1149147"
+      },
+      {
+        "title": "原作者V2EX中文注册机制及连续中文程序",
+        "url": "https://www.v2ex.com/t/1149176"
+      },
+      {
+        "title": "历史固定README连续中文函数原例",
+        "url": "https://github.com/php-any/origami/blob/e6e8b403b6d107e2d694639ffa9786c4277f3da2/README.md#L176-L182"
+      },
+      {
+        "title": "历史入口：先注册中文关键字与符号，再创建解析器",
+        "url": "https://github.com/php-any/origami/blob/e6e8b403b6d107e2d694639ffa9786c4277f3da2/origami.go#L34-L46"
+      },
+      {
+        "title": "词元扩展注册接口",
+        "url": "https://github.com/php-any/origami/blob/e6e8b403b6d107e2d694639ffa9786c4277f3da2/token/ext.go#L3-L17"
+      },
+      {
+        "title": "rune词元匹配树构造",
+        "url": "https://github.com/php-any/origami/blob/e6e8b403b6d107e2d694639ffa9786c4277f3da2/lexer/lexer.go#L45-L73"
+      },
+      {
+        "title": "读取源码、词法化和Program构造",
+        "url": "https://github.com/php-any/origami/blob/e6e8b403b6d107e2d694639ffa9786c4277f3da2/parser/parser.go#L85-L145"
+      },
+      {
+        "title": "FUNC与ECHO解析分派",
+        "url": "https://github.com/php-any/origami/blob/e6e8b403b6d107e2d694639ffa9786c4277f3da2/parser/all_parser.go#L14-L34"
+      },
+      {
+        "title": "函数AST构造和VM注册",
+        "url": "https://github.com/php-any/origami/blob/e6e8b403b6d107e2d694639ffa9786c4277f3da2/parser/function_parser.go#L22-L71"
+      },
+      {
+        "title": "无美元符号参数的解析分支",
+        "url": "https://github.com/php-any/origami/blob/e6e8b403b6d107e2d694639ffa9786c4277f3da2/parser/function_parser_common.go#L108-L113"
+      },
+      {
+        "title": "文件解析、上下文与AST执行入口",
+        "url": "https://github.com/php-any/origami/blob/e6e8b403b6d107e2d694639ffa9786c4277f3da2/runtime/vm.go#L121-L132"
+      },
+      {
+        "title": "Program逐条求值",
+        "url": "https://github.com/php-any/origami/blob/e6e8b403b6d107e2d694639ffa9786c4277f3da2/node/node.go#L31-L58"
+      },
+      {
+        "title": "中文输出对应的AST求值",
+        "url": "https://github.com/php-any/origami/blob/e6e8b403b6d107e2d694639ffa9786c4277f3da2/node/echo.go#L22-L38"
+      },
+      {
+        "title": "Go实现与历史工具链要求",
+        "url": "https://github.com/php-any/origami/blob/e6e8b403b6d107e2d694639ffa9786c4277f3da2/go.mod"
+      },
+      {
+        "title": "2025-07-30根提交与中文扩展原始记录",
+        "url": "https://github.com/php-any/origami/commit/b6486d8583598c420cdb3d42e9ae94217d451634"
+      },
+      {
+        "title": "2025-08-15主入口默认注册移除差异",
+        "url": "https://github.com/php-any/origami/commit/5015c8d005d94656e399f1a670da3bbd41c99490"
+      },
+      {
+        "title": "当前README定位、中文支持和MIT声明",
+        "url": "https://github.com/php-any/origami/blob/49725fc86250f46515b1d5f0e49ed2c71da5c401/README_CN.md"
+      },
+      {
+        "title": "当前词元注册接口",
+        "url": "https://github.com/php-any/origami/blob/49725fc86250f46515b1d5f0e49ed2c71da5c401/token/ext.go"
+      },
+      {
+        "title": "当前主入口及脚本运行",
+        "url": "https://github.com/php-any/origami/blob/49725fc86250f46515b1d5f0e49ed2c71da5c401/zy.go"
+      },
+      {
+        "title": "当前CLI解析器与运行时构造",
+        "url": "https://github.com/php-any/origami/blob/49725fc86250f46515b1d5f0e49ed2c71da5c401/cmd/runtime.go"
+      },
+      {
+        "title": "公开发行列表",
+        "url": "https://github.com/php-any/origami/releases"
+      },
+      {
+        "title": "当前固定源码树",
+        "url": "https://github.com/php-any/origami/tree/49725fc86250f46515b1d5f0e49ed2c71da5c401"
+      }
+    ],
+    "id": "lang-073"
   }
 ]

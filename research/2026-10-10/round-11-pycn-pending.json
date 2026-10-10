@@ -1,0 +1,67 @@
+[
+  {
+    "name": "PyCn（sunzi334481）",
+    "discovery_status": "Issue #22旧候选；第十一轮完成分类资料，保留后续字段核验",
+    "category": "Python中文方言／词元级源码转译层",
+    "repository": "https://github.com/sunzi334481/PyCn",
+    "snapshot": "f840307aab9f55e7d25d798768db0ad4db24edb0",
+    "evidence": "固定连续6行阶乘原例、词元转译与分层词表、Python compile／exec链、模块导入及REPL、0.1.0源码版本、MIT许可和86个测试方法源码已核。",
+    "pending": "独立测试运行及Python3.10—3.14兼容性；全文件定义名与词法作用域差异、f-string递归转译中的同名变量、复杂格式说明；属性同名冲突、导入展开后的源码行号与相对导入搜索优先级；0.1.0独立发行、PyPI pycn-lang发布、三套插件的打包附件/市场上架/安装状态；AI参与范围、更早公开历史及同名项目代码继承关系待核实。",
+    "verification_scope": "公开静态源码、文档、原例及GitHub元数据。测试、安装、构建、编译、桌面操作和外部写入均留在本轮范围之外。",
+    "verified_at": "2026-10-10",
+    "references": [
+      {
+        "title": "固定全文件用户定义名收集",
+        "url": "https://github.com/sunzi334481/PyCn/blob/f840307aab9f55e7d25d798768db0ad4db24edb0/pycn_lang/translator.py#L447-L585"
+      },
+      {
+        "title": "固定f-string表达式递归转译",
+        "url": "https://github.com/sunzi334481/PyCn/blob/f840307aab9f55e7d25d798768db0ad4db24edb0/pycn_lang/translator.py#L113-L187"
+      },
+      {
+        "title": "固定import整句处理及中文别名",
+        "url": "https://github.com/sunzi334481/PyCn/blob/f840307aab9f55e7d25d798768db0ad4db24edb0/pycn_lang/translator.py#L342-L441"
+      },
+      {
+        "title": "固定模块加载器、finder及安装顺序",
+        "url": "https://github.com/sunzi334481/PyCn/blob/f840307aab9f55e7d25d798768db0ad4db24edb0/pycn_lang/importer.py#L22-L99"
+      },
+      {
+        "title": "固定包初始化与0.1.0版本",
+        "url": "https://github.com/sunzi334481/PyCn/blob/f840307aab9f55e7d25d798768db0ad4db24edb0/pycn_lang/__init__.py#L1-L10"
+      },
+      {
+        "title": "固定转译测试：多模块导入扩为两行",
+        "url": "https://github.com/sunzi334481/PyCn/blob/f840307aab9f55e7d25d798768db0ad4db24edb0/tests/test_translator.py#L254-L268"
+      },
+      {
+        "title": "固定转译测试：三行打印的行数断言",
+        "url": "https://github.com/sunzi334481/PyCn/blob/f840307aab9f55e7d25d798768db0ad4db24edb0/tests/test_translator.py#L309-L312"
+      },
+      {
+        "title": "固定端到端测试源码",
+        "url": "https://github.com/sunzi334481/PyCn/blob/f840307aab9f55e7d25d798768db0ad4db24edb0/tests/test_e2e.py#L12-L71"
+      },
+      {
+        "title": "固定模块导入测试源码",
+        "url": "https://github.com/sunzi334481/PyCn/blob/f840307aab9f55e7d25d798768db0ad4db24edb0/tests/test_importer.py#L28-L60"
+      },
+      {
+        "title": "固定词表重复键测试源码",
+        "url": "https://github.com/sunzi334481/PyCn/blob/f840307aab9f55e7d25d798768db0ad4db24edb0/tests/test_check_mappings.py#L14-L37"
+      },
+      {
+        "title": "公开发行集合",
+        "url": "https://github.com/sunzi334481/PyCn/releases"
+      },
+      {
+        "title": "同名项目排重：Vincent-the-gamer的Rust/PyO3项目",
+        "url": "https://github.com/Vincent-the-gamer/pycn/blob/48acdd141a914fed636ea8c5631db22a4b709a9f/README.md"
+      },
+      {
+        "title": "同名包排重：Wry的2021年Pycn 0.0.1",
+        "url": "https://pypi.org/project/Pycn/"
+      }
+    ]
+  }
+]

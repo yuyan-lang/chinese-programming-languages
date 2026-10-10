@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>折言（Origami中文关键字扩展）｜中文编程语言百科</title><link rel="stylesheet" href="../style.css"></head><body><header><h1>折言（Origami中文关键字扩展）</h1></header><main><p><a href="../">返回语言目录</a></p>
+<h2>语言介绍</h2><p>折言（Origami-lang）由php-any项目发布，是采用PHP风格并吸收Go、Java及TypeScript用法的融合脚本语言。其中文编程部分通过词元注册接口，把“函数”和“输出”分别绑定到函数声明与输出语句，并为逗号、分号、乘除号加入中文输入法常用写法。2025年7月至8月初的公开源码在命令行入口创建解析器之前完成注册，中文与英文写法共用同一词法、AST与解释执行路径。原README和作者V2EX帖子保存完整的中文函数定义及调用。2025年8月15日提交移除了主入口的这组默认注册；2026年固定快照仍提供扩展接口及中文支持说明。条目按折言内的中文词元扩展及其历史启用阶段整理，当前发行物的中文启用方式继续核实。</p>
+<h2>分类与别名</h2><p>融合脚本语言的中文词元扩展／Go AST解释实现（历史默认启用阶段）；别名：折言；Origami；Origami-lang；origami-lang</p>
+<h2>作者与公开历史</h2><p>原仓维护组织php-any；2025-07-30根提交与2026-08-13当前头提交均署名ctfang，GitHub关联账号cyz-home。V2EX账号2024在2025-08-01原帖介绍项目并直接链接php-any/origami；该账号与GitHub个人账号的进一步身份对应及团队分工待核实。</p><p>2025-08-01，V2EX账号2024发布《使用go和仓颉重构了整个PHP》及《大家愿意中文编程吗》，原帖含仓库链接、中文扩展说明及连续程序。Git历史根提交b6486d8583598c420cdb3d42e9ae94217d451634的作者、提交时间均为2025-07-30T16:34:12Z，已含中文原例和入口注册。仓库创建时间为2025-05-28T07:04:16Z；创建、Git记录及社区公开日分别保存，首次公开可访问时间待核实。</p>
+<h2>设计与特征</h2><p>可注册中文关键字与全角标点；函数／输出和英文词元共用解析分派；Go实现rune词法匹配、AST构造及求值；原始连续中文函数定义与调用；2025年默认启用与后续注册移除的明确提交沿革</p>
+<h2>中文语法示例</h2><pre><code>函数 用户(名称) {
+  输出 名称;
+}
+用户(&quot;张三&quot;);</code></pre><p>2025-08-01固定提交e6e8b403b6d107e2d694639ffa9786c4277f3da2的README.md第179—182行，完整四行连续原文；原始空格、引号和换行保留。2025-07-30根提交README及V2EX原帖亦保存同一程序。此快照origami.go第37—42行在NewParser之前注册中文词元；中文关键字启用状态已静态核实，执行结果待独立核实。 <a href="https://github.com/php-any/origami/blob/e6e8b403b6d107e2d694639ffa9786c4277f3da2/README.md#L179-L182">示例来源</a></p>
+<h2>实现与运行环境</h2><p>2025-08-01快照采用Go1.23.6。origami.go先调用token.NewKeyword／NewOperator，再创建parser与runtime.VM。token/ext.go向TokenDefinitions追加别名；lexer.NewLexer遍历词元表并以rune节点建立匹配树。parser.ParseFile读取源文件、词法化并构造Program；all_parser.go将FUNC与ECHO分派到函数和输出解析器。FunctionParser构建FunctionStatement并加入VM函数表；runtime.LoadAndRun调用ParseFile、创建上下文，再由Program.GetValue逐条访问AST节点。EchoStatement对表达式求值后使用fmt.Printf输出。上述实现链支持词法级别名扩展及AST解释分类，原始项目构建、执行与兼容性待核实。</p>
+<h2>版本与维护状态</h2><p>中文扩展证据快照e6e8b403b6d107e2d694639ffa9786c4277f3da2，2025-08-01T01:06:40Z。2025-08-15T10:36:52Z提交5015c8d005d94656e399f1a670da3bbd41c99490移除入口默认中文注册块。当前头提交49725fc86250f46515b1d5f0e49ed2c71da5c401时间2026-08-13T07:55:28Z，go.mod为Go1.25.0。公开发行列表可见v0.0.4（2025-08-16）至v1.0.5-symfony-support（2026-03-26）；发行版本、工具链要求和中文支持范围分别核验。早期.cjp与当前.zy后缀有提交沿革。 README声明MIT，完整许可正文与版权署名待核实。</p><p>原作者社区帖子、固定连续中文原例、历史默认注册、词法／解析／执行链及后续注册移除提交已核。按中文词元扩展的历史阶段形成分类资料；当前启用方式、发行附件支持范围、完整许可和独立运行继续核实。</p>
+<h2>与其他项目的关系</h2><p>中文关键字扩展属于php-any/origami折言项目的同一源码与运行时。作者原帖和README将其定位为PHP风格融合语言，Go实现与PHP完整兼容范围、源码借鉴及第三方继承关系待核实。2025-08-15的注册移除属于本项目沿革。71项语言、18个开放Issue及第十轮记录中的名称、别名与原仓地址已排重。</p>
+<h2>核验说明</h2><p>2026-10-10公开只读核验。2025-08-01递归树458项，当前递归树2827项，二者truncated=false。2025-07-30提交parents为空，按可见Git历史根记录；仓库创建早于该根约两个月，创建时间与源码首次公开日期分别保存。当前NewKeyword代码搜索返回接口定义及Qoder文档两项；当前zy.go／cmd/runtime.go所读入口另行核对。默认注册移除有2025-08-15准确差异证据；当前README中文支持属于原作者说明。 当前树的Cursor／Claude／Qoder配置与OpenAI扩展按工具线索保存，AI参与开发的范围、生成比例和中文扩展人机分工待核实。</p>
+<h2>参考资料</h2><ul><li><a href="https://www.v2ex.com/t/1149147">原作者V2EX项目介绍与直接仓库链接（2025-08-01）</a></li>
+<li><a href="https://www.v2ex.com/t/1149176">原作者V2EX中文注册机制及连续中文程序</a></li>
+<li><a href="https://github.com/php-any/origami/blob/e6e8b403b6d107e2d694639ffa9786c4277f3da2/README.md#L176-L182">历史固定README连续中文函数原例</a></li>
+<li><a href="https://github.com/php-any/origami/blob/e6e8b403b6d107e2d694639ffa9786c4277f3da2/origami.go#L34-L46">历史入口：先注册中文关键字与符号，再创建解析器</a></li>
+<li><a href="https://github.com/php-any/origami/blob/e6e8b403b6d107e2d694639ffa9786c4277f3da2/token/ext.go#L3-L17">词元扩展注册接口</a></li>
+<li><a href="https://github.com/php-any/origami/blob/e6e8b403b6d107e2d694639ffa9786c4277f3da2/lexer/lexer.go#L45-L73">rune词元匹配树构造</a></li>
+<li><a href="https://github.com/php-any/origami/blob/e6e8b403b6d107e2d694639ffa9786c4277f3da2/parser/parser.go#L85-L145">读取源码、词法化和Program构造</a></li>
+<li><a href="https://github.com/php-any/origami/blob/e6e8b403b6d107e2d694639ffa9786c4277f3da2/parser/all_parser.go#L14-L34">FUNC与ECHO解析分派</a></li>
+<li><a href="https://github.com/php-any/origami/blob/e6e8b403b6d107e2d694639ffa9786c4277f3da2/parser/function_parser.go#L22-L71">函数AST构造和VM注册</a></li>
+<li><a href="https://github.com/php-any/origami/blob/e6e8b403b6d107e2d694639ffa9786c4277f3da2/parser/function_parser_common.go#L108-L113">无美元符号参数的解析分支</a></li>
+<li><a href="https://github.com/php-any/origami/blob/e6e8b403b6d107e2d694639ffa9786c4277f3da2/runtime/vm.go#L121-L132">文件解析、上下文与AST执行入口</a></li>
+<li><a href="https://github.com/php-any/origami/blob/e6e8b403b6d107e2d694639ffa9786c4277f3da2/node/node.go#L31-L58">Program逐条求值</a></li>
+<li><a href="https://github.com/php-any/origami/blob/e6e8b403b6d107e2d694639ffa9786c4277f3da2/node/echo.go#L22-L38">中文输出对应的AST求值</a></li>
+<li><a href="https://github.com/php-any/origami/blob/e6e8b403b6d107e2d694639ffa9786c4277f3da2/go.mod">Go实现与历史工具链要求</a></li>
+<li><a href="https://github.com/php-any/origami/commit/b6486d8583598c420cdb3d42e9ae94217d451634">2025-07-30根提交与中文扩展原始记录</a></li>
+<li><a href="https://github.com/php-any/origami/commit/5015c8d005d94656e399f1a670da3bbd41c99490">2025-08-15主入口默认注册移除差异</a></li>
+<li><a href="https://github.com/php-any/origami/blob/49725fc86250f46515b1d5f0e49ed2c71da5c401/README_CN.md">当前README定位、中文支持和MIT声明</a></li>
+<li><a href="https://github.com/php-any/origami/blob/49725fc86250f46515b1d5f0e49ed2c71da5c401/token/ext.go">当前词元注册接口</a></li>
+<li><a href="https://github.com/php-any/origami/blob/49725fc86250f46515b1d5f0e49ed2c71da5c401/zy.go">当前主入口及脚本运行</a></li>
+<li><a href="https://github.com/php-any/origami/blob/49725fc86250f46515b1d5f0e49ed2c71da5c401/cmd/runtime.go">当前CLI解析器与运行时构造</a></li>
+<li><a href="https://github.com/php-any/origami/releases">公开发行列表</a></li>
+<li><a href="https://github.com/php-any/origami/tree/49725fc86250f46515b1d5f0e49ed2c71da5c401">当前固定源码树</a></li></ul><p>资料核验日期：2026-10-10</p><p><a href="https://github.com/yuyan-lang/chinese-programming-languages/issues/new">补充资料或纠错</a></p></main><footer>站点由<a href="https://yuyan-lang.org/">豫言编程语言</a>提供</footer></body></html>

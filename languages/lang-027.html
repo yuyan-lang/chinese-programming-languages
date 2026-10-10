@@ -1,15 +1,24 @@
 <!doctype html>
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>PythonCN｜中文编程语言百科</title><link rel="stylesheet" href="../style.css"></head><body><header><h1>PythonCN</h1></header><main><p><a href="../">返回语言目录</a></p>
-<h2>语言介绍</h2><p>【Python 关键字翻译层】极小型中文Python关键词与标点替换实现。</p>
-<h2>分类与别名</h2><p>Python 关键字翻译层；别名：未确认</p>
-<h2>作者与首次公开</h2><p>PythonDeveloper29042（源码@author）。仓库创建 2025-05-12；语言首次公开发布日期待核实</p>
-<h2>设计与特征</h2><p>中文语法／关键字；有公开实现源码</p>
+<h2>语言介绍</h2><p>PythonCN是PythonDeveloper29042发布的中文Python语法实验，面向希望使用中文关键字学习编程的初学者。源码以.pycn保存，采用Python式缩进，并提供“如果、否则、函数、返回、导入”等名称映射，以及“输出、输入、整数、字符串”等内置函数别名。项目还将全角空格、标点、引号和数字转换为半角字符，原例展示中文输入和条件分支。实际实现集中于一个Python脚本：命令行读取文件，依字典顺序对全文进行字符串替换，写入temp.py，再调用系统中的python执行。语言的表达式、类型及运行语义由Python承担。仓库提供中英文说明和一份中文示例；编辑器插件、IDE、Gitee发布及库适配列为作者后续计划。当前材料适合研究轻量中文转译方案，整词识别、替换顺序、示例输入类型和跨平台运行情况继续核实。</p>
+<h2>分类与别名</h2><p>Python中文关键字与全角字符转译层</p>
+<h2>作者与公开历史</h2><p>GitHub账号PythonDeveloper29042；compiler.py的@author与两次Git提交署名一致。作者实名待核实。</p><p>仓库创建：2025-05-12T10:18:19Z。可达根提交：37eca6d525916c38b98c6bce63541963476cfe08，2025-05-12T10:18:21Z，加入双语README、编译脚本和中文原例。首次对外公开日期及更早发布材料待核实。</p>
+<h2>设计与特征</h2><p>.pycn中文源文件与Python式缩进；中文条件、函数、导入及内置名称映射；全角空格、标点、引号及数字转换；单文件文本转译与temp.py输出；系统python命令执行入口</p>
 <h2>中文语法示例</h2><pre><code>如果　数　％　２　＝＝　０：
 　　　　输出（字符串（数）＋＂为一个偶数＂）
 否则：
-　　　　输出（字符串（数）＋＂为一个奇数＂）</code></pre><p>原始资料短摘录，用于展示中文语法；未在本轮执行，不保证单独运行。 <a href="https://github.com/PythonDeveloper29042/PythonCN/blob/e41006e637f5381801551e4b2554a1b05a5918fa/chinese_code.pycn">示例来源</a></p>
-<h2>实现与运行环境</h2><p>compiler.py依字典逐项str.replace替换后写temp.py并调用python；非独立解析器。</p>
-<h2>版本与维护状态</h2><p>待核实；已有源码；未在本次研究中编译或执行</p>
-<h2>与其他项目的关系</h2><p>Python翻译层；与中蟒/草蟒/其他ChinesePython不可凭同名合并。</p>
-<h2>核验说明</h2><p>2026-10-09只读核验。0星，非fork；最后推送2025-05-12T11:12:30Z。日期为仓库创建不代表首发。功能、性能、通过测试数量未独立复测。示例为仓库原文节选，未修正其输入值未转换为整数的潜在问题；源码重复“是”键且简单替换可能改动字符串，不宜宣称完全兼容。</p>
-<h2>参考资料</h2><ul><li><a href="https://github.com/PythonDeveloper29042/PythonCN/blob/e41006e637f5381801551e4b2554a1b05a5918fa/README.md">项目README（核验快照）</a></li><li><a href="https://github.com/PythonDeveloper29042/PythonCN/blob/e41006e637f5381801551e4b2554a1b05a5918fa/compiler.py">实现或样例证据</a></li><li><a href="https://api.github.com/repos/PythonDeveloper29042/PythonCN">仓库元数据</a></li><li><a href="https://github.com/PythonDeveloper29042/PythonCN/blob/e41006e637f5381801551e4b2554a1b05a5918fa/chinese_code.pycn">仓库原始中文代码示例</a></li></ul><p>资料核验日期：2026-10-09</p><p><a href="https://github.com/yuyan-lang/chinese-programming-languages/issues/new">补充资料或纠错</a></p></main><footer>站点由<a href="https://yuyan-lang.org/">豫言编程语言</a>提供</footer></body></html>
+　　　　输出（字符串（数）＋＂为一个奇数＂）</code></pre><p>固定chinese_code.pycn第4—7行连续原文，保持原有全角空格、数字、引号和标点；依赖第3行输入赋值。该例以输入值参与取模，输入值的整数转换及运行结果待核实。原文件共7行、291字节，末尾无换行。 <a href="https://github.com/PythonDeveloper29042/PythonCN/blob/e41006e637f5381801551e4b2554a1b05a5918fa/chinese_code.pycn">示例来源</a></p>
+<h2>实现与运行环境</h2><p>compiler.py的main以UTF-8读取输入文件，调用compile_code；translate_code依次遍历合并后的builtins、keywords与symbols词表，对全文调用str.replace。compile_code写出UTF-8的temp.py，再经os.system(&quot;python temp.py&quot;)交给系统Python解释器。转换范围涵盖字符串、注释及标识符内的匹配文本，Python负责后续解析与执行。文件存在性异常、输出覆盖、命令环境和跨平台行为待核实。</p>
+<h2>版本与维护状态</h2><p>固定main为e41006e637f5381801551e4b2554a1b05a5918fa，源码编号版本待核实。2026-10-10读取Releases与标签引用均为空列表，正式发行日期与发行物待核实。README声明Python3.x环境和MIT许可；完整递归树保存5个文件，许可证全文待核实，仓库license元数据为null。</p><p>公开源码可读，GitHub元数据archived=false；默认main最后提交为2025-05-12T11:12:12Z。后续维护计划、独立安装及执行状态待核实。</p>
+<h2>与其他项目的关系</h2><p>Python为转译目标及执行依赖。README将PythonCN/PythonCN列为下载地址，该路径本轮返回404；与当前PythonDeveloper29042/PythonCN的迁移关系待核实。GitHub元数据fork=false；与中蟒、草蟒及其他中文Python实现的源码继承关系待核实。</p>
+<h2>核验说明</h2><p>2026-10-10只读核验。当前main与原参考固定提交相同；递归树5项、truncated=false，默认分支2次提交。末次提交只补源码头部日期。keywords中“是”重复出现，字典后值is覆盖True；按有序替换规则，“循环”先替换为for，随后“循环当”的匹配范围发生变化，静态可推得for当。内置input的文本结果在原例直接参与取模，整数转换待核实。README的跨平台和功能描述按作者材料记录，运行与兼容性待独立验证。原有4条参考标题及URL完整保留；代码与固定文件第4—7行逐字一致。 已核双语README、源码和2次提交；AI开发声明与参与范围待核实。</p>
+<h2>参考资料</h2><ul><li><a href="https://github.com/PythonDeveloper29042/PythonCN/blob/e41006e637f5381801551e4b2554a1b05a5918fa/README.md">项目README（核验快照）</a></li>
+<li><a href="https://github.com/PythonDeveloper29042/PythonCN/blob/e41006e637f5381801551e4b2554a1b05a5918fa/compiler.py">实现或样例证据</a></li>
+<li><a href="https://api.github.com/repos/PythonDeveloper29042/PythonCN">仓库元数据</a></li>
+<li><a href="https://github.com/PythonDeveloper29042/PythonCN/blob/e41006e637f5381801551e4b2554a1b05a5918fa/chinese_code.pycn">仓库原始中文代码示例</a></li>
+<li><a href="https://github.com/PythonDeveloper29042/PythonCN/blob/e41006e637f5381801551e4b2554a1b05a5918fa/README_CN.md">中文README：面向初学者、环境与MIT声明</a></li>
+<li><a href="https://github.com/PythonDeveloper29042/PythonCN/commit/37eca6d525916c38b98c6bce63541963476cfe08">根提交：双语说明、转译脚本与中文原例</a></li>
+<li><a href="https://github.com/PythonDeveloper29042/PythonCN/commit/e41006e637f5381801551e4b2554a1b05a5918fa">末次提交：补充源码日期</a></li>
+<li><a href="https://github.com/PythonDeveloper29042/PythonCN/tree/e41006e637f5381801551e4b2554a1b05a5918fa">固定完整文件树</a></li>
+<li><a href="https://github.com/PythonDeveloper29042/PythonCN/releases">公开发行列表</a></li>
+<li><a href="https://api.github.com/repos/PythonDeveloper29042/PythonCN/git/matching-refs/tags/">标签引用列表</a></li></ul><p>资料核验日期：2026-10-10</p><p><a href="https://github.com/yuyan-lang/chinese-programming-languages/issues/new">补充资料或纠错</a></p></main><footer>站点由<a href="https://yuyan-lang.org/">豫言编程语言</a>提供</footer></body></html>

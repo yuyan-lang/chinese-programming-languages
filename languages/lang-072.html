@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>PyCn（sunzi334481）｜中文编程语言百科</title><link rel="stylesheet" href="../style.css"></head><body><header><h1>PyCn（sunzi334481）</h1></header><main><p><a href="../">返回语言目录</a></p>
+<h2>语言介绍</h2><p>PyCn是sunzi334481维护的Python中文方言及词元级源码转译层，源码使用.pycn后缀。程序保留Python缩进结构，以“定义、如果、返回、对于、导入”等中文词表达控制流，并提供内置函数、异常、模块和库API映射。手写扫描器分别处理注释、字符串、数字和名称，先收集用户定义名，再按关键字、属性位置及全局名字查表生成Python源码。CLI和模块加载器调用Python的compile与exec执行转译结果，交互环境使用compile_command判断输入完整性。项目提供中文字符串前缀、导入别名、跨文件模块加载，以及VSCode、JetBrains和Visual Studio插件源码。包版本自标0.1.0，采用MIT许可。公开测试源码包含86个测试方法；测试通过状态、复杂作用域与字符串边界、完整Python生态兼容性待核实。</p>
+<h2>分类与别名</h2><p>Python中文方言／词元级源码转译层；别名：PyCn；PyCn Language；pycn-lang</p>
+<h2>作者与公开历史</h2><p>GitHub账号sunzi334481维护，默认分支24条提交的作者名均为sunzi334481。pyproject.toml作者字段为PyCn Language，LICENSE署名2026 PyCn contributors。真实姓名、团队成员及AI参与范围待核实。</p><p>仓库创建于2026-10-05T11:54:33Z；根提交6978f23f于11:54:34Z保存两行项目简介。同日11:59:30Z加入CLI、导入器、REPL和包配置，12:08:10Z加入translator.py，12:16:40Z加入mappings.py。各时间为GitHub仓库及Git提交记录，更早公开历史待核实。</p>
+<h2>设计与特征</h2><p>40项中文关键字映射与65项内置函数映射；中文模块名、属性名和关键字实参映射；格／原／字字符串前缀与f-string表达式转译；全文件定义名预扫描；CLI运行、Python源码导出和REPL；通过导入钩子加载.pycn模块与包；三套编辑器插件源码；86个静态可读测试方法、9份.pycn原例</p>
+<h2>中文语法示例</h2><pre><code>定义 阶乘(数):
+    如果 数 &lt;= 1:
+        返回 1
+    返回 数 * 阶乘(数 - 1)
+
+打印(&quot;5 的阶乘 =&quot;, 阶乘(5))</code></pre><p>固定README第11—16行连续原文，共6行，包含完整阶乘函数及一次调用。全文切片与独立按行读取逐字相等。代码按作者原例保存，执行结果待独立核实。 <a href="https://github.com/sunzi334481/PyCn/blob/f840307aab9f55e7d25d798768db0ad4db24edb0/README.md#L11-L16">示例来源</a></p>
+<h2>实现与运行环境</h2><p>Python实现。translator.py的translate先调用_collect_user_defined_names，再以手写扫描器区分注释、字符串、数字和名称；普通名称先查KEYWORD_MAP及GLOBAL_NAME_MAP，点号后查ATTRIBUTE_MAP，导入语句另做模块映射与中文别名生成。mappings.py合并内置函数、常量、异常和魔术名字到全局表，合并类型方法、库API及魔术名字到属性表。cli.cmd_run串接读取→translate→compile(...,'exec')→exec；cmd_compile导出.py文本。PycnLoader使用相同转译、编译和执行链，并把原始源码登记到linecache；PycnFinder查找.pycn及__init__.pycn，install将其置于PathFinder之前。REPL经translate→code.compile_command→exec。三个编辑器运行入口调用pycn CLI或python -m pycn_lang run。</p>
+<h2>版本与维护状态</h2><p>pyproject.toml与pycn_lang.__version__均自标0.1.0；VSCode、JetBrains、Visual Studio插件配置也自标0.1.0。包声明Python&gt;=3.10，README记开发环境为Python3.14。2026-10-10读取GitHub Releases为空，git/refs/tags返回404；0.1.0独立发行、PyPI发布及跨版本运行兼容性待核实。MIT许可证署名为2026 PyCn contributors。</p><p>公开转译器、词表、CLI、导入器、REPL、编辑器插件及测试源码已核；独立构建、安装和执行待核实。</p>
+<h2>与其他项目的关系</h2><p>Python承担转译后的语法编译和运行，标准库与第三方Python模块通过宿主导入机制接入。GitHub元数据fork=false。同名PyPI Pycn 0.0.1由Wry／Ruoyu Wang于2021年发布；Vincent-the-gamer/pycn文档描述Rust词法／递归下降解析及PyO3工具链。目录lang-027是PythonDeveloper29042/PythonCN，lang-065是LostPEople634/pchinese；本条按sunzi334481仓库单列。上述项目间的代码继承、合作或改名关系待核实。</p>
+<h2>核验说明</h2><p>2026-10-10公开静态核验，固定f840307aab9f55e7d25d798768db0ad4db24edb0，默认main头一致，递归树90项、65个文件、9份.pycn原例，truncated=false。四份测试文件按def test_文本计数为72+4+9+1=86；README“全部通过”按作者自述记录，Actions集合total_count=0。多模块导入源码和测试会将一条导入展开为多行；源码行号对应按具体路径待核实。定义名采用全文件集合，属性映射按词表匹配，f-string表达式另行递归translate，词法作用域、同名属性及复杂插值语义待核实。README已打包VSIX与安装验证按作者说明保存；固定树中三套插件源码可读，打包附件、插件市场状态和IDE可用性待核实。AI参与工具、范围和比例待原始声明核实。</p>
+<h2>参考资料</h2><ul><li><a href="https://github.com/sunzi334481/PyCn/blob/f840307aab9f55e7d25d798768db0ad4db24edb0/README.md#L1-L16">固定README：中文语法定位及连续阶乘原例</a></li>
+<li><a href="https://github.com/sunzi334481/PyCn/blob/f840307aab9f55e7d25d798768db0ad4db24edb0/pycn_lang/translator.py#L21-L72">固定手写扫描、名称查表及字符串前缀</a></li>
+<li><a href="https://github.com/sunzi334481/PyCn/blob/f840307aab9f55e7d25d798768db0ad4db24edb0/pycn_lang/translator.py#L591-L717">固定词元级主转译入口</a></li>
+<li><a href="https://github.com/sunzi334481/PyCn/blob/f840307aab9f55e7d25d798768db0ad4db24edb0/pycn_lang/translator.py#L447-L585">固定全文件用户定义名收集</a></li>
+<li><a href="https://github.com/sunzi334481/PyCn/blob/f840307aab9f55e7d25d798768db0ad4db24edb0/pycn_lang/translator.py#L113-L187">固定f-string表达式递归转译</a></li>
+<li><a href="https://github.com/sunzi334481/PyCn/blob/f840307aab9f55e7d25d798768db0ad4db24edb0/pycn_lang/translator.py#L342-L441">固定import整句处理及中文别名</a></li>
+<li><a href="https://github.com/sunzi334481/PyCn/blob/f840307aab9f55e7d25d798768db0ad4db24edb0/pycn_lang/mappings.py#L25-L137">固定40项关键字及65项内置函数映射</a></li>
+<li><a href="https://github.com/sunzi334481/PyCn/blob/f840307aab9f55e7d25d798768db0ad4db24edb0/pycn_lang/mappings.py#L335-L1343">固定模块、类型方法及标准库API词表</a></li>
+<li><a href="https://github.com/sunzi334481/PyCn/blob/f840307aab9f55e7d25d798768db0ad4db24edb0/pycn_lang/mappings.py#L1368-L1399">固定全局名字表与属性表合并</a></li>
+<li><a href="https://github.com/sunzi334481/PyCn/blob/f840307aab9f55e7d25d798768db0ad4db24edb0/pycn_lang/cli.py#L34-L87">固定CLI运行：translate、compile、exec</a></li>
+<li><a href="https://github.com/sunzi334481/PyCn/blob/f840307aab9f55e7d25d798768db0ad4db24edb0/pycn_lang/cli.py#L90-L119">固定CLI导出Python源码</a></li>
+<li><a href="https://github.com/sunzi334481/PyCn/blob/f840307aab9f55e7d25d798768db0ad4db24edb0/pycn_lang/importer.py#L22-L99">固定模块加载器、finder及安装顺序</a></li>
+<li><a href="https://github.com/sunzi334481/PyCn/blob/f840307aab9f55e7d25d798768db0ad4db24edb0/pycn_lang/repl.py#L14-L44">固定交互式环境</a></li>
+<li><a href="https://github.com/sunzi334481/PyCn/blob/f840307aab9f55e7d25d798768db0ad4db24edb0/pycn_lang/__init__.py#L1-L10">固定包初始化与0.1.0版本</a></li>
+<li><a href="https://github.com/sunzi334481/PyCn/blob/f840307aab9f55e7d25d798768db0ad4db24edb0/pyproject.toml#L1-L35">固定包配置：Python要求、作者字段与项目链接</a></li>
+<li><a href="https://github.com/sunzi334481/PyCn/blob/f840307aab9f55e7d25d798768db0ad4db24edb0/LICENSE#L1-L21">固定MIT许可与署名</a></li>
+<li><a href="https://github.com/sunzi334481/PyCn/blob/f840307aab9f55e7d25d798768db0ad4db24edb0/tests/test_translator.py#L254-L268">固定转译测试：多模块导入扩为两行</a></li>
+<li><a href="https://github.com/sunzi334481/PyCn/blob/f840307aab9f55e7d25d798768db0ad4db24edb0/tests/test_translator.py#L309-L312">固定转译测试：三行打印的行数断言</a></li>
+<li><a href="https://github.com/sunzi334481/PyCn/blob/f840307aab9f55e7d25d798768db0ad4db24edb0/tests/test_e2e.py#L12-L71">固定端到端测试源码</a></li>
+<li><a href="https://github.com/sunzi334481/PyCn/blob/f840307aab9f55e7d25d798768db0ad4db24edb0/tests/test_importer.py#L28-L60">固定模块导入测试源码</a></li>
+<li><a href="https://github.com/sunzi334481/PyCn/blob/f840307aab9f55e7d25d798768db0ad4db24edb0/tests/test_check_mappings.py#L14-L37">固定词表重复键测试源码</a></li>
+<li><a href="https://github.com/sunzi334481/PyCn/blob/f840307aab9f55e7d25d798768db0ad4db24edb0/editors/vscode-pycn/extension.js#L33-L50">固定VSCode扩展执行入口</a></li>
+<li><a href="https://github.com/sunzi334481/PyCn/blob/f840307aab9f55e7d25d798768db0ad4db24edb0/editors/jetbrains-pycn/src/main/kotlin/com/pycn/plugin/PycnRunConfiguration.kt#L60-L79">固定JetBrains扩展执行入口</a></li>
+<li><a href="https://github.com/sunzi334481/PyCn/blob/f840307aab9f55e7d25d798768db0ad4db24edb0/editors/visualstudio-pycn/PycnVsPackage/PycnRunner.cs#L25-L70">固定Visual Studio扩展执行入口</a></li>
+<li><a href="https://github.com/sunzi334481/PyCn/commit/6978f23f4aaf4f92d36e5a4cfb9c54855a086d1c">根提交与初始简介</a></li>
+<li><a href="https://github.com/sunzi334481/PyCn/commit/ac32135ef62a48b4a530dfc2b0eb6de16caed4e7">运行入口和包配置首次加入</a></li>
+<li><a href="https://github.com/sunzi334481/PyCn/commit/114e7b75a986142183f4ac41e780f5c19d28432e">转译器首次加入</a></li>
+<li><a href="https://github.com/sunzi334481/PyCn/commit/3c65d09e7f2aa9f8e2cea71007660e2f40fcf624">词表首次加入</a></li>
+<li><a href="https://github.com/sunzi334481/PyCn/tree/f840307aab9f55e7d25d798768db0ad4db24edb0">固定完整文件树</a></li>
+<li><a href="https://api.github.com/repos/sunzi334481/PyCn">仓库元数据</a></li>
+<li><a href="https://github.com/sunzi334481/PyCn/releases">公开发行集合</a></li>
+<li><a href="https://api.github.com/repos/sunzi334481/PyCn/actions/runs?per_page=100">公开Actions运行集合</a></li>
+<li><a href="https://github.com/Vincent-the-gamer/pycn/blob/48acdd141a914fed636ea8c5631db22a4b709a9f/README.md">同名项目排重：Vincent-the-gamer的Rust/PyO3项目</a></li>
+<li><a href="https://pypi.org/project/Pycn/">同名包排重：Wry的2021年Pycn 0.0.1</a></li></ul><p>资料核验日期：2026-10-10</p><p><a href="https://github.com/yuyan-lang/chinese-programming-languages/issues/new">补充资料或纠错</a></p></main><footer>站点由<a href="https://yuyan-lang.org/">豫言编程语言</a>提供</footer></body></html>
