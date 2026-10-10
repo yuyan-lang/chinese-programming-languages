@@ -1,12 +1,18 @@
 <!doctype html>
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>周蟒｜中文编程语言百科</title><link rel="stylesheet" href="../style.css"></head><body><header><h1>周蟒</h1></header><main><p><a href="../">返回语言目录</a></p>
-<h2>语言介绍</h2><p>中文化蟒蛇语言。</p>
-<h2>分类与别名</h2><p>待核实；别名：未确认</p>
-<h2>作者与首次公开</h2><p>待核实。待核实</p>
+<h2>语言介绍</h2><p>周蟒（zhpy）是以中文学习和书写Python程序的开源语言工具，由Fred Lin（gasolin）在HYRY原型脚本基础上发展而来。它用繁体或简体中文表达函数、条件、循环、导入和内置操作，保留Python的缩进结构，并提供中文脚本、交互环境和程序转换工具。Python 2路线以pyparsing处理中文词语，将关键字及标识符转换为Python源码后执行；1.1版起提供双向源码转换。仓库同时保存面向Python 3的zhpy3路线，以tokenize处理名称词元。两条路线的版本、命令和示例分别记录，适合研究中文语法教学与Python本地化的历史。</p>
+<h2>分类与别名</h2><p>Python中文语法转译工具／教学语言；别名：zhpy、zhpy3</p>
+<h2>作者与公开历史</h2><p>Fred Lin（gasolin）；AUTHORS.txt另列HERY、Jiahwa Huang、renhbo，历史文档以HYRY称原型脚本作者。
+官方历史文档记载zhpy 0.2于2007-08-09发布，PyPI发行记录同日。原型来自2006年底讨论中HYRY的中文字串替换脚本，作者将其称为0.1版；原型的独立公开日期待核实。</p>
+<h2>设计与特征</h2><p>繁体、简体中文关键字及标识符；保留Python缩进、数字与运算符写法；Python 2路线支持双向源码转换、交互环境与中文脚本；关键词插件与ini映射扩展；Python 3路线采用tokenize转换</p>
+<h2>中文语法示例</h2><pre><code>定義 範例_1(訊息, 次數):
+   取 數 在 range(次數):
+       印出 &quot;哈囉, %s!&quot; % 訊息
 
-<h2>中文语法示例</h2><p>待核实：尚未取得可引用的原始中文代码示例。</p>
-<h2>实现与运行环境</h2><p>待核实</p>
-<h2>版本与维护状态</h2><p>版本待核实；待核实</p>
-<h2>与其他项目的关系</h2><p>待核实</p>
-<h2>核验说明</h2><p>本页依据现有目录补齐入口，未完成新的资料核验。</p>
-<h2>参考资料</h2><ul><li><a href="https://github.com/program-in-chinese/overview">参考资料</a></li></ul><p>资料核验日期：待核实</p><p><a href="https://github.com/yuyan-lang/chinese-programming-languages/issues/new">补充资料或纠错</a></p></main><footer>站点由<a href="https://yuyan-lang.org/">豫言编程语言</a>提供</footer></body></html>
+範例_1(&quot;世界&quot;, 100)</code></pre><p>固定提交zhpy2/examples/hello/hello.twpy第3—7行连续原文，保留原有3格及7格缩进。该例属于Python 2路线，包含函数、循环与调用；运行验证待核实。 <a href="https://github.com/gasolin/zhpy/blob/f4d932a5ab810158ef4e4113df337cbf7d83817a/zhpy2/examples/hello/hello.twpy#L3-L7">示例来源</a></p>
+<h2>实现与运行环境</h2><p>Python实现。zhpy2/zhpy/zhpy.py以pyparsing识别中文词语，查关键字表并将其他中文名称编码为标识符；convertor生成Python源码，zh_exec调用try_run中的exec执行。zhpy3/core.py用tokenize.generate_tokens转换NAME词元；twpy.py将结果untokenize、compile，再交给runpy执行。历史文档列Windows、Linux、Mac为适用平台；现代运行环境兼容性待核实。</p>
+<h2>版本与维护状态</h2><p>Python 2路线zhpy为1.7.4，PyPI发布于2015-10-23；Python 3路线zhpy3为3.0.0a1，PyPI发布于2011-06-25并标Alpha。源码各自的release.py与这些版本一致。GitHub Releases集合为空。
+原作者GitHub源码、迁移后的文档与PyPI发行记录可读。GitHub仓库archived=false，master所见最后提交为2020-02-27的README修正。当前维护计划和现代环境运行情况待核实。本轮核验范围为文档及源码静态阅读。</p>
+<h2>与其他项目的关系</h2><p>官方历史说明周蟒由HYRY的中文字串替换脚本发展，原型被称为0.1版；中文名取自zhpy的读音，命名时明确区分中蟒。zhpy3自述为zhpy的Python 3后继路线，在同一条目记录。周蟒与中蟒、草蟒的直接代码继承关系待核实。</p>
+<h2>核验说明</h2><p>2026-10-10只读核验。源码固定master提交f4d932a5ab810158ef4e4113df337cbf7d83817a，时间2020-02-27T09:11:33Z；wiki分支固定提交88e11bf44394260e35c2739ed7e01d3181cb639d。2007-08-09的0.2发布依据作者历史文档和PyPI记录。GitHub创建日期为2015-08-08，属于托管迁移时间。原文中AUTHORS.txt拼作HERY，历史叙述与源码拼作HYRY，保留来源差异。实现、包版本与运行环境按zhpy2/zhpy3分别核对。代码逐字摘取原文件，运行与测试结果待核实。</p>
+<h2>参考资料</h2><ul><li><a href="https://github.com/program-in-chinese/overview">原有汇总入口</a></li><li><a href="https://github.com/gasolin/zhpy/blob/f4d932a5ab810158ef4e4113df337cbf7d83817a/README.md">作者仓库README：中文示例及Google Code迁移说明</a></li><li><a href="https://github.com/gasolin/zhpy/blob/88e11bf44394260e35c2739ed7e01d3181cb639d/AboutZhpy.md">官方历史、命名与实现说明</a></li><li><a href="https://github.com/gasolin/zhpy/blob/f4d932a5ab810158ef4e4113df337cbf7d83817a/zhpy2/examples/hello/hello.twpy#L3-L7">原始函数与循环示例（Python 2路线）</a></li><li><a href="https://github.com/gasolin/zhpy/blob/f4d932a5ab810158ef4e4113df337cbf7d83817a/zhpy2/zhpy/zhpy.py">Python 2转换器与执行入口</a></li><li><a href="https://github.com/gasolin/zhpy/blob/f4d932a5ab810158ef4e4113df337cbf7d83817a/zhpy2/zhpy/plugcn.py#L34-L93">简体中文关键字表</a></li><li><a href="https://github.com/gasolin/zhpy/blob/f4d932a5ab810158ef4e4113df337cbf7d83817a/zhpy2/zhpy/release.py">Python 2作者、版本及功能元数据</a></li><li><a href="https://github.com/gasolin/zhpy/blob/f4d932a5ab810158ef4e4113df337cbf7d83817a/zhpy2/AUTHORS.txt">贡献者名单</a></li><li><a href="https://github.com/gasolin/zhpy/blob/f4d932a5ab810158ef4e4113df337cbf7d83817a/zhpy3/core.py">Python 3词元转换核心</a></li><li><a href="https://github.com/gasolin/zhpy/blob/f4d932a5ab810158ef4e4113df337cbf7d83817a/zhpy3/twpy.py">Python 3命令行执行入口</a></li><li><a href="https://github.com/gasolin/zhpy/blob/f4d932a5ab810158ef4e4113df337cbf7d83817a/zhpy3/release.py">Python 3版本及后继关系说明</a></li><li><a href="https://github.com/gasolin/zhpy/blob/f4d932a5ab810158ef4e4113df337cbf7d83817a/CHANGELOG.txt">历史版本日志</a></li><li><a href="https://pypi.org/project/zhpy/">zhpy的PyPI发行历史</a></li><li><a href="https://pypi.org/project/zhpy3/">zhpy3的PyPI发行历史</a></li><li><a href="https://api.github.com/repos/gasolin/zhpy">GitHub仓库状态</a></li></ul><p>资料核验日期：2026-10-10</p><p><a href="https://github.com/yuyan-lang/chinese-programming-languages/issues/new">补充资料或纠错</a></p></main><footer>站点由<a href="https://yuyan-lang.org/">豫言编程语言</a>提供</footer></body></html>

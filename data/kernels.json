@@ -1194,5 +1194,899 @@
         "kind": "作者主页"
       }
     ]
+  },
+  {
+    "id": "coolpotos",
+    "name": "CoolPotOS",
+    "aliases": [],
+    "checked_at": "2026-10-10",
+    "short_description": "CoolPotOS 是 XIAOYI12 发起、plos-clan 社区共同开发的实验操作系统，采用 C 与汇编实现 CP_Kernel。项目包含 Limine 启动接口、EEVDF 调度、伙伴分配器、VFS 与 Linux 兼容系统调用，作者于 2025 年公开发布 AMD64 版本视频。",
+    "author": {
+      "people": [
+        {
+          "name": "XIAOYI12",
+          "handle": "xiaoyi1212",
+          "public_alias": "XIAOYI80386"
+        }
+      ],
+      "organization": "plos-clan",
+      "attribution": {
+        "text": "XIAOYI12 在原帖说明项目由个人裸机程序发展而来，并与他人合作开发。GitHub 个人档案关联视频发布者的 Bilibili 账号。",
+        "evidence_level": "作者声明",
+        "source_ids": [
+          "c1",
+          "c2",
+          "c3"
+        ]
+      },
+      "china_basis": {
+        "text": "原作者在 2025-02-21 的项目视频标题中明确使用“国产自研”表述，并在简介链接 plos-clan/CoolPotOS 仓库。",
+        "evidence_level": "作者声明",
+        "source_ids": [
+          "c1",
+          "c2"
+        ]
+      }
+    },
+    "kernel_positioning": {
+      "text": "这是包含自有 CP_Kernel 实现的实验操作系统。固定快照包含独立的内核初始化、调度、页表和设备驱动源码。",
+      "evidence_level": "源码可见",
+      "source_ids": [
+        "c9",
+        "c11",
+        "c13",
+        "c15"
+      ]
+    },
+    "dates": {
+      "first_public": {
+        "date": null,
+        "status": "待核实",
+        "known_public_record": "已核对 2025-02-21 的 AMD64 原作者视频及 2025-09-17 的作者技术社区原帖。",
+        "source_ids": [
+          "c2",
+          "c3"
+        ]
+      },
+      "repository_created": {
+        "at": "2023-12-30T05:54:36Z",
+        "meaning": "GitHub created_at 元数据",
+        "source_ids": [
+          "c5"
+        ]
+      },
+      "author_recalled_first_commit": {
+        "date": "2024-01-11",
+        "basis": "作者在 2025-09-17 原帖第7楼回顾的第一次仓库提交日期",
+        "evidence_level": "作者声明",
+        "source_ids": [
+          "c3"
+        ]
+      },
+      "video_release": {
+        "date": "2025-02-21",
+        "version": "AMD64 分支阶段",
+        "source_ids": [
+          "c2"
+        ]
+      }
+    },
+    "architectures": [
+      {
+        "text": "2025 年原作者资料记载 IA32 与 AMD64 两个平台版本。",
+        "evidence_level": "作者声明",
+        "source_ids": [
+          "c2",
+          "c3"
+        ]
+      },
+      {
+        "text": "本轮固定快照的 CMake 构建分支接受 x86_64、riscv64 和 loongarch64；对应架构源码目录可见。",
+        "evidence_level": "源码可见",
+        "source_ids": [
+          "c16",
+          "c21"
+        ]
+      },
+      {
+        "text": "README 的构建参数另列 aarch64；该架构与固定快照的构建配置对应关系为待核实项。",
+        "evidence_level": "作者声明",
+        "source_ids": [
+          "c4",
+          "c16"
+        ]
+      }
+    ],
+    "capabilities": {
+      "boot": [
+        {
+          "text": "README 说明使用 Limine 引导；x86_64 启动接口声明内存映射、高半区映射、帧缓冲、模块与 RSDP 请求。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "c4",
+            "c8"
+          ]
+        },
+        {
+          "text": "kmain 初始化页帧、页表、堆、GDT/IDT、设备和任务系统，随后进入 BSP 空闲线程并启动调度及 init 进程。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "c9"
+          ]
+        }
+      ],
+      "scheduling": [
+        {
+          "text": "作者 2025-09-17 原帖说明默认采用 EEVDF 调度。",
+          "evidence_level": "作者声明",
+          "source_ids": [
+            "c3"
+          ]
+        },
+        {
+          "text": "eevdf.c 定义虚拟运行时间、截止时间、资格判断和红黑树队列；scheduler.c 通过编译开关接入 EEVDF。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "c10",
+            "c11"
+          ]
+        }
+      ],
+      "memory": [
+        {
+          "text": "伙伴分配器实现页块分裂与合并，区分 DMA、DMA32 和 Normal 内存区；x86_64 页表代码实现四级映射与解除映射。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "c12",
+            "c13"
+          ]
+        }
+      ],
+      "filesystem": [
+        {
+          "text": "VFS 源码实现路径解析、目录节点、文件系统回调和文件操作接口。内核入口注册 tmpfs、devtmpfs、overlayfs、pipefs、sysfs，并初始化 cpio 与 procfs。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "c9",
+            "c14"
+          ]
+        },
+        {
+          "text": "re440 发布说明列出采用 Zstd 的 SquashFS 支持；2026-03-24 作者更新文说明根文件系统采用 OverlayFS 与 SquashFS 组合。",
+          "evidence_level": "作者声明",
+          "source_ids": [
+            "c7",
+            "c19"
+          ]
+        }
+      ],
+      "drivers": [
+        {
+          "text": "固定源码包含 AHCI 设备信息解析、命令槽查找及命令表准备；x86_64 内核入口调用 PS/2 键盘、PCI、AHCI 和软件帧缓冲初始化。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "c9",
+            "c15"
+          ]
+        }
+      ]
+    },
+    "implementation_languages": [
+      {
+        "text": "构建文件声明 C 与 ASM；内核、调度和内存代码采用 C，x86_64 中断返回文件采用汇编。",
+        "evidence_level": "源码可见",
+        "source_ids": [
+          "c9",
+          "c11",
+          "c16",
+          "c22"
+        ]
+      }
+    ],
+    "project_relationships": [
+      {
+        "text": "作者将项目起点描述为个人学习底层原理时编写的裸机程序，随后发展为多人协作项目。",
+        "evidence_level": "作者声明",
+        "source_ids": [
+          "c3"
+        ]
+      },
+      {
+        "text": "README 列出 pl_readline、libos-terminal、plant-vfs、EEVDF、ACPICA、libfdt、stb_sprintf、tinycrypt 与 Zstd 等组件来源。",
+        "evidence_level": "作者声明",
+        "source_ids": [
+          "c4"
+        ]
+      },
+      {
+        "text": "2025-02 视频以宏内核介绍 AMD64 阶段；2025-09 原帖以混合内核介绍当时项目。内核类型的跨版本沿革保留为待核实项。",
+        "evidence_level": "作者声明",
+        "source_ids": [
+          "c2",
+          "c3"
+        ]
+      }
+    ],
+    "status": {
+      "latest_formal_release": {
+        "version": "re440",
+        "name": "CoolPotOS SIMA",
+        "published_at": "2026-03-16T13:35:54Z",
+        "source_ids": [
+          "c7"
+        ],
+        "label": "GitHub latest release；发布资源名包含 0.4.40"
+      },
+      "source_snapshot": {
+        "branch": "rebuild",
+        "commit": "0ef305ef854476d8e7cda63f4293ebe4638d0604",
+        "committed_at": "2026-04-26T12:33:55Z",
+        "source_ids": [
+          "c6"
+        ]
+      },
+      "activity": {
+        "text": "rebuild 分支核验快照的提交日期为 2026-04-26。",
+        "evidence_level": "仓库元数据",
+        "source_ids": [
+          "c6"
+        ]
+      },
+      "license": {
+        "name": "MIT",
+        "source_ids": [
+          "c17"
+        ]
+      },
+      "runtime_verification": {
+        "status": "待核实",
+        "scope": "本轮核验覆盖作者原帖、原视频页面、仓库元数据与源码静态阅读。",
+        "author_demo": {
+          "text": "2025-02-21 原视频页面介绍 AMD64、x2APIC、PCIe、SMP 和 devfs，并声明可真机启动。视频逐帧与实机复现为待核实项。",
+          "evidence_level": "作者声明",
+          "source_ids": [
+            "c2"
+          ]
+        }
+      }
+    },
+    "links": {
+      "source": "https://github.com/plos-clan/CoolPotOS",
+      "author_presentation": "https://linux.do/t/topic/964568",
+      "video_channel": {
+        "url": "https://space.bilibili.com/3537113156946497",
+        "evidence": "作者 GitHub 个人档案直链",
+        "source_ids": [
+          "c1"
+        ]
+      },
+      "video": {
+        "url": "https://www.bilibili.com/video/BV1EEAZeoEks/"
+      }
+    },
+    "pending_verification": [
+      "最早公开发布日期与历史分支完整沿革",
+      "各架构的独立构建和运行记录",
+      "aarch64 文档与固定构建配置的对应关系",
+      "宏内核与混合内核表述的版本边界",
+      "原视频关键帧与固定源码版本对应关系"
+    ],
+    "sources": [
+      {
+        "id": "c1",
+        "title": "XIAOYI12 作者档案与 Bilibili 关联",
+        "url": "https://github.com/xiaoyi1212/xiaoyi1212/blob/3deb32e62c876625746065519088426fe6d2239a/README.md",
+        "kind": "作者自述",
+        "supports": [
+          "作者账号关联"
+        ]
+      },
+      {
+        "id": "c2",
+        "title": "CoolPotOS AMD64 原作者发布视频（2025-02-21）",
+        "url": "https://www.bilibili.com/video/BV1EEAZeoEks/",
+        "kind": "原作者视频页面",
+        "supports": [
+          "中国项目归属声明",
+          "AMD64阶段",
+          "作者声明的功能",
+          "源仓库关联"
+        ]
+      },
+      {
+        "id": "c3",
+        "title": "XIAOYI12 在 LINUX DO 发布的项目介绍（2025-09-17）",
+        "url": "https://linux.do/t/topic/964568",
+        "kind": "作者技术社区原帖",
+        "supports": [
+          "个人项目起点",
+          "合作开发",
+          "首次提交回顾",
+          "架构",
+          "调度",
+          "阶段功能"
+        ]
+      },
+      {
+        "id": "c4",
+        "title": "CoolPotOS README 固定快照",
+        "url": "https://github.com/plos-clan/CoolPotOS/blob/0ef305ef854476d8e7cda63f4293ebe4638d0604/README.md",
+        "kind": "固定文档快照",
+        "supports": [
+          "项目定位",
+          "引导",
+          "组件来源",
+          "文档架构"
+        ]
+      },
+      {
+        "id": "c5",
+        "title": "CoolPotOS 仓库元数据",
+        "url": "https://api.github.com/repos/plos-clan/CoolPotOS",
+        "kind": "平台元数据",
+        "supports": [
+          "仓库创建日期",
+          "主分支"
+        ]
+      },
+      {
+        "id": "c6",
+        "title": "CoolPotOS 核验提交",
+        "url": "https://github.com/plos-clan/CoolPotOS/commit/0ef305ef854476d8e7cda63f4293ebe4638d0604",
+        "kind": "提交元数据",
+        "supports": [
+          "源码快照日期"
+        ]
+      },
+      {
+        "id": "c7",
+        "title": "CoolPotOS SIMA / re440 发布记录",
+        "url": "https://github.com/plos-clan/CoolPotOS/releases/tag/re440",
+        "kind": "项目发布说明",
+        "supports": [
+          "版本",
+          "发布日期",
+          "SquashFS",
+          "DRM",
+          "管道与信号"
+        ]
+      },
+      {
+        "id": "c8",
+        "title": "x86_64 Limine 接口",
+        "url": "https://github.com/plos-clan/CoolPotOS/blob/0ef305ef854476d8e7cda63f4293ebe4638d0604/src/arch/x86_64/boot/limine_req.c",
+        "kind": "固定源码快照",
+        "supports": [
+          "启动请求"
+        ]
+      },
+      {
+        "id": "c9",
+        "title": "x86_64 内核主入口",
+        "url": "https://github.com/plos-clan/CoolPotOS/blob/0ef305ef854476d8e7cda63f4293ebe4638d0604/src/arch/x86_64/main.c",
+        "kind": "固定源码快照",
+        "supports": [
+          "初始化",
+          "内核入口",
+          "文件系统注册",
+          "驱动调用"
+        ]
+      },
+      {
+        "id": "c10",
+        "title": "调度接口",
+        "url": "https://github.com/plos-clan/CoolPotOS/blob/0ef305ef854476d8e7cda63f4293ebe4638d0604/src/task/scheduler.c",
+        "kind": "固定源码快照",
+        "supports": [
+          "EEVDF编译接入"
+        ]
+      },
+      {
+        "id": "c11",
+        "title": "EEVDF 调度实现",
+        "url": "https://github.com/plos-clan/CoolPotOS/blob/0ef305ef854476d8e7cda63f4293ebe4638d0604/src/task/eevdf.c",
+        "kind": "固定源码快照",
+        "supports": [
+          "虚拟运行时间",
+          "截止时间",
+          "资格判断",
+          "红黑树"
+        ]
+      },
+      {
+        "id": "c12",
+        "title": "伙伴分配器",
+        "url": "https://github.com/plos-clan/CoolPotOS/blob/0ef305ef854476d8e7cda63f4293ebe4638d0604/src/mem/buddy.c",
+        "kind": "固定源码快照",
+        "supports": [
+          "页块分配",
+          "内存区域"
+        ]
+      },
+      {
+        "id": "c13",
+        "title": "x86_64 页表实现",
+        "url": "https://github.com/plos-clan/CoolPotOS/blob/0ef305ef854476d8e7cda63f4293ebe4638d0604/src/arch/x86_64/mem/page_x64.c",
+        "kind": "固定源码快照",
+        "supports": [
+          "四级分页"
+        ]
+      },
+      {
+        "id": "c14",
+        "title": "VFS 实现",
+        "url": "https://github.com/plos-clan/CoolPotOS/blob/0ef305ef854476d8e7cda63f4293ebe4638d0604/src/fs/vfs.c",
+        "kind": "固定源码快照",
+        "supports": [
+          "路径",
+          "节点",
+          "回调",
+          "文件操作"
+        ]
+      },
+      {
+        "id": "c15",
+        "title": "AHCI 驱动",
+        "url": "https://github.com/plos-clan/CoolPotOS/blob/0ef305ef854476d8e7cda63f4293ebe4638d0604/src/driver/ahci/ahci.c",
+        "kind": "固定源码快照",
+        "supports": [
+          "设备信息",
+          "命令槽",
+          "命令表"
+        ]
+      },
+      {
+        "id": "c16",
+        "title": "CMake 构建配置",
+        "url": "https://github.com/plos-clan/CoolPotOS/blob/0ef305ef854476d8e7cda63f4293ebe4638d0604/CMakeLists.txt",
+        "kind": "固定构建配置",
+        "supports": [
+          "C/ASM",
+          "三个目标架构"
+        ]
+      },
+      {
+        "id": "c17",
+        "title": "MIT 许可证",
+        "url": "https://github.com/plos-clan/CoolPotOS/blob/0ef305ef854476d8e7cda63f4293ebe4638d0604/LICENSE",
+        "kind": "固定源码快照",
+        "supports": [
+          "许可证"
+        ]
+      },
+      {
+        "id": "c19",
+        "title": "XIAOYI12 的 CoolPotOS 更新文（2026-03-24）",
+        "url": "https://linux.do/t/topic/1805284?tl=en",
+        "kind": "作者技术社区原帖",
+        "supports": [
+          "OverlayFS与SquashFS",
+          "服务管理器"
+        ]
+      },
+      {
+        "id": "c21",
+        "title": "CoolPotOS 固定完整源码树",
+        "url": "https://api.github.com/repos/plos-clan/CoolPotOS/git/trees/0ef305ef854476d8e7cda63f4293ebe4638d0604?recursive=1",
+        "kind": "固定源码树",
+        "supports": [
+          "架构目录"
+        ]
+      },
+      {
+        "id": "c22",
+        "title": "x86_64 汇编中断返回",
+        "url": "https://github.com/plos-clan/CoolPotOS/blob/0ef305ef854476d8e7cda63f4293ebe4638d0604/src/arch/x86_64/dt/entry.S",
+        "kind": "固定源码快照",
+        "supports": [
+          "汇编实现"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "uinxed-kernel",
+    "name": "Uinxed-Kernel",
+    "aliases": [
+      "Uinxed"
+    ],
+    "checked_at": "2026-10-10",
+    "short_description": "Uinxed-Kernel 是 ViudiraTech 社区维护的 x86-64 类 UNIX 宏内核，主要采用 C 实现。项目包含 Limine 启动接口、EEVDF 调度、物理页分配、VFS 和 Linux 兼容系统调用接口。",
+    "author": {
+      "people": [
+        {
+          "name": "MicroFish",
+          "handle": "FengHeting"
+        },
+        {
+          "name": "Rainy101112",
+          "handle": "Rainy101112"
+        },
+        {
+          "name": "JiTianYu391",
+          "handle": "JiTianYu391"
+        }
+      ],
+      "organization": "ViudiraTech",
+      "attribution": {
+        "text": "社区主页与 CREDITS 列出 MicroFish（FengHeting）、Rainy101112、JiTianYu391 等贡献者；CREDITS 说明维护由贡献者共同承担。",
+        "evidence_level": "作者声明",
+        "source_ids": [
+          "u1",
+          "u2"
+        ]
+      },
+      "china_basis": {
+        "text": "ViudiraTech 的公开社区介绍明确自述来自中国。",
+        "evidence_level": "作者声明",
+        "source_ids": [
+          "u1"
+        ]
+      }
+    },
+    "kernel_positioning": {
+      "text": "README 将其描述为从零编写、采用 C 实现的 x86-64 类 UNIX 宏内核。固定快照包含 Limine 内核入口、任务调度、物理内存分配及 VFS 实现。",
+      "evidence_level": "作者声明",
+      "source_ids": [
+        "u3",
+        "u7",
+        "u8",
+        "u9",
+        "u10",
+        "u11"
+      ]
+    },
+    "dates": {
+      "first_public": {
+        "date": null,
+        "status": "待核实",
+        "known_public_record": "本轮读取了仓库创建元数据及现存 2026 年版本发布记录。",
+        "source_ids": [
+          "u4",
+          "u6",
+          "u15"
+        ]
+      },
+      "repository_created": {
+        "at": "2024-07-23T11:13:17Z",
+        "meaning": "GitHub created_at 元数据",
+        "source_ids": [
+          "u4"
+        ]
+      },
+      "earliest_observed_github_release": {
+        "version": "v0.1.1",
+        "published_at": "2026-05-19T16:06:33Z",
+        "label": "本轮现存 Releases 集合中时间最早的条目",
+        "source_ids": [
+          "u15"
+        ]
+      }
+    },
+    "architectures": [
+      {
+        "text": "项目目标架构为 x86-64。构建文件采用 freestanding 编译参数，并提供 qemu-system-x86_64 启动目标。",
+        "evidence_level": "源码可见",
+        "source_ids": [
+          "u3",
+          "u16"
+        ]
+      }
+    ],
+    "capabilities": {
+      "boot": [
+        {
+          "text": "Limine 接口把入口设为 kernel_entry，并声明 SMP、内存映射、帧缓冲、HHDM 与模块请求。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "u7"
+          ]
+        },
+        {
+          "text": "kernel_entry 初始化页帧、页表、堆、体系结构、设备、VFS 与进程系统，加载 PID 1 后交由 sched_start 调度。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "u8"
+          ]
+        }
+      ],
+      "scheduling": [
+        {
+          "text": "v0.4.0 发布说明列出 EEVDF 调度器。固定源码定义每 CPU 运行队列、虚拟运行时间、截止时间、资格计算及红黑树入队操作。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "u6",
+            "u9"
+          ]
+        }
+      ],
+      "memory": [
+        {
+          "text": "二进制伙伴分配器实现按阶空闲链表、页块分裂与合并、分配释放及一致性检查。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "u10"
+          ]
+        },
+        {
+          "text": "项目文档列出四级页表、HHDM、统一页缓存和匿名内存交换。",
+          "evidence_level": "作者声明",
+          "source_ids": [
+            "u3"
+          ]
+        }
+      ],
+      "filesystem": [
+        {
+          "text": "VFS 源码包含命名空间锁、节点编号、权限检查、路径解析及页缓存后端。内核入口注册 tmpfs、procfs、sysfs、FatFs、ISO 9660、NTFS 和 ext 文件系统。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "u8",
+            "u11"
+          ]
+        }
+      ],
+      "drivers": [
+        {
+          "text": "AHCI 源码包含 PCI 类码匹配、MMIO 寄存器访问、命令槽查找与端口启停；内核入口包含 IDE、AHCI、NVMe、PS/2 和网卡初始化调用。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "u8",
+            "u12"
+          ]
+        }
+      ]
+    },
+    "implementation_languages": [
+      {
+        "text": "核心代码使用 C；Makefile 收集 C 源文件并采用 freestanding、无标准库链接配置。内核入口包含 x86-64 内联汇编。",
+        "evidence_level": "源码可见",
+        "source_ids": [
+          "u8",
+          "u16"
+        ]
+      }
+    ],
+    "project_relationships": [
+      {
+        "text": "README 说明项目实现 Linux 兼容系统调用接口，编号参照 Linux 6.12 x86-64 ABI。作者将当前实现描述为该接口的子集。",
+        "evidence_level": "作者声明",
+        "source_ids": [
+          "u3"
+        ]
+      },
+      {
+        "text": "NOTICE 列出随附的 Limine、OVMF、FatFs 及点阵字体来源，并分别记录组件许可信息。",
+        "evidence_level": "作者声明",
+        "source_ids": [
+          "u13"
+        ]
+      }
+    ],
+    "status": {
+      "latest_formal_release": {
+        "version": "v0.4.0",
+        "published_at": "2026-07-22T16:29:17Z",
+        "source_ids": [
+          "u6"
+        ]
+      },
+      "source_snapshot": {
+        "branch": "master",
+        "commit": "ba4c809852a357378ab6058da5f514cceb8819c3",
+        "committed_at": "2026-10-03T16:36:51Z",
+        "source_ids": [
+          "u5"
+        ]
+      },
+      "activity": {
+        "text": "master 分支核验快照的提交日期为 2026-10-03。",
+        "evidence_level": "仓库元数据",
+        "source_ids": [
+          "u5"
+        ]
+      },
+      "license": {
+        "name": "Apache-2.0",
+        "source_ids": [
+          "u14"
+        ],
+        "note": "随附组件的来源与许可单列于 NOTICE。"
+      },
+      "runtime_verification": {
+        "status": "待核实",
+        "scope": "本轮核验覆盖作者社区介绍、发布记录、仓库元数据与源码静态阅读。",
+        "author_demo": {
+          "text": "README 记述当前开发镜像可启动 Alpine Linux 3.23 用户环境与 Xfce/X11 桌面，并记述 Dell PowerEdge R410 运行情况。对应录屏、镜像和独立复现为待核实项。",
+          "evidence_level": "作者声明",
+          "source_ids": [
+            "u3"
+          ]
+        }
+      }
+    },
+    "links": {
+      "source": "https://github.com/ViudiraTech/Uinxed-Kernel",
+      "documentation": "https://github.com/ViudiraTech/Uinxed-Kernel/blob/ba4c809852a357378ab6058da5f514cceb8819c3/docs/README_zh.md",
+      "video": {
+        "status": "待核实",
+        "url": null
+      }
+    },
+    "pending_verification": [
+      "最早公开发布日期",
+      "原作者演示录屏与发布镜像对应关系",
+      "独立构建、虚拟机和实机运行记录",
+      "Linux 系统调用子集的逐项兼容测试",
+      "完整源码沿革与随附资源的许可审计"
+    ],
+    "sources": [
+      {
+        "id": "u1",
+        "title": "ViudiraTech 社区公开介绍",
+        "url": "https://github.com/ViudiraTech/.github/blob/de574fec752dc1e42f42c0f48fd1b2df05ea3fc3/profile/README.md",
+        "kind": "社区自述",
+        "supports": [
+          "中国社区归属",
+          "维护成员"
+        ]
+      },
+      {
+        "id": "u2",
+        "title": "Uinxed-Kernel 贡献者记录",
+        "url": "https://github.com/ViudiraTech/Uinxed-Kernel/blob/ba4c809852a357378ab6058da5f514cceb8819c3/CREDITS",
+        "kind": "固定作者文档",
+        "supports": [
+          "贡献者",
+          "共同维护"
+        ]
+      },
+      {
+        "id": "u3",
+        "title": "Uinxed-Kernel README 固定快照",
+        "url": "https://github.com/ViudiraTech/Uinxed-Kernel/blob/ba4c809852a357378ab6058da5f514cceb8819c3/README.md",
+        "kind": "固定文档快照",
+        "supports": [
+          "自主内核定位",
+          "架构",
+          "功能声明",
+          "运行情况声明",
+          "Linux兼容接口"
+        ]
+      },
+      {
+        "id": "u4",
+        "title": "Uinxed-Kernel 仓库元数据",
+        "url": "https://api.github.com/repos/ViudiraTech/Uinxed-Kernel",
+        "kind": "平台元数据",
+        "supports": [
+          "仓库创建日期"
+        ]
+      },
+      {
+        "id": "u5",
+        "title": "Uinxed-Kernel 核验提交",
+        "url": "https://github.com/ViudiraTech/Uinxed-Kernel/commit/ba4c809852a357378ab6058da5f514cceb8819c3",
+        "kind": "提交元数据",
+        "supports": [
+          "源码快照日期"
+        ]
+      },
+      {
+        "id": "u6",
+        "title": "v0.4.0 发布记录",
+        "url": "https://github.com/ViudiraTech/Uinxed-Kernel/releases/tag/v0.4.0",
+        "kind": "项目发布说明",
+        "supports": [
+          "版本",
+          "发布日期",
+          "EEVDF",
+          "ELF加载",
+          "IPC"
+        ]
+      },
+      {
+        "id": "u7",
+        "title": "Limine 启动请求",
+        "url": "https://github.com/ViudiraTech/Uinxed-Kernel/blob/ba4c809852a357378ab6058da5f514cceb8819c3/boot/limine_request.c",
+        "kind": "固定源码快照",
+        "supports": [
+          "引导接口",
+          "kernel_entry"
+        ]
+      },
+      {
+        "id": "u8",
+        "title": "内核初始化入口",
+        "url": "https://github.com/ViudiraTech/Uinxed-Kernel/blob/ba4c809852a357378ab6058da5f514cceb8819c3/init/main.c",
+        "kind": "固定源码快照",
+        "supports": [
+          "内核入口",
+          "初始化",
+          "PID1",
+          "文件系统与驱动"
+        ]
+      },
+      {
+        "id": "u9",
+        "title": "EEVDF 调度实现",
+        "url": "https://github.com/ViudiraTech/Uinxed-Kernel/blob/ba4c809852a357378ab6058da5f514cceb8819c3/kernel/sched/sched.c",
+        "kind": "固定源码快照",
+        "supports": [
+          "运行队列",
+          "虚拟运行时间",
+          "截止时间",
+          "红黑树"
+        ]
+      },
+      {
+        "id": "u10",
+        "title": "二进制伙伴分配器",
+        "url": "https://github.com/ViudiraTech/Uinxed-Kernel/blob/ba4c809852a357378ab6058da5f514cceb8819c3/mem/buddy.c",
+        "kind": "固定源码快照",
+        "supports": [
+          "物理页分配"
+        ]
+      },
+      {
+        "id": "u11",
+        "title": "VFS 核心实现",
+        "url": "https://github.com/ViudiraTech/Uinxed-Kernel/blob/ba4c809852a357378ab6058da5f514cceb8819c3/fs/core/vfs.c",
+        "kind": "固定源码快照",
+        "supports": [
+          "节点",
+          "权限",
+          "路径",
+          "页缓存"
+        ]
+      },
+      {
+        "id": "u12",
+        "title": "AHCI 驱动",
+        "url": "https://github.com/ViudiraTech/Uinxed-Kernel/blob/ba4c809852a357378ab6058da5f514cceb8819c3/drivers/block/ata/sata/ahci.c",
+        "kind": "固定源码快照",
+        "supports": [
+          "硬件设备操作"
+        ]
+      },
+      {
+        "id": "u13",
+        "title": "第三方组件声明",
+        "url": "https://github.com/ViudiraTech/Uinxed-Kernel/blob/ba4c809852a357378ab6058da5f514cceb8819c3/NOTICE",
+        "kind": "固定作者文档",
+        "supports": [
+          "组件来源与许可"
+        ]
+      },
+      {
+        "id": "u14",
+        "title": "Apache-2.0 许可证",
+        "url": "https://github.com/ViudiraTech/Uinxed-Kernel/blob/ba4c809852a357378ab6058da5f514cceb8819c3/LICENSE",
+        "kind": "固定源码快照",
+        "supports": [
+          "许可证"
+        ]
+      },
+      {
+        "id": "u15",
+        "title": "现存 GitHub Releases 集合",
+        "url": "https://api.github.com/repos/ViudiraTech/Uinxed-Kernel/releases?per_page=100",
+        "kind": "平台发布元数据",
+        "supports": [
+          "最早现存发布记录"
+        ]
+      },
+      {
+        "id": "u16",
+        "title": "Makefile 构建配置",
+        "url": "https://github.com/ViudiraTech/Uinxed-Kernel/blob/ba4c809852a357378ab6058da5f514cceb8819c3/Makefile",
+        "kind": "固定构建配置",
+        "supports": [
+          "C实现",
+          "freestanding",
+          "x86-64目标"
+        ]
+      }
+    ]
   }
 ]

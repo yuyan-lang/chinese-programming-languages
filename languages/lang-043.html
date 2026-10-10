@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>容语言｜中文编程语言百科</title><link rel="stylesheet" href="../style.css"></head><body><header><h1>容语言</h1></header><main><p><a href="../">返回语言目录</a></p>
+<h2>语言介绍</h2><p>容语言是容程序IDE配套的中文编程语言，以.rcx文件组织窗口和程序逻辑。官方文档使用“载入”“窗口”“函数”“如果”“循环”“当”等中文语法，采用缩进块，并规定全角与半角括号、冒号和逗号的等价写法。项目面向窗口程序和交互式应用，提供实时预览、组件属性编辑及工程分发功能。</p>
+<h2>分类与别名</h2><p>中文编程语言／窗口应用开发；别名：容程序</p>
+<h2>作者与公开历史</h2><p>文醒青年（Bilibili账号406482868；原视频发布者）
+至少于2026-10-05公开演示；官网历史页将2026-10-08标为容程序v1.0.0首个公开发行版。</p>
+<h2>设计与特征</h2><p>.rcx文件、中文函数和缩进代码块（官方文档）；窗口、按钮及中文属性声明（官方文档与原视频）；当…点按等交互语义（官方文档）；条件、循环、模块、结构体和标准库（官方文档）；Windows安装版及便携版下载；原片演示成绩单窗口程序</p>
+<h2>中文语法示例</h2><pre><code># 你好.rcx —— 第一个窗口程序
+载入  系统库
+
+窗口【名称&quot;你好&quot;，大小&quot;400:300&quot;，边框&quot;白&quot;，标题&quot;你好&quot;】
+
+函数  窗口函数【】：
+	按钮  开始【位置&quot;140:110&quot;，大小&quot;120:44&quot;，颜色&quot;红&quot;，字体颜色&quot;白&quot;，字体大小&quot;16&quot;，标题&quot;开始&quot;】
+
+函数  主函数【】：
+	当  开始 = 点按：
+		系统库.消息框(&quot;你好&quot;, &quot;你好，中文世界！&quot;)</code></pre><p>官方“快速上手”中“你好.rcx”的完整代码块，保留原文、标点、双空格和Tab缩进。该示例采用官方文档v1.0.0上下文；本轮为静态核验。 <a href="https://rongyuyan.cn/docs/#quickstart">示例来源</a></p>
+<h2>实现与运行环境</h2><p>官网发行包说明标注内置Python运行环境；文档将“编译”描述为把工程打包成独立Windows可执行文件。原视频05:34显示编辑器及成绩单窗口运行画面。解析器、执行器、打包器的实现源码与具体架构待核实。</p>
+<h2>版本与维护状态</h2><p>官网主页标注容程序IDE v1.1.0（2026-10-10），历史页标注v1.0.0（2026-10-08），语法参考页仍标注v1.0.0。独立语言版本待核实。
+已核验作者原视频、官方语法文档、版本历史页与安装/便携下载链接。本轮采用网页和视频画面的只读证据。公开源码仓库、二进制与源码对应性、完整运行能力及跨平台支持待核实。</p>
+<h2>与其他项目的关系</h2><p>容语言、容程序与容程序IDE属于原作者视频和官网共同介绍的语言及配套开发环境，合并为一个语言条目。与易语言、语程等已有对象的继承或兼容关系待核实。</p>
+<h2>核验说明</h2><p>2026-10-10通过原作者网页与视频资料进行只读核验。第三集简介直接提供rongyuyan.cn及/docs，建立原视频到官网的来源链。第一集video:release_date为2026-10-05T15:20:33.000Z，UTC与北京时间均为2026-10-05；第三集为2026-10-09T16:51:51.000Z，北京时间为2026-10-10。官网v1.0.0发行日期与更早演示日期分开记录。当前主页v1.1.0与文档v1.0.0存在版本差异；主页的标准库数量与文档数量也存在差异，条目采用具体可读语法。视频05:34画面显示中文代码和成绩单窗口，截图用于复核；逐字代码取自官方文档的完整pre文本。安装包、源码执行、语言性能和跨平台行为属于后续验证范围。</p>
+<h2>参考资料</h2><ul><li><a href="https://rongyuyan.cn/docs/#quickstart">官方语法参考与原始快速上手代码</a></li><li><a href="https://rongyuyan.cn/docs/#rules">官方语言规则与控制流</a></li><li><a href="https://rongyuyan.cn/docs/#build">官方编译与分发说明</a></li><li><a href="https://rongyuyan.cn/">官网主页：v1.1.0及发行包说明</a></li><li><a href="https://rongyuyan.cn/history">官方历史页：v1.0.0首次公开发行</a></li><li><a href="https://www.bilibili.com/video/BV18FHb6HE24/">第一集原视频：2026-10-05公开演示</a></li><li><a href="https://www.bilibili.com/video/BV1inph6zEYS/">第三集原视频：成绩单演示及官方文档入口</a></li><li><a href="https://space.bilibili.com/406482868/">原作者主页</a></li></ul><p>资料核验日期：2026-10-10</p><p><a href="https://github.com/yuyan-lang/chinese-programming-languages/issues/new">补充资料或纠错</a></p></main><footer>站点由<a href="https://yuyan-lang.org/">豫言编程语言</a>提供</footer></body></html>
