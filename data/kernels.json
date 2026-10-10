@@ -255,14 +255,14 @@
         ]
       },
       "individual_video": {
-        "status": "待核实",
-        "url": null
+        "url": "https://www.bilibili.com/video/BV1a8411N7XS/",
+        "published_date": "2023-01-15",
+        "evidence": "官网一周年文章关联的历史进展回顾；本轮核对页面与关联关系"
       }
     },
     "pending_verification": [
       "各架构的统一运行核验记录",
-      "与固定源码快照对应的调度算法说明",
-      "官方演示视频的单条原始链接"
+      "与固定源码快照对应的调度算法说明"
     ],
     "sources": [
       {
@@ -434,6 +434,12 @@
           "快照版本",
           "活跃时间"
         ]
+      },
+      {
+        "id": "d18",
+        "title": "官网关联的2022年进展回顾视频（2023-01-15）",
+        "url": "https://www.bilibili.com/video/BV1a8411N7XS/",
+        "kind": "官网关联作者发布"
       }
     ]
   },

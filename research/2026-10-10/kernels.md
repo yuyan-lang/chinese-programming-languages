@@ -39,3 +39,8 @@ BIOS引导证据来自boot/boot.asm，保护模式及kernel_main调用来自kern
 ## 后续方向
 
 继续跟进Issue #13的项目归属和内核沿革，发现原作者公开展示的个人/教学/AI辅助项目。每项能力标注具体版本与依据，资料维护遵循根目录AGENTS.md的直接肯定式写作规范。
+
+## 复核补充
+
+DragonOS官网一周年文章关联[2022年进展回顾视频](https://www.bilibili.com/video/BV1a8411N7XS/)，原页面发布日期2023-01-15。该来源作为历史作者发布材料保存。
+NeoRunST历史阶段原视频为[BV1APTR6yEzo](https://www.bilibili.com/video/BV1APTR6yEzo/)，日期2026-07-06，提及转向TheseusOS；后续重写与当前来源由Issue #13继续核实。
