@@ -38,26 +38,131 @@
   {
     "id": "lang-004",
     "name": "凹语言",
-    "description": "支持中文语法的编程语言。",
+    "aliases": [
+      "Wa",
+      "Wa-lang",
+      "凹语言中文版"
+    ],
+    "category": "中英文双语前端的静态类型编译语言",
+    "author": "凹语言开发组；柴树杉、丁尔男为创始成员，扈梦明等参与共建（官方作者材料及贡献者名单）。",
+    "first_publication": "官网记载2019年立项、2022年7月开源；版本日志记2023-04-13（v0.6.0）增加中文语法、2025-11-01（v1.3.0）新版中文版正式上线。具体首个公开日待核实；GitHub仓库创建于2022-07-20，不代替首发日期。",
+    "description": "凹语言（Wa）是一门最初面向WebAssembly设计的静态类型编译语言，现有英文.wa与中文.wz两种前端。中文版以“引入”“函数”“如果”“循环”“完毕”等词组织程序，配有中文类型、内置操作和标准库包；源码按.wz后缀进入专门的中文解析器，因此不只是允许中文变量名。两种语法属于同一语言工具链，无需重复计数。项目以Go实现编译器，提供WebAssembly代码生成，并逐步加入自研原生汇编后端及C转换路线。官方将其定位为工程试用阶段，仓库提供命令行、在线体验入口和游戏、绘图等样例；本次仅核对文档与源码，未验证执行效果或性能。",
+    "features": [
+      ".wa英文与.wz中文语法模式",
+      "独立中文语法解析路径及中文关键字表",
+      "静态类型、函数、结构、接口与字典",
+      "中文标准库及WebAssembly应用示例",
+      "Wasm代码生成与原生构建工具"
+    ],
+    "code": "注: 你好，世界！\n\n引入 \"书\"\n\n函数·主控:\n\t书·说(\"你好，凹语言中文版！\")\n完毕",
+    "code_source": "https://github.com/wa-lang/wa/blob/68289efad08785938a1ea5225c23d0fcbf5bb9cb/README-zh.md",
+    "code_context": "固定提交README-zh.md中“例子: 凹语言(中文版)”的完整连续原文程序；保留制表符、中文间隔号与标点。未运行。",
+    "implementation": "Go实现。internal/parser/interface.go对.wz文件调用w2parser.ParseFile，并在ParseDir中检查同一包不混放.wa/.wz；internal/token/const_wz.go定义中文关键字、类型及内置操作。当前README说明以Wasm暂作中间IR；版本日志列自研龙芯64、X64原生构建及实验性C后端。不能把设计架构图中的所有目标均当作已独立实测。",
+    "status": "有公开源码；GitHub镜像未归档，所读master最新提交为2026-04-27。官方定位为工程试用；本次未安装、编译或运行。GitCode为README声明的主仓库，本次未独立核验其最新提交。",
+    "version": "所读master源码标注v1.9.0；GitHub latest Release为v1.8.0，发布于2026-03-02。开发版本号与已发布版本分开记录。",
+    "relations": "中文.wz是凹语言的中文前端，与英文.wa共用工具链，不另计一种无关语言。编译器以Go实现且部分前端文件保留Go Authors版权，不等同于仅使用Go的中文标识符。GitHub为官方声明的镜像，GitCode为主仓库；后端独立研发的自述不应扩大为整个仓库没有第三方代码。",
     "references": [
       {
-        "title": "参考资料",
+        "title": "原有项目仓库（官方GitHub镜像）",
         "url": "https://github.com/wa-lang/wa"
+      },
+      {
+        "title": "中文版示例与双前端架构（固定提交）",
+        "url": "https://github.com/wa-lang/wa/blob/68289efad08785938a1ea5225c23d0fcbf5bb9cb/README-zh.md"
+      },
+      {
+        "title": "按.wz选择中文解析器及包模式检查",
+        "url": "https://github.com/wa-lang/wa/blob/68289efad08785938a1ea5225c23d0fcbf5bb9cb/internal/parser/interface.go"
+      },
+      {
+        "title": "中文关键字、类型及内置操作表",
+        "url": "https://github.com/wa-lang/wa/blob/68289efad08785938a1ea5225c23d0fcbf5bb9cb/internal/token/const_wz.go"
+      },
+      {
+        "title": "版本日志：中文语法沿革与后端状态",
+        "url": "https://github.com/wa-lang/wa/blob/68289efad08785938a1ea5225c23d0fcbf5bb9cb/waroot/changelog.md"
+      },
+      {
+        "title": "开发分支版本常量",
+        "url": "https://github.com/wa-lang/wa/blob/68289efad08785938a1ea5225c23d0fcbf5bb9cb/internal/version/version.go"
+      },
+      {
+        "title": "正式发行v1.8.0",
+        "url": "https://github.com/wa-lang/wa/releases/tag/v1.8.0"
+      },
+      {
+        "title": "官网简史",
+        "url": "https://wa-lang.org/community/"
+      },
+      {
+        "title": "官方作者文章：开源一周年及创始成员",
+        "url": "https://wa-lang.org/smalltalk/st0031.html"
+      },
+      {
+        "title": "开发组：中文版重新起航（2025-10-23）",
+        "url": "https://wa-lang.org/smalltalk/st0089.html"
       }
     ],
-    "status": "有源码"
+    "verification_notes": "2026-10-10只读核验。固定GitHub master提交68289efad08785938a1ea5225c23d0fcbf5bb9cb，提交时间2026-04-27T08:18:19Z；仓库pushed_at为2026-04-30T10:43:49Z，二者不混写。版本日志明确2023年已有中文语法、2025年为新版正式上线，不能写成2025年才首次支持中文。README中的“全自主”按其代码生成器及运行时语境引用，不扩为整个编译器无第三方来源。英文README标明GitCode主仓库、GitHub镜像。代码精确摘自固定提交；未运行。",
+    "verified_at": "2026-10-10"
   },
   {
     "id": "lang-005",
     "name": "洛书",
-    "description": "中文编程语言项目。",
+    "aliases": [
+      "Losu",
+      "Losu-lang"
+    ],
+    "category": "中文脚本语言／可扩展前端与嵌入式解释器",
+    "author": "陈朝臣（历史提交、源码署名Chen-chaochen及Gitee发行页）；洛书开发社区。",
+    "first_publication": "至少在2022年已有可核验源码与中文样例；语言最早公开发布日期待核实。GitHub仓库创建于2022-09-27，所读末次提交为2022-09-25；较新的Gitee版权年份2020—2024不直接当作首发证据。",
+    "description": "洛书（Losu）是一项以中文编程和嵌入式脚本为方向的开源语言项目。可核验的2022年版本使用“+加载”“+导入”“+方法”等指令组织程序，包含C++编写的编译器、LVM执行器、支持库和中文示例。该版将编译输出交给运行组件执行，并把不同语法前端视为对洛书指令语言的扩展；README还介绍了采用缩进风格的河图衍生前端。后续Gitee官方页面将项目定位为轻量跨平台嵌入式脚本语言，说明解释器使用C99，并列出Windows、Linux和RTOS目标。因此历史GitHub快照的C++实现、旧语法和1.0版本不能直接代表后续版本；新旧实现兼容性与当前最新版本仍待核实。",
+    "features": [
+      "2022年源码可核验中文方法、加载与导入指令",
+      "历史版本含编译器、LVM和扩展支持库",
+      "多种语法前端（历史README说明）",
+      "后续官方定位为C99嵌入式脚本解释器",
+      "面向Windows、Linux与RTOS（后续官方自述，未实测）"
+    ],
+    "code": "+方法 开始()\r\n{\r\n    标准流.输出(\"你好，洛书编程世界\\n\")\r\n}",
+    "code_source": "https://github.com/chen-chaochen/losulang/blob/3510b5ee974461533bc325202ea587090e52c934/%E6%B4%9B%E4%B9%A6%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81/%E4%BD%A0%E5%A5%BD%E4%B8%96%E7%95%8C.losu",
+    "code_context": "固定2022年提交“你好世界.losu”末尾连续方法定义原文，保留CRLF换行；依赖同文件前文的“+加载 开始”“+导入 洛书/标准流”和标准流实例化。是历史版本片段，不冒充当前版本完整程序。",
+    "implementation": "已实读的2022年GitHub版本以C++实现：src/bin/Compiler含lsc编译入口，src/bin/LVM/losu.cpp创建ls_vm并读取.lsc文件交给hostfile。较新的Gitee官方README自述内核可由C99编译器构建；其当前源码目录本次无法读取，因此不将后续内核细节或兼容性写成已核验事实。",
+    "status": "历史源码与官方后续发行材料可读。GitHub快照未归档，最近推送为2022-09-27；Gitee存在2023年1.6.8发行页及提到24.1.4阶段版本的较新README，不能据GitHub日期判定项目停更。官网losu.tech本次返回502；未安装或运行。",
+    "version": "历史GitHub README列1.0 LTS，目录另含release/losu1.0.1；Gitee官方1.6.8发行页日期为2023-08-05，当前README另链接24.1.4阶段版本公告。当前最新稳定版及各版本兼容性待核实。",
+    "relations": "GitHub chen-chaochen/losulang的历史README直接链接Gitee chen-chaochen/lpk，二者属于同一洛书项目资料链。河图在该README中列为采用缩进语法的洛书衍生前端，不能不加说明地作为洛书本体语法。旧C++/GPL快照与后续C99/MIT页面必须按版本区分；同名工具不凭名称合并。",
     "references": [
       {
-        "title": "参考资料",
+        "title": "原有项目仓库（历史源码快照）",
         "url": "https://github.com/chen-chaochen/losulang"
+      },
+      {
+        "title": "2022年README：架构、语法前端及Gitee上游",
+        "url": "https://github.com/chen-chaochen/losulang/blob/3510b5ee974461533bc325202ea587090e52c934/README.md"
+      },
+      {
+        "title": "历史中文程序原始示例",
+        "url": "https://github.com/chen-chaochen/losulang/blob/3510b5ee974461533bc325202ea587090e52c934/%E6%B4%9B%E4%B9%A6%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81/%E4%BD%A0%E5%A5%BD%E4%B8%96%E7%95%8C.losu"
+      },
+      {
+        "title": "历史编译器入口",
+        "url": "https://github.com/chen-chaochen/losulang/blob/3510b5ee974461533bc325202ea587090e52c934/src/bin/Compiler/losuc_main.cpp"
+      },
+      {
+        "title": "历史LVM执行入口",
+        "url": "https://github.com/chen-chaochen/losulang/blob/3510b5ee974461533bc325202ea587090e52c934/src/bin/LVM/losu.cpp"
+      },
+      {
+        "title": "官方Gitee仓库及较新的项目说明",
+        "url": "https://gitee.com/chen-chaochen/lpk"
+      },
+      {
+        "title": "官方1.6.8发行页：作者与2023年发行材料",
+        "url": "https://gitee.com/chen-chaochen/lpk/releases/tag/1.6.8"
       }
     ],
-    "status": "待核实"
+    "verification_notes": "2026-10-10只读核验。历史GitHub固定提交3510b5ee974461533bc325202ea587090e52c934，提交时间2022-09-25T09:31:17Z，仓库创建2022-09-27T09:17:03Z，pushed_at为2022-09-27T09:18:35Z。Gitee主页面本次可读且含C99、MIT及24.1.4链接；其源码树/原始readme读取失败，未假定与2022版本相同。Gitee发行页确认1.6.8发布者陈朝臣，页面显示2023-08-05 00:22但未显示时区。未知：首发日、当前完整语法、实现迁移过程、最新稳定版本、跨版本兼容性。代码从固定文件直接截取，未改写或运行。",
+    "verified_at": "2026-10-10"
   },
   {
     "id": "lang-006",
@@ -184,14 +289,48 @@
   {
     "id": "lang-013",
     "name": "中蟒",
-    "description": "中文化蟒蛇语言。",
+    "aliases": [
+      "ChinesePython"
+    ],
+    "category": "Python中文化解释器／历史语言本地化项目",
+    "author": "glace（SourceForge项目维护账号）；真实姓名与完整开发者名单待原始资料核实。",
+    "first_publication": "SourceForge项目注册于2002-04-10；现有文件目录最早列0-3版本，日期为2002-04-21。注册日、目录修改日不等于最早公开首发日，首发仍待核实。",
+    "description": "中蟒（ChinesePython）是早期对Python语言本身进行中文化的项目。其原SourceForge页面明确说明，修改范围不仅包括变量名、提示和警告，也包括保留关键字与内置类型，因而不能归类为只允许中文标识符的普通Python程序。项目保留了2002至2003年的发布公告与文件目录；2003年公告说明2.1.3-0.4版本改用Python 2.1.3代码基线，并改进GB编码处理，另有Windows补丁与IDLE修复记录。当前可访问的原始材料足以确认项目性质和部分沿革，但旧官网及源码浏览入口本次不可取得，具体语法示例、实现改动和兼容范围仍需检查原始发行源码。",
+    "features": [
+      "中文保留关键字与内置类型（原项目说明）",
+      "中文变量名、提示和警告（原项目说明）",
+      "基于Python 2.1.3的历史版本（2003年公告）",
+      "GB编码处理改进与Windows/IDLE补丁记录"
+    ],
+    "implementation": "原项目页将实现语言标为C、Python；2003-07-24公告明确2.1.3-0.4改用Python 2.1.3代码基线。属于Python本体中文化方向；本次未能取得发行源码内容，词法/解析器具体改动和执行机制待实读，不称为已验证的简单关键词转译层。",
+    "status": "原SourceForge项目页、公告及历史文件目录可读，项目页标记Beta。所见最后发布公告为2003-07-24；页面“Last Update 2013-04-02”不等于代码版本发布日期，也不能据此认定停更或重新发布。本次未下载、编译或运行。",
+    "version": "原发布公告可核验2.1.3-0.4（2003-07-24），此前有0-3、0-3.1、0-3.14及Windows补丁；不能将0-3.14中的3.14误当作现代Python 3.14。",
+    "relations": "这是原SourceForge chinesepython项目；“中文Python”是泛称，不能因此与周蟒（zhpy）、草蟒或近年的同名GitHub仓库合并。与这些项目的代码继承关系本次未核实。",
     "references": [
       {
-        "title": "参考资料",
+        "title": "原有汇总线索（仅保留原条目来源，不作本轮事实依据）",
         "url": "https://github.com/program-in-chinese/overview"
+      },
+      {
+        "title": "原SourceForge项目：定位、维护账号与注册日期",
+        "url": "https://sourceforge.net/projects/chinesepython/"
+      },
+      {
+        "title": "原项目发布公告：2002—2003版本与迁站说明",
+        "url": "https://sourceforge.net/p/chinesepython/news/"
+      },
+      {
+        "title": "原项目发行文件目录",
+        "url": "https://sourceforge.net/projects/chinesepython/files/chinesepython/"
+      },
+      {
+        "title": "项目原官网入口（本次访问失败）",
+        "url": "http://www.chinesepython.org/english/english.html"
       }
     ],
-    "status": "待核实"
+    "verification_notes": "2026-10-10只读核验。只以原项目的SourceForge页面、发布公告和文件目录补充事实，不以百科或转载示例代替源码。官网英文页超时、SourceForge Code入口及发行子目录本次读取失败。没有取得可逐字核对的原始程序、源码提交号或源码包校验值，因此本轮不添加code/code_source字段；此项证据缺口明确保留。首发日、真实姓名、具体关键字拼写、中文编码细节、兼容范围及当前维护状态待核实。",
+    "code_context": "待核实：未取得原始程序，不提供编造或从二手文章转抄的示例；本轮没有可引用的固定commit。",
+    "verified_at": "2026-10-10"
   },
   {
     "id": "lang-014",
@@ -902,5 +1041,441 @@
     "id": "lang-034",
     "verified_at": "2026-10-09",
     "code_source": "https://github.com/MARKJY-China/XuanTie-Lang"
+  },
+  {
+    "name": "CP语言",
+    "aliases": [
+      "cplang",
+      "恋语"
+    ],
+    "category": "中英双语关键字语言／字节码虚拟机与JIT实现",
+    "author": "小白白（LICENSE版权署名）；GitHub维护账号mycplang，提交署名cplang；实名待核实",
+    "first_publication": "GitHub仓库创建于2026-05-10；当前可达历史的根提交为2026-05-28。二者均不能直接当作语言首次公开发布日期，首发待核实。",
+    "description": "CP语言以“变量、函数、如果、当、返回”等中文关键字组织程序，也提供对应英文关键字。公开仓库含C++词法、语法、语义分析、字节码生成及虚拟机实现，并包含LLVM ORC JIT代码和中文标准库名称。当前命令行另有将字节码与运行器封装为exe的build分支；README仍宣传的LLVM原生AOT路线与当前入口及构建清单不一致，不能将二者混为一谈。",
+    "features": [
+      "中英双语关键字与UTF-8中文标识符",
+      "函数、条件、循环和递归（已核对样例及解析器）",
+      "可选参数/返回类型标注（解析器源码）",
+      "字节码编译与VM执行",
+      "LLVM ORC JIT实现及可选构建开关",
+      "字节码与运行器封装、交互式REPL"
+    ],
+    "code": "函数 阶乘(n) {\n    如果 (n <= 1) {\n        返回 1;\n    }\n    返回 n * 阶乘(n - 1);\n}",
+    "implementation": "C++17实现独立前端与字节码VM；include/lexer/token.hpp提供中英关键字表，src/lexer/lexer.cpp调用该表，parser_decl.cpp/parser_stmt.cpp构造函数及控制流AST。src/codegen/codegen.cpp生成字节码，src/main.cpp调用Compiler和VM；src/jit/orc_jit.cpp含LLVM LLJITBuilder/addIRModule/lookup代码，由CMake的LLVM开关条件构建。当前main.cpp的build分支序列化字节码并附加到运行器exe。仓库仍保留旧LLVM AOT源码和一个返回false的AOT占位文件，但当前CLI没有README所示-a入口，CMakeLists.txt没有AOT目标；本次不认定原生AOT在当前版本可用。",
+    "status": "有公开源码，非fork、未归档；默认分支最新提交2026-06-29。本次仅只读源码与文档核验，未安装、编译或执行。",
+    "version": "当前CLI及最新提交标记v0.9.3；CMake项目为0.9.0，VERSION文件为v0.3.0，docs/RELEASE.md为v0.5.0，存在版本信息不同步。GitHub Releases集合为空，不能称已正式发布v0.9.3。",
+    "relations": "同一仓库README使用CP语言，仓库简介使用“恋语”，本条将恋语保留为该仓库别名，不重复计数。CP IDE及VS Code插件是配套工具，版本号不等于语言版本；与CNPL等相似缩写项目无已证实继承关系。",
+    "references": [
+      {
+        "title": "原始函数示例（固定提交，6–11行）",
+        "url": "https://github.com/mycplang/cplang/blob/9bd435707f280cca615a09deabdb6976d361d511/examples/cp_demos/05_function.cp#L6-L11"
+      },
+      {
+        "title": "中英关键字映射",
+        "url": "https://github.com/mycplang/cplang/blob/9bd435707f280cca615a09deabdb6976d361d511/include/lexer/token.hpp"
+      },
+      {
+        "title": "词法实现",
+        "url": "https://github.com/mycplang/cplang/blob/9bd435707f280cca615a09deabdb6976d361d511/src/lexer/lexer.cpp"
+      },
+      {
+        "title": "函数声明解析与可选类型",
+        "url": "https://github.com/mycplang/cplang/blob/9bd435707f280cca615a09deabdb6976d361d511/src/parser/parser_decl.cpp#L55-L136"
+      },
+      {
+        "title": "条件、循环及返回语句解析",
+        "url": "https://github.com/mycplang/cplang/blob/9bd435707f280cca615a09deabdb6976d361d511/src/parser/parser_stmt.cpp"
+      },
+      {
+        "title": "当前CLI、版本及字节码封装入口",
+        "url": "https://github.com/mycplang/cplang/blob/9bd435707f280cca615a09deabdb6976d361d511/src/main.cpp"
+      },
+      {
+        "title": "LLVM ORC JIT实现",
+        "url": "https://github.com/mycplang/cplang/blob/9bd435707f280cca615a09deabdb6976d361d511/src/jit/orc_jit.cpp"
+      },
+      {
+        "title": "当前构建清单",
+        "url": "https://github.com/mycplang/cplang/blob/9bd435707f280cca615a09deabdb6976d361d511/CMakeLists.txt"
+      },
+      {
+        "title": "发布说明：移除AOT并改用SFX的历史",
+        "url": "https://github.com/mycplang/cplang/blob/9bd435707f280cca615a09deabdb6976d361d511/docs/RELEASE.md"
+      },
+      {
+        "title": "作者版权署名",
+        "url": "https://github.com/mycplang/cplang/blob/9bd435707f280cca615a09deabdb6976d361d511/LICENSE#L3"
+      },
+      {
+        "title": "仓库元数据：恋语别名、创建时间与状态",
+        "url": "https://api.github.com/repos/mycplang/cplang"
+      },
+      {
+        "title": "当前可达历史根提交（不等于首发）",
+        "url": "https://github.com/mycplang/cplang/commit/6646423655b7b62bc33036e3e9219f6fd6cd1c7d"
+      },
+      {
+        "title": "GitHub Releases集合",
+        "url": "https://api.github.com/repos/mycplang/cplang/releases"
+      }
+    ],
+    "verification_notes": "2026-10-10只读核验，固定master提交9bd435707f280cca615a09deabdb6976d361d511，提交时间2026-06-29T18:17:23Z；仓库创建2026-05-10T13:46:56Z，pushed_at为2026-06-29T18:17:27Z。当前97个可达提交中根提交为6646423655b7b62bc33036e3e9219f6fd6cd1c7d（2026-05-28T16:45:06Z），不是首发证据。未复跑测试、性能基准、自举或跨平台构建，不采用README的95x、原生速度、标准库函数数量为已验证事实。README斐波那契定义与调用存在“斐波那契/斐那契”拼写不一致；本条改取仓库独立样例中的连续阶乘函数，未手改原文。旧LLVM AOT文件仍存在，但当前CLI及CMake接入证据不足，版本差异应保留。tags接口在工具层返回不支持，不据此推断无标签。",
+    "code_source": "https://github.com/mycplang/cplang/blob/9bd435707f280cca615a09deabdb6976d361d511/examples/cp_demos/05_function.cp#L6-L11",
+    "code_context": "examples/cp_demos/05_function.cp第6–11行连续原文，只摘录阶乘函数定义，不是整份程序；未执行。",
+    "verified_at": "2026-10-10",
+    "repository_created_at": "2026-05-10T13:46:56Z",
+    "repository_pushed_at": "2026-06-29T18:17:27Z",
+    "id": "lang-035"
+  },
+  {
+    "name": "coCN",
+    "aliases": [],
+    "category": "中文关键字通用编程语言（实验性；解释执行，并保留 coCN→C 编译器源码）",
+    "author": "COSMOnb666（package.json 署名）；GitHub 仓库所有者为 3477856804。两者均为项目公开账号/署名，不据此推定真实姓名。",
+    "first_publication": "2026-09-12（目前可确认的首个 GitHub Release 发布日期；语言首次对外公开日期仍未核实）",
+    "description": "以中文关键字与标识符编程的独立语言项目。当前默认分支以 coCN 源码实现词法分析、递归下降语法分析及树遍历求值，Node.js 启动器再借助旧版 C 实现的引导二进制运行这些 .co 模块。不能把当前仓库概括为完全摆脱 C 依赖、可独立复现完整自举的实现。",
+    "features": [
+      "实际词法表识别让、变量、常量、函数、返回、如果、若、否则、当、对于、从、到、循环、结束、且、或、非等中文词；并非仅把英文示例翻译为中文。",
+      "源码可见函数与返回、条件和循环、列表与字典、模块导入、异常、闭包/高阶调用、模式匹配等解析和求值分支；本次未执行测试。",
+      "类型标注语法存在，但当前求值器未读取变量类型、参数类型及返回类型标注，不将 README 的静态类型/运行时强制检查主张列为已验证特性。",
+      "当前并发/等待实现为单线程延迟任务，等待时在当前线程执行；并发执行依次等待，让出为空操作，不能标为已验证的真线程并行。",
+      "保留 coCN 编写的生成 C 源码编译器，但它依赖当前树缺失的自举运行时.c，并调用系统 cc。"
+    ],
+    "code": "函数 判断(整数 n) -> 字符串\n    若 n > 10 则\n        返回 \"大\"\n    结束\n    返回 \"小\"\n结束\n\n输出 判断(12)\n\n输出 判断(5)",
+    "implementation": "当前 master：src/词法分析器.co → src/语法分析器.co → src/求值器.co，src/解释器.co 读取 COCN_TARGET 指定的程序并调用运行(源)。bin/cocn.js 用 child_process.spawn 启动引导 cocn 二进制，执行 src/解释器.co；install.js 指定引导版本 0.1.0，优先 Gitee、其次 GitHub，并无 C 源码构建回退。求值器还复用宿主的原生内置函数。历史提交 f930c811e161f508fa7c6d61b26f2998e623a168 的 co.c 可见 C 解释器及生成 C 后调用 cc 的编译通道。当前编译器/自举编译器.co 仍读取自举运行时.c；该文件、co.c、Makefile 及 bin/cocn 均不在本次固定提交的完整树中。",
+    "status": "公开、未归档，实验性开发中；最近默认分支提交日期为 2026-10-08。仅完成只读源码核查，未安装、编译、运行或证明全量兼容、自举成功与性能。当前引导与旧自举脚本存在可见缺口。",
+    "version": "固定 master 提交的 package.json/index.js/install.js 为 0.0.2；README 仍称 0.0.1。GitHub Releases 仅查到 v0.0.1（2026-09-12 发布）；install.js 所需引导版本 0.1.0 的 GitHub Release 返回 404。以上分别为仓库包版本、文档版本、发行版和引导版本，不能混作最新语言版本；npm 注册表当前版本未核实。",
+    "relations": "package.json 将 Gitee COSMOnb666/coCN 列为项目仓库/首页，GitHub 3477856804/coCN 为本次核查对象。与 C 的关系为历史实现语言、当前引导运行时以及保留编译器的目标/运行时依赖；Node.js 负责 npm 启动与安装。未发现足够原始证据证明它派生自 Python 或其他既有中文语言。",
+    "references": [
+      {
+        "title": "GitHub 仓库元数据（创建、推送、归档状态）",
+        "url": "https://api.github.com/repos/3477856804/coCN"
+      },
+      {
+        "title": "本次固定默认分支提交",
+        "url": "https://github.com/3477856804/coCN/commit/c641a58067e1a7cc0d26bfd6cebc8b42ce37cd07"
+      },
+      {
+        "title": "包版本、作者署名与 Gitee 地址",
+        "url": "https://github.com/3477856804/coCN/blob/c641a58067e1a7cc0d26bfd6cebc8b42ce37cd07/package.json#L1-L45"
+      },
+      {
+        "title": "真实中文关键字表",
+        "url": "https://github.com/3477856804/coCN/blob/c641a58067e1a7cc0d26bfd6cebc8b42ce37cd07/src/%E8%AF%8D%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8.co#L32-L36"
+      },
+      {
+        "title": "递归下降 parser 与类型标注",
+        "url": "https://github.com/3477856804/coCN/blob/c641a58067e1a7cc0d26bfd6cebc8b42ce37cd07/src/%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8.co#L482-L505"
+      },
+      {
+        "title": "自解释器入口",
+        "url": "https://github.com/3477856804/coCN/blob/c641a58067e1a7cc0d26bfd6cebc8b42ce37cd07/src/%E8%A7%A3%E9%87%8A%E5%99%A8.co#L12-L31"
+      },
+      {
+        "title": "Node.js 引导入口",
+        "url": "https://github.com/3477856804/coCN/blob/c641a58067e1a7cc0d26bfd6cebc8b42ce37cd07/bin/cocn.js#L67-L78"
+      },
+      {
+        "title": "引导版本与下载来源",
+        "url": "https://github.com/3477856804/coCN/blob/c641a58067e1a7cc0d26bfd6cebc8b42ce37cd07/install.js#L20-L32"
+      },
+      {
+        "title": "当前任务执行模型",
+        "url": "https://github.com/3477856804/coCN/blob/c641a58067e1a7cc0d26bfd6cebc8b42ce37cd07/src/%E6%B1%82%E5%80%BC%E5%99%A8.co#L2497-L2554"
+      },
+      {
+        "title": "生成 C 的编译器及缺失运行时依赖",
+        "url": "https://github.com/3477856804/coCN/blob/c641a58067e1a7cc0d26bfd6cebc8b42ce37cd07/%E7%BC%96%E8%AF%91%E5%99%A8/%E8%87%AA%E4%B8%BE%E7%BC%96%E8%AF%91%E5%99%A8.co#L992-L1063"
+      },
+      {
+        "title": "首个 GitHub Release v0.0.1",
+        "url": "https://github.com/3477856804/coCN/releases/tag/v0.0.1"
+      },
+      {
+        "title": "最早可达根提交（提交日期不是公开日期）",
+        "url": "https://github.com/3477856804/coCN/commit/bbb29bf8db7f6d0e3fee3ef441267145dadc1451"
+      },
+      {
+        "title": "历史 C 解释器与编译实现",
+        "url": "https://github.com/3477856804/coCN/blob/f930c811e161f508fa7c6d61b26f2998e623a168/co.c#L7047-L7088"
+      }
+    ],
+    "verification_notes": "已固定默认分支 master 的 c641a58067e1a7cc0d26bfd6cebc8b42ce37cd07；完整 Git tree 返回 truncated=false。GitHub 仓库 created_at 为 2026-09-12T15:24:29Z；根提交 bbb29bf8… 的 author/committer 日期为 2026-07-24T08:33:28Z，不能由它推出当时已公开。唯一查到的 GitHub Release v0.0.1 published_at 为 2026-09-12T15:25:15Z，标签经 annotated tag 解引用到 9483dd20a4c1b45ced40f5ed0a2a662dde6bdc18。README 的自举、真线程、类型强制检查、性能和自动求导宣传不当作测试证据：当前并发代码直接显示单线程延迟执行；parser 收集类型标注但 evaluator 不读取。旧测试/自举.sh 和测试/自举L2.sh 仍默认 ./co、根目录自举编译器.co，未随当前删除/迁移更新。Gitee 页面及官方 npm 注册表未成功读取，故不判定其发行资产一定不存在，也不把 GitHub 包清单版本当成 npm 最新版。package.json 声明 Apache-2.0，但当前树未见 LICENSE 文件。全过程只读，未执行陌生源码。 待核实字段：语言首次对外公开日期（含 Gitee 首发）；GitHub 账号与作者署名背后的真实身份；npm 注册表最新发布版本及实际包内容；Gitee v0.1.0 引导资产是否可用；完整自举/可复现构建/全量语义兼容/性能/自动求导运行效果。",
+    "code_source": "https://github.com/3477856804/coCN/blob/c641a58067e1a7cc0d26bfd6cebc8b42ce37cd07/%E4%BE%8B%E5%AD%90/%E8%87%AA%E4%B8%BE%E5%87%BD%E6%95%B0%E7%A4%BA%E4%BE%8B.co#L33-L42",
+    "code_context": "从仓库例子/自举函数示例.co 第 33–42 行连续原样摘录，包含带类型标注的中文函数、若/则/返回/结束及两次输出调用。未补写、拼接或改写示例，未运行；函数按源码逻辑分别返回“大”“小”，但本条不把预期结果写成实测结果。",
+    "verified_at": "2026-10-10",
+    "repository_created_at": "2026-09-12T15:24:29Z",
+    "code_source_detail": {
+      "repository": "3477856804/coCN",
+      "default_branch": "master",
+      "commit": "c641a58067e1a7cc0d26bfd6cebc8b42ce37cd07",
+      "path": "例子/自举函数示例.co",
+      "blob_sha": "77ffa49b05a6aab4cd7e1cc11425d648ecb3b130",
+      "start_line": 33,
+      "end_line": 42,
+      "excerpt_kind": "连续原文；未运行"
+    },
+    "repository_pushed_at": "2026-10-08T08:58:22Z",
+    "id": "lang-036"
+  },
+  {
+    "name": "Atlanage",
+    "aliases": [],
+    "category": "中文通用编程语言（编译型）",
+    "author": "wc772（仓库所有者及 Release 发布者；1.0 标签根提交署名 atra，两者身份关系未核实）",
+    "first_publication": "2026-08-16（目前可核实的首个 GitHub Release 发布日；不等同于项目最早诞生或首次公开日期）",
+    "repository_created_at": "2026-08-16T17:28:53Z",
+    "description": "使用中文关键字、中文标识符与花括号/分号语法的编译型语言。仓库包含 .at 示例、以 .at 编写的词法分析器、语法分析器、语义分析器、代码生成器、汇编器和链接器源码；已检查的编译入口串联这些模块，目标为 Windows x86-64。此次仅作源码与发布元数据核实，未编译或运行程序。",
+    "features": [
+      "词法表实际映射“设、如果、又如果、否则、循环、返回值、声明、函数、类、继承”等中文关键字，并含中文字符标识符识别逻辑。",
+      "语法分析器含变量声明、函数声明、条件、循环、类与接口等解析分支；示例使用中文函数名和内建打印调用。",
+      "编译入口可见词法分析、解析、语义分析、汇编输出、COFF 对象生成与链接步骤；链接器定义 AMD64 目标。",
+      "仓库提供 .at 编译器源码、含嵌入汇编的 .at 运行时、C 运行时相关文件及十六进制二进制种子。",
+      "自举、M:N 调度、AUI、OpenGL/Vulkan 和包管理为项目宣称或对应源码/示例所展示的方向，其完整性、可运行性与性能未由此次研究验证。"
+    ],
+    "code": "声明 加法(a, b){\n    返回值 a + b;\n};\n打印(\"1+2=\" + 加法(1, 2));",
+    "implementation": "主入口 self-hosted/atlv1.at 引入 atl_lexer.at、atl_parser.at、atl_semantic.at、atl_codegen.at、atl_assembler.at、atl_linker.at 等 .at 模块；907–950 行可见 lex → parse_program → sem_analyze → codegen → assemble/write_coff → link。self-hosted/atl_rt.at 使用“汇编(...)”嵌入 x86-64 汇编；runtime/ 另含 xt_runtime.c、xt_threadpool.c、xt_net.c 等 C 文件。seed/seed_builder.c 是解码并校验十六进制种子的物化器，输出 atlv1.exe 和 atl_rt.obj，并非从 C 源码重建语言编译器。rebuild_atlv1.ps1 依赖预存 AT-V1.exe；rt_build.ps1 依赖 atlc.exe、Python 与 NASM。GitHub 标记主要语言为 C 不能代替对实现结构的判断。",
+    "status": "已有公开源码和 GitHub Release，仓库未归档；截至 2026-10-10，默认分支最后提交为 2026-08-17。未作运行、完整自举或持续维护状态验证；仓库元数据未识别许可证。",
+    "version": "GitHub 唯一 Release/标签为 1.0（非预发布），发布正文为“1.0.1”，资产名为 atlanage-v1.0.zip；版本标注不一致，未消歧。",
+    "relations": "AT-V1.exe / atlv1 为该项目的编译器命名，不能据此增列为独立语言。仓库 fork=false；未发现足以确认其与其他语言存在继承、移植或同源关系的第一方说明。",
+    "references": [
+      {
+        "title": "仓库与公开元数据",
+        "url": "https://api.github.com/repos/wc772/atlanage"
+      },
+      {
+        "title": "1.0 Release",
+        "url": "https://github.com/wc772/atlanage/releases/tag/1.0"
+      },
+      {
+        "title": "固定默认分支提交",
+        "url": "https://github.com/wc772/atlanage/commit/da5b3a9b778ff546382990de35f2112efc9544f9"
+      },
+      {
+        "title": "中文示例原文（第 8–11 行）",
+        "url": "https://github.com/wc772/atlanage/blob/da5b3a9b778ff546382990de35f2112efc9544f9/examples/hello.at#L8-L11"
+      },
+      {
+        "title": "中文关键字与标识符实现",
+        "url": "https://github.com/wc772/atlanage/blob/da5b3a9b778ff546382990de35f2112efc9544f9/self-hosted/atl_lexer.at#L126-L238"
+      },
+      {
+        "title": "语句解析实现",
+        "url": "https://github.com/wc772/atlanage/blob/da5b3a9b778ff546382990de35f2112efc9544f9/self-hosted/atl_parser.at#L967-L1015"
+      },
+      {
+        "title": "编译流水线源码",
+        "url": "https://github.com/wc772/atlanage/blob/da5b3a9b778ff546382990de35f2112efc9544f9/self-hosted/atlv1.at#L907-L950"
+      },
+      {
+        "title": "种子物化器",
+        "url": "https://github.com/wc772/atlanage/blob/da5b3a9b778ff546382990de35f2112efc9544f9/seed/seed_builder.c#L115-L196"
+      },
+      {
+        "title": "自编译与单示例输出比较脚本",
+        "url": "https://github.com/wc772/atlanage/blob/da5b3a9b778ff546382990de35f2112efc9544f9/rebuild_atlv1.ps1#L18-L50"
+      },
+      {
+        "title": "运行时构建脚本",
+        "url": "https://github.com/wc772/atlanage/blob/da5b3a9b778ff546382990de35f2112efc9544f9/rt_build.ps1#L4-L12"
+      },
+      {
+        "title": "1.0 标签对应根提交",
+        "url": "https://github.com/wc772/atlanage/commit/837af6b15ca64ee2fc1b157d7bc15fc0818948a0"
+      }
+    ],
+    "verification_notes": "固定读取 main=da5b3a9b778ff546382990de35f2112efc9544f9。中文语法有词法表、解析分支与原始示例三类静态证据，足以作为已实现项目候选收录，但不等于运行测试通过。唯一 Release 的 published_at=2026-08-16T17:58:33Z，与仓库 created_at 区分；首发标签指向 837af6b15ca64ee2fc1b157d7bc15fc0818948a0（作者署名 atra），当前 main 则有独立根提交 6bda6cec0b860c0456280c797d417f5360ab4fb5（2026-08-16T18:05:23Z），不可把当前主线根提交当成早于 Release 的发布证据。未核实更早公开史、作者真实身份、atra 与 wc772 的关系、二进制与源码对应性、完整引导可复现性、自举收敛、调度正确性、性能和跨平台支持。seed_builder 输出 atlv1.exe，而构建脚本使用 AT-V1.exe；默认树中未见 .exe/.obj 文件，README 的二进制目录示意不代表这些文件已跟踪。自举脚本仅设计比较 hello.at 的汇编文本，不证明所有程序或编译器二进制可复现。未下载或执行发布包。",
+    "code_source": "https://github.com/wc772/atlanage/blob/da5b3a9b778ff546382990de35f2112efc9544f9/examples/hello.at#L8-L11",
+    "code_context": "examples/hello.at 第 8–11 行的连续原文，独立的加法函数声明及调用片段；保留原始缩进、标点和文字，未拼接、改写或生成。",
+    "code_source_detail": {
+      "repository": "wc772/atlanage",
+      "branch": "main",
+      "commit": "da5b3a9b778ff546382990de35f2112efc9544f9",
+      "path": "examples/hello.at",
+      "lines": "8-11",
+      "blob_sha": "7884f0f829940f6748eeb2799cf88325cdc92ec9",
+      "verification": "GitHub 连接器按固定 commit 读取；未执行"
+    },
+    "verified_at": "2026-10-10",
+    "repository_pushed_at": "2026-08-17T09:21:36Z",
+    "id": "lang-037"
+  },
+  {
+    "name": "LingCpp",
+    "aliases": [
+      "LCPP"
+    ],
+    "category": "中文C++转译语言／Windows应用开发工具链",
+    "author": "MoSheng2020（LICENSE版权署名）；GitHub维护账号mosheng20205",
+    "first_publication": "GitHub仓库创建于2026-08-25T05:23:30Z；本轮找到2026-09-13介绍文章的转载，但未据转载确认原始首发。语言首次公开日期仍待核实。",
+    "description": "LingCpp是灵码LingBuilder开发环境配套的中文编程语言，使用.lcpp文件，以“类、事件、结束、结束类”和中文类型组织程序。公开TypeScript解析器读取中文结构，Win32工程生成器将条件、循环等结构确定性转换为C++，由配套构建工具链处理。项目主要面向Windows应用，提供窗口设计器和中文编辑辅助；IDE中的AI助手是辅助编辑功能，不能与语言翻译或执行机制混写。",
+    "features": [
+      "类、事件、方法和中文类型",
+      "如果/否则及多种循环结构",
+      "TypeScript解析、诊断与C++工程生成",
+      "Windows窗口设计器与事件绑定",
+      "@前缀嵌入原生C++（官方文档）"
+    ],
+    "code": "类 我的主窗口\n    事件 创建完毕()\n        调试输出(\"Hello, LingBuilder!\")\n    结束\n结束类",
+    "implementation": "Electron/TypeScript工具链。electron/src/services/lingCpp/parser.ts实现行级语法解析、AST和诊断；electron/src/services/windowDesigner/lingCppWin32Project.ts的generateLingCppNativeWin32Project读取parseLingCpp结果，生成main.cpp等工程文件，translateLingCppControlStatement将if/loop/select/try结构转成C++。官方文档说明交给Visual Studio/MSVC编译；本轮只读源码，不声称编译运行通过。",
+    "status": "有公开源码，非fork、未归档；默认分支最新提交2026-10-08；README定位积极开发中，Windows为主要平台，macOS适配仍在路线图。本次未安装、构建或运行。",
+    "version": "electron/package.json的IDE包版本为0.8.16，不能当作独立语言版本。GitHub Releases本次仅返回“灵码更新助手”标签（2026-09-25发布），非已核实的语言发行版；LingCpp独立版本待核实。",
+    "relations": "官方文档称LingCpp为语言，LingBuilder为配套IDE/平台；应合为一个语言条目，不将灵码、LingBuilder、LingCpp重复计数。README中的AI/MCP、云端账号与计费属于平台功能。与已收录灵语（LingYu）及通义灵码未见已证实继承关系。",
+    "references": [
+      {
+        "title": "官方LingCpp快速上手：定义与原始示例",
+        "url": "https://github.com/mosheng20205/lingbuilder/blob/2513be26b318457df8314c7a0923fd5667de09bd/cloud/admin/docs/guide/user/lingcpp-quickstart.md#L9-L20"
+      },
+      {
+        "title": "中文解析器与AST",
+        "url": "https://github.com/mosheng20205/lingbuilder/blob/2513be26b318457df8314c7a0923fd5667de09bd/electron/src/services/lingCpp/parser.ts"
+      },
+      {
+        "title": "Win32/C++工程生成器",
+        "url": "https://github.com/mosheng20205/lingbuilder/blob/2513be26b318457df8314c7a0923fd5667de09bd/electron/src/services/windowDesigner/lingCppWin32Project.ts#L361-L399"
+      },
+      {
+        "title": "控制流到C++的确定性转换",
+        "url": "https://github.com/mosheng20205/lingbuilder/blob/2513be26b318457df8314c7a0923fd5667de09bd/electron/src/services/windowDesigner/lingCppWin32Project.ts#L31865-L31983"
+      },
+      {
+        "title": "IDE元数据版本",
+        "url": "https://github.com/mosheng20205/lingbuilder/blob/2513be26b318457df8314c7a0923fd5667de09bd/electron/package.json"
+      },
+      {
+        "title": "版权署名",
+        "url": "https://github.com/mosheng20205/lingbuilder/blob/2513be26b318457df8314c7a0923fd5667de09bd/LICENSE#L3"
+      },
+      {
+        "title": "README：平台定位及当前状态",
+        "url": "https://github.com/mosheng20205/lingbuilder/blob/2513be26b318457df8314c7a0923fd5667de09bd/README.md"
+      },
+      {
+        "title": "仓库元数据",
+        "url": "https://api.github.com/repos/mosheng20205/lingbuilder"
+      },
+      {
+        "title": "GitHub Releases集合",
+        "url": "https://api.github.com/repos/mosheng20205/lingbuilder/releases"
+      }
+    ],
+    "verification_notes": "2026-10-10只读核验。固定main提交2513be26b318457df8314c7a0923fd5667de09bd（2026-10-08T12:09:01Z）；仓库创建2026-08-25T05:23:30Z，最后推送2026-10-08T12:09:04Z。原始示例逐字取自官方快速上手第16–20行，是窗口类示例，不是脱离IDE/设计器的完整独立工程。递归文件树3902项、未截断；parser真实识别类/结束类/事件等。1.88MB工程生成器通过contents读取返回空、raw fetch报文件太大，改用已知Git blob SHA 41d1a59266a517d03bf41188fb0e1cb2333f4f78只读取得完整文本，核查生成main.cpp、调用parseLingCpp及if/loop/select/try转换实现。未执行项目测试，不认定README的全路径行为一致性已验证。灵码介绍转载仅作发现渠道，技术依据全部来自作者仓库。",
+    "code_source": "https://github.com/mosheng20205/lingbuilder/blob/2513be26b318457df8314c7a0923fd5667de09bd/cloud/admin/docs/guide/user/lingcpp-quickstart.md#L16-L20",
+    "code_context": "官方文档“1. 语言结构”的完整五行代码块，依赖LingBuilder窗口项目上下文；未运行。",
+    "verified_at": "2026-10-10",
+    "repository_created_at": "2026-08-25T05:23:30Z",
+    "repository_pushed_at": "2026-10-08T12:09:04Z",
+    "id": "lang-038"
+  },
+  {
+    "name": "中嘞!",
+    "aliases": [
+      "中嘞"
+    ],
+    "category": "中文关键字宏语法实验",
+    "author": "东北大学张引（原视频发布账号；实现作者身份尚待源码佐证）",
+    "first_publication": "至少于2025-04-19公开演示；不把该视频日期当作已证实首发",
+    "description": "以中文关键字和中文数字书写程序的整活语法实验。原视频展示main.cj中的中文函数、返回、类和遍历结构，并使用@中嘞宏包裹。",
+    "features": [
+      "主函数、返回、公开、类等中文关键字（视频可见）",
+      "整型六四及零等中文类型/数字写法（视频可见）",
+      "@中嘞宏形式（视频可见）"
+    ],
+    "code": "主函数(): 整型六四 {\n    返回 零\n}",
+    "implementation": "视频可见main.cj、import zhong.macros.中嘞和@中嘞(...)。这支持存在宏式中文语法演示；实现源码、转换规则及完整工具链未核验。由.cj文件和宏调用结构推测与仓颉有关，暂不将该推测写成确定的独立编译器实现。",
+    "status": "原始视频及实际中文代码已核验；本次未定位可确认归属的公开仓库，也未下载、安装、编译或运行。",
+    "version": "待核实",
+    "relations": "视频同时介绍的好い言語为日文对象，不另计中文语言。与已有东北话语言的继承或兼容关系未证实，不能仅由标题或评论合并。",
+    "references": [
+      {
+        "title": "原视频：中嘞!中文编程语言发布会（含12:53代码画面）",
+        "url": "https://www.bilibili.com/video/BV13Q5xzyEE5/"
+      },
+      {
+        "title": "原视频发布账号",
+        "url": "https://space.bilibili.com/15135791/"
+      }
+    ],
+    "verification_notes": "2026-10-10通过dot云端浏览器只读核验原视频、公开简介和未登录可见评论。12:53画面有连续主函数片段，另有嵌套遍历、公开类示例。没有把标题“发布会”作为完整实现证明。video:release_date为2025-04-19T14:45:32.000Z；页面SSR、客户端及搜索索引显示时刻不一致，正文仅保留日期。未读完整51:20视频，未核验所有功能。",
+    "code_source": "https://www.bilibili.com/video/BV13Q5xzyEE5/",
+    "code_context": "视频12:53，编辑器第16–18行连续片段；人工对照画面转录，缩进空格规范化。外层@中嘞(...)未包含，不是可独立运行的完整文件。",
+    "verified_at": "2026-10-10",
+    "id": "lang-039"
+  },
+  {
+    "name": "元语言",
+    "aliases": [],
+    "category": "实验性中文解释型语言",
+    "author": "遽火（Bilibili账号1039630508）",
+    "first_publication": "至少于2026-07-13公开演示；最早发布日期待核实",
+    "description": "以“变数”“常数”“始”“终”等中文语法组织程序的解释型语言。作者原视频展示变量、常量、列表/字典和条件结构，并自称娱乐项目。",
+    "features": [
+      "变数和常数声明（视频可见）",
+      "始/终代码块（视频可见）",
+      "列表和字典声明（视频可见）",
+      "作者称从AST解释路线转向栈式虚拟机"
+    ],
+    "code": "变数 甲 = 1\n变数 乙 = 2",
+    "implementation": "原作者置顶评论称早期AST版本曾放GitHub，之后的栈虚拟机版本放在交流群。该说明属于作者自述；本次未定位其确切GitHub仓库，也未取得或执行群文件。",
+    "status": "原视频及中文语法已核验。2026-10-08作者在明语言视频评论中称元语言由群友维护；2026-10-09在本视频评论承认是娱乐项目。当前代码维护和发布状态未独立核实。",
+    "version": "待核实",
+    "relations": "与同一作者的明语言分别走解释型和编译型路线（作者评论），不能仅因同作者合并。两者未来无缝调用是作者计划，尚未验证。",
+    "references": [
+      {
+        "title": "原视频：解释型中文编程语言：元语言（2026-07-13）",
+        "url": "https://www.bilibili.com/video/BV1x1N26dEpe/"
+      },
+      {
+        "title": "作者主页",
+        "url": "https://space.bilibili.com/1039630508/"
+      },
+      {
+        "title": "同作者明语言视频及解释两者关系的评论",
+        "url": "https://www.bilibili.com/video/BV1x2HS6rEEH/"
+      }
+    ],
+    "verification_notes": "2026-10-10只读核验。00:42截图中第4–5行直接提供中文关键字例；02:17附近可见调用yuan_a.bat运行.yuan文件的演示，但不等于本次独立执行通过。简介仅“-”；置顶评论与作者对娱乐项目的回复可公开读取，其余评论需要登录。video:release_date为2026-07-13T13:57:54.000Z。QQ群公开源码的说法不能替代公开源码核验。",
+    "code_source": "https://www.bilibili.com/video/BV1x1N26dEpe/",
+    "code_context": "视频00:42，编辑器第4–5行的连续原文片段，人工对照画面转录；未拼接前后的始/终外层块，不是完整程序。",
+    "verified_at": "2026-10-10",
+    "id": "lang-040"
+  },
+  {
+    "name": "明语言",
+    "aliases": [],
+    "category": "实验性中文编译型语言（作者定位）",
+    "author": "遽火（Bilibili账号1039630508）",
+    "first_publication": "至少于2026-10-08公开演示；最早发布日期待核实",
+    "description": "强调操作显式可见的中文编程语言实验。作者视频展示“明”“者”“也”“入”“即”“术”等写法，以及导入中文标准输入输出文件、生成LLVM文本文件和调用clang构建程序的过程。",
+    "features": [
+      "中文模块与导入写法（视频可见）",
+      "中文函数/类型写法（视频可见）",
+      ".明源码与.典导入文件（视频可见）",
+      "生成.ll后调用clang构建（作者演示）"
+    ],
+    "code": "入 \"标准输入输出.典\" 即 标准;",
+    "implementation": "视频01:36画面显示明.exe处理示例.明生成示例.ll，再执行clang 示例.ll -o 示例.exe。只核验视频演示，不代表编译器实现语言、LLVM版本、平台支持或可复现性已经核实；rust/LLVM标签不能替代源码证据。",
+    "status": "已有原作者演示与实际中文语法证据；公开仓库及可下载发行物尚未核实；本次未执行代码。",
+    "version": "待核实",
+    "relations": "作者评论明确元语言是解释型、明语言是编译型，并解释元由群友维护。拟支持两者互调用是后续计划。与既有光明项目无已证实关系，不能仅按名称合并。",
+    "references": [
+      {
+        "title": "原视频：绝对显性的中文编程明语言输出示例",
+        "url": "https://www.bilibili.com/video/BV1x2HS6rEEH/"
+      },
+      {
+        "title": "作者主页",
+        "url": "https://space.bilibili.com/1039630508/"
+      },
+      {
+        "title": "同作者元语言原视频",
+        "url": "https://www.bilibili.com/video/BV1x1N26dEpe/"
+      }
+    ],
+    "verification_notes": "2026-10-10通过dot云端浏览器核验原视频及未登录公开可见作者回复。code逐字取自00:53画面的第3行；同画面第6行仍在输入，不摘录未完成代码。video:release_date为2026-10-08T04:11:39.000Z，换算北京时间仍是2026-10-08；客户端日历日显示2026-10-07，与带Z元数据不同；本条采用元数据日期，不推定显示差异的原因。",
+    "code_source": "https://www.bilibili.com/video/BV1x2HS6rEEH/",
+    "code_context": "视频00:53，编辑器第3行完整导入语句；单行连续原文，未补函数体，不是完整可运行程序。",
+    "verified_at": "2026-10-10",
+    "id": "lang-041"
   }
 ]

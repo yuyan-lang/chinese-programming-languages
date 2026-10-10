@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>LingCpp｜中文编程语言百科</title><link rel="stylesheet" href="../style.css"></head><body><header><h1>LingCpp</h1></header><main><p><a href="../">返回语言目录</a></p>
+<h2>语言介绍</h2><p>LingCpp是灵码LingBuilder开发环境配套的中文编程语言，使用.lcpp文件，以“类、事件、结束、结束类”和中文类型组织程序。公开TypeScript解析器读取中文结构，Win32工程生成器将条件、循环等结构确定性转换为C++，由配套构建工具链处理。项目主要面向Windows应用，提供窗口设计器和中文编辑辅助；IDE中的AI助手是辅助编辑功能，不能与语言翻译或执行机制混写。</p>
+<h2>分类与别名</h2><p>中文C++转译语言／Windows应用开发工具链；别名：LCPP</p>
+<h2>作者与首次公开</h2><p>MoSheng2020（LICENSE版权署名）；GitHub维护账号mosheng20205
+GitHub仓库创建于2026-08-25T05:23:30Z；本轮找到2026-09-13介绍文章的转载，但未据转载确认原始首发。语言首次公开日期仍待核实。</p>
+<h2>设计与特征</h2><p>类、事件、方法和中文类型；如果/否则及多种循环结构；TypeScript解析、诊断与C++工程生成；Windows窗口设计器与事件绑定；@前缀嵌入原生C++（官方文档）</p>
+
+<h2>中文语法示例</h2><pre><code>类 我的主窗口
+    事件 创建完毕()
+        调试输出(&quot;Hello, LingBuilder!&quot;)
+    结束
+结束类</code></pre><p>官方文档“1. 语言结构”的完整五行代码块，依赖LingBuilder窗口项目上下文；未运行。 <a href="https://github.com/mosheng20205/lingbuilder/blob/2513be26b318457df8314c7a0923fd5667de09bd/cloud/admin/docs/guide/user/lingcpp-quickstart.md#L16-L20">示例来源</a></p>
+<h2>实现与运行环境</h2><p>Electron/TypeScript工具链。electron/src/services/lingCpp/parser.ts实现行级语法解析、AST和诊断；electron/src/services/windowDesigner/lingCppWin32Project.ts的generateLingCppNativeWin32Project读取parseLingCpp结果，生成main.cpp等工程文件，translateLingCppControlStatement将if/loop/select/try结构转成C++。官方文档说明交给Visual Studio/MSVC编译；本轮只读源码，不声称编译运行通过。</p>
+<h2>版本与维护状态</h2><p>electron/package.json的IDE包版本为0.8.16，不能当作独立语言版本。GitHub Releases本次仅返回“灵码更新助手”标签（2026-09-25发布），非已核实的语言发行版；LingCpp独立版本待核实。；有公开源码，非fork、未归档；默认分支最新提交2026-10-08；README定位积极开发中，Windows为主要平台，macOS适配仍在路线图。本次未安装、构建或运行。</p>
+<h2>与其他项目的关系</h2><p>官方文档称LingCpp为语言，LingBuilder为配套IDE/平台；应合为一个语言条目，不将灵码、LingBuilder、LingCpp重复计数。README中的AI/MCP、云端账号与计费属于平台功能。与已收录灵语（LingYu）及通义灵码未见已证实继承关系。</p>
+<h2>核验说明</h2><p>2026-10-10只读核验。固定main提交2513be26b318457df8314c7a0923fd5667de09bd（2026-10-08T12:09:01Z）；仓库创建2026-08-25T05:23:30Z，最后推送2026-10-08T12:09:04Z。原始示例逐字取自官方快速上手第16–20行，是窗口类示例，不是脱离IDE/设计器的完整独立工程。递归文件树3902项、未截断；parser真实识别类/结束类/事件等。1.88MB工程生成器通过contents读取返回空、raw fetch报文件太大，改用已知Git blob SHA 41d1a59266a517d03bf41188fb0e1cb2333f4f78只读取得完整文本，核查生成main.cpp、调用parseLingCpp及if/loop/select/try转换实现。未执行项目测试，不认定README的全路径行为一致性已验证。灵码介绍转载仅作发现渠道，技术依据全部来自作者仓库。</p>
+
+<h2>参考资料</h2><ul><li><a href="https://github.com/mosheng20205/lingbuilder/blob/2513be26b318457df8314c7a0923fd5667de09bd/cloud/admin/docs/guide/user/lingcpp-quickstart.md#L9-L20">官方LingCpp快速上手：定义与原始示例</a></li><li><a href="https://github.com/mosheng20205/lingbuilder/blob/2513be26b318457df8314c7a0923fd5667de09bd/electron/src/services/lingCpp/parser.ts">中文解析器与AST</a></li><li><a href="https://github.com/mosheng20205/lingbuilder/blob/2513be26b318457df8314c7a0923fd5667de09bd/electron/src/services/windowDesigner/lingCppWin32Project.ts#L361-L399">Win32/C++工程生成器</a></li><li><a href="https://github.com/mosheng20205/lingbuilder/blob/2513be26b318457df8314c7a0923fd5667de09bd/electron/src/services/windowDesigner/lingCppWin32Project.ts#L31865-L31983">控制流到C++的确定性转换</a></li><li><a href="https://github.com/mosheng20205/lingbuilder/blob/2513be26b318457df8314c7a0923fd5667de09bd/electron/package.json">IDE元数据版本</a></li><li><a href="https://github.com/mosheng20205/lingbuilder/blob/2513be26b318457df8314c7a0923fd5667de09bd/LICENSE#L3">版权署名</a></li><li><a href="https://github.com/mosheng20205/lingbuilder/blob/2513be26b318457df8314c7a0923fd5667de09bd/README.md">README：平台定位及当前状态</a></li><li><a href="https://api.github.com/repos/mosheng20205/lingbuilder">仓库元数据</a></li><li><a href="https://api.github.com/repos/mosheng20205/lingbuilder/releases">GitHub Releases集合</a></li></ul><p>资料核验日期：2026-10-10</p><p><a href="https://github.com/yuyan-lang/chinese-programming-languages/issues/new">补充资料或纠错</a></p></main><footer>站点由<a href="https://yuyan-lang.org/">豫言编程语言</a>提供</footer></body></html>
