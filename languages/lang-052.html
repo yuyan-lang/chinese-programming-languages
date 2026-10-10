@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>道（Carson）｜中文编程语言百科</title><link rel="stylesheet" href="../style.css"></head><body><header><h1>道（Carson）</h1></header><main><p><a href="../">返回语言目录</a></p>
+<h2>语言介绍</h2><p>道是 Carson 维护的多范式中文编程语言，采用缩进代码块与 .道 源文件。中文关键字涵盖定义、常量、函数、返回、如果、否则如果、否则、当、遍历、类型、逻辑和定义宏。公开源码以 Python 实现词法分析、语法分析、树遍历解释器以及字节码编译与虚拟机入口；仓库同时提供面向对象、函数式、逻辑编程和宏系统的文档与模块。</p>
+<h2>分类与别名</h2><p>多范式中文语言／Python 宿主；别名：Dao；道-中文编程语言</p>
+<h2>作者与公开历史</h2><p>Carson（仓库账号 kaisen-wang）；LICENSE 署名 Copyright (c) 2026, Carson，包内作者字段为“道语言项目组”。</p><p>当前默认分支的根提交 ce196f18011db76c653df9af7b4f3f720c1433ba 时间为 2026-02-08T08:34:32Z，内容为“道”的综合设计报告。GitHub 仓库创建时间为 2026-07-01T06:53:56Z。Git 历史时间、托管仓库创建时间分别记录；语言首次公开日期待核实。</p>
+<h2>设计与特征</h2><p>中文关键字与缩进代码块；.道 源文件、交互式入口及文件执行入口；函数、递归、条件分支和范围遍历；动态值与可选类型检查入口；树遍历解释器与字节码虚拟机两条执行路径；面向对象、函数式、逻辑及宏系统模块</p>
+<h2>中文语法示例</h2><pre><code>函数 斐波那契(n)
+    如果 n &lt;= 0
+        返回 0
+    否则如果 n == 1
+        返回 1
+    否则
+        返回 斐波那契(n - 1) + 斐波那契(n - 2)
+
+打印(&quot;斐波那契数列（前10项）：&quot;)
+遍历 i 从 0 到 9
+    打印(斐波那契(i))</code></pre><p>固定提交原文件第3—13行连续原文，展示中文函数声明、递归调用、条件分支、返回与范围遍历；代码块由缩进界定。 <a href="https://github.com/kaisen-wang/dao/blob/e00a6f4c5e0f67409676ba8f33ef06e737d5c49d/源码/examples/斐波那契.道#L3-L13">示例来源</a></p>
+<h2>实现与运行环境</h2><p>源码/main.py 的 run_source 依次调用 Lexer.tokenize 和 Parser.parse，默认交给 Interpreter.execute；--mode vm 路径调用 BytecodeCompiler.compile 与 VirtualMachine.run。tokens.py 提供中文词元映射，parser/modules/control_flow.py 解析条件与遍历，interpreter/statements/executor.py 第313—440行实现函数、返回及条件循环求值。bytecode/compiler.py 与 vm/core.py 提供字节码生成和指令分派。jit/compiler.py 的 _specialize 当前复制 CodeObject 指令与常量表，JIT 实际优化效果和原生机器码生成待核实。四范式完整覆盖及双模式语义一致性待核实。</p>
+<h2>版本与维护状态</h2><p>包内 __version__ 为 0.1.0。注释标签 v0.1.0 的标签时间为 2026-07-01T02:10:18Z，指向提交 60512207b88747542c7618d9c48fdb5c486ee4f8。此次固定核验 main 提交 e00a6f4c5e0f67409676ba8f33ef06e737d5c49d，时间 2026-07-19T07:38:18Z。</p><p>中文原例、关键词、解析与执行源码、作者署名和跨平台同源链可读。独立运行、性能及完整高级特性覆盖待核实。</p>
+<h2>与其他项目的关系</h2><p>Gitee 的 kaisen-wang/dao 和 GitHub 同名仓库共享最新完整提交 e00a6f4c5e0f67409676ba8f33ef06e737d5c49d；v0.1.0 标签说明直接链接 Gitee 提交历史，合并记录为同一项目。条目以作者限定名称，与其他同名 Dao／道语言的沿革关系待核实。</p>
+<h2>核验说明</h2><p>2026-10-10只读核验。目录51项按名称、别名和仓库地址防重。GitHub 递归树368项，truncated=false；默认分支提交列表97项，根提交 parents 为空。Gitee 原仓主页显示97次提交及相同最新完整 SHA，作者页显示 Carson。已读取根提交设计报告、中文斐波那契例程、关键词、入口、条件解析、执行器、字节码、虚拟机与 JIT 文件。运行与测试结论以待核实记录。</p>
+<h2>参考资料</h2><ul><li><a href="https://gitee.com/kaisen-wang/dao">Gitee 原作者仓库与最新提交</a></li><li><a href="https://gitee.com/kaisen-wang">Gitee 作者页</a></li><li><a href="https://github.com/kaisen-wang/dao/blob/e00a6f4c5e0f67409676ba8f33ef06e737d5c49d/源码/examples/斐波那契.道#L3-L13">固定中文递归与范围遍历原例</a></li><li><a href="https://github.com/kaisen-wang/dao/blob/e00a6f4c5e0f67409676ba8f33ef06e737d5c49d/源码/dao/tokens.py">固定中文关键词表</a></li><li><a href="https://github.com/kaisen-wang/dao/blob/e00a6f4c5e0f67409676ba8f33ef06e737d5c49d/源码/main.py#L28-L58">固定主入口与双模式分派</a></li><li><a href="https://github.com/kaisen-wang/dao/blob/e00a6f4c5e0f67409676ba8f33ef06e737d5c49d/源码/dao/parser/modules/control_flow.py#L21-L129">固定条件及遍历解析</a></li><li><a href="https://github.com/kaisen-wang/dao/blob/e00a6f4c5e0f67409676ba8f33ef06e737d5c49d/源码/dao/interpreter/statements/executor.py#L313-L440">固定函数、返回与控制流执行</a></li><li><a href="https://github.com/kaisen-wang/dao/blob/e00a6f4c5e0f67409676ba8f33ef06e737d5c49d/源码/dao/bytecode/compiler.py">固定字节码编译器</a></li><li><a href="https://github.com/kaisen-wang/dao/blob/e00a6f4c5e0f67409676ba8f33ef06e737d5c49d/源码/dao/vm/core.py">固定虚拟机指令分派</a></li><li><a href="https://github.com/kaisen-wang/dao/blob/e00a6f4c5e0f67409676ba8f33ef06e737d5c49d/源码/dao/jit/compiler.py">固定 JIT 特化实现</a></li><li><a href="https://github.com/kaisen-wang/dao/blob/e00a6f4c5e0f67409676ba8f33ef06e737d5c49d/源码/dao/__init__.py">固定包版本</a></li><li><a href="https://api.github.com/repos/kaisen-wang/dao/git/tags/91123ff7f277f4c612694acfbdfb810f069162e4">v0.1.0 标签时间及 Gitee 来源链接</a></li><li><a href="https://github.com/kaisen-wang/dao/blob/ce196f18011db76c653df9af7b4f3f720c1433ba/文档.md">根提交设计报告</a></li><li><a href="https://github.com/kaisen-wang/dao/blob/e00a6f4c5e0f67409676ba8f33ef06e737d5c49d/LICENSE">作者署名与许可证</a></li></ul><p>资料核验日期：2026-10-10</p><p><a href="https://github.com/yuyan-lang/chinese-programming-languages/issues/new">补充资料或纠错</a></p></main><footer>站点由<a href="https://yuyan-lang.org/">豫言编程语言</a>提供</footer></body></html>

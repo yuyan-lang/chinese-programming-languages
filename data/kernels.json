@@ -2611,5 +2611,725 @@
         ]
       }
     ]
+  },
+  {
+    "id": "neoaetheros",
+    "name": "NeoAetherOS／na-kernel",
+    "aliases": [
+      "Neo Aether Operating System",
+      "NeoAether OS",
+      "NAOS",
+      "na-kernel",
+      "Next Aether-OS"
+    ],
+    "checked_at": "2026-10-10",
+    "selection_status": "可收录",
+    "short_description": "NeoAetherOS 是由 VOID2913 开发、以 aether-os-studio 组织公开维护的 Linux 兼容操作系统项目。当前 na-kernel 保存内核和可加载模块，naos 系统工程提供用户态与镜像构建。内核主要使用 C 和汇编，部分模块使用 Rust。",
+    "author": {
+      "people": [
+        {
+          "handle": "VOID2913",
+          "role": "关联作者视频说明中的开发者",
+          "bilibili_url": "https://space.bilibili.com/3546729567750733"
+        },
+        {
+          "handle": "lihanrui2913",
+          "role": "GitHub 固定快照关联的提交作者",
+          "github_url": "https://github.com/lihanrui2913"
+        }
+      ],
+      "organization": "aether-os-studio",
+      "attribution": {
+        "text": "2025-05-18 的 GCC 视频简介明确将 NeoAetherOS 归于 VOID2913，并给出 aether-os-studio/naos 源码地址；2025-07-18 桌面视频重复该作者与仓库关联。GitHub 将核验快照关联到 lihanrui2913。",
+        "evidence_level": "作者声明",
+        "source_ids": [
+          "na1",
+          "na3",
+          "na7"
+        ]
+      },
+      "china_basis": {
+        "text": "VOID2913 的 NeoAetherOS JVM 视频页标注“国产”。XINGJI Studio 官网将 VOID2913 列为 XJ380 副总工程师；该工作室 GitHub 主页自述所在地为中国。",
+        "evidence_level": "作者发布页与组织自述",
+        "source_ids": [
+          "na2",
+          "na4",
+          "na5"
+        ]
+      }
+    },
+    "kernel_positioning": {
+      "text": "这是提供 Linux/POSIX 兼容接口的宏内核操作系统项目；当前源码按内核核心、可加载模块和独立系统构建工程组织。",
+      "evidence_level": "作者声明",
+      "source_ids": [
+        "na1",
+        "na8",
+        "na17",
+        "na23"
+      ]
+    },
+    "dates": {
+      "first_public": {
+        "date": null,
+        "status": "待核实",
+        "known_public_record": "2025-05-18 的 NeoAetherOS GCC 作者关联视频",
+        "source_ids": [
+          "na1"
+        ]
+      },
+      "repository_created": {
+        "at": "2025-04-26T06:33:04Z",
+        "repository_id": 973050278,
+        "meaning": "当前 na-kernel 仓库的 GitHub created_at 元数据",
+        "source_ids": [
+          "na6"
+        ]
+      },
+      "earliest_retained_commit": {
+        "at": "2025-04-26T01:27:21Z",
+        "commit": "d7d9570a4aaeafae969487ce2cb32e4ab8456f8d",
+        "meaning": "当前内核仓库保留的根提交，parents 为空",
+        "source_ids": [
+          "na21",
+          "na22"
+        ]
+      },
+      "system_repository_created": {
+        "at": "2026-07-23T04:23:27Z",
+        "repository_id": 1309511798,
+        "meaning": "现行 naos 用户态与系统构建仓库的 GitHub created_at",
+        "source_ids": [
+          "na18"
+        ]
+      },
+      "kernel_system_split": {
+        "at": "2026-07-23T04:20:32Z",
+        "commit": "85fc8c140c8bc7f5c57dad91e25ac4383cbf56d0",
+        "source_ids": [
+          "na19"
+        ]
+      }
+    },
+    "architectures": [
+      {
+        "text": "固定构建文件接受 x86_64、aarch64、riscv64、loongarch64，并为各目标选择独立的编译和链接参数。",
+        "evidence_level": "源码可见",
+        "source_ids": [
+          "na9",
+          "na16"
+        ]
+      },
+      {
+        "text": "2025 年 GCC 与桌面视频简介声明支持 x86_64 与 aarch64。",
+        "evidence_level": "作者声明",
+        "source_ids": [
+          "na1",
+          "na3"
+        ]
+      }
+    ],
+    "capabilities": {
+      "boot": [
+        {
+          "text": "内核构建文件定义 Limine、SBI、laboot 和 x86_64 Linux boot protocol 条件；kmain 初始化页帧、页表、中断、设备、VFS、initramfs 和任务。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "na9",
+            "na10"
+          ]
+        },
+        {
+          "text": "init_thread 完成 PCI、特殊文件系统、显示与网络接入后调用 task_execve 执行 /init。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "na11"
+          ]
+        }
+      ],
+      "scheduling": [
+        {
+          "text": "sched.c 定义 nice 权重、虚拟运行时间、按权重计算的时间片、虚拟截止时间及红黑树运行队列。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "na12"
+          ]
+        }
+      ],
+      "memory": [
+        {
+          "text": "buddy.c 维护按阶页块、页帧编号与页面状态，并定义每 CPU 页缓存及 PCP 批量参数。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "na13"
+          ]
+        }
+      ],
+      "filesystem": [
+        {
+          "text": "VFS 初始化代码包含挂载命名空间、目录项缓存、挂载子系统和文件系统类型注册；源码树包含 ext、FAT、tmpfs、procfs 与 sysfs 路径。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "na14",
+            "na16"
+          ]
+        }
+      ],
+      "drivers": [
+        {
+          "text": "NVMe 模块包含 DMA 缓冲分配、内存屏障和控制器寄存器读写；Rust virtio-gpu 模块通过 na_std 注册 VirtIO 设备驱动。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "na15",
+            "na35"
+          ]
+        },
+        {
+          "text": "2025-10-12 README 列出 USB XHCI、NVMe、AHCI、VirtIO、E1000 与图形设备支持。",
+          "evidence_level": "作者声明",
+          "source_ids": [
+            "na23"
+          ]
+        }
+      ]
+    },
+    "implementation_languages": [
+      {
+        "text": "内核构建入口使用 GNU C11、体系结构汇编和 freestanding 编译选项；Rust virtio-gpu 入口使用 no_std 与 na_std。",
+        "evidence_level": "源码可见",
+        "source_ids": [
+          "na9",
+          "na16",
+          "na35"
+        ]
+      }
+    ],
+    "project_relationships": [
+      {
+        "text": "现行 naos 为 na-kernel 提供用户态、initramfs、镜像与 rootfs 构建；README 给出 NixOS 和 Void Linux 用户态选项。",
+        "evidence_level": "作者声明",
+        "source_ids": [
+          "na17"
+        ]
+      },
+      {
+        "text": "2025-05 与 2025-07 视频链接使用 aether-os-studio/naos。现内核仓库中的 2026-03-31 README 同样使用该路径。2026-07-23 提交将 README 改为 na-kernel 并拆分用户态及镜像构建；现行 naos 仓库具有独立的 2026-07-23 创建时间和根提交。",
+        "evidence_level": "源码可见与仓库元数据",
+        "source_ids": [
+          "na1",
+          "na3",
+          "na18",
+          "na19",
+          "na33",
+          "na34"
+        ]
+      },
+      {
+        "text": "现存根提交保留 Limine C Template README 与 mintsuki and contributors 许可文字，记录项目的初始模板来源。",
+        "evidence_level": "源码可见",
+        "source_ids": [
+          "na20",
+          "na21"
+        ]
+      },
+      {
+        "text": "固定源码树内附 uACPI、lwIP、TinyCrypt 和 libfdt。各组件保存独立的版权或许可文件。",
+        "evidence_level": "源码可见",
+        "source_ids": [
+          "na26",
+          "na27",
+          "na28",
+          "na29"
+        ]
+      },
+      {
+        "text": "根许可证历史包含 2025-04-26 的 MIT、2025-10-03 的 Apache-2.0 和 2025-10-29 的 GPLv3 变更。",
+        "evidence_level": "提交元数据与许可证文件",
+        "source_ids": [
+          "na24",
+          "na25",
+          "na31",
+          "na32"
+        ]
+      },
+      {
+        "text": "2025 年视频说明报告 GNU 软件、Xorg 与 Java Hello world 的运行进展；2026-07-25 的 VOID2913 视频标题将 na-kernel 与 NixOS 关联。",
+        "evidence_level": "作者声明",
+        "source_ids": [
+          "na1",
+          "na2",
+          "na3",
+          "na30"
+        ]
+      },
+      {
+        "text": "XINGJI Studio 官网记载 VOID2913 的 XJ380 项目角色；NeoAetherOS 的源码维护组织为 aether-os-studio。",
+        "evidence_level": "公开组织资料",
+        "source_ids": [
+          "na4",
+          "na6"
+        ]
+      }
+    ],
+    "status": {
+      "latest_formal_release": {
+        "version": null,
+        "status": "待核实",
+        "note": "核验时 GitHub Releases 集合返回空数组。",
+        "source_ids": [
+          "na36"
+        ]
+      },
+      "source_snapshot": {
+        "branch": "main",
+        "commit": "2c45649144afa3dd2e32147d7029e354dc9fc518",
+        "committed_at": "2026-08-24T05:49:13Z",
+        "source_ids": [
+          "na7"
+        ]
+      },
+      "activity": {
+        "text": "核验时主分支最新提交为 2026-08-24 的异步 USB 提交重构。",
+        "evidence_level": "仓库元数据",
+        "source_ids": [
+          "na7"
+        ]
+      },
+      "license": {
+        "name": "GPL-3.0",
+        "scope": "根项目 LICENSE；内附第三方组件具有各自许可文件。",
+        "source_ids": [
+          "na25",
+          "na26",
+          "na27",
+          "na28",
+          "na29"
+        ]
+      },
+      "runtime_verification": {
+        "status": "待核实",
+        "scope": "本轮覆盖公开资料、仓库元数据、源码静态阅读与关联原片画面；独立构建及运行留待核验。"
+      }
+    },
+    "video_observations": [
+      {
+        "url": "https://www.bilibili.com/video/BV1WJu1zzEWn/",
+        "published_at": "2025-07-18T11:49:49.000Z",
+        "publisher": "XIAOYI80386",
+        "timecode": "01:02",
+        "text": "原片画面显示青绿色桌面、xeyes 眼睛窗口与终端窗口，字幕说明为移植软件在 Xorg 中的表现。",
+        "evidence_level": "作者演示",
+        "source_ids": [
+          "na3"
+        ],
+        "version_boundary": "该画面对应 2025 年演示阶段。与 2026-08-24 固定内核快照的一一对应待核实。"
+      }
+    ],
+    "links": {
+      "source": "https://github.com/aether-os-studio/na-kernel",
+      "system_repository": "https://github.com/aether-os-studio/naos",
+      "video_channel": {
+        "url": "https://space.bilibili.com/3546729567750733",
+        "evidence": "2025 年 GCC 与桌面视频明确关联的项目开发者频道",
+        "source_ids": [
+          "na1",
+          "na3"
+        ]
+      },
+      "individual_video": {
+        "url": "https://www.bilibili.com/video/BV1iynGzYE3E/",
+        "published_date": "2025-09-26",
+        "published_at": "2025-09-26T13:45:41.000Z",
+        "evidence": "原片页、作者账号、简介、国产标签与标准发布时间已核对"
+      },
+      "related_videos": [
+        {
+          "url": "https://www.bilibili.com/video/BV1f3JGzwE9u/",
+          "published_date": "2025-05-18",
+          "purpose": "作者和源码关联、早期公开记录"
+        },
+        {
+          "url": "https://www.bilibili.com/video/BV1WJu1zzEWn/",
+          "published_date": "2025-07-18",
+          "purpose": "作者和源码关联、桌面演示"
+        },
+        {
+          "url": "https://www.bilibili.com/video/BV15Q3u6UEwD/",
+          "published_date": "2026-07-25",
+          "purpose": "na-kernel与NixOS的作者视频线索"
+        }
+      ]
+    },
+    "pending_verification": [
+      "VOID2913 与 lihanrui2913 两个公开账号的直接互链",
+      "旧 aether-os 阶段与 2025 年 NeoAetherOS 的代码继承范围",
+      "旧 naos 路径更名为 na-kernel 的平台操作时间及迁移公告",
+      "最早公开日期与首个正式版本",
+      "各架构在固定源码快照下的独立构建、虚拟机和实机运行",
+      "JVM 原片的具体运行输出、退出状态和源码版本对应",
+      "全部第三方组件的导入提交、版本及完整许可范围"
+    ],
+    "sources": [
+      {
+        "id": "na1",
+        "title": "NeoAetherOS GCC 原视频（2025-05-18）",
+        "url": "https://www.bilibili.com/video/BV1f3JGzwE9u/",
+        "kind": "开发者关联视频",
+        "supports": [
+          "VOID2913开发者归属",
+          "旧naos仓库链接",
+          "作者声明的宏内核和兼容能力"
+        ]
+      },
+      {
+        "id": "na2",
+        "title": "VOID2913 的 NeoAetherOS JVM 原视频（2025-09-26）",
+        "url": "https://www.bilibili.com/video/BV1iynGzYE3E/",
+        "kind": "作者原视频",
+        "supports": [
+          "国产标签",
+          "Java Hello world作者声明",
+          "项目公开视频"
+        ]
+      },
+      {
+        "id": "na3",
+        "title": "NeoAetherOS 桌面环境原视频（2025-07-18）",
+        "url": "https://www.bilibili.com/video/BV1WJu1zzEWn/",
+        "kind": "开发者关联视频",
+        "supports": [
+          "VOID2913与源码入口关联",
+          "Xorg作者说明",
+          "01:02桌面画面"
+        ]
+      },
+      {
+        "id": "na4",
+        "title": "XINGJI Studio 官方成员介绍",
+        "url": "https://www.xingjisoft.com/about/",
+        "kind": "工作室官网",
+        "supports": [
+          "VOID2913公开工作室角色",
+          "XIAOYI80386公开项目角色"
+        ]
+      },
+      {
+        "id": "na5",
+        "title": "XINGJI Studios GitHub 组织主页",
+        "url": "https://github.com/xingji-studio",
+        "kind": "组织自述",
+        "supports": [
+          "中国工作室归属",
+          "官网关联"
+        ]
+      },
+      {
+        "id": "na6",
+        "title": "na-kernel 仓库元数据",
+        "url": "https://api.github.com/repos/aether-os-studio/na-kernel",
+        "kind": "平台元数据",
+        "supports": [
+          "创建时间",
+          "稳定仓库ID",
+          "许可证"
+        ]
+      },
+      {
+        "id": "na7",
+        "title": "na-kernel 固定提交",
+        "url": "https://github.com/aether-os-studio/na-kernel/commit/2c45649144afa3dd2e32147d7029e354dc9fc518",
+        "kind": "提交元数据",
+        "supports": [
+          "2026-08-24快照",
+          "lihanrui2913提交关联"
+        ]
+      },
+      {
+        "id": "na8",
+        "title": "na-kernel 固定 README",
+        "url": "https://github.com/aether-os-studio/na-kernel/blob/2c45649144afa3dd2e32147d7029e354dc9fc518/README.md",
+        "kind": "固定文档快照",
+        "supports": [
+          "独立构建的内核和可加载模块边界",
+          "Rust模块说明"
+        ]
+      },
+      {
+        "id": "na9",
+        "title": "内核构建文件",
+        "url": "https://github.com/aether-os-studio/na-kernel/blob/2c45649144afa3dd2e32147d7029e354dc9fc518/kernel/GNUmakefile",
+        "kind": "固定源码快照",
+        "supports": [
+          "四组架构目标",
+          "启动协议",
+          "C和汇编编译入口"
+        ]
+      },
+      {
+        "id": "na10",
+        "title": "kmain 内核入口",
+        "url": "https://github.com/aether-os-studio/na-kernel/blob/2c45649144afa3dd2e32147d7029e354dc9fc518/kernel/src/init/main.c#L78-L145",
+        "kind": "固定源码快照",
+        "supports": [
+          "启动",
+          "内存与VFS初始化",
+          "任务初始化"
+        ]
+      },
+      {
+        "id": "na11",
+        "title": "init_thread 入口",
+        "url": "https://github.com/aether-os-studio/na-kernel/blob/2c45649144afa3dd2e32147d7029e354dc9fc518/kernel/src/init/thread.c#L36-L95",
+        "kind": "固定源码快照",
+        "supports": [
+          "设备初始化",
+          "特殊文件系统",
+          "执行/init"
+        ]
+      },
+      {
+        "id": "na12",
+        "title": "调度源码",
+        "url": "https://github.com/aether-os-studio/na-kernel/blob/2c45649144afa3dd2e32147d7029e354dc9fc518/kernel/src/task/sched.c",
+        "kind": "固定源码快照",
+        "supports": [
+          "nice权重",
+          "虚拟时间",
+          "截止时间",
+          "红黑树运行队列"
+        ]
+      },
+      {
+        "id": "na13",
+        "title": "伙伴内存分配器",
+        "url": "https://github.com/aether-os-studio/na-kernel/blob/2c45649144afa3dd2e32147d7029e354dc9fc518/kernel/src/mm/buddy.c",
+        "kind": "固定源码快照",
+        "supports": [
+          "页块阶数",
+          "每CPU页缓存",
+          "页帧管理"
+        ]
+      },
+      {
+        "id": "na14",
+        "title": "VFS 初始化与文件系统注册",
+        "url": "https://github.com/aether-os-studio/na-kernel/blob/2c45649144afa3dd2e32147d7029e354dc9fc518/kernel/src/fs/vfs/vfs_init.c",
+        "kind": "固定源码快照",
+        "supports": [
+          "挂载命名空间",
+          "VFS初始化",
+          "文件系统注册"
+        ]
+      },
+      {
+        "id": "na15",
+        "title": "NVMe 驱动源码",
+        "url": "https://github.com/aether-os-studio/na-kernel/blob/2c45649144afa3dd2e32147d7029e354dc9fc518/modules/drivers/block/nvme/nvme.c#L1-L100",
+        "kind": "固定源码快照",
+        "supports": [
+          "DMA缓冲分配",
+          "内存屏障",
+          "控制器寄存器访问"
+        ]
+      },
+      {
+        "id": "na16",
+        "title": "na-kernel 完整源码树",
+        "url": "https://api.github.com/repos/aether-os-studio/na-kernel/git/trees/2c45649144afa3dd2e32147d7029e354dc9fc518?recursive=1",
+        "kind": "源码树元数据",
+        "supports": [
+          "架构目录",
+          "语言路径",
+          "文件系统和驱动模块"
+        ]
+      },
+      {
+        "id": "na17",
+        "title": "2026 年 naos 系统工程固定 README",
+        "url": "https://github.com/aether-os-studio/naos/blob/20ab03a5a8c4201f1cf2df31ee1aa1ed5204120b/README.md",
+        "kind": "固定文档快照",
+        "supports": [
+          "内核和系统工程分工",
+          "NixOS与Void Linux用户态构建入口"
+        ]
+      },
+      {
+        "id": "na18",
+        "title": "现行 naos 仓库元数据",
+        "url": "https://api.github.com/repos/aether-os-studio/naos",
+        "kind": "平台元数据",
+        "supports": [
+          "2026-07-23创建时间",
+          "稳定仓库ID"
+        ]
+      },
+      {
+        "id": "na19",
+        "title": "2026-07-23 内核与系统构建分离提交",
+        "url": "https://github.com/aether-os-studio/na-kernel/commit/85fc8c140c8bc7f5c57dad91e25ac4383cbf56d0",
+        "kind": "提交与差异",
+        "supports": [
+          "内核README改名",
+          "用户态及镜像构建拆分"
+        ]
+      },
+      {
+        "id": "na20",
+        "title": "根提交 README 的 Limine C Template 说明",
+        "url": "https://github.com/aether-os-studio/na-kernel/blob/d7d9570a4aaeafae969487ce2cb32e4ab8456f8d/README.md",
+        "kind": "固定历史快照",
+        "supports": [
+          "初始模板沿革"
+        ]
+      },
+      {
+        "id": "na21",
+        "title": "现存根提交",
+        "url": "https://github.com/aether-os-studio/na-kernel/commit/d7d9570a4aaeafae969487ce2cb32e4ab8456f8d",
+        "kind": "提交元数据",
+        "supports": [
+          "2025-04-26根提交"
+        ]
+      },
+      {
+        "id": "na22",
+        "title": "2025-04-26 保留提交集合",
+        "url": "https://api.github.com/repos/aether-os-studio/na-kernel/commits?until=2025-04-27T00:00:00Z&per_page=100",
+        "kind": "提交元数据",
+        "supports": [
+          "根提交parents为空",
+          "早期实现记录"
+        ]
+      },
+      {
+        "id": "na23",
+        "title": "2025-10-12 Neo Aether README",
+        "url": "https://github.com/aether-os-studio/na-kernel/blob/6b18ceb2b95590ac2d5385dd142416dbd1d63ebf/README.md",
+        "kind": "固定历史文档",
+        "supports": [
+          "Linux兼容定位",
+          "SMP和ACPI作者说明",
+          "用户态和硬件作者说明"
+        ]
+      },
+      {
+        "id": "na24",
+        "title": "根 LICENSE 变更历史",
+        "url": "https://api.github.com/repos/aether-os-studio/na-kernel/commits?path=LICENSE&per_page=100",
+        "kind": "提交元数据",
+        "supports": [
+          "MIT、Apache-2.0、GPLv3历史"
+        ]
+      },
+      {
+        "id": "na25",
+        "title": "当前根 GPLv3 许可证",
+        "url": "https://github.com/aether-os-studio/na-kernel/blob/2c45649144afa3dd2e32147d7029e354dc9fc518/LICENSE",
+        "kind": "固定许可证文件",
+        "supports": [
+          "根项目许可证"
+        ]
+      },
+      {
+        "id": "na26",
+        "title": "uACPI 内附 MIT 许可证",
+        "url": "https://github.com/aether-os-studio/na-kernel/blob/2c45649144afa3dd2e32147d7029e354dc9fc518/kernel/src/acpi/LICENSE",
+        "kind": "第三方许可证文件",
+        "supports": [
+          "uACPI来源与许可"
+        ]
+      },
+      {
+        "id": "na27",
+        "title": "lwIP 内附 COPYING",
+        "url": "https://github.com/aether-os-studio/na-kernel/blob/2c45649144afa3dd2e32147d7029e354dc9fc518/modules/net/netserver/lwip/COPYING",
+        "kind": "第三方许可证文件",
+        "supports": [
+          "lwIP BSD许可"
+        ]
+      },
+      {
+        "id": "na28",
+        "title": "TinyCrypt 内附 LICENSE",
+        "url": "https://github.com/aether-os-studio/na-kernel/blob/2c45649144afa3dd2e32147d7029e354dc9fc518/kernel/src/libs/tinycrypt/LICENSE.txt",
+        "kind": "第三方许可证文件",
+        "supports": [
+          "TinyCrypt与micro-ecc来源和许可"
+        ]
+      },
+      {
+        "id": "na29",
+        "title": "libfdt 文件头",
+        "url": "https://github.com/aether-os-studio/na-kernel/blob/2c45649144afa3dd2e32147d7029e354dc9fc518/kernel/src/libs/fdt/libfdt.h#L1-L7",
+        "kind": "第三方源码声明",
+        "supports": [
+          "libfdt来源",
+          "双许可证标记"
+        ]
+      },
+      {
+        "id": "na30",
+        "title": "VOID2913 的 na-kernel 与 NixOS 视频（2026-07-25）",
+        "url": "https://www.bilibili.com/video/BV15Q3u6UEwD/",
+        "kind": "作者发布页",
+        "supports": [
+          "na-kernel名称的作者视频关联"
+        ]
+      },
+      {
+        "id": "na31",
+        "title": "2025-04-26 MIT 许可证快照",
+        "url": "https://github.com/aether-os-studio/na-kernel/blob/df1584b26ed66a110fda147075c059374d0ad927/LICENSE",
+        "kind": "固定历史许可证",
+        "supports": [
+          "早期根许可"
+        ]
+      },
+      {
+        "id": "na32",
+        "title": "2025-10-03 Apache-2.0 许可证快照",
+        "url": "https://github.com/aether-os-studio/na-kernel/blob/069b73f86bc90a28ba91bb8522738c825adb5141/LICENSE",
+        "kind": "固定历史许可证",
+        "supports": [
+          "中期根许可"
+        ]
+      },
+      {
+        "id": "na33",
+        "title": "现行 naos 仓库初始提交",
+        "url": "https://github.com/aether-os-studio/naos/commit/6cae733fbef5be83724d15d66cbf36ed1d847ca3",
+        "kind": "提交元数据",
+        "supports": [
+          "2026-07-23系统工程根提交"
+        ]
+      },
+      {
+        "id": "na34",
+        "title": "2026-03-31 README 的旧 naos 链接",
+        "url": "https://github.com/aether-os-studio/na-kernel/blob/1d94ef6ca62cf8c09ec3adc64989ca99efd7246b/README.md",
+        "kind": "固定历史文档",
+        "supports": [
+          "现内核历史中的旧naos仓库路径"
+        ]
+      },
+      {
+        "id": "na35",
+        "title": "Rust virtio-gpu 模块入口",
+        "url": "https://github.com/aether-os-studio/na-kernel/blob/2c45649144afa3dd2e32147d7029e354dc9fc518/modules/drivers/drm/virtio-gpu/src/lib.rs",
+        "kind": "固定源码快照",
+        "supports": [
+          "Rust模块入口",
+          "VirtIO设备注册"
+        ]
+      },
+      {
+        "id": "na36",
+        "title": "na-kernel Releases 集合",
+        "url": "https://api.github.com/repos/aether-os-studio/na-kernel/releases?per_page=100",
+        "kind": "平台元数据",
+        "supports": [
+          "核验时正式发布记录范围"
+        ]
+      }
+    ]
   }
 ]
