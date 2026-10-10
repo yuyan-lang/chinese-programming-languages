@@ -1,12 +1,17 @@
 <!doctype html>
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>入墨答｜中文编程语言百科</title><link rel="stylesheet" href="../style.css"></head><body><header><h1>入墨答</h1></header><main><p><a href="../">返回语言目录</a></p>
-<h2>语言介绍</h2><p>函数式语言实验。</p>
-<h2>分类与别名</h2><p>待核实；别名：未确认</p>
-<h2>作者与首次公开</h2><p>待核实。待核实</p>
+<h2>语言介绍</h2><p>入墨答（Rumbda Calculus）是一门以中文、文言句式表达λ演算的实验性函数式编程语言。原作者将“入墨答”解释为λ、汉字与演算的组合，并提供入算术、入语言等名称。语言使用“入”定义函数，以“之”或“取……者”表达调用，以“以……为……则”绑定名称，并用“令……时取……否则”组织选择。多字标识符用方括号【】界定，函数可通过柯里化分步接收参数，递归绑定由组合子展开。原始仓库包括中文语法手册、教程、阶乘与快速排序等示例，以及Haskell编写的解析器、闭包解释器和宿主函数。字符串、序对与列表也有对应的语法和库定义，适合观察中文句式与函数式表达的结合。</p>
+<h2>分类与别名</h2><p>中文λ演算／实验性函数式解释语言；别名：Rumbda Calculus；RuCalculus；入算术；入语言</p>
+<h2>作者与公开历史</h2><p>SOL（仓库维护账号ProjectDimlight）、AntonPing、许兴逸；作者顺序按固定提交src/Main.hs帮助文本记录。</p><p>现有仓库创建时间为2022-05-15T13:15:08Z；根提交c53679dda0d1f7edc896b3a994f6d04d5875c64b时间为2022-05-15T13:15:09Z，README已使用RuCalculus和入算术名称。首次对外发布的具体时间待核实。</p>
+<h2>设计与特征</h2><p>中文λ抽象与多种函数调用语序；递归名称绑定与柯里化；中文条件句及丘奇布尔；【】多字标识符与中文字符串常量；序对、列表和中文库文件引入；Haskell宿主函数与闭包解释执行</p>
+<h2>中文语法示例</h2><pre><code>以【阶乘】为：
+入甲
+令甲与0相等时取1
+否则取甲与【阶乘】取甲与1之差者之积
 
-<h2>中文语法示例</h2><p>待核实：尚未取得可引用的原始中文代码示例。</p>
-<h2>实现与运行环境</h2><p>待核实</p>
-<h2>版本与维护状态</h2><p>版本待核实；有文献</p>
-<h2>与其他项目的关系</h2><p>待核实</p>
-<h2>核验说明</h2><p>本页依据现有目录补齐入口，未完成新的资料核验。</p>
-<h2>参考资料</h2><ul><li><a href="https://www.ploc.org.cn/ploc/CNPL-2023.pdf">参考资料</a></li></ul><p>资料核验日期：待核实</p><p><a href="https://github.com/yuyan-lang/chinese-programming-languages/issues/new">补充资料或纠错</a></p></main><footer>站点由<a href="https://yuyan-lang.org/">豫言编程语言</a>提供</footer></body></html>
+则10之【阶乘】</code></pre><p>固定提交samples/阶乘.入完整原文，保留原始换行及中文标点。示例定义阶乘函数并调用10之阶乘，依赖解释器自动注入的比较、减法和乘法宿主函数。本次核对原文与解析规则，执行结果待独立验证。 <a href="https://github.com/ProjectDimlight/RuCalculus/blob/403e8369b93afe0da1f5c911364194117da88d5a/samples/%E9%98%B6%E4%B9%98.%E5%85%A5">示例来源</a></p>
+<h2>实现与运行环境</h2><p>Haskell2010实现，Cabal列出Parsec、mtl、containers等依赖。MonadicParse.hs将中文句式解析为抽象语法树，并展开递归绑定与条件句；Main.hs将解析结果注入宿主函数后交给runInterp。Interp.hs以环境和闭包求值，并处理库文件引入；HostFuncs.hs提供算术、比较、布尔和输出操作。仓库使用Apache-2.0许可证。</p>
+<h2>版本与维护状态</h2><p>固定提交RuCalculus.cabal声明0.1.0.0；核验main提交403e8369b93afe0da1f5c911364194117da88d5a，时间2023-06-20T19:20:49Z。GitHub Releases集合为空；正式发行版本与发布计划待核实。</p><p>原作者仓库、中文原例、语法规则与解释器源码可读。仓库未归档，所读默认分支最新提交为2023-06-20。当前维护计划及独立构建运行结果待核实。</p>
+<h2>与其他项目的关系</h2><p>README明确将入墨答、Rumbda Calculus、RuCalculus、入算术和入语言列为同一项目名称，并将文言、豫言和东北话语言列为灵感来源。公开实现以Haskell编写，并通过宿主函数接入基础运算；Haskell任意源码混编与F#兼容状态待核实。</p>
+<h2>核验说明</h2><p>2026-10-10只读核验。原作者README直接使用入墨答中文名；固定提交Main.hs核实作者顺序，MonadicParse.hs核实中文语法，阶乘原例逐字核对。目录中的Haskell混编和F#兼容说法继续待核实。README关于-d逐步演算的说明与当前Main.hs调用路径的对应性待核实。原有蓝皮书PDF本次多次超时，截图请求未取得可用PDF响应；该参考的相关版面待截图复核。</p>
+<h2>参考资料</h2><ul><li><a href="https://github.com/ProjectDimlight/RuCalculus/blob/403e8369b93afe0da1f5c911364194117da88d5a/README.md">原作者固定README：正式名称、设计与灵感来源</a></li><li><a href="https://github.com/ProjectDimlight/RuCalculus/blob/403e8369b93afe0da1f5c911364194117da88d5a/doc/Manual.md">固定语法手册：函数、条件、递归与中文库</a></li><li><a href="https://github.com/ProjectDimlight/RuCalculus/blob/403e8369b93afe0da1f5c911364194117da88d5a/samples/%E9%98%B6%E4%B9%98.%E5%85%A5">固定阶乘中文原例</a></li><li><a href="https://github.com/ProjectDimlight/RuCalculus/blob/403e8369b93afe0da1f5c911364194117da88d5a/src/Main.hs">固定解释器入口与作者署名</a></li><li><a href="https://github.com/ProjectDimlight/RuCalculus/blob/403e8369b93afe0da1f5c911364194117da88d5a/src/MonadicParse.hs">固定中文解析规则</a></li><li><a href="https://github.com/ProjectDimlight/RuCalculus/blob/403e8369b93afe0da1f5c911364194117da88d5a/src/Interp.hs">固定闭包解释器</a></li><li><a href="https://github.com/ProjectDimlight/RuCalculus/blob/403e8369b93afe0da1f5c911364194117da88d5a/RuCalculus.cabal">固定Cabal版本与Haskell依赖</a></li><li><a href="https://github.com/ProjectDimlight/RuCalculus/commit/c53679dda0d1f7edc896b3a994f6d04d5875c64b">根提交（2022-05-15）</a></li><li><a href="https://www.ploc.org.cn/ploc/CNPL-2023.pdf">原有参考：国产编程语言蓝皮书2023（版面待复核）</a></li></ul><p>资料核验日期：2026-10-10</p><p><a href="https://github.com/yuyan-lang/chinese-programming-languages/issues/new">补充资料或纠错</a></p></main><footer>站点由<a href="https://yuyan-lang.org/">豫言编程语言</a>提供</footer></body></html>
