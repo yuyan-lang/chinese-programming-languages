@@ -2088,5 +2088,528 @@
         ]
       }
     ]
+  },
+  {
+    "id": "openxj380",
+    "name": "OpenXJ380",
+    "aliases": [
+      "XJ380 开源版本"
+    ],
+    "checked_at": "2026-10-10",
+    "short_description": "OpenXJ380 是 XINGJI Studios 维护的 x86-64 独立单体内核项目，采用 C、C++ 和汇编实现，包含 UEFI 引导、任务调度、内存管理、VFS、设备驱动与 XAPI 用户态接口。",
+    "author": {
+      "people": [],
+      "organization": "XINGJI Studios",
+      "attribution": {
+        "text": "官方组织主页和官网将 OpenXJ380 列为工作室项目，仓库 CONTRIBUTOR.md 记录共同维护者。",
+        "evidence_level": "作者声明",
+        "source_ids": [
+          "xj1",
+          "xj22",
+          "xj23"
+        ]
+      },
+      "china_basis": {
+        "text": "XINGJI Studios 的 GitHub 公开组织介绍明确自述来自中国，所在地字段标为中国。",
+        "evidence_level": "作者声明",
+        "source_ids": [
+          "xj1"
+        ]
+      }
+    },
+    "kernel_positioning": {
+      "text": "README 将项目定位为 x86-64 独立单体内核。固定源码包含 UEFI 交接、KernelMain、任务调度、物理内存分配和设备操作路径。",
+      "evidence_level": "作者声明",
+      "source_ids": [
+        "xj3",
+        "xj6",
+        "xj7",
+        "xj8",
+        "xj9",
+        "xj11"
+      ]
+    },
+    "dates": {
+      "first_public": {
+        "date": null,
+        "status": "待核实",
+        "known_public_record": "本轮核对了发布日期为2026-07-26的视频稿件，以及现存OpenXJ380仓库的2026-08-01根提交和源码导入记录。当前视频片源的拍摄与替换时间、最早公开时间及历史版本对应关系待核实。",
+        "source_ids": [
+          "xj18",
+          "xj19",
+          "xj21"
+        ]
+      },
+      "repository_created": {
+        "at": "2026-08-01T05:17:35Z",
+        "meaning": "GitHub created_at 元数据",
+        "source_ids": [
+          "xj2"
+        ]
+      },
+      "earliest_observed_root_commit": {
+        "commit": "b9d7ac1a03270b41335a90348a8130a5a95db29a",
+        "committed_at": "2026-08-01T05:17:36Z",
+        "meaning": "现存历史的无父提交，仅添加许可证",
+        "source_ids": [
+          "xj18"
+        ]
+      },
+      "observed_source_import": {
+        "commit": "4224bec3ab0bbffb41ecb5af27127314c240f63a",
+        "committed_at": "2026-08-01T12:24:58Z",
+        "source_ids": [
+          "xj19"
+        ]
+      }
+    },
+    "architectures": [
+      {
+        "text": "构建参数使用 -m64、-ffreestanding 与 -nostdlib，UEFI 目标为 BOOTX64.efi，内核面向 x86-64。",
+        "evidence_level": "源码可见",
+        "source_ids": [
+          "xj3",
+          "xj6",
+          "xj12"
+        ]
+      }
+    ],
+    "capabilities": {
+      "boot": [
+        {
+          "text": "UEFI 入口读取内核 ELF、建立映射、取得固件内存图，调用 ExitBootServices 后向内核入口交接帧缓冲与 BOOT_CONFIG。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "xj6"
+          ]
+        },
+        {
+          "text": "KernelMain 依次初始化 CPU、中断表、HPET、APIC、HHDM、页帧、堆、VFS 与设备，创建 shell 用户进程并启动调度器。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "xj7"
+          ]
+        }
+      ],
+      "scheduling": [
+        {
+          "text": "调度源码维护每 CPU 队列、虚拟运行时间与虚拟截止时间，按平均虚拟运行时间检查资格并选择较早截止任务；同时定义每 CPU 的抢占禁用深度。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "xj8"
+          ]
+        }
+      ],
+      "memory": [
+        {
+          "text": "伙伴分配器维护 DMA、DMA32、Normal 区域，按阶查找空闲块并分裂，释放时查找伙伴块并合并。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "xj9"
+          ]
+        }
+      ],
+      "filesystem": [
+        {
+          "text": "VFS 源码包含文件系统注册、节点查找和引用、路径别名与加锁操作。内核入口接入 FatFs、tmpfs、pipefs、procfs、socketfs 等文件系统。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "xj7",
+            "xj10"
+          ]
+        }
+      ],
+      "drivers": [
+        {
+          "text": "AHCI 驱动按 PCI 类码 0x010601 查找控制器，启用内存访问与总线主控，经 BAR5 映射访问控制器寄存器。内核入口包含 AHCI、NVMe、IDE、键盘及鼠标初始化调用。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "xj7",
+            "xj11"
+          ]
+        }
+      ]
+    },
+    "implementation_languages": [
+      {
+        "text": "内核核心文件采用 C++，UEFI 引导采用 C，源码树包含汇编入口；构建器分别定义 C11、GNU++17 和汇编编译参数。",
+        "evidence_level": "源码可见",
+        "source_ids": [
+          "xj6",
+          "xj7",
+          "xj8",
+          "xj12"
+        ]
+      }
+    ],
+    "project_relationships": [
+      {
+        "text": "官网将 OpenXJ380 说明为 XJ380 的开源版本。OpenXSKernel 单独记录为从 XSK2.0 改造的 UEFI 引导项目。",
+        "evidence_level": "作者声明",
+        "source_ids": [
+          "xj22"
+        ]
+      },
+      {
+        "text": "架构文档列出 Linux 兼容系统调用与 XAPI 两组用户态服务接口。",
+        "evidence_level": "作者声明",
+        "source_ids": [
+          "xj4"
+        ]
+      },
+      {
+        "text": "THIRD_PARTY_NOTICES 列出 FatFs、lwIP、musl ELF 定义、Rust 运行库、talc、BusyBox、libutf 与 Linux UAPI 等组件，并明确标注 MikanOS 字体和帧缓冲头文件来源。",
+        "evidence_level": "作者声明",
+        "source_ids": [
+          "xj13"
+        ]
+      },
+      {
+        "text": "VFS 文件头保留 min0911Y、zhouzhihao、copi143 署名。该模块对应的上游提交及完整许可沿革待核实。",
+        "evidence_level": "源码可见",
+        "source_ids": [
+          "xj10"
+        ]
+      },
+      {
+        "text": "2026-08-04提交移除GUI相关代码；当前README将项目范围记为内核、命令行示例及可加载模块。原视频稿件的当前片源展示GUI，片源拍摄与替换日期待核实。",
+        "evidence_level": "作者声明",
+        "source_ids": [
+          "xj3",
+          "xj20",
+          "xj21"
+        ]
+      }
+    ],
+    "status": {
+      "source_snapshot": {
+        "branch": "main",
+        "commit": "d585f42d79b4c2990d1eb57d981a488f97103cef",
+        "committed_at": "2026-10-04T15:29:06Z",
+        "source_ids": [
+          "xj5"
+        ]
+      },
+      "activity": {
+        "text": "本轮 main 分支核验快照的提交时间为 2026-10-04。",
+        "evidence_level": "仓库元数据",
+        "source_ids": [
+          "xj5"
+        ]
+      },
+      "formal_releases": {
+        "status": "待核实",
+        "observed_release_count": 0,
+        "text": "本轮读取的 GitHub Releases 集合为空；版本采用固定提交与源码字符串分别记录。",
+        "source_ids": [
+          "xj17"
+        ]
+      },
+      "source_version": {
+        "kernel": "XSK 2.1.0",
+        "edition": "BetaVersion",
+        "meaning": "固定源码中的构建默认字符串",
+        "source_ids": [
+          "xj16"
+        ]
+      },
+      "license": {
+        "name": "Apache-2.0",
+        "source_ids": [
+          "xj15",
+          "xj13",
+          "xj14"
+        ],
+        "note": "第三方组件沿用各自许可；分发说明要求外部二进制保存精确版本及对应源码材料。"
+      },
+      "runtime_verification": {
+        "status": "待核实",
+        "scope": "本轮完成固定源码静态阅读、仓库历史核对和原作者视频画面核对。",
+        "author_demo": {
+          "text": "发布日期为2026-07-26的视频稿件，其当前片源01:10显示QEMU窗口中的XJ380控制中心、系统信息、设备规格与运行日志；片源时间、画面内核版本字母与当前源码对应关系待核实。",
+          "evidence_level": "作者演示",
+          "source_ids": [
+            "xj21"
+          ]
+        },
+        "independent_run": {
+          "status": "待核实",
+          "text": "独立构建、虚拟机启动和实机运行继续核实。"
+        }
+      }
+    },
+    "video_observations": [
+      {
+        "url": "https://www.bilibili.com/video/BV1ku376JE2h/",
+        "published_at": "2026-07-26T05:48:44Z",
+        "timestamp": "01:10",
+        "observation": "暂停帧显示 QEMU 窗口、中文控制中心、系统信息、设备规格与运行日志，产品栏可读 XJ380 操作系统。",
+        "evidence_level": "作者演示",
+        "version_correspondence": "待核实",
+        "note": "作者简介说明视频已换源；页面时间记录稿件发布日期，当前片源的替换时间待核实。内核版本字母因画面清晰度继续待核实。",
+        "source_ids": [
+          "xj21"
+        ]
+      }
+    ],
+    "links": {
+      "source": "https://github.com/xingji-studio/OpenXJ380",
+      "website": "https://www.xingjisoft.com/open-source/",
+      "documentation": "https://github.com/xingji-studio/OpenXJ380/blob/d585f42d79b4c2990d1eb57d981a488f97103cef/docs/ARCHITECTURE.md",
+      "video": {
+        "url": "https://www.bilibili.com/video/BV1ku376JE2h/",
+        "published_at": "2026-07-26T05:48:44Z",
+        "source_ids": [
+          "xj21"
+        ]
+      }
+    },
+    "pending_verification": [
+      "最早公开日期及历史 XJ380、OpenXJ380 阶段的版本映射",
+      "2026-07 作者视频的片源替换日期、内核版本字母及对应源码提交",
+      "独立构建、虚拟机和实机运行",
+      "VFS 等署名模块的具体上游提交与完整许可沿革",
+      "Linux 兼容接口的逐项运行测试及外部二进制分发材料"
+    ],
+    "sources": [
+      {
+        "id": "xj1",
+        "title": "XINGJI Studios 公开组织介绍",
+        "url": "https://github.com/xingji-studio",
+        "kind": "组织自述",
+        "supports": [
+          "中国社区归属",
+          "官方仓库",
+          "视频频道"
+        ]
+      },
+      {
+        "id": "xj2",
+        "title": "OpenXJ380 仓库元数据",
+        "url": "https://api.github.com/repos/xingji-studio/OpenXJ380",
+        "kind": "平台元数据",
+        "supports": [
+          "仓库创建时间"
+        ]
+      },
+      {
+        "id": "xj3",
+        "title": "OpenXJ380 README",
+        "url": "https://github.com/xingji-studio/OpenXJ380/blob/d585f42d79b4c2990d1eb57d981a488f97103cef/README.md",
+        "kind": "固定作者文档",
+        "supports": [
+          "独立内核定位",
+          "x86-64",
+          "GUI阶段",
+          "项目功能"
+        ]
+      },
+      {
+        "id": "xj4",
+        "title": "架构与目录边界",
+        "url": "https://github.com/xingji-studio/OpenXJ380/blob/d585f42d79b4c2990d1eb57d981a488f97103cef/docs/ARCHITECTURE.md",
+        "kind": "固定作者文档",
+        "supports": [
+          "启动路径",
+          "用户态与模块边界",
+          "Linux兼容接口"
+        ]
+      },
+      {
+        "id": "xj5",
+        "title": "核验提交",
+        "url": "https://github.com/xingji-studio/OpenXJ380/commit/d585f42d79b4c2990d1eb57d981a488f97103cef",
+        "kind": "提交元数据",
+        "supports": [
+          "源码快照",
+          "活动日期"
+        ]
+      },
+      {
+        "id": "xj6",
+        "title": "UEFI 引导实现",
+        "url": "https://github.com/xingji-studio/OpenXJ380/blob/d585f42d79b4c2990d1eb57d981a488f97103cef/boot/bootx64.c",
+        "kind": "固定源码快照",
+        "supports": [
+          "ELF装载",
+          "ExitBootServices",
+          "内核交接"
+        ]
+      },
+      {
+        "id": "xj7",
+        "title": "KernelMain 内核入口",
+        "url": "https://github.com/xingji-studio/OpenXJ380/blob/d585f42d79b4c2990d1eb57d981a488f97103cef/kernel/main.cpp",
+        "kind": "固定源码快照",
+        "supports": [
+          "初始化",
+          "驱动",
+          "文件系统",
+          "用户进程",
+          "调度启动"
+        ]
+      },
+      {
+        "id": "xj8",
+        "title": "任务调度器",
+        "url": "https://github.com/xingji-studio/OpenXJ380/blob/d585f42d79b4c2990d1eb57d981a488f97103cef/kernel/task/scheduler.cpp",
+        "kind": "固定源码快照",
+        "supports": [
+          "运行队列",
+          "虚拟运行时间",
+          "截止时间",
+          "每CPU抢占深度"
+        ]
+      },
+      {
+        "id": "xj9",
+        "title": "伙伴内存分配器",
+        "url": "https://github.com/xingji-studio/OpenXJ380/blob/d585f42d79b4c2990d1eb57d981a488f97103cef/kernel/memory/buddy.cpp",
+        "kind": "固定源码快照",
+        "supports": [
+          "空闲链表",
+          "分裂合并",
+          "内存区"
+        ]
+      },
+      {
+        "id": "xj10",
+        "title": "VFS 核心实现",
+        "url": "https://github.com/xingji-studio/OpenXJ380/blob/d585f42d79b4c2990d1eb57d981a488f97103cef/driver/fs/vfs/vfs.cpp",
+        "kind": "固定源码快照",
+        "supports": [
+          "文件系统接口",
+          "模块署名"
+        ]
+      },
+      {
+        "id": "xj11",
+        "title": "AHCI 驱动",
+        "url": "https://github.com/xingji-studio/OpenXJ380/blob/d585f42d79b4c2990d1eb57d981a488f97103cef/driver/ahci/ahci.cpp",
+        "kind": "固定源码快照",
+        "supports": [
+          "PCI识别",
+          "BAR5",
+          "控制器寄存器"
+        ]
+      },
+      {
+        "id": "xj12",
+        "title": "Ninja 构建生成器",
+        "url": "https://github.com/xingji-studio/OpenXJ380/blob/d585f42d79b4c2990d1eb57d981a488f97103cef/tools/gen_ninja.py",
+        "kind": "固定构建配置",
+        "supports": [
+          "C/C++/汇编",
+          "freestanding",
+          "x86-64"
+        ]
+      },
+      {
+        "id": "xj13",
+        "title": "第三方组件声明",
+        "url": "https://github.com/xingji-studio/OpenXJ380/blob/d585f42d79b4c2990d1eb57d981a488f97103cef/THIRD_PARTY_NOTICES.md",
+        "kind": "固定作者文档",
+        "supports": [
+          "FatFs",
+          "lwIP",
+          "MikanOS来源",
+          "其他上游组件"
+        ]
+      },
+      {
+        "id": "xj14",
+        "title": "分发许可说明",
+        "url": "https://github.com/xingji-studio/OpenXJ380/blob/d585f42d79b4c2990d1eb57d981a488f97103cef/LICENSES.md",
+        "kind": "固定作者文档",
+        "supports": [
+          "外部二进制版本与源码材料要求"
+        ]
+      },
+      {
+        "id": "xj15",
+        "title": "Apache-2.0 许可证",
+        "url": "https://github.com/xingji-studio/OpenXJ380/blob/d585f42d79b4c2990d1eb57d981a488f97103cef/LICENSE",
+        "kind": "固定源码快照",
+        "supports": [
+          "项目许可证"
+        ]
+      },
+      {
+        "id": "xj16",
+        "title": "内核构建版本字符串",
+        "url": "https://github.com/xingji-studio/OpenXJ380/blob/d585f42d79b4c2990d1eb57d981a488f97103cef/kernel/build_settings.h",
+        "kind": "固定源码快照",
+        "supports": [
+          "XSK 2.1.0",
+          "BetaVersion"
+        ]
+      },
+      {
+        "id": "xj17",
+        "title": "现存 GitHub Releases 集合",
+        "url": "https://api.github.com/repos/xingji-studio/OpenXJ380/releases?per_page=100",
+        "kind": "平台发布元数据",
+        "supports": [
+          "现存发布记录"
+        ]
+      },
+      {
+        "id": "xj18",
+        "title": "现存根提交",
+        "url": "https://github.com/xingji-studio/OpenXJ380/commit/b9d7ac1a03270b41335a90348a8130a5a95db29a",
+        "kind": "提交元数据",
+        "supports": [
+          "2026-08-01根提交"
+        ]
+      },
+      {
+        "id": "xj19",
+        "title": "现存源码导入提交",
+        "url": "https://github.com/xingji-studio/OpenXJ380/commit/4224bec3ab0bbffb41ecb5af27127314c240f63a",
+        "kind": "提交元数据",
+        "supports": [
+          "2026-08-01源码记录"
+        ]
+      },
+      {
+        "id": "xj20",
+        "title": "2026-08-04 GUI 调整提交",
+        "url": "https://github.com/xingji-studio/OpenXJ380/commit/26d454c6739bc5230d3ae3013849bad2e4e2a68c",
+        "kind": "提交元数据",
+        "supports": [
+          "GUI阶段边界"
+        ]
+      },
+      {
+        "id": "xj21",
+        "title": "作者 2026-07-26 XJ380 演示",
+        "url": "https://www.bilibili.com/video/BV1ku376JE2h/",
+        "kind": "原作者视频",
+        "supports": [
+          "作者QEMU演示",
+          "原片时间",
+          "仓库关联"
+        ]
+      },
+      {
+        "id": "xj22",
+        "title": "XINGJI 官方开源项目介绍",
+        "url": "https://www.xingjisoft.com/open-source/",
+        "kind": "项目官网",
+        "supports": [
+          "OpenXJ380与XJ380关系",
+          "OpenXSKernel沿革"
+        ]
+      },
+      {
+        "id": "xj23",
+        "title": "项目贡献者名单",
+        "url": "https://github.com/xingji-studio/OpenXJ380/blob/d585f42d79b4c2990d1eb57d981a488f97103cef/CONTRIBUTOR.md",
+        "kind": "固定作者文档",
+        "supports": [
+          "共同维护"
+        ]
+      }
+    ]
   }
 ]
