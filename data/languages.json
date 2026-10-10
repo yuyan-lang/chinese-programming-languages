@@ -3128,7 +3128,7 @@
     "code": "函数 斐波那契(n) {\n    如果 (n <= 1) {\n        返回 n\n    }\n    返回 斐波那契(n - 1) + 斐波那契(n - 2)\n}\n\n输出(\"斐波那契(10) = \" + 字符串(斐波那契(10)))",
     "code_source": "https://gitee.com/uid9622/longhun-cnsh/blob/95ef57360c6226f7020cd27f100c4c98fa982775/examples/fib.cnsh#L5-L12",
     "code_context": "Gitee 固定提交原文件第5—12行连续原文，展示中文函数、条件、递归及输出。源码头部的作者追溯注记单独作为日期线索记录。",
-    "implementation": "cnsh_v21/tokens.py 把中文关键词映射为词元；parser.py 第333—474行实现函数、变量、条件、循环及返回解析。cnsh_v21/__init__.py 的 _parse 串接 Lexer.tokenize 与 Parser.parse，run_source 调用可选优化、类型检查及 Interpreter.run；严格类型拒绝由 strict_types 控制。cnsh_v2c/compiler.py 依次加载模块、插入追溯信息、审计、类型检查并调用 codegen，build 路径以 cc／gcc／clang 的 -std=c99 参数编译生成的 C 文件；codegen_c.py 具有类型映射、函数和条件语句输出。解释器正文在本次 Gitee 页面呈现平台限制提示，完整运行时内部实现待核实。",
+    "implementation": "cnsh_v21/tokens.py 把中文关键词映射为词元；parser.py 第333—475行实现函数、变量、条件、循环及返回解析。cnsh_v21/__init__.py 的 _parse 串接 Lexer.tokenize 与 Parser.parse，run_source 调用可选优化、类型检查及 Interpreter.run；严格类型拒绝由 strict_types 控制。cnsh_v2c/compiler.py 依次加载模块、插入追溯信息、审计、类型检查并调用 codegen，build 路径以 cc／gcc／clang 的 -std=c99 参数编译生成的 C 文件；codegen_c.py 具有类型映射、函数和条件语句输出。解释器正文在本次 Gitee 页面呈现平台限制提示，完整运行时内部实现待核实。",
     "version": "固定 pyproject.toml 的发布包版本为 2.2.0，Python 要求为 >=3.10。Gitee v2.2.0 发行页显示 2026-09-22 15:06，指向提交 42583e8a76b62df17006a443e61e12b48bca5dda；发行说明将独立转 C 工具自身版本记为 2.0.0。此次固定核验 main 提交 95ef57360c6226f7020cd27f100c4c98fa982775，主页提交时间属性为 2026-10-07 10:20:35 +0800。",
     "relations": "固定 README 将 longhun-cnsh 定义为 CNSH 对外发布仓，并链接开发主仓 https://gitee.com/uid9622_admin/longhun-system-core，转 C 开发路径记为 packaging/cnsh-v2/。cnsh_v21 与 cnsh_v2c 作为同一语言项目内的两条工具链记录。GitCode 的 UID9622/longhun-cnsh 页面使用相同项目名称，搜索索引中的 README 指向 Gitee 源码；两平台完整同步对应性待核实。",
     "status": "作者、固定中文原例、关键词、递归下降解析器、运行入口、C99 转译驱动和发行版本可读。完整运行时内部实现、独立构建运行及测试结果待核实。",
@@ -3149,7 +3149,7 @@
       },
       {
         "title": "固定递归下降解析器",
-        "url": "https://gitee.com/uid9622/longhun-cnsh/blob/95ef57360c6226f7020cd27f100c4c98fa982775/cnsh_v21/parser.py#L333-L474"
+        "url": "https://gitee.com/uid9622/longhun-cnsh/blob/95ef57360c6226f7020cd27f100c4c98fa982775/cnsh_v21/parser.py#L333-L475"
       },
       {
         "title": "固定解析、类型检查与运行接口",
