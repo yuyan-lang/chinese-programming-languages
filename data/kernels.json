@@ -1,0 +1,1198 @@
+[
+  {
+    "id": "dragonos",
+    "name": "DragonOS",
+    "aliases": [
+      "DragonOS龙操作系统",
+      "龙操作系统"
+    ],
+    "checked_at": "2026-10-10",
+    "selection_status": "首批可收录",
+    "short_description": "DragonOS 是龙进发起、DragonOS 开源社区共同开发的 64 位自研内核项目，面向轻量云计算与 Serverless 场景，采用 Rust 开发并提供 Linux 二进制兼容接口。",
+    "author": {
+      "people": [
+        {
+          "name": "龙进",
+          "handle": "fslongjin"
+        }
+      ],
+      "organization": "DragonOS-Community",
+      "attribution": {
+        "text": "项目官网将龙进列为社区负责人；社区 GitHub 主页自述所在地为 China。",
+        "evidence_level": "作者声明",
+        "source_ids": [
+          "d1",
+          "d2"
+        ]
+      },
+      "china_basis": {
+        "text": "DragonOS 社区 GitHub 主页的所在地为 China；龙进的 V0.1.0 发布文记述了华南理工大学软件学院项目组和广东省竞赛经历。",
+        "evidence_level": "作者声明",
+        "source_ids": [
+          "d1",
+          "d4"
+        ]
+      }
+    },
+    "kernel_positioning": {
+      "text": "这是从零开发内核及用户态环境、提供 Linux 兼容性的开源操作系统项目。",
+      "evidence_level": "作者声明",
+      "source_ids": [
+        "d2",
+        "d3"
+      ]
+    },
+    "dates": {
+      "first_public": {
+        "date": "2022-01-15",
+        "precision": "日",
+        "basis": "作者回顾的开源仓库建立日期",
+        "evidence_level": "作者声明",
+        "source_ids": [
+          "d5"
+        ]
+      },
+      "repository_created": {
+        "at": "2022-01-15T06:51:31Z",
+        "source_ids": [
+          "d6"
+        ],
+        "meaning": "GitHub created_at 元数据"
+      },
+      "community_started": {
+        "date": "2022-07",
+        "source_ids": [
+          "d3"
+        ]
+      },
+      "first_formal_release": {
+        "version": "V0.1.0",
+        "date": "2022-11-06",
+        "source_ids": [
+          "d4"
+        ]
+      }
+    },
+    "architectures": [
+      {
+        "text": "V0.1.0 发布文确认 x86-64 运行支持。",
+        "evidence_level": "作者声明",
+        "source_ids": [
+          "d4"
+        ]
+      },
+      {
+        "text": "核验快照的架构入口包含 x86_64、riscv64、loongarch64 三组条件编译模块。",
+        "evidence_level": "源码可见",
+        "source_ids": [
+          "d8"
+        ]
+      }
+    ],
+    "capabilities": {
+      "boot": [
+        {
+          "text": "官方功能文档列出 Multiboot2；V0.1.0 发布文记载使用 GRUB 2.06 引导。",
+          "evidence_level": "作者声明",
+          "source_ids": [
+            "d4",
+            "d9"
+          ]
+        },
+        {
+          "text": "启动模块定义了 BootParams、启动命令行和体系结构启动参数。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "d10"
+          ]
+        }
+      ],
+      "scheduling": [
+        {
+          "text": "官方功能文档列出 CFS、FIFO/RR 实时调度、多核调度和负载均衡。",
+          "evidence_level": "作者声明",
+          "source_ids": [
+            "d9"
+          ]
+        },
+        {
+          "text": "fair.rs 定义 FairSchedEntity、虚拟运行时间、截止时间及 CFS 运行队列关系。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "d11"
+          ]
+        }
+      ],
+      "memory": [
+        {
+          "text": "官方功能文档列出页帧分配、小对象分配、VMA、页面映射和独立用户地址空间。",
+          "evidence_level": "作者声明",
+          "source_ids": [
+            "d9"
+          ]
+        },
+        {
+          "text": "buddy.rs 包含伙伴分配器、页阶和 DMA32/Normal 内存区结构。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "d12"
+          ]
+        }
+      ],
+      "filesystem": [
+        {
+          "text": "V0.4.0 发布记录记载 tmpfs、VFS 挂载传播、ext4 与 FAT 改进。",
+          "evidence_level": "作者声明",
+          "source_ids": [
+            "d7"
+          ]
+        },
+        {
+          "text": "文件系统入口导出 VFS、FAT、ext4、tmpfs、procfs、sysfs 等模块。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "d13"
+          ]
+        }
+      ],
+      "drivers": [
+        {
+          "text": "官方功能文档列出 AHCI、IDE、PCI/PCIe、VirtIO 网卡、PS/2、UART、VBE 等设备支持。",
+          "evidence_level": "作者声明",
+          "source_ids": [
+            "d9"
+          ]
+        },
+        {
+          "text": "AHCI 源码包含磁盘对象、块设备接入、分区和 DMA 命令相关结构。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "d14"
+          ]
+        }
+      ]
+    },
+    "implementation_languages": [
+      {
+        "text": "内核核心以 Rust 为主；源码树包含体系结构汇编文件。",
+        "evidence_level": "源码可见",
+        "source_ids": [
+          "d6",
+          "d8",
+          "d11",
+          "d15"
+        ]
+      },
+      {
+        "text": "2022 年项目介绍记载 Rust 与 C 的实现历史。",
+        "evidence_level": "作者声明",
+        "source_ids": [
+          "d2"
+        ]
+      }
+    ],
+    "project_relationships": [
+      {
+        "text": "Linux 二进制兼容性是项目的接口目标；V0.1.0 发布文列有 Linux、skiftOS、LemonOS、MINE、chcore 等参考或引入项目。",
+        "evidence_level": "作者声明",
+        "source_ids": [
+          "d3",
+          "d4"
+        ]
+      },
+      {
+        "text": "DragonReach 是同一社区的系统与服务管理器；DADK 是应用开发工具包。",
+        "evidence_level": "作者声明",
+        "source_ids": [
+          "d1"
+        ]
+      }
+    ],
+    "status": {
+      "latest_formal_release": {
+        "version": "V0.4.0",
+        "published_at": "2025-12-22T12:16:28Z",
+        "source_ids": [
+          "d7",
+          "d16"
+        ]
+      },
+      "source_snapshot": {
+        "branch": "master",
+        "commit": "c369843d9ed1985d34c90f40aa1f5788c69463d3",
+        "committed_at": "2026-10-10T03:02:40Z",
+        "source_ids": [
+          "d17"
+        ]
+      },
+      "activity": {
+        "text": "GitHub 主分支在 2026-10-10 有提交记录。",
+        "evidence_level": "仓库元数据",
+        "source_ids": [
+          "d17"
+        ]
+      },
+      "license": {
+        "name": "GPL-2.0",
+        "source_ids": [
+          "d6"
+        ]
+      },
+      "runtime_verification": {
+        "status": "待核实",
+        "scope": "本次核验覆盖作者资料、仓库元数据与源码静态阅读"
+      }
+    },
+    "links": {
+      "source": "https://github.com/DragonOS-Community/DragonOS",
+      "website": "https://dragonos.org",
+      "documentation": "https://docs.dragonos.org.cn/",
+      "video_channel": {
+        "url": "https://space.bilibili.com/3546596807542790",
+        "evidence": "社区 GitHub 主页给出的官方 Bilibili 频道",
+        "source_ids": [
+          "d1"
+        ]
+      },
+      "individual_video": {
+        "url": "https://www.bilibili.com/video/BV1a8411N7XS/",
+        "published_date": "2023-01-15",
+        "evidence": "官网一周年文章关联的历史进展回顾；本轮核对页面与关联关系"
+      }
+    },
+    "pending_verification": [
+      "各架构的统一运行核验记录",
+      "与固定源码快照对应的调度算法说明"
+    ],
+    "sources": [
+      {
+        "id": "d1",
+        "title": "DragonOS Community 官方 GitHub 主页",
+        "url": "https://github.com/DragonOS-Community",
+        "kind": "组织自述",
+        "supports": [
+          "中国社区归属",
+          "官方视频频道",
+          "配套项目"
+        ]
+      },
+      {
+        "id": "d2",
+        "title": "关于 DragonOS，你想了解的都在这儿（2022-08-15）",
+        "url": "https://dragonos.org/archives/46",
+        "kind": "项目官网",
+        "supports": [
+          "龙进负责人身份",
+          "独立内核定位",
+          "Rust/C历史"
+        ]
+      },
+      {
+        "id": "d3",
+        "title": "DragonOS README",
+        "url": "https://github.com/DragonOS-Community/DragonOS",
+        "kind": "作者仓库",
+        "supports": [
+          "项目定位",
+          "别名",
+          "社区成立时间"
+        ]
+      },
+      {
+        "id": "d4",
+        "title": "V0.1.0 版本发布日志（2022-11-06）",
+        "url": "https://dragonos.org/archives/52",
+        "kind": "项目发布说明",
+        "supports": [
+          "首个正式版本",
+          "中国高校经历",
+          "x86-64与引导",
+          "项目借鉴关系"
+        ]
+      },
+      {
+        "id": "d5",
+        "title": "DragonOS 一周年作者回顾（2023-01-15）",
+        "url": "https://dragonos.org/archives/62",
+        "kind": "作者回顾",
+        "supports": [
+          "2022-01-15开源仓库建立"
+        ]
+      },
+      {
+        "id": "d6",
+        "title": "DragonOS GitHub 仓库元数据",
+        "url": "https://api.github.com/repos/DragonOS-Community/DragonOS",
+        "kind": "平台元数据",
+        "supports": [
+          "仓库创建时间",
+          "主要语言",
+          "许可证"
+        ]
+      },
+      {
+        "id": "d7",
+        "title": "V0.4.0 正式发布记录",
+        "url": "https://github.com/DragonOS-Community/DragonOS/releases/tag/V0.4.0",
+        "kind": "项目发布说明",
+        "supports": [
+          "版本",
+          "文件系统能力"
+        ]
+      },
+      {
+        "id": "d8",
+        "title": "架构入口源码",
+        "url": "https://github.com/DragonOS-Community/DragonOS/blob/c369843d9ed1985d34c90f40aa1f5788c69463d3/kernel/src/arch/mod.rs",
+        "kind": "固定源码快照",
+        "supports": [
+          "架构模块"
+        ]
+      },
+      {
+        "id": "d9",
+        "title": "官方功能文档源码",
+        "url": "https://github.com/DragonOS-Community/DragonOS/blob/c369843d9ed1985d34c90f40aa1f5788c69463d3/docs/zh/introduction/features.md",
+        "kind": "固定文档快照",
+        "supports": [
+          "启动",
+          "调度",
+          "内存",
+          "驱动的作者声明"
+        ]
+      },
+      {
+        "id": "d10",
+        "title": "启动参数源码",
+        "url": "https://github.com/DragonOS-Community/DragonOS/blob/c369843d9ed1985d34c90f40aa1f5788c69463d3/kernel/src/init/boot.rs",
+        "kind": "固定源码快照",
+        "supports": [
+          "启动参数"
+        ]
+      },
+      {
+        "id": "d11",
+        "title": "公平调度源码",
+        "url": "https://github.com/DragonOS-Community/DragonOS/blob/c369843d9ed1985d34c90f40aa1f5788c69463d3/kernel/src/sched/fair.rs",
+        "kind": "固定源码快照",
+        "supports": [
+          "调度数据结构"
+        ]
+      },
+      {
+        "id": "d12",
+        "title": "伙伴分配器源码",
+        "url": "https://github.com/DragonOS-Community/DragonOS/blob/c369843d9ed1985d34c90f40aa1f5788c69463d3/kernel/src/mm/allocator/buddy.rs",
+        "kind": "固定源码快照",
+        "supports": [
+          "内存分配实现"
+        ]
+      },
+      {
+        "id": "d13",
+        "title": "文件系统入口源码",
+        "url": "https://github.com/DragonOS-Community/DragonOS/blob/c369843d9ed1985d34c90f40aa1f5788c69463d3/kernel/src/filesystem/mod.rs",
+        "kind": "固定源码快照",
+        "supports": [
+          "文件系统模块"
+        ]
+      },
+      {
+        "id": "d14",
+        "title": "AHCI 磁盘源码",
+        "url": "https://github.com/DragonOS-Community/DragonOS/blob/c369843d9ed1985d34c90f40aa1f5788c69463d3/kernel/src/driver/disk/ahci/ahcidisk.rs",
+        "kind": "固定源码快照",
+        "supports": [
+          "设备驱动实现"
+        ]
+      },
+      {
+        "id": "d15",
+        "title": "完整源码树元数据",
+        "url": "https://api.github.com/repos/DragonOS-Community/DragonOS/git/trees/c369843d9ed1985d34c90f40aa1f5788c69463d3?recursive=1",
+        "kind": "源码树元数据",
+        "supports": [
+          "目录",
+          "文件语言扩展名"
+        ]
+      },
+      {
+        "id": "d16",
+        "title": "GitHub Releases 集合",
+        "url": "https://api.github.com/repos/DragonOS-Community/DragonOS/releases?per_page=5",
+        "kind": "平台元数据",
+        "supports": [
+          "正式发布顺序与时间"
+        ]
+      },
+      {
+        "id": "d17",
+        "title": "核验时主分支最新提交",
+        "url": "https://github.com/DragonOS-Community/DragonOS/commit/c369843d9ed1985d34c90f40aa1f5788c69463d3",
+        "kind": "提交元数据",
+        "supports": [
+          "快照版本",
+          "活跃时间"
+        ]
+      },
+      {
+        "id": "d18",
+        "title": "官网关联的2022年进展回顾视频（2023-01-15）",
+        "url": "https://www.bilibili.com/video/BV1a8411N7XS/",
+        "kind": "官网关联作者发布"
+      }
+    ]
+  },
+  {
+    "id": "xbook2",
+    "name": "xbook2",
+    "aliases": [
+      "xbook2操作系统内核"
+    ],
+    "checked_at": "2026-10-10",
+    "selection_status": "首批可收录",
+    "short_description": "xbook2 是胡自成（Jason Hu）开发的 x86 32 位开源内核，也是 BookOS 使用的内核。项目提供多进程与多线程、内存管理、文件系统抽象层和设备驱动，可以用于学习操作系统实现。",
+    "author": {
+      "people": [
+        {
+          "name": "胡自成",
+          "english_name": "Jason Hu",
+          "handle": "hzcx998",
+          "gitee_handle": "hzc1998",
+          "public_alias": "小骨头"
+        }
+      ],
+      "organization": "BookOS 项目",
+      "attribution": {
+        "text": "技术社区文章署名 BookOS 胡自成；作者 GitHub 账号名为 Jason Hu，置顶 xbook2 和 BookOS。",
+        "evidence_level": "作者声明",
+        "source_ids": [
+          "x1",
+          "x2"
+        ]
+      },
+      "china_basis": {
+        "text": "胡自成署名文章把 xbook2 称作国产 32 位操作系统内核；作者 GitHub 主页标注 Shenzhen。",
+        "evidence_level": "作者声明",
+        "source_ids": [
+          "x1",
+          "x2"
+        ]
+      }
+    },
+    "kernel_positioning": {
+      "text": "这是具有 task、IPC、VMM、驱动和 FSAL 分层的 x86 32 位系统内核；BookOS 基于 xbook2 构建。",
+      "evidence_level": "作者声明",
+      "source_ids": [
+        "x1",
+        "x3"
+      ]
+    },
+    "dates": {
+      "first_public": {
+        "date": null,
+        "status": "待核实",
+        "known_public_record": "2021-02-05 的 GitHub v0.1.0 发布记录",
+        "source_ids": [
+          "x4"
+        ]
+      },
+      "repository_created": {
+        "at": "2020-03-16T05:52:51Z",
+        "source_ids": [
+          "x5"
+        ],
+        "meaning": "GitHub created_at 元数据"
+      },
+      "earliest_retained_commit": {
+        "at": "2020-03-16T05:52:52Z",
+        "commit": "3e8a78bda8813189123110ddc88f744380e7ebac",
+        "source_ids": [
+          "x6"
+        ],
+        "meaning": "当前仓库保留的初始提交时间"
+      },
+      "first_tag": {
+        "version": "v0.1.0",
+        "tagger_at": "2020-08-13T00:06:15Z",
+        "source_ids": [
+          "x7"
+        ],
+        "meaning": "带注释 Git 标签的 tagger 日期"
+      },
+      "first_github_release": {
+        "version": "v0.1.0",
+        "published_at": "2021-02-05T12:23:57Z",
+        "source_ids": [
+          "x4"
+        ],
+        "meaning": "GitHub Release 的 published_at"
+      },
+      "author_presentation": {
+        "date": "2021-03-22",
+        "source_ids": [
+          "x1"
+        ],
+        "meaning": "作者署名的直播复盘文章发布日期"
+      }
+    },
+    "architectures": [
+      {
+        "text": "xbook2 面向 Intel x86 32 位处理器，README 列出 QEMU、Bochs、VirtualBox 和 VMware 运行环境。",
+        "evidence_level": "作者声明",
+        "source_ids": [
+          "x3"
+        ]
+      },
+      {
+        "text": "启动源码使用 .code32 和 MULTIBOOT_ARCHITECTURE_I386。",
+        "evidence_level": "源码可见",
+        "source_ids": [
+          "x9"
+        ]
+      }
+    ],
+    "capabilities": {
+      "boot": [
+        {
+          "text": "README 提供 GRUB 构建入口。",
+          "evidence_level": "作者声明",
+          "source_ids": [
+            "x3"
+          ]
+        },
+        {
+          "text": "源码包含 Multiboot2 启动头、setup_entry 和 kernel_start 跳转。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "x9"
+          ]
+        }
+      ],
+      "scheduling": [
+        {
+          "text": "README 列出多进程、内核线程和用户线程。",
+          "evidence_level": "作者声明",
+          "source_ids": [
+            "x3"
+          ]
+        },
+        {
+          "text": "调度源码按优先级队列选取任务、重置时间片并切换线程。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "x10"
+          ]
+        }
+      ],
+      "memory": [
+        {
+          "text": "虚拟地址分配源码使用位图、页对齐和页映射；物理内存源码划分 DMA、NORMAL、USER 区域。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "x11",
+            "x12"
+          ]
+        }
+      ],
+      "filesystem": [
+        {
+          "text": "xbook2 通过 FSAL 接入 FatFs，源码包含挂载、目录和文件对象。FatFs 随附说明标记版本 R0.14。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "x13",
+            "x14"
+          ]
+        }
+      ],
+      "drivers": [
+        {
+          "text": "README 列出 IDE、PS/2 键鼠、VBE 和 UART。",
+          "evidence_level": "作者声明",
+          "source_ids": [
+            "x3"
+          ]
+        },
+        {
+          "text": "IDE 源码定义 ATA PIO/DMA 命令与磁盘设备结构。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "x15"
+          ]
+        }
+      ]
+    },
+    "implementation_languages": [
+      {
+        "text": "核心调度、内存和驱动文件使用 C；启动文件使用 x86 汇编。",
+        "evidence_level": "源码可见",
+        "source_ids": [
+          "x9",
+          "x10",
+          "x11",
+          "x15"
+        ]
+      }
+    ],
+    "project_relationships": [
+      {
+        "text": "BookOS 是基于 xbook2 内核的操作系统。",
+        "evidence_level": "作者声明",
+        "source_ids": [
+          "x1",
+          "x2"
+        ]
+      },
+      {
+        "text": "作者的 XBook 仓库将 xbook2 介绍为新模型的内核，形成 XBook 到 xbook2 的项目演进关系。",
+        "evidence_level": "作者声明",
+        "source_ids": [
+          "x16"
+        ]
+      },
+      {
+        "text": "文件系统接入 FatFs R0.14。",
+        "evidence_level": "源码可见",
+        "source_ids": [
+          "x13",
+          "x14"
+        ]
+      },
+      {
+        "text": "作者介绍的 BookOS 网络服务采用 lwIP。",
+        "evidence_level": "作者声明",
+        "source_ids": [
+          "x1"
+        ]
+      }
+    ],
+    "status": {
+      "latest_observed_tag": {
+        "version": "v0.2.1",
+        "commit": "d61ca684e71d70880bedf2714ebaeaa19d24bdb5",
+        "commit_at": "2021-10-13T13:30:00Z",
+        "source_ids": [
+          "x17",
+          "x18"
+        ]
+      },
+      "latest_github_release": {
+        "version": "v0.1.7",
+        "published_at": "2021-02-05T13:34:13Z",
+        "source_ids": [
+          "x8"
+        ],
+        "label": "GitHub Releases 中的最近正式发布记录"
+      },
+      "source_snapshot": {
+        "branch": "master",
+        "commit": "1450d228ce538ae8ad1a2f96e442b8da22e06950",
+        "committed_at": "2021-10-25T14:18:46Z",
+        "source_ids": [
+          "x19"
+        ]
+      },
+      "activity": {
+        "text": "GitHub 主分支核验快照的提交日期为 2021-10-25；Gitee 作者仓库同时提供源码与版本标签。",
+        "evidence_level": "仓库元数据",
+        "source_ids": [
+          "x19",
+          "x20"
+        ]
+      },
+      "license": {
+        "name": "MIT",
+        "source_ids": [
+          "x5",
+          "x20"
+        ]
+      },
+      "runtime_verification": {
+        "status": "待核实",
+        "scope": "本次核验覆盖作者资料、仓库元数据与源码静态阅读",
+        "author_demo": {
+          "text": "作者直播复盘记载了 xbook2 与 BookOS 的虚拟机及物理机演示。",
+          "evidence_level": "作者声明",
+          "source_ids": [
+            "x1"
+          ]
+        }
+      }
+    },
+    "links": {
+      "source": "https://github.com/hzcx998/xbook2",
+      "source_gitee": "https://gitee.com/hzc1998/xbook2",
+      "author_presentation": "https://www.kerneltravel.net/blog/2021/bookos/",
+      "video": {
+        "status": "待核实",
+        "url": null
+      }
+    },
+    "pending_verification": [
+      "首次向公众开放源码的准确日期",
+      "GitHub 与 Gitee 两份主分支的当前同步关系",
+      "作者演示视频的单条原始链接",
+      "固定版本的构建和运行核验记录"
+    ],
+    "sources": [
+      {
+        "id": "x1",
+        "title": "胡自成署名：梦想起航，自研操作系统 BookOS 之旅（2021-03-22）",
+        "url": "https://www.kerneltravel.net/blog/2021/bookos/",
+        "kind": "作者署名技术社区文章",
+        "supports": [
+          "作者",
+          "国产归属自述",
+          "BookOS关系",
+          "演示说明"
+        ]
+      },
+      {
+        "id": "x2",
+        "title": "Jason Hu（hzcx998）GitHub 主页",
+        "url": "https://github.com/hzcx998",
+        "kind": "作者主页",
+        "supports": [
+          "英文名",
+          "所在地",
+          "项目关系"
+        ]
+      },
+      {
+        "id": "x3",
+        "title": "xbook2 README",
+        "url": "https://github.com/hzcx998/xbook2",
+        "kind": "作者仓库",
+        "supports": [
+          "定位",
+          "架构",
+          "功能",
+          "引导"
+        ]
+      },
+      {
+        "id": "x4",
+        "title": "v0.1.0 GitHub 发布记录",
+        "url": "https://github.com/hzcx998/xbook2/releases/tag/v0.1.0",
+        "kind": "项目发布记录",
+        "supports": [
+          "公开发布记录",
+          "发布历史"
+        ]
+      },
+      {
+        "id": "x5",
+        "title": "xbook2 GitHub 仓库元数据",
+        "url": "https://api.github.com/repos/hzcx998/xbook2",
+        "kind": "平台元数据",
+        "supports": [
+          "创建日期",
+          "许可证"
+        ]
+      },
+      {
+        "id": "x6",
+        "title": "当前仓库的初始提交",
+        "url": "https://github.com/hzcx998/xbook2/commit/3e8a78bda8813189123110ddc88f744380e7ebac",
+        "kind": "提交元数据",
+        "supports": [
+          "保留提交历史"
+        ]
+      },
+      {
+        "id": "x7",
+        "title": "v0.1.0 注释标签元数据",
+        "url": "https://api.github.com/repos/hzcx998/xbook2/git/tags/76d2978417c9cb83fcabba2657108cc062b06607",
+        "kind": "标签元数据",
+        "supports": [
+          "tagger日期"
+        ]
+      },
+      {
+        "id": "x8",
+        "title": "GitHub Releases 集合",
+        "url": "https://api.github.com/repos/hzcx998/xbook2/releases?per_page=5",
+        "kind": "平台元数据",
+        "supports": [
+          "发布记录日期",
+          "正式发布顺序"
+        ]
+      },
+      {
+        "id": "x9",
+        "title": "Multiboot2 启动源码",
+        "url": "https://github.com/hzcx998/xbook2/blob/1450d228ce538ae8ad1a2f96e442b8da22e06950/src/arch/x86/boot/multiboot2/multiboot2.S",
+        "kind": "固定源码快照",
+        "supports": [
+          "i386",
+          "启动实现",
+          "汇编"
+        ]
+      },
+      {
+        "id": "x10",
+        "title": "调度源码",
+        "url": "https://github.com/hzcx998/xbook2/blob/1450d228ce538ae8ad1a2f96e442b8da22e06950/src/task/schedule.c",
+        "kind": "固定源码快照",
+        "supports": [
+          "优先级队列",
+          "时间片",
+          "任务切换"
+        ]
+      },
+      {
+        "id": "x11",
+        "title": "虚拟内存源码",
+        "url": "https://github.com/hzcx998/xbook2/blob/1450d228ce538ae8ad1a2f96e442b8da22e06950/src/vmm/virmem.c",
+        "kind": "固定源码快照",
+        "supports": [
+          "虚拟地址分配",
+          "页映射"
+        ]
+      },
+      {
+        "id": "x12",
+        "title": "物理内存源码",
+        "url": "https://github.com/hzcx998/xbook2/blob/1450d228ce538ae8ad1a2f96e442b8da22e06950/src/arch/x86/mach-i386/mm/phymem.c",
+        "kind": "固定源码快照",
+        "supports": [
+          "内存区域"
+        ]
+      },
+      {
+        "id": "x13",
+        "title": "FatFs 接入源码",
+        "url": "https://github.com/hzcx998/xbook2/blob/1450d228ce538ae8ad1a2f96e442b8da22e06950/src/fs/fsal/fatfs.c",
+        "kind": "固定源码快照",
+        "supports": [
+          "文件系统集成"
+        ]
+      },
+      {
+        "id": "x14",
+        "title": "FatFs 随附说明",
+        "url": "https://github.com/hzcx998/xbook2/blob/1450d228ce538ae8ad1a2f96e442b8da22e06950/src/fs/fatfs/00readme.txt",
+        "kind": "随附第三方组件说明",
+        "supports": [
+          "组件名称版本"
+        ]
+      },
+      {
+        "id": "x15",
+        "title": "IDE 驱动源码",
+        "url": "https://github.com/hzcx998/xbook2/blob/1450d228ce538ae8ad1a2f96e442b8da22e06950/src/arch/x86/mach-i386/drivers/disk/ide.c",
+        "kind": "固定源码快照",
+        "supports": [
+          "驱动实现"
+        ]
+      },
+      {
+        "id": "x16",
+        "title": "作者 XBook 仓库",
+        "url": "https://github.com/hzcx998/XBook",
+        "kind": "作者仓库",
+        "supports": [
+          "XBook与xbook2演进关系"
+        ]
+      },
+      {
+        "id": "x17",
+        "title": "GitHub 标签引用集合",
+        "url": "https://api.github.com/repos/hzcx998/xbook2/git/refs/tags",
+        "kind": "标签元数据",
+        "supports": [
+          "v0.2.1标签"
+        ]
+      },
+      {
+        "id": "x18",
+        "title": "v0.2.1 指向的提交",
+        "url": "https://github.com/hzcx998/xbook2/commit/d61ca684e71d70880bedf2714ebaeaa19d24bdb5",
+        "kind": "提交元数据",
+        "supports": [
+          "标签目标提交日期"
+        ]
+      },
+      {
+        "id": "x19",
+        "title": "核验时 GitHub 主分支最新提交",
+        "url": "https://github.com/hzcx998/xbook2/commit/1450d228ce538ae8ad1a2f96e442b8da22e06950",
+        "kind": "提交元数据",
+        "supports": [
+          "源码快照日期"
+        ]
+      },
+      {
+        "id": "x20",
+        "title": "小骨头的 xbook2 Gitee 仓库",
+        "url": "https://gitee.com/hzc1998/xbook2",
+        "kind": "作者仓库",
+        "supports": [
+          "Gitee作者别名",
+          "代码入口",
+          "版本标签"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "luminaos",
+    "name": "LuminaOS",
+    "aliases": [],
+    "checked_at": "2026-10-10",
+    "selection_status": "首批收录",
+    "short_description": "LuminaOS 是面向 i386 的个人实验操作系统，使用 C 和汇编实现。项目包含引导程序、32 位保护模式内核、FAT16 文件系统、图形桌面及 LSP 格式应用。作者在 B 站发布了 v0.7.0 的命令行与桌面演示。",
+    "author": {
+      "people": [
+        {
+          "name": "Lumina_长庚hc",
+          "handle": "Lumina-hc"
+        }
+      ],
+      "organization": "个人项目",
+      "attribution": {
+        "text": "原视频作者简介关联 GitHub 账号 Lumina-hc。",
+        "evidence_level": "作者声明",
+        "source_ids": [
+          "l2",
+          "l10"
+        ]
+      },
+      "china_basis": {
+        "text": "作者公开 GitHub 档案所在地为 Shanxi Province, China。",
+        "evidence_level": "作者声明",
+        "source_ids": [
+          "l1"
+        ]
+      }
+    },
+    "kernel_positioning": {
+      "text": "这是面向 i386、包含引导程序和内核源码的个人实验操作系统。作者将内核设计称为 Hybrid。",
+      "evidence_level": "作者声明",
+      "source_ids": [
+        "l2",
+        "l3"
+      ]
+    },
+    "dates": {
+      "first_public": {
+        "date": null,
+        "status": "待核实",
+        "known_public_record": "2026-08-02 的 v0.7.0 原作者视频",
+        "source_ids": [
+          "l2"
+        ]
+      },
+      "video_release": {
+        "date": "2026-08-02",
+        "version": "v0.7.0",
+        "source_ids": [
+          "l2"
+        ]
+      }
+    },
+    "architectures": [
+      {
+        "text": "i386 / x86 32 位保护模式；架构启动源码使用 GDT、CR0.PE 和 32 位代码段。",
+        "evidence_level": "源码可见",
+        "source_ids": [
+          "l5"
+        ]
+      }
+    ],
+    "capabilities": {
+      "boot": [
+        {
+          "text": "BIOS 引导程序读取 KERNEL.BIN。架构启动程序切换至保护模式并调用 kernel_main。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "l4",
+            "l5"
+          ]
+        }
+      ],
+      "scheduling": [
+        {
+          "text": "内核入口包含计时器与调度初始化。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "l6"
+          ]
+        }
+      ],
+      "memory": [
+        {
+          "text": "内核入口包含物理内存、堆与分页初始化；分页模块设置页目录和页表，并写入 CR3、启用 CR0.PG。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "l6",
+            "l7"
+          ]
+        }
+      ],
+      "filesystem": [
+        {
+          "text": "项目文档列出 IDE 磁盘上的 FAT16 文件系统及 LSP 应用加载。",
+          "evidence_level": "作者声明",
+          "source_ids": [
+            "l3"
+          ]
+        }
+      ],
+      "drivers": [
+        {
+          "text": "项目文档列出 PS/2 键鼠、VGA 窗口桌面及 IDE 磁盘。",
+          "evidence_level": "作者声明",
+          "source_ids": [
+            "l3"
+          ]
+        }
+      ]
+    },
+    "implementation_languages": [
+      {
+        "text": "内核以 C 与 NASM 语法汇编实现。",
+        "evidence_level": "源码可见",
+        "source_ids": [
+          "l4",
+          "l5",
+          "l6",
+          "l7"
+        ]
+      }
+    ],
+    "project_relationships": [
+      {
+        "text": "LuminaOS-SDK 是作者公开的配套应用开发项目。",
+        "evidence_level": "作者声明",
+        "source_ids": [
+          "l1"
+        ]
+      }
+    ],
+    "status": {
+      "source_version": {
+        "version": "v0.7.1",
+        "label": "固定源码快照中的版本字串",
+        "source_ids": [
+          "l6"
+        ]
+      },
+      "video_version": {
+        "version": "v0.7.0",
+        "label": "原作者演示版本",
+        "source_ids": [
+          "l2"
+        ]
+      },
+      "source_snapshot": {
+        "branch": "main",
+        "commit": "1014c8fb1a7e8ded72f6ed82ebb41fd9cae21aa2",
+        "committed_at": "2026-09-06T10:37:33Z",
+        "source_ids": [
+          "l8"
+        ]
+      },
+      "license": {
+        "name": "Apache-2.0",
+        "source_ids": [
+          "l9"
+        ]
+      },
+      "runtime_verification": {
+        "status": "待核实",
+        "scope": "本轮核验采用原视频关键画面与源码静态阅读"
+      }
+    },
+    "video_observations": [
+      {
+        "text": "00:36：命令界面展示 mem、ver 输出，可见 v0.7.0、i686（32-bit）及 FAT16 信息。",
+        "evidence_level": "原作者演示",
+        "source_ids": [
+          "l2"
+        ]
+      },
+      {
+        "text": "01:01：录屏中的虚拟机展示图形桌面与 Files、Notes、About、System、Reboot、Halt 图标。",
+        "evidence_level": "原作者演示",
+        "source_ids": [
+          "l2"
+        ]
+      }
+    ],
+    "links": {
+      "source": "https://github.com/Lumina-hc/LuminaOS",
+      "video": {
+        "url": "https://www.bilibili.com/video/BV1ET3R6jEWv/"
+      }
+    },
+    "pending_verification": [
+      "最早公开发布日期",
+      "独立构建和运行记录",
+      "混合内核架构的完整分析",
+      "各版本源码来源沿革"
+    ],
+    "sources": [
+      {
+        "id": "l1",
+        "title": "作者公开档案",
+        "url": "https://github.com/Lumina-hc",
+        "kind": "作者自述"
+      },
+      {
+        "id": "l2",
+        "title": "LuminaOS v0.7.0 原作者演示",
+        "url": "https://www.bilibili.com/video/BV1ET3R6jEWv/",
+        "kind": "原作者视频"
+      },
+      {
+        "id": "l3",
+        "title": "项目说明（固定快照）",
+        "url": "https://github.com/Lumina-hc/LuminaOS/blob/1014c8fb1a7e8ded72f6ed82ebb41fd9cae21aa2/README.md",
+        "kind": "固定文档快照"
+      },
+      {
+        "id": "l4",
+        "title": "BIOS 引导程序",
+        "url": "https://github.com/Lumina-hc/LuminaOS/blob/1014c8fb1a7e8ded72f6ed82ebb41fd9cae21aa2/boot/boot.asm",
+        "kind": "固定源码快照"
+      },
+      {
+        "id": "l5",
+        "title": "i386 保护模式启动",
+        "url": "https://github.com/Lumina-hc/LuminaOS/blob/1014c8fb1a7e8ded72f6ed82ebb41fd9cae21aa2/kernel/arch/i386/boot.asm",
+        "kind": "固定源码快照"
+      },
+      {
+        "id": "l6",
+        "title": "内核初始化入口",
+        "url": "https://github.com/Lumina-hc/LuminaOS/blob/1014c8fb1a7e8ded72f6ed82ebb41fd9cae21aa2/kernel/kernel/main.c",
+        "kind": "固定源码快照"
+      },
+      {
+        "id": "l7",
+        "title": "分页实现",
+        "url": "https://github.com/Lumina-hc/LuminaOS/blob/1014c8fb1a7e8ded72f6ed82ebb41fd9cae21aa2/kernel/kernel/paging.c",
+        "kind": "固定源码快照"
+      },
+      {
+        "id": "l8",
+        "title": "源码核验提交",
+        "url": "https://github.com/Lumina-hc/LuminaOS/commit/1014c8fb1a7e8ded72f6ed82ebb41fd9cae21aa2",
+        "kind": "提交元数据"
+      },
+      {
+        "id": "l9",
+        "title": "许可证",
+        "url": "https://github.com/Lumina-hc/LuminaOS/blob/1014c8fb1a7e8ded72f6ed82ebb41fd9cae21aa2/LICENSE",
+        "kind": "固定源码快照"
+      },
+      {
+        "id": "l10",
+        "title": "作者B站主页",
+        "url": "https://space.bilibili.com/1969544582/",
+        "kind": "作者主页"
+      }
+    ]
+  }
+]
