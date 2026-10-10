@@ -1,0 +1,95 @@
+[
+  {
+    "name": "脑语言（单字命名、编辑器与函数组合平台）",
+    "new_candidate": true,
+    "new_discovery": true,
+    "formal_entry": false,
+    "category": "中文单字词汇规范／代码输入工具／中文函数别名与JSON组合DSL平台候选",
+    "url": "https://github.com/naoyuyan/naoyuyan",
+    "related_repository": "https://github.com/2500ai/dshjs",
+    "aliases_claimed_by_original": "naoyuyan/naoyuyan固定“脑语言说明”自述旧名快语言、云语言、广语言、虚语言；按该项目沿革归一。各同名外部项目关系继续核实。",
+    "findings": "2022年腾讯云原创词表提供v0.5.8的2500令，其中如→if、返→return、虽→while等属于词汇对应。2025年原仓提供Monaco代码块编辑器：单字映射表含变→let、返→return、条→if，长按按钮把英文代码片段插入编辑器，预览直接设置innerHTML。2026年dshjs固定README与源码明确采用脑语言2500 v1.5.0；函数注册器将中文别名映射到JavaScript函数，组合结构键为pipe、map、if、parallel。当前证据分层保存为词表、输入工具、函数API和JSON组合引擎。满足本百科门槛的中文语法连续原作程序继续待核。",
+    "author": "腾讯云原创发布账号脑语言；GitHub naoyuyan/naoyuyan提交署名脑语言，index.html Author为广；dshjs源码头署名齐庄、Git提交账号2500ai。跨账号自然人身份及腾讯云与各仓库的作者互链待核实。dshjs源码与README自称采用脑语言，作为项目技术关联证据。",
+    "first_publication": "naoyuyan/naoyuyan建库2018-12-20T03:23:33Z，空parents根898c79e00eb26e2a2db49070bd0b5b39dd39d0b7为2018-12-20T03:29:24Z。腾讯云原创页面显示2022-07-11 19:35:08，时区待核实。2025编辑器head为2025-03-20T10:42:50Z。dshjs建库2026-08-23T19:35:27Z，当前head为2026-08-23T19:40:46Z。准确最早公开时刻与各阶段关系继续核实。",
+    "fixed_sources": [
+      "https://github.com/naoyuyan/naoyuyan/blob/986be50b55d60ce9e5869c9e6d0edc80dbed629f/脑语言说明",
+      "https://github.com/naoyuyan/naoyuyan/blob/986be50b55d60ce9e5869c9e6d0edc80dbed629f/README.md",
+      "https://github.com/naoyuyan/naoyuyan/blob/986be50b55d60ce9e5869c9e6d0edc80dbed629f/html/asi2500.html#L316-L339",
+      "https://github.com/naoyuyan/naoyuyan/blob/986be50b55d60ce9e5869c9e6d0edc80dbed629f/html/asi2500.html#L500-L527",
+      "https://github.com/2500ai/dshjs/blob/82b1d5029a7d7acbd58633e106fd6165b0f1841d/src/fn/registry.js#L13-L39",
+      "https://github.com/2500ai/dshjs/blob/82b1d5029a7d7acbd58633e106fd6165b0f1841d/src/fn/registry.js#L45-L78",
+      "https://github.com/2500ai/dshjs/blob/82b1d5029a7d7acbd58633e106fd6165b0f1841d/README.md#L77-L113",
+      "https://github.com/2500ai/dshjs/blob/82b1d5029a7d7acbd58633e106fd6165b0f1841d/src/fn/naoyuyan2500.js"
+    ],
+    "code": "",
+    "code_context": "原腾讯云页面为词汇表；2025核心材料为JavaScript实现内的映射表和代码输入函数；2026测试包含reg.call的中文函数别名参数。上述材料分别保存为规范或实现证据，连续中文语法用户程序待核实。",
+    "implementation": "2025 html/asi2500.html第317—339行定义若干单字与英文JS片段映射，第504行按长按状态选映射文本，第512行调用编辑器executeEdits，第524行直接将编辑器文本写入预览innerHTML。2026 src/fn/registry.js第17—20行把name与aliases挂入同一Map，第33—36行调用atom.run；第45—78行按英文JSON结构键解释组合。src/fn/naoyuyan2500.js声明2500个汉字、100类和1.5.0并解析TSV，词表覆盖与可执行函数覆盖分别保存。README自述46个原子，精确静态数量和全部映射范围继续核实。",
+    "version": "2022词表版本v0.5.8。2025仓固定986be50b55d60ce9e5869c9e6d0edc80dbed629f。2026 dshjs固定82b1d5029a7d7acbd58633e106fd6165b0f1841d，package.json为0.0.7，脑语言数据版本1.5.0，Node要求>=22。两仓GitHub Releases及matching-refs/tags响应均为空数组。",
+    "license": "2025 naoyuyan仓许可待核实，完整树6项、GitHub许可元数据null。2026 dshjs固定LICENSE为MIT，Copyright (c) 2026 2500.ai；该许可按dshjs文件层级记录，旧词表与旧仓许可继续核实。",
+    "ai_involvement": "2025 naoyuyan仓固定README直接声明“所有代码由AI生成，vibecoding 氛围编码可以走多远？”，记录为作者对该仓的自述，具体工具、模型、文件比例和复核过程待核实。2026 dshjs包含DeepSeek API适配并在头注感谢deepseek与dsh，AI产品功能与开发贡献分别记录；2026仓具体AI编码比例继续核实。",
+    "next_steps": [
+      "取得原作者写成的短连续中文语法程序及其实际解析或转换入口。",
+      "核对2022词表、2025编辑器和2026 dshjs的正式规范演进及作者互链。",
+      "补充旧仓许可、完整函数实现覆盖及可核原B站BV与演示时间。"
+    ],
+    "verified_at": "2026-10-10",
+    "references": [
+      {
+        "title": "2022原创词表与版本",
+        "url": "https://cloud.tencent.com/developer/article/2045815"
+      },
+      {
+        "title": "固定旧名及设计说明",
+        "url": "https://github.com/naoyuyan/naoyuyan/blob/986be50b55d60ce9e5869c9e6d0edc80dbed629f/脑语言说明"
+      },
+      {
+        "title": "固定AI生成声明",
+        "url": "https://github.com/naoyuyan/naoyuyan/blob/986be50b55d60ce9e5869c9e6d0edc80dbed629f/README.md"
+      },
+      {
+        "title": "固定单字代码输入实现",
+        "url": "https://github.com/naoyuyan/naoyuyan/blob/986be50b55d60ce9e5869c9e6d0edc80dbed629f/html/asi2500.html"
+      },
+      {
+        "title": "2026函数与组合平台README",
+        "url": "https://github.com/2500ai/dshjs/blob/82b1d5029a7d7acbd58633e106fd6165b0f1841d/README.md"
+      },
+      {
+        "title": "固定函数别名与组合执行器",
+        "url": "https://github.com/2500ai/dshjs/blob/82b1d5029a7d7acbd58633e106fd6165b0f1841d/src/fn/registry.js"
+      },
+      {
+        "title": "固定函数表数据定义",
+        "url": "https://github.com/2500ai/dshjs/blob/82b1d5029a7d7acbd58633e106fd6165b0f1841d/src/fn/naoyuyan2500.js"
+      },
+      {
+        "title": "固定函数别名测试源码",
+        "url": "https://github.com/2500ai/dshjs/blob/82b1d5029a7d7acbd58633e106fd6165b0f1841d/test/fn.test.js"
+      },
+      {
+        "title": "固定2026平台许可",
+        "url": "https://github.com/2500ai/dshjs/blob/82b1d5029a7d7acbd58633e106fd6165b0f1841d/LICENSE"
+      },
+      {
+        "title": "固定2026平台版本",
+        "url": "https://github.com/2500ai/dshjs/blob/82b1d5029a7d7acbd58633e106fd6165b0f1841d/package.json"
+      }
+    ],
+    "issue": "https://github.com/yuyan-lang/chinese-programming-languages/issues/43"
+  },
+  {
+    "name": "文言Perl（中書珨）待补字段",
+    "new_candidate": false,
+    "new_discovery": false,
+    "formal_entry": true,
+    "issue": "https://github.com/yuyan-lang/chinese-programming-languages/issues/5",
+    "findings": "本轮完成中文原例、固定转换实现、作者及许可核验，建议正式收录。",
+    "next_steps": [
+      "复核2002年原始发行附件与首次发布时刻。",
+      "核对5.008源码声明与5.10历史功能要求对应。",
+      "明确全局文本替换对字符串、注释与正则的语义边界，以及现代Perl环境兼容。",
+      "核对源码VERSION、README版本、历史CPAN发行和最终提交的对应。"
+    ],
+    "url": "https://github.com/audreyt/lingua-sinica-perlyuyan/blob/08b4d8294876903ed7ff193fa3a08f247d66b637/lib/Lingua/Sinica/PerlYuYan.pm"
+  }
+]

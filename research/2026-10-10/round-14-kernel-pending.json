@@ -1,0 +1,198 @@
+[
+  {
+    "id": "hos-huangcheng72-followup",
+    "name": "HOS（HuangCheng72）",
+    "entry_id": "hos-huangcheng72",
+    "classification": "已满足正式资料条目条件；以下为字段后续",
+    "discovery_accounting": {
+      "genuinely_new": 1,
+      "old_lead_supplement": 0,
+      "formal_addition": 1
+    },
+    "checked_at": "2026-10-10",
+    "source_commit": "7bf86ad11e069f6f6a590d2ee80cdf64e03353c9",
+    "source_repository": "https://github.com/HuangCheng72/HOS",
+    "publication_evidence": {
+      "kind": "作者GitHub公开文档及关联知乎入口",
+      "github_readme": "https://github.com/HuangCheng72/HOS/blob/7bf86ad11e069f6f6a590d2ee80cdf64e03353c9/README.md",
+      "author_china_statement": "https://github.com/HuangCheng72/HuangCheng72/blob/b1b61fa12af12390344d14de45f0054e8cd627b8/README.md#L1-L8",
+      "zhihu": "https://www.zhihu.com/column/c_1776978835558858752",
+      "video": {
+        "url": null,
+        "status": "待核实"
+      }
+    },
+    "pending_verification": [
+      "最早公开日、知乎专栏正文及原始发布时间",
+      "作者视频、原始演示图片与固定源码的对应",
+      "四个平台的独立构建、启动与实际功能范围",
+      "Orange Pi One构建中的fs路径对应",
+      "JZ2440任务切换后续修复状态",
+      "用户态隔离、系统调用参数检查和文件权限的完整性",
+      "教材、GPIO、JesFs与随附U-Boot的精确继承版本及许可范围",
+      "Shell、FAT32、MMC和DMA等作者计划的后续实现状态"
+    ],
+    "notable_boundaries": [
+      {
+        "text": "Orange Pi One Makefile的compile目标调用fs子目录；完整固定树列出的该平台目录与这项调用需进一步对应。默认构建完整性待核实。",
+        "evidence_level": "源码可见",
+        "source_ids": [
+          "h21",
+          "h28"
+        ]
+      },
+      {
+        "text": "作者文档记述Orange Pi One分页、多任务和GPIO灯闪烁测试；JZ2440文档记录任务切换停在一轮的阶段结果。原始图片逐像素核对、视频及其与快照的对应待核实。",
+        "evidence_level": "作者声明",
+        "source_ids": [
+          "h22",
+          "h23",
+          "h24",
+          "h25"
+        ]
+      },
+      {
+        "text": "固定第39篇开发记录将Shell、FAT32、MMC、DMA及GPIO扩展列为未来计划；HCFileSystem以学习用途定位。",
+        "evidence_level": "作者声明",
+        "source_ids": [
+          "h32"
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "id": "h1",
+        "title": "作者公开中国归属自述",
+        "url": "https://github.com/HuangCheng72/HuangCheng72/blob/b1b61fa12af12390344d14de45f0054e8cd627b8/README.md#L1-L8",
+        "kind": "固定个人自述",
+        "supports": [
+          "作者",
+          "中国归属"
+        ]
+      },
+      {
+        "id": "h2",
+        "title": "HOS固定README",
+        "url": "https://github.com/HuangCheng72/HOS/blob/7bf86ad11e069f6f6a590d2ee80cdf64e03353c9/README.md",
+        "kind": "固定作者文档",
+        "supports": [
+          "项目定位",
+          "公开专栏",
+          "教学参考"
+        ]
+      },
+      {
+        "id": "h6",
+        "title": "项目根MIT许可证",
+        "url": "https://github.com/HuangCheng72/HOS/blob/7bf86ad11e069f6f6a590d2ee80cdf64e03353c9/LICENSE",
+        "kind": "固定许可文件",
+        "supports": [
+          "根许可",
+          "版权署名"
+        ]
+      },
+      {
+        "id": "h21",
+        "title": "Orange Pi One构建配置",
+        "url": "https://github.com/HuangCheng72/HOS/blob/7bf86ad11e069f6f6a590d2ee80cdf64e03353c9/Program_OrangePiOne/Makefile",
+        "kind": "固定构建文件",
+        "supports": [
+          "ARM32",
+          "fs目录待核"
+        ]
+      },
+      {
+        "id": "h22",
+        "title": "JZ2440移植阶段记录",
+        "url": "https://github.com/HuangCheng72/HOS/blob/7bf86ad11e069f6f6a590d2ee80cdf64e03353c9/Documents/（33）移植内存管理和多任务（部分成功）.md",
+        "kind": "固定作者文档",
+        "supports": [
+          "任务切换边界",
+          "韦东山例程"
+        ]
+      },
+      {
+        "id": "h25",
+        "title": "GPIO来源与移植说明",
+        "url": "https://github.com/HuangCheng72/HOS/blob/7bf86ad11e069f6f6a590d2ee80cdf64e03353c9/Documents/（38）LED驱动换成GPIO驱动.md",
+        "kind": "固定作者文档",
+        "supports": [
+          "OrangePiH3_uboot来源",
+          "功能范围"
+        ]
+      },
+      {
+        "id": "h26",
+        "title": "JesFs移植及AI辅助记述",
+        "url": "https://github.com/HuangCheng72/HOS/blob/7bf86ad11e069f6f6a590d2ee80cdf64e03353c9/Documents/（17）移植嵌入式文件系统项目JesFs.md",
+        "kind": "固定作者文档",
+        "supports": [
+          "上游",
+          "ChatGPT辅助"
+        ]
+      },
+      {
+        "id": "h27",
+        "title": "HCFileSystem设计沿革",
+        "url": "https://github.com/HuangCheng72/HOS/blob/7bf86ad11e069f6f6a590d2ee80cdf64e03353c9/Documents/（18）文件系统原型设计.md",
+        "kind": "固定作者文档",
+        "supports": [
+          "学习目的",
+          "JesFs层次参考"
+        ]
+      },
+      {
+        "id": "h28",
+        "title": "完整固定源码树",
+        "url": "https://api.github.com/repos/HuangCheng72/HOS/git/trees/7bf86ad11e069f6f6a590d2ee80cdf64e03353c9?recursive=1",
+        "kind": "源码树元数据",
+        "supports": [
+          "四平台目录",
+          "535项",
+          "构建目录核对"
+        ]
+      },
+      {
+        "id": "h32",
+        "title": "后续计划与Timer1改写",
+        "url": "https://github.com/HuangCheng72/HOS/blob/7bf86ad11e069f6f6a590d2ee80cdf64e03353c9/Documents/（39）利用Timer1实现高精度延时.md",
+        "kind": "固定作者文档",
+        "supports": [
+          "Shell/FAT32/MMC/DMA计划",
+          "维护阶段"
+        ]
+      },
+      {
+        "id": "h33",
+        "title": "作者README关联的知乎HOS专栏",
+        "url": "https://www.zhihu.com/column/c_1776978835558858752",
+        "kind": "作者关联发布入口",
+        "supports": [
+          "跨平台公开入口；正文与日期待核"
+        ]
+      },
+      {
+        "id": "h23",
+        "title": "Orange Pi One平台移植",
+        "url": "https://github.com/HuangCheng72/HOS/blob/7bf86ad11e069f6f6a590d2ee80cdf64e03353c9/Documents/（34）移植到Orange%20Pi%20One上.md",
+        "kind": "固定作者文档",
+        "supports": [
+          "ARMv7",
+          "全志H3",
+          "U-Boot",
+          "作者测试记述"
+        ]
+      },
+      {
+        "id": "h24",
+        "title": "Orange Pi One多任务进展",
+        "url": "https://github.com/HuangCheng72/HOS/blob/7bf86ad11e069f6f6a590d2ee80cdf64e03353c9/Documents/（36）定时器驱动和多任务.md",
+        "kind": "固定作者文档",
+        "supports": [
+          "作者测试记述",
+          "参考项目"
+        ]
+      }
+    ]
+  }
+]

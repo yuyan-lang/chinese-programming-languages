@@ -1,0 +1,56 @@
+[
+  {
+    "name": "墨香中文编程（MxIDE）",
+    "record_type": "本轮新增建议条目的待补字段",
+    "new_candidate": false,
+    "source_project": "https://gitee.com/liuyunsishui/Mxide",
+    "fixed_commit": "4923c5cb6ae321d2bad9d2a2973860907fe63043",
+    "pending": [
+      "取得转换器／解析器实现和中文命令进入执行路径的完整静态证据。",
+      "核验原例所需控制字符、结构标记、类型表、事件接口及编译入口；在获准环境独立运行。",
+      "确认项目最早公开日、正式版本、发行物、许可证和当前官网可用状态。",
+      "通过作者明确互链核验 Gitee Smile_Admin 与B站独游墨客的账号关系。",
+      "取得AI参与的具体工具、文件范围与人机分工。",
+      "取得与“墨言”、55IDE等名称的明确沿革说明。"
+    ],
+    "references": [
+      {
+        "title": "原作者 Gitee 项目与 README",
+        "url": "https://gitee.com/liuyunsishui/Mxide"
+      },
+      {
+        "title": "固定 README：项目定位、功能与格式",
+        "url": "https://gitee.com/liuyunsishui/Mxide/blob/1aa3ca7a1fd3fab469f17beeb5d8defa19e5c381/README.md"
+      },
+      {
+        "title": "固定作者连续例程：世界核心更新第34—42行",
+        "url": "https://gitee.com/liuyunsishui/Mxide/blob/4923c5cb6ae321d2bad9d2a2973860907fe63043/demo/%E5%A2%A8%E9%A6%99%E4%B8%AD%E6%96%87JavaScript/1%E5%9F%BA%E7%A1%80%E6%A8%A1%E6%9D%BF%E6%9C%8D%E5%8A%A1%E7%AB%AF.txt#L34-L42"
+      },
+      {
+        "title": "固定流程操作库：中文控制命令与 JavaScript 模板",
+        "url": "https://gitee.com/liuyunsishui/Mxide/blob/d139b0dae46b2dda0febaafc2e589e1ee70c91db/MxIDE_Mx_AI/%E6%B5%81%E7%A8%8B%E6%93%8D%E4%BD%9C%E5%BA%93.txt"
+      },
+      {
+        "title": "基础中文命令库：Vue、CSS 与中文指令",
+        "url": "https://gitee.com/liuyunsishui/Mxide/blob/master/%E5%A2%A8%E9%A6%99%E4%B8%AD%E6%96%87%E5%9F%BA%E7%A1%80%E4%B8%AD%E6%96%87%E5%91%BD%E4%BB%A4%E5%BA%93.txt"
+      },
+      {
+        "title": "B站项目教程：墨香中文编程零基础开发CMS网站",
+        "url": "https://www.bilibili.com/video/BV1wtj6z5E8n/"
+      },
+      {
+        "title": "B站后续教程：墨香中文游戏服务端SKILLS全自动开发",
+        "url": "https://www.bilibili.com/video/BV17QK261EK8/"
+      },
+      {
+        "title": "Gitee作者公开项目页",
+        "url": "https://gitee.com/liuyunsishui/projects"
+      },
+      {
+        "title": "README列出的官网（本次证书链错误）",
+        "url": "https://www.mxide.com/"
+      }
+    ],
+    "verified_at": "2026-10-10"
+  }
+]

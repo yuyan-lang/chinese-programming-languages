@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>HOS（HuangCheng72）｜操作系统内核资料</title><link rel="stylesheet" href="../style.css"></head>
+<body>
+<header><h1>HOS（HuangCheng72）</h1><p>中国人自主开发的操作系统内核</p></header>
+<main>
+<p><a href="https://中文编程语言.yuyan-lang.org/内核/">返回内核目录</a> · <a href="https://中文编程语言.yuyan-lang.org/">中文编程语言百科</a></p>
+<h2>项目介绍</h2>
+<p>HOS是HuangCheng72公开开发的教学／实验宏内核项目，采用C与汇编，保存x86及多个32位ARM平台的移植阶段。固定源码包含引导、分页、任务调度、用户进程、系统调用、RAMDISK及HCFileSystem；平台功能按各自阶段记录。 <a href="#h2">[h2]</a> <a href="#h7">[h7]</a> <a href="#h9">[h9]</a> <a href="#h18">[h18]</a> <a href="#h20">[h20]</a> <a href="#h28">[h28]</a></p>
+<p>作者将HOS定位为参考《30天自制操作系统》和《操作系统真象还原》的简单操作系统。Makefile明确称宏内核，并将内核、库、驱动等对象链接为kernel.bin；x86 loader进入32位保护模式后转入本项目内核，kernel_main自行初始化分页、GDT、IDT、任务与设备。 <small>作者声明与源码可见</small> <a href="#h2">[h2]</a> <a href="#h7">[h7]</a> <a href="#h8">[h8]</a> <a href="#h9">[h9]</a> <a href="#h35">[h35]</a></p>
+<h2>作者与公开归属</h2>
+<p>原仓README以第一人称关联HOS知乎专栏；LICENSE署名HuangCheng72，个人README自署Huangcheng。 <small>作者自述</small> <a href="#h1">[h1]</a> <a href="#h2">[h2]</a> <a href="#h6">[h6]</a></p>
+<p>作者固定个人README明确写有“I'm from China”。 <small>作者自述</small> <a href="#h1">[h1]</a></p>
+<h2>公开历史与发布入口</h2>
+<p>GitHub仓库创建时间为2024-05-21T05:45:45Z；现存根提交0ff1ebce807468ed0cdb310cd95cf226092d36fd的作者时间相同。仓库创建、Git历史和项目最早公开日分别记录。 <a href="#h3">[h3]</a> <a href="#h5">[h5]</a></p>
+<p>作者通过GitHub公开源码和成系列的开发文档，并在README中称知乎HOS栏目为“我的知乎专栏”。该跨平台入口已经核对；知乎正文及各文章原始日期待核实。 <a href="#h2">[h2]</a> <a href="#h33">[h33]</a></p>
+<p>HOS原作者视频及可靠画面时间点待核实。本条目使用作者公开文档和固定源码作为技术依据。</p>
+<h2>体系结构与实现</h2>
+<p>Program_x86使用i686-elf工具链，loader中明确切换至bits 32；目标为32位x86。 <small>源码可见</small> <a href="#h7">[h7]</a> <a href="#h8">[h8]</a></p>
+<p>Program_arm保存QEMU virt平台移植，启动脚本指定qemu-system-arm、128MiB内存与U-Boot。 <small>源码可见</small> <a href="#h18">[h18]</a> <a href="#h19">[h19]</a></p>
+<p>Program_JZ2440与Program_OrangePiOne保存两条硬件移植阶段；作者文档将Orange Pi One说明为全志H3、ARMv7平台。 <small>作者声明与源码可见</small> <a href="#h22">[h22]</a> <a href="#h23">[h23]</a> <a href="#h28">[h28]</a></p>
+<p>核心实现使用C及x86／ARM汇编；编译配置采用freestanding与nostdlib，链接器生成内核镜像。 <small>源码可见</small> <a href="#h7">[h7]</a> <a href="#h8">[h8]</a> <a href="#h15">[h15]</a> <a href="#h21">[h21]</a> <a href="#h34">[h34]</a></p>
+
+<h2>启动与内核边界</h2>
+<p>x86 loader经BIOS扩展磁盘读载入内核，启用A20、装载GDT、设置CR0.PE，再跳转内核地址；链接入口为kernel_main。 <small>源码可见</small> <a href="#h8">[h8]</a> <a href="#h35">[h35]</a></p>
+<p>ARM路线通过U-Boot交接到HOS；内核入口继续建立页表、内核栈、中断管理、任务与设备。 <small>源码可见</small> <a href="#h18">[h18]</a> <a href="#h19">[h19]</a> <a href="#h20">[h20]</a> <a href="#h23">[h23]</a></p>
+
+<h2>任务、用户态与系统调用</h2>
+<p>x86 PIT中断递减任务时间片，耗尽时调用task_schedule；当前任务仍为运行态且有其他就绪任务时，将其移到就绪队列尾；随后选择队首，切换时按需加载页目录并更新TSS.esp0与上下文。 <small>源码可见</small> <a href="#h10">[h10]</a> <a href="#h31">[h31]</a></p>
+<p>用户进程源码创建页目录与用户栈；系统调用汇编通过int 0x80进入分发器，编号1—5分别处理字符串输出、任务名、页分配、页释放及整数输出。 <small>源码可见</small> <a href="#h13">[h13]</a> <a href="#h14">[h14]</a> <a href="#h15">[h15]</a></p>
+
+<h2>内存管理</h2>
+<p>x86使用4KiB页、物理／虚拟地址位图和页映射；初始页表包含低地址、高地址内核及16MiB RAMDISK映射。 <small>源码可见</small> <a href="#h11">[h11]</a> <a href="#h12">[h12]</a></p>
+
+<h2>文件系统</h2>
+<p>HCFileSystem包含格式化、打开、读写、移动、删除、重命名和CRC32接口；fs.c给出公共实现，底层使用RAMDISK。fs.h中的1.0／20.06.2024属于文件系统组件标记。 <small>源码可见</small> <a href="#h16">[h16]</a> <a href="#h17">[h17]</a> <a href="#h27">[h27]</a></p>
+<p>fs.h声明测试阶段以完整文件权限处理；权限控制完整性与持久化设备范围继续核实。 <small>源码可见</small> <a href="#h16">[h16]</a></p>
+
+<h2>设备驱动</h2>
+<p>Orange Pi One入口建立GPIO灯闪烁任务，使用注册驱动接口写GPIO；作者说明该GPIO移植自OrangePiH3_uboot的sunxi_gpio.c。 <small>源码可见与作者声明</small> <a href="#h20">[h20]</a> <a href="#h25">[h25]</a></p>
+<h2>作者测试记录与平台阶段</h2>
+<p>作者文档记述Orange Pi One分页、多任务和GPIO灯闪烁测试；JZ2440文档记录任务切换停在一轮的阶段结果。原始图片逐像素核对、视频及其与快照的对应待核实。 <small>作者声明</small> <a href="#h22">[h22]</a> <a href="#h23">[h23]</a> <a href="#h24">[h24]</a> <a href="#h25">[h25]</a></p>
+<p>Orange Pi One Makefile的compile目标调用fs子目录；完整固定树列出的该平台目录与这项调用需进一步对应。默认构建完整性待核实。 <small>源码可见</small> <a href="#h21">[h21]</a> <a href="#h28">[h28]</a></p>
+<p>固定第39篇开发记录将Shell、FAT32、MMC、DMA及GPIO扩展列为未来计划；HCFileSystem以学习用途定位。 <small>作者声明</small> <a href="#h32">[h32]</a></p>
+<p>独立构建、虚拟机启动、用户态隔离和硬件运行结果：待核实。作者文档中的测试记述与本次静态核验分别记录。</p>
+<h2>教学来源、上游与AI辅助</h2>
+<p>项目明确以两部操作系统教材为参考；loader与文档保存具体学习、移植和调整记录。教学来源及实际代码继承范围分别记录。 <small>作者声明</small> <a href="#h2">[h2]</a> <a href="#h8">[h8]</a></p>
+<p>JesFs为早期文件系统移植实验；随后作者围绕RAMDISK编写HCFileSystem，并沿用高、中、低层接口组织思路。 <small>作者声明</small> <a href="#h26">[h26]</a> <a href="#h27">[h27]</a></p>
+<p>JZ2440文档明确引用韦东山例程；Orange Pi One文档感谢trebisky/orangepi，并明确GPIO来源为orangepi-xunlong/OrangePiH3_uboot。各上游的精确移植版本与许可适用范围继续核实。 <small>作者声明</small> <a href="#h22">[h22]</a> <a href="#h24">[h24]</a> <a href="#h25">[h25]</a></p>
+<p>JesFs移植文章记述使用ChatGPT解释文件构成与辅助review。该记录覆盖文中提及的辅助环节，整体AI参与范围待核实。 <small>作者声明</small> <a href="#h26">[h26]</a></p>
+<h2>版本、维护与许可</h2>
+<p>本次固定main提交为7bf86ad11e069f6f6a590d2ee80cdf64e03353c9，提交时间2024-12-12T13:45:54Z。 <a href="#h4">[h4]</a></p>
+<p>本次main快照最后提交为2024-12-12的Timer1时钟源修正。仓库pushed_at另为2026-06-25，两种元数据分别记录。 <small>仓库元数据</small> <a href="#h3">[h3]</a> <a href="#h4">[h4]</a></p>
+<p>核验时Releases与Git标签引用集合均返回空数组；当前版本以固定提交标识。 <a href="#h29">[h29]</a> <a href="#h30">[h30]</a></p>
+<p>根LICENSE采用MIT，署名Copyright (c) 2024 HuangCheng72。明确移植组件及随附U-Boot资源的精确来源、许可适用与分发材料继续核实。 <a href="#h6">[h6]</a> <a href="#h22">[h22]</a> <a href="#h25">[h25]</a> <a href="#h28">[h28]</a></p>
+<h2>核验范围与后续</h2>
+<p>本轮核验覆盖公开作者自述、仓库及提交元数据、固定源码与作者开发文档。独立构建与运行结果待核实。</p>
+<ul><li>最早公开日、知乎专栏正文及原始发布时间：待核实。</li>
+<li>作者视频、原始演示图片与固定源码的对应：待核实。</li>
+<li>四个平台的独立构建、启动与实际功能范围：待核实。</li>
+<li>Orange Pi One构建中的fs路径对应：待核实。</li>
+<li>JZ2440任务切换后续修复状态：待核实。</li>
+<li>用户态隔离、系统调用参数检查和文件权限的完整性：待核实。</li>
+<li>教材、GPIO、JesFs与随附U-Boot的精确继承版本及许可范围：待核实。</li>
+<li>Shell、FAT32、MMC和DMA等作者计划的后续实现状态：待核实。</li></ul>
+<h2>参考资料</h2>
+<ul>
+<li id="h1"><a href="https://github.com/HuangCheng72/HuangCheng72/blob/b1b61fa12af12390344d14de45f0054e8cd627b8/README.md#L1-L8">作者公开中国归属自述</a>（固定个人自述）</li>
+<li id="h2"><a href="https://github.com/HuangCheng72/HOS/blob/7bf86ad11e069f6f6a590d2ee80cdf64e03353c9/README.md">HOS固定README</a>（固定作者文档）</li>
+<li id="h3"><a href="https://api.github.com/repos/HuangCheng72/HOS">HOS仓库元数据</a>（平台元数据）</li>
+<li id="h4"><a href="https://github.com/HuangCheng72/HOS/commit/7bf86ad11e069f6f6a590d2ee80cdf64e03353c9">核验时main提交</a>（固定提交元数据）</li>
+<li id="h5"><a href="https://github.com/HuangCheng72/HOS/commit/0ff1ebce807468ed0cdb310cd95cf226092d36fd">HOS根提交</a>（固定提交元数据）</li>
+<li id="h6"><a href="https://github.com/HuangCheng72/HOS/blob/7bf86ad11e069f6f6a590d2ee80cdf64e03353c9/LICENSE">项目根MIT许可证</a>（固定许可文件）</li>
+<li id="h7"><a href="https://github.com/HuangCheng72/HOS/blob/7bf86ad11e069f6f6a590d2ee80cdf64e03353c9/Program_x86/Makefile">x86宏内核构建</a>（固定构建文件）</li>
+<li id="h8"><a href="https://github.com/HuangCheng72/HOS/blob/7bf86ad11e069f6f6a590d2ee80cdf64e03353c9/Program_x86/boot/loader.asm">x86引导加载器</a>（固定源码）</li>
+<li id="h9"><a href="https://github.com/HuangCheng72/HOS/blob/7bf86ad11e069f6f6a590d2ee80cdf64e03353c9/Program_x86/kernel/kernel.c">x86内核初始化入口</a>（固定源码）</li>
+<li id="h10"><a href="https://github.com/HuangCheng72/HOS/blob/7bf86ad11e069f6f6a590d2ee80cdf64e03353c9/Program_x86/kernel/kernel_task/kernel_task.c#L156-L235">x86任务调度与切换</a>（固定源码）</li>
+<li id="h11"><a href="https://github.com/HuangCheng72/HOS/blob/7bf86ad11e069f6f6a590d2ee80cdf64e03353c9/Program_x86/kernel/kernel_memory/kernel_memory.c">x86位图内存管理</a>（固定源码）</li>
+<li id="h12"><a href="https://github.com/HuangCheng72/HOS/blob/7bf86ad11e069f6f6a590d2ee80cdf64e03353c9/Program_x86/kernel/kernel_page/kernel_page.c">x86分页初始化</a>（固定源码）</li>
+<li id="h13"><a href="https://github.com/HuangCheng72/HOS/blob/7bf86ad11e069f6f6a590d2ee80cdf64e03353c9/Program_x86/user/process/process.c">x86用户进程创建</a>（固定源码）</li>
+<li id="h14"><a href="https://github.com/HuangCheng72/HOS/blob/7bf86ad11e069f6f6a590d2ee80cdf64e03353c9/Program_x86/kernel/interrupt_handler/syscall_dispatcher.c">系统调用分发</a>（固定源码）</li>
+<li id="h15"><a href="https://github.com/HuangCheng72/HOS/blob/7bf86ad11e069f6f6a590d2ee80cdf64e03353c9/Program_x86/lib/lib_user/intr_syscall.asm">系统调用汇编包装</a>（固定源码）</li>
+<li id="h16"><a href="https://github.com/HuangCheng72/HOS/blob/7bf86ad11e069f6f6a590d2ee80cdf64e03353c9/Program_x86/fs/fs.h">HCFileSystem接口</a>（固定源码）</li>
+<li id="h17"><a href="https://github.com/HuangCheng72/HOS/blob/7bf86ad11e069f6f6a590d2ee80cdf64e03353c9/Program_x86/fs/fs.c">HCFileSystem实现</a>（固定源码）</li>
+<li id="h18"><a href="https://github.com/HuangCheng72/HOS/blob/7bf86ad11e069f6f6a590d2ee80cdf64e03353c9/Program_arm/entry/kernel.c">QEMU ARM内核入口</a>（固定源码）</li>
+<li id="h19"><a href="https://github.com/HuangCheng72/HOS/blob/7bf86ad11e069f6f6a590d2ee80cdf64e03353c9/VM/start_qemu_arm.bat">QEMU ARM启动配置</a>（固定配置）</li>
+<li id="h20"><a href="https://github.com/HuangCheng72/HOS/blob/7bf86ad11e069f6f6a590d2ee80cdf64e03353c9/Program_OrangePiOne/entry/kernel.c">Orange Pi One内核入口</a>（固定源码）</li>
+<li id="h21"><a href="https://github.com/HuangCheng72/HOS/blob/7bf86ad11e069f6f6a590d2ee80cdf64e03353c9/Program_OrangePiOne/Makefile">Orange Pi One构建配置</a>（固定构建文件）</li>
+<li id="h22"><a href="https://github.com/HuangCheng72/HOS/blob/7bf86ad11e069f6f6a590d2ee80cdf64e03353c9/Documents/（33）移植内存管理和多任务（部分成功）.md">JZ2440移植阶段记录</a>（固定作者文档）</li>
+<li id="h23"><a href="https://github.com/HuangCheng72/HOS/blob/7bf86ad11e069f6f6a590d2ee80cdf64e03353c9/Documents/（34）移植到Orange%20Pi%20One上.md">Orange Pi One平台移植</a>（固定作者文档）</li>
+<li id="h24"><a href="https://github.com/HuangCheng72/HOS/blob/7bf86ad11e069f6f6a590d2ee80cdf64e03353c9/Documents/（36）定时器驱动和多任务.md">Orange Pi One多任务进展</a>（固定作者文档）</li>
+<li id="h25"><a href="https://github.com/HuangCheng72/HOS/blob/7bf86ad11e069f6f6a590d2ee80cdf64e03353c9/Documents/（38）LED驱动换成GPIO驱动.md">GPIO来源与移植说明</a>（固定作者文档）</li>
+<li id="h26"><a href="https://github.com/HuangCheng72/HOS/blob/7bf86ad11e069f6f6a590d2ee80cdf64e03353c9/Documents/（17）移植嵌入式文件系统项目JesFs.md">JesFs移植及AI辅助记述</a>（固定作者文档）</li>
+<li id="h27"><a href="https://github.com/HuangCheng72/HOS/blob/7bf86ad11e069f6f6a590d2ee80cdf64e03353c9/Documents/（18）文件系统原型设计.md">HCFileSystem设计沿革</a>（固定作者文档）</li>
+<li id="h28"><a href="https://api.github.com/repos/HuangCheng72/HOS/git/trees/7bf86ad11e069f6f6a590d2ee80cdf64e03353c9?recursive=1">完整固定源码树</a>（源码树元数据）</li>
+<li id="h29"><a href="https://api.github.com/repos/HuangCheng72/HOS/releases?per_page=100">GitHub Releases集合</a>（平台元数据）</li>
+<li id="h30"><a href="https://api.github.com/repos/HuangCheng72/HOS/git/matching-refs/tags/">Git标签引用集合</a>（平台元数据）</li>
+<li id="h31"><a href="https://github.com/HuangCheng72/HOS/blob/7bf86ad11e069f6f6a590d2ee80cdf64e03353c9/Program_x86/devices/pit8253/pit8253.c#L107-L121">PIT时间片触发</a>（固定源码）</li>
+<li id="h32"><a href="https://github.com/HuangCheng72/HOS/blob/7bf86ad11e069f6f6a590d2ee80cdf64e03353c9/Documents/（39）利用Timer1实现高精度延时.md">后续计划与Timer1改写</a>（固定作者文档）</li>
+<li id="h33"><a href="https://www.zhihu.com/column/c_1776978835558858752">作者README关联的知乎HOS专栏</a>（作者关联发布入口）</li>
+<li id="h34"><a href="https://github.com/HuangCheng72/HOS/blob/7bf86ad11e069f6f6a590d2ee80cdf64e03353c9/Program_OrangePiOne/entry/Makefile">ARM freestanding编译参数</a>（固定构建文件）</li>
+<li id="h35"><a href="https://github.com/HuangCheng72/HOS/blob/7bf86ad11e069f6f6a590d2ee80cdf64e03353c9/Program_x86/kernel/kernel_linker.ld">x86内核链接入口</a>（固定链接脚本）</li>
+</ul>
+<p>资料核验日期：2026-10-10</p>
+<p><a href="https://github.com/yuyan-lang/chinese-programming-languages/issues/new">补充资料或纠错</a></p>
+</main>
+<footer>站点由<a href="https://yuyan-lang.org/">豫言编程语言</a>提供</footer>
+</body>
+</html>
+

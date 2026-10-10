@@ -1,0 +1,85 @@
+[
+  {
+    "name": "言语言（Yán）及言叶系列",
+    "record_type": "旧Issue #5候选升级为Python转译语言条目后的待补字段",
+    "new_candidate": false,
+    "source_project": "https://github.com/skywalk163/yan",
+    "source_issue": "https://github.com/yuyan-lang/chinese-programming-languages/issues/5",
+    "verified_this_round": [
+      "完整Python词法／AST／Python生成／eval与exec主链",
+      "原仓10行连续斐波那契与循环程序",
+      "61条Git历史及2026-05-01空parents根",
+      "文言心设计文件自根提交进入言仓库并持续保留",
+      "GitHub版本、README语法版本、空Releases和tags分层记录",
+      "Trae／DuMate开发协作声明及2026-05-23原提交",
+      "言根及当前快照对段言根137个blob的整文件哈希交集均为0"
+    ],
+    "pending": [
+      "言叶、文言心独立实现入口及与言的改名、代码迁移和兼容关系。",
+      "言与段言／光明的逐文件改写继承、迁移公告和完整源码谱系。",
+      "CSDN天马行空skywalk与GitHub skywalk163的显式跨平台身份互链及具体贡献分工。",
+      "GitCode62次提交与GitHub61条历史的对应、最早公开时点及镜像同步情况。",
+      "0.5.0代码常量、0.3.0徽章、0.3.1变更日志和语法v2的版本对应及正式发行记录。",
+      "完整MIT文本、版权主体和第三方组件许可范围。",
+      "README当循环与当前当条件／当时循环分派的规范对应；v1兼容、模块加载、CLI导入路径及多目标分支覆盖。",
+      "原例运行结果、性能、测试覆盖、自举三阶段生成物一致性和Python嵌入范围。",
+      "AI模型、逐文件贡献、人机分工及生成比例。"
+    ],
+    "name_disambiguation": "本轮正式对象限定skywalk163/yan。言叶、文言心及同账号yanlv、yanzhi、yanpub等名称保留为辅助消歧入口，项目身份与谱系按原始材料继续核实。",
+    "references": [
+      {
+        "title": "固定包内版本0.5.0及统一编译接口",
+        "url": "https://github.com/skywalk163/yan/blob/815353dfe80dbae46ac2e0dabe5e9f447559bb78/yan/__init__.py#L1-L69"
+      },
+      {
+        "title": "固定子目录README：0.3.0徽章与AI致谢",
+        "url": "https://github.com/skywalk163/yan/blob/815353dfe80dbae46ac2e0dabe5e9f447559bb78/yan/README.md"
+      },
+      {
+        "title": "固定README：AI开发协助与MIT声明",
+        "url": "https://github.com/skywalk163/yan/blob/815353dfe80dbae46ac2e0dabe5e9f447559bb78/README.md#L448-L459"
+      },
+      {
+        "title": "AI致谢首次加入的提交",
+        "url": "https://github.com/skywalk163/yan/commit/404973710b0b539ebaae067c1b75f56ecb241ce6"
+      },
+      {
+        "title": "根历史README：言名称、原例和设计启发",
+        "url": "https://github.com/skywalk163/yan/blob/fad2762a6392c3af98655f3ac3d4eccbefde47ef/README.md"
+      },
+      {
+        "title": "根历史中署名文言心的设计文件",
+        "url": "https://github.com/skywalk163/yan/blob/fad2762a6392c3af98655f3ac3d4eccbefde47ef/design.md#L1-L24"
+      },
+      {
+        "title": "当前保留的文言心设计文档",
+        "url": "https://github.com/skywalk163/yan/blob/815353dfe80dbae46ac2e0dabe5e9f447559bb78/docs/design.md#L1-L24"
+      },
+      {
+        "title": "天马行空skywalk的言叶／文言心／言设计对照",
+        "url": "https://deepseek.csdn.net/6a059cdf662f9a54cb746b14.html"
+      },
+      {
+        "title": "段言独立根历史及初始关键词",
+        "url": "https://github.com/skywalk163/duan/blob/a7fc3a30f7f17a7c50e36c71b730cbcb82a4768e/src/keywords.py#L1-L40"
+      },
+      {
+        "title": "既有段言与光明谱系核验",
+        "url": "https://github.com/yuyan-lang/chinese-programming-languages/blob/46734fc65a9a5da4cdc230c78c9f835134973e9a/research/2026-10-10/round-6-existing.md"
+      },
+      {
+        "title": "固定自举流程脚本",
+        "url": "https://github.com/skywalk163/yan/blob/815353dfe80dbae46ac2e0dabe5e9f447559bb78/yan/selfhost/bootstrap_v3.py#L58-L145"
+      },
+      {
+        "title": "原仓链接的GitCode／AtomGit入口",
+        "url": "https://gitcode.com/skywalk163/yan"
+      },
+      {
+        "title": "旧候选与第六轮补证评论",
+        "url": "https://github.com/yuyan-lang/chinese-programming-languages/issues/5#issuecomment-6100121612"
+      }
+    ],
+    "verified_at": "2026-10-10"
+  }
+]
