@@ -1,0 +1,67 @@
+[
+  {
+    "name": "PyCN（Vincent-the-gamer）",
+    "discovery_status": "第十一轮同名排重背景，第十二轮首次深入；正式条目增量1，新发现计数0。",
+    "category": "Python中文方言／Rust AST源码转译工具链",
+    "repository": "https://github.com/Vincent-the-gamer/pycn",
+    "snapshot": "48acdd141a914fed636ea8c5631db22a4b709a9f",
+    "evidence": "7行连续中文质数函数、logos词法／递归下降AST／Python文本生成／PyO3执行链、C/WASM/HTTP边界、主干1.0.5与MIT、六条发行记录及12个v1.0.5附件已核。",
+    "pending": "While/Try/With/Match等词元与完整语句覆盖；词法错误和解析失败的诊断与保真性；算术优先级、f-string中文表达式、中文单引号及属性映射边界；同目录模块的嵌套导入、包与重名处理；CPython初始化和PYTHONHOME设置顺序、默认static-python分支及各平台发行物真实链接方式；4个Rust测试声明和15份原例的独立运行；WASM文件读取及浏览器部署；AI参与范围、跨项目同源、更早公开历史、v1.0.5缓存日期差异与历史发行调整待核实。",
+    "verification_scope": "普通网页、GitHub公开文件、固定提交与元数据的静态核验；项目执行、安装、测试、构建、桌面操作及外部写入均留在本轮范围之外。",
+    "verified_at": "2026-10-10",
+    "references": [
+      {
+        "title": "词元、标识符、中文数字与标点定义",
+        "url": "https://github.com/Vincent-the-gamer/pycn/blob/48acdd141a914fed636ea8c5631db22a4b709a9f/parser/src/lexer.rs#L4-L246"
+      },
+      {
+        "title": "表达式优先级与一元操作解析",
+        "url": "https://github.com/Vincent-the-gamer/pycn/blob/48acdd141a914fed636ea8c5631db22a4b709a9f/parser/src/parser.rs#L618-L825"
+      },
+      {
+        "title": "解析失败处理与源码生成入口",
+        "url": "https://github.com/Vincent-the-gamer/pycn/blob/48acdd141a914fed636ea8c5631db22a4b709a9f/parser/src/parser.rs#L1116-L1156"
+      },
+      {
+        "title": "Python源码生成：表达式、字符串及容器",
+        "url": "https://github.com/Vincent-the-gamer/pycn/blob/48acdd141a914fed636ea8c5631db22a4b709a9f/parser/src/parser.rs#L1392-L1460"
+      },
+      {
+        "title": "Python源码生成：属性、导入及参数展开",
+        "url": "https://github.com/Vincent-the-gamer/pycn/blob/48acdd141a914fed636ea8c5631db22a4b709a9f/parser/src/parser.rs#L1512-L1560"
+      },
+      {
+        "title": "本地模块收集与Python内存导入钩子",
+        "url": "https://github.com/Vincent-the-gamer/pycn/blob/48acdd141a914fed636ea8c5631db22a4b709a9f/pycn/src/lib.rs#L55-L127"
+      },
+      {
+        "title": "构建脚本的运行时来源与链接分支",
+        "url": "https://github.com/Vincent-the-gamer/pycn/blob/48acdd141a914fed636ea8c5631db22a4b709a9f/pycn/build.rs#L21-L108"
+      },
+      {
+        "title": "Python初始化与PYTHONHOME设置顺序",
+        "url": "https://github.com/Vincent-the-gamer/pycn/blob/48acdd141a914fed636ea8c5631db22a4b709a9f/pycn/src/main.rs#L5-L49"
+      },
+      {
+        "title": "中文数字转换测试源码",
+        "url": "https://github.com/Vincent-the-gamer/pycn/blob/48acdd141a914fed636ea8c5631db22a4b709a9f/parser/tests/test.rs#L1-L8"
+      },
+      {
+        "title": "标准库引导测试源码",
+        "url": "https://github.com/Vincent-the-gamer/pycn/blob/48acdd141a914fed636ea8c5631db22a4b709a9f/pycn/src/bootstrap.rs#L304-L377"
+      },
+      {
+        "title": "v1.0.5发行及12个附件",
+        "url": "https://github.com/Vincent-the-gamer/pycn/releases/tag/v1.0.5"
+      },
+      {
+        "title": "v1.0.5标签与主干快照差异",
+        "url": "https://github.com/Vincent-the-gamer/pycn/compare/4f26a4329c9c1100b4036df6310ac8f297fd2ce0...48acdd141a914fed636ea8c5631db22a4b709a9f"
+      },
+      {
+        "title": "v1.0.5发布工作流成功记录",
+        "url": "https://github.com/Vincent-the-gamer/pycn/actions/runs/29677156050"
+      }
+    ]
+  }
+]

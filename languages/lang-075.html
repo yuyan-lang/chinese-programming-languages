@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>hscript-c（中英双语关键字）｜中文编程语言百科</title><link rel="stylesheet" href="../style.css"></head><body><header><h1>hscript-c（中英双语关键字）</h1></header><main><p><a href="../">返回语言目录</a></p>
+<h2>语言介绍</h2><p>hscript-c由GitHub账号zxk-creator发布，是采用Haxe风格语法、嵌入C++宿主的脚本语言解释器。B站账号醪崑在2026年7月原片中展示中文脚本，并在简介直接链接原仓。项目通过扫描器把“类、函数、变量、如果、当、返回”等汉字词映射为语法词元，随后构造AST并由C++访问者解释执行；中文与英文写法共享解析体系。原例包含中文类、构造函数、实例字段、方法定义和调用。宿主可注册原生函数及类，脚本通过项目提供的包装接口继承C++类并访问其成员。类型注解与访问修饰符作为可消费的语法保存，当前解析器在消费后忽略其内容。2026年7月8日提交明确记载AI协助实现脚本类定义和实例化；具体工具与生成比例待核实。</p>
+<h2>分类与别名</h2><p>Haxe风格嵌入式脚本语言／中英双语词元前端与C++ AST解释器；别名：hscript-c；hscript-C-</p>
+<h2>作者与公开历史</h2><p>GitHub维护账号zxk-creator；六条默认分支提交由zxk-creator或kkplay署名，关联GitHub账号均为zxk-creator。B站发布者醪崑，UID533393738，原片简介直接指向原仓。自然人姓名和更广泛参与者待核实。</p><p>仓库created_at为2026-07-08T11:29:58Z；根提交f2eb253178c8d343b8b85c2ff949783968717e61为2026-07-08T11:50:08Z。2026-07-10T11:11:14Z的107dfbef提交补入UTF-8字节识别、中文构造函数查找及中文测试。B站原片发布于2026-07-11T13:24:37Z。Git记录、建库时间及视频公开日分别保存，准确最早公开时间待核实。</p>
+<h2>设计与特征</h2><p>25项中文词元映射的静态词表；中文类、构造函数、变量和方法原例；Scanner→Parser→AST访问者解释执行；C++原生函数及类的显式注册；源码可读的继承包装和成员访问机制；明确AI协助类定义与实例化的提交声明</p>
+<h2>中文语法示例</h2><pre><code>类 测试类
+{
+    公开 变量 甲:Int = 10;
+    公开 变量 乙:Float = 20.5;
+    公开 变量 丙:String = &quot;你好，世界&quot;;
+
+    公开 函数 新的(甲:Int, 乙:Float, 丙:String)
+    {
+        自己.甲 = 甲;
+        自己.乙 = 乙;
+        自己.丙 = 丙;
+    }
+
+    公开 函数 打印日志()
+    {
+        trace(甲.转字符串() + &quot;, &quot; + 乙.转字符串() + &quot;, &quot; + &quot;!&quot;);
+        trace(自己.丙);
+    }
+}
+
+变量 实例 = 新的 测试类(15, 30.75, &quot;测试完成&quot;);
+实例.打印日志();</code></pre><p>固定提交f4502da的test/TestScriptChinese.hx全文22行，保留原始空行、四空格缩进与标点。全文获取与单独第1—22行获取逐字相等。原片约01:03可见中文类文件；截图前DOM video.currentTime=62.614239，公开播放画面为640×360。逐字原例采用固定源码，独立执行结果待核实。 <a href="https://github.com/zxk-creator/hscript-C-/blob/f4502da497b9abc0b280d1b1e3e01239000b7ded/test/TestScriptChinese.hx#L1-L22">示例来源</a></p>
+<h2>实现与运行环境</h2><p>C++20实现，CMake项目名HaxeParser。Scanner::isAlpha接受ASCII字母、下划线及高位字节，identifier完整查表映射词元；Parser按CLASS、FUNCTION、VAR、IF、WHILE、RETURN等类型构造AST。main.cpp将源文件串接Scanner、Parser、原生trace／now／TestClass注册及Interpreter::interpret。Interpreter使用AST访问者、Environment作用域及闭包执行；visitThisExpr规范化到this环境名，visitNewExpr分别查找new和新的构造函数。原生类经registerNativeClass、Reflect::createInstance和HClass／HInstance包装接入，findMethod逐层查找脚本和原生方法。完整Haxe兼容性、所有语法分支与独立运行继续核实。</p>
+<h2>版本与维护状态</h2><p>固定main头f4502da497b9abc0b280d1b1e3e01239000b7ded，提交时间2026-07-11T12:38:25Z。CMake要求3.20与C++20。读取GitHub Releases集合与git/matching-refs/tags均为空数组；独立发行版本与打包附件待核实。 许可层级：Apache-2.0；固定LICENSE全文、README徽章和仓库许可元数据一致。LICENSE附录保留Copyright [yyyy] [name of copyright owner]模板，具体版权署名及上游代码许可范围待核实。</p><p>原BV、发布者UID、UTC日期、固定中文原例、词法／解析／解释链、许可正文和AI协作提交已核；构建执行、完整语法兼容及发行版本待核实。</p>
+<h2>与其他项目的关系</h2><p>原片简介直接链接zxk-creator/hscript-C-，作为项目身份依据。项目自述Haxe风格，当前核心实现为C++词法、AST与解释器。与HaxeFoundation/hscript的代码继承、完整兼容及授权关系待核实。中英文词元属于同一项目和执行体系。</p>
+<h2>核验说明</h2><p>2026-10-10公开静态核验，固定树32项且truncated=false。main六条提交可追至空parents根。中文词表共25项，词表数量与各项运行支持分别记录。Parser第344—427行消费注解、修饰符和类型注解后忽略；数组字面量、符号&amp;&amp;／||和字符串转义边界继续核实。原片时长153秒，页面初始时间2026-07-11 21:24:37，客户端后续显示06:24:37；采用video:release_date明确UTC元数据。原片显示620播放、账号535关注，为本次观测值。 AI来源与范围：原仓提交7c143b3aec56750233b29faf2df6dcc598393bfd（2026-07-08T18:33:32Z）明确写“第二次提交。在AI帮助下实现了脚本类定义和实例化。”该提交差异含AST类与实例相关节点、解析和解释路径。AI证据限于作者声明的协作范围；具体模型、工具、文件贡献比例与后续中文扩展的人机分工待核实。</p>
+<h2>参考资料</h2><ul><li><a href="https://www.bilibili.com/video/BV11mNA6vE93/">B站原作者视频：中文关键字与C++类继承</a></li><li><a href="https://space.bilibili.com/533393738/">B站原作者主页UID533393738</a></li><li><a href="https://github.com/zxk-creator/hscript-C-/blob/f4502da497b9abc0b280d1b1e3e01239000b7ded/README.md">固定README：Haxe风格、中英词元及原例</a></li><li><a href="https://github.com/zxk-creator/hscript-C-/blob/f4502da497b9abc0b280d1b1e3e01239000b7ded/test/TestScriptChinese.hx#L1-L22">固定连续中文类与实例原例</a></li><li><a href="https://github.com/zxk-creator/hscript-C-/blob/f4502da497b9abc0b280d1b1e3e01239000b7ded/token/Scanner.h#L52-L64">固定中文词元识别及查表</a></li><li><a href="https://github.com/zxk-creator/hscript-C-/blob/f4502da497b9abc0b280d1b1e3e01239000b7ded/token/Scanner.h#L179-L255">固定25项中文词元表</a></li><li><a href="https://github.com/zxk-creator/hscript-C-/blob/f4502da497b9abc0b280d1b1e3e01239000b7ded/ast/Parser.h#L273-L427">固定类与函数解析、修饰符和类型注解处理</a></li><li><a href="https://github.com/zxk-creator/hscript-C-/blob/f4502da497b9abc0b280d1b1e3e01239000b7ded/main.cpp#L43-L71">固定C++宿主扫描、解析与解释入口</a></li><li><a href="https://github.com/zxk-creator/hscript-C-/blob/f4502da497b9abc0b280d1b1e3e01239000b7ded/ast/Interpreter.h#L354-L396">固定类继承与中文构造函数求值</a></li><li><a href="https://github.com/zxk-creator/hscript-C-/blob/f4502da497b9abc0b280d1b1e3e01239000b7ded/ast/Interpreter.h#L511-L565">固定中文构造函数查找</a></li><li><a href="https://github.com/zxk-creator/hscript-C-/blob/f4502da497b9abc0b280d1b1e3e01239000b7ded/util/reflect/Reflect.h#L10-L26">固定C++类注册桥</a></li><li><a href="https://github.com/zxk-creator/hscript-C-/blob/f4502da497b9abc0b280d1b1e3e01239000b7ded/test/TestClass.h">固定原生C++测试类</a></li><li><a href="https://github.com/zxk-creator/hscript-C-/blob/f4502da497b9abc0b280d1b1e3e01239000b7ded/CMakeLists.txt">固定构建配置</a></li><li><a href="https://github.com/zxk-creator/hscript-C-/blob/f4502da497b9abc0b280d1b1e3e01239000b7ded/LICENSE">固定Apache-2.0全文</a></li><li><a href="https://github.com/zxk-creator/hscript-C-/commit/7c143b3aec56750233b29faf2df6dcc598393bfd">作者明确AI协助范围的提交</a></li><li><a href="https://github.com/zxk-creator/hscript-C-/commit/107dfbeff38dda1aac8bf120e1f5782bfca0c06b">中文扫描和构造函数支持提交</a></li></ul><p>资料核验日期：2026-10-10</p><p><a href="https://github.com/yuyan-lang/chinese-programming-languages/issues/new">补充资料或纠错</a></p></main><footer>站点由<a href="https://yuyan-lang.org/">豫言编程语言</a>提供</footer></body></html>
