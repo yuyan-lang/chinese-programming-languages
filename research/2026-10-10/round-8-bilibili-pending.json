@@ -1,0 +1,65 @@
+[
+  {
+    "name": "中文GO语言代码编辑器（唐姝）",
+    "source_url": "https://www.bilibili.com/video/BV19F5k6VEED/",
+    "title": "【整活】中文GO语言代码编辑器",
+    "author": "唐姝，Bilibili UID28695954",
+    "author_url": "https://space.bilibili.com/28695954",
+    "publication": "video:release_date=2026-05-16T02:24:19.000Z；北京时间2026-05-16 10:24:19",
+    "duration_seconds": 192,
+    "category": "Go代码中文映射／编辑器中间层翻译工具候选",
+    "evidence": "原视频简介由作者说明中间层翻译方案，使用JSON翻译映射文件，在编辑器中支持Go原文、拼音及拼音缩写补全。作者说明将翻译文档规则交给AI处理。视频分P1中文代码编辑器（03:12）与P2视窗界面拖拽式设计器（01:48）。本轮读取P1元数据、简介和早期编辑器画面。",
+    "code": "",
+    "code_context": "完整中文程序、中文关键字及精确代码时间点待核实。早期代码画面中可见编辑器与终端，字形清晰度尚不足以逐字转录。",
+    "implementation_claims": "作者将该方案描述为代码编辑器的中间层翻译，依靠JSON映射文件，并声称现有库可直接使用。实际翻译时机、代码显示映射与可保存中文源文件的边界、词法／解析方式及底层编译链待核实。",
+    "ai_involvement": "作者简介明确说明用AI自动翻译文档规则；AI参与语言运行或编辑器实现的具体范围待核实。",
+    "source_status": "公开原片、作者简介和主页已核对。源码仓库、原始映射JSON、安装发行物与许可证入口待核实。",
+    "relations": "当前61项目录、12个开放Issue及31条评论按BV、作者与名称核对；本项由第七轮标题级旁支推进为原作者说明级候选。与其他Go中文方言、中文显示插件及编辑器的同源关系待核实。",
+    "status": "本轮计入待核实候选1项。名称沿用视频标题，正式语言身份与分类继续核实。",
+    "next_step": "取得可逐字转录的连续中文源程序与时间点；核对编辑器保存文件、Go原文与中文映射的转换边界；沿作者公开资料定位映射JSON、实现源码和许可。",
+    "independent_verification": "本轮完成原站元数据、作者说明与部分视频画面的只读核对。独立构建和运行待核实。",
+    "access_note": "播放页加载后出现Runtime.evaluate、DOMSnapshot.captureSnapshot及Page.getLayoutMetrics超时。按工具文档新建同浏览器标签恢复后，正文仍可取得，播放器后续核验继续遇到超时。已保存可核事实，访问状态按浏览器交互故障记录。当前页面提供的证据支持工具候选分类。",
+    "verified_at": "2026-10-10",
+    "references": [
+      {
+        "title": "原作者视频与中间层翻译说明",
+        "url": "https://www.bilibili.com/video/BV19F5k6VEED/"
+      },
+      {
+        "title": "唐姝公开主页",
+        "url": "https://space.bilibili.com/28695954"
+      }
+    ]
+  },
+  {
+    "name": "AI驱动中文伪代码实验（流明风P）",
+    "source_url": "https://www.bilibili.com/video/BV1YKxXzJEX6/",
+    "title": "中文编程？让AI当编译器！",
+    "author": "流明风P，Bilibili UID93784977",
+    "author_url": "https://space.bilibili.com/93784977",
+    "publication": "video:release_date=2025-10-07T10:47:59.000Z；北京时间2025-10-07 18:47:59",
+    "duration_seconds": 223,
+    "category": "AI驱动中文伪代码→Python执行实验候选",
+    "evidence": "01:35.398的test.txt画面展示食物选择程序，采用如果、否则如果、否则与自然语言条件。03:21.091展示完整整数循环程序，使用循环、如果、输出及“是 3的倍数”自然语言条件。文件前两行注释要求把中文指令编译为Python代码，然后执行。03:31.250的聊天界面可见Python_REPL工具调用及3、6、9、12等结果；03:41.391显示3、6、9、12、15、18输出和模型解释。",
+    "code": "如果 (整数值 是 3的倍数) {\n    输出 (整数值)\n}",
+    "code_context": "原视频BV1YKxXzJEX6，03:21.091暂停画面中test.txt第6—8行的连续局部片段。可见文字与符号按画面转录，空格与缩进按阅读排版整理。外层程序把整数值设为1，循环条件为整数值小于20，每轮加1。原始.txt及标点字符编码待取得。",
+    "implementation_claims": "视频标题提出让AI充当编译器。简介说明需要Agent具备代码执行能力。原片中作者把test.txt中文伪代码提交给聊天智能体，界面展示Python_REPL调用与结果。模型、提示词、工具代码与精确版本待核实。",
+    "ai_involvement": "AI承担中文指令理解、Python代码生成和工具调用编排，属于原片直接展示的实验流程。",
+    "source_status": "原视频、公开主页、两个可见评论及登录提示已读取。公开简介与当前可见评论中的实现源码入口待核实；页面显示登录后查看22条评论，本轮停止于公开内容。",
+    "relations": "61项目录、12个开放Issue及31条评论按BV、作者与名称核对后作为新候选保存。原片出现Lumenxs@agent-chat-ui、LUMENOX-AGENT工作区和LangGraph相关路径；这些画面名称按宿主工具线索记录。正式语言名、规范和已有语言派生关系待核实。",
+    "status": "本轮计入待核实候选1项。已取得连续中文控制结构与作者执行录像，项目身份按AI驱动伪代码实验保存。",
+    "next_step": "核对作者是否公开命名、语法规范、提示词和实现源码；区分固定中文语法的语言项目、自然语言伪代码输入方式及通用Agent演示；取得原始test.txt以核实标点字符和运行版本。",
+    "independent_verification": "本轮独立核对原站时间、UID和原片中文代码。Python_REPL与输出属于作者录像演示；工具实际执行链、模型生成可靠性及独立复现待核实。",
+    "verified_at": "2026-10-10",
+    "references": [
+      {
+        "title": "原作者中文伪代码与Python_REPL演示",
+        "url": "https://www.bilibili.com/video/BV1YKxXzJEX6/"
+      },
+      {
+        "title": "流明风P公开主页",
+        "url": "https://space.bilibili.com/93784977"
+      }
+    ]
+  }
+]

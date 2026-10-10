@@ -1,12 +1,24 @@
 <!doctype html>
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>曜语｜中文编程语言百科</title><link rel="stylesheet" href="../style.css"></head><body><header><h1>曜语</h1></header><main><p><a href="../">返回语言目录</a></p>
-<h2>语言介绍</h2><p>【编译型语言】采用中文关键字的静态类型语言，源码经C中间层生成可执行程序。</p>
-<h2>分类与别名</h2><p>编译型语言；别名：YaoLang</p>
-<h2>作者与首次公开</h2><p>曜神；源码标注“由 Gemini 构造”；仓库账号a737812。仓库创建 2026-08-20；语言首次公开发布日期待核实</p>
-<h2>设计与特征</h2><p>中文语法／关键字；有公开实现源码</p>
-<h2>中文语法示例</h2><pre><code>函数 主函数() { _yao_print_s(&quot;你好!&quot;); _yao_print(42) }</code></pre><p>原始资料短摘录，用于展示中文语法；未在本轮执行，不保证单独运行。 <a href="https://github.com/a737812/yaolang/blob/8b639836a59c9a9e96f70de67a6a1ad51d157c9d/README.md">示例来源</a></p>
-<h2>实现与运行环境</h2><p>单文件C编译器，经词法、AST、语义与C代码生成，再调用系统C编译器。</p>
-<h2>版本与维护状态</h2><p>0.1.0-alpha（源码）；已有源码；未在本次研究中编译或执行</p>
-<h2>与其他项目的关系</h2><p>C为中间目标；有明确AI辅助构造声明，不据此排除。</p>
-<h2>核验说明</h2><p>2026-10-09只读核验。0星，非fork；最后推送2026-09-06T03:26:32Z。日期为仓库创建不代表首发。功能、性能、通过测试数量未独立复测。</p>
-<h2>参考资料</h2><ul><li><a href="https://github.com/a737812/yaolang/blob/8b639836a59c9a9e96f70de67a6a1ad51d157c9d/README.md">项目README（核验快照）</a></li><li><a href="https://github.com/a737812/yaolang/blob/8b639836a59c9a9e96f70de67a6a1ad51d157c9d/src/yaolang.c">实现或样例证据</a></li><li><a href="https://api.github.com/repos/a737812/yaolang">仓库元数据</a></li></ul><p>资料核验日期：2026-10-09</p><p><a href="https://github.com/yuyan-lang/chinese-programming-languages/issues/new">补充资料或纠错</a></p></main><footer>站点由<a href="https://yuyan-lang.org/">豫言编程语言</a>提供</footer></body></html>
+<h2>语言介绍</h2><p>曜语（YaoLang）是由GitHub账号a737812公开、源码署名曜神的中文编译型语言项目。它使用.耀或.yao源文件，以函数、变量、令、若、当、对于、返回等中文词汇表达声明与控制流，采用花括号代码块和类型标注。公开例程包含阶乘、斐波那契、循环、结构体与枚举。单文件C编译器把源程序依次处理为词元、抽象语法树及C源码，再调用系统cc生成可执行文件，并提供输出C代码的选项。仓库同时保存教程、曜语编写的词法器样例及Java Android演示应用。当前资料对应0.1.0-alpha源码；所有权模型、完整语义检查、自举完成度及语言到APK的集成继续待核实。</p>
+<h2>分类与别名</h2><p>中文编译型语言／C中间代码路线；别名：YaoLang</p>
+<h2>作者与公开历史</h2><p>源码署名“曜神（由Gemini构造）”；仓库及Release发布账号为a737812。个人实名与协作者待核实。</p><p>仓库创建于2026-08-20T12:45:12Z；当前历史的根提交59022b110d2055e1dfe9d70bd29ba0be36ee11d4提交时间为当日13:34:19Z，v0.1.0-alpha Release发表于13:37:25Z。上述日期分别对应仓库、提交与发行记录；更早公开资料待核实。</p>
+<h2>设计与特征</h2><p>.耀与.yao源文件扩展名；中文声明、条件、循环、返回及类型关键字；花括号代码块与带类型参数、返回值的函数语法；阶乘、斐波那契等连续递归原例；结构体、枚举的解析与C代码生成；词元、AST及C中间代码查看入口；C运行时输出、文件与字符串接口；X11链接分支</p>
+<h2>中文语法示例</h2><pre><code>函数 阶乘(整数 n): 整数 {
+    若 n &lt;= 1 {
+        返回 1
+    }
+    返回 n * 阶乘(n - 1)
+}
+
+函数 斐波那契(整数 n): 整数 {
+    若 n &lt;= 1 {
+        返回 n
+    }
+    返回 斐波那契(n - 1) + 斐波那契(n - 2)
+}</code></pre><p>固定test/comprehensive.耀第9—21行连续原文，包含完整阶乘与斐波那契函数。调用与输出位于同文件主函数中；此处按函数定义片段展示。空行、标点和参数名按原文保留。 <a href="https://github.com/a737812/yaolang/blob/8b639836a59c9a9e96f70de67a6a1ad51d157c9d/test/comprehensive.%E8%80%80#L9-L21">示例来源</a></p>
+<h2>实现与运行环境</h2><p>src/yaolang.c以C实现UTF-8词法器、递归下降表达式与声明解析、符号／类型登记及AST到C生成。main依次调用lex、parse_program、types_init、sema_analyze和cgen_program，再以popen调用cc，常规链接-lm，X11分支另加-lX11；-c选项保留生成的C文件。sema_analyze第二遍登记参数，函数体深入检查在第2312行标为TODO。Android构建脚本写出Java Activity与YaoRuntime，提供javac、D8、打包及签名调用路径；资源与签名回退分支的有效性、曜语源程序接入该流程的转换链待核实。</p>
+<h2>版本与维护状态</h2><p>2026-10-10核验main为8b639836a59c9a9e96f70de67a6a1ad51d157c9d，提交时间2026-08-20T14:21:07Z。源码版本常量为0.1.0-alpha。v0.1.0-alpha标签指向根提交59022b1，Release于2026-08-20T13:37:25Z发布，附6900字节yaolang_app.apk；v0.1.0标签指向当前main。两个标签的编译器文件共用blob 63a2b4ff61c5bcf006f19f6214248ed5e0292b38。版本名中的alpha与Release字段prerelease=false分别按原记录保留，稳定性待核实。</p><p>中文关键字、固定递归原例、C编译链及公开发行记录已核。README和源码头声明MIT；独立许可证文件与完整许可范围待核实。源码构建、二进制及APK运行、性能、完整类型／所有权检查与自举完成度待核实。</p>
+<h2>与其他项目的关系</h2><p>C是当前实现的中间目标，系统cc承担后续编译与链接。src/yaolang.c文件头明确署名“曜神（由Gemini构造）”，AI声明范围按该编译器源码头记录；模型版本、生成比例及人工修改过程待核实。test/yao_lexer.耀自述为自举第一步，保存了曜语编写的词法扫描程序；完整编译器自举另列待核实。Android演示应用、构建脚本与语言编译器按各自源码路径记录。</p>
+<h2>核验说明</h2><p>2026-10-10公开静态核验。已读取百科AGENTS.md、原lang-021对象、round-7汇总及Issue #1全部7条评论。源仓main、45条提交历史、2个标签、1项Release及49项完整递归树已核对；根提交parents为空。中文例程按固定行号重新读取，原有3条引用完整保留。README的系统编程／静态类型定位与源码中的简化语义检查分别记录；“自举级”样例及测试末尾输出文字按作者例程处理。研究范围为网页与源码静态阅读，独立运行结果待核实。</p>
+<h2>参考资料</h2><ul><li><a href="https://github.com/a737812/yaolang/blob/8b639836a59c9a9e96f70de67a6a1ad51d157c9d/README.md">项目README（核验快照）</a></li><li><a href="https://github.com/a737812/yaolang/blob/8b639836a59c9a9e96f70de67a6a1ad51d157c9d/src/yaolang.c">实现或样例证据</a></li><li><a href="https://api.github.com/repos/a737812/yaolang">仓库元数据</a></li><li><a href="https://github.com/a737812/yaolang/blob/8b639836a59c9a9e96f70de67a6a1ad51d157c9d/test/comprehensive.%E8%80%80#L9-L21">固定中文递归函数原例</a></li><li><a href="https://github.com/a737812/yaolang/blob/8b639836a59c9a9e96f70de67a6a1ad51d157c9d/src/yaolang.c#L1-L32">固定源码署名、Gemini声明与版本</a></li><li><a href="https://github.com/a737812/yaolang/blob/8b639836a59c9a9e96f70de67a6a1ad51d157c9d/src/yaolang.c#L364-L427">固定中文关键字表</a></li><li><a href="https://github.com/a737812/yaolang/blob/8b639836a59c9a9e96f70de67a6a1ad51d157c9d/src/yaolang.c#L2250-L2316">固定语义登记与函数体检查范围</a></li><li><a href="https://github.com/a737812/yaolang/blob/8b639836a59c9a9e96f70de67a6a1ad51d157c9d/src/yaolang.c#L3519-L3635">固定词法、语法与C生成主流程</a></li><li><a href="https://github.com/a737812/yaolang/blob/8b639836a59c9a9e96f70de67a6a1ad51d157c9d/src/yaolang.c#L3645-L3685">固定系统cc及X11链接分支</a></li><li><a href="https://github.com/a737812/yaolang/blob/8b639836a59c9a9e96f70de67a6a1ad51d157c9d/test/yao_lexer.%E8%80%80">固定曜语词法器样例</a></li><li><a href="https://github.com/a737812/yaolang/blob/8b639836a59c9a9e96f70de67a6a1ad51d157c9d/build_apk.py#L53-L244">固定Java演示应用生成与APK构建脚本</a></li><li><a href="https://github.com/a737812/yaolang/blob/8b639836a59c9a9e96f70de67a6a1ad51d157c9d/apk/src/com/yaolang/app/MainActivity.java#L100-L111">固定Android演示Activity中的运算实现</a></li><li><a href="https://github.com/a737812/yaolang/commit/59022b110d2055e1dfe9d70bd29ba0be36ee11d4">根提交与初始发行源码</a></li><li><a href="https://github.com/a737812/yaolang/releases/tag/v0.1.0-alpha">v0.1.0-alpha发行及APK附件</a></li><li><a href="https://api.github.com/repos/a737812/yaolang/git/refs/tags">两个版本标签的固定指向核验入口</a></li><li><a href="https://github.com/a737812/yaolang/blob/8b639836a59c9a9e96f70de67a6a1ad51d157c9d/src/yaolang.c#L48-L55">固定.yao与.耀扩展名检查</a></li></ul><p>资料核验日期：2026-10-10</p><p><a href="https://github.com/yuyan-lang/chinese-programming-languages/issues/new">补充资料或纠错</a></p></main><footer>站点由<a href="https://yuyan-lang.org/">豫言编程语言</a>提供</footer></body></html>

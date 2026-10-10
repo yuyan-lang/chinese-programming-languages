@@ -1,0 +1,32 @@
+[
+  {
+    "name": "墨言（moyan_compiler）",
+    "discovery_status": "本轮新发现，待核实候选",
+    "category": "中文解释语言候选",
+    "repository": "https://gitcode.com/moyan_lang/moyan_compiler",
+    "snapshot": "11e0367837834df1f2fb5655a494b4fda9cdec3d",
+    "author": "GitCode组织名“墨言编程语言”；所见默认分支头提交关联账号amor2022。语言原作者及团队分工待核实。",
+    "evidence": "2026-10-10在dot云公开浏览器实读项目头部及侧栏：1星、309次提交，默认分支master，头提交消息“feat: 完成P2第一批功能迭代”；侧栏列v0.1.0，2025年12月16日发布。项目介绍自述采用Rust、中文语法、函数式／面向对象／异步编程，并声明全部用AI开发、当前为玩具项目。这些功能和AI范围按作者说明记录。",
+    "pending": "原始连续中文代码、关键字与解析规则、Rust实现入口、固定提交文件正文、初次公开日期、v0.1.0发行正文及附件、许可、原作者身份和完整同源关系待核实。根页与tree/master文件区在本次云浏览器访问中持续显示加载占位，发行正文读取超时；源码存在状态按待核实记录。搜索所得skywalk163相关文章曾列“墨言moyan”，与本仓库的身份或继承关系待核实。",
+    "verification_notes": "普通网页打开根页、README候选路径、组织页、目录及发行页返回Internal Error；dot云浏览器的独立标签可读取项目名称、当前提交及发行侧栏，文件区仍为占位。搜索索引旧快照显示305提交，按当前云浏览器的309提交分层记录。网页“创建于8月26日”年份与语义待核实，首发日期保持待核实。GitHub精确仓库搜索moyan_compiler返回空结果，其他名称及未索引镜像仍有遗漏风险。",
+    "verified_at": "2026-10-10",
+    "references": [
+      {
+        "title": "墨言原项目：组织名、项目介绍和当前提交",
+        "url": "https://gitcode.com/moyan_lang/moyan_compiler"
+      },
+      {
+        "title": "所见默认分支头提交",
+        "url": "https://gitcode.com/moyan_lang/moyan_compiler/commit/11e0367837834df1f2fb5655a494b4fda9cdec3d?ref=master"
+      },
+      {
+        "title": "v0.1.0发行入口（日期由原项目侧栏读取）",
+        "url": "https://gitcode.com/moyan_lang/moyan_compiler/releases/v0.1.0"
+      },
+      {
+        "title": "默认分支文件目录（本次显示加载占位）",
+        "url": "https://gitcode.com/moyan_lang/moyan_compiler/tree/master"
+      }
+    ]
+  }
+]
