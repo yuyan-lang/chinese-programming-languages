@@ -2293,21 +2293,22 @@
       "y++"
     ],
     "category": "中文关键字语言；Windows 可视化应用开发",
-    "author": "官网文档署名「一点滴」；具体开发者身份待核实",
-    "first_publication": "已找到作者于 2026-07-15 发布的视频；最早发布日期待核实，不将该视频当成首发",
-    "description": "【中文关键字语言；Windows 可视化应用开发】与 YStudio IDE 配套的中文语言，官网展示原生 Windows 应用开发、窗体设计、中文类型和控制流语法。",
+    "author": "一点滴；官网“关于与联系”明确列为Y++语言与YStudio IDE的个人开发维护者。B站教程账号署名“一点滴-侠之大者”。",
+    "first_publication": "最早公开日期待核实。原视频BV1tSNq6AE7g页面索引显示2026-07-15 10:46:10，作为已核教程发布时间记录；语言首发、官网上线和2.2发行日期分别待核实。",
+    "description": "Y++是由一点滴开发、与YStudio配套的中文关键字语言，面向Windows桌面工具、表单业务、网络客户端和本地自动化。源码以中文类型与函数、如果、返回等关键字组织逻辑，使用大括号划定语句块，支持中文标识符、数组、结构体、类及事件处理。工程把业务源码、窗口XML、YSS样式和DLL声明分文件管理，控件通过名称访问属性，窗口事件由设计器与中文函数连接。YStudio提供窗体设计、代码补全、断点调试与发布入口；官网说明编译目标为MSVC工具链生成的x86／x64原生程序。配套文档覆盖HTTP、JSON、数据库、图片和DLL交互，并按接口记录类型、资源管理及平台边界。当前资料可用于核对语法与工具链说明，发行物和独立运行结果继续待核实。",
     "features": [
-      "中文类型关键字与真/假常量",
-      "窗口与事件",
-      "自定义结构体和类",
-      "DLL / WinAPI 声明",
-      "YSS 界面样式表"
+      "中文类型、真／假常量及中文标识符",
+      "函数、条件分支、循环、选择与异常处理的文档语法",
+      "窗口XML、中文事件函数与控件属性访问",
+      "自定义结构体.yt与值语义类.ypp",
+      "DLL／WinAPI声明、动态加载与地址编组",
+      "YSS界面样式、MSVC x86／x64目标及IDE调试发布"
     ],
-    "code": "整数 n = 0",
-    "implementation": "YStudio 编译与发布工具链；底层编译器实现语言和后端待核实。主逻辑 .yc、结构体 .yt、类 .ypp、API 声明 .yp。",
-    "status": "官网展示文档与 Windows x86/x64 安装包；本次没有下载安装运行。",
-    "version": "官网展示 YStudio v2.2；语言独立版本待核实",
-    "relations": "Y++ 是语言、YStudio 是 IDE，不应作为两个语言计数。与第三方同名语言及易语言的代码继承关系待核实。",
+    "code": "// 事件里写中文逻辑\n函数 按钮保存.被单击() {\n    如果 (文本框1.内容 == \"\") {\n        信息框(\"内容不能为空\")\n        返回()\n    }\n    标签状态.标题 = \"已保存\"\n}",
+    "implementation": "官网说明YStudio结合单独分发的编译器，经MSVC工具链生成Windows x86／x64原生程序；编译器本体的实现语言、解析器和中间表示待核实。.yc保存业务与事件逻辑，.yt保存结构体，.ypp保存类，.yp保存DLL/API声明，.ysproj管理工程，.xml保存窗体，.yss保存样式。DLL文档说明通过LoadLibrary与GetProcAddress解析导出；图片支持库文档说明采用Windows WIC及Direct2D／DirectWrite。以上为作者文档证据，构建及运行结果待核实。",
+    "status": "官网公开文档持续可检索，署名个人维护。2026-10-10可读官网索引的下载区把两个IDE安装包及通用编译器标为“待发布”，路线区写当前v2.2可用；实际分发状态和更新时间待核实。本轮进行静态阅读，安装、构建、调试与发布测试均待核实。",
+    "version": "官网显示YStudio 2.2.0.0／v2.2，并列出x86、x64 IDE安装包名称及独立编译器入口。语言独立版本号、首个正式发行日期、源码许可证与软件使用授权条款待核实。",
+    "relations": "Y++承担语言角色，YStudio承担IDE角色，两者按同一语言项目记录。YSS是配套界面样式；DLL／WinAPI属于外部互操作接口。与其他Y语言、第三方同名Y++及易语言的作者继承或源码关系待核实。",
     "references": [
       {
         "title": "Y++ / YStudio 官网",
@@ -2328,17 +2329,31 @@
       {
         "title": "作者视频：Y++高级界面【3】标签组件（2026-07-15）",
         "url": "https://www.bilibili.com/video/BV1tSNq6AE7g/"
+      },
+      {
+        "title": "Y++开发文档目录：类型、类与配套库",
+        "url": "https://www.yddphp.cn/docs/index.html"
+      },
+      {
+        "title": "DLL／系统API声明与运行时加载",
+        "url": "https://www.yddphp.cn/docs/dllapi.html"
+      },
+      {
+        "title": "第三方DLL插件对接：MSVC参数宽度与内存边界",
+        "url": "https://www.yddphp.cn/docs/third-party-dll.html"
       }
     ],
-    "verification_notes": "中文类型、常量与如果/返回直接见官方文档；code 是语言基础页面中单一原始连续片段，展示类型关键字，不是完整可运行程序。搜索索引可读取官方全文但直接 open 数次失败。最早发布日期及开源情况均未确认。",
-    "code_source": "https://www.yddphp.cn/docs/language.html",
+    "verification_notes": "2026-10-10复核官网、language、image-support、dll-pointers及BV1tSNq6AE7g的公开索引；官网直接读取返回Cache miss，原视频直接读取受工具可达性限制，索引抓取时间约早于核验日两至三周。code升级为官网“语言一眼能看懂”中的8行完整连续事件原例，替代language.html §3.1的单行“整数 n = 0”；原参考保留。例中控件需要配套窗口XML，独立运行待核实。基础类型页将整数列为32位，第三方DLL页说明部分整数参数常为8字节，目标架构与ABI对应关系待核实。已核原例包含中文函数、如果及返回。源码公开地址、许可证、发行物与AI参与开发的作者声明待核实；文档中面向生成／修改代码的说明属于使用场景资料，AI在项目开发或执行链中的具体角色待核实。",
+    "code_source": "https://www.yddphp.cn/index.html",
     "id": "lang-031",
-    "verified_at": "2026-10-09",
+    "verified_at": "2026-10-10",
     "code_source_detail": {
-      "url": "https://www.yddphp.cn/docs/language.html",
-      "location": "3.1 基本类型 → 整数行的示例",
-      "excerpt_type": "单个连续原文示例"
-    }
+      "url": "https://www.yddphp.cn/index.html",
+      "location": "语言一眼能看懂 → // 事件里写中文逻辑；函数 按钮保存.被单击 的整个代码块",
+      "excerpt_type": "8行完整连续原文片段；需已有窗口及控件",
+      "replaces": "替代旧language.html §3.1基本类型表中的单行“整数 n = 0”；旧原始来源及参考条目完整保留。"
+    },
+    "code_context": "官网“语言一眼能看懂”中的8行连续事件原例，包含完整按钮保存处理函数；需配套窗口XML中的控件。替代原language.html类型表的单行展示，旧来源及原例记录保留。当前采用2026-10-10可读官方索引，网页实时内容及运行结果待核实。"
   },
   {
     "name": "中文Python解释器",
@@ -2347,21 +2362,22 @@
       "ikdxhz/chinese-python"
     ],
     "category": "Python 中文关键字转换层；教学工具",
-    "author": "ikdxhz",
-    "first_publication": "待核实；README 自署 2024年6月24日，与仓库创建于 2025-06-22 的元数据不一致。可能迁移或日期有误，原因待核实，不据此认定 2024 年首发。",
-    "description": "【Python 中文关键字转换层；教学工具】把预定义中文关键字及部分标点转换为标准 Python 后执行的工具，支持桌面和浏览器版本。作者明确将其定位为文本转换器。",
+    "author": "ikdxhz；README“联系方式”、提交作者账号及MIT版权行相互对应。",
+    "first_publication": "README“最近更新”自署2024年6月24日，记述在线版发布。GitHub仓库创建与仅含LICENSE的根提交时间均为2025-06-22T14:17:18Z；README及程序首次进入当前可追溯提交链的时间为2025-06-22T14:19:36Z。两个时间层级分别记录，项目最早公开时间及2024自署日期的历史依据待核实。",
+    "description": "中文Python解释器是ikdxhz面向中文编程教学制作的Python源码转换工具。项目提供预定义中文关键字、常用函数与标点映射，用户可用定义、返回、对于、如果等词编写程序，并查看转换后的Python代码。桌面部分包含.cnpy文件执行器、累积多行输入的交互入口和Tkinter图形编辑器；转换器用正则及占位符处理关键字、字符串、注释和部分变量位置，再交给宿主Python执行。浏览器部分在单个HTML文件内维护JavaScript转换表，以CodeMirror编辑代码，再通过Pyodide执行转换结果。两端的映射与变量保护细节分别实现，兼容范围需按对应代码核对。README将它用于编程启蒙与过渡学习，并建议借助外部AI解释报错。该条按中文关键字转换层和教学工具收录，源码、MIT许可与原始例子可追溯至固定提交。",
     "features": [
-      "中文关键字及多个同义词映射",
-      "中文标点转换",
-      "显示转换后的 Python",
-      ".cnpy 文件",
-      "桌面 GUI 与在线编辑器"
+      "预定义中文关键字、函数名称与同义词映射",
+      "中文标点转换及字符串／注释占位保护",
+      "显示转换后的Python代码",
+      ".cnpy文件执行及多行交互输入",
+      "Tkinter桌面GUI、CodeMirror浏览器编辑器和Pyodide执行",
+      "Python与JavaScript两个转换实现分别维护"
     ],
-    "code": "定义 计算平方(数字):\n    返回 数字 * 数字",
-    "implementation": "桌面版 Python；在线版 JavaScript 转换 + Pyodide；基于映射表和正则替换，非独立语法/运行时系统。",
-    "status": "公开仓库可读；GitHub 仓库元数据最后推送时间为 2025-06-24T12:29:02Z，main 分支，MIT；不据此断言停止维护。本次未执行代码。",
-    "version": "README 徽章自称 1.0；正式发行版本待核实",
-    "relations": "依赖 Python 生态；不是中蟒、周蟒或草蟒的已证实别名。作者明确说明并非完整语言实现，也非 AI 系统；README 建议借助 AI 排错不等于 AI 编译。",
+    "code": "# 这是一个简单的中文Python示例\n\n打印（\"你好，世界！\"）\n\n# 定义一个函数\n定义 计算平方(数字):\n    返回 数字 * 数字\n\n# 使用for循环\n对于 i 在 范围(1, 6):\n    打印(f\"{i} 的平方是 {计算平方(i)}\")\n\n# 条件语句\n如果 计算平方(3) > 5:\n    打印(\"3的平方大于5\")\n否则:\n    打印(\"3的平方不大于5\")",
+    "implementation": "固定提交ba31921bd379ca1d72f437a3f01528aaa2fe2a57：mapping.py的translate_to_python先提取三引号、单行字符串、注释及部分变量／形参位置，再按词长排序用正则替换映射、转换标点并恢复占位内容；chinese_python.py通过exec执行转换结果，交互入口共用namespace。chinese_python_gui.py使用Tkinter并调用同一转换器及exec。index.html独立实现JavaScript映射与translateToPython，引用CodeMirror 5.65.3、Pyodide 0.23.4，以pyodide.runPython执行。语法与运行语义由转换后的Python承担；独立构建与执行验证待核实。",
+    "status": "2026-10-10核验时仓库为公开main分支，archived=false、disabled=false。当前提交链共12条，最新提交ba31921日期及pushed_at均为2025-06-24T12:29:02Z。GitHub Releases与标签引用列表均为空，维护计划待核实。README提供在线编辑器入口，本轮只核对网页源码；桌面与在线版本的实际运行、第三方库兼容及停止执行效果待核实。",
+    "version": "README版本徽章为1.0；chinese_python.py交互横幅与帮助文本为v0.1，二者属于不同位置的自署版本。GitHub正式Release及标签在核验时为0。固定LICENSE为MIT，版权行为Copyright (c) 2025 ikdxhz。",
+    "relations": "本项目属于Python中文关键字转换层，桌面版依赖宿主Python，在线版依赖Pyodide中的Python运行环境。中蟒、周蟒、草蟒及其他中文Python项目分别保留各自作者和实现归属；本仓与这些项目的代码继承关系待核实。",
     "references": [
       {
         "title": "项目仓库与原作者 README",
@@ -2382,19 +2398,53 @@
       {
         "title": "固定版本 README",
         "url": "https://github.com/ikdxhz/chinese-python/blob/ba31921bd379ca1d72f437a3f01528aaa2fe2a57/README.md"
+      },
+      {
+        "title": "固定MIT许可证及2025版权行",
+        "url": "https://github.com/ikdxhz/chinese-python/blob/ba31921bd379ca1d72f437a3f01528aaa2fe2a57/LICENSE"
+      },
+      {
+        "title": "固定在线转换器与Pyodide执行入口",
+        "url": "https://github.com/ikdxhz/chinese-python/blob/ba31921bd379ca1d72f437a3f01528aaa2fe2a57/index.html"
+      },
+      {
+        "title": "固定Tkinter界面及Python执行路径",
+        "url": "https://github.com/ikdxhz/chinese-python/blob/ba31921bd379ca1d72f437a3f01528aaa2fe2a57/chinese_python_gui.py"
+      },
+      {
+        "title": "首次源码上传提交（2025-06-22）",
+        "url": "https://github.com/ikdxhz/chinese-python/commit/5fac2bf57b13d8e224eec44d30dc6bf16db596bb"
+      },
+      {
+        "title": "根提交目录树：初始LICENSE",
+        "url": "https://api.github.com/repos/ikdxhz/chinese-python/git/trees/3d8d62f9b5a7c98bab40d52ec8faee564811e05f?recursive=1"
+      },
+      {
+        "title": "GitHub正式发行列表",
+        "url": "https://api.github.com/repos/ikdxhz/chinese-python/releases"
+      },
+      {
+        "title": "GitHub标签引用列表",
+        "url": "https://api.github.com/repos/ikdxhz/chinese-python/git/matching-refs/tags/"
+      },
+      {
+        "title": "GitHub可追溯提交历史",
+        "url": "https://github.com/ikdxhz/chinese-python/commits/main/"
       }
     ],
-    "verification_notes": "已读取仓库 README、文件清单及语法例子；未逐行审核实现或运行。适合放在「中文化实现/转换层」而非原创语言主列表。GitHub 元数据创建时间为 2025-06-22T14:17:18Z；仓库创建时间不是语言首次公开时间。README 自署日期与仓库时间不同，迁移历史或日期准确性待核实。README.md、mapping.py、chinese_python.py 文件名已从仓库清单核实；main 固定提交为 ba31921bd379ca1d72f437a3f01528aaa2fe2a57。",
+    "verification_notes": "完整读取固定README、7文件目录树、mapping.py、chinese_python.py、Tkinter GUI、index.html与LICENSE，并核对仓库元数据、12条提交、Releases和标签引用。code扩展为README“代码示例”的17行完整连续代码块，原有2行计算平方函数保留其中，来源固定提交保持不变。静态映射表可见重复键：桌面“方法”的最终值为method、“数组”为array、“输出”为return；浏览器“方法”为def、“数组”为list、“输出”的最终值为print，两端对照与例子执行结果待核实。README的2024年6月24日为作者自署更新日期；可追溯源码上传日期为2025年6月22日，两者的历史关系待核实。AI依据为README“学习方法／如何使用AI助手解决问题”提出的外部排错与解释建议；已读执行路径为确定性映射加Python执行，项目开发阶段的AI参与声明待核实。完整技术审计、测试与运行结果待核实。",
     "repository_created_at": "2025-06-22T14:17:18Z",
     "repository_pushed_at": "2025-06-24T12:29:02Z",
     "code_source": "https://github.com/ikdxhz/chinese-python/blob/ba31921bd379ca1d72f437a3f01528aaa2fe2a57/README.md",
     "id": "lang-032",
-    "verified_at": "2026-10-09",
+    "verified_at": "2026-10-10",
     "code_source_detail": {
       "url": "https://github.com/ikdxhz/chinese-python/blob/ba31921bd379ca1d72f437a3f01528aaa2fe2a57/README.md",
-      "location": "代码示例 → 定义一个函数",
-      "excerpt_type": "连续原文片段；仅摘录函数定义"
-    }
+      "location": "README.md“代码示例”完整代码块，固定提交L129–L145",
+      "excerpt_type": "17行完整连续原文代码块；中文标点与注释原样保留",
+      "replaces": "由原2行计算平方函数摘录扩展为同一README完整示例；原两行完整保留。"
+    },
+    "code_context": "固定README第129—145行“代码示例”完整17行，原2行计算平方函数保留其中；空行、缩进及全角标点按原文，实际执行待核实。"
   },
   {
     "name": "Calculator.rs（中文试验分支）",
@@ -6153,5 +6203,63 @@
       }
     ],
     "id": "lang-076"
+  },
+  {
+    "name": "未定名中文编译器（神丶樱空释）",
+    "aliases": [],
+    "category": "中文语法实验（作者视频展示）",
+    "author": "Bilibili发布账号“神丶樱空释”（UID435049642）；语言设计和实现的具体作者分工待核实。",
+    "first_publication": "可核实的公开视频发表于2026-07-01。原片video:release_date为2026-07-01T07:43:41.000Z，北京时间为2026-07-01 15:43:41。更早首发时间待核实。",
+    "description": "Bilibili账号“神丶樱空释”发布的12秒中文代码视频展示了中文变量声明和测试代码，画面还能辨认函数、如果、否则等结构。按中文语法实验阶段收录。“未定名中文编译器（神丶樱空释）”是百科用于识别该视频对象的描述性暂名，正式项目名称待核实。",
+    "features": [
+      "中文“变量”声明及中文标识符",
+      "原片连续三行测试计数初始化",
+      "视频中可见函数和条件结构",
+      "标题称AI开发并处于自举阶段（作者声明）"
+    ],
+    "code": "变量 测试通过数 = 0\n变量 测试失败数 = 0\n变量 测试跳过数 = 0",
+    "code_source": "https://www.bilibili.com/video/BV1TFTi6vEkW/",
+    "code_context": "BV1TFTi6vEkW末帧，播放器显示00:12 / 00:12，同次读取video.currentTime与duration均为11.981495秒。引用“测试计数”注释下方连续三行，逐字转录可辨读字符，行首及等号周围空白作排版规范化。原始公开播放分辨率360×360，网页全屏截图保存原始画面；独立目视复核确认三行。完整测试函数和画面其他模糊字符继续待核实。",
+    "code_source_detail": {
+      "type": "Bilibili原视频画面",
+      "bvid": "BV1TFTi6vEkW",
+      "uploader_uid": "435049642",
+      "timestamp_seconds": 11.981495,
+      "player_time": "00:12 / 00:12",
+      "source_frame_dimensions": "360×360",
+      "transcription": "连续三行变量初始化；仅规范化空白",
+      "screenshot": "research/2026-10-10/evidence/BV1TFTi6vEkW-00m12s.jpg",
+      "screenshot_sha256": "87e5de1342d1dc882a51cf518b31ab0a341c684ec59d954099efdcb7ce96f6a1"
+    },
+    "implementation": "视频展示编辑器内中文测试源码；标题《Ai开发中文编程编译器自举阶段》提供作者对AI开发和自举阶段的表述。实现语言、词法与解析源码、后端工具链、独立编译运行和可复现自举均待核实。",
+    "status": "原片、发布账号、UTC发布日期及三行中文原例已核验；按视频语法实验阶段记录。正式项目名、源码归属、发行版本和许可证待核实。",
+    "version": "正式版本及许可证待核实。",
+    "relations": "百科用BV1TFTi6vEkW与UID435049642标识本视频对象。与目录其他项目的代码继承、改名或版本关系待核实。",
+    "ai_involvement": "原视频标题使用“Ai开发”表述，按作者声明记录。具体模型、工具、文件范围、人机分工及生成比例待核实。",
+    "verification_notes": "2026-10-10核验原片、UTC发布日期、发布账号及末帧中文代码，三行原例经过独立目视复核，证据图随研究记录保存。本项为Issue #4旧候选补证。原片简介为“-”，公开评论区显示“评论 0”；作者主页导航显示投稿1，投稿列表返回空态，列表完整性待核实。采用公开360P画面，较长代码字符及完整项目语法待补证。项目源码、独立执行与可复现自举结果待核实。标题的AI开发表述按作者声明记录，模型、工具、文件贡献范围、人机分工及生成比例待核实。",
+    "verified_at": "2026-10-10",
+    "references": [
+      {
+        "title": "原作者12秒视频：AI开发与自举阶段标题、中文代码画面",
+        "url": "https://www.bilibili.com/video/BV1TFTi6vEkW/"
+      },
+      {
+        "title": "原发布账号：神丶樱空释（UID435049642）",
+        "url": "https://space.bilibili.com/435049642/"
+      },
+      {
+        "title": "旧候选来源：Issue #4",
+        "url": "https://github.com/yuyan-lang/chinese-programming-languages/issues/4"
+      },
+      {
+        "title": "第二轮已有原片、作者和日期核验记录",
+        "url": "https://github.com/yuyan-lang/chinese-programming-languages/blob/65e45d07d80a36412625665931ce4a4402641480/research/2026-10-10/bilibili.md"
+      },
+      {
+        "title": "原片末帧证据图：00:12，保留原始网页画面",
+        "url": "https://github.com/yuyan-lang/chinese-programming-languages/blob/main/research/2026-10-10/evidence/BV1TFTi6vEkW-00m12s.jpg"
+      }
+    ],
+    "id": "lang-077"
   }
 ]

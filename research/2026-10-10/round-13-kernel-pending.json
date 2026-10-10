@@ -1,0 +1,937 @@
+[
+  {
+    "id": "lgc-os",
+    "name": "lgc-os",
+    "aliases": [
+      "lgc os"
+    ],
+    "checked_at": "2026-10-10",
+    "discovery_round": 13,
+    "discovery_classification": "第十二轮旧背景首次深入",
+    "first_seen_round": 12,
+    "truly_new_discovery": false,
+    "selection_status": "待核实",
+    "short_description": "lgc-os 是 lightfl0w 用配套 lgc 语言编写的 x86-64 实验内核，具有引导入口、GDT/TSS、分页、中断、抢占任务、RAMFS、ELF64加载和限定Linux ABI系统调用。作者将其称为微内核，并演示启动及内核自举流程。中国开发者或中国社区的明确公开归属自述继续待核实。",
+    "author": {
+      "people": [
+        {
+          "handle": "lightfl0w",
+          "public_alias": "Lightfl0w",
+          "github_url": "https://github.com/lightfl0w",
+          "bilibili_uid": "3690980152707649",
+          "bilibili_url": "https://space.bilibili.com/3690980152707649/"
+        }
+      ],
+      "attribution": {
+        "text": "两条原片由Lightfl0w（UID3690980152707649）发布。微内核原片简介直链lgc-os；语言原片简介同时直链lgc及lgc-os。OS固定README直接指向同账号lgc。",
+        "evidence_level": "作者声明",
+        "source_ids": [
+          "lo1",
+          "lo2",
+          "lo3",
+          "lo7"
+        ]
+      },
+      "china_basis": {
+        "text": "中国开发者或中国社区的明确公开归属自述待核实。公开GitHub主页、固定个人README、两个原片简介与B站主页均列入本轮核对范围。",
+        "evidence_level": "待核实",
+        "source_ids": [
+          "lo1",
+          "lo2",
+          "lo3",
+          "lo4",
+          "lo5"
+        ]
+      }
+    },
+    "kernel_positioning": {
+      "text": "这是有自身启动目标和硬件特权初始化路径的实验内核。kernel/os.lg使用@boot，调用GDT、IDT、分页、系统调用、PIC/PIT和进程初始化，再进入shell；build.py通过lgc生成lgc-os.img。微内核名称属于作者定位。服务隔离与IPC架构边界继续待核实。",
+      "evidence_level": "源码可见；微内核名称为作者声明",
+      "source_ids": [
+        "lo7",
+        "lo8",
+        "lo9",
+        "lo19"
+      ]
+    },
+    "dates": {
+      "first_public": {
+        "date": null,
+        "status": "待核实",
+        "known_public_record": "仓库创建时间、Git提交作者时间和视频日期分别保存。",
+        "source_ids": [
+          "lo1",
+          "lo2",
+          "lo6",
+          "lo23"
+        ]
+      },
+      "repository_created": {
+        "at": "2026-09-25T13:23:09Z",
+        "meaning": "GitHub created_at元数据",
+        "source_ids": [
+          "lo6"
+        ]
+      },
+      "oldest_visible_commit": {
+        "at": "2026-09-20T13:28:25Z",
+        "commit": "26169e309d4cd0c67a4031e8e2abfe770cec2b8a",
+        "meaning": "当前Git历史的作者提交时间；首次对外公开时间待核实。",
+        "source_ids": [
+          "lo23"
+        ]
+      },
+      "video_published": [
+        {
+          "bvid": "BV166at6hEgN",
+          "date": "2026-09-27",
+          "precision": "日",
+          "observed_values": [
+            {
+              "surface": "初始网页文本",
+              "value": "2026-09-27 15:00:06"
+            },
+            {
+              "surface": "客户端渲染文本",
+              "value": "2026-09-27 00:00:06"
+            },
+            {
+              "surface": "作者主页投稿列表",
+              "value": "9月27日"
+            }
+          ],
+          "canonical_timestamp": "待核实",
+          "source_ids": [
+            "lo1",
+            "lo3"
+          ]
+        },
+        {
+          "bvid": "BV1pghX6NEE8",
+          "date": "2026-09-26",
+          "precision": "日",
+          "observed_values": [
+            {
+              "surface": "初始网页文本",
+              "value": "2026-09-26 15:12:35"
+            },
+            {
+              "surface": "客户端渲染文本",
+              "value": "2026-09-26 00:12:35"
+            },
+            {
+              "surface": "作者主页投稿列表",
+              "value": "9月26日"
+            }
+          ],
+          "canonical_timestamp": "待核实",
+          "source_ids": [
+            "lo2",
+            "lo3"
+          ]
+        }
+      ]
+    },
+    "architectures": [
+      {
+        "text": "固定源码采用PML4/PDPT/PD/PT分页结构、x86-64 MSR系统调用与64位寄存器保存；构建脚本使用qemu-system-x86_64。已核目标为x86-64。",
+        "evidence_level": "源码可见",
+        "source_ids": [
+          "lo9",
+          "lo11",
+          "lo13",
+          "lo19"
+        ]
+      }
+    ],
+    "implementation_languages": [
+      {
+        "name": "lgc",
+        "role": "内核主要源码；.lg文件及asm机器码字节",
+        "source_ids": [
+          "lo8",
+          "lo9",
+          "lo11",
+          "lo21"
+        ]
+      },
+      {
+        "name": "Python / Shell / C",
+        "role": "构建与测试脚本、用户示例",
+        "source_ids": [
+          "lo19",
+          "lo20",
+          "lo21"
+        ]
+      }
+    ],
+    "capabilities": {
+      "boot": [
+        {
+          "text": "@boot入口生成可引导内核镜像；README说明BIOS将首扇区载入，内核占后续扇区。引导生成器属于配套lgc，具体二进制版本绑定待核实。",
+          "evidence_level": "源码可见与作者声明",
+          "source_ids": [
+            "lo7",
+            "lo8",
+            "lo19",
+            "lgc-boot-example"
+          ]
+        }
+      ],
+      "scheduling": [
+        {
+          "text": "core.lg设置MAXPROC=8，维护FREE/READY/RUN/ZOMBIE状态、每任务CR3与内核栈。pick_next轮转寻找READY任务，IRQ0分发进入sched_irq并切换寄存器帧和页表。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "lo10"
+          ]
+        }
+      ],
+      "memory": [
+        {
+          "text": "mm.lg从0x1000000至0x4000000按4KiB递增分配页帧，为地址空间创建PML4/PDPT/PD/PT并按缺页映射用户页。core.lg设置页表权限位；完整内存隔离与W^X保证待独立验证。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "lo9",
+            "lo13",
+            "lo29"
+          ]
+        }
+      ],
+      "filesystem": [
+        {
+          "text": "fs.lg提供32个RAMFS文件槽，每个新文件预留1MiB；ata.lg以PIO端口读写扇区，shell的save命令调用ata_write及flush。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "lo15",
+            "lo16",
+            "lo18"
+          ]
+        }
+      ],
+      "drivers": [
+        {
+          "text": "VGA文本缓冲位于0xB8000；键盘代码轮询0x60/0x64并译码，串口使用COM1，定时中断使用PIC/PIT。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "lo9",
+            "lo17"
+          ]
+        }
+      ],
+      "applications": [
+        {
+          "text": "ELF加载器读取64位入口与program headers，对PT_LOAD段复制文件内容并清零BSS。shell创建地址空间、初始栈和用户进程，提供exec/bg/ps。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "lo14",
+            "lo18"
+          ]
+        },
+        {
+          "text": "系统调用分发覆盖read/write/open/close、部分stat、mmap/brk等Linux x86-64编号。mprotect/munmap等编号直接返回0，未知编号返回-38。具体应用兼容性按已实现接口逐项核验。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "lo11",
+            "lo12"
+          ]
+        }
+      ],
+      "self_hosting": [
+        {
+          "text": "测试脚本向客体发送exec lgc.elf os.lg os.bin及save命令，随后由宿主提取镜像、复制预载文件区并再次启动QEMU，再运行hello_c和a.lg编译测试。该脚本记录内核自举往返设计。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "lo20"
+          ]
+        },
+        {
+          "text": "README将运行自举版lgc、静态glibc C程序及自举往返列为完成项。",
+          "evidence_level": "作者声明",
+          "source_ids": [
+            "lo7"
+          ]
+        }
+      ]
+    },
+    "project_relationships": [
+      {
+        "text": "lgc与lgc-os分别承担语言编译器和使用该语言的内核实例角色，两者同属lightfl0w账号。原片及README建立明确关联。",
+        "evidence_level": "作者声明与源码可见",
+        "source_ids": [
+          "lo1",
+          "lo2",
+          "lo7",
+          "lo19"
+        ]
+      },
+      {
+        "text": "build.py通过外部LGC_SRC读取lgc.lg并生成usr/lgc.elf，OS固定树保存编译器二进制。其blob为08baf7259a8b0cf4d7718978b2fec13ae8843ad1；与lgc源码提交的精确对应待核实。",
+        "evidence_level": "源码可见",
+        "source_ids": [
+          "lo19",
+          "lo21",
+          "lgc-os-tree"
+        ]
+      },
+      {
+        "text": "README声明设计参考《操作系统真相还原》。原始代码来源、全部继承与AI参与范围继续待核实。",
+        "evidence_level": "作者声明",
+        "source_ids": [
+          "lo7"
+        ]
+      },
+      {
+        "text": "微内核称谓来自README与原片标题。固定代码把ATA、RAMFS和shell直接引入@boot内核，README也标注ring0 shell；用户态系统服务、IPC与严格微内核架构分类继续待核实。",
+        "evidence_level": "源码可见与作者声明",
+        "source_ids": [
+          "lo7",
+          "lo8",
+          "lo15",
+          "lo16",
+          "lo18"
+        ]
+      },
+      {
+        "text": "固定README保留16MB内存布局和调度策略待办；较新build.py把RAMFS预载地址设为0x4000000，core.lg已有IRQ0抢占和轮转选择，mm.lg引入独立地址空间。文档和实现采用阶段对照。",
+        "evidence_level": "源码可见与作者文档阶段对照",
+        "source_ids": [
+          "lo7",
+          "lo10",
+          "lo13",
+          "lo19",
+          "lo22"
+        ]
+      },
+      {
+        "text": "CoreZ-OS继续沿用第十二轮研究及Issue38，本轮以该记录核对作者背景。项目间共享实现、改名或继承关系待核实。",
+        "evidence_level": "目录关系核对",
+        "source_ids": [
+          "lo27",
+          "lo28"
+        ]
+      }
+    ],
+    "companion_language": {
+      "name": "lgc",
+      "classification": "英文语法的自制编译语言／配套工具",
+      "formal_chinese_language_entry": false,
+      "text": "C版词法表列22个英文关键词，自举实现词法表也使用英文关键词；连续完整fac.lg与@boot示例均已核对。中文关键词条目本轮为0。",
+      "source_ids": [
+        "lgc-c-keywords",
+        "lgc-selfhost-keywords",
+        "lgc-fac-example",
+        "lgc-boot-example"
+      ]
+    },
+    "status": {
+      "source_snapshot": {
+        "branch": "main",
+        "commit": "ba606a063fd557bf28ad13a4c16f9e214b0deddd",
+        "committed_at": "2026-09-27T09:55:16Z",
+        "source_ids": [
+          "lo21",
+          "lo22"
+        ]
+      },
+      "latest_github_release": {
+        "version": null,
+        "status": "待核实",
+        "observed": "核验时Releases与matching-refs/tags均返回空数组。",
+        "source_ids": [
+          "lo25",
+          "lo26"
+        ]
+      },
+      "license": {
+        "name": null,
+        "status": "待核实",
+        "scope": "lgc-os固定完整树共有28项，根目录及子目录许可文件待取得；API license为null。配套lgc在2026-10-05加入GPL-3.0-or-later声明，OS、预置BusyBox/glibc程序及编译器二进制的许可适用范围分别待核实。",
+        "source_ids": [
+          "lo6",
+          "lo21",
+          "lgc-license",
+          "lgc-commit"
+        ]
+      },
+      "runtime_verification": {
+        "status": "待核实",
+        "scope": "完成固定源码静态阅读和公开作者视频观察。独立构建、启动、调度、自举往返及二进制复现结果待核实。"
+      }
+    },
+    "video_observations": [
+      {
+        "video_url": "https://www.bilibili.com/video/BV166at6hEgN/",
+        "duration": "00:45",
+        "timestamp": "00:18",
+        "text": "截图播放器读数00:18/00:45，可见QEMU窗口与lgc-os命令提示符；视频字幕说明能够启动。",
+        "evidence_level": "作者演示",
+        "source_ids": [
+          "lo1"
+        ]
+      },
+      {
+        "video_url": "https://www.bilibili.com/video/BV166at6hEgN/",
+        "duration": "00:45",
+        "timestamp": "00:34",
+        "text": "AX读数00:34/00:45；画面可见selfhost_test.sh、宿主终端中的save输出及镜像提取流程。最终二次启动结果与当前源码的对应继续待核实。",
+        "evidence_level": "作者演示",
+        "source_ids": [
+          "lo1",
+          "lo20"
+        ],
+        "observation_note": "00:34来自同次AX；随后截图控制条隐藏。该时间点按相邻观察记录，保留异步读数边界。"
+      },
+      {
+        "video_url": "https://www.bilibili.com/video/BV1pghX6NEE8/",
+        "duration": "00:43",
+        "timestamp": "00:12",
+        "text": "AX读数00:12/00:43；画面显示C版编译器代码和终端，字幕为语言特性的小测试。可读语法细节以固定源码为准。",
+        "evidence_level": "作者演示",
+        "source_ids": [
+          "lo2"
+        ],
+        "observation_note": "时间点来自相邻AX；截图控制条隐藏。"
+      }
+    ],
+    "links": {
+      "repository": "https://github.com/lightfl0w/lgc-os",
+      "video": "https://www.bilibili.com/video/BV166at6hEgN/",
+      "language_repository": "https://github.com/lightfl0w/lgc",
+      "language_video": "https://www.bilibili.com/video/BV1pghX6NEE8/"
+    },
+    "pending_verification": [
+      "中国开发者或中国社区的明确公开归属自述",
+      "微内核服务分离与IPC边界、具体架构分类",
+      "项目首次对外公开时间、两原片规范时间戳与时区解释",
+      "原片二进制、lgc-os固定源码及lgc编译器具体版本对应",
+      "README内存布局及调度待办与较新代码的阶段对应",
+      "lgc-os自身许可、第三方预置二进制许可与全部继承关系",
+      "完整自举往返、应用兼容、内存保护和任务调度的独立运行结果"
+    ],
+    "sources": [
+      {
+        "id": "lo1",
+        "title": "Lightfl0w微内核自举原片",
+        "url": "https://www.bilibili.com/video/BV166at6hEgN/",
+        "kind": "作者原视频发布页",
+        "supports": [
+          "UID、源码直链、日期原值、00:45时长、00:18与00:34画面"
+        ],
+        "checked_at": "2026-10-10"
+      },
+      {
+        "id": "lo2",
+        "title": "Lightfl0w自制语言原片",
+        "url": "https://www.bilibili.com/video/BV1pghX6NEE8/",
+        "kind": "作者原视频发布页",
+        "supports": [
+          "同一UID、同时直链lgc与lgc-os、日期原值、00:43时长"
+        ],
+        "checked_at": "2026-10-10"
+      },
+      {
+        "id": "lo3",
+        "title": "Lightfl0w B站公开主页",
+        "url": "https://space.bilibili.com/3690980152707649/",
+        "kind": "作者公开主页",
+        "supports": [
+          "同一账号发布两个原片",
+          "视频列表日期9月26日及9月27日",
+          "公开简介QWQ"
+        ],
+        "checked_at": "2026-10-10"
+      },
+      {
+        "id": "lo4",
+        "title": "Lightfl0w GitHub公开主页",
+        "url": "https://github.com/lightfl0w",
+        "kind": "作者公开主页",
+        "supports": [
+          "开发账号与置顶lgc、lgc-os",
+          "中国归属自述待核实"
+        ],
+        "checked_at": "2026-10-10"
+      },
+      {
+        "id": "lo5",
+        "title": "固定个人README",
+        "url": "https://github.com/lightfl0w/lightfl0w/blob/8b2b9f53a85e7387ad253142912c87204e23a61e/README.md",
+        "kind": "固定作者资料",
+        "supports": [
+          "我是lightfl0w自述",
+          "中国归属自述待核实"
+        ],
+        "checked_at": "2026-10-10",
+        "revision": "8b2b9f53a85e7387ad253142912c87204e23a61e"
+      },
+      {
+        "id": "lo6",
+        "title": "lgc-os仓库元数据",
+        "url": "https://api.github.com/repos/lightfl0w/lgc-os",
+        "kind": "动态仓库元数据",
+        "supports": [
+          "created_at",
+          "main分支",
+          "fork=false",
+          "license=null"
+        ],
+        "checked_at": "2026-10-10"
+      },
+      {
+        "id": "lo7",
+        "title": "lgc-os固定源码 README.md",
+        "url": "https://github.com/lightfl0w/lgc-os/blob/ba606a063fd557bf28ad13a4c16f9e214b0deddd/README.md#L1-L107",
+        "kind": "固定源码",
+        "supports": [
+          "lgc关联、作者微内核定位、设计参考书、作者功能与自举声明、文档内存布局和待办"
+        ],
+        "checked_at": "2026-10-10",
+        "revision": "ba606a063fd557bf28ad13a4c16f9e214b0deddd"
+      },
+      {
+        "id": "lo8",
+        "title": "lgc-os固定源码 kernel/os.lg",
+        "url": "https://github.com/lightfl0w/lgc-os/blob/ba606a063fd557bf28ad13a4c16f9e214b0deddd/kernel/os.lg#L1-L42",
+        "kind": "固定源码",
+        "supports": [
+          "@boot入口、内核初始化、ring0 shell"
+        ],
+        "checked_at": "2026-10-10",
+        "revision": "ba606a063fd557bf28ad13a4c16f9e214b0deddd"
+      },
+      {
+        "id": "lo9",
+        "title": "lgc-os固定源码 kernel/core.lg",
+        "url": "https://github.com/lightfl0w/lgc-os/blob/ba606a063fd557bf28ad13a4c16f9e214b0deddd/kernel/core.lg#L65-L158",
+        "kind": "固定源码",
+        "supports": [
+          "GDT/TSS、四级分页基础、IDT、PIC/PIT"
+        ],
+        "checked_at": "2026-10-10",
+        "revision": "ba606a063fd557bf28ad13a4c16f9e214b0deddd"
+      },
+      {
+        "id": "lo10",
+        "title": "lgc-os固定源码 kernel/core.lg",
+        "url": "https://github.com/lightfl0w/lgc-os/blob/ba606a063fd557bf28ad13a4c16f9e214b0deddd/kernel/core.lg#L160-L449",
+        "kind": "固定源码",
+        "supports": [
+          "最多8个任务槽、任务状态、轮转选择、IRQ0抢占、独立CR3切换"
+        ],
+        "checked_at": "2026-10-10",
+        "revision": "ba606a063fd557bf28ad13a4c16f9e214b0deddd"
+      },
+      {
+        "id": "lo11",
+        "title": "lgc-os固定源码 kernel/core.lg",
+        "url": "https://github.com/lightfl0w/lgc-os/blob/ba606a063fd557bf28ad13a4c16f9e214b0deddd/kernel/core.lg#L451-L522",
+        "kind": "固定源码",
+        "supports": [
+          "x86-64 MSR系统调用入口、寄存器保存与sysret机器码"
+        ],
+        "checked_at": "2026-10-10",
+        "revision": "ba606a063fd557bf28ad13a4c16f9e214b0deddd"
+      },
+      {
+        "id": "lo12",
+        "title": "lgc-os固定源码 kernel/core.lg",
+        "url": "https://github.com/lightfl0w/lgc-os/blob/ba606a063fd557bf28ad13a4c16f9e214b0deddd/kernel/core.lg#L1058-L1104",
+        "kind": "固定源码",
+        "supports": [
+          "Linux ABI编号分发、占位返回、默认ENOSYS"
+        ],
+        "checked_at": "2026-10-10",
+        "revision": "ba606a063fd557bf28ad13a4c16f9e214b0deddd"
+      },
+      {
+        "id": "lo13",
+        "title": "lgc-os固定源码 kernel/mm.lg",
+        "url": "https://github.com/lightfl0w/lgc-os/blob/ba606a063fd557bf28ad13a4c16f9e214b0deddd/kernel/mm.lg#L1-L76",
+        "kind": "固定源码",
+        "supports": [
+          "页帧bump分配、地址空间建立、用户页映射"
+        ],
+        "checked_at": "2026-10-10",
+        "revision": "ba606a063fd557bf28ad13a4c16f9e214b0deddd"
+      },
+      {
+        "id": "lo14",
+        "title": "lgc-os固定源码 kernel/elf.lg",
+        "url": "https://github.com/lightfl0w/lgc-os/blob/ba606a063fd557bf28ad13a4c16f9e214b0deddd/kernel/elf.lg#L1-L26",
+        "kind": "固定源码",
+        "supports": [
+          "ELF64字段与PT_LOAD拷贝及清零"
+        ],
+        "checked_at": "2026-10-10",
+        "revision": "ba606a063fd557bf28ad13a4c16f9e214b0deddd"
+      },
+      {
+        "id": "lo15",
+        "title": "lgc-os固定源码 kernel/fs.lg",
+        "url": "https://github.com/lightfl0w/lgc-os/blob/ba606a063fd557bf28ad13a4c16f9e214b0deddd/kernel/fs.lg#L1-L93",
+        "kind": "固定源码",
+        "supports": [
+          "RAMFS固定32槽、新建文件每槽预留1MiB及ATA预载"
+        ],
+        "checked_at": "2026-10-10",
+        "revision": "ba606a063fd557bf28ad13a4c16f9e214b0deddd"
+      },
+      {
+        "id": "lo16",
+        "title": "lgc-os固定源码 kernel/ata.lg",
+        "url": "https://github.com/lightfl0w/lgc-os/blob/ba606a063fd557bf28ad13a4c16f9e214b0deddd/kernel/ata.lg#L1-L97",
+        "kind": "固定源码",
+        "supports": [
+          "ATA PIO端口读写与flush"
+        ],
+        "checked_at": "2026-10-10",
+        "revision": "ba606a063fd557bf28ad13a4c16f9e214b0deddd"
+      },
+      {
+        "id": "lo17",
+        "title": "lgc-os固定源码 kernel/vga.lg",
+        "url": "https://github.com/lightfl0w/lgc-os/blob/ba606a063fd557bf28ad13a4c16f9e214b0deddd/kernel/vga.lg#L1-L106",
+        "kind": "固定源码",
+        "supports": [
+          "VGA文本输出与PS/2键盘轮询"
+        ],
+        "checked_at": "2026-10-10",
+        "revision": "ba606a063fd557bf28ad13a4c16f9e214b0deddd"
+      },
+      {
+        "id": "lo18",
+        "title": "lgc-os固定源码 kernel/shell.lg",
+        "url": "https://github.com/lightfl0w/lgc-os/blob/ba606a063fd557bf28ad13a4c16f9e214b0deddd/kernel/shell.lg#L200-L291",
+        "kind": "固定源码",
+        "supports": [
+          "save持久化扇区、exec/bg、shell在内核中运行"
+        ],
+        "checked_at": "2026-10-10",
+        "revision": "ba606a063fd557bf28ad13a4c16f9e214b0deddd"
+      },
+      {
+        "id": "lo19",
+        "title": "lgc-os固定源码 build.py",
+        "url": "https://github.com/lightfl0w/lgc-os/blob/ba606a063fd557bf28ad13a4c16f9e214b0deddd/build.py#L1-L110",
+        "kind": "固定源码",
+        "supports": [
+          "外部LGC_SRC、预置编译器、内核镜像目标、QEMU命令、64MiB RAMFS地址"
+        ],
+        "checked_at": "2026-10-10",
+        "revision": "ba606a063fd557bf28ad13a4c16f9e214b0deddd"
+      },
+      {
+        "id": "lo20",
+        "title": "lgc-os固定源码 tools/selfhost_test.sh",
+        "url": "https://github.com/lightfl0w/lgc-os/blob/ba606a063fd557bf28ad13a4c16f9e214b0deddd/tools/selfhost_test.sh#L1-L62",
+        "kind": "固定源码",
+        "supports": [
+          "客体内编译os.lg、save到扇区、宿主提取镜像并再次启动的测试步骤"
+        ],
+        "checked_at": "2026-10-10",
+        "revision": "ba606a063fd557bf28ad13a4c16f9e214b0deddd"
+      },
+      {
+        "id": "lo21",
+        "title": "lgc-os固定完整Git树",
+        "url": "https://api.github.com/repos/lightfl0w/lgc-os/git/trees/ba606a063fd557bf28ad13a4c16f9e214b0deddd?recursive=1",
+        "kind": "固定Git树",
+        "supports": [
+          "truncated=false",
+          "内核源码与二进制清单",
+          "固定树许可文件缺口",
+          "无gitlink与编译器源码副本"
+        ],
+        "checked_at": "2026-10-10",
+        "revision": "ba606a063fd557bf28ad13a4c16f9e214b0deddd"
+      },
+      {
+        "id": "lo22",
+        "title": "lgc-os固定提交",
+        "url": "https://github.com/lightfl0w/lgc-os/commit/ba606a063fd557bf28ad13a4c16f9e214b0deddd",
+        "kind": "固定提交",
+        "supports": [
+          "2026-09-27T09:55:16Z",
+          "抢占任务实现"
+        ],
+        "checked_at": "2026-10-10",
+        "revision": "ba606a063fd557bf28ad13a4c16f9e214b0deddd"
+      },
+      {
+        "id": "lo23",
+        "title": "lgc-os提交历史",
+        "url": "https://api.github.com/repos/lightfl0w/lgc-os/commits?per_page=100",
+        "kind": "动态提交列表",
+        "supports": [
+          "14个提交的阶段日期",
+          "初始历史2026-09-20",
+          "自举、内存、抢占阶段"
+        ],
+        "checked_at": "2026-10-10"
+      },
+      {
+        "id": "lo24",
+        "title": "lgc-os自举往返阶段提交",
+        "url": "https://github.com/lightfl0w/lgc-os/commit/888d98dd603ea7346693a70e31187495899807dd",
+        "kind": "固定提交",
+        "supports": [
+          "2026-09-27T06:29:25Z",
+          "增加自举测试与ATA写回"
+        ],
+        "checked_at": "2026-10-10",
+        "revision": "888d98dd603ea7346693a70e31187495899807dd"
+      },
+      {
+        "id": "lo25",
+        "title": "lgc-os Releases集合",
+        "url": "https://api.github.com/repos/lightfl0w/lgc-os/releases?per_page=100",
+        "kind": "动态仓库元数据",
+        "supports": [
+          "读取时空数组"
+        ],
+        "checked_at": "2026-10-10"
+      },
+      {
+        "id": "lo26",
+        "title": "lgc-os标签refs集合",
+        "url": "https://api.github.com/repos/lightfl0w/lgc-os/git/matching-refs/tags/",
+        "kind": "动态仓库元数据",
+        "supports": [
+          "读取时空数组"
+        ],
+        "checked_at": "2026-10-10"
+      },
+      {
+        "id": "lo27",
+        "title": "第十二轮内核研究基线",
+        "url": "https://github.com/yuyan-lang/chinese-programming-languages/blob/65e45d07d80a36412625665931ce4a4402641480/research/2026-10-10/round-12-kernels.md",
+        "kind": "固定目录研究",
+        "supports": [
+          "两个BV为旧背景入口",
+          "CoreZ-OS保留原待核议题"
+        ],
+        "checked_at": "2026-10-10",
+        "revision": "65e45d07d80a36412625665931ce4a4402641480"
+      },
+      {
+        "id": "lo28",
+        "title": "CoreZ-OS待核Issue38",
+        "url": "https://github.com/yuyan-lang/chinese-programming-languages/issues/38",
+        "kind": "目录议题",
+        "supports": [
+          "作者归属原缺口",
+          "正文与1条评论已读"
+        ],
+        "checked_at": "2026-10-10"
+      },
+      {
+        "id": "lgc-commit",
+        "title": "lgc main 固定提交",
+        "url": "https://github.com/lightfl0w/lgc/commit/0f92930ead271723e615623d5e85d488903ea3fa",
+        "api_url": "https://api.github.com/repos/lightfl0w/lgc/commits/0f92930ead271723e615623d5e85d488903ea3fa",
+        "revision": "0f92930ead271723e615623d5e85d488903ea3fa",
+        "fixed": true,
+        "description": "2026-10-05T11:19:41Z，提交说明 feat: 添加许可证",
+        "accessed_at": "2026-10-10T20:33:24Z"
+      },
+      {
+        "id": "lgc-readme",
+        "title": "lightfl0w/lgc README.md L1–L49",
+        "url": "https://github.com/lightfl0w/lgc/blob/0f92930ead271723e615623d5e85d488903ea3fa/README.md#L1-L49",
+        "repository": "lightfl0w/lgc",
+        "revision": "0f92930ead271723e615623d5e85d488903ea3fa",
+        "path": "README.md",
+        "blob_sha": "6124a736e268ed0cce15407bdf20cd21b8dd88ac",
+        "line_start": 1,
+        "line_end": 49,
+        "fixed": true,
+        "description": "教学用类 C 小语言、原生 x86-64 输出、语言特性与英文关键字",
+        "accessed_at": "2026-10-10T20:33:24Z"
+      },
+      {
+        "id": "lgc-selfhost-readme",
+        "title": "lightfl0w/lgc README.md L98–L100",
+        "url": "https://github.com/lightfl0w/lgc/blob/0f92930ead271723e615623d5e85d488903ea3fa/README.md#L98-L100",
+        "repository": "lightfl0w/lgc",
+        "revision": "0f92930ead271723e615623d5e85d488903ea3fa",
+        "path": "README.md",
+        "blob_sha": "6124a736e268ed0cce15407bdf20cd21b8dd88ac",
+        "line_start": 98,
+        "line_end": 100,
+        "fixed": true,
+        "description": "自举版源文件与ELF后端声明",
+        "accessed_at": "2026-10-10T20:33:24Z"
+      },
+      {
+        "id": "lgc-c-keywords",
+        "title": "lightfl0w/lgc src/main.c L68–L95",
+        "url": "https://github.com/lightfl0w/lgc/blob/0f92930ead271723e615623d5e85d488903ea3fa/src/main.c#L68-L95",
+        "repository": "lightfl0w/lgc",
+        "revision": "0f92930ead271723e615623d5e85d488903ea3fa",
+        "path": "src/main.c",
+        "blob_sha": "f287199c8c81ee88de88488ede3877624fc8a9f5",
+        "line_start": 68,
+        "line_end": 95,
+        "fixed": true,
+        "description": "C实现token枚举与完整22项LEX_KEYWORDS表",
+        "accessed_at": "2026-10-10T20:33:24Z"
+      },
+      {
+        "id": "lgc-c-lexer",
+        "title": "lightfl0w/lgc src/main.c L126–L221",
+        "url": "https://github.com/lightfl0w/lgc/blob/0f92930ead271723e615623d5e85d488903ea3fa/src/main.c#L126-L221",
+        "repository": "lightfl0w/lgc",
+        "revision": "0f92930ead271723e615623d5e85d488903ea3fa",
+        "path": "src/main.c",
+        "blob_sha": "f287199c8c81ee88de88488ede3877624fc8a9f5",
+        "line_start": 126,
+        "line_end": 221,
+        "fixed": true,
+        "description": "注释跳过、英文关键词匹配和单字节词法处理",
+        "accessed_at": "2026-10-10T20:33:24Z"
+      },
+      {
+        "id": "lgc-selfhost-lexer",
+        "title": "lightfl0w/lgc src/lgc.lg L283–L308",
+        "url": "https://github.com/lightfl0w/lgc/blob/0f92930ead271723e615623d5e85d488903ea3fa/src/lgc.lg#L283-L308",
+        "repository": "lightfl0w/lgc",
+        "revision": "0f92930ead271723e615623d5e85d488903ea3fa",
+        "path": "src/lgc.lg",
+        "blob_sha": "5cb212056dfd91f322cd2319c4a2a14ef784e4c7",
+        "line_start": 283,
+        "line_end": 308,
+        "fixed": true,
+        "description": "自举词法匹配主表及const/for/in/naked补充",
+        "accessed_at": "2026-10-10T20:33:24Z"
+      },
+      {
+        "id": "lgc-selfhost-keywords",
+        "title": "lightfl0w/lgc src/lgc.lg L1850–L1881",
+        "url": "https://github.com/lightfl0w/lgc/blob/0f92930ead271723e615623d5e85d488903ea3fa/src/lgc.lg#L1850-L1881",
+        "repository": "lightfl0w/lgc",
+        "revision": "0f92930ead271723e615623d5e85d488903ea3fa",
+        "path": "src/lgc.lg",
+        "blob_sha": "5cb212056dfd91f322cd2319c4a2a14ef784e4c7",
+        "line_start": 1850,
+        "line_end": 1881,
+        "fixed": true,
+        "description": "自举版英文关键字表及补充关键词初始化",
+        "accessed_at": "2026-10-10T20:33:24Z"
+      },
+      {
+        "id": "lgc-fac-example",
+        "title": "lightfl0w/lgc tests/fac.lg L1–L8",
+        "url": "https://github.com/lightfl0w/lgc/blob/0f92930ead271723e615623d5e85d488903ea3fa/tests/fac.lg#L1-L8",
+        "repository": "lightfl0w/lgc",
+        "revision": "0f92930ead271723e615623d5e85d488903ea3fa",
+        "path": "tests/fac.lg",
+        "blob_sha": "644032fbde8f64d13fc7b6e77815d406d3455e57",
+        "line_start": 1,
+        "line_end": 8,
+        "fixed": true,
+        "description": "连续完整阶乘源程序",
+        "accessed_at": "2026-10-10T20:33:24Z"
+      },
+      {
+        "id": "lgc-boot-example",
+        "title": "lightfl0w/lgc examples/hello.lg L1–L20",
+        "url": "https://github.com/lightfl0w/lgc/blob/0f92930ead271723e615623d5e85d488903ea3fa/examples/hello.lg#L1-L20",
+        "repository": "lightfl0w/lgc",
+        "revision": "0f92930ead271723e615623d5e85d488903ea3fa",
+        "path": "examples/hello.lg",
+        "blob_sha": "45a8dbd35d1a349a1a67350ac8d259cb4c415cd0",
+        "line_start": 1,
+        "line_end": 20,
+        "fixed": true,
+        "description": "连续完整引导示例源程序",
+        "accessed_at": "2026-10-10T20:33:24Z"
+      },
+      {
+        "id": "lgc-license",
+        "title": "lightfl0w/lgc LICENSE L1–L8",
+        "url": "https://github.com/lightfl0w/lgc/blob/0f92930ead271723e615623d5e85d488903ea3fa/LICENSE#L1-L8",
+        "repository": "lightfl0w/lgc",
+        "revision": "0f92930ead271723e615623d5e85d488903ea3fa",
+        "path": "LICENSE",
+        "blob_sha": "5339911e8427138cf71414aeeda5d5c940c8ec42",
+        "line_start": 1,
+        "line_end": 8,
+        "fixed": true,
+        "description": "GNU GPL v3 or later简短授权声明；完整许可证正文待补",
+        "accessed_at": "2026-10-10T20:33:24Z"
+      },
+      {
+        "id": "lgc-tree",
+        "title": "lgc固定递归树",
+        "url": "https://github.com/lightfl0w/lgc/tree/0f92930ead271723e615623d5e85d488903ea3fa",
+        "api_url": "https://api.github.com/repos/lightfl0w/lgc/git/trees/0f92930ead271723e615623d5e85d488903ea3fa?recursive=1",
+        "revision": "0f92930ead271723e615623d5e85d488903ea3fa",
+        "fixed": true,
+        "description": "完整递归树truncated=false，共23项；独立版本清单待取得",
+        "accessed_at": "2026-10-10T20:33:24Z"
+      },
+      {
+        "id": "lgc-releases-observation",
+        "title": "lgc Releases读取时状态",
+        "url": "https://api.github.com/repos/lightfl0w/lgc/releases",
+        "fixed": false,
+        "description": "读取返回[]；发行集合为空，记录本次读取状态",
+        "observed_response": [],
+        "accessed_at": "2026-10-10T20:33:24Z"
+      },
+      {
+        "id": "lgc-tags-observation",
+        "title": "lgc tags refs读取时状态",
+        "url": "https://api.github.com/repos/lightfl0w/lgc/git/matching-refs/tags/",
+        "fixed": false,
+        "description": "读取返回[]；标签集合为空，记录本次读取状态",
+        "observed_response": [],
+        "accessed_at": "2026-10-10T20:33:24Z"
+      },
+      {
+        "id": "lgc-os-readme",
+        "title": "lgc-os固定README",
+        "url": "https://github.com/lightfl0w/lgc-os/blob/ba606a063fd557bf28ad13a4c16f9e214b0deddd/README.md#L1-L25",
+        "revision": "ba606a063fd557bf28ad13a4c16f9e214b0deddd",
+        "path": "README.md",
+        "blob_sha": "9f56f7e9c29be1f4b490e2c916f1ab74c83f90ec",
+        "fixed": true,
+        "description": "明示用lgc编译器写的64位微内核；构建通过LGC_SRC提供自举源码路径",
+        "accessed_at": "2026-10-10T20:33:24Z"
+      },
+      {
+        "id": "lgc-os-build",
+        "title": "lgc-os外部自举编译器源码入口",
+        "url": "https://github.com/lightfl0w/lgc-os/blob/ba606a063fd557bf28ad13a4c16f9e214b0deddd/build.py#L14-L52",
+        "revision": "ba606a063fd557bf28ad13a4c16f9e214b0deddd",
+        "path": "build.py",
+        "blob_sha": "df42f8d49592a8a2ca0b774e22b81612e7118dfb",
+        "fixed": true,
+        "description": "LGC_SRC环境变量/default路径与lgc -f elf -b 0x180000 LGC_SRC usr/lgc.elf构建命令；未绑定lgc提交或版本",
+        "accessed_at": "2026-10-10T20:33:24Z"
+      },
+      {
+        "id": "lgc-os-tree",
+        "title": "lgc-os固定递归树",
+        "url": "https://github.com/lightfl0w/lgc-os/tree/ba606a063fd557bf28ad13a4c16f9e214b0deddd",
+        "api_url": "https://api.github.com/repos/lightfl0w/lgc-os/git/trees/ba606a063fd557bf28ad13a4c16f9e214b0deddd?recursive=1",
+        "revision": "ba606a063fd557bf28ad13a4c16f9e214b0deddd",
+        "fixed": true,
+        "description": "truncated=false；保存usr/lgc.elf，编译器源码由外部LGC_SRC提供",
+        "accessed_at": "2026-10-10T20:33:24Z"
+      },
+      {
+        "id": "lo29",
+        "title": "lgc-os固定源码：缺页中断按需映射",
+        "url": "https://github.com/lightfl0w/lgc-os/blob/ba606a063fd557bf28ad13a4c16f9e214b0deddd/kernel/core.lg#L1142-L1150",
+        "kind": "固定源码",
+        "supports": [
+          "读取保存的缺页错误码与地址并调用as_map_user处理缺页"
+        ],
+        "checked_at": "2026-10-10",
+        "revision": "ba606a063fd557bf28ad13a4c16f9e214b0deddd"
+      }
+    ]
+  }
+]

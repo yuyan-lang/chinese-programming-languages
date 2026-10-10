@@ -1,12 +1,26 @@
 <!doctype html>
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Y++｜中文编程语言百科</title><link rel="stylesheet" href="../style.css"></head><body><header><h1>Y++</h1></header><main><p><a href="../">返回语言目录</a></p>
-<h2>语言介绍</h2><p>【中文关键字语言；Windows 可视化应用开发】与 YStudio IDE 配套的中文语言，官网展示原生 Windows 应用开发、窗体设计、中文类型和控制流语法。</p>
+<h2>语言介绍</h2><p>Y++是由一点滴开发、与YStudio配套的中文关键字语言，面向Windows桌面工具、表单业务、网络客户端和本地自动化。源码以中文类型与函数、如果、返回等关键字组织逻辑，使用大括号划定语句块，支持中文标识符、数组、结构体、类及事件处理。工程把业务源码、窗口XML、YSS样式和DLL声明分文件管理，控件通过名称访问属性，窗口事件由设计器与中文函数连接。YStudio提供窗体设计、代码补全、断点调试与发布入口；官网说明编译目标为MSVC工具链生成的x86／x64原生程序。配套文档覆盖HTTP、JSON、数据库、图片和DLL交互，并按接口记录类型、资源管理及平台边界。当前资料可用于核对语法与工具链说明，发行物和独立运行结果继续待核实。</p>
 <h2>分类与别名</h2><p>中文关键字语言；Windows 可视化应用开发；别名：y++</p>
-<h2>作者与首次公开</h2><p>官网文档署名「一点滴」；具体开发者身份待核实。已找到作者于 2026-07-15 发布的视频；最早发布日期待核实，不将该视频当成首发</p>
-<h2>设计与特征</h2><p>中文类型关键字与真/假常量；窗口与事件；自定义结构体和类；DLL / WinAPI 声明；YSS 界面样式表</p>
-<h2>中文语法示例</h2><pre><code>整数 n = 0</code></pre><p>原始资料短摘录，用于展示中文语法；未在本轮执行，不保证单独运行。 <a href="https://www.yddphp.cn/docs/language.html">示例来源</a></p>
-<h2>实现与运行环境</h2><p>YStudio 编译与发布工具链；底层编译器实现语言和后端待核实。主逻辑 .yc、结构体 .yt、类 .ypp、API 声明 .yp。</p>
-<h2>版本与维护状态</h2><p>官网展示 YStudio v2.2；语言独立版本待核实；官网展示文档与 Windows x86/x64 安装包；本次没有下载安装运行。</p>
-<h2>与其他项目的关系</h2><p>Y++ 是语言、YStudio 是 IDE，不应作为两个语言计数。与第三方同名语言及易语言的代码继承关系待核实。</p>
-<h2>核验说明</h2><p>中文类型、常量与如果/返回直接见官方文档；code 是语言基础页面中单一原始连续片段，展示类型关键字，不是完整可运行程序。搜索索引可读取官方全文但直接 open 数次失败。最早发布日期及开源情况均未确认。</p>
-<h2>参考资料</h2><ul><li><a href="https://www.yddphp.cn/index.html">Y++ / YStudio 官网</a></li><li><a href="https://www.yddphp.cn/docs/language.html">Y++ 语言基础</a></li><li><a href="https://www.yddphp.cn/docs/image-support.html">图片支持库：中文条件语句实例</a></li><li><a href="https://www.yddphp.cn/docs/dll-pointers.html">Y++ 指针 / DLL 边界对照手册</a></li><li><a href="https://www.bilibili.com/video/BV1tSNq6AE7g/">作者视频：Y++高级界面【3】标签组件（2026-07-15）</a></li></ul><p>资料核验日期：2026-10-09</p><p><a href="https://github.com/yuyan-lang/chinese-programming-languages/issues/new">补充资料或纠错</a></p></main><footer>站点由<a href="https://yuyan-lang.org/">豫言编程语言</a>提供</footer></body></html>
+<h2>作者与公开历史</h2><p>一点滴；官网“关于与联系”明确列为Y++语言与YStudio IDE的个人开发维护者。B站教程账号署名“一点滴-侠之大者”。</p><p>最早公开日期待核实。原视频BV1tSNq6AE7g页面索引显示2026-07-15 10:46:10，作为已核教程发布时间记录；语言首发、官网上线和2.2发行日期分别待核实。</p>
+<h2>设计与特征</h2><p>中文类型、真／假常量及中文标识符；函数、条件分支、循环、选择与异常处理的文档语法；窗口XML、中文事件函数与控件属性访问；自定义结构体.yt与值语义类.ypp；DLL／WinAPI声明、动态加载与地址编组；YSS界面样式、MSVC x86／x64目标及IDE调试发布</p>
+<h2>中文语法示例</h2><pre><code>// 事件里写中文逻辑
+函数 按钮保存.被单击() {
+    如果 (文本框1.内容 == &quot;&quot;) {
+        信息框(&quot;内容不能为空&quot;)
+        返回()
+    }
+    标签状态.标题 = &quot;已保存&quot;
+}</code></pre><p>官网“语言一眼能看懂”中的8行连续事件原例，包含完整按钮保存处理函数；需配套窗口XML中的控件。替代原language.html类型表的单行展示，旧来源及原例记录保留。当前采用2026-10-10可读官方索引，网页实时内容及运行结果待核实。 <a href="https://www.yddphp.cn/index.html">示例来源</a></p>
+<h2>实现与运行环境</h2><p>官网说明YStudio结合单独分发的编译器，经MSVC工具链生成Windows x86／x64原生程序；编译器本体的实现语言、解析器和中间表示待核实。.yc保存业务与事件逻辑，.yt保存结构体，.ypp保存类，.yp保存DLL/API声明，.ysproj管理工程，.xml保存窗体，.yss保存样式。DLL文档说明通过LoadLibrary与GetProcAddress解析导出；图片支持库文档说明采用Windows WIC及Direct2D／DirectWrite。以上为作者文档证据，构建及运行结果待核实。</p>
+<h2>版本与维护状态</h2><p>官网显示YStudio 2.2.0.0／v2.2，并列出x86、x64 IDE安装包名称及独立编译器入口。语言独立版本号、首个正式发行日期、源码许可证与软件使用授权条款待核实。</p><p>官网公开文档持续可检索，署名个人维护。2026-10-10可读官网索引的下载区把两个IDE安装包及通用编译器标为“待发布”，路线区写当前v2.2可用；实际分发状态和更新时间待核实。本轮进行静态阅读，安装、构建、调试与发布测试均待核实。</p>
+<h2>与其他项目的关系</h2><p>Y++承担语言角色，YStudio承担IDE角色，两者按同一语言项目记录。YSS是配套界面样式；DLL／WinAPI属于外部互操作接口。与其他Y语言、第三方同名Y++及易语言的作者继承或源码关系待核实。</p>
+<h2>核验说明</h2><p>2026-10-10复核官网、language、image-support、dll-pointers及BV1tSNq6AE7g的公开索引；官网直接读取返回Cache miss，原视频直接读取受工具可达性限制，索引抓取时间约早于核验日两至三周。code升级为官网“语言一眼能看懂”中的8行完整连续事件原例，替代language.html §3.1的单行“整数 n = 0”；原参考保留。例中控件需要配套窗口XML，独立运行待核实。基础类型页将整数列为32位，第三方DLL页说明部分整数参数常为8字节，目标架构与ABI对应关系待核实。已核原例包含中文函数、如果及返回。源码公开地址、许可证、发行物与AI参与开发的作者声明待核实；文档中面向生成／修改代码的说明属于使用场景资料，AI在项目开发或执行链中的具体角色待核实。</p>
+<h2>参考资料</h2><ul><li><a href="https://www.yddphp.cn/index.html">Y++ / YStudio 官网</a></li>
+<li><a href="https://www.yddphp.cn/docs/language.html">Y++ 语言基础</a></li>
+<li><a href="https://www.yddphp.cn/docs/image-support.html">图片支持库：中文条件语句实例</a></li>
+<li><a href="https://www.yddphp.cn/docs/dll-pointers.html">Y++ 指针 / DLL 边界对照手册</a></li>
+<li><a href="https://www.bilibili.com/video/BV1tSNq6AE7g/">作者视频：Y++高级界面【3】标签组件（2026-07-15）</a></li>
+<li><a href="https://www.yddphp.cn/docs/index.html">Y++开发文档目录：类型、类与配套库</a></li>
+<li><a href="https://www.yddphp.cn/docs/dllapi.html">DLL／系统API声明与运行时加载</a></li>
+<li><a href="https://www.yddphp.cn/docs/third-party-dll.html">第三方DLL插件对接：MSVC参数宽度与内存边界</a></li></ul><p>资料核验日期：2026-10-10</p><p><a href="https://github.com/yuyan-lang/chinese-programming-languages/issues/new">补充资料或纠错</a></p></main><footer>站点由<a href="https://yuyan-lang.org/">豫言编程语言</a>提供</footer></body></html>

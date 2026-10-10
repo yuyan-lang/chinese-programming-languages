@@ -1,0 +1,44 @@
+[
+  {
+    "name": "未定名中文编译器（神丶樱空释）",
+    "record_type": "旧Issue #4候选升级为视频语法实验建议条目后的待补字段",
+    "new_candidate": false,
+    "source_project": "https://www.bilibili.com/video/BV1TFTi6vEkW/",
+    "source_issue": "https://github.com/yuyan-lang/chinese-programming-languages/issues/4",
+    "verified_this_round": [
+      "原BV、发布账号UID、12秒时长及UTC日期复核",
+      "末帧11.981495秒连续三行“变量”初始化原例",
+      "原片简介“-”和公开评论区0条",
+      "基线76语言目录BV与UID排重"
+    ],
+    "pending": [
+      "正式项目名称及作者个人或团队身份分工。",
+      "作者确认的公开源码、源码许可证及发行版本。",
+      "实现语言、词法器、解析器、后端和中文语法覆盖。",
+      "完整测试函数的逐字清晰原例及原片对应文件。",
+      "标题中自举阶段声明的流程、生成物与可复现证据。",
+      "AI所用模型／工具、文件贡献范围、人机分工和比例。",
+      "与目录其他项目的代码继承、改名、版本和作者关系。",
+      "作者主页投稿1与投稿列表空态的差异。"
+    ],
+    "references": [
+      {
+        "title": "原作者12秒视频：AI开发与自举阶段标题、中文代码画面",
+        "url": "https://www.bilibili.com/video/BV1TFTi6vEkW/"
+      },
+      {
+        "title": "原发布账号：神丶樱空释（UID435049642）",
+        "url": "https://space.bilibili.com/435049642/"
+      },
+      {
+        "title": "旧候选来源：Issue #4",
+        "url": "https://github.com/yuyan-lang/chinese-programming-languages/issues/4"
+      },
+      {
+        "title": "第二轮已有原片、作者和日期核验记录",
+        "url": "https://github.com/yuyan-lang/chinese-programming-languages/blob/65e45d07d80a36412625665931ce4a4402641480/research/2026-10-10/bilibili.md"
+      }
+    ],
+    "verified_at": "2026-10-10"
+  }
+]
