@@ -1,0 +1,114 @@
+[
+  {
+    "name": "说了算（Saysuan）",
+    "aliases": [
+      "Saysuan",
+      "saysuan",
+      "说了算"
+    ],
+    "discovery_status": "第十轮新发现，保留待核实",
+    "category": "中文数据分析DSL／双后端转译工具候选",
+    "author": "GitCode维护账号badhope；原项目头提交关联badhope。自然人署名、团队成员与其他平台同名账号身份待核实。",
+    "first_publication": "原仓根目录提交摘要称v0.9.0为首个开源版本；2026-10-10原页显示该提交及v0.9.0发行均为“11天前”。准确绝对日期、时区和最早公开记录待核实。",
+    "description": "说了算当前原README将项目定位为以普通话句式处理数据的工具，以.suan文件承载读表、筛选、分组汇总、排序和显示等操作。README还列出如果、否则、量词、数学及字符串函数；版本提交摘要保留函数、异常、模块与集合等早期语言能力说明。当前原页明确区分Python命令行后端和JavaScript浏览器后端，并在v1.0提交摘要中记录从编程语言定位转向中文数据口语工具。该定位及可读的连续中文操作支持按数据DSL方向继续核验；实际词法、解析、类型规则与两个后端覆盖范围待源码核实。",
+    "code": "从 \"订单.csv\" 读入 「订单表」\n\n取 「订单表」 里 金额 大于 200 的 行\n按 「订单表」 的 类别 分组，汇总 金额 的总和\n按 「排序后结果」 的 金额_总和 从大到小 排序\n显示 「排序后结果」",
+    "code_source": "https://gitcode.com/badhope/saysuan?tab=md#markdown-card-anchor",
+    "code_context": "2026-10-10约19:02:44 UTC在公开网页浏览器直接读取原README首个连续代码块，保留可读换行和标点。读取对象为当时main页面，头提交显示719f1b3db510902527c0ad9cc7d439fad92b16fc；固定提交文件正文与代码块字节对应继续待核实。订单.csv数据文件、隐式中间结果名称的绑定规则及运行输出待核实。搜索索引仍显示旧版“本月排行 来自”例程，该旧例单独作为历史索引线索。",
+    "fixed_commit": "719f1b3db510902527c0ad9cc7d439fad92b16fc",
+    "fixed_commit_evidence": "原仓main头部直接显示完整提交链接，消息为“v1.1 打磨优化：性能 + 一致性 + UX”。提交详情与该固定快照内各文件正文待核实。",
+    "implementation": "原README描述Node.js编译器分别输出Python＋pandas与JavaScript＋Chart.js。原目录可见src、运行时.py、test_saysuan.js、SPEC.md、demo*.suan及例子目录；可读提交摘要列types／tokenizer／compiler／cli／repl模块和compiler-js.js、runtime-js.js。源码文件正文、确定性语法处理、执行入口及后端差异待核实。",
+    "version": "当前原README标v1.1／SPEC v1.1.0，头提交摘要说明package.json及compiler.js统一到1.1.0；原页发行侧栏显示v0.9.0“首个开源版本”为最新发行。源码版本、规范版本、公开发行分别保留，发行正文与附件待核实。",
+    "license": "原README与项目侧栏标MIT；LICENSE正文、版权署名和第三方组件适用范围待核实。",
+    "ai_scope": "语言核心开发与应用运行中AI参与的原作者明确声明待核实。原README所见双后端说明按编译／转译设计记录。",
+    "relations": "68条目录、第九轮记录及15个开放Issue正文与评论中未发现该项目名称和原仓地址。当前v1.0转型和v0.9.0早期编程语言阶段属于同一原仓沿革。GitHub仓库搜索saysuan返回空结果；GitCode badhope与GitHub同名账号、X33834等跨平台身份链待原作者互链核实。",
+    "status": "取得原仓当前README、中文连续原例、根目录、提交摘要、头提交和发行侧栏。源码正文、绝对日期、完整许可与运行结果待核实，正式目录候选暂缓。",
+    "references": [
+      {
+        "title": "原项目当前README、中文原例与版本定位",
+        "url": "https://gitcode.com/badhope/saysuan?tab=md#markdown-card-anchor"
+      },
+      {
+        "title": "原仓根页与文件目录",
+        "url": "https://gitcode.com/badhope/saysuan"
+      },
+      {
+        "title": "原页可见头提交链接，详情待读取",
+        "url": "https://gitcode.com/badhope/saysuan/commit/719f1b3db510902527c0ad9cc7d439fad92b16fc?ref=main"
+      },
+      {
+        "title": "原目录提供的实现目录入口，文件正文待读取",
+        "url": "https://gitcode.com/badhope/saysuan/tree/main/src"
+      },
+      {
+        "title": "原页提供的发行集合入口，正文待读取",
+        "url": "https://gitcode.com/badhope/saysuan/releases"
+      }
+    ],
+    "pending": [
+      "读取固定提交的SPEC、中文样例、tokenizer、compiler、cli／repl及两个后端源码；核验DSL、解释与转译边界。",
+      "逐句追查README数据原例的隐式结果名，核对原始.suan程序与运行时匹配。",
+      "取得v0.9.0发行正文、绝对日期及首个提交，分别记录首发、提交、版本发布时间。",
+      "核实LICENSE正文、badhope署名、作者身份、跨平台同源关系及AI参与范围。",
+      "区分README测试数字、提交说明与独立运行证据。"
+    ],
+    "access_notes": "普通网页根页、README候选URL与Gitee同路径读取返回Internal Error；随后公开网页浏览器成功加载GitCode根目录与README。进一步DOM读取两次返回Page.getFrameTree超时，完整快照重读返回DOMSnapshot超时。同期另一候选GitCode文件区域显示频次受限登录提示，本轮停在公开已读页面证据，不登录、不转桌面、不开启源码下载或构建。",
+    "verified_at": "2026-10-10"
+  },
+  {
+    "name": "LightLang（NomiLight2026）",
+    "aliases": [
+      "lightLang",
+      "LightLang",
+      "Light",
+      "light-lang"
+    ],
+    "discovery_status": "第十轮新发现，保留待核实",
+    "category": "中文关键字编译语言／Rust原生扩展工具链候选",
+    "author": "原仓维护账号NomiLight2026；原页贡献者侧栏显示1位贡献者NomiLight2026。自然人署名、团队分工和历史账号待核实。",
+    "first_publication": "2026-10-10原页发行侧栏显示0.2.0为“14天前发布”。绝对日期、时区、仓库创建与语言最早公开记录待核实。",
+    "description": "LightLang当前原README将项目称为早期实验性中文编程语言，用户使用.light文件编写程序。原例采用如果、否则、打印等中文关键字，另有函数、返回、导入、尝试、捕获和最终结构。文档将lightc说明为含词法、语法、类型推导及LLVM代码生成的编译器，将lightrt说明为Rust运行时；lightGo负责工程、Cargo依赖及Rust FFI接入。README还说明light命令通过临时编译运行源文件，交互模式重编整段会话。上述机制作为原作者说明保存；源码入口、具体语义、实现完成度和同名项目关系继续核实。",
+    "code": "名字 = 输入()\n如果 名字 != \"\":\n    打印 \"你好，\" + 名字\n否则:\n    打印 \"请输入名字\"",
+    "code_source": "https://gitcode.com/NomiLight2026/lightLang?tab=md#markdown-card-anchor",
+    "code_context": "2026-10-10约19:03:02 UTC在公开网页浏览器直接读取原README“3. 中文语法，面向快速表达”下的完整连续五行程序。保留可读空格、换行与标点。文件区当时显示访问频次受限提示，固定提交与原始README文件字节对应待核实。",
+    "fixed_commit": null,
+    "fixed_commit_evidence": "待核实。当前文件区显示“当前访问频次受限，请登录后继续访问”。",
+    "implementation": "原README列Rust workspace、light、lightc、lightrt、lightgo、lightweb、examples等组件，描述LLVM代码生成及Rust静态库FFI；lightweb说明使用tiny_http。语言类型侧栏列Rust 94.92%，作为平台统计记录。实际Rust源码、LLVM后端构造、链接与运行入口待核实。",
+    "version": "README交互示例与发行包文件名标0.2.1；发行侧栏显示0.2.0为最新版本，主分支侧栏有19提交、4标签。文档版本、发行版与源码版本分别核实。",
+    "license": "README及项目侧栏声明GPL-3.0，README说明第三方依赖按各自许可。LICENSE正文与具体依赖许可待核实。",
+    "ai_scope": "项目侧栏包含atomcode标签。AI参与开发的具体工具、范围、作者说明与运行时是否调用AI继续待核实。",
+    "relations": "68条目录、第九轮记录及15个开放Issue正文与评论中未发现NomiLight2026/lightLang原仓。目录中光明lang-009也使用LightLang／.light名称；当前原页维护账号与实现路线分别保存，源码继承和明确独立关系待核实。网页翻译扩展及GitHub其他同名仓库仅作消歧，原作者互链待补。",
+    "status": "取得原仓当前README、连续中文原例、作者账号与发行侧栏；固定提交、源码、首发日期和同源关系待核实，正式目录候选暂缓。",
+    "references": [
+      {
+        "title": "原项目当前README与连续中文原例",
+        "url": "https://gitcode.com/NomiLight2026/lightLang?tab=md#markdown-card-anchor"
+      },
+      {
+        "title": "原项目账号、介绍、提交／标签统计与发行侧栏",
+        "url": "https://gitcode.com/NomiLight2026/lightLang"
+      },
+      {
+        "title": "原页提供的版本列表入口，正文待读取",
+        "url": "https://gitcode.com/NomiLight2026/lightLang/releases"
+      },
+      {
+        "title": "原页提供的标签入口，正文待读取",
+        "url": "https://gitcode.com/NomiLight2026/lightLang/tags"
+      },
+      {
+        "title": "原README所链许可入口，正文待读取",
+        "url": "https://gitcode.com/NomiLight2026/lightLang/tree/main/LICENSE"
+      }
+    ],
+    "pending": [
+      "取得原仓固定提交、词法与语法文件、LLVM代码生成及light／lightc执行入口，核对中文关键字和独立实现边界。",
+      "对照光明lang-009的LightLang别名与.light语法，建立原作者声明或源码层面的同源／独立证据。",
+      "核对0.2.0发行正文、0.2.1文档与源码版本、绝对发布时间和首次公开日期。",
+      "补LICENSE正文、作者署名、第三方组件及AI参与声明。",
+      "将临时编译、REPL全会话重编、跨平台CI和运行能力分别核验。"
+    ],
+    "access_notes": "普通网页根页和README候选路径返回Internal Error。公开网页浏览器初始可读项目介绍，点击公开README入口后读到完整文档，同时文件区出现“当前访问频次受限，请登录后继续访问”。本轮保留已读取的公开README，源码及提交请求停止；登录与绕路读取均未进行。",
+    "verified_at": "2026-10-10"
+  }
+]
+

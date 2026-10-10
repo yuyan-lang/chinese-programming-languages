@@ -1,0 +1,856 @@
+[
+  {
+    "id": "vergeos-tx",
+    "name": "VergeOS（TX工作室／FendosPE）",
+    "aliases": [],
+    "checked_at": "2026-10-10",
+    "selection_status": "待核实",
+    "discovery_round": 10,
+    "short_description": "B站账号FendosPE系统官方于2026-10-05发布的自研操作系统线索，简介关联TX工作室官网；官网提供VergeOS Beta的ISO分发入口。自身内核实现、架构、源码、许可及明确中国归属自述继续待核实。",
+    "author": {
+      "people": [
+        {
+          "handle": "FendosPE系统官方",
+          "bilibili_uid": "3493125223877029",
+          "bilibili_url": "https://space.bilibili.com/3493125223877029/"
+        }
+      ],
+      "organization": "TX工作室",
+      "attribution": {
+        "text": "原片由FendosPE系统官方发布，简介直接给出txgzsgw.mysxl.cn；网站标题和关于页署名TX工作室，列有VergeOS Beta和FendOSPE。",
+        "evidence_level": "作者声明",
+        "source_ids": [
+          "vt1",
+          "vt2",
+          "vt3"
+        ]
+      },
+      "china_basis": {
+        "text": "已读取原片、频道和TX工作室官网。明确中国开发者或中国社区归属的公开自述继续待核实。",
+        "status": "待核实",
+        "source_ids": [
+          "vt1",
+          "vt2",
+          "vt3"
+        ]
+      }
+    },
+    "kernel_positioning": {
+      "text": "原片标题将项目称为支持双启动的自研操作系统，官网将其列为VergeOS Beta。内核、引导组件、固件服务、现成系统和图形界面之间的实现边界继续待核实。",
+      "evidence_level": "作者声明",
+      "source_ids": [
+        "vt1",
+        "vt3"
+      ]
+    },
+    "dates": {
+      "first_public": {
+        "date": null,
+        "status": "待核实",
+        "known_public_record": "2026-10-05原片与公开ISO分享页。",
+        "source_ids": [
+          "vt1",
+          "vt4"
+        ]
+      },
+      "author_video": {
+        "date": "2026-10-05",
+        "displayed_datetime": "2026-10-05 12:42:06",
+        "timezone": "页面显示时区待核实",
+        "source_ids": [
+          "vt1"
+        ]
+      },
+      "distribution_record": {
+        "date": "2026-10-05",
+        "displayed_datetime": "2026-10-05 11:58:03",
+        "meaning": "123云盘公开提取页的分享时间，镜像构建时间待核实。",
+        "source_ids": [
+          "vt4"
+        ]
+      }
+    },
+    "architectures": [
+      {
+        "text": "处理器架构及双启动的具体协议待核实。",
+        "evidence_level": "待核实",
+        "source_ids": [
+          "vt1",
+          "vt3"
+        ]
+      }
+    ],
+    "capabilities": {
+      "boot": [
+        {
+          "text": "原片标题声明双启动；BIOS、UEFI及其他引导路径的实际关系待核实。",
+          "evidence_level": "作者声明",
+          "source_ids": [
+            "vt1"
+          ]
+        }
+      ],
+      "scheduling": [],
+      "memory": [],
+      "filesystem": [],
+      "drivers": []
+    },
+    "implementation_languages": [],
+    "project_relationships": [
+      {
+        "text": "同名VergeOS Open原片由新启年工作室-NES于2026-07-02发布，直接关联max257026-svg公开源码；本条的原片与TX官网入口独立保存。两条发布身份的合作、改名、派生及代码继承关系待核实。",
+        "evidence_level": "待核实",
+        "source_ids": [
+          "vt1",
+          "vt3",
+          "vt5",
+          "vt6"
+        ]
+      }
+    ],
+    "status": {
+      "observed_version": {
+        "version": "Beta",
+        "meaning": "TX官网当前公开名称",
+        "source_ids": [
+          "vt3"
+        ]
+      },
+      "source_snapshot": {
+        "status": "待核实"
+      },
+      "license": {
+        "status": "待核实"
+      },
+      "distribution": {
+        "name": "VergeOS.iso",
+        "source_ids": [
+          "vt3",
+          "vt4"
+        ],
+        "scope": "官网直达123云盘公开提取页，已核对文件名和分享时间。镜像内容、哈希和源码对应待核实。"
+      },
+      "runtime_verification": {
+        "status": "待核实",
+        "scope": "本轮覆盖原片、频道、官网及公开分发页。原片功能画面在DOMSnapshot与Page.getLayoutMetrics连续超时后收束；可靠时间点继续待核实。镜像下载、构建、安装和运行均未开展。"
+      }
+    },
+    "video_observations": [],
+    "links": {
+      "website": "https://txgzsgw.mysxl.cn/",
+      "video_channel": {
+        "url": "https://space.bilibili.com/3493125223877029/",
+        "source_ids": [
+          "vt1",
+          "vt2"
+        ]
+      },
+      "individual_video": {
+        "url": "https://www.bilibili.com/video/BV1UaHp6KEYx/",
+        "published_date": "2026-10-05",
+        "evidence": "已核对原片标题、作者UID、日期与官网地址；频道标示03:00。"
+      },
+      "distribution": "https://1817497108.share.123pan.cn/123pan/nvdTjv-DG3ih?pwd=1234#"
+    },
+    "pending_verification": [
+      "明确中国开发者或中国社区公开自述",
+      "自身内核、固件服务、现成组件及界面层的边界",
+      "处理器架构、实现语言、启动协议、任务调度、内存与文件系统及驱动",
+      "原作者源码入口、固定提交及许可证",
+      "VergeOS.iso内容、哈希、可复现构建及对应版本",
+      "TX工作室、FendosPE与新启年VergeOS Open之间的合作或代码继承关系",
+      "原片可靠功能画面时间点",
+      "独立构建、启动及功能运行"
+    ],
+    "sources": [
+      {
+        "id": "vt1",
+        "title": "FendosPE的VergeOS原片（2026-10-05）",
+        "url": "https://www.bilibili.com/video/BV1UaHp6KEYx/",
+        "kind": "作者原视频发布页",
+        "supports": [
+          "原作者账号",
+          "页面日期",
+          "双启动自研声明",
+          "官网直链"
+        ]
+      },
+      {
+        "id": "vt2",
+        "title": "FendosPE系统官方公开频道",
+        "url": "https://space.bilibili.com/3493125223877029/",
+        "kind": "作者频道",
+        "supports": [
+          "VergeOS开发合集",
+          "原片入口和时长"
+        ]
+      },
+      {
+        "id": "vt3",
+        "title": "TX工作室官网VergeOS区域",
+        "url": "https://txgzsgw.mysxl.cn/#vergeos",
+        "kind": "工作室官网",
+        "supports": [
+          "工作室名称",
+          "Beta名称",
+          "ISO分发入口",
+          "归属核验范围"
+        ]
+      },
+      {
+        "id": "vt4",
+        "title": "官网直达的VergeOS.iso公开分享页",
+        "url": "https://1817497108.share.123pan.cn/123pan/nvdTjv-DG3ih?pwd=1234#",
+        "kind": "分发元数据",
+        "supports": [
+          "VergeOS.iso文件名",
+          "2026-10-05分享日期"
+        ]
+      },
+      {
+        "id": "vt5",
+        "title": "新启年工作室同名VergeOS Open原片",
+        "url": "https://www.bilibili.com/video/BV1fPTj6FEcb/",
+        "kind": "同名项目原片",
+        "supports": [
+          "不同发布账号",
+          "2026-07-02原片",
+          "公开源码入口"
+        ]
+      },
+      {
+        "id": "vt6",
+        "title": "新启年工作室VergeOS Open固定README",
+        "url": "https://github.com/max257026-svg/VergeOS-Open-VoidOS-/blob/d6041c2f2c2a95d73b22a7df8142a0d7d345f319/README.md",
+        "kind": "同名项目固定文档",
+        "supports": [
+          "NewEra Studio署名",
+          "独立记录源码身份"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "vergeos-open-newera",
+    "name": "VergeOS Open（NewEra Studio）",
+    "aliases": [
+      "VoidOS"
+    ],
+    "checked_at": "2026-10-10",
+    "selection_status": "待核实",
+    "discovery_round": 10,
+    "short_description": "新启年工作室发布的x86 32位爱好者操作系统。作者原片直接关联公开C与汇编仓库，固定快照包含Multiboot入口、内存管理、任务轮转、tar初始内存盘及设备驱动；明确中国开发者或中国社区公开归属继续待核实。",
+    "author": {
+      "people": [
+        {
+          "handle": "max257026-svg",
+          "public_alias": "SYSTEM-WinDF-114514"
+        }
+      ],
+      "organization": "NewEra Studio（新启年工作室）",
+      "attribution": {
+        "text": "2026-07-02原片由新启年工作室-NES发布，简介直接列出仓库；固定README与LICENSE署名NewEra Studio；频道公告直接关联工作室官网。",
+        "evidence_level": "作者声明",
+        "source_ids": [
+          "vo1",
+          "vo2",
+          "vo3",
+          "vo4",
+          "vo26"
+        ]
+      },
+      "china_basis": {
+        "text": "已读取原片、频道、维护者GitHub主页、仓库README及官网产品、团队与时间轴。明确中国开发者或中国社区归属的公开自述继续待核实。",
+        "status": "待核实",
+        "source_ids": [
+          "vo1",
+          "vo2",
+          "vo3",
+          "vo4",
+          "vo5",
+          "vo6"
+        ]
+      }
+    },
+    "kernel_positioning": {
+      "text": "固定工程以Multiboot进入32位汇编入口，再调用C内核；构建配置独立链接voidos.bin，内核初始化中断、内存、任务、输入设备与图形入口。这些源码支持自身内核工程的定位。整体原创范围和上游继承继续待核实。",
+      "evidence_level": "源码可见",
+      "source_ids": [
+        "vo10",
+        "vo11",
+        "vo12"
+      ]
+    },
+    "dates": {
+      "first_public": {
+        "date": null,
+        "status": "待核实",
+        "known_public_record": "官网时间轴记述2026-06-27开发计划与2026-07-02发布；2026-07-02原片和GitHub初始提交均已定位。",
+        "source_ids": [
+          "vo1",
+          "vo5",
+          "vo8"
+        ]
+      },
+      "repository_created": {
+        "at": "2026-07-02T07:36:37Z",
+        "meaning": "GitHub created_at 元数据",
+        "source_ids": [
+          "vo7"
+        ]
+      },
+      "earliest_retained_commit": {
+        "at": "2026-07-02T07:36:55Z",
+        "commit": "d6041c2f2c2a95d73b22a7df8142a0d7d345f319",
+        "meaning": "当前main初始提交，parents为空",
+        "source_ids": [
+          "vo8"
+        ]
+      },
+      "author_video": {
+        "date": "2026-07-02",
+        "displayed_datetime": "2026-07-02 18:33:07",
+        "timezone": "页面显示时区待核实",
+        "source_ids": [
+          "vo1"
+        ]
+      }
+    },
+    "architectures": [
+      {
+        "text": "README列出x86 32位；入口使用BITS 32，编译目标为i686-elf、-m32与ELF32。",
+        "evidence_level": "源码可见",
+        "source_ids": [
+          "vo3",
+          "vo10",
+          "vo12"
+        ]
+      }
+    ],
+    "capabilities": {
+      "boot": [
+        {
+          "text": "Multiboot魔数、16KiB内核栈与kernel_main调用位于boot.asm；C入口读取Multiboot内存、模块和framebuffer信息。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "vo10",
+            "vo11"
+          ]
+        },
+        {
+          "text": "官网当前产品说明记录Legacy BIOS、CLI命令行与基础网络；网站所述阶段与固定仓库快照对应关系待核实。",
+          "evidence_level": "作者声明",
+          "source_ids": [
+            "vo6"
+          ]
+        }
+      ],
+      "scheduling": [
+        {
+          "text": "task.c保存32个任务槽、4KiB任务栈和就绪链表；task_yield按链表轮转并切换ESP。PIT回调累加tick_count。抢占调度、退出任务回收和切换正确性继续待核实。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "vo13",
+            "vo14"
+          ]
+        }
+      ],
+      "memory": [
+        {
+          "text": "物理页分配采用4KiB页位图，跟踪上限32MiB；分页模块建立0—32MiB恒等映射并设置CR3及CR0分页位。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "vo15",
+            "vo16"
+          ]
+        },
+        {
+          "text": "堆分配采用first-fit、块分裂和相邻空闲块合并；配置为16MiB上限、1MiB初始空间，按1MiB扩展。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "vo17",
+            "vo18"
+          ]
+        }
+      ],
+      "filesystem": [
+        {
+          "text": "initrd.c解析ustar内存盘，建立最多64项文件表，提供按名称查找、读取及列表接口。持久化磁盘文件系统与设备读写路径继续待核实。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "vo19"
+          ]
+        }
+      ],
+      "drivers": [
+        {
+          "text": "键盘与鼠标源码分别注册IRQ1与IRQ12，处理PS/2扫描码和三字节鼠标包；PIT注册IRQ0。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "vo14",
+            "vo21",
+            "vo22"
+          ]
+        },
+        {
+          "text": "图形驱动接受Multiboot帧缓冲参数，并包含BGA寄存器与PCI BAR0查找函数，设置1024×768×32bpp路径。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "vo20"
+          ]
+        }
+      ]
+    },
+    "implementation_languages": [
+      {
+        "text": "固定内核、驱动与库以C实现，启动、中断和上下文入口采用NASM汇编；build.sh配置C11 freestanding。",
+        "evidence_level": "源码可见",
+        "source_ids": [
+          "vo9",
+          "vo12"
+        ]
+      }
+    ],
+    "project_relationships": [
+      {
+        "text": "README使用VergeOS Open项目名及VoidOS工作目录；固定源码、输出文件和内核banner沿用VoidOS v0.2。",
+        "evidence_level": "作者声明",
+        "source_ids": [
+          "vo3",
+          "vo8",
+          "vo11"
+        ]
+      },
+      {
+        "text": "构建与运行脚本引用i686-elf工具链、NASM、QEMU；Windows工具配置指向lordmilko/i686-elf-tools 13.2.0与NASM 2.16.03，GRUB用于可选ISO构建。完整工具与分发包许可范围待核实。",
+        "evidence_level": "源码可见",
+        "source_ids": [
+          "vo12",
+          "vo27",
+          "vo28"
+        ]
+      },
+      {
+        "text": "ELF32加载器从initrd读取PT_LOAD段，映射权限参数为supervisor；PE32加载器解析i386文件并提供有限Win32桩。Shell将加载入口交给task_create和task_yield。完整用户态隔离、Windows应用兼容及程序运行继续待核实。",
+        "evidence_level": "源码可见",
+        "source_ids": [
+          "vo23",
+          "vo24",
+          "vo25"
+        ]
+      },
+      {
+        "text": "FendosPE系统官方另在2026-10-05发布同名VergeOS并关联TX工作室。两个发布账号、官网与分发入口分别保存；合作、改名与代码继承关系待核实。",
+        "evidence_level": "待核实",
+        "source_ids": [
+          "vo1",
+          "vo2",
+          "vo30",
+          "vo31"
+        ]
+      }
+    ],
+    "status": {
+      "source_snapshot": {
+        "branch": "main",
+        "commit": "d6041c2f2c2a95d73b22a7df8142a0d7d345f319",
+        "committed_at": "2026-07-02T07:36:55Z",
+        "source_ids": [
+          "vo8"
+        ]
+      },
+      "observed_version": {
+        "version": "v0.2",
+        "meaning": "初始提交标题与源码banner的版本文字",
+        "source_ids": [
+          "vo8",
+          "vo11"
+        ]
+      },
+      "latest_formal_release": {
+        "status": "待核实",
+        "observation": "2026-10-10读取GitHub Releases集合为空。",
+        "source_ids": [
+          "vo29"
+        ]
+      },
+      "license": {
+        "name": "MIT",
+        "scope": "根LICENSE署名2026 NewEra Studio；完整上游来源与第三方许可范围继续待核实。",
+        "source_ids": [
+          "vo26",
+          "vo27"
+        ]
+      },
+      "runtime_verification": {
+        "status": "待核实",
+        "scope": "本轮为公开页面与固定源码静态阅读。独立构建、启动、安装、脚本执行及ISO运行均未开展。原片可靠功能画面时间点与提交对应继续待核实。"
+      }
+    },
+    "video_observations": [],
+    "links": {
+      "source": "https://github.com/max257026-svg/VergeOS-Open-VoidOS-",
+      "website": "https://www.newera2625.top/",
+      "video_channel": {
+        "url": "https://space.bilibili.com/3546976190728987/",
+        "source_ids": [
+          "vo1",
+          "vo2"
+        ]
+      },
+      "individual_video": {
+        "url": "https://www.bilibili.com/video/BV1fPTj6FEcb/",
+        "published_date": "2026-07-02",
+        "evidence": "已核对作者、标题、页面日期、简介及仓库直链；频道标示00:36。"
+      }
+    },
+    "pending_verification": [
+      "明确中国开发者或中国社区公开自述",
+      "与TX工作室／FendosPE同名VergeOS的合作或代码继承关系",
+      "最早公开日期及v0.2以前历史",
+      "完整原始代码来源、第三方许可与参考工程关系",
+      "原片可靠功能时间点、固定提交和分发包的版本对应",
+      "独立构建、启动、任务切换、内存管理与设备运行",
+      "抢占调度、用户态隔离、PE兼容的实际范围",
+      "官网基础网络、文件系统路线与当前源码阶段对应",
+      "完整发行物、initrd内容与可复现构建资料"
+    ],
+    "sources": [
+      {
+        "id": "vo1",
+        "title": "VergeOS Open 作者原片（2026-07-02）",
+        "url": "https://www.bilibili.com/video/BV1fPTj6FEcb/",
+        "kind": "作者原视频发布页",
+        "supports": [
+          "发布账号",
+          "原片日期",
+          "仓库直接链接",
+          "x86与C/汇编声明"
+        ]
+      },
+      {
+        "id": "vo2",
+        "title": "新启年工作室 B站公开频道",
+        "url": "https://space.bilibili.com/3546976190728987/",
+        "kind": "作者频道",
+        "supports": [
+          "原片代表作",
+          "官网直接关联"
+        ]
+      },
+      {
+        "id": "vo3",
+        "title": "VergeOS Open 固定 README",
+        "url": "https://github.com/max257026-svg/VergeOS-Open-VoidOS-/blob/d6041c2f2c2a95d73b22a7df8142a0d7d345f319/README.md",
+        "kind": "固定作者文档",
+        "supports": [
+          "NewEra Studio署名",
+          "项目定位",
+          "架构和功能声明",
+          "VoidOS目录名称"
+        ]
+      },
+      {
+        "id": "vo4",
+        "title": "max257026-svg GitHub公开主页",
+        "url": "https://github.com/max257026-svg",
+        "kind": "维护者主页",
+        "supports": [
+          "公开技术账号",
+          "仓库归属",
+          "归属核验范围"
+        ]
+      },
+      {
+        "id": "vo5",
+        "title": "新启年工作室官网时间轴",
+        "url": "https://www.newera2625.top/#timeline",
+        "kind": "工作室自述",
+        "supports": [
+          "2026-06-27开发计划",
+          "2026-07-02发布记录"
+        ]
+      },
+      {
+        "id": "vo6",
+        "title": "新启年工作室官网产品页",
+        "url": "https://www.newera2625.top/#products",
+        "kind": "工作室自述",
+        "supports": [
+          "当前VergeOS开发中状态",
+          "Legacy BIOS与CLI和基础网络声明"
+        ]
+      },
+      {
+        "id": "vo7",
+        "title": "VergeOS Open 仓库元数据",
+        "url": "https://api.github.com/repos/max257026-svg/VergeOS-Open-VoidOS-",
+        "kind": "平台元数据",
+        "supports": [
+          "仓库创建日期",
+          "main分支",
+          "MIT识别"
+        ]
+      },
+      {
+        "id": "vo8",
+        "title": "固定初始提交",
+        "url": "https://github.com/max257026-svg/VergeOS-Open-VoidOS-/commit/d6041c2f2c2a95d73b22a7df8142a0d7d345f319",
+        "kind": "提交元数据",
+        "supports": [
+          "v0.2提交名",
+          "2026-07-02提交时间",
+          "快照"
+        ]
+      },
+      {
+        "id": "vo9",
+        "title": "完整固定源码树",
+        "url": "https://api.github.com/repos/max257026-svg/VergeOS-Open-VoidOS-/git/trees/d6041c2f2c2a95d73b22a7df8142a0d7d345f319?recursive=1",
+        "kind": "源码树元数据",
+        "supports": [
+          "85个文件与目录条目",
+          "静态范围",
+          "构建产物范围"
+        ]
+      },
+      {
+        "id": "vo10",
+        "title": "32位Multiboot启动入口",
+        "url": "https://github.com/max257026-svg/VergeOS-Open-VoidOS-/blob/d6041c2f2c2a95d73b22a7df8142a0d7d345f319/boot/boot.asm",
+        "kind": "固定源码快照",
+        "supports": [
+          "Multiboot头",
+          "32位入口",
+          "kernel_main调用"
+        ]
+      },
+      {
+        "id": "vo11",
+        "title": "内核初始化入口",
+        "url": "https://github.com/max257026-svg/VergeOS-Open-VoidOS-/blob/d6041c2f2c2a95d73b22a7df8142a0d7d345f319/kernel/kernel.c",
+        "kind": "固定源码快照",
+        "supports": [
+          "GDT/IDT/IRQ",
+          "内存和任务初始化",
+          "initrd模块与桌面入口"
+        ]
+      },
+      {
+        "id": "vo12",
+        "title": "C和汇编构建脚本",
+        "url": "https://github.com/max257026-svg/VergeOS-Open-VoidOS-/blob/d6041c2f2c2a95d73b22a7df8142a0d7d345f319/build.sh",
+        "kind": "固定构建配置",
+        "supports": [
+          "freestanding C11",
+          "i686目标",
+          "voidos.bin",
+          "ELF和PE源文件"
+        ]
+      },
+      {
+        "id": "vo13",
+        "title": "轮转任务实现",
+        "url": "https://github.com/max257026-svg/VergeOS-Open-VoidOS-/blob/d6041c2f2c2a95d73b22a7df8142a0d7d345f319/kernel/task.c",
+        "kind": "固定源码快照",
+        "supports": [
+          "32任务槽",
+          "就绪链表",
+          "主动yield和ESP切换"
+        ]
+      },
+      {
+        "id": "vo14",
+        "title": "PIT驱动",
+        "url": "https://github.com/max257026-svg/VergeOS-Open-VoidOS-/blob/d6041c2f2c2a95d73b22a7df8142a0d7d345f319/drivers/pit.c",
+        "kind": "固定源码快照",
+        "supports": [
+          "IRQ0计数器",
+          "调度范围核验"
+        ]
+      },
+      {
+        "id": "vo15",
+        "title": "物理内存页位图",
+        "url": "https://github.com/max257026-svg/VergeOS-Open-VoidOS-/blob/d6041c2f2c2a95d73b22a7df8142a0d7d345f319/kernel/mem.c",
+        "kind": "固定源码快照",
+        "supports": [
+          "4KiB页",
+          "32MiB跟踪上限",
+          "分配释放"
+        ]
+      },
+      {
+        "id": "vo16",
+        "title": "分页与映射",
+        "url": "https://github.com/max257026-svg/VergeOS-Open-VoidOS-/blob/d6041c2f2c2a95d73b22a7df8142a0d7d345f319/kernel/paging.c",
+        "kind": "固定源码快照",
+        "supports": [
+          "32MiB恒等映射",
+          "CR3和CR0",
+          "页面映射"
+        ]
+      },
+      {
+        "id": "vo17",
+        "title": "内核堆分配器",
+        "url": "https://github.com/max257026-svg/VergeOS-Open-VoidOS-/blob/d6041c2f2c2a95d73b22a7df8142a0d7d345f319/kernel/kmalloc.c",
+        "kind": "固定源码快照",
+        "supports": [
+          "first-fit",
+          "分裂合并",
+          "1MiB增长"
+        ]
+      },
+      {
+        "id": "vo18",
+        "title": "内核堆配置",
+        "url": "https://github.com/max257026-svg/VergeOS-Open-VoidOS-/blob/d6041c2f2c2a95d73b22a7df8142a0d7d345f319/kernel/kmalloc.h",
+        "kind": "固定源码快照",
+        "supports": [
+          "16MiB上限",
+          "1MiB初始值"
+        ]
+      },
+      {
+        "id": "vo19",
+        "title": "tar初始内存盘",
+        "url": "https://github.com/max257026-svg/VergeOS-Open-VoidOS-/blob/d6041c2f2c2a95d73b22a7df8142a0d7d345f319/kernel/initrd.c",
+        "kind": "固定源码快照",
+        "supports": [
+          "ustar解析",
+          "64文件表",
+          "查找读取"
+        ]
+      },
+      {
+        "id": "vo20",
+        "title": "BGA与framebuffer驱动",
+        "url": "https://github.com/max257026-svg/VergeOS-Open-VoidOS-/blob/d6041c2f2c2a95d73b22a7df8142a0d7d345f319/drivers/vbe.c",
+        "kind": "固定源码快照",
+        "supports": [
+          "PCI BAR0",
+          "BGA寄存器",
+          "1024×768×32bpp",
+          "Multiboot帧缓冲"
+        ]
+      },
+      {
+        "id": "vo21",
+        "title": "PS/2键盘驱动",
+        "url": "https://github.com/max257026-svg/VergeOS-Open-VoidOS-/blob/d6041c2f2c2a95d73b22a7df8142a0d7d345f319/drivers/keyboard.c",
+        "kind": "固定源码快照",
+        "supports": [
+          "IRQ1",
+          "扫描码与缓冲区"
+        ]
+      },
+      {
+        "id": "vo22",
+        "title": "PS/2鼠标驱动",
+        "url": "https://github.com/max257026-svg/VergeOS-Open-VoidOS-/blob/d6041c2f2c2a95d73b22a7df8142a0d7d345f319/drivers/mouse.c",
+        "kind": "固定源码快照",
+        "supports": [
+          "IRQ12",
+          "控制器命令",
+          "鼠标数据包"
+        ]
+      },
+      {
+        "id": "vo23",
+        "title": "ELF32加载器",
+        "url": "https://github.com/max257026-svg/VergeOS-Open-VoidOS-/blob/d6041c2f2c2a95d73b22a7df8142a0d7d345f319/kernel/elf.c",
+        "kind": "固定源码快照",
+        "supports": [
+          "ELF32与EM_386",
+          "PT_LOAD",
+          "supervisor映射"
+        ]
+      },
+      {
+        "id": "vo24",
+        "title": "PE32加载器与Win32桩",
+        "url": "https://github.com/max257026-svg/VergeOS-Open-VoidOS-/blob/d6041c2f2c2a95d73b22a7df8142a0d7d345f319/kernel/pe.c",
+        "kind": "固定源码快照",
+        "supports": [
+          "MZ/PE与i386",
+          "节映射",
+          "有限Win32桩"
+        ]
+      },
+      {
+        "id": "vo25",
+        "title": "Shell运行入口",
+        "url": "https://github.com/max257026-svg/VergeOS-Open-VoidOS-/blob/d6041c2f2c2a95d73b22a7df8142a0d7d345f319/kernel/shell.c",
+        "kind": "固定源码快照",
+        "supports": [
+          "run与wrun",
+          "task_create和task_yield"
+        ]
+      },
+      {
+        "id": "vo26",
+        "title": "根MIT许可证",
+        "url": "https://github.com/max257026-svg/VergeOS-Open-VoidOS-/blob/d6041c2f2c2a95d73b22a7df8142a0d7d345f319/LICENSE",
+        "kind": "固定许可证文件",
+        "supports": [
+          "NewEra Studio署名",
+          "MIT条款"
+        ]
+      },
+      {
+        "id": "vo27",
+        "title": "工具链安装脚本（只读）",
+        "url": "https://github.com/max257026-svg/VergeOS-Open-VoidOS-/blob/d6041c2f2c2a95d73b22a7df8142a0d7d345f319/scripts/setup_tools.bat",
+        "kind": "固定配置快照",
+        "supports": [
+          "lordmilko/i686-elf-tools 13.2.0",
+          "NASM 2.16.03",
+          "QEMU与GRUB依赖"
+        ]
+      },
+      {
+        "id": "vo28",
+        "title": "QEMU启动脚本（只读）",
+        "url": "https://github.com/max257026-svg/VergeOS-Open-VoidOS-/blob/d6041c2f2c2a95d73b22a7df8142a0d7d345f319/run.sh",
+        "kind": "固定配置快照",
+        "supports": [
+          "qemu-system-i386",
+          "128MiB内存配置",
+          "initrd.tar依赖"
+        ]
+      },
+      {
+        "id": "vo29",
+        "title": "GitHub Releases集合",
+        "url": "https://api.github.com/repos/max257026-svg/VergeOS-Open-VoidOS-/releases?per_page=100",
+        "kind": "平台元数据",
+        "supports": [
+          "核验时空集合"
+        ]
+      },
+      {
+        "id": "vo30",
+        "title": "TX工作室关联的同名VergeOS原片",
+        "url": "https://www.bilibili.com/video/BV1UaHp6KEYx/",
+        "kind": "同名项目原片",
+        "supports": [
+          "FendosPE账号",
+          "2026-10-05发布",
+          "TX官网关系"
+        ]
+      },
+      {
+        "id": "vo31",
+        "title": "TX工作室官网",
+        "url": "https://txgzsgw.mysxl.cn/#vergeos",
+        "kind": "同名项目官网",
+        "supports": [
+          "TX署名",
+          "VergeOS Beta分发"
+        ]
+      }
+    ]
+  }
+]
+

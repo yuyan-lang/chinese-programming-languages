@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>云易（云易IDE中文前端）｜中文编程语言百科</title><link rel="stylesheet" href="../style.css"></head><body><header><h1>云易（云易IDE中文前端）</h1></header><main><p><a href="../">返回语言目录</a></p>
+<h2>语言介绍</h2><p>云易是云易IDE内以中文语法编写.yy文件的转译前端。作者将其描述为易语言语法的中文C++开发工具。公开归档包含Python实现的词法分析器、AST语法分析器、语义检查和C++代码生成器，构建模块调用MinGW g++生成Windows程序。源程序以“子程序”“变量”“整数型”“如果”“计次循环”“当循环”等组织结构，并提供DLL导出、API声明、数据类型及类函数语法。配套IDE采用HTML/JavaScript前端和Python HTTP后端，作者视频及源码资料介绍Qt、Sciter界面库与AI智能体。条目按独立中文转译实现记录，易语言完整兼容性及源码继承关系继续核实。</p>
+<h2>分类与别名</h2><p>易语言风格中文C++转译实现／Web IDE；别名：云易；云易IDE；YUNYIIDE</p>
+<h2>作者与公开历史</h2><p>Bilibili账号“吃我一猫爪”（UID3546916505782992）；原片简介直接指向GitHub hualiang1k/YUNYIIDE。个人姓名与团队分工待核实。</p><p>已核对同作者云易IDE原片BV122ej6yE3b，video:release_date为2026-09-15T02:36:53.000Z（北京时间2026-09-15 10:36:53）。GitHub仓库创建于2026-10-01T08:56:17Z。更早首发日待核实。</p>
+<h2>设计与特征</h2><p>.yy中文源文件与Python词法／AST解析；中文变量、类型、条件、循环和子程序结构；语义检查后生成C++，构建路径调用MinGW g++；导出子程序、API在库声明、数据类型与类函数；Web IDE及Qt／Sciter界面库材料；AI智能体模块与作者演示材料</p>
+<h2>中文语法示例</h2><pre><code>  变量 整数型 剩余
+  剩余 = 3
+  输出(&quot;② 当循环：&quot;)
+  当循环 剩余 &gt; 0
+    输出(&quot;  剩余&quot;, 到文本(剩余), &quot;颗糖&quot;)
+    剩余 = 剩余 - 1
+  结束循环</code></pre><p>固定提交归档“不完整的软件开发环境.zip”内“工作区/循环演示/main.yy”第11—17行连续原文，UTF-8读取，保留两空格缩进；这是“子程序 程序入口() 整数型”内部片段。完整文件39行，另演示计次循环、判断循环首和循环判断首，最后返回0。代码经过文本静态核验，运行结果待核实。 <a href="https://github.com/hualiang1k/YUNYIIDE/blob/53d814b5a36c7fae2f66e0a4358ef35b8e5d2375/%E4%B8%8D%E5%AE%8C%E6%95%B4%E7%9A%84%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83.zip">示例来源</a></p>
+<h2>实现与运行环境</h2><p>公开归档中yunyi/lexer.py的tokenize处理.yy词法；yunyi/parser.py第979—994行把Token流转换为AST，第479—493行直接分派中文条件和循环关键字。yunyi/builder.py第365—434行读取.yy、调用parse_files及check_program，第477行调用generate_cpp；compile_yunyi第529行调用translate，第553—563行定位MinGW g++并加入C++17编译参数，第611行调用toolchain.run。yunyi/codegen.py第543—587行将IfStmt、ForRange、WhileStmt与DoWhileStmt生成C++控制结构。上述内容按静态源码可见记录；构建、执行和依赖完整性待核实。</p>
+<h2>版本与维护状态</h2><p>固定头提交53d814b5a36c7fae2f66e0a4358ef35b8e5d2375，提交时间2026-10-01T09:02:45Z。归档yunyi/__init__.py将编译器包版本设为1.0.0；GitHub Releases查询返回空数组。包版本与独立正式发行关系待核实。</p><p>原作者视频与公开GitHub归档可读；归档内中文原例、词法器、解析器、语义检查及C++生成链已完成静态核验。原仓库LICENSE为AGPL-3.0；第三方依赖与归档全部内容的许可适用范围待核实。</p>
+<h2>与其他项目的关系</h2><p>2026-09-19同作者原片BV1PBeh67E31简介明确使用“易语言语法”表述；parser.py第592行也将判断链称为易语言式。所读实现有自身Python词法、AST解析和C++代码生成路径；顶层支持范围由parse_program分派定义，传统易语言源格式的兼容范围待核实。按易语言风格转译实现分类，完整兼容范围、上游代码继承以及与传统易语言或其他同名项目的版本关系待核实。GitHub fork=false只用于仓库元数据识别。</p>
+<h2>核验说明</h2><p>2026-10-10只读核验。GitHub文件树只有README.md、LICENSE及1965910字节ZIP；README另提供夸克盘“完整源码”入口，本轮证据采用GitHub固定归档。通过公开网页浏览器下载默认分支原文件后复算Git blob SHA=95e1a30b01bcefab55c6ed35eadbcbfea0efa66c，与固定提交树完全相同，固定来源可追溯。归档以Python标准库zipfile读取文本，项目模块、脚本和二进制均保持未执行。BV122ej6yE3b约00:32—00:34可见main.yy中的中文导出子程序和返回结构，画面精确字符转录待核实；代码采用归档原例。BV1D6aB63EUh页面初始显示2026-10-01 17:29:41，BV1PBeh67E31初始显示2026-09-19 21:23:40，二者精确UTC元数据待核实。</p>
+<h2>参考资料</h2><ul><li><a href="https://www.bilibili.com/video/BV1D6aB63EUh/">原作者开源视频：简介直接给GitHub仓库</a></li>
+<li><a href="https://www.bilibili.com/video/BV122ej6yE3b/">原作者云易IDE演示：2026-09-15元数据及中文代码画面</a></li>
+<li><a href="https://www.bilibili.com/video/BV1PBeh67E31/">原作者AI与Qt／Sciter演示：易语言语法定位</a></li>
+<li><a href="https://space.bilibili.com/3546916505782992/">作者主页</a></li>
+<li><a href="https://github.com/hualiang1k/YUNYIIDE/blob/53d814b5a36c7fae2f66e0a4358ef35b8e5d2375/README.md">固定README：Web架构与中文→C++→MinGW路线</a></li>
+<li><a href="https://github.com/hualiang1k/YUNYIIDE/blob/53d814b5a36c7fae2f66e0a4358ef35b8e5d2375/%E4%B8%8D%E5%AE%8C%E6%95%B4%E7%9A%84%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83.zip">固定公开源码归档：中文.yy原例、yunyi解析器及构建链</a></li>
+<li><a href="https://api.github.com/repos/hualiang1k/YUNYIIDE/git/trees/53d814b5a36c7fae2f66e0a4358ef35b8e5d2375?recursive=1">固定提交完整树与归档Git blob SHA</a></li>
+<li><a href="https://github.com/hualiang1k/YUNYIIDE/blob/53d814b5a36c7fae2f66e0a4358ef35b8e5d2375/LICENSE">固定LICENSE：AGPL-3.0</a></li></ul><p>资料核验日期：2026-10-10</p><p><a href="https://github.com/yuyan-lang/chinese-programming-languages/issues/new">补充资料或纠错</a></p></main><footer>站点由<a href="https://yuyan-lang.org/">豫言编程语言</a>提供</footer></body></html>

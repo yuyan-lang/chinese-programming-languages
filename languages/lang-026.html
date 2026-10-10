@@ -1,14 +1,37 @@
 <!doctype html>
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>档案管理语言｜中文编程语言百科</title><link rel="stylesheet" href="../style.css"></head><body><header><h1>档案管理语言</h1></header><main><p><a href="../">返回语言目录</a></p>
-<h2>语言介绍</h2><p>【语言】用于计算机教学、强调数据操作与参考文档的中文语言。</p>
-<h2>分类与别名</h2><p>语言；别名：DGY</p>
-<h2>作者与首次公开</h2><p>wwwwyyt（账号；实名待核实）。仓库创建 2026-04-22；语言首次公开发布日期待核实</p>
-<h2>设计与特征</h2><p>中文语法／关键字；有公开实现源码</p>
-<h2>中文语法示例</h2><pre><code>设 A = 1
-设 B = 2
-存 1 1 到 #A #B</code></pre><p>原始资料短摘录，用于展示中文语法；未在本轮执行，不保证单独运行。 <a href="https://github.com/wwwwyyt/dgy-lang/blob/3d626fa851325d6cbe1c405ac7d88a633ef523ab/README.md">示例来源</a></p>
-<h2>实现与运行环境</h2><p>C实现lexer/parser/stack/core；已核对词法保留字表。</p>
-<h2>版本与维护状态</h2><p>待核实；开发中（README）</p>
-<h2>与其他项目的关系</h2><p>作者明确受Forth启发；非档案管理业务DSL，README定位计算机教学。</p>
-<h2>核验说明</h2><p>2026-10-09只读核验。1星，非fork；最后推送2026-09-12T05:44:22Z。日期为仓库创建不代表首发。功能、性能、通过测试数量未独立复测。</p>
-<h2>参考资料</h2><ul><li><a href="https://github.com/wwwwyyt/dgy-lang/blob/3d626fa851325d6cbe1c405ac7d88a633ef523ab/README.md">项目README（核验快照）</a></li><li><a href="https://github.com/wwwwyyt/dgy-lang/blob/3d626fa851325d6cbe1c405ac7d88a633ef523ab/src/dgy_lexer.c">实现或样例证据</a></li><li><a href="https://api.github.com/repos/wwwwyyt/dgy-lang">仓库元数据</a></li></ul><p>资料核验日期：2026-10-09</p><p><a href="https://github.com/yuyan-lang/chinese-programming-languages/issues/new">补充资料或纠错</a></p></main><footer>站点由<a href="https://yuyan-lang.org/">豫言编程语言</a>提供</footer></body></html>
+<h2>语言介绍</h2><p>档案管理语言（DGY）是一项面向计算机教学的中文语言项目，作者wwwwyyt明确以Forth为设计灵感，并强调以数据操作和参考文档组织编程。语言围绕词语、词典、栈中单元及寄存器构建模型，以“设”定义简单词语，以成对等号界定复杂词语，使用“存……到……”传递数据，以“令……结果存／无结果”表达调用，另设中文分支和循环语句。仓库保存BNF文法、完整九九乘法表原例及持续讨论语义的开发日志。C源码包含宽字符词法识别、逐句语法匹配、中间语句结构、词典与栈模块；语义分析器已编写部分词语处理函数，多种执行和控制流处理函数保留占位。当前程序入口接入测试框架，默认分析测试函数体为空。字节码虚拟机属于设计目标，完整执行链和原例运行结果待核实。</p>
+<h2>分类与别名</h2><p>独立中文教学语言／词典与栈式编译解释器原型；别名：DGY</p>
+<h2>作者与公开历史</h2><p>wwwwyyt（GitHub仓库账号及主要Git提交署名）；中文实名待核实。</p><p>当前可达根提交97b8f6d30d81a3a136efabd365cd6bb2978177c1的作者与提交者时间均为2026-04-22T06:56:14Z，保存中文demo.md草案。GitHub仓库创建于同日09:01:49Z。2026-05-20开发日志记录参考Forth进行设计。语言首次公开日期及正式发行日期待核实，各类时间分别记录。</p>
+<h2>设计与特征</h2><p>面向教学的数据操作与文档中心设计；中文词语定义、存值、调用、分支和循环语法；词典、数据栈、代码栈与寄存器模型；BNF文法及完整中文九九乘法表原例；C词法器、逐句解析器与DgyStatement中间结构；开发中的语义分析与内置整数运算模块</p>
+<h2>中文语法示例</h2><pre><code>    设 A = 1
+    设 B = 2
+    存 1 到 #A
+    存 1 到 #B
+</code></pre><p>固定test/test_01_九九乘法表.dgy第21—24行连续原文，保留4空格缩进及行末换行，展示词语A／B定义与两条存值语句。完整37行九九乘法表原件见来源链接，后文继续调用、分支及循环。README对应初始化采用一条批量存值写法，主例依据test文件保存。此处为完整程序中的连续短片段；完整运行环境及执行结果待核实。 <a href="https://github.com/wwwwyyt/dgy-lang/blob/3d626fa851325d6cbe1c405ac7d88a633ef523ab/test/test_01_%E4%B9%9D%E4%B9%9D%E4%B9%98%E6%B3%95%E8%A1%A8.dgy#L21-L24">示例来源</a></p>
+<h2>实现与运行环境</h2><p>当前实现为C原型。dgyDoLexerOnce用fgetwc读取宽字符，按立即数、字符串、注释、中文保留字、操作符、词语和单元规则写入符号栈。dgyDoParserOnce调用词法器，按语句状态匹配并填充DgyStatement；README-dev将此方法描述为基于LR(0)原理的简化语句识别。dgyDoAnalyserOnce取得一条中间语句，按StatType分派到语义处理函数，词语声明代码操作词典和代码栈。parse_Mov、parse_Exec、分支、跳转及循环函数当前主要为占位；dgy_core提供初始化与销毁，DgyCore声明数据栈、代码栈、词典和16个寄存器。dgy_builtin保留相加、相减、相乘、相整除的C实现。main调用dgyUnitTest，当前有效分支调用空的test_analyser；从源文件到完整字节码执行的接通状态待核实。</p>
+<h2>版本与维护状态</h2><p>固定源码为3d626fa851325d6cbe1c405ac7d88a633ef523ab。本轮GitHub Releases与标签引用集合均为空；正式版本编号和发行日期待核实。固定文件树保存dgy.exe与dgy.pdb，二进制来源、构建对应关系及可执行能力待核实。根树40项且truncated=false，项目许可证待核实；仓库元数据的license字段为null。</p><p>README标注开发中，2026-10-10核验时GitHub仓库公开且archived=false。固定main末次提交时间为2026-09-12T05:43:59Z，最后推送05:44:22Z。当前可核验内容为设计文档、中文原例和分阶段实现源码；完整构建、语言执行与教学使用情况待核实。</p>
+<h2>与其他项目的关系</h2><p>README明确以Forth为灵感；开发日志讨论词典、栈与中文后缀调用，2026-09-11进一步说明词典用于保存索引并讨论代码栈、数据栈和返回栈。该关系按设计借鉴记录，具体Forth实现的源码继承关系待核实。旧仓库路径wwwwyyt/datamate-lang的API重定向指向仓库ID1217829829，与当前dgy-lang一致；历史合并提交保留旧路径，按同一项目沿革记录。2026-04-22的demo.md和Python词法器占位属于早期草案，当前主要实现采用C。项目用途依据作者的计算机教学定位。</p>
+<h2>核验说明</h2><p>2026-10-10只读核验：读取固定README、README-dev、design、log、词法器／解析器／语义分析器、core、builtin、词典接口、测试入口及完整原例。默认分支71次可达提交，根提交无父提交。中文关键字表与语句匹配源码提供独立语法证据；字节码与虚拟机按设计阶段记录。当前builtin中的dgyDictAdd调用仍采用旧参数形式，dgy_dict.h声明为DictItem指针接口，接口协调和构建结果待核实。设计、README及test原例的语法差异分别保留，运行正确性待核实。AI参与开发、正式许可、对外发行及首发原件继续待核实。</p>
+<h2>参考资料</h2><ul><li><a href="https://github.com/wwwwyyt/dgy-lang/blob/3d626fa851325d6cbe1c405ac7d88a633ef523ab/README.md">项目README（核验快照）</a></li>
+<li><a href="https://github.com/wwwwyyt/dgy-lang/blob/3d626fa851325d6cbe1c405ac7d88a633ef523ab/src/dgy_lexer.c">实现或样例证据</a></li>
+<li><a href="https://api.github.com/repos/wwwwyyt/dgy-lang">仓库元数据</a></li>
+<li><a href="https://github.com/wwwwyyt/dgy-lang/blob/3d626fa851325d6cbe1c405ac7d88a633ef523ab/test/test_01_%E4%B9%9D%E4%B9%9D%E4%B9%98%E6%B3%95%E8%A1%A8.dgy">完整连续九九乘法表原始文件</a></li>
+<li><a href="https://github.com/wwwwyyt/dgy-lang/blob/3d626fa851325d6cbe1c405ac7d88a633ef523ab/README-dev.md">开发文档：BNF文法、单元与寄存器、语法分析方法</a></li>
+<li><a href="https://github.com/wwwwyyt/dgy-lang/blob/3d626fa851325d6cbe1c405ac7d88a633ef523ab/design.md">语言设计：词典、栈式模型与字节码目标</a></li>
+<li><a href="https://github.com/wwwwyyt/dgy-lang/blob/3d626fa851325d6cbe1c405ac7d88a633ef523ab/log.md">开发日志：Forth设计借鉴与2026年阶段记录</a></li>
+<li><a href="https://github.com/wwwwyyt/dgy-lang/blob/3d626fa851325d6cbe1c405ac7d88a633ef523ab/src/dgy_parser.c">逐句语法匹配与词法器调用</a></li>
+<li><a href="https://github.com/wwwwyyt/dgy-lang/blob/3d626fa851325d6cbe1c405ac7d88a633ef523ab/src/dgy_stat.h">语句中间结构DgyStatement</a></li>
+<li><a href="https://github.com/wwwwyyt/dgy-lang/blob/3d626fa851325d6cbe1c405ac7d88a633ef523ab/src/dgy_analyser.c">语义分析分派、词语处理与占位函数</a></li>
+<li><a href="https://github.com/wwwwyyt/dgy-lang/blob/3d626fa851325d6cbe1c405ac7d88a633ef523ab/src/dgy_core.h">运行状态、栈与16寄存器声明</a></li>
+<li><a href="https://github.com/wwwwyyt/dgy-lang/blob/3d626fa851325d6cbe1c405ac7d88a633ef523ab/src/dgy_core.c">核心初始化及销毁</a></li>
+<li><a href="https://github.com/wwwwyyt/dgy-lang/blob/3d626fa851325d6cbe1c405ac7d88a633ef523ab/src/dgy_builtin.c">内置整数运算模块</a></li>
+<li><a href="https://github.com/wwwwyyt/dgy-lang/blob/3d626fa851325d6cbe1c405ac7d88a633ef523ab/src/dgy_dict.h">当前词典接口</a></li>
+<li><a href="https://github.com/wwwwyyt/dgy-lang/blob/3d626fa851325d6cbe1c405ac7d88a633ef523ab/src/dgy_main.c">当前main入口</a></li>
+<li><a href="https://github.com/wwwwyyt/dgy-lang/blob/3d626fa851325d6cbe1c405ac7d88a633ef523ab/src/dgy_test.c">当前测试入口与空分析测试函数</a></li>
+<li><a href="https://github.com/wwwwyyt/dgy-lang/commit/97b8f6d30d81a3a136efabd365cd6bb2978177c1">Git根提交及日期</a></li>
+<li><a href="https://github.com/wwwwyyt/dgy-lang/blob/97b8f6d30d81a3a136efabd365cd6bb2978177c1/demo.md">根提交中的中文设计草案</a></li>
+<li><a href="https://github.com/wwwwyyt/dgy-lang/blob/8aa3c3790bedb5a6cc82f8a6cb4c8e49317a6ba6/demo.py">早期Python词法器占位</a></li>
+<li><a href="https://api.github.com/repos/wwwwyyt/datamate-lang">旧datamate-lang仓库路径的重定向</a></li>
+<li><a href="https://github.com/wwwwyyt/dgy-lang/tree/3d626fa851325d6cbe1c405ac7d88a633ef523ab">固定完整文件树</a></li>
+<li><a href="https://github.com/wwwwyyt/dgy-lang/releases">公开发行列表</a></li></ul><p>资料核验日期：2026-10-10</p><p><a href="https://github.com/yuyan-lang/chinese-programming-languages/issues/new">补充资料或纠错</a></p></main><footer>站点由<a href="https://yuyan-lang.org/">豫言编程语言</a>提供</footer></body></html>

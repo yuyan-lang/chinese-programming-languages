@@ -1,0 +1,33 @@
+[
+  {
+    "name": "飞鱼中文编程",
+    "source_url": "https://www.bilibili.com/video/BV12R4y1L7Kc/",
+    "author": "飞鱼中文编程，Bilibili UID98575563",
+    "author_url": "https://space.bilibili.com/98575563/",
+    "publication": "宣传原片初始原站页面显示2022-02-21 18:22:06，基础语法教程初始显示2022-02-25 11:38:43；精确UTC元数据待核实。浏览器客户端随后显示不同时区日期，日志分别保存。",
+    "category": "基于UNI／VUE的中文可视化开发平台与中文语法前端候选",
+    "description": "原账号简介将飞鱼定位为全中文编程平台；宣传原片说明采用UNI／VUE框架，并称可生成H5网页、安卓APP、苹果APP和微信小程序，配有组件市场。官方课程包含数据类型、基础语法、文本、数学、数组、网络请求、组件封装等。基础语法原片约00:15与00:33的概览图可读“变量”“加减乘除”“如果/否则”“计次循环”。各平台支持范围和编译实现按作者说明保存。",
+    "code": "",
+    "code_context": "基础语法视频BV1rb4y1s74k约00:15和00:33的概览图已读；完整连续程序、关键字与标点的逐字转录及精确暂停帧仍待核实。播放器时间定位与交互反复出现超时，因此收束画面核验。",
+    "source_status": "宣传原片、作者UID和同作者基础语法视频正文可读。作者资料公开列官网www.800.ink；普通网页打开失败，官网当前状态、语法文档、编译器源码和许可证待核实。",
+    "relations": "首轮chinese_bilibili_research.md已记录“飞鱼：跨13平台宣传视频”的索引线索。本轮补齐原BV、UID、原站日期与UNI／VUE定位，计为旧线索补证。与68项目录名称、别名和原BV及开放Issues排重后保持独立待核候选。",
+    "access_note": "宣传片两次读取元数据时Page.getFrameTree超时；基础教程可取得概览图，后续DOMSnapshot.captureSnapshot和Page.getFrameTree超时。已在同一公开网页浏览器做有限新页恢复；无需登录的公开层材料单独保存。基础教程初始日期为2022-02-25 11:38:43，客户端画面后显示2022-02-24 19:38:43；原片时区元数据继续待核实。",
+    "status": "旧索引补证，待核实；本项目正式目录新增数0。",
+    "next_step": "优先取得作者静态中文原例、语法手册或公开清晰视频代码帧；核对中文源文件和UNI／VUE生成边界、版本及源码许可。",
+    "verified_at": "2026-10-10",
+    "references": [
+      {
+        "title": "原作者宣传片与UNI／VUE平台说明",
+        "url": "https://www.bilibili.com/video/BV12R4y1L7Kc/"
+      },
+      {
+        "title": "原作者基础语法教程",
+        "url": "https://www.bilibili.com/video/BV1rb4y1s74k/"
+      },
+      {
+        "title": "原作者主页",
+        "url": "https://space.bilibili.com/98575563/"
+      }
+    ]
+  }
+]
