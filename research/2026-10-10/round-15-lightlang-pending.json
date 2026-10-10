@@ -1,0 +1,69 @@
+[
+  {
+    "name": "LightLang（NomiLight2026）",
+    "discovery_status": "第十轮旧候选，本轮补齐中文原例与实现链后正式收录；新增语言对象1，真正新发现0",
+    "tracking_issue": "https://github.com/yuyan-lang/chinese-programming-languages/issues/31",
+    "repository": "https://github.com/oneone1565/LightLang",
+    "upstream_candidate": "https://gitcode.com/NomiLight2026/lightLang",
+    "fixed_commit": "38aa05b295a53a2591617a5c3bc8f7b08595de25",
+    "resolved": [
+      "GitHub固定提交、中文词法映射、缩进解析、AST、类型推导、LLVM IR生成及Clang链接入口已读。",
+      "取得examples/hello.lt第1—11行连续中文函数原文，并将第十轮README五行原例固定到当前README第104—108行。",
+      "两条GitCode地址合并提交建立与NomiLight2026/lightLang旧候选的同源历史联系，按一个对象记录。",
+      "固定LICENSE为GPL第3版正文，README明确GPL-3.0及第三方依赖独立许可。",
+      "当前五个crate为0.2.1；0.2.0标签指向d507d3a，其lightc清单为0.2.0。根提交日期、GitHub创建日期与发行记录分别保存。",
+      "与光明lang-009的账户、包名、主要实现语言及入口已通过原仓文件分别记录。"
+    ],
+    "pending": [
+      "补齐GitCode固定头提交及0.2.0发行正文、绝对发布时间和附件，核对GitHub副本与原仓当前快照的同步范围。",
+      "核对语言最早公开日期、GitCode仓库创建日期及0.1.0、0.2.0、0.2.1首次对外发行时间；现存提交时间与GitHub创建时间分开保留。",
+      "取得作者自然人或团队署名、账号互链及维护分工；现有证据记录NomiLight2026提交署名与oneone1565仓库归属。",
+      "取得与skywalk163/light光明的原作者设计、继承或独立关系说明，或进行针对性源码沿革比对；名称和扩展名相同单独记录。",
+      "核对完整构建、运行及平台兼容性，并取得CI运行日志和产物；当前证据为配置文件及源码静态阅读。",
+      "核对README输入判空原例与字符串比较语义：当前gen_cmp浮点走fcmp，其余走icmp i64，字符串内容比较和执行结果待核实。",
+      "补充AI参与开发的具体范围、工具、模型、生成比例和运行期调用说明；atomcode标签及gitee-bot文档提交按工具活动线索记录。",
+      "补充项目版权署名和第三方依赖许可清单。"
+    ],
+    "implementation_boundaries": [
+      "light交互入口每次将历史与新输入串接后重新编译并运行；副作用处理、会话增长性能及交互完整语义待核实。",
+      "lightc递归解析导入文件并合并Program；模块隔离、命名空间和FFI覆盖范围待核实。",
+      "CI配置在.gitcode/workflows目录，GitHub Actions运行集合返回total_count=0；各平台步骤的完成结果继续核实。"
+    ],
+    "issue_update_guidance": "Issue #31同时跟踪说了算（Saysuan）。本轮仅更新LightLang相关已核与待核项，说了算相关任务继续保留；本议题继续开放。",
+    "references": [
+      {
+        "title": "固定连续原例",
+        "url": "https://github.com/oneone1565/LightLang/blob/38aa05b295a53a2591617a5c3bc8f7b08595de25/examples/hello.lt#L1-L11"
+      },
+      {
+        "title": "GitCode来源合并历史",
+        "url": "https://github.com/oneone1565/LightLang/commit/07a25c1766f992e2debd2c9a6c4955882c3516e4"
+      },
+      {
+        "title": "README输入判空原例",
+        "url": "https://github.com/oneone1565/LightLang/blob/38aa05b295a53a2591617a5c3bc8f7b08595de25/README.md#L104-L108"
+      },
+      {
+        "title": "比较运算实际生成路径",
+        "url": "https://github.com/oneone1565/LightLang/blob/38aa05b295a53a2591617a5c3bc8f7b08595de25/lightc/src/codegen.rs#L1652-L1685"
+      },
+      {
+        "title": "GitHub标签对象",
+        "url": "https://api.github.com/repos/oneone1565/LightLang/git/refs/tags"
+      },
+      {
+        "title": "GitHub发行集合",
+        "url": "https://api.github.com/repos/oneone1565/LightLang/releases?per_page=100"
+      },
+      {
+        "title": "CI配置",
+        "url": "https://github.com/oneone1565/LightLang/blob/38aa05b295a53a2591617a5c3bc8f7b08595de25/.gitcode/workflows/ci.yml"
+      },
+      {
+        "title": "文档更新的gitee-bot提交记录",
+        "url": "https://github.com/oneone1565/LightLang/commit/8b37b51e3e0637009c4116bd4a7eebe4936350aa"
+      }
+    ],
+    "verified_at": "2026-10-10"
+  }
+]
