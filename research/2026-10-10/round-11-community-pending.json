@@ -1,0 +1,109 @@
+[
+  {
+    "name": "折言（Origami中文关键字扩展）",
+    "record_type": "已收录建议条目的待补字段",
+    "new_candidate": false,
+    "source_project": "https://github.com/php-any/origami",
+    "fixed_commit": "49725fc86250f46515b1d5f0e49ed2c71da5c401",
+    "history_commit": "e6e8b403b6d107e2d694639ffa9786c4277f3da2",
+    "classification": "融合脚本语言的中文词元扩展／Go AST解释实现（历史默认启用阶段）",
+    "pending": [
+      "核对当前官方构建或嵌入方式中重新注册中文词元的入口及原作者说明。",
+      "核对各发行附件与历史中文启用阶段的对应关系，并取得独立运行证据。",
+      "补完整许可正文、版权署名、上游继承及依赖许可范围。",
+      "核实V2EX账号2024与GitHub cyz-home的显式身份链、仓库创建至根提交间的历史、准确首次公开日。",
+      "核实AI开发参与范围及核心中文扩展的人机分工。"
+    ],
+    "references": [
+      {
+        "title": "原作者V2EX项目介绍与直接仓库链接（2025-08-01）",
+        "url": "https://www.v2ex.com/t/1149147"
+      },
+      {
+        "title": "原作者V2EX中文注册机制及连续中文程序",
+        "url": "https://www.v2ex.com/t/1149176"
+      },
+      {
+        "title": "2025-08-15主入口默认注册移除差异",
+        "url": "https://github.com/php-any/origami/commit/5015c8d005d94656e399f1a670da3bbd41c99490"
+      },
+      {
+        "title": "当前README定位、中文支持和MIT声明",
+        "url": "https://github.com/php-any/origami/blob/49725fc86250f46515b1d5f0e49ed2c71da5c401/README_CN.md"
+      },
+      {
+        "title": "公开发行列表",
+        "url": "https://github.com/php-any/origami/releases"
+      }
+    ],
+    "verified_at": "2026-10-10"
+  },
+  {
+    "name": "Rule DSL Core（blizzard1413）",
+    "aliases": [
+      "Rule DSL Core",
+      "DSL Core",
+      "RuleDSL",
+      "blizzard1413/dsl"
+    ],
+    "record_type": "本轮新待核实候选",
+    "new_candidate": true,
+    "category": "中英双关键字规则DSL／Go规则引擎库候选",
+    "author": "Gitee账号blizzard1413，显示名blizzard；原仓根页当前头提交关联同一账号。自然人署名、团队分工及跨平台身份待核实。",
+    "first_publication": "Go官方包目录v1.2.0显示Published Jan 8, 2026。原仓README将v1.0.0完成时间写为2026-01-06。包目录版本时间与作者项目完成日期分别记录；Gitee仓库创建、根提交及首次公开日期待核实。",
+    "package_version_date": "2026-01-08",
+    "author_completion_date": "2026-01-06",
+    "description": "Rule DSL Core原仓将项目定位为采用JavaScript／TypeScript风格语法的Go规则引擎库，文档提供中英文关键字规则、箭头函数、类型注解及模块调用。中文规则示例使用“规则、如果、否则如果、返回”；Go包目录的项目原文另提供完整的中文问候规则。包文档描述ANTLR4解析树经Visitor转换成自有AST，再进入规则求值和执行层。中文规范与原始例程已取得，实现正文及各关键字的实际覆盖范围继续核实。",
+    "code": "export 规则 问候 = (名字: string): string => {\n    返回 \"你好，\" + 名字 + \"！\";\n}",
+    "code_source": "https://pkg.go.dev/gitee.com/blizzard1413/dsl/examples/05-chinese-keywords",
+    "code_context": "Go官方包目录标示v1.2.0的原项目README，“1. 基本规则”三行完整原例。正文通过搜索索引可读，直接open返回Cache miss；空格按可见排版保留，原文件字节与固定提交对应待核实。Gitee原仓根README可直接读取另一组中文折扣规则，按独立文档证据记录。",
+    "fixed_commit": "199a2bac8e5b5dcf68be1e87756b4764b3c74e40",
+    "fixed_commit_evidence": "Gitee根页显示短提交199a2ba，当前头部“v1.2.0: 完成统一插件系统所有任务”链接给出完整SHA；提交正文、时间及固定文件逐字对应待核实。",
+    "implementation": "Gitee README列Go1.21+、ANTLR4、parser/grammar/RuleDSL.g4、generated、Visitor、AST、evaluator和engine，并给出LoadModuleFromSource与Execute用法。Go包目录parser接口和AST类型文档可读。词法规则、具体解析／求值源码及依赖版本待核实。",
+    "version": "Gitee原页main显示46次提交、v1.0.0／v1.1.0／v1.2.0共3标签，README徽章及头提交标v1.2.0。Go包目录也显示v1.2.0、2026-01-08，同时有“模块存在更新版本”的平台提示；准确最新发行与标签时间继续核实。",
+    "license": "原仓README及Go包目录均标MIT；根目录可见LICENSE入口，正文、版权署名和第三方适用范围待核实。",
+    "ai_scope": "根目录可见.kiro/specs。AI参与的作者明确声明、工具使用范围和生成比例待核实。",
+    "relations": "原仓、Go模块gitee.com/blizzard1413/dsl与Go包目录直接互链。Rule DSL Core为库名称，RuleDSL为包文档中的语言名称，按同一项目组保存。与其他名为DSL或RuleDSL项目的继承关系待核实。",
+    "status": "取得原仓README、完整头提交链接、中英关键字声明、连续原例及Go包接口文档；核心源码、固定文件及首发日期继续待核实，正式新增暂缓。",
+    "pending": [
+      "取得固定RuleDSL.g4、生成词法器／解析器、AST访问器、evaluator与engine源码，核对中文词元实际执行链。",
+      "核对中文“对于／循环”“否则如果”、全角标点和英文类型／内置函数的边界；文档关键词表与示例用词分别保留。",
+      "取得v1.0.0、v1.1.0、v1.2.0标签与发行绝对时间、根提交和仓库创建日期。",
+      "核对README中文原例与固定提交原文件的字节对应。",
+      "取得LICENSE全文、作者署名、上游来源和AI参与声明。",
+      "区分文档测试覆盖／性能声明、保存的测试源码及独立运行证据。"
+    ],
+    "access_notes": "Gitee公开根页可直接读取项目README、文件目录及头提交链接。提交、blob及raw路径返回Cache miss或工具不可访问；Go包目录多个直接open也返回Cache miss，搜索索引保留项目原文。仅在已公开内容范围记录；安装、编译、执行及桌面任务均未进行。",
+    "references": [
+      {
+        "title": "Gitee原仓根页：作者、中文折扣规则、实现路线与版本",
+        "url": "https://gitee.com/blizzard1413/dsl"
+      },
+      {
+        "title": "原页给出的完整头提交入口（详情待核）",
+        "url": "https://gitee.com/blizzard1413/dsl/commit/199a2bac8e5b5dcf68be1e87756b4764b3c74e40"
+      },
+      {
+        "title": "Go包目录的原项目中文关键字示例与v1.2.0日期",
+        "url": "https://pkg.go.dev/gitee.com/blizzard1413/dsl/examples/05-chinese-keywords"
+      },
+      {
+        "title": "Go包目录的原项目概览与v1.0.0完成时间声明",
+        "url": "https://pkg.go.dev/gitee.com/blizzard1413/dsl"
+      },
+      {
+        "title": "解析器包接口与AST流程说明",
+        "url": "https://pkg.go.dev/gitee.com/blizzard1413/dsl/parser"
+      },
+      {
+        "title": "AST类型文档",
+        "url": "https://pkg.go.dev/gitee.com/blizzard1413/dsl/parser/ast"
+      },
+      {
+        "title": "原仓许可证入口（正文待核）",
+        "url": "https://gitee.com/blizzard1413/dsl/blob/main/LICENSE"
+      }
+    ],
+    "verified_at": "2026-10-10"
+  }
+]

@@ -1,0 +1,558 @@
+[
+  {
+    "id": "bianjubengbeng-ai-rust-os",
+    "name": "Halo OS（编剧笨笨，原片画面名）",
+    "aliases": [],
+    "checked_at": "2026-10-10",
+    "selection_status": "待核实",
+    "discovery_round": 9,
+    "short_description": "编剧笨笨在B站发布的实验操作系统线索。首发原片00:02显示Halo OS标志；作者自述使用AI与Rust开发，并公布字体、引导器和应用打包方面的更新。正式名称、公开源码与自身内核实现边界继续待核实。",
+    "author": {
+      "people": [
+        {
+          "handle": "编剧笨笨",
+          "bilibili_uid": "595021134",
+          "bilibili_url": "https://space.bilibili.com/595021134/"
+        }
+      ],
+      "attribution": {
+        "text": "三条原片与频道投稿列表均关联编剧笨笨及UID595021134。候选GitHub账号bigbenben77的公开名称为码农笨笨；两账号的身份互链待核实。",
+        "evidence_level": "作者发布页",
+        "source_ids": [
+          "ai1",
+          "ai2",
+          "ai3",
+          "ai4",
+          "ai6"
+        ]
+      },
+      "china_basis": {
+        "text": "首发原片标题以中国归属自述，页面使用国产标签。该记录保存项目的公开归属声明；作者个人国籍待核实。",
+        "evidence_level": "作者声明",
+        "source_ids": [
+          "ai1"
+        ]
+      }
+    },
+    "kernel_positioning": {
+      "text": "作者将项目称为AI编写的Rust操作系统，并在更新简介中分别提及bootloader、内核与桌面。自身内核、固件服务、既有内核和图形界面的实际实现边界待核实。",
+      "evidence_level": "作者声明",
+      "source_ids": [
+        "ai1",
+        "ai2"
+      ]
+    },
+    "dates": {
+      "first_public": {
+        "date": null,
+        "status": "待核实",
+        "known_public_record": "2026-09-25的作者原视频",
+        "source_ids": [
+          "ai1"
+        ]
+      }
+    },
+    "architectures": [
+      {
+        "text": "处理器体系结构待核实。",
+        "evidence_level": "待核实",
+        "source_ids": []
+      }
+    ],
+    "capabilities": {
+      "boot": [
+        {
+          "text": "更新片简介自述将基本硬件识别功能放入bootloader；扫雷片简介记录启动性能及即插即用优化。",
+          "evidence_level": "作者声明",
+          "source_ids": [
+            "ai2",
+            "ai3"
+          ]
+        }
+      ],
+      "scheduling": [],
+      "memory": [],
+      "filesystem": [],
+      "drivers": [
+        {
+          "text": "扫雷片简介列出USB1、USB2、USB3设备支持框架。具体控制器、设备类别和实际驱动行为待核实。",
+          "evidence_level": "作者声明",
+          "source_ids": [
+            "ai3"
+          ]
+        }
+      ],
+      "graphics": [
+        {
+          "text": "首发简介自述多语言显示与主题支持；更新简介记述矢量字体、矢量图标、GUI资源占用、脏区和配色调整。",
+          "evidence_level": "作者声明",
+          "source_ids": [
+            "ai1",
+            "ai2"
+          ]
+        }
+      ],
+      "network": [
+        {
+          "text": "扫雷片简介自述搭建网络套件框架。协议、网络设备及连通性待核实。",
+          "evidence_level": "作者声明",
+          "source_ids": [
+            "ai3"
+          ]
+        }
+      ],
+      "applications": [
+        {
+          "text": "扫雷片简介自述按自有应用打包格式打包首个应用“缩放扫雷”。应用格式、加载器和进程隔离实现待核实。",
+          "evidence_level": "作者声明",
+          "source_ids": [
+            "ai3"
+          ]
+        }
+      ]
+    },
+    "implementation_languages": [
+      {
+        "text": "首发原片标题与简介自述以Rust及AI完成。模型、提示记录、代码范围及实现源码待核实。",
+        "evidence_level": "作者声明",
+        "source_ids": [
+          "ai1"
+        ]
+      }
+    ],
+    "project_relationships": [
+      {
+        "text": "作者频道的3条视频依次为首发、更新及扫雷应用。三条简介与公开视频关系已经核对。",
+        "evidence_level": "作者发布页",
+        "source_ids": [
+          "ai1",
+          "ai2",
+          "ai3",
+          "ai4",
+          "ai5"
+        ]
+      },
+      {
+        "text": "bigbenben77/Halo-OS的固定README采用Halo-OS名称，包含与首发原片高度相近的中国归属、AI、Rust、多语言显示及非手写内核表述。仓库与B站账号的身份互链和版本对应继续待核实。",
+        "evidence_level": "待核实",
+        "source_ids": [
+          "ai1",
+          "ai6",
+          "ai7",
+          "ai8"
+        ]
+      },
+      {
+        "text": "首发公开评论中，作者对架构、进程、内存、设备、文件及网络的提问回复均已实现。具体实现与测试证据待核实。",
+        "evidence_level": "作者声明",
+        "source_ids": [
+          "ai1"
+        ]
+      }
+    ],
+    "status": {
+      "latest_formal_release": {
+        "version": null,
+        "status": "待核实"
+      },
+      "source_snapshot": {
+        "commit": null,
+        "status": "待核实"
+      },
+      "license": {
+        "name": null,
+        "status": "待核实"
+      },
+      "runtime_verification": {
+        "status": "待核实",
+        "scope": "本轮覆盖公开页面、公开可见评论、原片00:02标志画面及候选仓库文档和元数据。候选镜像仅核对文件名、大小及Git blob标识。独立构建、安装、启动及功能运行待核实。",
+        "author_claim": [
+          {
+            "text": "更新片简介自述通过24小时空载测试。",
+            "evidence_level": "作者声明",
+            "source_ids": [
+              "ai2"
+            ]
+          },
+          {
+            "text": "扫雷片简介自述完成三种平台实际运行测试。平台名称、架构、条件和记录待核实。",
+            "evidence_level": "作者声明",
+            "source_ids": [
+              "ai3"
+            ]
+          }
+        ]
+      }
+    },
+    "video_observations": [
+      {
+        "url": "https://www.bilibili.com/video/BV1Thh264EtM/",
+        "timecode": "00:02",
+        "duration": "01:19",
+        "observation": "原片播放器截图下部清晰显示“Halo OS”白色标志，背景为黑色。",
+        "evidence_level": "作者演示",
+        "source_ids": [
+          "ai1"
+        ],
+        "scope": "该画面支持项目显示名称；启动链、桌面功能与自身内核实现待核实。",
+        "evidence_capture": {
+          "checked_at": "2026-10-10T19:31:29Z",
+          "method": "云浏览器页面截图，实际视觉检查",
+          "local_image_file": null,
+          "artifact_status": "已在工具结果检查；后续落盘重取遇播放器截图超时，交付采用来源与时间点观察记录。"
+        }
+      }
+    ],
+    "links": {
+      "video_channel": {
+        "url": "https://space.bilibili.com/595021134/",
+        "source_ids": [
+          "ai4",
+          "ai5"
+        ]
+      },
+      "individual_video": {
+        "url": "https://www.bilibili.com/video/BV1Thh264EtM/",
+        "published_date": "2026-09-25",
+        "evidence": "原片标题、作者、日期、国产标签、简介、部分公开评论及00:02 Halo OS标志已经核对。"
+      },
+      "related_videos": [
+        {
+          "url": "https://www.bilibili.com/video/BV1oZap6CE8X/",
+          "published_date": null,
+          "purpose": "更新原片。作者及完整更新简介已经核对；规范时区发布日期待核实。",
+          "displayed_dates": [
+            {
+              "surface": "页面首次文本/作者动态",
+              "value": "2026-09-30 00:25:08 / 9月30日"
+            },
+            {
+              "surface": "作者视频投稿列表及前轮客户端页面",
+              "value": "2026-09-29"
+            }
+          ],
+          "source_ids": [
+            "ai2",
+            "ai4",
+            "ai5"
+          ]
+        },
+        {
+          "url": "https://www.bilibili.com/video/BV1hwYA65EqL/",
+          "published_date": null,
+          "purpose": "扫雷应用原片。作者、03:12时长、完整简介及部分公开评论已经核对；规范时区发布日期待核实。",
+          "displayed_dates": [
+            {
+              "surface": "页面首次文本/作者动态",
+              "value": "2026-10-01 06:49:01 / 10月1日"
+            },
+            {
+              "surface": "页面后续客户端文本/作者视频投稿列表",
+              "value": "2026-09-30 15:49:01 / 9月30日"
+            }
+          ],
+          "source_ids": [
+            "ai3",
+            "ai4",
+            "ai5"
+          ]
+        }
+      ]
+    },
+    "pending_verification": [
+      "正式名称及Halo OS画面名的标准写法",
+      "编剧笨笨UID595021134与bigbenben77/Halo-OS的作者互链及版本关系",
+      "自身内核、引导器、固件服务和图形界面的实现边界",
+      "公开源码、处理器架构、调度、内存、文件系统及驱动实现",
+      "候选仓库虚拟盘内容、版本、可复现构建资料与原片对应",
+      "项目许可、上游组件、代码继承和第三方许可证",
+      "可定位的功能画面及可保存截图",
+      "后两条原片的规范时区发布日期",
+      "受登录提示限制的完整评论和作者回复",
+      "独立构建、运行及24小时稳定性和三平台测试声明",
+      "AI参与范围、模型与原始开发记录"
+    ],
+    "sources": [
+      {
+        "id": "ai1",
+        "title": "编剧笨笨的AI Rust操作系统原片（2026-09-25）",
+        "url": "https://www.bilibili.com/video/BV1Thh264EtM/",
+        "kind": "作者原视频发布页",
+        "supports": [
+          "作者身份",
+          "日期",
+          "国产自述",
+          "AI与Rust声明",
+          "00:02 Halo OS画面名称",
+          "部分公开作者回复"
+        ]
+      },
+      {
+        "id": "ai2",
+        "title": "编剧笨笨的更新原片（日期存在页面时区显示差异）",
+        "url": "https://www.bilibili.com/video/BV1oZap6CE8X/",
+        "kind": "作者原视频发布页",
+        "supports": [
+          "字体图标与bootloader更新声明",
+          "作者稳定性声明",
+          "关联原片入口"
+        ]
+      },
+      {
+        "id": "ai3",
+        "title": "编剧笨笨的扫雷应用原片（日期存在页面时区显示差异）",
+        "url": "https://www.bilibili.com/video/BV1hwYA65EqL/",
+        "kind": "作者原视频发布页",
+        "supports": [
+          "03:12时长",
+          "USB与网络框架声明",
+          "自有应用打包格式声明",
+          "三平台测试声明",
+          "部分公开评论"
+        ]
+      },
+      {
+        "id": "ai4",
+        "title": "作者公开投稿列表",
+        "url": "https://space.bilibili.com/595021134/upload/video",
+        "kind": "作者频道",
+        "supports": [
+          "3条视频及次序",
+          "客户端显示日期"
+        ]
+      },
+      {
+        "id": "ai5",
+        "title": "作者公开动态列表",
+        "url": "https://space.bilibili.com/595021134/dynamic",
+        "kind": "作者频道",
+        "supports": [
+          "3条视频及完整简介",
+          "动态显示日期",
+          "当前公开动态范围"
+        ]
+      },
+      {
+        "id": "ai6",
+        "title": "候选仓库维护者公开主页",
+        "url": "https://github.com/bigbenben77",
+        "kind": "公开技术账号主页",
+        "supports": [
+          "码农笨笨公开名称",
+          "仓库所属账号",
+          "身份互链核验范围"
+        ]
+      },
+      {
+        "id": "ai7",
+        "title": "候选Halo-OS固定README",
+        "url": "https://github.com/bigbenben77/Halo-OS/blob/2677b1cec975a0bff572e622f787f682b836cea2/README.md",
+        "kind": "固定作者文档",
+        "supports": [
+          "Halo-OS名称",
+          "中国归属/Rust/AI声明",
+          "与视频表述内容对应"
+        ]
+      },
+      {
+        "id": "ai8",
+        "title": "候选Halo-OS仓库元数据",
+        "url": "https://api.github.com/repos/bigbenben77/Halo-OS",
+        "kind": "平台元数据",
+        "supports": [
+          "创建时间",
+          "描述",
+          "许可字段null"
+        ]
+      },
+      {
+        "id": "ai9",
+        "title": "候选Halo-OS固定最新提交",
+        "url": "https://github.com/bigbenben77/Halo-OS/commit/2677b1cec975a0bff572e622f787f682b836cea2",
+        "kind": "固定提交",
+        "supports": [
+          "固定快照",
+          "提交时间"
+        ]
+      },
+      {
+        "id": "ai10",
+        "title": "候选Halo-OS完整4条提交记录",
+        "url": "https://api.github.com/repos/bigbenben77/Halo-OS/commits?per_page=100",
+        "kind": "提交元数据",
+        "supports": [
+          "初始提交",
+          "Demo虚拟盘说明",
+          "AI表述更新"
+        ]
+      },
+      {
+        "id": "ai11",
+        "title": "候选Halo-OS完整固定Git树",
+        "url": "https://api.github.com/repos/bigbenben77/Halo-OS/git/trees/2677b1cec975a0bff572e622f787f682b836cea2?recursive=1",
+        "kind": "固定仓库树元数据",
+        "supports": [
+          "3文件清单",
+          "镜像文件名与大小",
+          "Git blob标识",
+          "truncated=false"
+        ]
+      },
+      {
+        "id": "ai12",
+        "title": "候选Halo-OS Releases集合",
+        "url": "https://api.github.com/repos/bigbenben77/Halo-OS/releases?per_page=100",
+        "kind": "平台元数据",
+        "supports": [
+          "核验时返回空数组"
+        ]
+      },
+      {
+        "id": "ai13",
+        "title": "候选Halo-OS分支集合",
+        "url": "https://api.github.com/repos/bigbenben77/Halo-OS/branches?per_page=100",
+        "kind": "平台元数据",
+        "supports": [
+          "唯一main分支及固定提交"
+        ]
+      },
+      {
+        "id": "ai14",
+        "title": "Issue29原始待核线索",
+        "url": "https://github.com/yuyan-lang/chinese-programming-languages/issues/29",
+        "kind": "研究起点",
+        "supports": [
+          "旧线索及待核范围"
+        ]
+      },
+      {
+        "id": "ai15",
+        "title": "Issue29全部评论（核验时1条）",
+        "url": "https://github.com/yuyan-lang/chinese-programming-languages/issues/29#issuecomment-6100955738",
+        "kind": "研究起点",
+        "supports": [
+          "第九轮公开资料入口"
+        ]
+      },
+      {
+        "id": "ai16",
+        "title": "第九轮固定待核记录",
+        "url": "https://github.com/yuyan-lang/chinese-programming-languages/blob/320b1f6904747bd8afcbb0c1d3655d965ed53ed3/research/2026-10-10/round-9-kernel-pending.json",
+        "kind": "固定前轮研究记录",
+        "supports": [
+          "来源延续与既有证据范围"
+        ]
+      }
+    ],
+    "research_notes": [
+      "第11轮仅深入Issue29这1组旧内核线索；正式新增0，旧待核补证1，新增待核0。额外新内核0。",
+      "原稳定id保持bianjubengbeng-ai-rust-os；显示名改为原片画面名，正式名称待核。",
+      "首发原片00:02已经取得并视觉检查Halo OS标志。随后更新片截图及首发播放器操作连续发生Page.getLayoutMetrics超时；研究转向作者静态频道和GitHub元数据。",
+      "首发公开评论显示52条总数，本轮可读2条顶级评论与各1条作者回复。扫雷公开评论显示6条总数，本轮可读2条顶级评论与1条作者回复；展开回复出现登录提示。完整评论待核实。",
+      "首发评论中作者对架构、进程、内存、设备、文件及网络的综合问题作肯定回复，记录等级为作者声明。",
+      "首发“非手写内核”、候选README“全部代码由AI完成”作为作者措辞保存；自身内核与代码继承关系单列待核实。",
+      "同名HaloOS/Halo-OS检索用于消歧；候选仓库与账号身份关系待核实。同名汽车系统、其他教学仓库各自独立处理。",
+      "前轮更新片日期为9月29日；本轮保留客户端、首次页面文本与动态的显示差异。时区对应及规范发布日期待核实。",
+      "全部工作为公开普通网页、GitHub只读元数据/文本及云浏览器阅读。镜像仅核对元数据。"
+    ],
+    "last_research_round": 11,
+    "issue_url": "https://github.com/yuyan-lang/chinese-programming-languages/issues/29",
+    "naming": {
+      "observed_name": "Halo OS",
+      "meaning": "首发原片00:02的画面文字",
+      "official_name_status": "待核实",
+      "previous_editorial_name": "未定名 AI Rust 操作系统（编剧笨笨）",
+      "evidence_level": "作者演示",
+      "source_ids": [
+        "ai1"
+      ]
+    },
+    "repository_candidate": {
+      "url": "https://github.com/bigbenben77/Halo-OS",
+      "name": "Halo-OS",
+      "owner": "bigbenben77",
+      "public_profile_name": "码农笨笨",
+      "association_status": "待核实",
+      "association_basis": "视频标志名称与仓库名对应；仓库README与首发原片标题、简介高度相近。已读双方公开主页及项目README，账号互链待核实。",
+      "source_ids": [
+        "ai1",
+        "ai6",
+        "ai7",
+        "ai8"
+      ],
+      "created_at": "2026-09-24T13:53:27Z",
+      "earliest_retained_commit": {
+        "commit": "59e6147846851f10ffa6bb729e85317fc6fe7480",
+        "committed_at": "2026-09-24T13:53:58Z",
+        "source_ids": [
+          "ai10"
+        ]
+      },
+      "snapshot": {
+        "branch": "main",
+        "commit": "2677b1cec975a0bff572e622f787f682b836cea2",
+        "committed_at": "2026-09-24T14:56:19Z",
+        "source_ids": [
+          "ai9",
+          "ai10",
+          "ai11",
+          "ai13"
+        ]
+      },
+      "tree_scope": {
+        "text": "固定递归Git树返回truncated=false，共3个文件：README.md、MYOS-UEFI-vbox.zip和MYOS-UEFI-vmware.vmdk。该仓库快照的代码实现与镜像内容继续待核实。",
+        "evidence_level": "仓库元数据",
+        "source_ids": [
+          "ai11"
+        ]
+      },
+      "artifacts": [
+        {
+          "name": "MYOS-UEFI-vbox.zip",
+          "size_bytes": 8728039,
+          "git_blob": "8f42d47a98bce2e8edc46f23e82d16a0cfe23692",
+          "source_ids": [
+            "ai11"
+          ]
+        },
+        {
+          "name": "MYOS-UEFI-vmware.vmdk",
+          "size_bytes": 9111552,
+          "git_blob": "d8a105024755fa9746841e9875d61533fd6b2fde",
+          "source_ids": [
+            "ai11"
+          ]
+        }
+      ],
+      "artifact_meaning": {
+        "text": "2026-09-24提交说明将上传文件描述为Demo版虚拟机虚拟盘；文件名包含UEFI、vbox与vmware。引导标准、处理器架构、镜像内容、运行效果及与原片对应关系待核实。",
+        "evidence_level": "作者声明",
+        "source_ids": [
+          "ai10",
+          "ai11"
+        ]
+      },
+      "releases": {
+        "text": "2026-10-10的GitHub Releases集合返回空数组。正式版本待核实。",
+        "source_ids": [
+          "ai12"
+        ]
+      },
+      "license": {
+        "text": "固定根目录包含上述3项；仓库license元数据为null。项目许可与镜像第三方许可待核实。",
+        "source_ids": [
+          "ai8",
+          "ai11"
+        ]
+      },
+      "ai_statement": {
+        "text": "固定README自述全部代码由AI大模型完成。具体模型、过程、代码和原创范围待核实。",
+        "evidence_level": "作者声明",
+        "source_ids": [
+          "ai7"
+        ]
+      },
+      "runtime_verification": "待核实"
+    }
+  }
+]
