@@ -1,0 +1,877 @@
+[
+  {
+    "id": "bearos-medaifan",
+    "name": "BearOS／小熊操作系统",
+    "aliases": [
+      "BearOS",
+      "Bear OS"
+    ],
+    "checked_at": "2026-10-10",
+    "selection_status": "待核实：中国开发者或中国社区公开归属；源码、上游与许可",
+    "classification": "Issue #23 既有线索深化",
+    "new_discovery_count": 0,
+    "recommendation": "保存为待核实候选；原作者官网与频道关联、x86 定位和 V0.20 作者发布资料已经补齐。",
+    "short_description": "BearOS 是宁净（嘟嘟熊／胖嘟嘟的超级熊）以 MedAIFan 网站发布的个人操作系统。作者将其描述为从零开发的 x86 系统，经历 16 位实模式和 32 位保护模式阶段；官网当前提供 V0.10 与 V0.20 资料。",
+    "author": {
+      "people": [
+        {
+          "name": "宁净",
+          "public_aliases": [
+            "嘟嘟熊",
+            "胖嘟嘟的超级熊"
+          ],
+          "website": "https://www.medaifan.net/",
+          "bilibili_url": "https://space.bilibili.com/111781531/"
+        }
+      ],
+      "organization": "MedAIFan 个人项目",
+      "attribution": {
+        "text": "官网自述作者姓名与网名；BearOS 项目页嵌入四条原视频；同一 B站频道的公告写明个人网站为 www.medaifan.net，原片简介也列出该网站。",
+        "evidence_level": "作者官网与原作者频道互链",
+        "source_ids": [
+          "b1",
+          "b2",
+          "b3",
+          "b4",
+          "b7"
+        ]
+      },
+      "china_basis": {
+        "status": "待核实",
+        "text": "已核对官网、项目页、频道公告与原片简介，明确中国开发者或中国社区归属自述继续待核实。",
+        "source_ids": [
+          "b1",
+          "b2",
+          "b3",
+          "b4",
+          "b7"
+        ]
+      }
+    },
+    "kernel_positioning": {
+      "text": "P4 原片简介明确自述从零开发 x86 操作系统；官网描述自行实现启动、硬件驱动、自定义文件系统及内核模块。源码与完整上游继承关系继续待核实。",
+      "evidence_level": "作者声明",
+      "source_ids": [
+        "b2",
+        "b7"
+      ]
+    },
+    "dates": {
+      "first_public": {
+        "date": null,
+        "status": "待核实",
+        "known_public_record": "2026-06-19 的 P1、P2、P3 原作者视频",
+        "source_ids": [
+          "b3",
+          "b4",
+          "b5",
+          "b6"
+        ]
+      },
+      "development_started": {
+        "date": null,
+        "status": "待核实",
+        "basis": "官网以“今年春节后”回顾开工时间，页面缺少明确成文日期。",
+        "source_ids": [
+          "b2"
+        ]
+      },
+      "latest_known_video": {
+        "date": "2026-10-07",
+        "precision": "日",
+        "title": "P4 自制操作系统 BearOS - 图形界面+音乐播放+机器学习",
+        "source_ids": [
+          "b7"
+        ]
+      }
+    },
+    "architectures": [
+      {
+        "text": "作者将当前 BearOS 描述为 x86 架构；官网记录从 16 位实模式发展到 32 位保护模式。",
+        "evidence_level": "作者声明",
+        "source_ids": [
+          "b2",
+          "b7"
+        ]
+      }
+    ],
+    "capabilities": {
+      "boot": [
+        {
+          "text": "官网描述自制开机引导；发布包使用 run.bat 启动 QEMU，run_whpx.bat 启用硬件虚拟化。",
+          "evidence_level": "作者声明",
+          "source_ids": [
+            "b2"
+          ]
+        }
+      ],
+      "scheduling": [
+        {
+          "text": "V0.2 开发日志描述依托时钟中断修改栈返回地址切换任务；应用启动后建立进程，可由控制台结束并回收资源。",
+          "evidence_level": "作者声明",
+          "source_ids": [
+            "b2"
+          ]
+        }
+      ],
+      "memory": [
+        {
+          "text": "V0.2 开发日志描述动态内存分配与回收，以及进程专属内存和栈空间；隔离机制与硬件保护边界待核实。",
+          "evidence_level": "作者声明",
+          "source_ids": [
+            "b2"
+          ]
+        }
+      ],
+      "filesystem": [
+        {
+          "text": "作者描述自定义文件系统、磁盘文件读写及程序加载；命令文档列出目录、复制、重命名、移动与删除等操作。",
+          "evidence_level": "作者声明",
+          "source_ids": [
+            "b2"
+          ]
+        }
+      ],
+      "drivers": [
+        {
+          "text": "V0.2 开发日志列出鼠标、DMA 磁盘访问和 AC97 音频驱动；应用清单包含 WAV 播放器。",
+          "evidence_level": "作者声明",
+          "source_ids": [
+            "b2"
+          ]
+        }
+      ],
+      "graphics": [
+        {
+          "text": "官网描述 1024×768 图形模式、中文显示与拼音输入；V0.2 增加窗口重叠、移动与关闭，多窗口 Shell 和独立输入法进程。",
+          "evidence_level": "作者声明",
+          "source_ids": [
+            "b2"
+          ]
+        }
+      ],
+      "userland": [
+        {
+          "text": "官网列出自研 C 类库、文本编辑器、俄罗斯方块、字符雨、浮点数与旋转立方体演示；BasC 应用清单包含逻辑回归训练与预测程序。",
+          "evidence_level": "作者声明",
+          "source_ids": [
+            "b2"
+          ]
+        }
+      ]
+    },
+    "implementation_languages": [
+      {
+        "text": "官网明确描述 C 标准库及宿主机交叉编译应用；内核核心实现语言、汇编比例与构建工具链待源码核实。",
+        "evidence_level": "作者声明与资料缺口",
+        "source_ids": [
+          "b2"
+        ]
+      }
+    ],
+    "project_relationships": [
+      {
+        "text": "作者把早期命令行使用方式与 DOS 联系，把 V0.2 窗口设计与早期 Windows 使用体验联系；这些陈述记录设计动机。内核和驱动的源码继承及引入组件清单待核实。",
+        "evidence_level": "作者声明",
+        "source_ids": [
+          "b2"
+        ]
+      },
+      {
+        "text": "BasC 是作者为 BearOS 创建的解释型语言，说明中提及 BASIC、C 类型定义和 Python 多返回值等设计来源。中文关键字及语法原例继续待核实。",
+        "evidence_level": "作者声明",
+        "source_ids": [
+          "b2",
+          "b6"
+        ]
+      }
+    ],
+    "status": {
+      "latest_known_author_package": {
+        "version": "V0.20",
+        "published_at": null,
+        "status": "官网当前公开提供下载入口；精确发布日期待核实",
+        "source_ids": [
+          "b2",
+          "b9"
+        ]
+      },
+      "historical_author_package": {
+        "version": "V0.10",
+        "source_ids": [
+          "b2",
+          "b8"
+        ]
+      },
+      "source_snapshot": {
+        "status": "待核实",
+        "text": "已检查的官网与频道公开页面提供发布包链接，源码仓库入口及固定源码快照继续待核实。"
+      },
+      "license": {
+        "name": null,
+        "status": "待核实",
+        "text": "BearOS 项目专属许可与第三方组件许可待核实；网站版权页脚按网站声明记录。"
+      },
+      "runtime_verification": {
+        "status": "待核实",
+        "scope": "本轮使用公开网页、作者视频页面及少量首段画面；发布包内容、独立构建与 QEMU/实机运行待核实。"
+      }
+    },
+    "video_observations": [
+      {
+        "title": "P1 自制操作系统 BearOS -系统内核及文件管理",
+        "url": "https://www.bilibili.com/video/BV13oj66LEnk/",
+        "bvid": "BV13oj66LEnk",
+        "published_date": "2026-06-19",
+        "duration": "06:59",
+        "observed_time": "00:16",
+        "observation": "已观察作者讲述开发动机的开场字幕和宿主桌面；内核功能运行画面与时间点继续待核实。",
+        "evidence_level": "原作者视频首段观察",
+        "source_ids": [
+          "b4"
+        ]
+      },
+      {
+        "title": "P2 自制操作系统 BearOS - 自制全屏文本编辑器 + 中文输入法",
+        "url": "https://www.bilibili.com/video/BV1goj665EC6/",
+        "bvid": "BV1goj665EC6",
+        "published_date": "2026-06-19",
+        "duration": "02:10",
+        "observation": "官网嵌入、作者频道及合集标题已经交叉核对；功能演示时间点待核实。",
+        "evidence_level": "官网与作者频道元数据",
+        "source_ids": [
+          "b2",
+          "b3",
+          "b5"
+        ]
+      },
+      {
+        "title": "P3 自制操作系统 BearOS - 自制编程语言",
+        "url": "https://www.bilibili.com/video/BV1goj665EXe/",
+        "bvid": "BV1goj665EXe",
+        "published_date": "2026-06-19",
+        "duration": "04:34",
+        "observation": "原片页面、标题、频道和官网互链已核对；完整语法画面与时间点待核实。",
+        "evidence_level": "原作者视频页面",
+        "source_ids": [
+          "b6"
+        ]
+      },
+      {
+        "title": "P4 自制操作系统 BearOS - 图形界面+音乐播放+机器学习",
+        "url": "https://www.bilibili.com/video/BV1ttHC6bE9g/",
+        "bvid": "BV1ttHC6bE9g",
+        "published_date": "2026-10-07",
+        "duration": "19:49",
+        "observation": "原片页面明确声明 x86 架构和从零开发；功能运行画面、对应发布包版本与时间点待核实。",
+        "evidence_level": "原作者视频页面",
+        "source_ids": [
+          "b7"
+        ]
+      }
+    ],
+    "links": {
+      "website": "https://www.medaifan.net/",
+      "documentation": "https://www.medaifan.net/bearos.html",
+      "video_channel": "https://space.bilibili.com/111781531/",
+      "individual_video": "https://www.bilibili.com/video/BV1ttHC6bE9g/",
+      "issue": "https://github.com/yuyan-lang/chinese-programming-languages/issues/23"
+    },
+    "evidence_layers": {
+      "author_claims": "x86、32 位保护模式、自定义内核模块和文件系统、V0.20 多任务与图形/音频能力。",
+      "source_visible": "待取得 BearOS 内核源码与固定快照。",
+      "author_demo": "四条原片及作者关联已确定；P1 的00:16开场已观察，核心功能画面待核实。",
+      "independent_run": "待核实"
+    },
+    "pending_verification": [
+      "中国开发者或中国社区归属的明确公开自述",
+      "BearOS 源码入口、固定快照、核心实现语言与完整构建方式",
+      "引导器、内核、驱动与类库的上游关系及许可",
+      "V0.20 发布包内容、完整性及精确发布日期",
+      "多任务、地址空间隔离、文件持久化、DMA 与音频的功能演示时间点和源码对应",
+      "BasC 真实语法示例、关键字、解释器实现与语言许可",
+      "独立构建、QEMU 启动和实机运行"
+    ],
+    "sources": [
+      {
+        "id": "b1",
+        "title": "MedAIFan 作者官网",
+        "url": "https://www.medaifan.net/",
+        "kind": "作者官网",
+        "supports": [
+          "公开开发者身份",
+          "BearOS 项目入口"
+        ]
+      },
+      {
+        "id": "b2",
+        "title": "BearOS 项目页：V0.1/V0.2 开发历程、下载与命令",
+        "url": "https://www.medaifan.net/bearos.html",
+        "kind": "作者项目文档",
+        "supports": [
+          "版本阶段",
+          "架构",
+          "内核功能声明",
+          "运行说明",
+          "BasC",
+          "四条视频互链"
+        ]
+      },
+      {
+        "id": "b3",
+        "title": "胖嘟嘟的超级熊 B站频道与官网公告",
+        "url": "https://space.bilibili.com/111781531/",
+        "kind": "作者频道",
+        "supports": [
+          "作者官网互链",
+          "四条原视频"
+        ]
+      },
+      {
+        "id": "b4",
+        "title": "BearOS P1：系统内核及文件管理",
+        "url": "https://www.bilibili.com/video/BV13oj66LEnk/",
+        "kind": "原作者视频页",
+        "supports": [
+          "原片",
+          "作者",
+          "日期",
+          "首段观察"
+        ]
+      },
+      {
+        "id": "b5",
+        "title": "BearOS P2：文本编辑器与中文输入法",
+        "url": "https://www.bilibili.com/video/BV1goj665EC6/",
+        "kind": "官网嵌入与作者频道入口",
+        "supports": [
+          "原片入口",
+          "标题",
+          "日期"
+        ]
+      },
+      {
+        "id": "b6",
+        "title": "BearOS P3：自制编程语言",
+        "url": "https://www.bilibili.com/video/BV1goj665EXe/",
+        "kind": "原作者视频页",
+        "supports": [
+          "BasC 线索",
+          "原片",
+          "日期"
+        ]
+      },
+      {
+        "id": "b7",
+        "title": "BearOS P4：图形界面、音乐播放与机器学习",
+        "url": "https://www.bilibili.com/video/BV1ttHC6bE9g/",
+        "kind": "原作者视频页",
+        "supports": [
+          "x86",
+          "自制内核定位",
+          "原片",
+          "日期"
+        ]
+      },
+      {
+        "id": "b8",
+        "title": "官网提供的 V0.10 发布包链接",
+        "url": "https://pan.baidu.com/s/1Ca-J8UpR1VB8FIIz-8gx0Q?pwd=abcd",
+        "kind": "官网发布包链接；内容待核实",
+        "supports": [
+          "官网分发入口"
+        ]
+      },
+      {
+        "id": "b9",
+        "title": "官网提供的 V0.20 发布包链接",
+        "url": "https://pan.baidu.com/s/1d_e6mLHk6QuZvbVpeVjgcg?pwd=abcd",
+        "kind": "官网发布包链接；内容待核实",
+        "supports": [
+          "官网分发入口"
+        ]
+      },
+      {
+        "id": "b10",
+        "title": "既有 Issue #23",
+        "url": "https://github.com/yuyan-lang/chinese-programming-languages/issues/23",
+        "kind": "目录既有待核实线索",
+        "supports": [
+          "旧线索去重"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "os002",
+    "name": "OS002",
+    "aliases": [
+      "OS002-UEFI"
+    ],
+    "checked_at": "2026-10-10",
+    "selection_status": "待核实：中国开发者或中国社区公开归属",
+    "classification": "Issue #23 既有线索深化",
+    "new_discovery_count": 0,
+    "recommendation": "保存为待核实候选；原作者视频与仓库关联、自身实验内核实现及固定源码已经补齐。",
+    "short_description": "OS002 是 Liu Chunyi（Liu_Chunyi／Chunyi1031）公开的 x86_64 实验操作系统项目。项目以 C 和内联汇编实现内核，使用 UEFI 引导，源码包含线程调度、时钟与键盘中断、物理内存管理和命令行测试入口。",
+    "author": {
+      "people": [
+        {
+          "name": "Liu Chunyi",
+          "handle": "Chunyi1031",
+          "github_url": "https://github.com/Chunyi1031",
+          "bilibili_handle": "Liu_Chunyi",
+          "bilibili_url": "https://space.bilibili.com/3546765877840766/"
+        }
+      ],
+      "organization": "个人项目",
+      "attribution": {
+        "text": "原作者视频简介直接链接 Chunyi1031/OS002-UEFI；该仓库 README 署名 Liu Chunyi。",
+        "evidence_level": "原作者视频与仓库文档",
+        "source_ids": [
+          "o1",
+          "o2"
+        ]
+      },
+      "china_basis": {
+        "status": "待核实",
+        "text": "已核对作者公开主页、README 与原视频简介，明确中国开发者或中国社区归属自述继续待核实。",
+        "source_ids": [
+          "o1",
+          "o2",
+          "o3",
+          "o4"
+        ]
+      }
+    },
+    "kernel_positioning": {
+      "text": "仓库单独组织 Bootloader 与 Kernel。内核使用 freestanding、-nostdlib、-m64 构建选项，以 _start 为入口接收引导器数据，包含自身任务、中断与物理内存实现。",
+      "evidence_level": "源码可见",
+      "source_ids": [
+        "o5",
+        "o6",
+        "o7"
+      ]
+    },
+    "dates": {
+      "first_public": {
+        "date": null,
+        "status": "待核实",
+        "known_public_record": "2026-03-14 原视频及 README 署名日期",
+        "source_ids": [
+          "o1",
+          "o2"
+        ]
+      },
+      "repository_created": {
+        "at": "2026-03-14T06:27:44Z",
+        "repository_id": 1181445819,
+        "meaning": "GitHub created_at 元数据",
+        "source_ids": [
+          "o8"
+        ]
+      }
+    },
+    "architectures": [
+      {
+        "text": "README 要求 x86_64、单核 CPU、256MB 内存与 128MB 磁盘，并列出 Linux/GNU GCC 及 qemu-system-x86_64 环境。",
+        "evidence_level": "作者声明",
+        "source_ids": [
+          "o2"
+        ]
+      },
+      {
+        "text": "内核编译选项为 -m64，引导程序产物为 BOOTx64.EFI。",
+        "evidence_level": "源码可见",
+        "source_ids": [
+          "o5",
+          "o9"
+        ]
+      }
+    ],
+    "capabilities": {
+      "boot": [
+        {
+          "text": "UEFI 引导器读取 SYS/kernel，取得 GOP 帧缓冲、ACPI RSDP 和内存映射，将 BootShare 传入内核。当前快照包含 ExitBootServices 调用。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "o6",
+            "o10"
+          ]
+        }
+      ],
+      "scheduling": [
+        {
+          "text": "Task.c 包含内核线程创建、内核栈与线程控制块、寄存器和 rsp 切换、就绪/睡眠队列、互斥锁与信号量；IRQ0 处理调用 schedule。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "o11",
+            "o12"
+          ]
+        }
+      ],
+      "memory": [
+        {
+          "text": "PMemory.c 根据 UEFI 内存描述符建立物理内存块与位图，提供连续页分配和释放。用户态地址空间与完整分页机制待核实。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "o13"
+          ]
+        }
+      ],
+      "filesystem": [
+        {
+          "text": "已确认的文件读取位于引导阶段，使用 EFI_SIMPLE_FILE_SYSTEM_PROTOCOL、OpenVolume 和文件 Read；当前内核文件系统与块设备驱动实现继续待核实。",
+          "evidence_level": "源码可见与资料缺口",
+          "source_ids": [
+            "o14",
+            "o7"
+          ]
+        }
+      ],
+      "drivers": [
+        {
+          "text": "源码包含 IDT 安装、8259 PIC、PIT 时钟、键盘端口读取、串口、ACPI 和帧缓冲绘图。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "o6",
+            "o12",
+            "o15",
+            "o7"
+          ]
+        }
+      ],
+      "shell": [
+        {
+          "text": "内核入口进入命令循环，README 列出系统信息、内存、异常、中断及线程测试命令。",
+          "evidence_level": "作者文档与源码可见",
+          "source_ids": [
+            "o2",
+            "o6"
+          ]
+        }
+      ]
+    },
+    "implementation_languages": [
+      {
+        "text": "核心源文件使用 C；线程上下文切换和底层操作含内联汇编，内核使用 GNU GCC 工具链。",
+        "evidence_level": "源码可见",
+        "source_ids": [
+          "o5",
+          "o6",
+          "o11"
+        ]
+      }
+    ],
+    "project_relationships": [
+      {
+        "text": "引导器明确链接随附 GNU-EFI 的 crt0、libefi 与 libgnuefi；仓库包含 OVMF.fd 和上游预编译对象/静态库，完整版本及许可清单待核实。",
+        "evidence_level": "源码可见",
+        "source_ids": [
+          "o9",
+          "o16",
+          "o7"
+        ]
+      },
+      {
+        "text": "中断与物理内存源码注释列出学习视频；PIC.c 注明 OSDev Wiki 的 8259 PIC 参考来源。教程与代码继承的具体范围继续待核实。",
+        "evidence_level": "源码注释",
+        "source_ids": [
+          "o12",
+          "o13",
+          "o15"
+        ]
+      }
+    ],
+    "status": {
+      "source_snapshot": {
+        "branch": "main",
+        "commit": "be37cce6b0963e35d4481ea22d7688b76e19e80c",
+        "committed_at": "2026-04-03T11:36:44Z",
+        "source_ids": [
+          "o17"
+        ]
+      },
+      "latest_formal_release": {
+        "version": null,
+        "status": "待核实",
+        "text": "核验时 GitHub 页面展示 0 个标签，Releases 集合为空。",
+        "source_ids": [
+          "o18",
+          "o19"
+        ]
+      },
+      "license": {
+        "name": "GPL-3.0",
+        "text": "根 LICENSE 为 GPLv3；随附 GNU-EFI、OVMF 等第三方组件的适用许可另待核实。",
+        "source_ids": [
+          "o20",
+          "o8",
+          "o16"
+        ]
+      },
+      "runtime_verification": {
+        "status": "待核实",
+        "scope": "本轮仅静态阅读公开源码和作者文档、核对视频页面；独立编译、QEMU/实机运行继续待核实。",
+        "author_warning": "README 提醒实体机运行可能出现异常。",
+        "source_ids": [
+          "o2"
+        ]
+      }
+    },
+    "video_observations": [
+      {
+        "title": "OS002 原作者演示：C 语言、多线程与中断",
+        "url": "https://www.bilibili.com/video/BV1sTwtzuEP8/",
+        "bvid": "BV1sTwtzuEP8",
+        "published_date": "2026-03-14",
+        "duration": "04:02",
+        "observation": "原片页面确认作者、日期、时长及仓库链接；核心功能画面的可靠时间点继续待核实。",
+        "evidence_level": "原作者视频页面",
+        "source_ids": [
+          "o1"
+        ]
+      }
+    ],
+    "version_boundary": {
+      "text": "2026-04-03 的最新提交新增 ExitBootServices 调用；2026-03-14 视频与当前源码分阶段记录，原片对应提交及退出启动服务的运行结果待核实。",
+      "evidence_level": "提交差异与视频日期",
+      "source_ids": [
+        "o1",
+        "o17"
+      ]
+    },
+    "links": {
+      "source": "https://github.com/Chunyi1031/OS002-UEFI",
+      "video_channel": "https://space.bilibili.com/3546765877840766/",
+      "individual_video": "https://www.bilibili.com/video/BV1sTwtzuEP8/",
+      "issue": "https://github.com/yuyan-lang/chinese-programming-languages/issues/23"
+    },
+    "evidence_layers": {
+      "author_claims": "README 的运行要求、命令功能以及原片的多线程/中断介绍。",
+      "source_visible": "固定快照的独立内核构建、入口、UEFI 交接、任务、中断和物理内存代码。",
+      "author_demo": "原片及作者/仓库关联已经确认，核心运行画面和时间点待核实。",
+      "independent_run": "待核实"
+    },
+    "pending_verification": [
+      "中国开发者或中国社区归属的明确公开自述",
+      "2026-03-14 原视频所对应的固定提交与功能画面时间点",
+      "当前快照 ExitBootServices 成功执行及后续内核运行",
+      "独立构建、QEMU 启动、线程/中断/内存功能正确性与稳定性",
+      "GNU-EFI、OVMF 及预编译组件的精确来源版本与完整许可",
+      "教程参考与代码继承的具体范围",
+      "内核文件系统、块设备、用户态及虚拟内存的实现状态",
+      "首个公开日期与正式版本"
+    ],
+    "sources": [
+      {
+        "id": "o1",
+        "title": "OS002 原作者演示与源码链接",
+        "url": "https://www.bilibili.com/video/BV1sTwtzuEP8/",
+        "kind": "原作者视频页",
+        "supports": [
+          "作者",
+          "原BV",
+          "日期",
+          "仓库关联"
+        ]
+      },
+      {
+        "id": "o2",
+        "title": "OS002 固定 README",
+        "url": "https://github.com/Chunyi1031/OS002-UEFI/blob/be37cce6b0963e35d4481ea22d7688b76e19e80c/README.md",
+        "kind": "固定作者文档",
+        "supports": [
+          "署名",
+          "架构",
+          "环境",
+          "运行要求",
+          "命令",
+          "实机提示"
+        ]
+      },
+      {
+        "id": "o3",
+        "title": "Liu_Chunyi B站频道",
+        "url": "https://space.bilibili.com/3546765877840766/",
+        "kind": "作者频道",
+        "supports": [
+          "归属核查"
+        ]
+      },
+      {
+        "id": "o4",
+        "title": "Chunyi1031 GitHub 主页",
+        "url": "https://github.com/Chunyi1031",
+        "kind": "作者主页",
+        "supports": [
+          "归属核查"
+        ]
+      },
+      {
+        "id": "o5",
+        "title": "内核独立构建参数",
+        "url": "https://github.com/Chunyi1031/OS002-UEFI/blob/be37cce6b0963e35d4481ea22d7688b76e19e80c/Kernel/Makefile#L64-L65",
+        "kind": "固定源码",
+        "supports": [
+          "freestanding",
+          "x86_64",
+          "入口"
+        ]
+      },
+      {
+        "id": "o6",
+        "title": "内核主入口与命令实现",
+        "url": "https://github.com/Chunyi1031/OS002-UEFI/blob/be37cce6b0963e35d4481ea22d7688b76e19e80c/Kernel/kernel/main.c",
+        "kind": "固定源码",
+        "supports": [
+          "启动交接",
+          "初始化",
+          "命令"
+        ]
+      },
+      {
+        "id": "o7",
+        "title": "固定完整源码树",
+        "url": "https://api.github.com/repos/Chunyi1031/OS002-UEFI/git/trees/be37cce6b0963e35d4481ea22d7688b76e19e80c?recursive=1",
+        "kind": "源码树元数据",
+        "supports": [
+          "模块范围",
+          "随附上游文件"
+        ]
+      },
+      {
+        "id": "o8",
+        "title": "OS002-UEFI 仓库元数据",
+        "url": "https://api.github.com/repos/Chunyi1031/OS002-UEFI",
+        "kind": "平台元数据",
+        "supports": [
+          "仓库创建时间",
+          "默认分支",
+          "许可字段"
+        ]
+      },
+      {
+        "id": "o9",
+        "title": "GNU-EFI 引导链接配置",
+        "url": "https://github.com/Chunyi1031/OS002-UEFI/blob/be37cce6b0963e35d4481ea22d7688b76e19e80c/Bootloader/Makefile#L54-L56",
+        "kind": "固定源码",
+        "supports": [
+          "上游依赖",
+          "EFI产物"
+        ]
+      },
+      {
+        "id": "o10",
+        "title": "UEFI 引导入口与内核跳转",
+        "url": "https://github.com/Chunyi1031/OS002-UEFI/blob/be37cce6b0963e35d4481ea22d7688b76e19e80c/Bootloader/main/main.c#L166-L194",
+        "kind": "固定源码",
+        "supports": [
+          "ExitBootServices",
+          "内核入口"
+        ]
+      },
+      {
+        "id": "o11",
+        "title": "线程、上下文切换与同步实现",
+        "url": "https://github.com/Chunyi1031/OS002-UEFI/blob/be37cce6b0963e35d4481ea22d7688b76e19e80c/Kernel/kernel/Task.c",
+        "kind": "固定源码",
+        "supports": [
+          "调度",
+          "线程",
+          "互斥锁",
+          "信号量"
+        ]
+      },
+      {
+        "id": "o12",
+        "title": "PIC、PIT、中断处理与 OSDev 参考",
+        "url": "https://github.com/Chunyi1031/OS002-UEFI/blob/be37cce6b0963e35d4481ea22d7688b76e19e80c/Kernel/kernel/interrupt/PIC.c",
+        "kind": "固定源码",
+        "supports": [
+          "中断",
+          "时钟调度",
+          "键盘",
+          "参考来源"
+        ]
+      },
+      {
+        "id": "o13",
+        "title": "物理内存管理及参考注释",
+        "url": "https://github.com/Chunyi1031/OS002-UEFI/blob/be37cce6b0963e35d4481ea22d7688b76e19e80c/Kernel/kernel/mm/PMemory.c",
+        "kind": "固定源码",
+        "supports": [
+          "内存分配",
+          "参考来源"
+        ]
+      },
+      {
+        "id": "o14",
+        "title": "UEFI 引导文件读取",
+        "url": "https://github.com/Chunyi1031/OS002-UEFI/blob/be37cce6b0963e35d4481ea22d7688b76e19e80c/Bootloader/main/Tools.c#L47-L189",
+        "kind": "固定源码",
+        "supports": [
+          "文件读取层次"
+        ]
+      },
+      {
+        "id": "o15",
+        "title": "IDT 初始化及参考注释",
+        "url": "https://github.com/Chunyi1031/OS002-UEFI/blob/be37cce6b0963e35d4481ea22d7688b76e19e80c/Kernel/kernel/interrupt/IDT.c",
+        "kind": "固定源码",
+        "supports": [
+          "中断",
+          "参考来源"
+        ]
+      },
+      {
+        "id": "o16",
+        "title": "随附 GNU-EFI README",
+        "url": "https://github.com/Chunyi1031/OS002-UEFI/blob/be37cce6b0963e35d4481ea22d7688b76e19e80c/Bootloader/GNU-EFI/README.gnuefi.md#L71-L90",
+        "kind": "固定上游说明",
+        "supports": [
+          "上游出处",
+          "版权线索"
+        ]
+      },
+      {
+        "id": "o17",
+        "title": "4月3日补入 ExitBootServices 的固定提交",
+        "url": "https://github.com/Chunyi1031/OS002-UEFI/commit/be37cce6b0963e35d4481ea22d7688b76e19e80c",
+        "kind": "提交差异",
+        "supports": [
+          "快照",
+          "版本边界"
+        ]
+      },
+      {
+        "id": "o18",
+        "title": "OS002 Releases 集合",
+        "url": "https://api.github.com/repos/Chunyi1031/OS002-UEFI/releases",
+        "kind": "平台元数据",
+        "supports": [
+          "正式发布状态"
+        ]
+      },
+      {
+        "id": "o19",
+        "title": "OS002-UEFI 仓库主页",
+        "url": "https://github.com/Chunyi1031/OS002-UEFI",
+        "kind": "平台页面",
+        "supports": [
+          "标签状态"
+        ]
+      },
+      {
+        "id": "o20",
+        "title": "根 GPLv3 许可证",
+        "url": "https://github.com/Chunyi1031/OS002-UEFI/blob/be37cce6b0963e35d4481ea22d7688b76e19e80c/LICENSE",
+        "kind": "固定许可文本",
+        "supports": [
+          "项目许可"
+        ]
+      }
+    ]
+  }
+]
+

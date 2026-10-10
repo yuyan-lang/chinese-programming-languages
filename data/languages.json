@@ -1268,19 +1268,24 @@
     "aliases": [
       "YaoLang"
     ],
-    "category": "编译型语言",
-    "author": "曜神；源码标注“由 Gemini 构造”；仓库账号a737812",
-    "first_publication": "仓库创建 2026-08-20；语言首次公开发布日期待核实",
-    "description": "【编译型语言】采用中文关键字的静态类型语言，源码经C中间层生成可执行程序。",
+    "category": "中文编译型语言／C中间代码路线",
+    "author": "源码署名“曜神（由Gemini构造）”；仓库及Release发布账号为a737812。个人实名与协作者待核实。",
+    "first_publication": "仓库创建于2026-08-20T12:45:12Z；当前历史的根提交59022b110d2055e1dfe9d70bd29ba0be36ee11d4提交时间为当日13:34:19Z，v0.1.0-alpha Release发表于13:37:25Z。上述日期分别对应仓库、提交与发行记录；更早公开资料待核实。",
+    "description": "曜语（YaoLang）是由GitHub账号a737812公开、源码署名曜神的中文编译型语言项目。它使用.耀或.yao源文件，以函数、变量、令、若、当、对于、返回等中文词汇表达声明与控制流，采用花括号代码块和类型标注。公开例程包含阶乘、斐波那契、循环、结构体与枚举。单文件C编译器把源程序依次处理为词元、抽象语法树及C源码，再调用系统cc生成可执行文件，并提供输出C代码的选项。仓库同时保存教程、曜语编写的词法器样例及Java Android演示应用。当前资料对应0.1.0-alpha源码；所有权模型、完整语义检查、自举完成度及语言到APK的集成继续待核实。",
     "features": [
-      "中文语法／关键字",
-      "有公开实现源码"
+      ".耀与.yao源文件扩展名",
+      "中文声明、条件、循环、返回及类型关键字",
+      "花括号代码块与带类型参数、返回值的函数语法",
+      "阶乘、斐波那契等连续递归原例",
+      "结构体、枚举的解析与C代码生成",
+      "词元、AST及C中间代码查看入口",
+      "C运行时输出、文件与字符串接口；X11链接分支"
     ],
-    "code": "函数 主函数() { _yao_print_s(\"你好!\"); _yao_print(42) }",
-    "implementation": "单文件C编译器，经词法、AST、语义与C代码生成，再调用系统C编译器。",
-    "status": "已有源码；未在本次研究中编译或执行",
-    "version": "0.1.0-alpha（源码）",
-    "relations": "C为中间目标；有明确AI辅助构造声明，不据此排除。",
+    "code": "函数 阶乘(整数 n): 整数 {\n    若 n <= 1 {\n        返回 1\n    }\n    返回 n * 阶乘(n - 1)\n}\n\n函数 斐波那契(整数 n): 整数 {\n    若 n <= 1 {\n        返回 n\n    }\n    返回 斐波那契(n - 1) + 斐波那契(n - 2)\n}",
+    "implementation": "src/yaolang.c以C实现UTF-8词法器、递归下降表达式与声明解析、符号／类型登记及AST到C生成。main依次调用lex、parse_program、types_init、sema_analyze和cgen_program，再以popen调用cc，常规链接-lm，X11分支另加-lX11；-c选项保留生成的C文件。sema_analyze第二遍登记参数，函数体深入检查在第2312行标为TODO。Android构建脚本写出Java Activity与YaoRuntime，提供javac、D8、打包及签名调用路径；资源与签名回退分支的有效性、曜语源程序接入该流程的转换链待核实。",
+    "status": "中文关键字、固定递归原例、C编译链及公开发行记录已核。README和源码头声明MIT；独立许可证文件与完整许可范围待核实。源码构建、二进制及APK运行、性能、完整类型／所有权检查与自举完成度待核实。",
+    "version": "2026-10-10核验main为8b639836a59c9a9e96f70de67a6a1ad51d157c9d，提交时间2026-08-20T14:21:07Z。源码版本常量为0.1.0-alpha。v0.1.0-alpha标签指向根提交59022b1，Release于2026-08-20T13:37:25Z发布，附6900字节yaolang_app.apk；v0.1.0标签指向当前main。两个标签的编译器文件共用blob 63a2b4ff61c5bcf006f19f6214248ed5e0292b38。版本名中的alpha与Release字段prerelease=false分别按原记录保留，稳定性待核实。",
+    "relations": "C是当前实现的中间目标，系统cc承担后续编译与链接。src/yaolang.c文件头明确署名“曜神（由Gemini构造）”，AI声明范围按该编译器源码头记录；模型版本、生成比例及人工修改过程待核实。test/yao_lexer.耀自述为自举第一步，保存了曜语编写的词法扫描程序；完整编译器自举另列待核实。Android演示应用、构建脚本与语言编译器按各自源码路径记录。",
     "references": [
       {
         "title": "项目README（核验快照）",
@@ -1293,31 +1298,89 @@
       {
         "title": "仓库元数据",
         "url": "https://api.github.com/repos/a737812/yaolang"
+      },
+      {
+        "title": "固定中文递归函数原例",
+        "url": "https://github.com/a737812/yaolang/blob/8b639836a59c9a9e96f70de67a6a1ad51d157c9d/test/comprehensive.%E8%80%80#L9-L21"
+      },
+      {
+        "title": "固定源码署名、Gemini声明与版本",
+        "url": "https://github.com/a737812/yaolang/blob/8b639836a59c9a9e96f70de67a6a1ad51d157c9d/src/yaolang.c#L1-L32"
+      },
+      {
+        "title": "固定中文关键字表",
+        "url": "https://github.com/a737812/yaolang/blob/8b639836a59c9a9e96f70de67a6a1ad51d157c9d/src/yaolang.c#L364-L427"
+      },
+      {
+        "title": "固定语义登记与函数体检查范围",
+        "url": "https://github.com/a737812/yaolang/blob/8b639836a59c9a9e96f70de67a6a1ad51d157c9d/src/yaolang.c#L2250-L2316"
+      },
+      {
+        "title": "固定词法、语法与C生成主流程",
+        "url": "https://github.com/a737812/yaolang/blob/8b639836a59c9a9e96f70de67a6a1ad51d157c9d/src/yaolang.c#L3519-L3635"
+      },
+      {
+        "title": "固定系统cc及X11链接分支",
+        "url": "https://github.com/a737812/yaolang/blob/8b639836a59c9a9e96f70de67a6a1ad51d157c9d/src/yaolang.c#L3645-L3685"
+      },
+      {
+        "title": "固定曜语词法器样例",
+        "url": "https://github.com/a737812/yaolang/blob/8b639836a59c9a9e96f70de67a6a1ad51d157c9d/test/yao_lexer.%E8%80%80"
+      },
+      {
+        "title": "固定Java演示应用生成与APK构建脚本",
+        "url": "https://github.com/a737812/yaolang/blob/8b639836a59c9a9e96f70de67a6a1ad51d157c9d/build_apk.py#L53-L244"
+      },
+      {
+        "title": "固定Android演示Activity中的运算实现",
+        "url": "https://github.com/a737812/yaolang/blob/8b639836a59c9a9e96f70de67a6a1ad51d157c9d/apk/src/com/yaolang/app/MainActivity.java#L100-L111"
+      },
+      {
+        "title": "根提交与初始发行源码",
+        "url": "https://github.com/a737812/yaolang/commit/59022b110d2055e1dfe9d70bd29ba0be36ee11d4"
+      },
+      {
+        "title": "v0.1.0-alpha发行及APK附件",
+        "url": "https://github.com/a737812/yaolang/releases/tag/v0.1.0-alpha"
+      },
+      {
+        "title": "两个版本标签的固定指向核验入口",
+        "url": "https://api.github.com/repos/a737812/yaolang/git/refs/tags"
+      },
+      {
+        "title": "固定.yao与.耀扩展名检查",
+        "url": "https://github.com/a737812/yaolang/blob/8b639836a59c9a9e96f70de67a6a1ad51d157c9d/src/yaolang.c#L48-L55"
       }
     ],
-    "verification_notes": "2026-10-09只读核验。0星，非fork；最后推送2026-09-06T03:26:32Z。日期为仓库创建不代表首发。功能、性能、通过测试数量未独立复测。",
-    "code_source": "https://github.com/a737812/yaolang/blob/8b639836a59c9a9e96f70de67a6a1ad51d157c9d/README.md",
+    "verification_notes": "2026-10-10公开静态核验。已读取百科AGENTS.md、原lang-021对象、round-7汇总及Issue #1全部7条评论。源仓main、45条提交历史、2个标签、1项Release及49项完整递归树已核对；根提交parents为空。中文例程按固定行号重新读取，原有3条引用完整保留。README的系统编程／静态类型定位与源码中的简化语义检查分别记录；“自举级”样例及测试末尾输出文字按作者例程处理。研究范围为网页与源码静态阅读，独立运行结果待核实。",
+    "code_source": "https://github.com/a737812/yaolang/blob/8b639836a59c9a9e96f70de67a6a1ad51d157c9d/test/comprehensive.%E8%80%80#L9-L21",
     "id": "lang-021",
-    "verified_at": "2026-10-09"
+    "verified_at": "2026-10-10",
+    "code_context": "固定test/comprehensive.耀第9—21行连续原文，包含完整阶乘与斐波那契函数。调用与输出位于同文件主函数中；此处按函数定义片段展示。空行、标点和参数名按原文保留。"
   },
   {
     "name": "CNplus",
     "aliases": [
       "CNplus-lang"
     ],
-    "category": "语言",
-    "author": "CNplus组织；个人作者待核实",
-    "first_publication": "README自述项目始于2021年12月；2022年6月尝试C++版，2026重启；当前仓库创建2026-08-21，最早版本首发原始记录待核实。",
-    "description": "【语言】具有独立前端及多个执行后端的中文语言，与早期同名中文API封装应作版本沿革关联。",
+    "category": "中文语言／独立前端与树遍历、Python、JavaScript后端",
+    "author": "CNplus组织；pyproject.toml署名AS13379。历史Python仓库的Charlie894等提交署名映射至GitHub账号AS13379；2026重启仓库主要提交账号为cnplus-agent。个人实名与具体协作分工待核实。",
+    "first_publication": "CNplus-python仓库创建于2021-12-11T09:26:41Z，根提交33b99259于09:26:42Z记录项目名称；2021-12-18T07:53:28Z的import.py已含中文打印函数。CNplus-mixed于2022-06-25创建。2026重启仓库根提交fa6e422的提交时间为2026-08-21T05:24:21Z，仓库创建时间为05:24:55Z。现有历史与README的2021年12月起源、2022年6月尝试及2026重启相互对应；更早公开记录待核实。",
+    "description": "CNplus是CNplus组织公开维护、包元数据署名AS13379的中文编程语言。2026年重启实现使用.cnp文件与缩进代码块，提供设、如果、否则、循环、函数、返回等关键字及多种中文别名。其Python实现具有独立词法器、Pratt解析器、抽象语法树和静态检查器，同一语法树可交给树遍历、Python转译及JavaScript转译后端。语言规范定义严格布尔条件、集合、类、异常和函数参数规则，工具包含中文诊断、REPL、LSP及VSCode扩展。项目沿革追溯到2021年的Python中文函数封装和2022年的C++交互工具，旧源码以archive保存。当前固定源码、包版本和正式发行对应1.7.0，执行效果与测试结果继续待独立核实。",
     "features": [
-      "中文语法／关键字",
-      "有公开实现源码"
+      ".cnp源文件、缩进代码块及中文关键字别名",
+      "独立词法器、Pratt解析器、AST与静态检查器",
+      "树遍历、Python转译及JavaScript转译三条执行路径",
+      "递归函数、循环、列表、字典、切片及类",
+      "严格布尔条件、异常处理和明确的函数参数规则",
+      "内联运行时的Python／JavaScript生成文件",
+      "中文诊断、REPL、LSP补全／悬停／跳转与VSCode扩展"
     ],
-    "code": "如果 单价 * 数量 > 50\n    打印(\"满 50 包邮！\")\n否则\n    打印(\"再买点就包邮了\")",
-    "implementation": "Python实现独立lexer/parser/AST，树遍历及Python/JavaScript转译后端。",
-    "status": "已有源码；未在本次研究中编译或执行",
-    "version": "README列出v1.2.0；正式最新发行待核实",
-    "relations": "README自述源于2021-12中文函数名封装，2022-06 C++尝试，2026重启；旧实现保存在archive。",
+    "code": "函数 阶乘(n)\n    如果 n <= 1\n        返回 1\n    否则\n        返回 n * 阶乘(n - 1)\n\n设 i = 1\n循环 i <= 5\n    打印(文本(i) + \"! = \" + 文本(阶乘(i)))\n    i = i + 1",
+    "implementation": "实现语言为Python，包声明Python>=3.11。词法器使用keywords.toml与全角归一化规则，Pratt解析器构造独立AST；CLI先解析并静态检查，再选择后端。树遍历后端直接解释AST；Python发射器内联运行时，通过compile与exec执行生成源码；JavaScript发射器内联JS运行时，CLI以Node子进程执行生成文件。编译命令可保存.py或.js。Python库导入适用于树遍历与Python转译后端；JS后端将导入交给相应错误诊断。字节码VM位于README路线图待办。上述链路依据固定源码静态核验。",
+    "status": "作者账号链、2021—2026历史、固定中文原例、独立前端、三后端实现及v1.7.0发行已核。根目录保存Apache-2.0许可证。发行包安装、独立运行、多后端语义一致性及发布说明中的测试数量待独立核实。",
+    "version": "2026-10-10核验main为5000dc1de6554ce567cad80372f39b9808566b7d，提交时间2026-09-19T04:04:06Z。pyproject.toml版本1.7.0；v1.7.0注解标签af566efe指向同一提交，Release发表于2026-09-19T04:04:51Z，prerelease=false，附cnplus-1.7.0-py3-none-any.whl和cnplus-1.7.0.vsix。README的v1.2.0对应LSP阶段记录。历史mixed源码自报0.0.1-dev，各阶段版本分别保存。",
+    "relations": "CNplus-python以普通Python的def/if包装打印、判断及随机数等中文API；CNplus-mixed以C++字符串查找分派打印、退出、设置等交互命令。2026的CNplus-lang建立独立词法、AST及多后端实现。archive的Python代码、2022 README、mixed代码与README共4个blob与原仓固定历史一致；旧Python仓库2026-08-24的README明确指向CNplus-lang。AGENTS与重启计划公开面向AI助手的开发规则，cnplus-agent承担多数提交；具体模型、生成比例及人工分工待核实。",
     "references": [
       {
         "title": "项目README（核验快照）",
@@ -1330,13 +1393,89 @@
       {
         "title": "仓库元数据",
         "url": "https://api.github.com/repos/CNplus/CNplus-lang"
+      },
+      {
+        "title": "固定递归阶乘与循环输出原例",
+        "url": "https://github.com/CNplus/CNplus-lang/blob/5000dc1de6554ce567cad80372f39b9808566b7d/%E7%A4%BA%E4%BE%8B/09-%E9%98%B6%E4%B9%98.cnp#L5-L14"
+      },
+      {
+        "title": "固定包版本、Python要求与AS13379署名",
+        "url": "https://github.com/CNplus/CNplus-lang/blob/5000dc1de6554ce567cad80372f39b9808566b7d/pyproject.toml#L1-L9"
+      },
+      {
+        "title": "固定CLI解析、检查与后端选择",
+        "url": "https://github.com/CNplus/CNplus-lang/blob/5000dc1de6554ce567cad80372f39b9808566b7d/cnplus/cli.py#L62-L107"
+      },
+      {
+        "title": "固定树遍历执行入口",
+        "url": "https://github.com/CNplus/CNplus-lang/blob/5000dc1de6554ce567cad80372f39b9808566b7d/cnplus/backends/treewalk/evaluator.py#L83-L125"
+      },
+      {
+        "title": "固定Python转译执行实现",
+        "url": "https://github.com/CNplus/CNplus-lang/blob/5000dc1de6554ce567cad80372f39b9808566b7d/cnplus/backends/python_emit/%E5%90%8E%E7%AB%AF.py#L19-L50"
+      },
+      {
+        "title": "固定JavaScript转译及Node子进程",
+        "url": "https://github.com/CNplus/CNplus-lang/blob/5000dc1de6554ce567cad80372f39b9808566b7d/cnplus/backends/js_emit/%E5%90%8E%E7%AB%AF.py#L20-L52"
+      },
+      {
+        "title": "固定语言值类别、布尔条件及比较规范",
+        "url": "https://github.com/CNplus/CNplus-lang/blob/5000dc1de6554ce567cad80372f39b9808566b7d/docs/spec/00-%E8%AF%AD%E4%B9%89%E7%BA%A6%E5%AE%9A.md#L9-L87"
+      },
+      {
+        "title": "固定旧Python中文API归档",
+        "url": "https://github.com/CNplus/CNplus-lang/blob/5000dc1de6554ce567cad80372f39b9808566b7d/archive/CNplus-python/CNplus.py"
+      },
+      {
+        "title": "固定旧C++交互工具归档",
+        "url": "https://github.com/CNplus/CNplus-lang/blob/5000dc1de6554ce567cad80372f39b9808566b7d/archive/CNplus-mixed/main.cpp"
+      },
+      {
+        "title": "2021年项目名称根提交及Charlie894作者记录",
+        "url": "https://github.com/CNplus/CNplus-python/commit/33b99259d5a2309afd4ef40e39dde44c3965f2bb"
+      },
+      {
+        "title": "2021年12月中文打印函数原始代码",
+        "url": "https://github.com/CNplus/CNplus-python/blob/eb90369644b69f3baa783dc7c914d898a03650d7/import.py"
+      },
+      {
+        "title": "2022年C++路线根提交及作者记录",
+        "url": "https://github.com/CNplus/CNplus-mixed/commit/fad3b704997dfa9f44d12e759399e1e89f680443"
+      },
+      {
+        "title": "旧Python仓库指向CNplus-lang的迁移说明",
+        "url": "https://github.com/CNplus/CNplus-python/blob/d3677455f694778135b55ee04a857b14922a3c70/README.md#L1-L9"
+      },
+      {
+        "title": "2026年重启与历史归档根提交",
+        "url": "https://github.com/CNplus/CNplus-lang/commit/fa6e422f04ccf81319fa91b9c17dc0df8fd22c1f"
+      },
+      {
+        "title": "v1.7.0正式发行与wheel、VSIX附件",
+        "url": "https://github.com/CNplus/CNplus-lang/releases/tag/v1.7.0"
+      },
+      {
+        "title": "v1.7.0注解标签及固定提交对应",
+        "url": "https://api.github.com/repos/CNplus/CNplus-lang/git/tags/af566efe720c84c21559c1861ab3646d20c51ffb"
+      },
+      {
+        "title": "固定面向AI助手的项目规则",
+        "url": "https://github.com/CNplus/CNplus-lang/blob/5000dc1de6554ce567cad80372f39b9808566b7d/AGENTS.md#L1-L18"
+      },
+      {
+        "title": "固定Apache-2.0许可证",
+        "url": "https://github.com/CNplus/CNplus-lang/blob/5000dc1de6554ce567cad80372f39b9808566b7d/LICENSE"
+      },
+      {
+        "title": "固定Pratt解析器及独立AST节点",
+        "url": "https://github.com/CNplus/CNplus-lang/blob/5000dc1de6554ce567cad80372f39b9808566b7d/cnplus/parser/parser.py#L1-L27"
       }
     ],
-    "verification_notes": "2026-10-09只读核验。1星，非fork；最后推送2026-09-19T04:04:48Z。日期为仓库创建不代表首发。功能、性能、通过测试数量未独立复测。 2026-10-09源码摘录QA：按固定提交重新读取核验，已改为单段连续原文，未拼接变量声明。",
-    "code_source": "https://github.com/CNplus/CNplus-lang/blob/5000dc1de6554ce567cad80372f39b9808566b7d/README.md",
-    "code_context": "固定提交原文的连续条件分支摘录；依赖原示例前文已声明的单价、数量，不作为独立完整程序。",
+    "verification_notes": "2026-10-10公开静态核验。已读取百科AGENTS.md、原lang-022对象、round-7汇总及Issue #1全部7条评论。当前main的76条可读提交含74条cnplus-agent、2条AS13379作者记录；546项递归树truncated=false。另核对旧Python仓库44条、mixed仓库13条提交及空父根节点，逐字比较4项归档文件。例程按固定行号重新读取，原有3条引用完整保留。最新发行以latest端点、标签对象、包版本交叉核对。测试与性能声明按项目发布说明记录；独立执行结果待核实。",
+    "code_source": "https://github.com/CNplus/CNplus-lang/blob/5000dc1de6554ce567cad80372f39b9808566b7d/%E7%A4%BA%E4%BE%8B/09-%E9%98%B6%E4%B9%98.cnp#L5-L14",
+    "code_context": "固定示例/09-阶乘.cnp第5—14行连续原文，包含完整递归阶乘函数、变量初始化、循环调用及输出。保留原缩进、空行和字符串，具备片段内所用变量及函数定义。",
     "id": "lang-022",
-    "verified_at": "2026-10-09"
+    "verified_at": "2026-10-10"
   },
   {
     "name": "基石",
@@ -3883,5 +4022,306 @@
       }
     ],
     "id": "lang-061"
+  },
+  {
+    "name": "太和",
+    "aliases": [
+      "TaiHeLang",
+      "TaiHe Language"
+    ],
+    "description": "太和（TaiHeLang）是浅生通过GitHub账号naodingaoaoao发布的中文编程语言项目，采用Python实现词法分析、递归下降解析、LLVM中间表示生成和AST解释执行。语言以冒号和缩进组织代码，使用“函数、变量、常量、如果、否则、当、对于、返回、类”等中文关键字，原始.th例程展示输出、条件、循环及递归斐波那契。编译入口依次生成词元、语法树和LLVM IR，命令行再调用llc与Clang生成目标文件、可执行程序或DLL。项目另公开面向Windows的C运行时与UI接口。规范、编译器和解释器分别记录其功能范围，集合类型、安装材料及完整运行效果继续核实。",
+    "category": "中文语法语言／Python编译器与AST解释器实验",
+    "author": "浅生（GitHub账号naodingaoaoao）；固定LICENSE署名“Copyright (c) 2026 浅生”，6条默认分支提交的作者账号均对应naodingaoaoao。包元数据另署“太和语言开发团队”，团队成员及实名待核实。",
+    "first_publication": "仓库创建于2026-02-27T10:20:05Z；同一时间的根提交11adcd8bc435da38f09d13b8b6b94aed6e17f37f包含项目简介与MIT许可证。规范提交时间为2026-02-27T10:37:17Z，核心文件上传提交65115c14f95738d607e02b2ef8abafa8a7b36ba2的时间为2026-02-27T11:19:30Z。更早语言设计及首次公开日期待核实。",
+    "features": [
+      ".th中文源文件及冒号、缩进代码块",
+      "中文函数、变量、常量、条件、循环与返回关键字",
+      "中文全角标点映射及Unicode标识符",
+      "递归斐波那契、输出和DLL原例",
+      "Python词法器、递归下降解析器和llvmlite生成器",
+      "llc／Clang本地编译路径及独立AST解释入口",
+      "Windows控制台与UI运行时源码"
+    ],
+    "code": "函数 斐波那契(n):\n    # 计算第n个斐波那契数\n    如果 n <= 1:\n        返回 n\n    否则:\n        返回 斐波那契(n - 1) + 斐波那契(n - 2)",
+    "code_source": "https://github.com/naodingaoaoao/TaiHeLang/blob/c52c75f9ef82772017ffd19042fce72b8d891e71/examples/fibonacci.th#L4-L9",
+    "code_context": "固定examples/fibonacci.th第4—9行连续原文，包含完整递归斐波那契函数及中文条件、返回语法。全文和按行读取结果已比对。例程独立编译及执行结果待核实。",
+    "implementation": "src/taihe/lexer.py将中文关键字识别为KEYWORD并生成INDENT／DEDENT；parser.py按关键字分派函数、变量、条件与循环，构造ast.py中的节点。compiler.py的compile_source串接tokenize_string→Parser.parse→CodeGenerator.generate，codegen.py使用llvmlite.ir并将“主”映射为main。cli.py的run写入.ll，优先调用llc生成.o，再由Clang链接；回退路径直接交给Clang处理IR，另有-shared DLL分支。runtime/taihe_runtime.c和taihe_ui.c使用Windows API。cli.py的interpret调用interpret_file，经相同词法与解析入口进入TaiHeInterpreter.execute_program，并查找“主”函数。两条路径的构建及语义一致性待独立验证。",
+    "version": "spec.md标题自标v0.1；src/taihe/__init__.py和CLI版本命令自标0.1.0；已提交的PKG-INFO标taihe-lang 0.2.0、Alpha、Python>=3.8及llvmlite==0.46.0。上述编号按所在文件分别记录。固定main提交c52c75f9ef82772017ffd19042fce72b8d891e71的作者及提交日期为2026-02-27T11:42:11Z。2026-10-10读取Releases列表为空，标签引用命名空间返回404；正式发行版本及编号对应关系待核实。",
+    "relations": "README、INDEX、CLI自指链接、MIT署名及提交作者将太和、TaiHeLang、TaiHe Language归入同一项目；GitHub元数据fork=false。PKG-INFO的Home-page指向taihe-lang/taihe，本次公开仓库读取返回404，该地址的历史身份及源码关系待核实。与其他中文语言的源码继承关系待核实。",
+    "status": "固定中文原例、词法及解析入口、LLVM编译调用链、AST解释路径和MIT许可已核。当前按实验性编译器与解释器项目收录；独立构建、性能、跨平台范围、发布包及IDE对应源码待核实。",
+    "verification_notes": "2026-10-10只读核验。固定递归树38项，truncated=false，默认分支6次提交。规范中的列表、推导式、元组、字典和切片按设计层记录；生成器列表路径采用首元素或长度的简化值，元组、字典、切片路径进入显式错误分支，完整集合语义待核实。INDEX中的setup.py、requirements.txt、tests及README中的Electron IDE对应公开材料待核实。CLI第27行在Visual Studio LLVM路径列表旁明确标注AI参与，具体生成范围及核心代码AI参与比例待核实。材料读取和原例核对属于静态资料核验。",
+    "verified_at": "2026-10-10",
+    "repository_created_at": "2026-02-27T10:20:05Z",
+    "repository_pushed_at": "2026-02-27T11:42:11Z",
+    "references": [
+      {
+        "title": "固定项目简介与中文语言定位",
+        "url": "https://github.com/naodingaoaoao/TaiHeLang/blob/c52c75f9ef82772017ffd19042fce72b8d891e71/README.md#L1-L15"
+      },
+      {
+        "title": "固定连续递归原例",
+        "url": "https://github.com/naodingaoaoao/TaiHeLang/blob/c52c75f9ef82772017ffd19042fce72b8d891e71/examples/fibonacci.th#L4-L9"
+      },
+      {
+        "title": "固定中文关键字与全角标点映射",
+        "url": "https://github.com/naodingaoaoao/TaiHeLang/blob/c52c75f9ef82772017ffd19042fce72b8d891e71/src/taihe/lexer.py#L30-L109"
+      },
+      {
+        "title": "固定解析语句入口",
+        "url": "https://github.com/naodingaoaoao/TaiHeLang/blob/c52c75f9ef82772017ffd19042fce72b8d891e71/src/taihe/parser.py#L180-L216"
+      },
+      {
+        "title": "固定编译流水线",
+        "url": "https://github.com/naodingaoaoao/TaiHeLang/blob/c52c75f9ef82772017ffd19042fce72b8d891e71/src/taihe/compiler.py#L10-L55"
+      },
+      {
+        "title": "固定LLVM IR生成入口",
+        "url": "https://github.com/naodingaoaoao/TaiHeLang/blob/c52c75f9ef82772017ffd19042fce72b8d891e71/src/taihe/codegen.py#L335-L396"
+      },
+      {
+        "title": "固定本地编译、链接和执行路径",
+        "url": "https://github.com/naodingaoaoao/TaiHeLang/blob/c52c75f9ef82772017ffd19042fce72b8d891e71/src/taihe/cli.py#L201-L409"
+      },
+      {
+        "title": "固定AST解释器与主函数调用",
+        "url": "https://github.com/naodingaoaoao/TaiHeLang/blob/c52c75f9ef82772017ffd19042fce72b8d891e71/src/taihe/interpreter.py#L520-L575"
+      },
+      {
+        "title": "固定集合类型实现阶段",
+        "url": "https://github.com/naodingaoaoao/TaiHeLang/blob/c52c75f9ef82772017ffd19042fce72b8d891e71/src/taihe/codegen.py#L2285-L2338"
+      },
+      {
+        "title": "固定切片与字典处理",
+        "url": "https://github.com/naodingaoaoao/TaiHeLang/blob/c52c75f9ef82772017ffd19042fce72b8d891e71/src/taihe/codegen.py#L2661-L2712"
+      },
+      {
+        "title": "固定规范v0.1",
+        "url": "https://github.com/naodingaoaoao/TaiHeLang/blob/c52c75f9ef82772017ffd19042fce72b8d891e71/spec.md"
+      },
+      {
+        "title": "固定包元数据及0.2.0版本",
+        "url": "https://github.com/naodingaoaoao/TaiHeLang/blob/c52c75f9ef82772017ffd19042fce72b8d891e71/src/taihe_lang.egg-info/PKG-INFO#L1-L26"
+      },
+      {
+        "title": "固定Python包内0.1.0版本声明",
+        "url": "https://github.com/naodingaoaoao/TaiHeLang/blob/c52c75f9ef82772017ffd19042fce72b8d891e71/src/taihe/__init__.py#L1-L2"
+      },
+      {
+        "title": "固定MIT许可证与作者署名",
+        "url": "https://github.com/naodingaoaoao/TaiHeLang/blob/c52c75f9ef82772017ffd19042fce72b8d891e71/LICENSE"
+      },
+      {
+        "title": "固定Windows运行时",
+        "url": "https://github.com/naodingaoaoao/TaiHeLang/blob/c52c75f9ef82772017ffd19042fce72b8d891e71/runtime/taihe_runtime.c#L1-L33"
+      },
+      {
+        "title": "固定CLI局部AI参与注释",
+        "url": "https://github.com/naodingaoaoao/TaiHeLang/blob/c52c75f9ef82772017ffd19042fce72b8d891e71/src/taihe/cli.py#L16-L37"
+      },
+      {
+        "title": "固定文件清单",
+        "url": "https://github.com/naodingaoaoao/TaiHeLang/tree/c52c75f9ef82772017ffd19042fce72b8d891e71"
+      },
+      {
+        "title": "根提交与作者账号",
+        "url": "https://github.com/naodingaoaoao/TaiHeLang/commit/11adcd8bc435da38f09d13b8b6b94aed6e17f37f"
+      },
+      {
+        "title": "核心文件上传提交",
+        "url": "https://github.com/naodingaoaoao/TaiHeLang/commit/65115c14f95738d607e02b2ef8abafa8a7b36ba2"
+      },
+      {
+        "title": "公开发行列表",
+        "url": "https://github.com/naodingaoaoao/TaiHeLang/releases"
+      }
+    ],
+    "id": "lang-062"
+  },
+  {
+    "name": "ChineseToyLang",
+    "aliases": [
+      "中文玩具编译器（sundaolin9527）",
+      "ChineseToyCompiler（早期构建目标名）"
+    ],
+    "description": "ChineseToyLang是GitHub账号sundaolin9527公开的中文玩具编译器项目，采用C实现词法、语法和类型推断，以C++编写LLVM IR生成实验。语法规则使用“令、恒、函、返、若、亦、则、当、遍、撤、过”等中文关键字，配合花括号、分号及表达式优先级组织程序；原始例程包含面积函数、条件分支、循环、排序和结构声明。当前命令行入口读取文本并输出抽象语法树，独立IR测试入口把解析结果交给LLVM生成器。仓库还保存指令选择、线性扫描寄存器分配与垃圾回收的开发材料，适合观察中文语言前端及编译器分阶段构建。条目按公开语法、前端实现和IR实验分层记录。",
+    "category": "中文语法语言／早期编译器前端与LLVM IR实验",
+    "author": "仓库账号sundaolin9527；可见提交作者署名sundaolin。原始提交元数据的GitHub作者对象为null，提交署名与账号的身份对应、实名和协作者待核实。",
+    "first_publication": "仓库创建于2025-06-01T08:03:13Z。默认分支根提交120ea4b7dce11a98cffa724a59d2b4a78da74dcb的作者时间为2025-06-01T09:34:37Z、提交时间为2025-06-01T09:35:14Z，消息为“中文玩具编译器”，包含中文语法和测试例程。更早语言设计及首次公开日期待核实。",
+    "features": [
+      "“令／恒”变量及常量声明",
+      "“函／返”函数及返回语法",
+      "“若／亦／则”条件及“当／遍”循环",
+      "“撤／过”跳转、“真／假／空”字面量",
+      "花括号代码块与分号终结语句",
+      "中文词法、递归下降解析、AST和类型推断源码",
+      "单独IR测试入口及LLVM 16依赖",
+      "指令选择和线性扫描寄存器分配演示"
+    ],
+    "code": "令 年龄 = 28;\n恒 PI = 3.1415926;\n函 计算面积(半径) {\n    返 PI * 半径 ** 2;\n}",
+    "code_source": "https://github.com/sundaolin9527/ChineseToyLang/blob/897456459430f6c9abcb517fa3249739f502e7b2/tests/examples/test.txt#L3-L7",
+    "code_context": "固定tests/examples/test.txt第3—7行连续原文，包含中文变量、常量声明与完整面积函数。另有test_variable.txt展示真／假字面量和多种表达式。所选原例全文与按行读取已比对，独立编译运行结果待核实。",
+    "implementation": "app/Main.cpp通过read_file→init_lexer→init_parser→parse_program读取源文件并打印AST。src/Frontend/Lexer.c明确映射中文关键字，Parser.c按TOKEN_VAR、TOKEN_FUNC、TOKEN_IF等分派语句，Infer.c提供类型推断。tests/Unit/IR/CodeGenTest.cpp另将parse_program结果传给CodeGenerator::EmitProgram与dumpIR；src/IR/CodeGen.cpp通过LLVM Module、IRBuilder和verifyModule生成、检查与打印IR。根CMake配置C11／C++17、Clang 16、LLVM 16并推荐16.0.6，另依赖zstd及CURL。src/Backend/CodeGen.cpp以独立main内手工构造的虚拟指令演示寄存器分配和x86指令选择。前端至机器码的完整接通、构建及运行效果待核实。",
+    "version": "固定master提交897456459430f6c9abcb517fa3249739f502e7b2的作者及提交时间为2025-08-18T14:47:46Z，提交说明为“gc算法开发02”；可见默认分支历史共66条。CMake工程名为ChineseToyLang，app/version.h.in保存版本替换模板。2026-10-10读取Releases列表为空，标签引用命名空间返回404；正式语言版本与发行号待核实。",
+    "relations": "2025-06-01的c5216fee5772988f128141dcf868805da80a1132提交将构建目标ChineseToyCompiler改名ChineseToyLang，作为同一仓库的名称沿革记录。GitHub元数据fork=false。最早CMake中出现elang_core等工程字符串，外部同名项目关联与源码继承关系待核实。与目录中的其他中文玩具语言按作者和仓库分别登记。",
+    "status": "固定中文原例、中文词元映射、语法规范、AST入口、LLVM依赖和单独IR生成入口已核。当前按早期编译器前端与IR实验收录；机器码流水线、运行时、垃圾回收完整性、许可及独立构建运行待核实。",
+    "verification_notes": "2026-10-10只读核验。固定递归树101项，truncated=false。app/Main.cpp的执行链终点为AST输出；IR_CodeGenTest由tests/Unit/CMakeLists.txt单独构建。固定树中的ARM／X86平台代码、Sema.c、Gc.c和FullPipelineTest.cpp等处于零字节占位阶段，完整后端及集成测试继续核实。源码提供verifyModule调用，测试通过状态单独待核。仓库license元数据为null，许可声明待核实；作者AI参与情况待核实。研究范围为公开静态资料和原例核对。",
+    "verified_at": "2026-10-10",
+    "repository_created_at": "2025-06-01T08:03:13Z",
+    "repository_pushed_at": "2025-08-18T14:47:53Z",
+    "references": [
+      {
+        "title": "原作者仓库名称与中文玩具编译器简介",
+        "url": "https://github.com/sundaolin9527/ChineseToyLang"
+      },
+      {
+        "title": "固定语法规则",
+        "url": "https://github.com/sundaolin9527/ChineseToyLang/blob/897456459430f6c9abcb517fa3249739f502e7b2/docs/docs.md"
+      },
+      {
+        "title": "固定连续中文函数原例",
+        "url": "https://github.com/sundaolin9527/ChineseToyLang/blob/897456459430f6c9abcb517fa3249739f502e7b2/tests/examples/test.txt#L3-L7"
+      },
+      {
+        "title": "固定变量、常量及真／假原例",
+        "url": "https://github.com/sundaolin9527/ChineseToyLang/blob/897456459430f6c9abcb517fa3249739f502e7b2/tests/examples/test_variable.txt#L1-L7"
+      },
+      {
+        "title": "固定中文词元映射",
+        "url": "https://github.com/sundaolin9527/ChineseToyLang/blob/897456459430f6c9abcb517fa3249739f502e7b2/src/Frontend/Lexer.c#L15-L76"
+      },
+      {
+        "title": "固定声明及函数解析",
+        "url": "https://github.com/sundaolin9527/ChineseToyLang/blob/897456459430f6c9abcb517fa3249739f502e7b2/src/Frontend/Parser.c#L94-L185"
+      },
+      {
+        "title": "固定语句分派",
+        "url": "https://github.com/sundaolin9527/ChineseToyLang/blob/897456459430f6c9abcb517fa3249739f502e7b2/src/Frontend/Parser.c#L911-L951"
+      },
+      {
+        "title": "固定主程序AST入口",
+        "url": "https://github.com/sundaolin9527/ChineseToyLang/blob/897456459430f6c9abcb517fa3249739f502e7b2/app/Main.cpp#L13-L53"
+      },
+      {
+        "title": "固定单独IR生成测试入口",
+        "url": "https://github.com/sundaolin9527/ChineseToyLang/blob/897456459430f6c9abcb517fa3249739f502e7b2/tests/Unit/IR/CodeGenTest.cpp#L11-L52"
+      },
+      {
+        "title": "固定IR程序生成与模块验证",
+        "url": "https://github.com/sundaolin9527/ChineseToyLang/blob/897456459430f6c9abcb517fa3249739f502e7b2/src/IR/CodeGen.cpp#L1226-L1249"
+      },
+      {
+        "title": "固定构建依赖与LLVM版本",
+        "url": "https://github.com/sundaolin9527/ChineseToyLang/blob/897456459430f6c9abcb517fa3249739f502e7b2/CMakeLists.txt#L1-L26"
+      },
+      {
+        "title": "固定IR测试构建目标",
+        "url": "https://github.com/sundaolin9527/ChineseToyLang/blob/897456459430f6c9abcb517fa3249739f502e7b2/tests/Unit/CMakeLists.txt#L28-L43"
+      },
+      {
+        "title": "固定手工IR后端演示入口",
+        "url": "https://github.com/sundaolin9527/ChineseToyLang/blob/897456459430f6c9abcb517fa3249739f502e7b2/src/Backend/CodeGen.cpp#L308-L345"
+      },
+      {
+        "title": "固定版本模板",
+        "url": "https://github.com/sundaolin9527/ChineseToyLang/blob/897456459430f6c9abcb517fa3249739f502e7b2/app/version.h.in"
+      },
+      {
+        "title": "固定文件清单与占位模块",
+        "url": "https://github.com/sundaolin9527/ChineseToyLang/tree/897456459430f6c9abcb517fa3249739f502e7b2"
+      },
+      {
+        "title": "根提交、中文原例及作者时间",
+        "url": "https://github.com/sundaolin9527/ChineseToyLang/commit/120ea4b7dce11a98cffa724a59d2b4a78da74dcb"
+      },
+      {
+        "title": "构建目标名称沿革",
+        "url": "https://github.com/sundaolin9527/ChineseToyLang/commit/c5216fee5772988f128141dcf868805da80a1132"
+      },
+      {
+        "title": "当前提交与开发阶段",
+        "url": "https://github.com/sundaolin9527/ChineseToyLang/commit/897456459430f6c9abcb517fa3249739f502e7b2"
+      },
+      {
+        "title": "公开发行列表",
+        "url": "https://github.com/sundaolin9527/ChineseToyLang/releases"
+      }
+    ],
+    "id": "lang-063"
+  },
+  {
+    "name": "rzc（i18n-rust 中文方言）",
+    "aliases": [
+      "rzc",
+      "i18n-rust",
+      "i18n-rust 中文方言"
+    ],
+    "category": "Rust中文方言／词元级源到源转译工具",
+    "author": "tan80（GitHub账号liuqiTan80、GitCode账号tan80）；LICENSE署名i18n-rust项目团队。",
+    "first_publication": "至少在2026-08-16已有可核验的v0.3.0公开发行。GitHub仓库创建于2026-08-15T07:13:24Z；项目更早的公开日期与GitCode初始发布记录待核实。",
+    "description": "rzc是i18n-rust项目提供的多语言Rust教学方言工具，其中中文模式使用.zh文件和“函数、让、可变、如果、匹配、返回”等中文关键字。语言包同时映射类型、宏、标准库名称及模块路径，程序经词元级转译生成标准Rust源码，再交由rustc或Cargo编译运行。转译引擎采用rustc_lexer识别词元，串接关键字、模块路径和标识符别名处理，并保存源码位置映射，用于把Rust诊断对应回中文程序。项目面向学习者，配套中文错误说明、教学提示、命令行工具和代理rust-analyzer的语言服务器；另提供将程序导出为标准Rust的eject命令。中文方言与其他自然语言包共用同一引擎，GitHub与GitCode由README确认为同项目同步入口。原始源码、中文例程和发行记录已核对，完整Rust语义覆盖、跨平台行为和运行效果继续待核实。",
+    "features": [
+      "中文关键字、类型、宏与标准库名称映射",
+      ".zh中文源文件与多语言包共用转译引擎",
+      "rustc_lexer词元转译与源码位置映射",
+      "标准Rust源码输出及rustc／Cargo编译运行入口",
+      "中文教学诊断、LSP代理和VS Code配套扩展",
+      "eject导出标准Rust；第三方库名称映射辅助"
+    ],
+    "code": "函数 主函数() {\n    让 可变 数量 = 10;\n    数量 = 数量 + 1;\n    打印行!(\"数量是：{}\", 数量);\n}",
+    "code_source": "https://github.com/liuqiTan80/i18n-rust/blob/ef07fb31b911a64ce0875738de8be641b3a2be91/README.md#L28-L32",
+    "code_context": "固定提交README.md第28—32行的完整连续主函数原文，展示中文函数声明、可变绑定及打印宏。保持原有标点和四空格缩进；本轮按源码静态核验。",
+    "implementation": "以Rust实现。crates/engine/src/lexer.rs调用rustc_lexer::tokenize，在Ident／RawIdent及数值后缀分支应用语言包映射；crates/engine/src/lib.rs再串接模块路径、别名与源码位置映射。crates/cli/src/main.rs的Run分支加载映射、转译入口及相关模块，再分派到单文件rustc路径或Cargo run。中文语言包以TOML保存。该实现沿用Rust工具链及语义；各语法、库映射和诊断覆盖的独立验证待核实。",
+    "status": "公开源码可读，GitHub仓库未归档；2026-10-10所读main为ef07fb31b911a64ce0875738de8be641b3a2be91，提交日期2026-09-29，0星。GitCode同步状态与各发行附件内容独立核验待补；构建、安装和运行待核实。",
+    "version": "固定crates/cli/Cargo.toml标记rzc 0.8.3；GitHub v0.8.3发行于2026-09-29T09:38:18Z，标签指向同一固定提交，附i18n-rust-0.8.3.vsix及SHA256SUMS。中文语言包的元数据版本为1.0，与工具版本分别记录。",
+    "relations": "README明确GitHub liuqiTan80/i18n-rust和GitCode tan80/i18n-rust同步维护，两入口合计一个项目。中文是rzc多语言方言体系中的语言包，按Rust中文方言和转译层分类。Issue #22的bo333/Chinese-Rust-Syntax-Design-and-Transpilation-Tool为另一作者的既有设计候选；本项目的原始作者链和实现来源单独记录，二者继承关系待核实。",
+    "references": [
+      {
+        "title": "原GitCode发现入口",
+        "url": "https://gitcode.com/tan80/i18n-rust"
+      },
+      {
+        "title": "固定README：正式名称、双平台关系与中文原例",
+        "url": "https://github.com/liuqiTan80/i18n-rust/blob/ef07fb31b911a64ce0875738de8be641b3a2be91/README.md#L12-L32"
+      },
+      {
+        "title": "中文关键字、类型和宏映射表",
+        "url": "https://github.com/liuqiTan80/i18n-rust/blob/ef07fb31b911a64ce0875738de8be641b3a2be91/crates/engine/lang-packs/zh/keywords.toml"
+      },
+      {
+        "title": "中文文件扩展名及语言包版本",
+        "url": "https://github.com/liuqiTan80/i18n-rust/blob/ef07fb31b911a64ce0875738de8be641b3a2be91/crates/engine/lang-packs/zh/lang_info.toml"
+      },
+      {
+        "title": "词元级转译实现",
+        "url": "https://github.com/liuqiTan80/i18n-rust/blob/ef07fb31b911a64ce0875738de8be641b3a2be91/crates/engine/src/lexer.rs#L112-L348"
+      },
+      {
+        "title": "完整转译管线与源码位置映射",
+        "url": "https://github.com/liuqiTan80/i18n-rust/blob/ef07fb31b911a64ce0875738de8be641b3a2be91/crates/engine/src/lib.rs#L172-L264"
+      },
+      {
+        "title": "加载、转译及rustc／Cargo运行分派",
+        "url": "https://github.com/liuqiTan80/i18n-rust/blob/ef07fb31b911a64ce0875738de8be641b3a2be91/crates/cli/src/main.rs#L318-L386"
+      },
+      {
+        "title": "rzc工具版本与依赖",
+        "url": "https://github.com/liuqiTan80/i18n-rust/blob/ef07fb31b911a64ce0875738de8be641b3a2be91/crates/cli/Cargo.toml"
+      },
+      {
+        "title": "MIT许可证及团队署名",
+        "url": "https://github.com/liuqiTan80/i18n-rust/blob/ef07fb31b911a64ce0875738de8be641b3a2be91/LICENSE"
+      },
+      {
+        "title": "v0.8.3公开发行",
+        "url": "https://github.com/liuqiTan80/i18n-rust/releases/tag/v0.8.3"
+      },
+      {
+        "title": "2026-08-16的v0.3.0公开发行",
+        "url": "https://github.com/liuqiTan80/i18n-rust/releases/tag/v0.3.0"
+      }
+    ],
+    "verification_notes": "2026-10-10只读核验，固定main提交ef07fb31b911a64ce0875738de8be641b3a2be91（作者及提交者日期2026-09-29T09:32:09Z）。递归树630项、truncated=false。仓库pushed_at为2026-10-07T13:47:13Z，按平台推送字段单独理解。README中的完整生态、全语义兼容和教学效果属于作者定位与说明，独立验证待核实。源码已确认Rust转译与编译运行入口；本轮保持静态阅读。原页的AI库映射功能说明按工具功能记录，开发过程使用AI的范围待核实。GitHub的最新发行元数据与附加文件名已读，附件内部内容待核实。许可证为MIT。",
+    "verified_at": "2026-10-10",
+    "id": "lang-064"
   }
 ]

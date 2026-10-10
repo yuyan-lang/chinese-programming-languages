@@ -1,0 +1,184 @@
+[
+  {
+    "name": "太和",
+    "discovery_status": "第七轮旧候选；第八轮已完成分类资料，保留后续字段核验",
+    "category": "中文语法语言／Python编译器与AST解释器实验",
+    "repository": "https://github.com/naodingaoaoao/TaiHeLang",
+    "snapshot": "c52c75f9ef82772017ffd19042fce72b8d891e71",
+    "evidence": "固定连续中文递归原例、中文词元与解析、llvmlite IR、llc/Clang调用链、AST解释入口、MIT署名及包版本已核。",
+    "pending": "0.1／0.2编号对应、安装脚手架、Electron IDE对应公开材料、正式发行物、完整集合语义、编译与解释路径语义一致性、Windows以外平台、性能与独立构建运行待核实；taihe-lang/taihe首页地址的历史身份及核心AI参与范围待核实。",
+    "verification_scope": "公开静态源码、文档、原例和GitHub元数据；独立构建运行待核实。",
+    "verified_at": "2026-10-10",
+    "references": [
+      {
+        "title": "固定项目简介与中文语言定位",
+        "url": "https://github.com/naodingaoaoao/TaiHeLang/blob/c52c75f9ef82772017ffd19042fce72b8d891e71/README.md#L1-L15"
+      },
+      {
+        "title": "固定连续递归原例",
+        "url": "https://github.com/naodingaoaoao/TaiHeLang/blob/c52c75f9ef82772017ffd19042fce72b8d891e71/examples/fibonacci.th#L4-L9"
+      },
+      {
+        "title": "固定中文关键字与全角标点映射",
+        "url": "https://github.com/naodingaoaoao/TaiHeLang/blob/c52c75f9ef82772017ffd19042fce72b8d891e71/src/taihe/lexer.py#L30-L109"
+      },
+      {
+        "title": "固定解析语句入口",
+        "url": "https://github.com/naodingaoaoao/TaiHeLang/blob/c52c75f9ef82772017ffd19042fce72b8d891e71/src/taihe/parser.py#L180-L216"
+      },
+      {
+        "title": "固定编译流水线",
+        "url": "https://github.com/naodingaoaoao/TaiHeLang/blob/c52c75f9ef82772017ffd19042fce72b8d891e71/src/taihe/compiler.py#L10-L55"
+      },
+      {
+        "title": "固定LLVM IR生成入口",
+        "url": "https://github.com/naodingaoaoao/TaiHeLang/blob/c52c75f9ef82772017ffd19042fce72b8d891e71/src/taihe/codegen.py#L335-L396"
+      },
+      {
+        "title": "固定本地编译、链接和执行路径",
+        "url": "https://github.com/naodingaoaoao/TaiHeLang/blob/c52c75f9ef82772017ffd19042fce72b8d891e71/src/taihe/cli.py#L201-L409"
+      },
+      {
+        "title": "固定AST解释器与主函数调用",
+        "url": "https://github.com/naodingaoaoao/TaiHeLang/blob/c52c75f9ef82772017ffd19042fce72b8d891e71/src/taihe/interpreter.py#L520-L575"
+      },
+      {
+        "title": "固定集合类型实现阶段",
+        "url": "https://github.com/naodingaoaoao/TaiHeLang/blob/c52c75f9ef82772017ffd19042fce72b8d891e71/src/taihe/codegen.py#L2285-L2338"
+      },
+      {
+        "title": "固定切片与字典处理",
+        "url": "https://github.com/naodingaoaoao/TaiHeLang/blob/c52c75f9ef82772017ffd19042fce72b8d891e71/src/taihe/codegen.py#L2661-L2712"
+      },
+      {
+        "title": "固定规范v0.1",
+        "url": "https://github.com/naodingaoaoao/TaiHeLang/blob/c52c75f9ef82772017ffd19042fce72b8d891e71/spec.md"
+      },
+      {
+        "title": "固定包元数据及0.2.0版本",
+        "url": "https://github.com/naodingaoaoao/TaiHeLang/blob/c52c75f9ef82772017ffd19042fce72b8d891e71/src/taihe_lang.egg-info/PKG-INFO#L1-L26"
+      },
+      {
+        "title": "固定Python包内0.1.0版本声明",
+        "url": "https://github.com/naodingaoaoao/TaiHeLang/blob/c52c75f9ef82772017ffd19042fce72b8d891e71/src/taihe/__init__.py#L1-L2"
+      },
+      {
+        "title": "固定MIT许可证与作者署名",
+        "url": "https://github.com/naodingaoaoao/TaiHeLang/blob/c52c75f9ef82772017ffd19042fce72b8d891e71/LICENSE"
+      },
+      {
+        "title": "固定Windows运行时",
+        "url": "https://github.com/naodingaoaoao/TaiHeLang/blob/c52c75f9ef82772017ffd19042fce72b8d891e71/runtime/taihe_runtime.c#L1-L33"
+      },
+      {
+        "title": "固定CLI局部AI参与注释",
+        "url": "https://github.com/naodingaoaoao/TaiHeLang/blob/c52c75f9ef82772017ffd19042fce72b8d891e71/src/taihe/cli.py#L16-L37"
+      },
+      {
+        "title": "固定文件清单",
+        "url": "https://github.com/naodingaoaoao/TaiHeLang/tree/c52c75f9ef82772017ffd19042fce72b8d891e71"
+      },
+      {
+        "title": "根提交与作者账号",
+        "url": "https://github.com/naodingaoaoao/TaiHeLang/commit/11adcd8bc435da38f09d13b8b6b94aed6e17f37f"
+      },
+      {
+        "title": "核心文件上传提交",
+        "url": "https://github.com/naodingaoaoao/TaiHeLang/commit/65115c14f95738d607e02b2ef8abafa8a7b36ba2"
+      },
+      {
+        "title": "公开发行列表",
+        "url": "https://github.com/naodingaoaoao/TaiHeLang/releases"
+      }
+    ]
+  },
+  {
+    "name": "ChineseToyLang",
+    "discovery_status": "第七轮旧候选；第八轮已完成分类资料，保留后续字段核验",
+    "category": "中文语法语言／早期编译器前端与LLVM IR实验",
+    "repository": "https://github.com/sundaolin9527/ChineseToyLang",
+    "snapshot": "897456459430f6c9abcb517fa3249739f502e7b2",
+    "evidence": "固定中文声明及函数原例、中文词元、C解析器、主程序AST链、独立LLVM IR测试入口、LLVM 16依赖和历史改名已核。",
+    "pending": "前端至目标文件或机器码的端到端接通、后端及运行时实现、垃圾回收与集成测试、正式版本和许可、提交署名与账号身份对应、AI参与及外部源码继承关系待核实。",
+    "verification_scope": "公开静态源码、文档、原例和GitHub元数据；独立构建运行待核实。",
+    "verified_at": "2026-10-10",
+    "references": [
+      {
+        "title": "原作者仓库名称与中文玩具编译器简介",
+        "url": "https://github.com/sundaolin9527/ChineseToyLang"
+      },
+      {
+        "title": "固定语法规则",
+        "url": "https://github.com/sundaolin9527/ChineseToyLang/blob/897456459430f6c9abcb517fa3249739f502e7b2/docs/docs.md"
+      },
+      {
+        "title": "固定连续中文函数原例",
+        "url": "https://github.com/sundaolin9527/ChineseToyLang/blob/897456459430f6c9abcb517fa3249739f502e7b2/tests/examples/test.txt#L3-L7"
+      },
+      {
+        "title": "固定变量、常量及真／假原例",
+        "url": "https://github.com/sundaolin9527/ChineseToyLang/blob/897456459430f6c9abcb517fa3249739f502e7b2/tests/examples/test_variable.txt#L1-L7"
+      },
+      {
+        "title": "固定中文词元映射",
+        "url": "https://github.com/sundaolin9527/ChineseToyLang/blob/897456459430f6c9abcb517fa3249739f502e7b2/src/Frontend/Lexer.c#L15-L76"
+      },
+      {
+        "title": "固定声明及函数解析",
+        "url": "https://github.com/sundaolin9527/ChineseToyLang/blob/897456459430f6c9abcb517fa3249739f502e7b2/src/Frontend/Parser.c#L94-L185"
+      },
+      {
+        "title": "固定语句分派",
+        "url": "https://github.com/sundaolin9527/ChineseToyLang/blob/897456459430f6c9abcb517fa3249739f502e7b2/src/Frontend/Parser.c#L911-L951"
+      },
+      {
+        "title": "固定主程序AST入口",
+        "url": "https://github.com/sundaolin9527/ChineseToyLang/blob/897456459430f6c9abcb517fa3249739f502e7b2/app/Main.cpp#L13-L53"
+      },
+      {
+        "title": "固定单独IR生成测试入口",
+        "url": "https://github.com/sundaolin9527/ChineseToyLang/blob/897456459430f6c9abcb517fa3249739f502e7b2/tests/Unit/IR/CodeGenTest.cpp#L11-L52"
+      },
+      {
+        "title": "固定IR程序生成与模块验证",
+        "url": "https://github.com/sundaolin9527/ChineseToyLang/blob/897456459430f6c9abcb517fa3249739f502e7b2/src/IR/CodeGen.cpp#L1226-L1249"
+      },
+      {
+        "title": "固定构建依赖与LLVM版本",
+        "url": "https://github.com/sundaolin9527/ChineseToyLang/blob/897456459430f6c9abcb517fa3249739f502e7b2/CMakeLists.txt#L1-L26"
+      },
+      {
+        "title": "固定IR测试构建目标",
+        "url": "https://github.com/sundaolin9527/ChineseToyLang/blob/897456459430f6c9abcb517fa3249739f502e7b2/tests/Unit/CMakeLists.txt#L28-L43"
+      },
+      {
+        "title": "固定手工IR后端演示入口",
+        "url": "https://github.com/sundaolin9527/ChineseToyLang/blob/897456459430f6c9abcb517fa3249739f502e7b2/src/Backend/CodeGen.cpp#L308-L345"
+      },
+      {
+        "title": "固定版本模板",
+        "url": "https://github.com/sundaolin9527/ChineseToyLang/blob/897456459430f6c9abcb517fa3249739f502e7b2/app/version.h.in"
+      },
+      {
+        "title": "固定文件清单与占位模块",
+        "url": "https://github.com/sundaolin9527/ChineseToyLang/tree/897456459430f6c9abcb517fa3249739f502e7b2"
+      },
+      {
+        "title": "根提交、中文原例及作者时间",
+        "url": "https://github.com/sundaolin9527/ChineseToyLang/commit/120ea4b7dce11a98cffa724a59d2b4a78da74dcb"
+      },
+      {
+        "title": "构建目标名称沿革",
+        "url": "https://github.com/sundaolin9527/ChineseToyLang/commit/c5216fee5772988f128141dcf868805da80a1132"
+      },
+      {
+        "title": "当前提交与开发阶段",
+        "url": "https://github.com/sundaolin9527/ChineseToyLang/commit/897456459430f6c9abcb517fa3249739f502e7b2"
+      },
+      {
+        "title": "公开发行列表",
+        "url": "https://github.com/sundaolin9527/ChineseToyLang/releases"
+      }
+    ]
+  }
+]
