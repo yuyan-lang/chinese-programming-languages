@@ -1,0 +1,226 @@
+[
+  {
+    "name": "汉源码（liu-guanglin/lglCode）",
+    "aliases": [
+      "汉源码",
+      "lglCode"
+    ],
+    "new_discovery": false,
+    "first_in_depth_this_round": true,
+    "formal_entry": false,
+    "discovery_note": "第15轮日志已有搜索级初筛；第16轮首次固定源码深核，计前轮初筛转核实分类1项。",
+    "category": "已核分类：CPython中文内置函数／方法别名扩展",
+    "author": "原仓归属Gitee中源组织liu-guanglin，项目介绍署名刘光林，所读文件提交账号为liu-guanglin_admin。",
+    "repository": "https://gitee.com/liu-guanglin/lglCode",
+    "snapshot": "562659ab0969ee33fa1f3b3ba8a9e04ef51f34e8",
+    "checked_at": "2026-10-10",
+    "findings": "原仓包含cpython子树和两个中文API例程。cpython/Python/bltinmodule.c的builtin_methods表直接把设置断点、信息列表、获取属性、迭代器、最大、最小、下个元素及局部字典等中文名注册到对应C函数；builtinsmodule引用该方法表。必读信息列出内置函数和str方法的中文映射；连续例程使用迭代器、打印及小写字母等名称，控制流使用for、if，函数定义使用def。固定Lib/keyword.py的35项kwlist与4项softkwlist保存英文Python词表。当前证据建立CPython中文API扩展分类；中文专用控制流或声明语法的原件继续待核实。",
+    "code": "# 创建一个列表\n列表1 = [1, 2, 3]\n# 使用iter()函数获取迭代器\n它 = 迭代器(列表1)\n# 使用for循环遍历迭代器\nfor i in 它:\n   打印(i)\n打印(\"------------\\n\")",
+    "code_source": "https://gitee.com/liu-guanglin/lglCode/blob/562659ab0969ee33fa1f3b3ba8a9e04ef51f34e8/%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0.py",
+    "code_context": "固定内置函数.py第209—216行，完整连续8行片段，保留3个空格的原缩进。第212行调用中文内置名称迭代器，第214行使用英文for/in。原作者源码按原文保存；本轮静态读取，运行及输出待核实。",
+    "implementation": "C层扩展CPython内置方法注册；中文方法文档指向Objects/unicodeobject.c的unicode_methods。builtin_methods中的中文直接注册已经读取，结构体builtinsmodule在同文件第3413—3418行引用该表。宏定义内部与完整对象方法注册链待核实。",
+    "dates": {
+      "author_work_note": "必读信息.txt第6—7行记2025-09-21准备源码与环境、基于CPython 3.14进行修改。",
+      "example_page_last_change": "2025-09-22 23:36 +08:00",
+      "readme_page_last_change": "2025-09-24 15:53 +08:00",
+      "first_public": "确切首次公开日期待核实。作者工作笔记日期、文件最近修改日期与仓库首次公开日期分别记录。"
+    },
+    "version": "原仓页面列1分支、0标签及暂无发行版。作者必读信息记基于CPython 3.14；同一固定快照cpython/README.rst渲染标题为Python 3.15.0 alpha 0。汉源码自身版本编号及对应上游精确提交待核实。",
+    "license": "cpython/LICENSE正文第62—70行声明Python Software Foundation License Version 2，文档示例自Python 3.8.6起双许可PSF v2／Zero-Clause BSD，并注明组件另有许可。Gitee根页面提示根级LICENSE声明缺口；汉源码新增改动的独立许可及完整组件许可范围待核实。",
+    "ai_involvement": "AI开发参与待核实。原仓页面上的Gitee通用AI队友入口按平台界面记录；项目开发使用的模型、工具、人机分工与生成比例需要作者材料。",
+    "relations": "作者工作笔记直接链接python/cpython并说明修改CPython。作者关注索引把liu-guanglin_admin下同名仓标作中源/汉源码的fork；两者按同一来源链追踪。与其他中文Python项目的直接源码继承关系待核实。",
+    "access_notes": [
+      "Gitee commits/master历史列表跳转登录页，读取止于公开状态。",
+      "Grammar/python.gram页面导航及页面提取出现浏览器协议超时，内容待核实；已读取同一快照的Lib/keyword.py替代核对现存关键字列表。",
+      "公开源码通过云端公开浏览器静态读取；项目执行、安装、编译与测试均未开展。"
+    ],
+    "next_steps": [
+      "取得作者公开中文专用语法规范或连续程序，并核对对应词法／语法实现。",
+      "核对新增中文API改动的许可、准确首发与上游基线。",
+      "取得原作者AI开发声明及后续维护安排。"
+    ],
+    "references": [
+      {
+        "title": "原作者仓库",
+        "url": "https://gitee.com/liu-guanglin/lglCode"
+      },
+      {
+        "title": "固定内置方法注册表",
+        "url": "https://gitee.com/liu-guanglin/lglCode/blob/562659ab0969ee33fa1f3b3ba8a9e04ef51f34e8/cpython/Python/bltinmodule.c"
+      },
+      {
+        "title": "固定作者工作笔记与映射说明",
+        "url": "https://gitee.com/liu-guanglin/lglCode/blob/562659ab0969ee33fa1f3b3ba8a9e04ef51f34e8/%E5%BF%85%E8%AF%BB%E4%BF%A1%E6%81%AF.txt"
+      },
+      {
+        "title": "固定中文API连续原例",
+        "url": "https://gitee.com/liu-guanglin/lglCode/blob/562659ab0969ee33fa1f3b3ba8a9e04ef51f34e8/%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0.py"
+      },
+      {
+        "title": "固定字符串中文API例程",
+        "url": "https://gitee.com/liu-guanglin/lglCode/blob/562659ab0969ee33fa1f3b3ba8a9e04ef51f34e8/str%E5%AF%B9%E8%B1%A1%E6%96%B9%E6%B3%95.py"
+      },
+      {
+        "title": "固定Python关键字列表",
+        "url": "https://gitee.com/liu-guanglin/lglCode/blob/562659ab0969ee33fa1f3b3ba8a9e04ef51f34e8/cpython/Lib/keyword.py"
+      },
+      {
+        "title": "固定README与构建说明",
+        "url": "https://gitee.com/liu-guanglin/lglCode/blob/562659ab0969ee33fa1f3b3ba8a9e04ef51f34e8/README.md"
+      },
+      {
+        "title": "固定CPython子树与README版本",
+        "url": "https://gitee.com/liu-guanglin/lglCode/tree/562659ab0969ee33fa1f3b3ba8a9e04ef51f34e8/cpython"
+      },
+      {
+        "title": "固定CPython许可正文",
+        "url": "https://gitee.com/liu-guanglin/lglCode/blob/562659ab0969ee33fa1f3b3ba8a9e04ef51f34e8/cpython/LICENSE"
+      },
+      {
+        "title": "作者关注索引的fork关系",
+        "url": "https://gitee.com/liu-guanglin_admin/watched?sort=watches.created_at+desc"
+      }
+    ]
+  },
+  {
+    "name": "E#（DCOSA/ESharp）",
+    "aliases": [
+      "E#",
+      "ESharp"
+    ],
+    "new_discovery": true,
+    "first_in_depth_this_round": true,
+    "formal_entry": false,
+    "category": "中文关键词设计与运行平台原型／连续程序与语言前端待核",
+    "author": "Gitee组织DCOSA，公开项目提交与发行署名云之梦歌；自然人姓名及团队分工待核实。",
+    "repository": "https://gitee.com/dcosa/esharp",
+    "snapshot": "55503b2e623e3093d9c6423b63aa6b006adaaf32",
+    "release_snapshot": "c090f0d80ca5fb6855513b906cb6a321db52903c",
+    "checked_at": "2026-10-10",
+    "discovery_note": "本轮由Gitee组织原始公开页发现，目录86条及开放26 Issues／69评论按名称、账号和URL去重后进入固定源码深核；计真正新发现待核1项。",
+    "findings": "固定E#规范.md提供58项中文词表，涵盖类型、常量、控制流、声明和运算符，包括如果、否则、循环、返回、变量、函数及导入。当前README定位为基于CH-VM的中文编程语言。当前src/main.c显示0 Bytes空文件，test/main.c保留仅return 0的C入口，include/dtype.h保存C类型和平台宏。0.1.0-end.preview发行对应较早结构，包含AsmCompiler、ESRuntime、ESLibraries、ESIL.md及二进制格式设计。已读旧AsmCompiler/main.c与test/main.c同为仅return 0的C入口。",
+    "keywords": [
+      "字节型",
+      "字符型",
+      "短整型",
+      "整数型",
+      "长整型",
+      "浮点型",
+      "小数型",
+      "文本型",
+      "逻辑型",
+      "指针型",
+      "对象型",
+      "数组",
+      "空",
+      "真",
+      "假",
+      "结束",
+      "如果",
+      "否则",
+      "循环",
+      "做",
+      "则",
+      "重复",
+      "计次",
+      "跳出",
+      "转到",
+      "判断",
+      "分支",
+      "返回",
+      "创建",
+      "为",
+      "变量",
+      "常量",
+      "类",
+      "模块",
+      "枚举",
+      "结构体",
+      "函数",
+      "过程",
+      "公开",
+      "保护",
+      "继承",
+      "别名",
+      "导入",
+      "等于",
+      "不等于",
+      "大于",
+      "小于",
+      "大于等于",
+      "小于等于",
+      "且",
+      "或",
+      "非",
+      "位非",
+      "位与",
+      "位或",
+      "位异或",
+      "左移",
+      "右移"
+    ],
+    "code_status": "中文连续程序、词法器、解析器与实际执行入口待核实；当前原件支持中文关键词设计及运行平台原型分类。",
+    "implementation": "当前源码为C工程骨架及类型定义。历史发行README描述.esb二进制、.esl库、导出_es_LibraryMain的DLL、常量池、导入导出段、资源段、代码段和元数据段，并列ESIL指令。所读入口文件体现原型阶段；完整前端到ESIL再到运行时的调用链待核实。",
+    "dates": {
+      "head_page_commit": "2023-06-02 19:46:11 +0800",
+      "spec_page_last_change": "2023-06-02 19:42 +08:00",
+      "release_page": "2023-06-02 08:27",
+      "first_public": "确切首次公开日期待核实。组织页记成立2020-05-19，此日期用于组织背景。"
+    },
+    "version": "原仓页列10次提交、1分支、1标签、1发行。发行0.1.0-end.preview指向c090f0d80ca5fb6855513b906cb6a321db52903c，正文说明结构重构备份；当前master头55503b2e623e3093d9c6423b63aa6b006adaaf32具有不同目录结构。",
+    "license": "固定根LICENSE为GNU Lesser General Public License Version 3全文，Gitee项目界面标LGPL-3.0。项目具体版权主体与各组件许可边界待核实。",
+    "ai_involvement": "原作者AI开发参与声明、工具及人机分工待核实。",
+    "relations": "当前README明确关联CH-VM，DCOSA组织原页分别列CH-VM与E#项目。此关系按作者定位记录，CH-VM的完整执行链以及与旧ESRuntime的演变关系继续待核实。",
+    "next_steps": [
+      "取得原作者连续E#程序与实际中文词法／语法前端。",
+      "逐层核对旧发行ESIL、ESRuntime及当前CH-VM关系。",
+      "补充最早历史、项目版权署名、维护状态和AI开发声明。"
+    ],
+    "references": [
+      {
+        "title": "DCOSA组织原页",
+        "url": "https://gitee.com/dcosa"
+      },
+      {
+        "title": "E#原仓与当前README",
+        "url": "https://gitee.com/dcosa/esharp"
+      },
+      {
+        "title": "固定58项中文词表",
+        "url": "https://gitee.com/dcosa/esharp/blob/55503b2e623e3093d9c6423b63aa6b006adaaf32/E%23%E8%A7%84%E8%8C%83.md"
+      },
+      {
+        "title": "当前空语言入口",
+        "url": "https://gitee.com/dcosa/esharp/blob/55503b2e623e3093d9c6423b63aa6b006adaaf32/src/main.c"
+      },
+      {
+        "title": "当前C测试占位入口",
+        "url": "https://gitee.com/dcosa/esharp/blob/55503b2e623e3093d9c6423b63aa6b006adaaf32/test/main.c"
+      },
+      {
+        "title": "当前C类型定义",
+        "url": "https://gitee.com/dcosa/esharp/blob/55503b2e623e3093d9c6423b63aa6b006adaaf32/include/dtype.h"
+      },
+      {
+        "title": "固定LGPLv3正文",
+        "url": "https://gitee.com/dcosa/esharp/blob/55503b2e623e3093d9c6423b63aa6b006adaaf32/LICENSE"
+      },
+      {
+        "title": "0.1.0-end.preview发行页",
+        "url": "https://gitee.com/dcosa/esharp/releases/tag/0.1.0-end.preview"
+      },
+      {
+        "title": "历史发行树与README设计",
+        "url": "https://gitee.com/dcosa/esharp/tree/c090f0d80ca5fb6855513b906cb6a321db52903c"
+      },
+      {
+        "title": "历史汇编器占位入口",
+        "url": "https://gitee.com/dcosa/esharp/blob/c090f0d80ca5fb6855513b906cb6a321db52903c/AsmCompiler/main.c"
+      },
+      {
+        "title": "历史测试占位入口",
+        "url": "https://gitee.com/dcosa/esharp/blob/c090f0d80ca5fb6855513b906cb6a321db52903c/test/main.c"
+      }
+    ]
+  }
+]

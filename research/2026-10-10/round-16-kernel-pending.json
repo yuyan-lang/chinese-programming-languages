@@ -1,0 +1,733 @@
+[
+  {
+    "name": "hudos／hodos（双子星观测站）",
+    "aliases": [
+      "hudos",
+      "hodos",
+      "hudos-server"
+    ],
+    "checked_at": "2026-10-10",
+    "classification": "新发现待核候选；ARM64 UEFI承载的实验系统，内核独立性与中国公开归属待核实",
+    "discovery_accounting": {
+      "genuinely_new": 1,
+      "old_lead_supplement": 0,
+      "formal_addition": 0
+    },
+    "source_repository": "https://github.com/xuchenruisz/hudos",
+    "source_commit": "b4a244b808b6786d5c3a1fd98102055f7f582488",
+    "short_description": "hudos是双子星观测站公开发布的实验系统，固定源码以AArch64 UEFI应用为执行基础，包含ELF装载、EL0/SVC、协程、图形与文件接口、网络和音频代码。作者视频直接关联原仓与项目论坛；自身内核完整边界及中国作者／中国社区的明确公开归属继续待核实。",
+    "author": {
+      "people": [
+        {
+          "name": "双子星观测站",
+          "github_handle": "xuchenruisz",
+          "bilibili_uid": "514146062"
+        }
+      ],
+      "attribution": {
+        "text": "2026年10月2日最新开源原片简介给出github.com/xuchenruisz/hudos及chat.hudos.cn；固定README署名双子星观测站（Gemini Observatory），项目论坛管理员公告也给出该仓库。自然人身份和具体成员分工待核实。",
+        "evidence_level": "作者原始互链",
+        "source_ids": [
+          "hd2",
+          "hd9",
+          "hd35"
+        ]
+      },
+      "china_basis": {
+        "status": "待核实",
+        "text": "B站中文发布、中文README和项目中文社区已核。明确表述来自中国或中国社区发起／维护的公开声明继续待补；中文内容、账号拼写、域名及节日祝福各按本身信息记录。",
+        "source_ids": [
+          "hd3",
+          "hd4",
+          "hd5",
+          "hd9",
+          "hd35"
+        ]
+      }
+    },
+    "kernel_positioning": {
+      "text": "作者README称实验性操作系统内核；Makefile构建BOOTAA64.EFI，入口efi_main，subsystem为EFI_APPLICATION。系统持续调用UEFI Boot Services分配内存、访问文件和设备，并在自身EL0执行窗口与固件向量表之间切换。当前按固件承载实验系统保存，独立管理硬件及完整自身内核分类继续核实。",
+      "evidence_level": "作者声明与源码可见",
+      "source_ids": [
+        "hd9",
+        "hd10",
+        "hd11",
+        "hd12",
+        "hd13",
+        "hd14"
+      ]
+    },
+    "dates": {
+      "repository_created": {
+        "at": "2026-09-14T10:38:39Z",
+        "meaning": "GitHub创建时间",
+        "source_ids": [
+          "hd6"
+        ]
+      },
+      "earliest_retained_commit": {
+        "at": "2026-09-14T10:40:57Z",
+        "commit": "cd2b6488f5b30aad8ca546fac01934f004ab7502",
+        "meaning": "当前历史无父根提交，仅有README；项目更早发布见B站合集",
+        "source_ids": [
+          "hd28",
+          "hd29"
+        ]
+      },
+      "known_announcement": {
+        "text": "开源原片BV1pthB64E37初始页面显示2026-09-21 20:00:00。BV1wiaU6REGn初始页面显示2026-10-02 21:00:00，客户端后续显示同日06:00:00。早期BV1xehc6oENs初始页显示2026-08-27 08:29:31，合集列8月26日。规范时间戳、时区和首次公开日期继续核实。",
+        "evidence_level": "平台显示",
+        "source_ids": [
+          "hd1",
+          "hd2",
+          "hd4",
+          "hd37"
+        ]
+      }
+    },
+    "architectures": [
+      {
+        "text": "AArch64／ARM64；clang目标aarch64-pc-win32-coff，用户ELF检查EM_AARCH64。源码调试目标包含QEMU virt、PL011、virtio-mmio。",
+        "evidence_level": "源码可见",
+        "source_ids": [
+          "hd10",
+          "hd12",
+          "hd14"
+        ]
+      }
+    ],
+    "implementation_languages": [
+      {
+        "text": "C与AArch64汇编；LLVM clang、lld-link、freestanding和nodefaultlib构建配置可读。",
+        "evidence_level": "源码可见",
+        "source_ids": [
+          "hd10",
+          "hd12",
+          "hd14",
+          "hd15"
+        ]
+      }
+    ],
+    "capabilities": {
+      "boot": [
+        {
+          "text": "efi_main保存固件系统表和Boot Services，查找ESP文件系统、初始化图形与输入后，以设置选择gui.elf或tdesktop.elf，再进入shell。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "hd12"
+          ]
+        }
+      ],
+      "memory": [
+        {
+          "text": "ELF映像、用户栈、页表及缓冲区经UEFI AllocatePages／AllocatePool取得。独立子页表克隆与ASID代码可见；g_el0_phaseb默认0，按该开关控制协程子程序路径。隔离覆盖与安全性待独立验证。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "hd12",
+            "hd13"
+          ]
+        }
+      ],
+      "scheduling": [
+        {
+          "text": "单组父子协程上下文保存x19—x30与sp；读取输入或图形提交可让出执行。EL0窗口通过屏蔽IRQ/FIQ及临时VBAR交接运行子程序。抢占式调度与多进程并行覆盖待核实。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "hd12",
+            "hd14"
+          ]
+        }
+      ],
+      "userspace": [
+        {
+          "text": "ELF64装载器核对AArch64、ET_EXEC／ET_DYN并应用RELATIVE／ABS64重定位。启动与syscall包装分别提供EL1函数指针和EL0 SVC路径；EL0自检失败可回到EL1。shell的cmd_open与直接exec／协程入口按各自路径运行。Linux编号用于部分接口。getpid固定1，getuid／geteuid固定0，brk返回常数；完整Linux ABI覆盖待核实。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "hd12",
+            "hd15",
+            "hd16",
+            "hd17"
+          ]
+        }
+      ],
+      "filesystem": [
+        {
+          "text": "文件访问基于EFI_FILE_PROTOCOL和SimpleFileSystem；维护最多8卷、8挂载点、8磁盘和32个文件句柄槽。代码提供复制、删除、挂载及FAT格式化／分区操作。运行与数据一致性待核实。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "hd11",
+            "hd12"
+          ]
+        }
+      ],
+      "graphics": [
+        {
+          "text": "GOP帧缓冲及Blt影子缓冲、绝对指针和键盘扩展协议可读；控制台含UTF-8中文位图绘制。固定userland目录包含两项字体数据；gui.elf、tdesktop.elf及全部桌面应用的对应源文件与构建链待补。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "hd8",
+            "hd11",
+            "hd12",
+            "hd23",
+            "hd24"
+          ]
+        }
+      ],
+      "network": [
+        {
+          "text": "固定主文件包含virtio-mmio、ARP／IPv4、UDP、DHCP、DNS、TCP、HTTP及HTTPS调用链；TLS1.2握手使用0xCCA8并核对RSA-SHA256签名链。x509.c核验字段集中于公钥、签名算法和签名链；完整主机名、有效期及证书约束检查继续核实。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "hd12",
+            "hd19",
+            "hd20",
+            "hd21",
+            "hd22",
+            "hd38"
+          ]
+        }
+      ],
+      "audio": [
+        {
+          "text": "主文件包含HDA探测及44.1kHz／16位／单声道PCM播放接口，仍通过固件分配和等待服务组织。实机与音频正确性待核实。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "hd12"
+          ]
+        }
+      ]
+    },
+    "project_relationships": [
+      {
+        "text": "固定Makefile与主实现共同说明UEFI承载关系；Linux编号、字体来源和局部接口兼容分别记录。其他内核或教程的源码继承范围待核实。",
+        "evidence_level": "源码可见",
+        "source_ids": [
+          "hd10",
+          "hd12",
+          "hd23"
+        ]
+      },
+      {
+        "text": "sun8x16.h头注标注Linux kernel字体；cjk16x16.h头注说明从系统STHeiti经gen_cjk_font.py／extend_cjk.py生成32×32位图。源字体精确版本、转换脚本和再分发许可范围待核实。",
+        "evidence_level": "源码可见",
+        "source_ids": [
+          "hd23",
+          "hd24"
+        ]
+      },
+      {
+        "text": "common.h称为四游戏框架的hudos移植接口，并提到games_adapter.c；原框架、适配实现、作者及许可范围待核实。",
+        "evidence_level": "源码可见",
+        "source_ids": [
+          "hd18"
+        ]
+      },
+      {
+        "text": "tls_roots.h说明根证书提取自系统信任库；固定版本与完整来源清单待核实。tls_cli.c列出RFC5246、7905、8439。",
+        "evidence_level": "源码可见",
+        "source_ids": [
+          "hd22",
+          "hd38"
+        ]
+      },
+      {
+        "text": "开发合集同时出现hudos、hudos-server及伪系统标题；当前仓源码、早期桌面作品、发布镜像及各演示版本的对应关系继续核实。",
+        "evidence_level": "原作者目录与源码对照",
+        "source_ids": [
+          "hd4",
+          "hd12",
+          "hd27",
+          "hd37"
+        ]
+      }
+    ],
+    "status": {
+      "source_snapshot": {
+        "branch": "内核6.1",
+        "commit": "b4a244b808b6786d5c3a1fd98102055f7f582488",
+        "committed_at": "2026-10-06T23:21:49Z",
+        "source_ids": [
+          "hd6",
+          "hd7",
+          "hd25"
+        ]
+      },
+      "source_version": {
+        "text": "主实现启动横幅为hudos-server 0.1；默认分支名为内核6.1；两者各按其原意保存。",
+        "evidence_level": "源码可见",
+        "source_ids": [
+          "hd6",
+          "hd12"
+        ]
+      },
+      "releases": {
+        "text": "核验时有2个Release、2个标签。正式V26.10.1.16发布于2026-10-02T04:11:28Z，对应标签1／adb0112527ce90244ff4904aaaeba6a25d7fa9d5；预发布hudos v26.10.4.20发布于2026-10-05T00:53:38Z，对应标签2／f632bf79977431300b2ede953636f48e8be723ec。前者1个qcow2.zip附件，后者qcow2.zip与论坛iOS客户端共2附件。源码、镜像及版本号对应待核。",
+        "source_ids": [
+          "hd26",
+          "hd27"
+        ]
+      },
+      "license": {
+        "name": "README声明GPL-2.0-or-later",
+        "text": "根README提供GPL第二版或任何后续版本的简短授权并署名双子星观测站。完整许可全文、字体、证书、游戏与7zip组件的许可及分发范围继续核实；GitHub license字段为null。",
+        "source_ids": [
+          "hd6",
+          "hd8",
+          "hd9",
+          "hd18",
+          "hd23",
+          "hd24",
+          "hd27"
+        ]
+      },
+      "ai_assistance": {
+        "status": "待核实",
+        "text": "同账号主页另列WorkBuddy纯汇编系统系列；hudos系列另有AI功能原片，项目站显示Qwen-Coder Chat。现有材料分别证明作者另一个AI编程系列和AI产品入口；当前hudos C／汇编源码的AI工具、模型、比例与人工复核范围继续待核。",
+        "source_ids": [
+          "hd3",
+          "hd4",
+          "hd12",
+          "hd36"
+        ]
+      },
+      "runtime_verification": {
+        "status": "待核实",
+        "scope": "公开页面与固定源码只读核验；独立构建、启动、图形、网络、EL0隔离、协程、文件系统和实机运行结果待核实"
+      }
+    },
+    "evidence_layers": {
+      "author_claims": {
+        "text": "作者发布开源、图形、AI功能和7zip移植标题，Release描述GUI与高危问题修复。",
+        "evidence_level": "作者声明",
+        "source_ids": [
+          "hd1",
+          "hd2",
+          "hd4",
+          "hd27"
+        ]
+      },
+      "source_visible": {
+        "text": "固定完整树为27项，其中26文件、1目录；核心C源码5624行，功能路径按固定内容保存。",
+        "evidence_level": "源码可见",
+        "source_ids": [
+          "hd8",
+          "hd12"
+        ]
+      },
+      "original_demonstration": {
+        "status": "待核实",
+        "text": "原片页面、简介、UID、时长和合集已取得。云端公开播放器的播放点击与像素截图连续出现CDP超时；逐帧内容、时间点和二进制版本对应继续待核。",
+        "source_ids": [
+          "hd1",
+          "hd2",
+          "hd37"
+        ]
+      },
+      "independent_runtime": {
+        "status": "待核实"
+      }
+    },
+    "notable_boundaries": [
+      {
+        "text": "mmu.c保留早期空初始化与EL1调用说明；当前hudos_server.c和mmu_asm.S已包含EL0窗口与SVC，按固定实现分别记录。",
+        "evidence_level": "源码可见",
+        "source_ids": [
+          "hd12",
+          "hd13",
+          "hd14"
+        ]
+      },
+      {
+        "text": "主文件早期网络段落及SYS_fetch注释保留HTTP阶段文字；实际sys_fetch分支已调用HTTPS与TLS实现。协议覆盖按实际路径继续核实。",
+        "evidence_level": "源码可见",
+        "source_ids": [
+          "hd12",
+          "hd20"
+        ]
+      },
+      {
+        "text": "10月4日提交为控制台字符缓冲和ELF文件偏移／大小添加边界检查；修复有效性及完整安全审计待核实。",
+        "evidence_level": "源码可见",
+        "source_ids": [
+          "hd34"
+        ]
+      },
+      {
+        "text": "随机数初始化混合UEFI时间和内核状态后以ChaCha20扩展；源码将其定位为演示用途。密码学安全、证书完整校验与真实网络环境覆盖待核实。",
+        "evidence_level": "源码可见",
+        "source_ids": [
+          "hd12",
+          "hd21"
+        ]
+      },
+      {
+        "text": "主文件含分区创建／删除和FAT格式化写路径；未来运行需明确可恢复试验磁盘和授权范围。",
+        "evidence_level": "源码可见",
+        "source_ids": [
+          "hd12"
+        ]
+      }
+    ],
+    "links": {
+      "source": "https://github.com/xuchenruisz/hudos",
+      "original_video": "https://www.bilibili.com/video/BV1wiaU6REGn/",
+      "author_profile": "https://space.bilibili.com/514146062",
+      "community": "https://chat.hudos.cn/forum"
+    },
+    "pending_verification": [
+      "中国作者或中国社区明确公开归属",
+      "固件承载系统到完整自身内核的技术边界",
+      "规范视频时间戳、首次公开时间与时区",
+      "各版本源码、qcow2镜像、早期伪系统与视频的精确对应",
+      "桌面与用户应用的完整源码和构建链",
+      "全部上游继承与字体、游戏、证书、7zip及许可全文",
+      "当前hudos源码的AI参与声明与复核范围",
+      "逐帧作者演示与独立构建、启动、EL0隔离、文件、网络和实机验证"
+    ],
+    "sources": [
+      {
+        "id": "hd1",
+        "title": "开源公告原片",
+        "url": "https://www.bilibili.com/video/BV1pthB64E37/",
+        "kind": "原作者视频页面",
+        "supports": [
+          "9月21日开源标题、发布账号和合集"
+        ]
+      },
+      {
+        "id": "hd2",
+        "title": "最新开源原片",
+        "url": "https://www.bilibili.com/video/BV1wiaU6REGn/",
+        "kind": "原作者视频页面",
+        "supports": [
+          "视频简介直接连接原仓与官方论坛；两种显示时刻"
+        ]
+      },
+      {
+        "id": "hd3",
+        "title": "发布者B站主页",
+        "url": "https://space.bilibili.com/514146062",
+        "kind": "原作者公开主页",
+        "supports": [
+          "作者名称；hudos系列与另一个WorkBuddy纯汇编系列"
+        ]
+      },
+      {
+        "id": "hd4",
+        "title": "原作者开发日志合集",
+        "url": "https://space.bilibili.com/514146062/lists/9078226?type=season",
+        "kind": "原作者视频目录",
+        "supports": [
+          "22项公开视频；早期hudos与hudos-server、伪系统和AI功能标题"
+        ]
+      },
+      {
+        "id": "hd5",
+        "title": "GitHub作者主页",
+        "url": "https://github.com/xuchenruisz",
+        "kind": "原作者公开主页",
+        "supports": [
+          "维护账号与公开仓库"
+        ]
+      },
+      {
+        "id": "hd6",
+        "title": "仓库元数据",
+        "url": "https://api.github.com/repos/xuchenruisz/hudos",
+        "kind": "平台元数据",
+        "supports": [
+          "创建时间、默认分支、13星、fork=false、许可元数据null"
+        ]
+      },
+      {
+        "id": "hd7",
+        "title": "固定头提交",
+        "url": "https://github.com/xuchenruisz/hudos/commit/b4a244b808b6786d5c3a1fd98102055f7f582488",
+        "kind": "固定提交元数据",
+        "supports": [
+          "2026-10-06T23:21:49Z"
+        ]
+      },
+      {
+        "id": "hd8",
+        "title": "固定完整源码树",
+        "url": "https://api.github.com/repos/xuchenruisz/hudos/git/trees/b4a244b808b6786d5c3a1fd98102055f7f582488?recursive=1",
+        "kind": "固定源码树",
+        "supports": [
+          "27项、26文件、1目录、truncated=false"
+        ]
+      },
+      {
+        "id": "hd9",
+        "title": "固定README及许可声明",
+        "url": "https://github.com/xuchenruisz/hudos/blob/b4a244b808b6786d5c3a1fd98102055f7f582488/README.md",
+        "kind": "固定作者文档",
+        "supports": [
+          "hodos拼写、双子星观测站署名、GPL-2.0-or-later简短声明"
+        ]
+      },
+      {
+        "id": "hd10",
+        "title": "ARM64 EFI构建",
+        "url": "https://github.com/xuchenruisz/hudos/blob/b4a244b808b6786d5c3a1fd98102055f7f582488/Makefile",
+        "kind": "固定源码",
+        "supports": [
+          "aarch64-pc-win32-coff与EFI_APPLICATION构建目标"
+        ]
+      },
+      {
+        "id": "hd11",
+        "title": "UEFI协议类型",
+        "url": "https://github.com/xuchenruisz/hudos/blob/b4a244b808b6786d5c3a1fd98102055f7f582488/efi.h",
+        "kind": "固定源码",
+        "supports": [
+          "自包含UEFI接口定义"
+        ]
+      },
+      {
+        "id": "hd12",
+        "title": "系统主实现",
+        "url": "https://github.com/xuchenruisz/hudos/blob/b4a244b808b6786d5c3a1fd98102055f7f582488/hudos_server.c",
+        "kind": "固定源码",
+        "supports": [
+          "固件服务、ELF装载、EL0、协程、文件、网络、音频与源码横幅版本"
+        ]
+      },
+      {
+        "id": "hd13",
+        "title": "早期MMU阶段实现",
+        "url": "https://github.com/xuchenruisz/hudos/blob/b4a244b808b6786d5c3a1fd98102055f7f582488/mmu.c",
+        "kind": "固定源码",
+        "supports": [
+          "hudos_mmu_init为空操作；解释固件向量与持续Boot Services"
+        ]
+      },
+      {
+        "id": "hd14",
+        "title": "AArch64异常与EL0汇编",
+        "url": "https://github.com/xuchenruisz/hudos/blob/b4a244b808b6786d5c3a1fd98102055f7f582488/mmu_asm.S",
+        "kind": "固定源码",
+        "supports": [
+          "异常向量、eret与EL0上下文"
+        ]
+      },
+      {
+        "id": "hd15",
+        "title": "用户程序启动",
+        "url": "https://github.com/xuchenruisz/hudos/blob/b4a244b808b6786d5c3a1fd98102055f7f582488/crt0.S",
+        "kind": "固定源码",
+        "supports": [
+          "EL1函数指针与EL0 SVC两种调用路径"
+        ]
+      },
+      {
+        "id": "hd16",
+        "title": "用户调用包装",
+        "url": "https://github.com/xuchenruisz/hudos/blob/b4a244b808b6786d5c3a1fd98102055f7f582488/syscall.c",
+        "kind": "固定源码",
+        "supports": [
+          "双路径调用、文件与图形API"
+        ]
+      },
+      {
+        "id": "hd17",
+        "title": "用户调用声明",
+        "url": "https://github.com/xuchenruisz/hudos/blob/b4a244b808b6786d5c3a1fd98102055f7f582488/syscall.h",
+        "kind": "固定源码",
+        "supports": [
+          "编号与接口定义"
+        ]
+      },
+      {
+        "id": "hd18",
+        "title": "游戏接口声明",
+        "url": "https://github.com/xuchenruisz/hudos/blob/b4a244b808b6786d5c3a1fd98102055f7f582488/common.h",
+        "kind": "固定源码",
+        "supports": [
+          "四游戏框架移植声明；原项目来源待核"
+        ]
+      },
+      {
+        "id": "hd19",
+        "title": "TLS原语声明",
+        "url": "https://github.com/xuchenruisz/hudos/blob/b4a244b808b6786d5c3a1fd98102055f7f582488/tls.h",
+        "kind": "固定源码",
+        "supports": [
+          "SHA256、ChaCha20、Poly1305与P256接口"
+        ]
+      },
+      {
+        "id": "hd20",
+        "title": "TLS1.2握手",
+        "url": "https://github.com/xuchenruisz/hudos/blob/b4a244b808b6786d5c3a1fd98102055f7f582488/tls_handshake.c",
+        "kind": "固定源码",
+        "supports": [
+          "0xCCA8握手与证书链签名核验路径"
+        ]
+      },
+      {
+        "id": "hd21",
+        "title": "X.509解析与签名核验",
+        "url": "https://github.com/xuchenruisz/hudos/blob/b4a244b808b6786d5c3a1fd98102055f7f582488/x509.c",
+        "kind": "固定源码",
+        "supports": [
+          "DER、RSA-SHA256和信任锚签名链"
+        ]
+      },
+      {
+        "id": "hd22",
+        "title": "证书信任锚头注",
+        "url": "https://github.com/xuchenruisz/hudos/blob/b4a244b808b6786d5c3a1fd98102055f7f582488/tls_roots.h",
+        "kind": "固定源码头部",
+        "supports": [
+          "从系统信任库提取的根证书"
+        ]
+      },
+      {
+        "id": "hd23",
+        "title": "ASCII字体来源头注",
+        "url": "https://github.com/xuchenruisz/hudos/blob/b4a244b808b6786d5c3a1fd98102055f7f582488/userland/sun8x16.h",
+        "kind": "固定源码头部",
+        "supports": [
+          "署明Linux kernel sun8x16来源"
+        ]
+      },
+      {
+        "id": "hd24",
+        "title": "中文字体来源头注",
+        "url": "https://github.com/xuchenruisz/hudos/blob/b4a244b808b6786d5c3a1fd98102055f7f582488/userland/cjk16x16.h",
+        "kind": "固定源码头部",
+        "supports": [
+          "STHeiti生成32×32位图字体"
+        ]
+      },
+      {
+        "id": "hd25",
+        "title": "分支集合",
+        "url": "https://api.github.com/repos/xuchenruisz/hudos/branches?per_page=100",
+        "kind": "平台元数据",
+        "supports": [
+          "main、api6.0、内核6.1共3分支"
+        ]
+      },
+      {
+        "id": "hd26",
+        "title": "标签引用集合",
+        "url": "https://api.github.com/repos/xuchenruisz/hudos/git/matching-refs/tags/",
+        "kind": "平台元数据",
+        "supports": [
+          "标签1和2精确提交"
+        ]
+      },
+      {
+        "id": "hd27",
+        "title": "发布集合",
+        "url": "https://api.github.com/repos/xuchenruisz/hudos/releases?per_page=100",
+        "kind": "原作者发布及平台元数据",
+        "supports": [
+          "正式V26.10.1.16与预发布v26.10.4.20；3个附件"
+        ]
+      },
+      {
+        "id": "hd28",
+        "title": "当前分支全部可见提交",
+        "url": "https://api.github.com/repos/xuchenruisz/hudos/commits?per_page=100",
+        "kind": "固定历史元数据",
+        "supports": [
+          "14项线性历史、无父根提交"
+        ]
+      },
+      {
+        "id": "hd29",
+        "title": "初始提交源码树",
+        "url": "https://api.github.com/repos/xuchenruisz/hudos/git/trees/cd2b6488f5b30aad8ca546fac01934f004ab7502?recursive=1",
+        "kind": "固定历史源码树",
+        "supports": [
+          "初始README单文件"
+        ]
+      },
+      {
+        "id": "hd30",
+        "title": "首个上传提交树",
+        "url": "https://api.github.com/repos/xuchenruisz/hudos/git/trees/184eaebe697741ef4f25fcbda9eb16c282750a3c?recursive=1",
+        "kind": "固定历史源码树",
+        "supports": [
+          "README与hudos-server1beta1压缩包"
+        ]
+      },
+      {
+        "id": "hd31",
+        "title": "main分支固定树",
+        "url": "https://api.github.com/repos/xuchenruisz/hudos/git/trees/cc37a6e8274d4a9eb1980307299a5b1a380874d2?recursive=1",
+        "kind": "固定源码树",
+        "supports": [
+          "19项文件；与当前分支区分"
+        ]
+      },
+      {
+        "id": "hd32",
+        "title": "api6.0分支固定树",
+        "url": "https://api.github.com/repos/xuchenruisz/hudos/git/trees/67016fa07953af3f48bea02d10330c267c20bdd4?recursive=1",
+        "kind": "固定源码树",
+        "supports": [
+          "24项文件"
+        ]
+      },
+      {
+        "id": "hd33",
+        "title": "api6.0 README",
+        "url": "https://github.com/xuchenruisz/hudos/blob/67016fa07953af3f48bea02d10330c267c20bdd4/README.md",
+        "kind": "固定作者文档",
+        "supports": [
+          "内核全面更新说明"
+        ]
+      },
+      {
+        "id": "hd34",
+        "title": "10月4日修复差异",
+        "url": "https://github.com/xuchenruisz/hudos/commit/37da3bd68997d6c9f11f3fce44b9dc401e093afa",
+        "kind": "固定提交差异",
+        "supports": [
+          "控制台容量检查及ELF范围检查改动"
+        ]
+      },
+      {
+        "id": "hd35",
+        "title": "项目论坛公开公告",
+        "url": "https://chat.hudos.cn/forum",
+        "kind": "原项目社区页面",
+        "supports": [
+          "管理员公告连接同一原仓；公开公告可读，正文入口要求同意条款"
+        ]
+      },
+      {
+        "id": "hd36",
+        "title": "项目AI聊天入口",
+        "url": "https://chat.hudos.cn/",
+        "kind": "原项目页面",
+        "supports": [
+          "Qwen-Coder Chat标题；密码入口与论坛导航"
+        ]
+      },
+      {
+        "id": "hd37",
+        "title": "早期hudos和hudos-server原片",
+        "url": "https://www.bilibili.com/video/BV1xehc6oENs/",
+        "kind": "原作者视频页面",
+        "supports": [
+          "项目并列命名、8月日期显示与合集差异"
+        ]
+      },
+      {
+        "id": "hd38",
+        "title": "TLS客户端说明",
+        "url": "https://github.com/xuchenruisz/hudos/blob/b4a244b808b6786d5c3a1fd98102055f7f582488/tls_cli.c",
+        "kind": "固定源码头部",
+        "supports": [
+          "RFC5246、7905、8439参考声明"
+        ]
+      }
+    ],
+    "source_branch": "内核6.1"
+  }
+]

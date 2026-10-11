@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>知序（Zhixu）｜中文编程语言百科</title><link rel="stylesheet" href="../style.css"></head><body><header><h1>知序（Zhixu）</h1></header><main><p><a href="../">返回语言目录</a></p>
+<h2>语言介绍</h2><p>知序是以Python实现的中文关键字转译语言，前身名称为AI-CN。程序采用缩进、括号和Python式表达式，用“定义”“返回”“如果”“否则”“当”“循环”“在”等中文词组织函数与流程控制，并提供中文类、模块导入和异常处理写法。实现逐字符扫描源码，将完整关键字识别为词元，再生成Python源码；命令行提供执行、导出和交互入口。配套工具库为Ollama、OpenAI兼容API和HuggingFace模型提供推理调用路径，并包含模拟回退。微调、量化与显存优化在固定源码中处于配置提示或模拟阶段，各项能力按实际函数实现分别记录。AI-CN与知序共享Git历史，按改名后的同一项目归档。</p>
+<h2>分类与别名</h2><p>Python中文关键字转译语言／AI应用工具库；别名：知序；Zhixu；AI-CN；AI原生中文编程语言（1556880640-bot）</p>
+<h2>作者与公开历史</h2><p>GitHub维护账号1556880640-bot；现存三次Git提交均以该账号署名。自然人姓名与完整团队分工待核实。</p><p>AI-CN现存根提交0e7fe68031318c6a283090f52c38aba2b1bdcabd记录2026-05-16T13:10:20Z，仓库创建于当日13:32:01Z；知序仓库创建于14:02:29Z，改名提交d85adac01a15af7206ec72eda10d994b36a4b37a记录14:02:56Z。Git时间、仓库创建与首次公开时刻分别记录，准确首发时刻待核实。</p>
+<h2>设计与特征</h2><p>中文函数、条件、循环、类与异常关键字；词法扫描后生成Python源码；执行、Python导出与交互式命令入口；中文文件操作及Python库互操作示例；Ollama、OpenAI兼容API、HuggingFace推理适配与模拟回退</p>
+<h2>中文语法示例</h2><pre><code>定义 计算平均值(数字列表):
+    总 = 0
+    循环 数 在 数字列表:
+        总 = 总 + 数
+    返回 总 / 长度(数字列表)
+
+分数 = [92, 78, 85, 63]
+结果 = 计算平均值(分数)
+输出(f&quot;平均分: {结果}&quot;)
+
+如果 结果 &gt;= 80:
+    输出(&quot;优秀&quot;)
+否则:
+    输出(&quot;继续加油&quot;)</code></pre><p>固定提交README.md第31—44行的连续14行原例，保留四空格缩进、空行、英文标点与f字符串。片段完整定义平均值函数，调用后按结果进入中文条件分支；原文前两行问候另见第28—29行。该README代码块标注demo.zx，而仓库实际demo.zx使用另一组基础与AI示例，本文按README原文出处展示。执行结果待核实。 <a href="https://github.com/1556880640-bot/zhixu/blob/d85adac01a15af7206ec72eda10d994b36a4b37a/README.md#L31-L44">示例来源</a></p>
+<h2>实现与运行环境</h2><p>zhixu.py第649—685行的CLI把run分发给run_file；第495—519行读取UTF-8源码，调用translate并以Python exec执行生成文本。translate第443—470行进入tokenize与generate_python；第280—294行把完整标识符在KEYWORD_MAP中查表，第316—435行将KEYWORD转换为Python关键字并处理缩进与换行。使用AI映射词时自动加入from zhixu_utils import *。zhixu_utils.py第48—146行检测并分派Ollama、OpenAI、HuggingFace或模拟后端；第165—189、247—272、320—377行分别提供HTTP推理与Transformers生成调用。微调第529—587行提供配置提示／模拟，量化第590—618行打印状态，显存优化第759—780行打印环境及状态；训练、量化和优化效果待核实。</p>
+<h2>版本与维护状态</h2><p>知序固定pyproject.toml第6—11行标name=zhixu、version=1.0.0和Python&gt;=3.10；前身AI-CN同文件标2.0.0，改名提交同时调整名称及版号。2026-10-10读取两仓Git refs均只有master分支，Releases列表为空；包注册平台发行状态待核实。 许可按固定README及包元数据的MIT声明记录，全文与版权主体待核实。</p><p>公开源码及中文原例可读，仓库archived=false；所读master头为2026-05-16T14:02:56Z的d85adac01a15af7206ec72eda10d994b36a4b37a。当前维护计划、安装、执行、后端兼容性与性能待核实。</p>
+<h2>与其他项目的关系</h2><p>原仓1556880640-bot/ai-cn与1556880640-bot/zhixu共享根提交0e7fe680及89d30ece。知序头提交以“改名：AI-CN → 知序 (Zhixu)”描述变更，并将ai_cn.py、ai_cn_utils.py及.ai_cn示例改为zhixu.py、zhixu_utils.py及.zx。两仓按同一语言沿革合并；zx.bat是Windows启动器，zhixu_utils.py为配套工具库。</p>
+<h2>核验说明</h2><p>2026-10-10只读核验。基线86项语言、26项开放Issue正文和69条Issue评论按名称、别名、作者与原仓检索去重。前轮两仓处于搜索级，本轮以共享提交及明确改名记录合为1项新深入项目。所读知序完整树8项、truncated=false，三条Git提交追到空parents根。代码字段由固定README逐行提取并逐字核验。AI模型调用路径、模拟分支和开发共同署名分别记录。README所述自然语言定位、生态兼容与AI能力按作者文档及具体源码范围记录；引号与标点转换、入口全局、完整错误行映射、REPL状态保留、包安装与全部模型功能继续待核。项目安装、编译、执行、测试及模型请求均保持待核。 现存三次提交消息均含Claude Sonnet 4.6共同署名，属于开发记录中的AI协作标记；工具会话、生成比例与人工复核继续待核。</p>
+<h2>参考资料</h2><ul><li><a href="https://api.github.com/repos/1556880640-bot/zhixu">知序原仓及当前元数据</a></li>
+<li><a href="https://github.com/1556880640-bot/zhixu/blob/d85adac01a15af7206ec72eda10d994b36a4b37a/README.md#L31-L63">固定中文语法、连续14行平均值原例</a></li>
+<li><a href="https://github.com/1556880640-bot/zhixu/blob/d85adac01a15af7206ec72eda10d994b36a4b37a/demo_实用.zx#L33-L45">固定中文类、函数及循环原例</a></li>
+<li><a href="https://github.com/1556880640-bot/zhixu/blob/d85adac01a15af7206ec72eda10d994b36a4b37a/zhixu.py#L46-L124">固定中文关键字与宿主操作映射</a></li>
+<li><a href="https://github.com/1556880640-bot/zhixu/blob/d85adac01a15af7206ec72eda10d994b36a4b37a/zhixu.py#L176-L303">固定词法扫描与整词关键字识别</a></li>
+<li><a href="https://github.com/1556880640-bot/zhixu/blob/d85adac01a15af7206ec72eda10d994b36a4b37a/zhixu.py#L316-L435">固定词元到Python源码与工具库导入</a></li>
+<li><a href="https://github.com/1556880640-bot/zhixu/blob/d85adac01a15af7206ec72eda10d994b36a4b37a/zhixu.py#L443-L470">固定转译调用链</a></li>
+<li><a href="https://github.com/1556880640-bot/zhixu/blob/d85adac01a15af7206ec72eda10d994b36a4b37a/zhixu.py#L495-L519">固定文件执行与Python exec</a></li>
+<li><a href="https://github.com/1556880640-bot/zhixu/blob/d85adac01a15af7206ec72eda10d994b36a4b37a/zhixu.py#L631-L685">固定CLI入口与三子命令分发</a></li>
+<li><a href="https://github.com/1556880640-bot/zhixu/blob/d85adac01a15af7206ec72eda10d994b36a4b37a/zhixu_utils.py#L48-L146">固定后端检测及模型加载分派</a></li>
+<li><a href="https://github.com/1556880640-bot/zhixu/blob/d85adac01a15af7206ec72eda10d994b36a4b37a/zhixu_utils.py#L153-L304">固定Ollama与OpenAI推理适配</a></li>
+<li><a href="https://github.com/1556880640-bot/zhixu/blob/d85adac01a15af7206ec72eda10d994b36a4b37a/zhixu_utils.py#L311-L418">固定HuggingFace与模拟回退</a></li>
+<li><a href="https://github.com/1556880640-bot/zhixu/blob/d85adac01a15af7206ec72eda10d994b36a4b37a/zhixu_utils.py#L425-L526">固定RAG真实调用与模拟索引分支</a></li>
+<li><a href="https://github.com/1556880640-bot/zhixu/blob/d85adac01a15af7206ec72eda10d994b36a4b37a/zhixu_utils.py#L529-L618">固定微调提示与量化状态输出阶段</a></li>
+<li><a href="https://github.com/1556880640-bot/zhixu/blob/d85adac01a15af7206ec72eda10d994b36a4b37a/zhixu_utils.py#L759-L811">固定显存状态提示及嵌入模拟回退</a></li>
+<li><a href="https://github.com/1556880640-bot/zhixu/blob/d85adac01a15af7206ec72eda10d994b36a4b37a/pyproject.toml#L5-L19">固定源码1.0.0、MIT标签与Python版本</a></li>
+<li><a href="https://github.com/1556880640-bot/zhixu/blob/d85adac01a15af7206ec72eda10d994b36a4b37a/README.md#L96-L98">固定README许可声明</a></li>
+<li><a href="https://github.com/1556880640-bot/ai-cn/blob/89d30ece9e6d81ff46bcc2398221b9457e3328c8/pyproject.toml#L5-L19">前身AI-CN源码2.0.0</a></li>
+<li><a href="https://github.com/1556880640-bot/zhixu/commit/d85adac01a15af7206ec72eda10d994b36a4b37a">改名提交、共同历史及Claude Sonnet 4.6署名</a></li>
+<li><a href="https://github.com/1556880640-bot/zhixu/commit/0e7fe68031318c6a283090f52c38aba2b1bdcabd">现存根提交与AI共同署名</a></li>
+<li><a href="https://github.com/1556880640-bot/zhixu/commit/89d30ece9e6d81ff46bcc2398221b9457e3328c8">第二次提交与AI共同署名</a></li>
+<li><a href="https://github.com/1556880640-bot/ai-cn">前身AI-CN原仓</a></li>
+<li><a href="https://api.github.com/repos/1556880640-bot/zhixu/git/trees/d85adac01a15af7206ec72eda10d994b36a4b37a?recursive=1">固定完整八文件树</a></li>
+<li><a href="https://api.github.com/repos/1556880640-bot/zhixu/git/refs">Git refs核对</a></li>
+<li><a href="https://api.github.com/repos/1556880640-bot/zhixu/releases?per_page=100">GitHub Releases核对</a></li></ul><p>资料核验日期：2026-10-10</p><p><a href="https://github.com/yuyan-lang/chinese-programming-languages/issues/new">补充资料或纠错</a></p></main><footer>站点由<a href="https://yuyan-lang.org/">豫言编程语言</a>提供</footer></body></html>

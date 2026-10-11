@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>天河语言（ThLang）｜中文编程语言百科</title><link rel="stylesheet" href="../style.css"></head><body><header><h1>天河语言（ThLang）</h1></header><main><p><a href="../">返回语言目录</a></p>
+<h2>语言介绍</h2><p>天河语言（ThLang，早期名天狐语言）是Sen维护的中文关键字编译语言实验，原作者将其定位为便于新手和儿童入门的编程工具，配套工具称为始皇编译器。现存源码使用“整数型”“如果”“否则”“返回”“外部”以及“且”“或”等中文语法，保留括号、花括号和常见运算符。C++前端通过词法规则与Bison语法构造抽象语法树，随后生成LLVM IR，源码提供目标文件生成及LLD链接入口。原仓保存完整三行中文入口程序，并将“入口”函数映射为main。项目历史展示了从Python解释型设想到C++／LLVM编译方向的演变；2026年README与目录记录进一步重构计划。当前材料可用于研究中文语法、编译前端和LLVM接入方式，实际构建、平台兼容性与完整语言语义待核实。</p>
+<h2>分类与别名</h2><p>中文关键字编译语言／C++—LLVM实验工具链；别名：天河语言；ThLang；Thlang；Tianhe Language；天狐语言；Tianhu Language</p>
+<h2>作者与公开历史</h2><p>Sen；GitHub账号tianhuzong，Gitee账号thzsen，Bilibili发布账号Californium-252（UID3494354284972407）。作者个人README、Gitee简介和B站项目简介形成互链。</p><p>GitHub仓库创建于2023-08-13T06:18:09Z；现存主线最早提交为2023-08-14T12:41:56Z，初版README提交为同日13:17:17Z。2024-03-14 README改述C++／LLVM编译路线，2025-01-12提交将天狐语言改名天河语言。仓库创建、Git提交与最早对外公开发布时间分别记录；准确首发时间待核实。</p>
+<h2>设计与特征</h2><p>中文类型、条件、返回与外部声明关键字；Unicode标识符、花括号代码块及可选分号组织；中文“入口”函数映射为main；C++词法／Bison语法规则构造AST；LLVM IR、目标文件与LLD链接实现入口；.th与.thlang源码扩展名及CLI项目初始化模板</p>
+<h2>中文语法示例</h2><pre><code>整数型 入口(){
+    返回 0;
+}</code></pre><p>固定提交779844e806391ca79421378f48b2aa7de2f4f837的bin/thlang/main.th第1—3行完整连续原文，保留四空格缩进、半角括号、花括号和分号，显示时省略末尾换行。文件blob为84c8e1a8e1915371e29e23cfd53e4ec2df043251。src/acli.cpp的ThInit保存相同初始化模板；src/codegen.cpp第494行将“入口”映射到main。独立编译与运行结果待核实。 <a href="https://github.com/tianhuzong/ThLang/blob/779844e806391ca79421378f48b2aa7de2f4f837/bin/thlang/main.th#L1-L3">示例来源</a></p>
+<h2>实现与运行环境</h2><p>当前固定源码以C++实现。src/lex.l将中文关键字映射为TOKEN_IF、TOKEN_ELSE、TOKEN_INT、TOKEN_RETURN和TOKEN_EXTERN；src/parser.y解析函数、变量声明、条件分支和返回并构造AST。src/libthlang.cpp的compile_toir调用yyparse及root_module.codegen生成LLVM IR，compile_from_files_to_exe处理.th／.thlang输入、生成目标文件并进入LLD链接。src/codegen.cpp使用LLVM IRBuilder生成分支、返回与函数；src/TypeSystem.cpp记录中文类型到LLVM类型的映射。src/CMakeLists.txt链接thlang共享库、LLVM、RE-flex及LLD相关库。src/acli.cpp包含init、info和build入口；当前CMake的compiler目标采用src/main.cpp。上述内容按静态源码记录，各入口构建与运行覆盖待核实。</p>
+<h2>版本与维护状态</h2><p>本轮固定main提交779844e806391ca79421378f48b2aa7de2f4f837，作者与提交者时间均为2026-06-21T04:22:56Z；仓库pushed_at为2026-06-21T04:28:57Z。GitHub Releases集合为空。bin/thlang/ThlangProject.json的version=1.0.0属于示例项目元数据，src/acli.cpp将1.0.0作为新包默认版本。本轮Git引用集合列main与shared_ptr两个分支；编译器正式版本编号和发行包待核实。 本体许可待核实：README自述开源，GitHub license=null；固定根目录的项目级许可证正文待核。示例包的MIT字段与编译器本体授权范围分别核实。</p><p>2026-10-10公开原仓、连续中文例程和实现文件可读，archived=false。2026-05-05作者Issue #1提出重写计划，2026-06-21提交调整目录并暂停工作流；新分层目录中的多项文件大小为0，现有非空实现继续位于src/lex.l、src/parser.y、src/codegen.cpp和src/libthlang.cpp等路径。项目处于实验与重构阶段，独立运行、测试、自举及持续维护计划待核实。</p>
+<h2>与其他项目的关系</h2><p>同仓历史将天狐语言（Tianhu Language）演变为天河语言（Tianhe Language），按同一语言记录。作者TinyToyCompiler的README说明该测试编译器用于探索ThLang开发遇到的问题，并引用stardust95/TinyCompiler；具体源码继承范围待核实。Californium-252在2024年BV1bm421x7AK中展示的.zh中文编译器具有已核中文原例与zhpy工作目录线索；它与ThLang及gasolin/zhpy的实现关系继续在Issue #24核实。</p>
+<h2>核验说明</h2><p>2026-10-10只读核验。基线93815086f1778802ea57ddeeec8ad717e355814f含86项语言，按ThLang、天河语言、天狐语言及作者账号排重；既有研究日志未命中，百科Issue检索ThLang与天狐返回空。通过Issue #24原视频作者链发现本项目，新增正式建议1项。读取固定源码树、主要前端／代码生成／CLI文件、历史README、改名提交、作者个人README及公开B站／Gitee页面。中文循环的完整词法与语法对应、示例包MIT和1.0.0的本体适用范围、2024视频继承关系及AI参与继续待核实。项目源码采用静态阅读，构建、运行、编译测试和二进制执行均留待专项核验。</p>
+<h2>参考资料</h2><ul><li><a href="https://github.com/tianhuzong/ThLang/blob/779844e806391ca79421378f48b2aa7de2f4f837/README.md">原仓README：天河语言及2026重构计划</a></li>
+<li><a href="https://github.com/tianhuzong/ThLang/blob/779844e806391ca79421378f48b2aa7de2f4f837/bin/thlang/main.th#L1-L3">固定连续中文原例：main.th第1—3行</a></li>
+<li><a href="https://github.com/tianhuzong/ThLang/blob/779844e806391ca79421378f48b2aa7de2f4f837/src/lex.l#L45-L57">中文词法规则：如果、否则、整数型、返回及外部</a></li>
+<li><a href="https://github.com/tianhuzong/ThLang/blob/779844e806391ca79421378f48b2aa7de2f4f837/src/parser.y#L70-L201">语法规则与AST构造</a></li>
+<li><a href="https://github.com/tianhuzong/ThLang/blob/779844e806391ca79421378f48b2aa7de2f4f837/src/codegen.cpp#L470-L503">函数返回及入口名称到main的映射</a></li>
+<li><a href="https://github.com/tianhuzong/ThLang/blob/779844e806391ca79421378f48b2aa7de2f4f837/src/libthlang.cpp">源码到LLVM IR及对象文件、LLD链接入口</a></li>
+<li><a href="https://github.com/tianhuzong/ThLang/blob/779844e806391ca79421378f48b2aa7de2f4f837/src/TypeSystem.cpp">中文类型名称到LLVM类型的映射</a></li>
+<li><a href="https://github.com/tianhuzong/ThLang/blob/779844e806391ca79421378f48b2aa7de2f4f837/src/acli.cpp">CLI初始化模板、包版本及许可的用户参数</a></li>
+<li><a href="https://github.com/tianhuzong/ThLang/blob/779844e806391ca79421378f48b2aa7de2f4f837/bin/thlang/ThlangProject.json">示例项目的1.0.0与MIT元数据</a></li>
+<li><a href="https://github.com/tianhuzong/ThLang/blob/779844e806391ca79421378f48b2aa7de2f4f837/src/CMakeLists.txt">当前CMake构建入口</a></li>
+<li><a href="https://github.com/tianhuzong/ThLang/blob/f72dd88b0d353eb4e2cab26113deb187237e54b3/README.md">2023年天狐语言早期README</a></li>
+<li><a href="https://github.com/tianhuzong/ThLang/blob/fd6325be8db0325fdf21dd7d0d57587d5064342f/README.md">2024年README转为C++与LLVM编译方向</a></li>
+<li><a href="https://github.com/tianhuzong/ThLang/commit/84bf8805bbd7d8e192bb2f84da8e237a1f91efae">2025年天狐改名天河的原始提交</a></li>
+<li><a href="https://github.com/tianhuzong/tianhuzong/blob/52feca7bcfc158c376958c57d0708bb24559315e/README.md">作者个人README：Sen、GitHub、Gitee与B站UID互链</a></li>
+<li><a href="https://www.bilibili.com/video/BV191GVzGEwU/">同UID原视频简介：直接链接tianhuzong的项目</a></li>
+<li><a href="https://gitee.com/thzsen">作者Gitee主页：Sen与B站UID互链</a></li>
+<li><a href="https://github.com/tianhuzong/TinyToyCompiler/blob/e2d09969694ba940c3594e556105e3c2c18747c4/README.md">同作者TinyToyCompiler：与ThLang的开发关系自述</a></li>
+<li><a href="https://github.com/tianhuzong/ThLang/issues/1">作者2026年重写计划Issue</a></li>
+<li><a href="https://api.github.com/repos/tianhuzong/ThLang">原仓元数据：创建、更新与许可检测</a></li>
+<li><a href="https://github.com/tianhuzong/ThLang/commit/779844e806391ca79421378f48b2aa7de2f4f837">当前固定提交</a></li>
+<li><a href="https://api.github.com/repos/tianhuzong/ThLang/git/refs">Git引用集合：main与shared_ptr分支</a></li></ul><p>资料核验日期：2026-10-10</p><p><a href="https://github.com/yuyan-lang/chinese-programming-languages/issues/new">补充资料或纠错</a></p></main><footer>站点由<a href="https://yuyan-lang.org/">豫言编程语言</a>提供</footer></body></html>

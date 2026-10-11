@@ -1,1 +1,54 @@
-<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>豫言｜中文编程语言百科</title><link rel="stylesheet" href="../style.css"></head><body><header><h1>豫言</h1></header><main><p><a href="../">返回语言目录</a></p><h2>语言介绍</h2><p>使用中文语法的函数式编程语言。</p><p>核验状态：有文献</p><h2>参考资料</h2><ul><li><a href="https://www.ploc.org.cn/ploc/CNPL-2023.pdf">参考资料</a></li></ul><p><a href="https://github.com/yuyan-lang/chinese-programming-languages/issues/new">补充资料或纠错</a></p></main><footer>站点由<a href="https://yuyan-lang.org/">豫言编程语言</a>提供</footer></body></html>
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>豫言｜中文编程语言百科</title><link rel="stylesheet" href="../style.css"></head><body><header><h1>豫言</h1></header><main><p><a href="../">返回语言目录</a></p>
+<h2>语言介绍</h2><p>豫言（Yuyan）是一门专为中文编程设计的静态类型函数式通用语言，探索中文语境中的程序表达、语言设计与工具实现。程序使用「」书写名称、类型和数字，以『』表示字符串，以“乃”“者”“即”组织声明，以“会…而…”定义函数、“于”调用函数、“虑”绑定局部值，并用“鉴…有…或有…”进行模式匹配。语言提供参数多态、代数数据类型、递归、闭包、模块和带类型宿主接口。当前源码进一步包含广义代数数据类型、参数标签，以及以整数、爻、字符串和这些值的列表为索引的简单依值类型。编译器主体以豫言实现，经过名称解析、静态检查、模式展开、擦除、优化与闭包转换等阶段，形成以豫汇／WebAssembly为执行边界的工具链；标准Wasm模块和原生执行相关组件在同一仓库维护。项目配有标准库、豫构包构建工具、VS Code插件、教程、技术规范及操作系统相关实现。这里按2026-10-11固定源码与公开发行记录保存一次性资料快照。</p>
+<h2>分类与别名</h2><p>中文静态类型函数式通用语言／自托管编译器；别名：Yuyan；豫言中文编程语言</p>
+<h2>作者与公开历史</h2><p>GitHub账号UltimatePea发起并持续维护，项目代码托管于yuyan-lang组织；根提交与v0.4发行均关联该账号。作者中文姓名及完整贡献者分工待核实。</p><p>现有Git历史根提交21e8c83c9ff0ad387603d661c8085edf380d56d0记录2021-10-14T18:39:36Z，包含SML解析器与.yulang例程；GitHub仓库创建时间为2021-10-15T20:29:09Z。现存最早发行条目v0.1.0alpha1发布于2023-12-21T23:47:27Z。开发历史、仓库创建与发行时间分别记录，首次对外公开日待核实。</p>
+<h2>设计与特征</h2><p>中文名称、关键字、数字与标点组成的表达式语法；静态类型、参数多态、代数数据类型与模式匹配；递归、闭包、显式／隐式参数及参数标签；GADT与限定内建值索引的简单依值类型；以豫言实现的编译器、阶段树码与Wasm工具链；显式包依赖、豫构构建与带类型宿主接口</p>
+<h2>中文语法示例</h2><pre><code>寻观「标准库」之书。
+寻「标准库」之「操作系统」之「命令行参数」之书。
+寻「标准库」之「数据结构」之「整数操作」之书。
+
+「斐波那契」乃化「整数」而「整数」也。
+「斐波那契」者会「数」而
+  若「小于」于「数」于「二」
+  则
+    「数」
+  否则
+    「加」
+      于（「斐波那契」于（「减」于「数」于「一」））
+      于（「斐波那契」于（「减」于「数」于「二」））
+也。
+
+「参数」者「整数操作」之「理解整数」于（「第几个」于「零」于（「命令行参数」之「获取参数」于「元」））也。
+
+「打印行」于（「整数表示」于（「斐波那契」于「参数」））。</code></pre><p>固定提交中斐波那契。脚本。豫第1—18行的完整连续原例，保留空行、缩进、汉字数字与中文标点。原程序导入标准库及命令行参数、整数操作模块，定义递归斐波那契函数，读取首个命令行参数并打印计算结果。脚本依赖仓库包上下文和工具链；独立运行与输出结果待核实。 <a href="https://github.com/yuyan-lang/yuyan/blob/78f66573f8af7c33747958211aae36a8646e805f/%E5%BA%94%E7%94%A8/%E6%80%A7%E8%83%BD%E7%A0%94%E7%A9%B6/%E8%B7%A8%E8%AF%AD%E8%A8%80%E6%AF%94%E8%BE%83/%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E3%80%82%E8%84%9A%E6%9C%AC%E3%80%82%E8%B1%AB#L1-L18">示例来源</a></p>
+<h2>实现与运行环境</h2><p>当前编译器主体为。豫源码。编译过程。豫组织检查、擦除、闭包转换等步骤；阶段文档列出词法形式、抽象语法、名称解析、检查后定义、模式展开、类型擦除、优化、闭包与求值正则等中间边界。类型类型检查。豫第296—324、383—397行实际接入依值箭头和隐式值参数检查，依值索引定义域。豫列出整数、爻、字符串及递归列表定义域。官方快速开始使用Node宿主运行Wasm编译器和豫构，描述三级自举及末两级产物逐字节比较；该过程按作者构建说明记录。设计动机说明以豫汇／WebAssembly为统一执行边界，并列输出标准Wasm和原生程序。历史发行记录包含SML实现阶段；2025年v0.3发行说明记载OCaml重构。</p>
+<h2>版本与维护状态</h2><p>可核语义编号正式发行包括v0.4（2026-09-02T15:06:13Z），发行标题记“全中文自举回归”。当前默认分支yybs快照为78f66573f8af7c33747958211aae36a8646e805f；continuous-binaries提供持续更新的Wasm工具链，初次读取时更新至2026-10-11T04:58:57Z；2026-10-11T12:53Z复核时更新时间为2026-10-11T12:35:41Z。v0.3（2025-08-31）发行说明记OCaml重构，v0.1.0rc1（2024-02-03）说明记首个可用自举版本。语言发行、持续工具链与插件0.0.21分别记录。 许可：固定根LICENSE为GNU Affero General Public License version 3。第三方组件适用范围以各自许可文件为准。</p><p>公开仓库archived=false，yybs固定提交时间为2026-10-11T05:09:19Z，代码、教程、规范和持续工具链发行可读。维护活动按本次快照记录。安装、编译、测试、自举、性能、跨平台兼容与线上工具运行结果待独立核实。</p>
+<h2>与其他项目的关系</h2><p>豫言编译器、标准库、豫构和VS Code插件属于同一语言项目的实现及配套工具。豫言操作系统目录保存宿主适配与系统实现，和语言本体分别描述。官方设计动机提及入墨答借用部分豫言设计，该关系按豫言作者说明记录。2023蓝皮书保留为历史原始引用；当前规则以固定源码、技术规范与实施记录交叉核对。</p>
+<h2>核验说明</h2><p>2026-10-11资料快照，固定公开源码78f66573f8af7c33747958211aae36a8646e805f。递归斐波那契例程为固定文件第1—18行的连续原文，保留空白、缩进和中文标点；JSON省去文件末尾换行。依值能力按技术规范、2026-10-06实施记录与类型检查源码交叉核定，范围为整数、爻、字符串及递归列表索引。设计动机和简版语法保存较早的类型说明；技术规范总纲另有兼容基线4cdeca11600fed16338793a494b6eecaae94485a。提案00002实施记录在2026-10-06将八步标为已实现，列表数组段原型评测后保留链表表示。官方后续事项包括依值字段在模式中的代换、复杂索引的规约与隐式参数推定、项层隐式值参数的提前检查、复合索引构造器的宿主边界、存在名冲突、覆盖检查补全，以及着色向量的维数索引。完成时间待核实。 自举、测试与性能结果按作者记录表述，独立复现待核实。原始蓝皮书引用完整保留，其全文本次读取超时。 AI开发：2026-06-17的v0.1.0rc2.0发行说明由作者明确提到借助LLM恢复自举编译器；公开实施记录可见Codex命名的工作分支与工具协作记录。具体模型、生成代码比例和完整人机分工待核实。 本条为2026-10-11一次性资料快照。</p>
+<h2>参考资料</h2><ul><li><a href="https://www.ploc.org.cn/ploc/CNPL-2023.pdf">参考资料</a></li>
+<li><a href="https://github.com/yuyan-lang/yuyan">豫言官方公开源码仓库</a></li>
+<li><a href="https://github.com/yuyan-lang/yuyan/blob/78f66573f8af7c33747958211aae36a8646e805f/%E8%87%AA%E8%BF%B0.%E6%B1%89%E8%AF%AD.md#L1-L31">固定项目自述：定位、工具链与资料入口</a></li>
+<li><a href="https://github.com/yuyan-lang/yuyan/blob/78f66573f8af7c33747958211aae36a8646e805f/%E5%BA%94%E7%94%A8/%E8%B1%AB%E8%A8%80%E7%BC%96%E8%AF%91%E5%99%A8/%E6%96%87%E6%A1%A3/%E8%AE%BE%E8%AE%A1%E5%8A%A8%E6%9C%BA.%E6%B1%89%E8%AF%AD.md#L1-L23">固定设计动机：中文表达与豫汇执行边界</a></li>
+<li><a href="https://github.com/yuyan-lang/yuyan/blob/78f66573f8af7c33747958211aae36a8646e805f/%E5%BA%94%E7%94%A8/%E8%B1%AB%E8%A8%80%E7%BC%96%E8%AF%91%E5%99%A8/%E6%96%87%E6%A1%A3/%E8%AF%AD%E8%A8%80%E8%A7%84%E8%8C%83.%E6%B1%89%E8%AF%AD.md">固定核心语法说明：名称、函数、模块和模式匹配</a></li>
+<li><a href="https://github.com/yuyan-lang/yuyan/blob/78f66573f8af7c33747958211aae36a8646e805f/%E5%BA%94%E7%94%A8/%E6%80%A7%E8%83%BD%E7%A0%94%E7%A9%B6/%E8%B7%A8%E8%AF%AD%E8%A8%80%E6%AF%94%E8%BE%83/%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E3%80%82%E8%84%9A%E6%9C%AC%E3%80%82%E8%B1%AB#L1-L18">固定原始连续例程：递归斐波那契18行</a></li>
+<li><a href="https://github.com/yuyan-lang/yuyan/blob/78f66573f8af7c33747958211aae36a8646e805f/%E5%BA%94%E7%94%A8/%E8%B1%AB%E8%A8%80%E7%BC%96%E8%AF%91%E5%99%A8/%E6%96%87%E6%A1%A3/%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B.%E6%B1%89%E8%AF%AD.md#L14-L57">固定快速开始：Wasm工具链、包构建与自举流程</a></li>
+<li><a href="https://github.com/yuyan-lang/yuyan/blob/78f66573f8af7c33747958211aae36a8646e805f/%E5%BA%93/%E7%BC%96%E8%AF%91%E5%99%A8%E6%A0%B8%E5%BF%83/%E6%96%87%E6%A1%A3/%E4%B8%AD%E9%97%B4%E8%AF%AD%E8%A8%80%E4%B8%8E%E9%98%B6%E6%AE%B5%E5%88%86%E7%A6%BB.%E6%B1%89%E8%AF%AD.md#L29-L52">固定阶段说明：18个中间边界与树码</a></li>
+<li><a href="https://github.com/yuyan-lang/yuyan/blob/78f66573f8af7c33747958211aae36a8646e805f/%E5%BA%93/%E7%BC%96%E8%AF%91%E5%99%A8%E6%A0%B8%E5%BF%83/%E7%BC%96%E8%AF%91%E6%AD%A5%E9%AA%A4/%E6%80%BB%E4%BD%93%E8%BF%87%E7%A8%8B/%E7%BC%96%E8%AF%91%E8%BF%87%E7%A8%8B%E3%80%82%E8%B1%AB#L90-L130">固定编译调度源码</a></li>
+<li><a href="https://github.com/yuyan-lang/yuyan/blob/78f66573f8af7c33747958211aae36a8646e805f/%E5%BA%93/%E7%BC%96%E8%AF%91%E5%99%A8%E6%A0%B8%E5%BF%83/%E7%BC%96%E8%AF%91%E6%AD%A5%E9%AA%A4/%E7%B1%BB%E5%9E%8B%E6%A3%80%E6%9F%A5/%E7%B1%BB%E5%9E%8B%E7%B1%BB%E5%9E%8B%E6%A3%80%E6%9F%A5%E3%80%82%E8%B1%AB#L296-L397">固定类型检查源码：依值箭头与隐式值参数</a></li>
+<li><a href="https://github.com/yuyan-lang/yuyan/blob/78f66573f8af7c33747958211aae36a8646e805f/%E5%BA%93/%E7%BC%96%E8%AF%91%E5%99%A8%E6%A0%B8%E5%BF%83/%E7%BC%96%E8%AF%91%E6%AD%A5%E9%AA%A4/%E7%B1%BB%E5%9E%8B%E6%A3%80%E6%9F%A5/%E4%BE%9D%E5%80%BC%E7%B4%A2%E5%BC%95%E5%AE%9A%E4%B9%89%E5%9F%9F%E3%80%82%E8%B1%AB#L16-L73">固定索引定义域源码</a></li>
+<li><a href="https://github.com/yuyan-lang/yuyan/blob/78f66573f8af7c33747958211aae36a8646e805f/%E5%BA%94%E7%94%A8/%E8%B1%AB%E8%A8%80%E7%BC%96%E8%AF%91%E5%99%A8/%E6%96%87%E6%A1%A3/%E8%AF%AD%E8%A8%80%E6%8A%80%E6%9C%AF%E8%A7%84%E8%8C%83/%E4%BE%9D%E5%80%BC%E7%B1%BB%E5%9E%8B.%E6%B1%89%E8%AF%AD.md#L1-L61">固定简单依值类型规则与边界</a></li>
+<li><a href="https://github.com/yuyan-lang/yuyan/blob/78f66573f8af7c33747958211aae36a8646e805f/%E6%8F%90%E6%A1%88/00002-%E5%AE%9E%E6%96%BD%E8%AE%B0%E5%BD%95.%E6%B1%89%E8%AF%AD.md#L5-L18">固定提案00002实施记录：GADT、依值类型与待办</a></li>
+<li><a href="https://github.com/yuyan-lang/yuyan/blob/78f66573f8af7c33747958211aae36a8646e805f/%E6%8F%90%E6%A1%88/00002-%E5%AE%9E%E6%96%BD%E8%AE%B0%E5%BD%95.%E6%B1%89%E8%AF%AD.md#L139-L157">固定提案00002剩余限制</a></li>
+<li><a href="https://github.com/yuyan-lang/yuyan/blob/78f66573f8af7c33747958211aae36a8646e805f/%E5%BA%94%E7%94%A8/%E8%B1%AB%E8%A8%80%E7%BC%96%E8%AF%91%E5%99%A8/%E6%96%87%E6%A1%A3/%E8%AF%AD%E8%A8%80%E6%8A%80%E6%9C%AF%E8%A7%84%E8%8C%83/%E6%80%BB%E7%BA%B2.%E6%B1%89%E8%AF%AD.md#L1-L23">固定技术规范总纲：兼容基线与新增规则</a></li>
+<li><a href="https://github.com/yuyan-lang/yuyan/blob/78f66573f8af7c33747958211aae36a8646e805f/%E8%B1%AB%E8%A8%80%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E6%80%BB%E8%A7%88.%E6%B1%89%E8%AF%AD.md#L1-L13">固定操作系统目录说明：宿主与系统组件</a></li>
+<li><a href="https://github.com/yuyan-lang/yuyan/blob/78f66573f8af7c33747958211aae36a8646e805f/%E5%BA%94%E7%94%A8/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/yuyan-vscode/package.json#L1-L52">固定VS Code插件版本与命令配置</a></li>
+<li><a href="https://github.com/yuyan-lang/yuyan/blob/78f66573f8af7c33747958211aae36a8646e805f/LICENSE#L1-L15">固定AGPLv3许可</a></li>
+<li><a href="https://github.com/yuyan-lang/yuyan/commit/21e8c83c9ff0ad387603d661c8085edf380d56d0">历史根提交：UltimatePea与2021-10-14开发记录</a></li>
+<li><a href="https://api.github.com/repos/yuyan-lang/yuyan">仓库公开元数据：创建日期与归档状态</a></li>
+<li><a href="https://github.com/yuyan-lang/yuyan/releases/tag/v0.1.0alpha1">v0.1.0alpha1：现存最早发行条目</a></li>
+<li><a href="https://github.com/yuyan-lang/yuyan/releases/tag/v0.1.0rc1">v0.1.0rc1：作者记录首个可用自举版本</a></li>
+<li><a href="https://github.com/yuyan-lang/yuyan/releases/tag/v0.3">v0.3：OCaml实现阶段</a></li>
+<li><a href="https://github.com/yuyan-lang/yuyan/releases/tag/v0.1.0rc2.0">v0.1.0rc2.0：LLM与恢复自举的作者说明</a></li>
+<li><a href="https://github.com/yuyan-lang/yuyan/releases/tag/v0.4">v0.4正式发行</a></li>
+<li><a href="https://github.com/yuyan-lang/yuyan/releases/tag/continuous-binaries">持续Wasm工具链发行</a></li></ul><p>资料核验日期：2026-10-11</p><p><a href="https://github.com/yuyan-lang/chinese-programming-languages/issues/new">补充资料或纠错</a></p></main><footer>站点由<a href="https://yuyan-lang.org/">豫言编程语言</a>提供</footer></body></html>
