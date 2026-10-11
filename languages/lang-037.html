@@ -1,18 +1,48 @@
 <!doctype html>
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Atlanage｜中文编程语言百科</title><link rel="stylesheet" href="../style.css"></head><body><header><h1>Atlanage</h1></header><main><p><a href="../">返回语言目录</a></p>
-<h2>语言介绍</h2><p>使用中文关键字、中文标识符与花括号/分号语法的编译型语言。仓库包含 .at 示例、以 .at 编写的词法分析器、语法分析器、语义分析器、代码生成器、汇编器和链接器源码；已检查的编译入口串联这些模块，目标为 Windows x86-64。此次仅作源码与发布元数据核实，未编译或运行程序。</p>
-<h2>分类与别名</h2><p>中文通用编程语言（编译型）；别名：暂无已核实别名</p>
-<h2>作者与首次公开</h2><p>wc772（仓库所有者及 Release 发布者；1.0 标签根提交署名 atra，两者身份关系未核实）
-2026-08-16（目前可核实的首个 GitHub Release 发布日；不等同于项目最早诞生或首次公开日期）</p>
-<h2>设计与特征</h2><p>词法表实际映射“设、如果、又如果、否则、循环、返回值、声明、函数、类、继承”等中文关键字，并含中文字符标识符识别逻辑。；语法分析器含变量声明、函数声明、条件、循环、类与接口等解析分支；示例使用中文函数名和内建打印调用。；编译入口可见词法分析、解析、语义分析、汇编输出、COFF 对象生成与链接步骤；链接器定义 AMD64 目标。；仓库提供 .at 编译器源码、含嵌入汇编的 .at 运行时、C 运行时相关文件及十六进制二进制种子。；自举、M:N 调度、AUI、OpenGL/Vulkan 和包管理为项目宣称或对应源码/示例所展示的方向，其完整性、可运行性与性能未由此次研究验证。</p>
+<h2>语言介绍</h2><p>Atlanage 是采用中文关键字、中文标识符以及花括号和分号结构的通用编译语言。词法表把“设”“声明”“返回值”“如果”“又如果”“循环”“类”“继承”等词映射为独立记号，同时处理中文逻辑词、位运算词、中文引号和部分全角标点。官方例程覆盖变量、列表遍历、函数、类、模块和图形界面等方向；本页完整基础示例连续展示问候输出、水果列表循环及加法函数调用。编译器的词法、解析、语义分析、代码生成、汇编与链接模块均以该语言的源文件保存，入口先展开文件引用、包导入和模块导入，再生成汇编与对象文件。链接器写入六十四位 Windows 可执行文件格式和系统动态库导入信息。仓库还保留含嵌入汇编的语言运行时、C 运行时相关文件及十六进制种子，构建脚本依赖既有编译器完成后续阶段。其 C 运行时文件与玄铁历史源码存在可定位的连续相同代码段，具体演化关系仍待核实。发布标签、发布正文与资产名称各自保存版本信息；完整自举、调度正确性、图形能力、跨平台运行和性能均待独立核验。</p>
+<h2>分类与别名</h2><p>中文通用编程语言（编译型）；别名：</p>
+<h2>作者与公开历史</h2><p>wc772为GitHub仓库所有者、当前主线提交署名和Release发布者；1.0标签对应的根提交作者字段为atra。两条历史中的署名身份对应与真实身份待核实。</p><p>目前可核实的首个GitHub Release发布于2026-08-16T17:58:33Z，仓库创建于同日17:28:53Z。1.0标签根提交记录时间为同日17:50:33Z；当前main的另一根提交6bda6cec记录时间为同日18:05:23Z。项目更早公开史及最初诞生日期待核实。</p>
+<h2>设计与特征</h2><p>词法表识别中文变量、函数、条件、循环、类、继承、可见性、异常、接口、逻辑及位运算词，并通过Unicode码点范围处理汉字标识符。；词法实现显式映射中文引号、全角冒号、分号、括号、赋值号和花括号等符号；具体可接受字符以各词法分支为范围。；语法分析器保存变量声明、函数、条件、循环、类和接口等结构；基础hello.at完整11行提供列表遍历、函数返回和调用的原始中文语法。；编译入口先展开文件引用、包和模块导入，随后完成词法、解析、语义、汇编文本生成、COFF对象生成及链接流程；链接器填写AMD64和PE32+头部并建立Windows系统DLL导入。；仓库保存.at编译器模块、含嵌入汇编的.at运行时、C运行时相关文件和十六进制二进制种子；种子物化程序负责解码、SHA-256检查与写出文件。；README列出M:N任务调度、AUI、OpenGL／Vulkan和包管理；源码与例程提供相关结构，其完整性、构建可用性、运行正确性及性能待核实。</p>
+<h2>中文语法示例</h2><pre><code>打印(&quot;你好，世界！&quot;);
 
-<h2>中文语法示例</h2><pre><code>声明 加法(a, b){
+设 列表 水果 = [&quot;苹果&quot;, &quot;香蕉&quot;, &quot;橙子&quot;];
+循环(设 果 : 水果){
+    打印(&quot;我喜欢&quot; + 果);
+};
+
+声明 加法(a, b){
     返回值 a + b;
 };
-打印(&quot;1+2=&quot; + 加法(1, 2));</code></pre><p>examples/hello.at 第 8–11 行的连续原文，独立的加法函数声明及调用片段；保留原始缩进、标点和文字，未拼接、改写或生成。 <a href="https://github.com/wc772/atlanage/blob/da5b3a9b778ff546382990de35f2112efc9544f9/examples/hello.at#L8-L11">示例来源</a></p>
-<h2>实现与运行环境</h2><p>主入口 self-hosted/atlv1.at 引入 atl_lexer.at、atl_parser.at、atl_semantic.at、atl_codegen.at、atl_assembler.at、atl_linker.at 等 .at 模块；907–950 行可见 lex → parse_program → sem_analyze → codegen → assemble/write_coff → link。self-hosted/atl_rt.at 使用“汇编(...)”嵌入 x86-64 汇编；runtime/ 另含 xt_runtime.c、xt_threadpool.c、xt_net.c 等 C 文件。seed/seed_builder.c 是解码并校验十六进制种子的物化器，输出 atlv1.exe 和 atl_rt.obj，并非从 C 源码重建语言编译器。rebuild_atlv1.ps1 依赖预存 AT-V1.exe；rt_build.ps1 依赖 atlc.exe、Python 与 NASM。GitHub 标记主要语言为 C 不能代替对实现结构的判断。</p>
-<h2>版本与维护状态</h2><p>GitHub 唯一 Release/标签为 1.0（非预发布），发布正文为“1.0.1”，资产名为 atlanage-v1.0.zip；版本标注不一致，未消歧。；已有公开源码和 GitHub Release，仓库未归档；截至 2026-10-10，默认分支最后提交为 2026-08-17。未作运行、完整自举或持续维护状态验证；仓库元数据未识别许可证。</p>
-<h2>与其他项目的关系</h2><p>AT-V1.exe / atlv1 为该项目的编译器命名，不能据此增列为独立语言。仓库 fork=false；未发现足以确认其与其他语言存在继承、移植或同源关系的第一方说明。</p>
-<h2>核验说明</h2><p>固定读取 main=da5b3a9b778ff546382990de35f2112efc9544f9。中文语法有词法表、解析分支与原始示例三类静态证据，足以作为已实现项目候选收录，但不等于运行测试通过。唯一 Release 的 published_at=2026-08-16T17:58:33Z，与仓库 created_at 区分；首发标签指向 837af6b15ca64ee2fc1b157d7bc15fc0818948a0（作者署名 atra），当前 main 则有独立根提交 6bda6cec0b860c0456280c797d417f5360ab4fb5（2026-08-16T18:05:23Z），不可把当前主线根提交当成早于 Release 的发布证据。未核实更早公开史、作者真实身份、atra 与 wc772 的关系、二进制与源码对应性、完整引导可复现性、自举收敛、调度正确性、性能和跨平台支持。seed_builder 输出 atlv1.exe，而构建脚本使用 AT-V1.exe；默认树中未见 .exe/.obj 文件，README 的二进制目录示意不代表这些文件已跟踪。自举脚本仅设计比较 hello.at 的汇编文本，不证明所有程序或编译器二进制可复现。未下载或执行发布包。</p>
-
-<h2>参考资料</h2><ul><li><a href="https://api.github.com/repos/wc772/atlanage">仓库与公开元数据</a></li><li><a href="https://github.com/wc772/atlanage/releases/tag/1.0">1.0 Release</a></li><li><a href="https://github.com/wc772/atlanage/commit/da5b3a9b778ff546382990de35f2112efc9544f9">固定默认分支提交</a></li><li><a href="https://github.com/wc772/atlanage/blob/da5b3a9b778ff546382990de35f2112efc9544f9/examples/hello.at#L8-L11">中文示例原文（第 8–11 行）</a></li><li><a href="https://github.com/wc772/atlanage/blob/da5b3a9b778ff546382990de35f2112efc9544f9/self-hosted/atl_lexer.at#L126-L238">中文关键字与标识符实现</a></li><li><a href="https://github.com/wc772/atlanage/blob/da5b3a9b778ff546382990de35f2112efc9544f9/self-hosted/atl_parser.at#L967-L1015">语句解析实现</a></li><li><a href="https://github.com/wc772/atlanage/blob/da5b3a9b778ff546382990de35f2112efc9544f9/self-hosted/atlv1.at#L907-L950">编译流水线源码</a></li><li><a href="https://github.com/wc772/atlanage/blob/da5b3a9b778ff546382990de35f2112efc9544f9/seed/seed_builder.c#L115-L196">种子物化器</a></li><li><a href="https://github.com/wc772/atlanage/blob/da5b3a9b778ff546382990de35f2112efc9544f9/rebuild_atlv1.ps1#L18-L50">自编译与单示例输出比较脚本</a></li><li><a href="https://github.com/wc772/atlanage/blob/da5b3a9b778ff546382990de35f2112efc9544f9/rt_build.ps1#L4-L12">运行时构建脚本</a></li><li><a href="https://github.com/wc772/atlanage/commit/837af6b15ca64ee2fc1b157d7bc15fc0818948a0">1.0 标签对应根提交</a></li></ul><p>资料核验日期：2026-10-10</p><p><a href="https://github.com/yuyan-lang/chinese-programming-languages/issues/new">补充资料或纠错</a></p></main><footer>站点由<a href="https://yuyan-lang.org/">豫言编程语言</a>提供</footer></body></html>
+打印(&quot;1+2=&quot; + 加法(1, 2));</code></pre><p>固定提交examples/hello.at全文11行，包含原有空行，源文件末尾无换行。逐字保留问候输出、列表遍历、函数声明与调用；原第8—11行旧摘录继续保存在研究日志，旧来源链接完整保留。运行结果待核实。 <a href="https://github.com/wc772/atlanage/blob/da5b3a9b778ff546382990de35f2112efc9544f9/examples/hello.at#L1-L11">示例来源</a></p>
+<h2>实现与运行环境</h2><p>主入口self-hosted/atlv1.at加载atl_lexer.at、atl_parser.at、atl_semantic.at、atl_codegen.at、atl_assembler.at和atl_linker.at。第880—950行依次展开引用／包／模块、lex、parse_program、sem_analyze、codegen、assemble、write_coff、parse_coff和link。链接器写入MACHINE_AMD64=0x8664及PE32+头部，系统导入按功能分配到kernel32.dll、user32.dll、gdi32.dll、ws2_32.dll等。self-hosted/atl_rt.at包含嵌入x86-64汇编，runtime另有xt_runtime.c、xt_threadpool.c、xt_net.c等文件。seed/seed_builder.c把十六进制种子解码并校验后写为atlv1.exe和atl_rt.obj；该步骤的输入为既有二进制内容。rebuild_atlv1.ps1使用预存AT-V1.exe重新编译、汇编及链接自身，再比较两代工具对hello.at产生的汇编文本；rt_build.ps1调用既有atlc.exe、Python和NASM。完整源码引导、种子对应性和可复现构建待核实。</p>
+<h2>版本与维护状态</h2><p>GitHub当前发行列表共1项：tag=1.0、name=qwq、body=1.0.1、prerelease=false，published_at为2026-08-16T17:58:33Z。资产atlanage-v1.0.zip于2026-08-17T09:23:02Z创建，大小1,864,117字节，GitHub元数据记录SHA-256 dcf3a99fcffac4da4b013c97215a0ba055be95de495b766d2edbfc9b1b0e624c。标签、正文、文件名与资产上传时间分别记录，制品内部版本及版本消歧待核实。</p><p>已有公开源码和正式GitHub Release，仓库未归档。2026-10-10核验时main仍为da5b3a9b778ff546382990de35f2112efc9544f9，最后提交为2026-08-17T09:21:10Z。源码与发行元数据已核；制品运行、持续维护计划和完整自举待核实。</p>
+<h2>与其他项目的关系</h2><p>AT-V1.exe／atlv1为本项目编译器名称，atlc.exe出现在运行时构建脚本中。runtime/xt_runtime.c保留“玄铁运行时错误”和XuanTie临时目录字符串；当前runtime/xt_threadpool.c第146—196行与玄铁16554746121c61d98429b498f4e8aee9ef650978同路径第146—196行逐字相同，JSON解析段另有连续133行文本相同。上述证据确认运行时局部代码存在对应；项目整体派生范围、移植过程、作者协作和授权沿革待核实。GitHub元数据fork=false描述平台仓库关系。</p>
+<h2>核验说明</h2><p>本轮复核main仍为da5b3a9b778ff546382990de35f2112efc9544f9，完整树322项且truncated=false；现存main有2条提交。沿用lang-037已有身份，新增计数为0。1.0标签保留独立根提交837af6b15ca64ee2fc1b157d7bc15fc0818948a0，当前main保留根6bda6cec0b860c0456280c797d417f5360ab4fb5；根提交日期和Release公开时间分列。中文词法、解析器与原例相互对应。当前源码树的二进制工具补齐方式待核实，seed_builder输出atlv1.exe，自编译脚本引用AT-V1.exe，运行时脚本引用atlc.exe。自编译脚本的比较对象为hello.at汇编文本，编译器全量等价性和二进制复现性继续待核。新增玄铁局部代码对照均固定双方提交并逐字比较，全文继承关系与授权沿革待核实。本轮实施公开文件与元数据静态阅读、资料字符核对，项目安装、执行、编译、测试、自举和性能继续待核实。 许可方面，GitHub识别值为null，Atlanage项目级许可证正文和整体许可待核实；对照玄铁的MIT原件仅记录该来源自身许可。AI辅助开发方式、工具和参与范围待核实。</p>
+<h2>参考资料</h2><ul><li><a href="https://api.github.com/repos/wc772/atlanage">仓库与公开元数据</a></li>
+<li><a href="https://github.com/wc772/atlanage/releases/tag/1.0">1.0 Release</a></li>
+<li><a href="https://github.com/wc772/atlanage/commit/da5b3a9b778ff546382990de35f2112efc9544f9">固定默认分支提交</a></li>
+<li><a href="https://github.com/wc772/atlanage/blob/da5b3a9b778ff546382990de35f2112efc9544f9/examples/hello.at#L8-L11">中文示例原文（第 8–11 行）</a></li>
+<li><a href="https://github.com/wc772/atlanage/blob/da5b3a9b778ff546382990de35f2112efc9544f9/self-hosted/atl_lexer.at#L126-L238">中文关键字与标识符实现</a></li>
+<li><a href="https://github.com/wc772/atlanage/blob/da5b3a9b778ff546382990de35f2112efc9544f9/self-hosted/atl_parser.at#L967-L1015">语句解析实现</a></li>
+<li><a href="https://github.com/wc772/atlanage/blob/da5b3a9b778ff546382990de35f2112efc9544f9/self-hosted/atlv1.at#L907-L950">编译流水线源码</a></li>
+<li><a href="https://github.com/wc772/atlanage/blob/da5b3a9b778ff546382990de35f2112efc9544f9/seed/seed_builder.c#L115-L196">种子物化器</a></li>
+<li><a href="https://github.com/wc772/atlanage/blob/da5b3a9b778ff546382990de35f2112efc9544f9/rebuild_atlv1.ps1#L18-L50">自编译与单示例输出比较脚本</a></li>
+<li><a href="https://github.com/wc772/atlanage/blob/da5b3a9b778ff546382990de35f2112efc9544f9/rt_build.ps1#L4-L12">运行时构建脚本</a></li>
+<li><a href="https://github.com/wc772/atlanage/commit/837af6b15ca64ee2fc1b157d7bc15fc0818948a0">1.0 标签对应根提交</a></li>
+<li><a href="https://github.com/wc772/atlanage/blob/da5b3a9b778ff546382990de35f2112efc9544f9/examples/hello.at#L1-L11">完整基础原例：问候、列表循环与函数</a></li>
+<li><a href="https://github.com/wc772/atlanage/blob/da5b3a9b778ff546382990de35f2112efc9544f9/README.md#L1-L28">项目功能范围说明</a></li>
+<li><a href="https://github.com/wc772/atlanage/blob/da5b3a9b778ff546382990de35f2112efc9544f9/%E6%96%87%E6%A1%A3/%E4%BB%8B%E7%BB%8D.md#L1-L32">中文语法与符号文档</a></li>
+<li><a href="https://github.com/wc772/atlanage/blob/da5b3a9b778ff546382990de35f2112efc9544f9/self-hosted/atl_lexer.at#L610-L647">中文与全角符号词法分支</a></li>
+<li><a href="https://github.com/wc772/atlanage/blob/da5b3a9b778ff546382990de35f2112efc9544f9/self-hosted/atlv1.at#L880-L950">引用、包、模块展开与完整编译入口</a></li>
+<li><a href="https://github.com/wc772/atlanage/blob/da5b3a9b778ff546382990de35f2112efc9544f9/self-hosted/atl_linker.at#L142-L162">链接器Windows系统DLL导入表</a></li>
+<li><a href="https://github.com/wc772/atlanage/blob/da5b3a9b778ff546382990de35f2112efc9544f9/self-hosted/atl_linker.at#L1156-L1208">链接器PE32+／AMD64可执行文件头部</a></li>
+<li><a href="https://github.com/wc772/atlanage/blob/da5b3a9b778ff546382990de35f2112efc9544f9/runtime/xt_runtime.c#L170-L185">现存C运行时中的玄铁名称字符串</a></li>
+<li><a href="https://github.com/wc772/atlanage/blob/da5b3a9b778ff546382990de35f2112efc9544f9/runtime/xt_threadpool.c#L146-L196">线程池局部实现对照：本项目51行</a></li>
+<li><a href="https://github.com/wc772/atlanage/blob/da5b3a9b778ff546382990de35f2112efc9544f9/runtime/xt_runtime.c#L2880-L3012">JSON解析局部实现对照：本项目133行</a></li>
+<li><a href="https://api.github.com/repos/wc772/atlanage/git/trees/da5b3a9b778ff546382990de35f2112efc9544f9?recursive=1">完整固定目录树：322项及许可材料范围</a></li>
+<li><a href="https://api.github.com/repos/wc772/atlanage/releases?per_page=100">发行时间、版本与ZIP资产摘要</a></li>
+<li><a href="https://github.com/wc772/atlanage/commit/6bda6cec0b860c0456280c797d417f5360ab4fb5">当前主线根提交及署名</a></li>
+<li><a href="https://github.com/MARKJY-China/XuanTie-Lang/blob/16554746121c61d98429b498f4e8aee9ef650978/runtime/xt_threadpool.c#L146-L196">局部源码对照：玄铁历史线程池51行</a></li>
+<li><a href="https://github.com/MARKJY-China/XuanTie-Lang/blob/16554746121c61d98429b498f4e8aee9ef650978/runtime/xt_runtime.c#L2878-L3010">局部源码对照：玄铁历史JSON解析133行</a></li>
+<li><a href="https://github.com/MARKJY-China/XuanTie-Lang/blob/16554746121c61d98429b498f4e8aee9ef650978/LICENSE">对照来源玄铁的MIT原件及版权署名</a></li></ul><p>资料核验日期：2026-10-10</p><p><a href="https://github.com/yuyan-lang/chinese-programming-languages/issues/new">补充资料或纠错</a></p></main><footer>站点由<a href="https://yuyan-lang.org/">豫言编程语言</a>提供</footer></body></html>

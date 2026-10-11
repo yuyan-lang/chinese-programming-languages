@@ -1,0 +1,240 @@
+[
+  {
+    "name": "知序（Zhixu）后续字段",
+    "record_type": "formal_entry_followup",
+    "new_discovery": false,
+    "formal_entry": true,
+    "repository": "https://github.com/1556880640-bot/zhixu",
+    "snapshot": "d85adac01a15af7206ec72eda10d994b36a4b37a",
+    "checked_at": "2026-10-10",
+    "findings": "中文关键字、连续原例、词法到Python执行链、同源改名、源码版号及AI共同署名已核。后续按许可、版本、语义与AI功能阶段补证。",
+    "next_steps": [
+      "取得完整MIT文本、版权主体及许可适用范围。",
+      "补充准确首次公开时刻、自然人作者身份与包注册平台发行记录。",
+      "核对词法前中文引号转换对字符串内容的影响、中文标点表访问方式、入口程序全局及错误行映射。",
+      "核对REPL变量状态、包构建配置与现代依赖兼容性；经另行授权后进行项目运行。",
+      "查清微调提示引用的finetune_runner.py／_run_finetune来源、量化及显存优化的后续实际实现。",
+      "取得开发工具、Claude Sonnet 4.6协作过程、生成比例与人工复核记录。"
+    ],
+    "references": [
+      {
+        "title": "知序原仓及当前元数据",
+        "url": "https://api.github.com/repos/1556880640-bot/zhixu"
+      },
+      {
+        "title": "固定中文语法、连续14行平均值原例",
+        "url": "https://github.com/1556880640-bot/zhixu/blob/d85adac01a15af7206ec72eda10d994b36a4b37a/README.md#L31-L63"
+      },
+      {
+        "title": "固定中文类、函数及循环原例",
+        "url": "https://github.com/1556880640-bot/zhixu/blob/d85adac01a15af7206ec72eda10d994b36a4b37a/demo_实用.zx#L33-L45"
+      },
+      {
+        "title": "固定中文关键字与宿主操作映射",
+        "url": "https://github.com/1556880640-bot/zhixu/blob/d85adac01a15af7206ec72eda10d994b36a4b37a/zhixu.py#L46-L124"
+      },
+      {
+        "title": "固定词法扫描与整词关键字识别",
+        "url": "https://github.com/1556880640-bot/zhixu/blob/d85adac01a15af7206ec72eda10d994b36a4b37a/zhixu.py#L176-L303"
+      },
+      {
+        "title": "固定词元到Python源码与工具库导入",
+        "url": "https://github.com/1556880640-bot/zhixu/blob/d85adac01a15af7206ec72eda10d994b36a4b37a/zhixu.py#L316-L435"
+      },
+      {
+        "title": "固定转译调用链",
+        "url": "https://github.com/1556880640-bot/zhixu/blob/d85adac01a15af7206ec72eda10d994b36a4b37a/zhixu.py#L443-L470"
+      },
+      {
+        "title": "固定文件执行与Python exec",
+        "url": "https://github.com/1556880640-bot/zhixu/blob/d85adac01a15af7206ec72eda10d994b36a4b37a/zhixu.py#L495-L519"
+      },
+      {
+        "title": "固定CLI入口与三子命令分发",
+        "url": "https://github.com/1556880640-bot/zhixu/blob/d85adac01a15af7206ec72eda10d994b36a4b37a/zhixu.py#L631-L685"
+      },
+      {
+        "title": "固定后端检测及模型加载分派",
+        "url": "https://github.com/1556880640-bot/zhixu/blob/d85adac01a15af7206ec72eda10d994b36a4b37a/zhixu_utils.py#L48-L146"
+      },
+      {
+        "title": "固定Ollama与OpenAI推理适配",
+        "url": "https://github.com/1556880640-bot/zhixu/blob/d85adac01a15af7206ec72eda10d994b36a4b37a/zhixu_utils.py#L153-L304"
+      },
+      {
+        "title": "固定HuggingFace与模拟回退",
+        "url": "https://github.com/1556880640-bot/zhixu/blob/d85adac01a15af7206ec72eda10d994b36a4b37a/zhixu_utils.py#L311-L418"
+      },
+      {
+        "title": "固定RAG真实调用与模拟索引分支",
+        "url": "https://github.com/1556880640-bot/zhixu/blob/d85adac01a15af7206ec72eda10d994b36a4b37a/zhixu_utils.py#L425-L526"
+      },
+      {
+        "title": "固定微调提示与量化状态输出阶段",
+        "url": "https://github.com/1556880640-bot/zhixu/blob/d85adac01a15af7206ec72eda10d994b36a4b37a/zhixu_utils.py#L529-L618"
+      },
+      {
+        "title": "固定显存状态提示及嵌入模拟回退",
+        "url": "https://github.com/1556880640-bot/zhixu/blob/d85adac01a15af7206ec72eda10d994b36a4b37a/zhixu_utils.py#L759-L811"
+      },
+      {
+        "title": "固定源码1.0.0、MIT标签与Python版本",
+        "url": "https://github.com/1556880640-bot/zhixu/blob/d85adac01a15af7206ec72eda10d994b36a4b37a/pyproject.toml#L5-L19"
+      },
+      {
+        "title": "固定README许可声明",
+        "url": "https://github.com/1556880640-bot/zhixu/blob/d85adac01a15af7206ec72eda10d994b36a4b37a/README.md#L96-L98"
+      },
+      {
+        "title": "前身AI-CN源码2.0.0",
+        "url": "https://github.com/1556880640-bot/ai-cn/blob/89d30ece9e6d81ff46bcc2398221b9457e3328c8/pyproject.toml#L5-L19"
+      },
+      {
+        "title": "改名提交、共同历史及Claude Sonnet 4.6署名",
+        "url": "https://github.com/1556880640-bot/zhixu/commit/d85adac01a15af7206ec72eda10d994b36a4b37a"
+      },
+      {
+        "title": "现存根提交与AI共同署名",
+        "url": "https://github.com/1556880640-bot/zhixu/commit/0e7fe68031318c6a283090f52c38aba2b1bdcabd"
+      },
+      {
+        "title": "第二次提交与AI共同署名",
+        "url": "https://github.com/1556880640-bot/zhixu/commit/89d30ece9e6d81ff46bcc2398221b9457e3328c8"
+      },
+      {
+        "title": "前身AI-CN原仓",
+        "url": "https://github.com/1556880640-bot/ai-cn"
+      },
+      {
+        "title": "固定完整八文件树",
+        "url": "https://api.github.com/repos/1556880640-bot/zhixu/git/trees/d85adac01a15af7206ec72eda10d994b36a4b37a?recursive=1"
+      },
+      {
+        "title": "Git refs核对",
+        "url": "https://api.github.com/repos/1556880640-bot/zhixu/git/refs"
+      },
+      {
+        "title": "GitHub Releases核对",
+        "url": "https://api.github.com/repos/1556880640-bot/zhixu/releases?per_page=100"
+      }
+    ]
+  },
+  {
+    "name": "china++（chinaplusplus）后续字段",
+    "record_type": "formal_entry_followup",
+    "new_discovery": false,
+    "formal_entry": true,
+    "repository": "https://github.com/chinaplusplus/chinapp",
+    "snapshot": "dc9dc98cb963cecdd4db1c69da86698207e7ef31",
+    "checked_at": "2026-10-10",
+    "findings": "中文类型与流程宏、完整连续原例、g++构建入口、2023原仓历史及2025Fork同源已核。",
+    "next_steps": [
+      "取得许可声明、许可全文与授权范围。",
+      "补自然人作者姓名、准确首次公开时刻、独立版号及正式发行记录。",
+      "核对amalgamate工具的官方来源、宏边界与现代编译器兼容性，运行结果按另行授权范围验证。",
+      "取得AI开发参与及同其他中文C++宏层的源码／设计关系证据。"
+    ],
+    "references": [
+      {
+        "title": "原仓与组织归属元数据",
+        "url": "https://api.github.com/repos/chinaplusplus/chinapp"
+      },
+      {
+        "title": "固定原作者README",
+        "url": "https://github.com/chinaplusplus/chinapp/blob/dc9dc98cb963cecdd4db1c69da86698207e7ef31/README.md#L1-L5"
+      },
+      {
+        "title": "固定连续13行计次循环与分支原例",
+        "url": "https://github.com/chinaplusplus/chinapp/blob/dc9dc98cb963cecdd4db1c69da86698207e7ef31/main.cpp#L26-L38"
+      },
+      {
+        "title": "完整主函数、头文件引用与返回",
+        "url": "https://github.com/chinaplusplus/chinapp/blob/dc9dc98cb963cecdd4db1c69da86698207e7ef31/main.cpp#L1-L41"
+      },
+      {
+        "title": "固定中文核心关键字与循环宏",
+        "url": "https://github.com/chinaplusplus/chinapp/blob/dc9dc98cb963cecdd4db1c69da86698207e7ef31/china++/核心.h#L3-L18"
+      },
+      {
+        "title": "固定打印宏与C标准库接入",
+        "url": "https://github.com/chinaplusplus/chinapp/blob/dc9dc98cb963cecdd4db1c69da86698207e7ef31/china++/扩展/输入输出.h#L1-L5"
+      },
+      {
+        "title": "固定g++构建与头文件合并目标",
+        "url": "https://github.com/chinaplusplus/chinapp/blob/dc9dc98cb963cecdd4db1c69da86698207e7ef31/Makefile#L1-L10"
+      },
+      {
+        "title": "2023根提交与GitHub作者映射",
+        "url": "https://github.com/chinaplusplus/chinapp/commit/99361dbe21ba782c1e754df3bcf5281ac0ad62e9"
+      },
+      {
+        "title": "当前头提交与作者署名",
+        "url": "https://github.com/chinaplusplus/chinapp/commit/dc9dc98cb963cecdd4db1c69da86698207e7ef31"
+      },
+      {
+        "title": "2025 Fork的明确parent与source元数据",
+        "url": "https://api.github.com/repos/iclasspeople/chinapp"
+      },
+      {
+        "title": "原仓固定完整树",
+        "url": "https://api.github.com/repos/chinaplusplus/chinapp/git/trees/dc9dc98cb963cecdd4db1c69da86698207e7ef31?recursive=1"
+      },
+      {
+        "title": "Fork同头完整树",
+        "url": "https://api.github.com/repos/iclasspeople/chinapp/git/trees/dc9dc98cb963cecdd4db1c69da86698207e7ef31?recursive=1"
+      },
+      {
+        "title": "Git refs核对",
+        "url": "https://api.github.com/repos/chinaplusplus/chinapp/git/refs"
+      },
+      {
+        "title": "GitHub Releases核对",
+        "url": "https://api.github.com/repos/chinaplusplus/chinapp/releases?per_page=100"
+      }
+    ]
+  },
+  {
+    "name": "Z++ IDE（woshishazi250/z-IDE）",
+    "record_type": "screening_only",
+    "new_discovery": false,
+    "formal_entry": false,
+    "counts_as_new_deep_candidate": false,
+    "repository": "https://github.com/woshishazi250/z-IDE",
+    "snapshot": "b2280f7cc6dd898eb6ba267ca9caef58ae94e69e",
+    "checked_at": "2026-10-10",
+    "category": "中文语言IDE名称与简介入口",
+    "author": "GitHub账号woshishazi250；自然人身份与语言实现作者关系待核实。",
+    "findings": "固定完整源码树包含README.md与LICENSE两项，README将项目描述为Z++中文编程语言的官方IDE。可用于语言判断的中文关键词、连续程序和实现调用链继续待核。",
+    "dates": {
+      "repository_created_at": "2026-03-20T07:00:22Z",
+      "root_commit_at": "2026-03-20T07:00:22Z",
+      "first_public": "待核实"
+    },
+    "license": "仓库LICENSE及GitHub元数据标Apache-2.0；该仓资料许可与语言实现许可分别核对。",
+    "ai_involvement": "AI开发参与声明待核实。",
+    "relations": "Z++名称与其他Zlang／Z语言项目的作者及源码关系待核实。",
+    "next_steps": [
+      "取得语言本体原仓、作者公开互链与实际中文语法说明。",
+      "取得原作者短连续程序和对应解析或转换入口。",
+      "核对Z++同名关系、语言版号与开发历史。"
+    ],
+    "references": [
+      {
+        "title": "固定README简介",
+        "url": "https://github.com/woshishazi250/z-IDE/blob/b2280f7cc6dd898eb6ba267ca9caef58ae94e69e/README.md"
+      },
+      {
+        "title": "固定两文件树",
+        "url": "https://api.github.com/repos/woshishazi250/z-IDE/git/trees/b2280f7cc6dd898eb6ba267ca9caef58ae94e69e?recursive=1"
+      },
+      {
+        "title": "原仓元数据",
+        "url": "https://api.github.com/repos/woshishazi250/z-IDE"
+      },
+      {
+        "title": "固定许可",
+        "url": "https://github.com/woshishazi250/z-IDE/blob/b2280f7cc6dd898eb6ba267ca9caef58ae94e69e/LICENSE"
+      }
+    ]
+  }
+]

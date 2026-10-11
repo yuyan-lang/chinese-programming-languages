@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Z语言（zyw98020）｜中文编程语言百科</title><link rel="stylesheet" href="../style.css"></head><body><header><h1>Z语言（zyw98020）</h1></header><main><p><a href="../">返回语言目录</a></p>
+<h2>语言介绍</h2><p>Z语言是zyw98020公开维护的中文脚本语言及原生macOS开发环境，原作者以面向中文语境、简洁易学为设计目标。程序使用“设”声明变量、“函”定义函数、“回”返回结果，以“若”“否则”“循环”“对于”和“在”组织控制流程。当前解析器采用缩进块，词法器维护缩进栈并生成INDENT与DEDENT；中文词元经过独立解析器构成语法树，再由C++解释器逐节点求值。源码另保存Lambda、模式匹配、范围、切片、容器推导、类、模块导入导出及异常处理入口。运行时提供打印、输入和映射等中文函数。配套Z-IDE由Objective-C与Cocoa构建，支持中文及拼音补全、编辑和输出交互，其运行入口启动独立zlang解释器并通过管道连接输入输出。项目以.zzz为主要源码后缀，仓库同时保存花括号例程与缩进例程；形成顺序、语法兼容和实际运行结果继续核实。</p>
+<h2>分类与别名</h2><p>中文脚本语言／C++树遍历解释器；别名：Zlang（zyw98020）；Zlang---Chinese-programming-language</p>
+<h2>作者与公开历史</h2><p>GitHub维护账号zyw98020，现存根提交署名同一账号。自然人署名、团队分工及跨平台作者互链待核实。</p><p>原仓创建于2026-07-16T13:58:11Z，现存无父根提交ed037ddd395bca8359a17572aae92bb4875d3c2e记录同日13:58:13Z。IDE元数据保留2024版权年份，作为声明字段保存；准确首次公开日期与更早材料待核实。</p>
+<h2>设计与特征</h2><p>简短中文关键词和缩进语法；函数、递归、条件和循环的AST求值路径；Lambda、模式匹配、容器与模块的公开实现；中文运行时函数与交互式命令行；Objective-C Cocoa编辑器及独立解释器进程</p>
+<h2>中文语法示例</h2><pre><code>函 斐波那契(n)
+    若 n &lt;= 1
+        回 n
+    回 斐波那契(n - 1) + 斐波那契(n - 2)
+
+// 循环示例
+设 i = 0
+循环 i &lt; 10
+    打印(&quot;斐波那契(&quot; + 字符串(i) + &quot;) = &quot; + 字符串(斐波那契(i)))
+    i = i + 1</code></pre><p>固定Z/examples/hello_new.zzz第6—15行连续10行，保留四空格缩进、空行、注释、半角符号和原文。片段定义递归斐波那契函数并循环调用；文件前五行是标题、问候和注释。原例blob为f3240eeb32def9fdd84b6e02cf86aedebe638e86，独立执行与输出待核实。 <a href="https://github.com/zyw98020/Zlang---Chinese-programming-language/blob/bf30f52927284d96950d87ac74abd483807d7ba6/Z/examples/hello_new.zzz#L6-L15">示例来源</a></p>
+<h2>实现与运行环境</h2><p>C++17解释器。main.cpp依次构造Lexer、Parser和Interpreter，读取文件、分词、解析、设置主脚本目录并interpret；无参数入口提供逐行REPL。token.h的Keywords::init保存36项中文映射；lexer.cpp识别中文词并生成缩进标记。parser.cpp解析函数、返回和控制语句，block按INDENT/DEDENT划定范围。interpreter.cpp通过AST动态类型分派求值，函数调用创建以闭包为父的Environment并捕获ReturnException；load_module读入模块后复用词法、解析和求值流程。IDEWindowController.m通过NSTask启动zlang，设置源文件参数、工作目录和三条标准流管道。IDE构建脚本链接Cocoa及UniformTypeIdentifiers；全部语法覆盖、宿主兼容与独立运行结果待核实。</p>
+<h2>版本与维护状态</h2><p>REPL提示Z语言交互环境v1.0；IDE的CFBundleShortVersionString为1.0、CFBundleVersion为1。固定main为bf30f52927284d96950d87ac74abd483807d7ba6，2026-07-17T13:00:16Z。GitHub Releases集合为空；公开Git refs集合仅列main分支，正式发行记录待核实。README声明MIT；完整许可文本、版权主体与IDE版权字段的适用范围继续核实。</p><p>2026-10-10原仓archived=false，README、解释器、IDE及例程可读，最后推送2026-07-17T13:00:19Z。源码树49项、43个文件，现存提交3项；后续维护计划、发行包与平台运行效果待核实。</p>
+<h2>与其他项目的关系</h2><p>本项目按zyw98020原仓、C++解释器与macOS IDE标识。目录智语言cnzkai/Zlang和calvinwilliams/zlang分别保留各自作者及实现链；三者源码继承、设计借鉴及作者关系待核实。Z-IDE为配套开发环境，解释器承担语言执行。同仓花括号例程、始/终注释与当前缩进解析并存，形成顺序及兼容范围待核实。</p>
+<h2>核验说明</h2><p>2026-10-10静态核验。第十五轮Issue #45旧候选本轮补齐实际关键词、解析、求值、IDE进程调用和固定例程。当前函数及控制块以缩进解析；fibonacci.zzz花括号例程、hello_new.zzz首行始/终注释与当前语法的对应继续核实。IDE plist声明最低系统10.12，构建与源码另使用UniformTypeIdentifiers等接口；最低实际可用系统版本待核实。2024版权年份、2026建库和提交时间分别保存。源码安装、构建、执行、测试及自举结果待核；AI工具、模型、生成范围和人机分工待原作者证据。</p>
+<h2>参考资料</h2><ul><li><a href="https://github.com/zyw98020/Zlang---Chinese-programming-language">原作者仓库</a></li>
+<li><a href="https://github.com/zyw98020/Zlang---Chinese-programming-language/blob/bf30f52927284d96950d87ac74abd483807d7ba6/README.md">固定README：语法、设计及MIT声明</a></li>
+<li><a href="https://github.com/zyw98020/Zlang---Chinese-programming-language/blob/bf30f52927284d96950d87ac74abd483807d7ba6/Z/examples/hello_new.zzz#L6-L15">固定缩进递归及循环原例</a></li>
+<li><a href="https://github.com/zyw98020/Zlang---Chinese-programming-language/blob/bf30f52927284d96950d87ac74abd483807d7ba6/Z/interpreter/src/token.h#L90-L125">固定中文关键词表</a></li>
+<li><a href="https://github.com/zyw98020/Zlang---Chinese-programming-language/blob/bf30f52927284d96950d87ac74abd483807d7ba6/Z/interpreter/src/lexer.cpp#L131-L205">固定中文词法与缩进标记</a></li>
+<li><a href="https://github.com/zyw98020/Zlang---Chinese-programming-language/blob/bf30f52927284d96950d87ac74abd483807d7ba6/Z/interpreter/src/parser.cpp#L256-L438">固定函数、返回和控制块解析</a></li>
+<li><a href="https://github.com/zyw98020/Zlang---Chinese-programming-language/blob/bf30f52927284d96950d87ac74abd483807d7ba6/Z/interpreter/src/main.cpp#L9-L87">固定文件与REPL入口</a></li>
+<li><a href="https://github.com/zyw98020/Zlang---Chinese-programming-language/blob/bf30f52927284d96950d87ac74abd483807d7ba6/Z/interpreter/src/interpreter.cpp#L814-L905">固定AST求值与控制语句</a></li>
+<li><a href="https://github.com/zyw98020/Zlang---Chinese-programming-language/blob/bf30f52927284d96950d87ac74abd483807d7ba6/Z/interpreter/src/interpreter.cpp#L1168-L1262">固定模块加载、闭包环境及函数调用</a></li>
+<li><a href="https://github.com/zyw98020/Zlang---Chinese-programming-language/blob/bf30f52927284d96950d87ac74abd483807d7ba6/Z/interpreter/Makefile">固定C++17构建配置</a></li>
+<li><a href="https://github.com/zyw98020/Zlang---Chinese-programming-language/blob/bf30f52927284d96950d87ac74abd483807d7ba6/Z/ide/IDEWindowController.m#L283-L339">固定IDE启动解释器与标准流管道</a></li>
+<li><a href="https://github.com/zyw98020/Zlang---Chinese-programming-language/blob/bf30f52927284d96950d87ac74abd483807d7ba6/Z/ide/build.sh">固定IDE构建与系统框架</a></li>
+<li><a href="https://github.com/zyw98020/Zlang---Chinese-programming-language/blob/bf30f52927284d96950d87ac74abd483807d7ba6/Z/ide/Z-IDE-Info.plist#L17-L28">固定IDE版本、系统及版权字段</a></li>
+<li><a href="https://github.com/zyw98020/Zlang---Chinese-programming-language/blob/bf30f52927284d96950d87ac74abd483807d7ba6/Z/examples/fibonacci.zzz">同仓花括号例程</a></li>
+<li><a href="https://github.com/zyw98020/Zlang---Chinese-programming-language/commit/ed037ddd395bca8359a17572aae92bb4875d3c2e">现存根提交</a></li>
+<li><a href="https://github.com/zyw98020/Zlang---Chinese-programming-language/commit/f9cc817d6829128c679f8e326c6ee7069de9e3f6">模块化与数据处理更新提交</a></li>
+<li><a href="https://api.github.com/repos/zyw98020/Zlang---Chinese-programming-language/releases?per_page=100">GitHub正式发行集合</a></li>
+<li><a href="https://github.com/yuyan-lang/chinese-programming-languages/issues/45">原待核议题</a></li>
+<li><a href="https://github.com/zyw98020/Zlang---Chinese-programming-language/blob/bf30f52927284d96950d87ac74abd483807d7ba6/Z/ide/IDEWindowController.m#L410-L420">固定IDE解释器启动调用</a></li>
+<li><a href="https://api.github.com/repos/zyw98020/Zlang---Chinese-programming-language/git/refs">公开Git refs集合</a></li></ul><p>资料核验日期：2026-10-10</p><p><a href="https://github.com/yuyan-lang/chinese-programming-languages/issues/new">补充资料或纠错</a></p></main><footer>站点由<a href="https://yuyan-lang.org/">豫言编程语言</a>提供</footer></body></html>

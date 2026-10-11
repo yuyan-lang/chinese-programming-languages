@@ -1,0 +1,78 @@
+[
+  {
+    "name": "Californium-252未命名中文编译器",
+    "issue": "https://github.com/yuyan-lang/chinese-programming-languages/issues/24",
+    "lineage": "第七轮旧视频候选；本轮补足作者跨站身份链与同作者项目沿革。",
+    "video": "https://www.bilibili.com/video/BV1bm421x7AK/",
+    "author": "Californium-252，Bilibili UID3494354284972407；公开互链对应Sen、GitHub tianhuzong及Gitee thzsen。",
+    "release_date_utc": "2024-04-20T10:11:27.000Z",
+    "result": "本轮原片meta复核发布时间一致。原片简介称自写中文编译器并计划介绍原理。作者个人GitHub README直接列相同B站UID及Gitee账号，Gitee简介亦列相同UID；同UID的BV191GVzGEwU简介直接链接tianhuzong/DD-web-demo，建立双向身份链。原片当前公开显示4条评论，所读两组评论及作者回复为鼓励与致谢，技术沿革继续待核。作者仓库ThLang已取得固定中文原例和实现证据，作为独立对象建议收录；2024视频与该仓的实现对应继续核实。",
+    "original_examples": [
+      {
+        "time": "01:30.296",
+        "code": "for循环 x 在 列表([1,2,3,4,5,6,999]):\n    标准输出(x)",
+        "source": "第七轮原片暂停画面转录，Issue #24保存；缩进和空格按可读排版整理，本轮复用既有证据。"
+      },
+      {
+        "time": "02:08.679",
+        "code": "输入内容 : 字符串 = 标准输入(\"请输入内容:\")\n标准输出(\"你输入的内容是:\"+输入内容)",
+        "source": "第七轮原片暂停画面转录，Issue #24保存；空格按可读排版整理，本轮复用既有证据。"
+      }
+    ],
+    "implementation_boundary": "既有02:43.189画面显示./compiler 函数.zh及输出55，提示符目录名为zhpy。ThLang当前固定源码采用C++／LLVM、.th与.thlang扩展名、中文类型前置和花括号语法；两组材料的具体继承或独立实现关系待核实。gasolin/zhpy的可扩展中文转译机制继续作为关系核验对象。",
+    "pending": [
+      "2024视频中的compiler原始源码或作者原理说明",
+      "zhpy工作目录的含义及与gasolin/zhpy的直接关系",
+      "视频实现与天狐／天河ThLang的版本对应或独立项目说明",
+      "正式语言名称、版本、许可和AI参与范围",
+      "原片代码画面的更完整逐字转录及独立运行"
+    ],
+    "references": [
+      {
+        "title": "原片简介、作者及发布时间",
+        "url": "https://www.bilibili.com/video/BV1bm421x7AK/"
+      },
+      {
+        "title": "作者固定GitHub个人介绍及B站／Gitee互链",
+        "url": "https://github.com/tianhuzong/tianhuzong/blob/52feca7bcfc158c376958c57d0708bb24559315e/README.md"
+      },
+      {
+        "title": "同UID公开视频简介中的GitHub项目地址",
+        "url": "https://www.bilibili.com/video/BV191GVzGEwU/"
+      },
+      {
+        "title": "作者Gitee主页",
+        "url": "https://gitee.com/thzsen"
+      },
+      {
+        "title": "同作者ThLang固定源码",
+        "url": "https://github.com/tianhuzong/ThLang/tree/779844e806391ca79421378f48b2aa7de2f4f837"
+      },
+      {
+        "title": "周蟒中文关键字扩展基线",
+        "url": "https://github.com/gasolin/zhpy/blob/f4d932a5ab810158ef4e4113df337cbf7d83817a/zhpy2/zhpy/plugcn.py#L34-L93"
+      }
+    ],
+    "access_notes": "云公开浏览器成功读取原片简介、meta、作者投稿与公开评论。后续原片标签的Runtime.evaluate发生超时，本轮在身份链和原仓证据到位后收束该标签。完整登录评论、全部作者动态和私有／已删除仓库属于覆盖缺口。",
+    "verified_at": "2026-10-10"
+  },
+  {
+    "name": "天河语言（ThLang）",
+    "repository": "https://github.com/tianhuzong/ThLang",
+    "lineage": "沿Issue #24作者跨站互链新发现的独立目录对象；本轮建议正式收录1项，后续字段继续核实。",
+    "fixed_commit": "779844e806391ca79421378f48b2aa7de2f4f837",
+    "pending": [
+      "编译器本体正式版本、标签、发行及最早对外公开时间",
+      "编译器本体项目级许可正文；示例包MIT字段的适用范围",
+      "重构计划与现有实现的逐项状态对应",
+      "parser中的循环结构与lexer中文循环词元完整对应",
+      "2024年.zh视频实现及gasolin/zhpy关系",
+      "TinyToyCompiler与ThLang具体代码继承范围",
+      "独立构建、测试、CLI分发、多平台兼容与自举结果",
+      "AI工具、模型、生成比例及人工复核范围"
+    ],
+    "evidence_notes": "根README的目录图属于未来重构计划，其中LICENSE为计划路径；固定实际根目录的项目级许可正文待核。bin/thlang/ThlangProject.json中的1.0.0与MIT是示例包参数；src/acli.cpp显示用户可填写这两个字段，并具有相应默认值。",
+    "verified_at": "2026-10-10"
+  }
+]
+

@@ -2,14 +2,140 @@
   {
     "id": "lang-001",
     "name": "豫言",
-    "description": "使用中文语法的函数式编程语言。",
+    "description": "豫言（Yuyan）是一门专为中文编程设计的静态类型函数式通用语言，探索中文语境中的程序表达、语言设计与工具实现。程序使用「」书写名称、类型和数字，以『』表示字符串，以“乃”“者”“即”组织声明，以“会…而…”定义函数、“于”调用函数、“虑”绑定局部值，并用“鉴…有…或有…”进行模式匹配。语言提供参数多态、代数数据类型、递归、闭包、模块和带类型宿主接口。当前源码进一步包含广义代数数据类型、参数标签，以及以整数、爻、字符串和这些值的列表为索引的简单依值类型。编译器主体以豫言实现，经过名称解析、静态检查、模式展开、擦除、优化与闭包转换等阶段，形成以豫汇／WebAssembly为执行边界的工具链；标准Wasm模块和原生执行相关组件在同一仓库维护。项目配有标准库、豫构包构建工具、VS Code插件、教程、技术规范及操作系统相关实现。这里按2026-10-11固定源码与公开发行记录保存一次性资料快照。",
     "references": [
       {
         "title": "参考资料",
         "url": "https://www.ploc.org.cn/ploc/CNPL-2023.pdf"
+      },
+      {
+        "title": "豫言官方公开源码仓库",
+        "url": "https://github.com/yuyan-lang/yuyan"
+      },
+      {
+        "title": "固定项目自述：定位、工具链与资料入口",
+        "url": "https://github.com/yuyan-lang/yuyan/blob/78f66573f8af7c33747958211aae36a8646e805f/%E8%87%AA%E8%BF%B0.%E6%B1%89%E8%AF%AD.md#L1-L31"
+      },
+      {
+        "title": "固定设计动机：中文表达与豫汇执行边界",
+        "url": "https://github.com/yuyan-lang/yuyan/blob/78f66573f8af7c33747958211aae36a8646e805f/%E5%BA%94%E7%94%A8/%E8%B1%AB%E8%A8%80%E7%BC%96%E8%AF%91%E5%99%A8/%E6%96%87%E6%A1%A3/%E8%AE%BE%E8%AE%A1%E5%8A%A8%E6%9C%BA.%E6%B1%89%E8%AF%AD.md#L1-L23"
+      },
+      {
+        "title": "固定核心语法说明：名称、函数、模块和模式匹配",
+        "url": "https://github.com/yuyan-lang/yuyan/blob/78f66573f8af7c33747958211aae36a8646e805f/%E5%BA%94%E7%94%A8/%E8%B1%AB%E8%A8%80%E7%BC%96%E8%AF%91%E5%99%A8/%E6%96%87%E6%A1%A3/%E8%AF%AD%E8%A8%80%E8%A7%84%E8%8C%83.%E6%B1%89%E8%AF%AD.md"
+      },
+      {
+        "title": "固定原始连续例程：递归斐波那契18行",
+        "url": "https://github.com/yuyan-lang/yuyan/blob/78f66573f8af7c33747958211aae36a8646e805f/%E5%BA%94%E7%94%A8/%E6%80%A7%E8%83%BD%E7%A0%94%E7%A9%B6/%E8%B7%A8%E8%AF%AD%E8%A8%80%E6%AF%94%E8%BE%83/%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E3%80%82%E8%84%9A%E6%9C%AC%E3%80%82%E8%B1%AB#L1-L18"
+      },
+      {
+        "title": "固定快速开始：Wasm工具链、包构建与自举流程",
+        "url": "https://github.com/yuyan-lang/yuyan/blob/78f66573f8af7c33747958211aae36a8646e805f/%E5%BA%94%E7%94%A8/%E8%B1%AB%E8%A8%80%E7%BC%96%E8%AF%91%E5%99%A8/%E6%96%87%E6%A1%A3/%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B.%E6%B1%89%E8%AF%AD.md#L14-L57"
+      },
+      {
+        "title": "固定阶段说明：18个中间边界与树码",
+        "url": "https://github.com/yuyan-lang/yuyan/blob/78f66573f8af7c33747958211aae36a8646e805f/%E5%BA%93/%E7%BC%96%E8%AF%91%E5%99%A8%E6%A0%B8%E5%BF%83/%E6%96%87%E6%A1%A3/%E4%B8%AD%E9%97%B4%E8%AF%AD%E8%A8%80%E4%B8%8E%E9%98%B6%E6%AE%B5%E5%88%86%E7%A6%BB.%E6%B1%89%E8%AF%AD.md#L29-L52"
+      },
+      {
+        "title": "固定编译调度源码",
+        "url": "https://github.com/yuyan-lang/yuyan/blob/78f66573f8af7c33747958211aae36a8646e805f/%E5%BA%93/%E7%BC%96%E8%AF%91%E5%99%A8%E6%A0%B8%E5%BF%83/%E7%BC%96%E8%AF%91%E6%AD%A5%E9%AA%A4/%E6%80%BB%E4%BD%93%E8%BF%87%E7%A8%8B/%E7%BC%96%E8%AF%91%E8%BF%87%E7%A8%8B%E3%80%82%E8%B1%AB#L90-L130"
+      },
+      {
+        "title": "固定类型检查源码：依值箭头与隐式值参数",
+        "url": "https://github.com/yuyan-lang/yuyan/blob/78f66573f8af7c33747958211aae36a8646e805f/%E5%BA%93/%E7%BC%96%E8%AF%91%E5%99%A8%E6%A0%B8%E5%BF%83/%E7%BC%96%E8%AF%91%E6%AD%A5%E9%AA%A4/%E7%B1%BB%E5%9E%8B%E6%A3%80%E6%9F%A5/%E7%B1%BB%E5%9E%8B%E7%B1%BB%E5%9E%8B%E6%A3%80%E6%9F%A5%E3%80%82%E8%B1%AB#L296-L397"
+      },
+      {
+        "title": "固定索引定义域源码",
+        "url": "https://github.com/yuyan-lang/yuyan/blob/78f66573f8af7c33747958211aae36a8646e805f/%E5%BA%93/%E7%BC%96%E8%AF%91%E5%99%A8%E6%A0%B8%E5%BF%83/%E7%BC%96%E8%AF%91%E6%AD%A5%E9%AA%A4/%E7%B1%BB%E5%9E%8B%E6%A3%80%E6%9F%A5/%E4%BE%9D%E5%80%BC%E7%B4%A2%E5%BC%95%E5%AE%9A%E4%B9%89%E5%9F%9F%E3%80%82%E8%B1%AB#L16-L73"
+      },
+      {
+        "title": "固定简单依值类型规则与边界",
+        "url": "https://github.com/yuyan-lang/yuyan/blob/78f66573f8af7c33747958211aae36a8646e805f/%E5%BA%94%E7%94%A8/%E8%B1%AB%E8%A8%80%E7%BC%96%E8%AF%91%E5%99%A8/%E6%96%87%E6%A1%A3/%E8%AF%AD%E8%A8%80%E6%8A%80%E6%9C%AF%E8%A7%84%E8%8C%83/%E4%BE%9D%E5%80%BC%E7%B1%BB%E5%9E%8B.%E6%B1%89%E8%AF%AD.md#L1-L61"
+      },
+      {
+        "title": "固定提案00002实施记录：GADT、依值类型与待办",
+        "url": "https://github.com/yuyan-lang/yuyan/blob/78f66573f8af7c33747958211aae36a8646e805f/%E6%8F%90%E6%A1%88/00002-%E5%AE%9E%E6%96%BD%E8%AE%B0%E5%BD%95.%E6%B1%89%E8%AF%AD.md#L5-L18"
+      },
+      {
+        "title": "固定提案00002剩余限制",
+        "url": "https://github.com/yuyan-lang/yuyan/blob/78f66573f8af7c33747958211aae36a8646e805f/%E6%8F%90%E6%A1%88/00002-%E5%AE%9E%E6%96%BD%E8%AE%B0%E5%BD%95.%E6%B1%89%E8%AF%AD.md#L139-L157"
+      },
+      {
+        "title": "固定技术规范总纲：兼容基线与新增规则",
+        "url": "https://github.com/yuyan-lang/yuyan/blob/78f66573f8af7c33747958211aae36a8646e805f/%E5%BA%94%E7%94%A8/%E8%B1%AB%E8%A8%80%E7%BC%96%E8%AF%91%E5%99%A8/%E6%96%87%E6%A1%A3/%E8%AF%AD%E8%A8%80%E6%8A%80%E6%9C%AF%E8%A7%84%E8%8C%83/%E6%80%BB%E7%BA%B2.%E6%B1%89%E8%AF%AD.md#L1-L23"
+      },
+      {
+        "title": "固定操作系统目录说明：宿主与系统组件",
+        "url": "https://github.com/yuyan-lang/yuyan/blob/78f66573f8af7c33747958211aae36a8646e805f/%E8%B1%AB%E8%A8%80%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/%E6%80%BB%E8%A7%88.%E6%B1%89%E8%AF%AD.md#L1-L13"
+      },
+      {
+        "title": "固定VS Code插件版本与命令配置",
+        "url": "https://github.com/yuyan-lang/yuyan/blob/78f66573f8af7c33747958211aae36a8646e805f/%E5%BA%94%E7%94%A8/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/yuyan-vscode/package.json#L1-L52"
+      },
+      {
+        "title": "固定AGPLv3许可",
+        "url": "https://github.com/yuyan-lang/yuyan/blob/78f66573f8af7c33747958211aae36a8646e805f/LICENSE#L1-L15"
+      },
+      {
+        "title": "历史根提交：UltimatePea与2021-10-14开发记录",
+        "url": "https://github.com/yuyan-lang/yuyan/commit/21e8c83c9ff0ad387603d661c8085edf380d56d0"
+      },
+      {
+        "title": "仓库公开元数据：创建日期与归档状态",
+        "url": "https://api.github.com/repos/yuyan-lang/yuyan"
+      },
+      {
+        "title": "v0.1.0alpha1：现存最早发行条目",
+        "url": "https://github.com/yuyan-lang/yuyan/releases/tag/v0.1.0alpha1"
+      },
+      {
+        "title": "v0.1.0rc1：作者记录首个可用自举版本",
+        "url": "https://github.com/yuyan-lang/yuyan/releases/tag/v0.1.0rc1"
+      },
+      {
+        "title": "v0.3：OCaml实现阶段",
+        "url": "https://github.com/yuyan-lang/yuyan/releases/tag/v0.3"
+      },
+      {
+        "title": "v0.1.0rc2.0：LLM与恢复自举的作者说明",
+        "url": "https://github.com/yuyan-lang/yuyan/releases/tag/v0.1.0rc2.0"
+      },
+      {
+        "title": "v0.4正式发行",
+        "url": "https://github.com/yuyan-lang/yuyan/releases/tag/v0.4"
+      },
+      {
+        "title": "持续Wasm工具链发行",
+        "url": "https://github.com/yuyan-lang/yuyan/releases/tag/continuous-binaries"
       }
     ],
-    "status": "有文献"
+    "status": "公开仓库archived=false，yybs固定提交时间为2026-10-11T05:09:19Z，代码、教程、规范和持续工具链发行可读。维护活动按本次快照记录。安装、编译、测试、自举、性能、跨平台兼容与线上工具运行结果待独立核实。",
+    "aliases": [
+      "Yuyan",
+      "豫言中文编程语言"
+    ],
+    "category": "中文静态类型函数式通用语言／自托管编译器",
+    "author": "GitHub账号UltimatePea发起并持续维护，项目代码托管于yuyan-lang组织；根提交与v0.4发行均关联该账号。作者中文姓名及完整贡献者分工待核实。",
+    "first_publication": "现有Git历史根提交21e8c83c9ff0ad387603d661c8085edf380d56d0记录2021-10-14T18:39:36Z，包含SML解析器与.yulang例程；GitHub仓库创建时间为2021-10-15T20:29:09Z。现存最早发行条目v0.1.0alpha1发布于2023-12-21T23:47:27Z。开发历史、仓库创建与发行时间分别记录，首次对外公开日待核实。",
+    "features": [
+      "中文名称、关键字、数字与标点组成的表达式语法",
+      "静态类型、参数多态、代数数据类型与模式匹配",
+      "递归、闭包、显式／隐式参数及参数标签",
+      "GADT与限定内建值索引的简单依值类型",
+      "以豫言实现的编译器、阶段树码与Wasm工具链",
+      "显式包依赖、豫构构建与带类型宿主接口"
+    ],
+    "code": "寻观「标准库」之书。\n寻「标准库」之「操作系统」之「命令行参数」之书。\n寻「标准库」之「数据结构」之「整数操作」之书。\n\n「斐波那契」乃化「整数」而「整数」也。\n「斐波那契」者会「数」而\n  若「小于」于「数」于「二」\n  则\n    「数」\n  否则\n    「加」\n      于（「斐波那契」于（「减」于「数」于「一」））\n      于（「斐波那契」于（「减」于「数」于「二」））\n也。\n\n「参数」者「整数操作」之「理解整数」于（「第几个」于「零」于（「命令行参数」之「获取参数」于「元」））也。\n\n「打印行」于（「整数表示」于（「斐波那契」于「参数」））。",
+    "code_source": "https://github.com/yuyan-lang/yuyan/blob/78f66573f8af7c33747958211aae36a8646e805f/%E5%BA%94%E7%94%A8/%E6%80%A7%E8%83%BD%E7%A0%94%E7%A9%B6/%E8%B7%A8%E8%AF%AD%E8%A8%80%E6%AF%94%E8%BE%83/%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E3%80%82%E8%84%9A%E6%9C%AC%E3%80%82%E8%B1%AB#L1-L18",
+    "code_context": "固定提交中斐波那契。脚本。豫第1—18行的完整连续原例，保留空行、缩进、汉字数字与中文标点。原程序导入标准库及命令行参数、整数操作模块，定义递归斐波那契函数，读取首个命令行参数并打印计算结果。脚本依赖仓库包上下文和工具链；独立运行与输出结果待核实。",
+    "implementation": "当前编译器主体为。豫源码。编译过程。豫组织检查、擦除、闭包转换等步骤；阶段文档列出词法形式、抽象语法、名称解析、检查后定义、模式展开、类型擦除、优化、闭包与求值正则等中间边界。类型类型检查。豫第296—324、383—397行实际接入依值箭头和隐式值参数检查，依值索引定义域。豫列出整数、爻、字符串及递归列表定义域。官方快速开始使用Node宿主运行Wasm编译器和豫构，描述三级自举及末两级产物逐字节比较；该过程按作者构建说明记录。设计动机说明以豫汇／WebAssembly为统一执行边界，并列输出标准Wasm和原生程序。历史发行记录包含SML实现阶段；2025年v0.3发行说明记载OCaml重构。",
+    "version": "可核语义编号正式发行包括v0.4（2026-09-02T15:06:13Z），发行标题记“全中文自举回归”。当前默认分支yybs快照为78f66573f8af7c33747958211aae36a8646e805f；continuous-binaries提供持续更新的Wasm工具链，初次读取时更新至2026-10-11T04:58:57Z；2026-10-11T12:53Z复核时更新时间为2026-10-11T12:35:41Z。v0.3（2025-08-31）发行说明记OCaml重构，v0.1.0rc1（2024-02-03）说明记首个可用自举版本。语言发行、持续工具链与插件0.0.21分别记录。 许可：固定根LICENSE为GNU Affero General Public License version 3。第三方组件适用范围以各自许可文件为准。",
+    "license": "固定根LICENSE为GNU Affero General Public License version 3。第三方组件适用范围以各自许可文件为准。",
+    "ai_development": "2026-06-17的v0.1.0rc2.0发行说明由作者明确提到借助LLM恢复自举编译器；公开实施记录可见Codex命名的工作分支与工具协作记录。具体模型、生成代码比例和完整人机分工待核实。",
+    "relations": "豫言编译器、标准库、豫构和VS Code插件属于同一语言项目的实现及配套工具。豫言操作系统目录保存宿主适配与系统实现，和语言本体分别描述。官方设计动机提及入墨答借用部分豫言设计，该关系按豫言作者说明记录。2023蓝皮书保留为历史原始引用；当前规则以固定源码、技术规范与实施记录交叉核对。",
+    "verification_notes": "2026-10-11资料快照，固定公开源码78f66573f8af7c33747958211aae36a8646e805f。递归斐波那契例程为固定文件第1—18行的连续原文，保留空白、缩进和中文标点；JSON省去文件末尾换行。依值能力按技术规范、2026-10-06实施记录与类型检查源码交叉核定，范围为整数、爻、字符串及递归列表索引。设计动机和简版语法保存较早的类型说明；技术规范总纲另有兼容基线4cdeca11600fed16338793a494b6eecaae94485a。提案00002实施记录在2026-10-06将八步标为已实现，列表数组段原型评测后保留链表表示。官方后续事项包括依值字段在模式中的代换、复杂索引的规约与隐式参数推定、项层隐式值参数的提前检查、复合索引构造器的宿主边界、存在名冲突、覆盖检查补全，以及着色向量的维数索引。完成时间待核实。 自举、测试与性能结果按作者记录表述，独立复现待核实。原始蓝皮书引用完整保留，其全文本次读取超时。 AI开发：2026-06-17的v0.1.0rc2.0发行说明由作者明确提到借助LLM恢复自举编译器；公开实施记录可见Codex命名的工作分支与工具协作记录。具体模型、生成代码比例和完整人机分工待核实。 本条为2026-10-11一次性资料快照。",
+    "verified_at": "2026-10-11",
+    "roadmap": "提案00002实施记录在2026-10-06将八步标为已实现，列表数组段原型评测后保留链表表示。官方后续事项包括依值字段在模式中的代换、复杂索引的规约与隐式参数推定、项层隐式值参数的提前检查、复合索引构造器的宿主边界、存在名冲突、覆盖检查补全，以及着色向量的维数索引。完成时间待核实。"
   },
   {
     "id": "lang-002",
@@ -2977,21 +3103,22 @@
     "name": "coCN",
     "aliases": [],
     "category": "中文关键字通用编程语言（实验性；解释执行，并保留 coCN→C 编译器源码）",
-    "author": "COSMOnb666（package.json 署名）；GitHub 仓库所有者为 3477856804。两者均为项目公开账号/署名，不据此推定真实姓名。",
-    "first_publication": "2026-09-12（目前可确认的首个 GitHub Release 发布日期；语言首次对外公开日期仍未核实）",
-    "description": "以中文关键字与标识符编程的独立语言项目。当前默认分支以 coCN 源码实现词法分析、递归下降语法分析及树遍历求值，Node.js 启动器再借助旧版 C 实现的引导二进制运行这些 .co 模块。不能把当前仓库概括为完全摆脱 C 依赖、可独立复现完整自举的实现。",
+    "author": "package.json 的作者署名为 COSMOnb666，GitHub 仓库所有者和 Release 发布者为 3477856804。现存 Git 历史作者字段还出现 cosmo、coCN、王煜鑫等署名；各署名与账号之间的身份对应及真实身份待核实。",
+    "first_publication": "目前可确认的首个 GitHub Release v0.0.1 发布于 2026-09-12T15:25:15Z；GitHub 仓库创建于同日15:24:29Z。现存根提交 bbb29bf8db7f6d0e3fee3ef441267145dadc1451 的作者和提交者时间为2026-07-24T08:33:28Z，属于Git记录时间。Gitee首发及语言首次对外公开时刻待核实。",
+    "description": "coCN 是采用中文关键字和中文标识符的实验性通用编程语言，项目文档面向中文教学、算法原型与轻量建模介绍其用途。语法以“让”“函数”“返回”“如果”“对于”“结束”等词组织变量、函数和控制流，并提供列表、字典、模块导入、异常处理、高阶调用与模式匹配的解析和求值分支。当前固定版本把词法记号、语法树、变量环境及控制流信号表示为列表或字典，由递归下降分析器和树遍历求值器配合完成解释流程。函数值保存定义时的环境，调用时沿父环境建立局部作用域；类型标注保存在语法树中，其强制检查效果仍待核实。项目在二〇二六年十月八日从历史的 C 实现转为以自身语言编写的解释器模块，Node.js 启动器负责定位预编译引导程序和传递目标文件路径。引导程序继续承担宿主内置函数；保留的另一条编译链把语言子集转换为 C 源码。当前并发分支采用单线程延迟任务模型。完整自举、分发包可用性、跨平台执行与性能均属于独立待核事项。",
     "features": [
-      "实际词法表识别让、变量、常量、函数、返回、如果、若、否则、当、对于、从、到、循环、结束、且、或、非等中文词；并非仅把英文示例翻译为中文。",
-      "源码可见函数与返回、条件和循环、列表与字典、模块导入、异常、闭包/高阶调用、模式匹配等解析和求值分支；本次未执行测试。",
-      "类型标注语法存在，但当前求值器未读取变量类型、参数类型及返回类型标注，不将 README 的静态类型/运行时强制检查主张列为已验证特性。",
-      "当前并发/等待实现为单线程延迟任务，等待时在当前线程执行；并发执行依次等待，让出为空操作，不能标为已验证的真线程并行。",
-      "保留 coCN 编写的生成 C 源码编译器，但它依赖当前树缺失的自举运行时.c，并调用系统 cc。"
+      "中文关键字表直接识别让、变量、常量、函数、返回、若、如果、当、对于、从、到、循环、结束、且、或、非、导入、匹配、尝试、捕获、并发、等待等词；词法记号保存类型、值、行号和列号。",
+      "递归下降语法分析器建立字典形式的语法树，源码包含函数、条件、循环、列表与字典、导入、异常、匿名函数和模式匹配分支；各分支的完整语义兼容性与运行结果待核实。",
+      "变量环境按父链查找和赋值；函数值保存闭包环境，调用时建立子环境绑定形参，返回与异常通过特殊字典沿调用链传播。",
+      "变量类型、参数类型和返回类型标注由解析器收集。当前变量声明与函数构造分支仅使用初始化值、名字、参数和函数体；强制类型检查作为待核实功能记录。",
+      "当前并发／等待分支创建任务字典，等待时在当前线程执行并缓存结果；并发执行逐项等待，让出分支返回空操作结果。",
+      "保留的 coCN→C 编译器读取自举运行时.c 模板并调用系统 cc；当前固定树的118项条目中，该模板、co.c、Makefile及引导二进制的补齐方式待核实。"
     ],
     "code": "函数 判断(整数 n) -> 字符串\n    若 n > 10 则\n        返回 \"大\"\n    结束\n    返回 \"小\"\n结束\n\n输出 判断(12)\n\n输出 判断(5)",
-    "implementation": "当前 master：src/词法分析器.co → src/语法分析器.co → src/求值器.co，src/解释器.co 读取 COCN_TARGET 指定的程序并调用运行(源)。bin/cocn.js 用 child_process.spawn 启动引导 cocn 二进制，执行 src/解释器.co；install.js 指定引导版本 0.1.0，优先 Gitee、其次 GitHub，并无 C 源码构建回退。求值器还复用宿主的原生内置函数。历史提交 f930c811e161f508fa7c6d61b26f2998e623a168 的 co.c 可见 C 解释器及生成 C 后调用 cc 的编译通道。当前编译器/自举编译器.co 仍读取自举运行时.c；该文件、co.c、Makefile 及 bin/cocn 均不在本次固定提交的完整树中。",
-    "status": "公开、未归档，实验性开发中；最近默认分支提交日期为 2026-10-08。仅完成只读源码核查，未安装、编译、运行或证明全量兼容、自举成功与性能。当前引导与旧自举脚本存在可见缺口。",
-    "version": "固定 master 提交的 package.json/index.js/install.js 为 0.0.2；README 仍称 0.0.1。GitHub Releases 仅查到 v0.0.1（2026-09-12 发布）；install.js 所需引导版本 0.1.0 的 GitHub Release 返回 404。以上分别为仓库包版本、文档版本、发行版和引导版本，不能混作最新语言版本；npm 注册表当前版本未核实。",
-    "relations": "package.json 将 Gitee COSMOnb666/coCN 列为项目仓库/首页，GitHub 3477856804/coCN 为本次核查对象。与 C 的关系为历史实现语言、当前引导运行时以及保留编译器的目标/运行时依赖；Node.js 负责 npm 启动与安装。未发现足够原始证据证明它派生自 Python 或其他既有中文语言。",
+    "implementation": "固定 master=c641a58067e1a7cc0d26bfd6cebc8b42ce37cd07 的主链为 src/词法分析器.co → src/语法分析器.co → src/求值器.co。src/解释器.co 读取 COCN_TARGET 指定文件并调用运行(源)，求值器建立根环境后遍历语句。CLI bin/cocn.js 与程序接口 index.js 的run()均以child_process.spawn启动引导cocn执行src/解释器.co，并把工作目录设为src。包清单要求Node.js≥14，列出darwin、linux、win32和x64、arm64；这些属于声明的平台范围。install.js固定引导版本0.1.0，先检查包内二进制，再尝试Gitee、GitHub下载，失败进入人工补齐提示。历史f930c811e161f508fa7c6d61b26f2998e623a168保存C解释器和生成C后调用cc的通道；2026-10-08的df0d3b8加入.co解释器，303a917移除C实现与运行时模板，ef32d0e整理src和编译器目录。当前编译器/自举编译器.co保留模板读取及cc调用，测试/自举L2.sh仍使用旧根目录路径；完整引导复现、历史与现行语义兼容性待核实。",
+    "status": "公开且未归档的实验性项目；截至2026-10-10，默认分支最近提交为2026-10-08T08:13:13Z，仓库最近推送为2026-10-08T08:58:22Z。已核验源码、完整目录树、提交与发行元数据；安装、编译、执行、性能与完整自举待核实。",
+    "version": "固定提交的package.json、index.js与install.js标为0.0.2，README标为0.0.1；包版本于2026-10-08的639b35e提交调整。GitHub发行列表现有一个正式Release v0.0.1，发布于2026-09-12，含darwin-arm64、linux-aarch64、linux-x86_64及windows-x86_64四个命名资产。安装器所需引导版本为0.1.0，属于历史C构建版本。GitHub对应v0.1.0发行、Gitee引导资产和npm官方注册表当前版本的可用性待核实；第三方npm.io的0.0.3索引作为后续线索保存。",
+    "relations": "package.json把Gitee COSMOnb666/coCN列为项目仓库和首页，GitHub 3477856804/coCN保存同项目历史；2026-09-12的合并提交说明记录Gitee侧内容并入GitHub。C承担历史实现、现行宿主引导及子集编译目标，Node.js承担安装和启动。@yeyelailou/cocn为npm包名，cocn与co为命令入口。与Python的README内容属于功能对照；派生关系待核实。",
     "references": [
       {
         "title": "GitHub 仓库元数据（创建、推送、归档状态）",
@@ -3038,17 +3165,97 @@
         "url": "https://github.com/3477856804/coCN/releases/tag/v0.0.1"
       },
       {
-        "title": "最早可达根提交（提交日期不是公开日期）",
+        "title": "最早可达根提交：Git记录时间与首次公开时间分列",
         "url": "https://github.com/3477856804/coCN/commit/bbb29bf8db7f6d0e3fee3ef441267145dadc1451"
       },
       {
         "title": "历史 C 解释器与编译实现",
         "url": "https://github.com/3477856804/coCN/blob/f930c811e161f508fa7c6d61b26f2998e623a168/co.c#L7047-L7088"
+      },
+      {
+        "title": "原详情页已有中文示例来源（固定第33—42行）",
+        "url": "https://github.com/3477856804/coCN/blob/c641a58067e1a7cc0d26bfd6cebc8b42ce37cd07/%E4%BE%8B%E5%AD%90/%E8%87%AA%E4%B8%BE%E5%87%BD%E6%95%B0%E7%A4%BA%E4%BE%8B.co#L33-L42"
+      },
+      {
+        "title": "项目用途与自解释器说明（固定README）",
+        "url": "https://github.com/3477856804/coCN/blob/c641a58067e1a7cc0d26bfd6cebc8b42ce37cd07/README.md#L5-L15"
+      },
+      {
+        "title": "模块数据交换、环境与控制流规范",
+        "url": "https://github.com/3477856804/coCN/blob/c641a58067e1a7cc0d26bfd6cebc8b42ce37cd07/%E9%87%8D%E5%86%99%E8%A7%84%E8%8C%83.md#L11-L95"
+      },
+      {
+        "title": "参数与返回类型标注的解析",
+        "url": "https://github.com/3477856804/coCN/blob/c641a58067e1a7cc0d26bfd6cebc8b42ce37cd07/src/%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8.co#L664-L719"
+      },
+      {
+        "title": "父环境链及宿主内置复用",
+        "url": "https://github.com/3477856804/coCN/blob/c641a58067e1a7cc0d26bfd6cebc8b42ce37cd07/src/%E6%B1%82%E5%80%BC%E5%99%A8.co#L68-L105"
+      },
+      {
+        "title": "闭包环境、形参绑定及统一调用",
+        "url": "https://github.com/3477856804/coCN/blob/c641a58067e1a7cc0d26bfd6cebc8b42ce37cd07/src/%E6%B1%82%E5%80%BC%E5%99%A8.co#L1062-L1093"
+      },
+      {
+        "title": "变量声明与函数值构造",
+        "url": "https://github.com/3477856804/coCN/blob/c641a58067e1a7cc0d26bfd6cebc8b42ce37cd07/src/%E6%B1%82%E5%80%BC%E5%99%A8.co#L1440-L1463"
+      },
+      {
+        "title": "创建根环境与树遍历执行入口",
+        "url": "https://github.com/3477856804/coCN/blob/c641a58067e1a7cc0d26bfd6cebc8b42ce37cd07/src/%E6%B1%82%E5%80%BC%E5%99%A8.co#L1765-L1784"
+      },
+      {
+        "title": "Node.js程序接口run与版本号",
+        "url": "https://github.com/3477856804/coCN/blob/c641a58067e1a7cc0d26bfd6cebc8b42ce37cd07/index.js#L29-L60"
+      },
+      {
+        "title": "Node.js版本与平台声明",
+        "url": "https://github.com/3477856804/coCN/blob/c641a58067e1a7cc0d26bfd6cebc8b42ce37cd07/package.json#L47-L60"
+      },
+      {
+        "title": "优先检查包内引导、下载与失败处理",
+        "url": "https://github.com/3477856804/coCN/blob/c641a58067e1a7cc0d26bfd6cebc8b42ce37cd07/install.js#L145-L179"
+      },
+      {
+        "title": "L2自举脚本及保留的旧路径",
+        "url": "https://github.com/3477856804/coCN/blob/c641a58067e1a7cc0d26bfd6cebc8b42ce37cd07/%E6%B5%8B%E8%AF%95/%E8%87%AA%E4%B8%BEL2.sh#L1-L35"
+      },
+      {
+        "title": "完整固定目录树：118项及许可／引导材料范围",
+        "url": "https://api.github.com/repos/3477856804/coCN/git/trees/c641a58067e1a7cc0d26bfd6cebc8b42ce37cd07?recursive=1"
+      },
+      {
+        "title": "发行集合与四平台资产元数据",
+        "url": "https://api.github.com/repos/3477856804/coCN/releases?per_page=100"
+      },
+      {
+        "title": "现存63条Git提交与公开作者署名",
+        "url": "https://api.github.com/repos/3477856804/coCN/commits?sha=c641a58067e1a7cc0d26bfd6cebc8b42ce37cd07&per_page=100"
+      },
+      {
+        "title": "自解释器模块加入的历史提交",
+        "url": "https://github.com/3477856804/coCN/commit/df0d3b8d614231a193f7d3d2fea48c013333c7ce"
+      },
+      {
+        "title": "C实现与运行时模板移除的历史提交",
+        "url": "https://github.com/3477856804/coCN/commit/303a9179b47708bbef5007390a8693e0248f02db"
+      },
+      {
+        "title": "包版本升为0.0.2的历史提交",
+        "url": "https://github.com/3477856804/coCN/commit/639b35e496982e20c8ddd349aa7409b49b1e01fc"
+      },
+      {
+        "title": "源目录整理与入口路径变更",
+        "url": "https://github.com/3477856804/coCN/commit/ef32d0ec370dd41a49ebafa6539b1a29ee8d9b78"
+      },
+      {
+        "title": "Gitee内容合并历史",
+        "url": "https://github.com/3477856804/coCN/commit/66ff0a209d44aaba2950837da48b3c1ed4608f3b"
       }
     ],
-    "verification_notes": "已固定默认分支 master 的 c641a58067e1a7cc0d26bfd6cebc8b42ce37cd07；完整 Git tree 返回 truncated=false。GitHub 仓库 created_at 为 2026-09-12T15:24:29Z；根提交 bbb29bf8… 的 author/committer 日期为 2026-07-24T08:33:28Z，不能由它推出当时已公开。唯一查到的 GitHub Release v0.0.1 published_at 为 2026-09-12T15:25:15Z，标签经 annotated tag 解引用到 9483dd20a4c1b45ced40f5ed0a2a662dde6bdc18。README 的自举、真线程、类型强制检查、性能和自动求导宣传不当作测试证据：当前并发代码直接显示单线程延迟执行；parser 收集类型标注但 evaluator 不读取。旧测试/自举.sh 和测试/自举L2.sh 仍默认 ./co、根目录自举编译器.co，未随当前删除/迁移更新。Gitee 页面及官方 npm 注册表未成功读取，故不判定其发行资产一定不存在，也不把 GitHub 包清单版本当成 npm 最新版。package.json 声明 Apache-2.0，但当前树未见 LICENSE 文件。全过程只读，未执行陌生源码。 待核实字段：语言首次对外公开日期（含 Gitee 首发）；GitHub 账号与作者署名背后的真实身份；npm 注册表最新发布版本及实际包内容；Gitee v0.1.0 引导资产是否可用；完整自举/可复现构建/全量语义兼容/性能/自动求导运行效果。",
+    "verification_notes": "2026-10-10再次确认默认分支仍为c641a58067e1a7cc0d26bfd6cebc8b42ce37cd07；完整树118项、truncated=false，现存可达提交63条。沿用第二轮已收录身份lang-036，新增计数为0。中文语法证据由词法表、解析器和固定例程相互对应；当前示例保持原10行。Git根日期、仓库创建、Release公开发布时间分别保存。当前任务调度、类型标注与宿主复用按源文件记录；README及历史提交中的测试通过、自举、线程和性能属于作者陈述。源码与运行时模板在2026-10-08重构中发生删除／迁移，旧自举脚本继续引用根路径。GitHub v0.0.1资产元数据已读取，制品内容、源码对应和运行效果待核实。Gitee项目页、npm官方页面及注册表本轮仍未取得正文，npm.io的0.0.3索引保持线索级。首次公开、身份关系、AI开发参与、许可正文、引导分发与独立运行均待核实。 许可方面，固定package.json声明Apache-2.0，GitHub识别值为null，项目许可证正文和NOTICE待补。AI辅助开发工具及具体参与范围待核实；README的张量／自动求导内容按语言用途记录。",
     "code_source": "https://github.com/3477856804/coCN/blob/c641a58067e1a7cc0d26bfd6cebc8b42ce37cd07/%E4%BE%8B%E5%AD%90/%E8%87%AA%E4%B8%BE%E5%87%BD%E6%95%B0%E7%A4%BA%E4%BE%8B.co#L33-L42",
-    "code_context": "从仓库例子/自举函数示例.co 第 33–42 行连续原样摘录，包含带类型标注的中文函数、若/则/返回/结束及两次输出调用。未补写、拼接或改写示例，未运行；函数按源码逻辑分别返回“大”“小”，但本条不把预期结果写成实测结果。",
+    "code_context": "固定提交例子/自举函数示例.co第33—42行连续原文，保留原始缩进、空行、标点与文字，展示带类型标注的函数、条件分支和两次输出调用。代码已与固定源文件逐字核对，运行结果待核实。",
     "verified_at": "2026-10-10",
     "repository_created_at": "2026-09-12T15:24:29Z",
     "code_source_detail": {
@@ -3059,31 +3266,34 @@
       "blob_sha": "77ffa49b05a6aab4cd7e1cc11425d648ecb3b130",
       "start_line": 33,
       "end_line": 42,
-      "excerpt_kind": "连续原文；未运行"
+      "excerpt_kind": "连续原文；逐字核对；运行结果待核实"
     },
     "repository_pushed_at": "2026-10-08T08:58:22Z",
-    "id": "lang-036"
+    "id": "lang-036",
+    "license": "固定package.json第38行声明Apache-2.0。当前完整Git树118项中许可证正文和NOTICE文件待补，GitHub许可证识别值为null。此处记录包清单的许可声明；完整许可文本及发行包内许可材料待核实。",
+    "ai_involvement": "AI辅助开发的具体参与方式、工具和范围待核实。已检查README、重写规范、当前核心源码及63条可达提交说明；其中的张量、自动求导、神经网络训练属于语言用途与功能宣称。"
   },
   {
     "name": "Atlanage",
     "aliases": [],
     "category": "中文通用编程语言（编译型）",
-    "author": "wc772（仓库所有者及 Release 发布者；1.0 标签根提交署名 atra，两者身份关系未核实）",
-    "first_publication": "2026-08-16（目前可核实的首个 GitHub Release 发布日；不等同于项目最早诞生或首次公开日期）",
+    "author": "wc772为GitHub仓库所有者、当前主线提交署名和Release发布者；1.0标签对应的根提交作者字段为atra。两条历史中的署名身份对应与真实身份待核实。",
+    "first_publication": "目前可核实的首个GitHub Release发布于2026-08-16T17:58:33Z，仓库创建于同日17:28:53Z。1.0标签根提交记录时间为同日17:50:33Z；当前main的另一根提交6bda6cec记录时间为同日18:05:23Z。项目更早公开史及最初诞生日期待核实。",
     "repository_created_at": "2026-08-16T17:28:53Z",
-    "description": "使用中文关键字、中文标识符与花括号/分号语法的编译型语言。仓库包含 .at 示例、以 .at 编写的词法分析器、语法分析器、语义分析器、代码生成器、汇编器和链接器源码；已检查的编译入口串联这些模块，目标为 Windows x86-64。此次仅作源码与发布元数据核实，未编译或运行程序。",
+    "description": "Atlanage 是采用中文关键字、中文标识符以及花括号和分号结构的通用编译语言。词法表把“设”“声明”“返回值”“如果”“又如果”“循环”“类”“继承”等词映射为独立记号，同时处理中文逻辑词、位运算词、中文引号和部分全角标点。官方例程覆盖变量、列表遍历、函数、类、模块和图形界面等方向；本页完整基础示例连续展示问候输出、水果列表循环及加法函数调用。编译器的词法、解析、语义分析、代码生成、汇编与链接模块均以该语言的源文件保存，入口先展开文件引用、包导入和模块导入，再生成汇编与对象文件。链接器写入六十四位 Windows 可执行文件格式和系统动态库导入信息。仓库还保留含嵌入汇编的语言运行时、C 运行时相关文件及十六进制种子，构建脚本依赖既有编译器完成后续阶段。其 C 运行时文件与玄铁历史源码存在可定位的连续相同代码段，具体演化关系仍待核实。发布标签、发布正文与资产名称各自保存版本信息；完整自举、调度正确性、图形能力、跨平台运行和性能均待独立核验。",
     "features": [
-      "词法表实际映射“设、如果、又如果、否则、循环、返回值、声明、函数、类、继承”等中文关键字，并含中文字符标识符识别逻辑。",
-      "语法分析器含变量声明、函数声明、条件、循环、类与接口等解析分支；示例使用中文函数名和内建打印调用。",
-      "编译入口可见词法分析、解析、语义分析、汇编输出、COFF 对象生成与链接步骤；链接器定义 AMD64 目标。",
-      "仓库提供 .at 编译器源码、含嵌入汇编的 .at 运行时、C 运行时相关文件及十六进制二进制种子。",
-      "自举、M:N 调度、AUI、OpenGL/Vulkan 和包管理为项目宣称或对应源码/示例所展示的方向，其完整性、可运行性与性能未由此次研究验证。"
+      "词法表识别中文变量、函数、条件、循环、类、继承、可见性、异常、接口、逻辑及位运算词，并通过Unicode码点范围处理汉字标识符。",
+      "词法实现显式映射中文引号、全角冒号、分号、括号、赋值号和花括号等符号；具体可接受字符以各词法分支为范围。",
+      "语法分析器保存变量声明、函数、条件、循环、类和接口等结构；基础hello.at完整11行提供列表遍历、函数返回和调用的原始中文语法。",
+      "编译入口先展开文件引用、包和模块导入，随后完成词法、解析、语义、汇编文本生成、COFF对象生成及链接流程；链接器填写AMD64和PE32+头部并建立Windows系统DLL导入。",
+      "仓库保存.at编译器模块、含嵌入汇编的.at运行时、C运行时相关文件和十六进制二进制种子；种子物化程序负责解码、SHA-256检查与写出文件。",
+      "README列出M:N任务调度、AUI、OpenGL／Vulkan和包管理；源码与例程提供相关结构，其完整性、构建可用性、运行正确性及性能待核实。"
     ],
-    "code": "声明 加法(a, b){\n    返回值 a + b;\n};\n打印(\"1+2=\" + 加法(1, 2));",
-    "implementation": "主入口 self-hosted/atlv1.at 引入 atl_lexer.at、atl_parser.at、atl_semantic.at、atl_codegen.at、atl_assembler.at、atl_linker.at 等 .at 模块；907–950 行可见 lex → parse_program → sem_analyze → codegen → assemble/write_coff → link。self-hosted/atl_rt.at 使用“汇编(...)”嵌入 x86-64 汇编；runtime/ 另含 xt_runtime.c、xt_threadpool.c、xt_net.c 等 C 文件。seed/seed_builder.c 是解码并校验十六进制种子的物化器，输出 atlv1.exe 和 atl_rt.obj，并非从 C 源码重建语言编译器。rebuild_atlv1.ps1 依赖预存 AT-V1.exe；rt_build.ps1 依赖 atlc.exe、Python 与 NASM。GitHub 标记主要语言为 C 不能代替对实现结构的判断。",
-    "status": "已有公开源码和 GitHub Release，仓库未归档；截至 2026-10-10，默认分支最后提交为 2026-08-17。未作运行、完整自举或持续维护状态验证；仓库元数据未识别许可证。",
-    "version": "GitHub 唯一 Release/标签为 1.0（非预发布），发布正文为“1.0.1”，资产名为 atlanage-v1.0.zip；版本标注不一致，未消歧。",
-    "relations": "AT-V1.exe / atlv1 为该项目的编译器命名，不能据此增列为独立语言。仓库 fork=false；未发现足以确认其与其他语言存在继承、移植或同源关系的第一方说明。",
+    "code": "打印(\"你好，世界！\");\n\n设 列表 水果 = [\"苹果\", \"香蕉\", \"橙子\"];\n循环(设 果 : 水果){\n    打印(\"我喜欢\" + 果);\n};\n\n声明 加法(a, b){\n    返回值 a + b;\n};\n打印(\"1+2=\" + 加法(1, 2));",
+    "implementation": "主入口self-hosted/atlv1.at加载atl_lexer.at、atl_parser.at、atl_semantic.at、atl_codegen.at、atl_assembler.at和atl_linker.at。第880—950行依次展开引用／包／模块、lex、parse_program、sem_analyze、codegen、assemble、write_coff、parse_coff和link。链接器写入MACHINE_AMD64=0x8664及PE32+头部，系统导入按功能分配到kernel32.dll、user32.dll、gdi32.dll、ws2_32.dll等。self-hosted/atl_rt.at包含嵌入x86-64汇编，runtime另有xt_runtime.c、xt_threadpool.c、xt_net.c等文件。seed/seed_builder.c把十六进制种子解码并校验后写为atlv1.exe和atl_rt.obj；该步骤的输入为既有二进制内容。rebuild_atlv1.ps1使用预存AT-V1.exe重新编译、汇编及链接自身，再比较两代工具对hello.at产生的汇编文本；rt_build.ps1调用既有atlc.exe、Python和NASM。完整源码引导、种子对应性和可复现构建待核实。",
+    "status": "已有公开源码和正式GitHub Release，仓库未归档。2026-10-10核验时main仍为da5b3a9b778ff546382990de35f2112efc9544f9，最后提交为2026-08-17T09:21:10Z。源码与发行元数据已核；制品运行、持续维护计划和完整自举待核实。",
+    "version": "GitHub当前发行列表共1项：tag=1.0、name=qwq、body=1.0.1、prerelease=false，published_at为2026-08-16T17:58:33Z。资产atlanage-v1.0.zip于2026-08-17T09:23:02Z创建，大小1,864,117字节，GitHub元数据记录SHA-256 dcf3a99fcffac4da4b013c97215a0ba055be95de495b766d2edbfc9b1b0e624c。标签、正文、文件名与资产上传时间分别记录，制品内部版本及版本消歧待核实。",
+    "relations": "AT-V1.exe／atlv1为本项目编译器名称，atlc.exe出现在运行时构建脚本中。runtime/xt_runtime.c保留“玄铁运行时错误”和XuanTie临时目录字符串；当前runtime/xt_threadpool.c第146—196行与玄铁16554746121c61d98429b498f4e8aee9ef650978同路径第146—196行逐字相同，JSON解析段另有连续133行文本相同。上述证据确认运行时局部代码存在对应；项目整体派生范围、移植过程、作者协作和授权沿革待核实。GitHub元数据fork=false描述平台仓库关系。",
     "references": [
       {
         "title": "仓库与公开元数据",
@@ -3128,23 +3338,89 @@
       {
         "title": "1.0 标签对应根提交",
         "url": "https://github.com/wc772/atlanage/commit/837af6b15ca64ee2fc1b157d7bc15fc0818948a0"
+      },
+      {
+        "title": "完整基础原例：问候、列表循环与函数",
+        "url": "https://github.com/wc772/atlanage/blob/da5b3a9b778ff546382990de35f2112efc9544f9/examples/hello.at#L1-L11"
+      },
+      {
+        "title": "项目功能范围说明",
+        "url": "https://github.com/wc772/atlanage/blob/da5b3a9b778ff546382990de35f2112efc9544f9/README.md#L1-L28"
+      },
+      {
+        "title": "中文语法与符号文档",
+        "url": "https://github.com/wc772/atlanage/blob/da5b3a9b778ff546382990de35f2112efc9544f9/%E6%96%87%E6%A1%A3/%E4%BB%8B%E7%BB%8D.md#L1-L32"
+      },
+      {
+        "title": "中文与全角符号词法分支",
+        "url": "https://github.com/wc772/atlanage/blob/da5b3a9b778ff546382990de35f2112efc9544f9/self-hosted/atl_lexer.at#L610-L647"
+      },
+      {
+        "title": "引用、包、模块展开与完整编译入口",
+        "url": "https://github.com/wc772/atlanage/blob/da5b3a9b778ff546382990de35f2112efc9544f9/self-hosted/atlv1.at#L880-L950"
+      },
+      {
+        "title": "链接器Windows系统DLL导入表",
+        "url": "https://github.com/wc772/atlanage/blob/da5b3a9b778ff546382990de35f2112efc9544f9/self-hosted/atl_linker.at#L142-L162"
+      },
+      {
+        "title": "链接器PE32+／AMD64可执行文件头部",
+        "url": "https://github.com/wc772/atlanage/blob/da5b3a9b778ff546382990de35f2112efc9544f9/self-hosted/atl_linker.at#L1156-L1208"
+      },
+      {
+        "title": "现存C运行时中的玄铁名称字符串",
+        "url": "https://github.com/wc772/atlanage/blob/da5b3a9b778ff546382990de35f2112efc9544f9/runtime/xt_runtime.c#L170-L185"
+      },
+      {
+        "title": "线程池局部实现对照：本项目51行",
+        "url": "https://github.com/wc772/atlanage/blob/da5b3a9b778ff546382990de35f2112efc9544f9/runtime/xt_threadpool.c#L146-L196"
+      },
+      {
+        "title": "JSON解析局部实现对照：本项目133行",
+        "url": "https://github.com/wc772/atlanage/blob/da5b3a9b778ff546382990de35f2112efc9544f9/runtime/xt_runtime.c#L2880-L3012"
+      },
+      {
+        "title": "完整固定目录树：322项及许可材料范围",
+        "url": "https://api.github.com/repos/wc772/atlanage/git/trees/da5b3a9b778ff546382990de35f2112efc9544f9?recursive=1"
+      },
+      {
+        "title": "发行时间、版本与ZIP资产摘要",
+        "url": "https://api.github.com/repos/wc772/atlanage/releases?per_page=100"
+      },
+      {
+        "title": "当前主线根提交及署名",
+        "url": "https://github.com/wc772/atlanage/commit/6bda6cec0b860c0456280c797d417f5360ab4fb5"
+      },
+      {
+        "title": "局部源码对照：玄铁历史线程池51行",
+        "url": "https://github.com/MARKJY-China/XuanTie-Lang/blob/16554746121c61d98429b498f4e8aee9ef650978/runtime/xt_threadpool.c#L146-L196"
+      },
+      {
+        "title": "局部源码对照：玄铁历史JSON解析133行",
+        "url": "https://github.com/MARKJY-China/XuanTie-Lang/blob/16554746121c61d98429b498f4e8aee9ef650978/runtime/xt_runtime.c#L2878-L3010"
+      },
+      {
+        "title": "对照来源玄铁的MIT原件及版权署名",
+        "url": "https://github.com/MARKJY-China/XuanTie-Lang/blob/16554746121c61d98429b498f4e8aee9ef650978/LICENSE"
       }
     ],
-    "verification_notes": "固定读取 main=da5b3a9b778ff546382990de35f2112efc9544f9。中文语法有词法表、解析分支与原始示例三类静态证据，足以作为已实现项目候选收录，但不等于运行测试通过。唯一 Release 的 published_at=2026-08-16T17:58:33Z，与仓库 created_at 区分；首发标签指向 837af6b15ca64ee2fc1b157d7bc15fc0818948a0（作者署名 atra），当前 main 则有独立根提交 6bda6cec0b860c0456280c797d417f5360ab4fb5（2026-08-16T18:05:23Z），不可把当前主线根提交当成早于 Release 的发布证据。未核实更早公开史、作者真实身份、atra 与 wc772 的关系、二进制与源码对应性、完整引导可复现性、自举收敛、调度正确性、性能和跨平台支持。seed_builder 输出 atlv1.exe，而构建脚本使用 AT-V1.exe；默认树中未见 .exe/.obj 文件，README 的二进制目录示意不代表这些文件已跟踪。自举脚本仅设计比较 hello.at 的汇编文本，不证明所有程序或编译器二进制可复现。未下载或执行发布包。",
-    "code_source": "https://github.com/wc772/atlanage/blob/da5b3a9b778ff546382990de35f2112efc9544f9/examples/hello.at#L8-L11",
-    "code_context": "examples/hello.at 第 8–11 行的连续原文，独立的加法函数声明及调用片段；保留原始缩进、标点和文字，未拼接、改写或生成。",
+    "verification_notes": "本轮复核main仍为da5b3a9b778ff546382990de35f2112efc9544f9，完整树322项且truncated=false；现存main有2条提交。沿用lang-037已有身份，新增计数为0。1.0标签保留独立根提交837af6b15ca64ee2fc1b157d7bc15fc0818948a0，当前main保留根6bda6cec0b860c0456280c797d417f5360ab4fb5；根提交日期和Release公开时间分列。中文词法、解析器与原例相互对应。当前源码树的二进制工具补齐方式待核实，seed_builder输出atlv1.exe，自编译脚本引用AT-V1.exe，运行时脚本引用atlc.exe。自编译脚本的比较对象为hello.at汇编文本，编译器全量等价性和二进制复现性继续待核。新增玄铁局部代码对照均固定双方提交并逐字比较，全文继承关系与授权沿革待核实。本轮实施公开文件与元数据静态阅读、资料字符核对，项目安装、执行、编译、测试、自举和性能继续待核实。 许可方面，GitHub识别值为null，Atlanage项目级许可证正文和整体许可待核实；对照玄铁的MIT原件仅记录该来源自身许可。AI辅助开发方式、工具和参与范围待核实。",
+    "code_source": "https://github.com/wc772/atlanage/blob/da5b3a9b778ff546382990de35f2112efc9544f9/examples/hello.at#L1-L11",
+    "code_context": "固定提交examples/hello.at全文11行，包含原有空行，源文件末尾无换行。逐字保留问候输出、列表遍历、函数声明与调用；原第8—11行旧摘录继续保存在研究日志，旧来源链接完整保留。运行结果待核实。",
     "code_source_detail": {
       "repository": "wc772/atlanage",
       "branch": "main",
       "commit": "da5b3a9b778ff546382990de35f2112efc9544f9",
       "path": "examples/hello.at",
-      "lines": "8-11",
+      "lines": "1-11",
       "blob_sha": "7884f0f829940f6748eeb2799cf88325cdc92ec9",
-      "verification": "GitHub 连接器按固定 commit 读取；未执行"
+      "verification": "GitHub按固定commit读取全文，逐字核对；运行结果待核实"
     },
     "verified_at": "2026-10-10",
     "repository_pushed_at": "2026-08-17T09:21:36Z",
-    "id": "lang-037"
+    "id": "lang-037",
+    "license": "GitHub许可证识别值为null；固定提交的322项完整Git树中，项目级许可证正文与NOTICE文件待补。作为局部源码对照的玄铁1655474提交包含MIT许可证及“Copyright (c) 2026 问号盒”署名，许可范围按该来源保存。Atlanage整体许可和相关代码的授权沿革待核实。",
+    "ai_involvement": "AI辅助开发参与、具体工具和范围待核实。当前README、介绍文档及两条main提交说明提供语言功能与目录信息，开发过程的AI参与声明待补。"
   },
   {
     "name": "LingCpp",
@@ -7463,5 +7739,461 @@
     "verification_notes": "2026-10-10只读核验。中文词元及编译器本体原例支持中文C方言分类。原作者README的自举、C99及Linux内核编译说法按声明保留，独立复现待核实。所读src/examples/ex1.c为英文hello例程；本条采用原作者实际编译器源码的连续中文片段。README含全角括号的中文hello保留为文档排版待核事项。版权2019与首次公开日分开。语法分析.c跳转登录即止步。 AI开发参与：所读原作者README、中文源码、词元表及发行页中的AI开发参与声明待核实。",
     "verified_at": "2026-10-10",
     "id": "lang-086"
+  },
+  {
+    "name": "Z语言（zyw98020）",
+    "aliases": [
+      "Zlang（zyw98020）",
+      "Zlang---Chinese-programming-language"
+    ],
+    "category": "中文脚本语言／C++树遍历解释器",
+    "author": "GitHub维护账号zyw98020，现存根提交署名同一账号。自然人署名、团队分工及跨平台作者互链待核实。",
+    "first_publication": "原仓创建于2026-07-16T13:58:11Z，现存无父根提交ed037ddd395bca8359a17572aae92bb4875d3c2e记录同日13:58:13Z。IDE元数据保留2024版权年份，作为声明字段保存；准确首次公开日期与更早材料待核实。",
+    "description": "Z语言是zyw98020公开维护的中文脚本语言及原生macOS开发环境，原作者以面向中文语境、简洁易学为设计目标。程序使用“设”声明变量、“函”定义函数、“回”返回结果，以“若”“否则”“循环”“对于”和“在”组织控制流程。当前解析器采用缩进块，词法器维护缩进栈并生成INDENT与DEDENT；中文词元经过独立解析器构成语法树，再由C++解释器逐节点求值。源码另保存Lambda、模式匹配、范围、切片、容器推导、类、模块导入导出及异常处理入口。运行时提供打印、输入和映射等中文函数。配套Z-IDE由Objective-C与Cocoa构建，支持中文及拼音补全、编辑和输出交互，其运行入口启动独立zlang解释器并通过管道连接输入输出。项目以.zzz为主要源码后缀，仓库同时保存花括号例程与缩进例程；形成顺序、语法兼容和实际运行结果继续核实。",
+    "features": [
+      "简短中文关键词和缩进语法",
+      "函数、递归、条件和循环的AST求值路径",
+      "Lambda、模式匹配、容器与模块的公开实现",
+      "中文运行时函数与交互式命令行",
+      "Objective-C Cocoa编辑器及独立解释器进程"
+    ],
+    "code": "函 斐波那契(n)\n    若 n <= 1\n        回 n\n    回 斐波那契(n - 1) + 斐波那契(n - 2)\n\n// 循环示例\n设 i = 0\n循环 i < 10\n    打印(\"斐波那契(\" + 字符串(i) + \") = \" + 字符串(斐波那契(i)))\n    i = i + 1",
+    "code_source": "https://github.com/zyw98020/Zlang---Chinese-programming-language/blob/bf30f52927284d96950d87ac74abd483807d7ba6/Z/examples/hello_new.zzz#L6-L15",
+    "code_context": "固定Z/examples/hello_new.zzz第6—15行连续10行，保留四空格缩进、空行、注释、半角符号和原文。片段定义递归斐波那契函数并循环调用；文件前五行是标题、问候和注释。原例blob为f3240eeb32def9fdd84b6e02cf86aedebe638e86，独立执行与输出待核实。",
+    "implementation": "C++17解释器。main.cpp依次构造Lexer、Parser和Interpreter，读取文件、分词、解析、设置主脚本目录并interpret；无参数入口提供逐行REPL。token.h的Keywords::init保存36项中文映射；lexer.cpp识别中文词并生成缩进标记。parser.cpp解析函数、返回和控制语句，block按INDENT/DEDENT划定范围。interpreter.cpp通过AST动态类型分派求值，函数调用创建以闭包为父的Environment并捕获ReturnException；load_module读入模块后复用词法、解析和求值流程。IDEWindowController.m通过NSTask启动zlang，设置源文件参数、工作目录和三条标准流管道。IDE构建脚本链接Cocoa及UniformTypeIdentifiers；全部语法覆盖、宿主兼容与独立运行结果待核实。",
+    "version": "REPL提示Z语言交互环境v1.0；IDE的CFBundleShortVersionString为1.0、CFBundleVersion为1。固定main为bf30f52927284d96950d87ac74abd483807d7ba6，2026-07-17T13:00:16Z。GitHub Releases集合为空；公开Git refs集合仅列main分支，正式发行记录待核实。README声明MIT；完整许可文本、版权主体与IDE版权字段的适用范围继续核实。",
+    "status": "2026-10-10原仓archived=false，README、解释器、IDE及例程可读，最后推送2026-07-17T13:00:19Z。源码树49项、43个文件，现存提交3项；后续维护计划、发行包与平台运行效果待核实。",
+    "relations": "本项目按zyw98020原仓、C++解释器与macOS IDE标识。目录智语言cnzkai/Zlang和calvinwilliams/zlang分别保留各自作者及实现链；三者源码继承、设计借鉴及作者关系待核实。Z-IDE为配套开发环境，解释器承担语言执行。同仓花括号例程、始/终注释与当前缩进解析并存，形成顺序及兼容范围待核实。",
+    "verification_notes": "2026-10-10静态核验。第十五轮Issue #45旧候选本轮补齐实际关键词、解析、求值、IDE进程调用和固定例程。当前函数及控制块以缩进解析；fibonacci.zzz花括号例程、hello_new.zzz首行始/终注释与当前语法的对应继续核实。IDE plist声明最低系统10.12，构建与源码另使用UniformTypeIdentifiers等接口；最低实际可用系统版本待核实。2024版权年份、2026建库和提交时间分别保存。源码安装、构建、执行、测试及自举结果待核；AI工具、模型、生成范围和人机分工待原作者证据。",
+    "verified_at": "2026-10-10",
+    "references": [
+      {
+        "title": "原作者仓库",
+        "url": "https://github.com/zyw98020/Zlang---Chinese-programming-language"
+      },
+      {
+        "title": "固定README：语法、设计及MIT声明",
+        "url": "https://github.com/zyw98020/Zlang---Chinese-programming-language/blob/bf30f52927284d96950d87ac74abd483807d7ba6/README.md"
+      },
+      {
+        "title": "固定缩进递归及循环原例",
+        "url": "https://github.com/zyw98020/Zlang---Chinese-programming-language/blob/bf30f52927284d96950d87ac74abd483807d7ba6/Z/examples/hello_new.zzz#L6-L15"
+      },
+      {
+        "title": "固定中文关键词表",
+        "url": "https://github.com/zyw98020/Zlang---Chinese-programming-language/blob/bf30f52927284d96950d87ac74abd483807d7ba6/Z/interpreter/src/token.h#L90-L125"
+      },
+      {
+        "title": "固定中文词法与缩进标记",
+        "url": "https://github.com/zyw98020/Zlang---Chinese-programming-language/blob/bf30f52927284d96950d87ac74abd483807d7ba6/Z/interpreter/src/lexer.cpp#L131-L205"
+      },
+      {
+        "title": "固定函数、返回和控制块解析",
+        "url": "https://github.com/zyw98020/Zlang---Chinese-programming-language/blob/bf30f52927284d96950d87ac74abd483807d7ba6/Z/interpreter/src/parser.cpp#L256-L438"
+      },
+      {
+        "title": "固定文件与REPL入口",
+        "url": "https://github.com/zyw98020/Zlang---Chinese-programming-language/blob/bf30f52927284d96950d87ac74abd483807d7ba6/Z/interpreter/src/main.cpp#L9-L87"
+      },
+      {
+        "title": "固定AST求值与控制语句",
+        "url": "https://github.com/zyw98020/Zlang---Chinese-programming-language/blob/bf30f52927284d96950d87ac74abd483807d7ba6/Z/interpreter/src/interpreter.cpp#L814-L905"
+      },
+      {
+        "title": "固定模块加载、闭包环境及函数调用",
+        "url": "https://github.com/zyw98020/Zlang---Chinese-programming-language/blob/bf30f52927284d96950d87ac74abd483807d7ba6/Z/interpreter/src/interpreter.cpp#L1168-L1262"
+      },
+      {
+        "title": "固定C++17构建配置",
+        "url": "https://github.com/zyw98020/Zlang---Chinese-programming-language/blob/bf30f52927284d96950d87ac74abd483807d7ba6/Z/interpreter/Makefile"
+      },
+      {
+        "title": "固定IDE启动解释器与标准流管道",
+        "url": "https://github.com/zyw98020/Zlang---Chinese-programming-language/blob/bf30f52927284d96950d87ac74abd483807d7ba6/Z/ide/IDEWindowController.m#L283-L339"
+      },
+      {
+        "title": "固定IDE构建与系统框架",
+        "url": "https://github.com/zyw98020/Zlang---Chinese-programming-language/blob/bf30f52927284d96950d87ac74abd483807d7ba6/Z/ide/build.sh"
+      },
+      {
+        "title": "固定IDE版本、系统及版权字段",
+        "url": "https://github.com/zyw98020/Zlang---Chinese-programming-language/blob/bf30f52927284d96950d87ac74abd483807d7ba6/Z/ide/Z-IDE-Info.plist#L17-L28"
+      },
+      {
+        "title": "同仓花括号例程",
+        "url": "https://github.com/zyw98020/Zlang---Chinese-programming-language/blob/bf30f52927284d96950d87ac74abd483807d7ba6/Z/examples/fibonacci.zzz"
+      },
+      {
+        "title": "现存根提交",
+        "url": "https://github.com/zyw98020/Zlang---Chinese-programming-language/commit/ed037ddd395bca8359a17572aae92bb4875d3c2e"
+      },
+      {
+        "title": "模块化与数据处理更新提交",
+        "url": "https://github.com/zyw98020/Zlang---Chinese-programming-language/commit/f9cc817d6829128c679f8e326c6ee7069de9e3f6"
+      },
+      {
+        "title": "GitHub正式发行集合",
+        "url": "https://api.github.com/repos/zyw98020/Zlang---Chinese-programming-language/releases?per_page=100"
+      },
+      {
+        "title": "原待核议题",
+        "url": "https://github.com/yuyan-lang/chinese-programming-languages/issues/45"
+      },
+      {
+        "title": "固定IDE解释器启动调用",
+        "url": "https://github.com/zyw98020/Zlang---Chinese-programming-language/blob/bf30f52927284d96950d87ac74abd483807d7ba6/Z/ide/IDEWindowController.m#L410-L420"
+      },
+      {
+        "title": "公开Git refs集合",
+        "url": "https://api.github.com/repos/zyw98020/Zlang---Chinese-programming-language/git/refs"
+      }
+    ],
+    "id": "lang-087"
+  },
+  {
+    "name": "知序（Zhixu）",
+    "aliases": [
+      "知序",
+      "Zhixu",
+      "AI-CN",
+      "AI原生中文编程语言（1556880640-bot）"
+    ],
+    "category": "Python中文关键字转译语言／AI应用工具库",
+    "author": "GitHub维护账号1556880640-bot；现存三次Git提交均以该账号署名。自然人姓名与完整团队分工待核实。",
+    "first_publication": "AI-CN现存根提交0e7fe68031318c6a283090f52c38aba2b1bdcabd记录2026-05-16T13:10:20Z，仓库创建于当日13:32:01Z；知序仓库创建于14:02:29Z，改名提交d85adac01a15af7206ec72eda10d994b36a4b37a记录14:02:56Z。Git时间、仓库创建与首次公开时刻分别记录，准确首发时刻待核实。",
+    "description": "知序是以Python实现的中文关键字转译语言，前身名称为AI-CN。程序采用缩进、括号和Python式表达式，用“定义”“返回”“如果”“否则”“当”“循环”“在”等中文词组织函数与流程控制，并提供中文类、模块导入和异常处理写法。实现逐字符扫描源码，将完整关键字识别为词元，再生成Python源码；命令行提供执行、导出和交互入口。配套工具库为Ollama、OpenAI兼容API和HuggingFace模型提供推理调用路径，并包含模拟回退。微调、量化与显存优化在固定源码中处于配置提示或模拟阶段，各项能力按实际函数实现分别记录。AI-CN与知序共享Git历史，按改名后的同一项目归档。",
+    "features": [
+      "中文函数、条件、循环、类与异常关键字",
+      "词法扫描后生成Python源码",
+      "执行、Python导出与交互式命令入口",
+      "中文文件操作及Python库互操作示例",
+      "Ollama、OpenAI兼容API、HuggingFace推理适配与模拟回退"
+    ],
+    "code": "定义 计算平均值(数字列表):\n    总 = 0\n    循环 数 在 数字列表:\n        总 = 总 + 数\n    返回 总 / 长度(数字列表)\n\n分数 = [92, 78, 85, 63]\n结果 = 计算平均值(分数)\n输出(f\"平均分: {结果}\")\n\n如果 结果 >= 80:\n    输出(\"优秀\")\n否则:\n    输出(\"继续加油\")",
+    "code_source": "https://github.com/1556880640-bot/zhixu/blob/d85adac01a15af7206ec72eda10d994b36a4b37a/README.md#L31-L44",
+    "code_context": "固定提交README.md第31—44行的连续14行原例，保留四空格缩进、空行、英文标点与f字符串。片段完整定义平均值函数，调用后按结果进入中文条件分支；原文前两行问候另见第28—29行。该README代码块标注demo.zx，而仓库实际demo.zx使用另一组基础与AI示例，本文按README原文出处展示。执行结果待核实。",
+    "implementation": "zhixu.py第649—685行的CLI把run分发给run_file；第495—519行读取UTF-8源码，调用translate并以Python exec执行生成文本。translate第443—470行进入tokenize与generate_python；第280—294行把完整标识符在KEYWORD_MAP中查表，第316—435行将KEYWORD转换为Python关键字并处理缩进与换行。使用AI映射词时自动加入from zhixu_utils import *。zhixu_utils.py第48—146行检测并分派Ollama、OpenAI、HuggingFace或模拟后端；第165—189、247—272、320—377行分别提供HTTP推理与Transformers生成调用。微调第529—587行提供配置提示／模拟，量化第590—618行打印状态，显存优化第759—780行打印环境及状态；训练、量化和优化效果待核实。",
+    "status": "公开源码及中文原例可读，仓库archived=false；所读master头为2026-05-16T14:02:56Z的d85adac01a15af7206ec72eda10d994b36a4b37a。当前维护计划、安装、执行、后端兼容性与性能待核实。",
+    "version": "知序固定pyproject.toml第6—11行标name=zhixu、version=1.0.0和Python>=3.10；前身AI-CN同文件标2.0.0，改名提交同时调整名称及版号。2026-10-10读取两仓Git refs均只有master分支，Releases列表为空；包注册平台发行状态待核实。 许可按固定README及包元数据的MIT声明记录，全文与版权主体待核实。",
+    "license": "固定README第96—98行及pyproject.toml第10行声明MIT；当前完整8文件树的许可全文、版权主体与授权范围待核实。GitHub许可元数据为null。",
+    "ai_involvement": "现存三次提交消息均含“Co-Authored-By: Claude Sonnet 4.6”署名，作为原仓开发记录中的AI协作标记保存。具体使用工具、对话记录、生成比例与人工复核范围待核实。运行时模型适配属于产品能力，开发共同署名属于开发参与证据，二者分别记录。",
+    "relations": "原仓1556880640-bot/ai-cn与1556880640-bot/zhixu共享根提交0e7fe680及89d30ece。知序头提交以“改名：AI-CN → 知序 (Zhixu)”描述变更，并将ai_cn.py、ai_cn_utils.py及.ai_cn示例改为zhixu.py、zhixu_utils.py及.zx。两仓按同一语言沿革合并；zx.bat是Windows启动器，zhixu_utils.py为配套工具库。",
+    "references": [
+      {
+        "title": "知序原仓及当前元数据",
+        "url": "https://api.github.com/repos/1556880640-bot/zhixu"
+      },
+      {
+        "title": "固定中文语法、连续14行平均值原例",
+        "url": "https://github.com/1556880640-bot/zhixu/blob/d85adac01a15af7206ec72eda10d994b36a4b37a/README.md#L31-L63"
+      },
+      {
+        "title": "固定中文类、函数及循环原例",
+        "url": "https://github.com/1556880640-bot/zhixu/blob/d85adac01a15af7206ec72eda10d994b36a4b37a/demo_实用.zx#L33-L45"
+      },
+      {
+        "title": "固定中文关键字与宿主操作映射",
+        "url": "https://github.com/1556880640-bot/zhixu/blob/d85adac01a15af7206ec72eda10d994b36a4b37a/zhixu.py#L46-L124"
+      },
+      {
+        "title": "固定词法扫描与整词关键字识别",
+        "url": "https://github.com/1556880640-bot/zhixu/blob/d85adac01a15af7206ec72eda10d994b36a4b37a/zhixu.py#L176-L303"
+      },
+      {
+        "title": "固定词元到Python源码与工具库导入",
+        "url": "https://github.com/1556880640-bot/zhixu/blob/d85adac01a15af7206ec72eda10d994b36a4b37a/zhixu.py#L316-L435"
+      },
+      {
+        "title": "固定转译调用链",
+        "url": "https://github.com/1556880640-bot/zhixu/blob/d85adac01a15af7206ec72eda10d994b36a4b37a/zhixu.py#L443-L470"
+      },
+      {
+        "title": "固定文件执行与Python exec",
+        "url": "https://github.com/1556880640-bot/zhixu/blob/d85adac01a15af7206ec72eda10d994b36a4b37a/zhixu.py#L495-L519"
+      },
+      {
+        "title": "固定CLI入口与三子命令分发",
+        "url": "https://github.com/1556880640-bot/zhixu/blob/d85adac01a15af7206ec72eda10d994b36a4b37a/zhixu.py#L631-L685"
+      },
+      {
+        "title": "固定后端检测及模型加载分派",
+        "url": "https://github.com/1556880640-bot/zhixu/blob/d85adac01a15af7206ec72eda10d994b36a4b37a/zhixu_utils.py#L48-L146"
+      },
+      {
+        "title": "固定Ollama与OpenAI推理适配",
+        "url": "https://github.com/1556880640-bot/zhixu/blob/d85adac01a15af7206ec72eda10d994b36a4b37a/zhixu_utils.py#L153-L304"
+      },
+      {
+        "title": "固定HuggingFace与模拟回退",
+        "url": "https://github.com/1556880640-bot/zhixu/blob/d85adac01a15af7206ec72eda10d994b36a4b37a/zhixu_utils.py#L311-L418"
+      },
+      {
+        "title": "固定RAG真实调用与模拟索引分支",
+        "url": "https://github.com/1556880640-bot/zhixu/blob/d85adac01a15af7206ec72eda10d994b36a4b37a/zhixu_utils.py#L425-L526"
+      },
+      {
+        "title": "固定微调提示与量化状态输出阶段",
+        "url": "https://github.com/1556880640-bot/zhixu/blob/d85adac01a15af7206ec72eda10d994b36a4b37a/zhixu_utils.py#L529-L618"
+      },
+      {
+        "title": "固定显存状态提示及嵌入模拟回退",
+        "url": "https://github.com/1556880640-bot/zhixu/blob/d85adac01a15af7206ec72eda10d994b36a4b37a/zhixu_utils.py#L759-L811"
+      },
+      {
+        "title": "固定源码1.0.0、MIT标签与Python版本",
+        "url": "https://github.com/1556880640-bot/zhixu/blob/d85adac01a15af7206ec72eda10d994b36a4b37a/pyproject.toml#L5-L19"
+      },
+      {
+        "title": "固定README许可声明",
+        "url": "https://github.com/1556880640-bot/zhixu/blob/d85adac01a15af7206ec72eda10d994b36a4b37a/README.md#L96-L98"
+      },
+      {
+        "title": "前身AI-CN源码2.0.0",
+        "url": "https://github.com/1556880640-bot/ai-cn/blob/89d30ece9e6d81ff46bcc2398221b9457e3328c8/pyproject.toml#L5-L19"
+      },
+      {
+        "title": "改名提交、共同历史及Claude Sonnet 4.6署名",
+        "url": "https://github.com/1556880640-bot/zhixu/commit/d85adac01a15af7206ec72eda10d994b36a4b37a"
+      },
+      {
+        "title": "现存根提交与AI共同署名",
+        "url": "https://github.com/1556880640-bot/zhixu/commit/0e7fe68031318c6a283090f52c38aba2b1bdcabd"
+      },
+      {
+        "title": "第二次提交与AI共同署名",
+        "url": "https://github.com/1556880640-bot/zhixu/commit/89d30ece9e6d81ff46bcc2398221b9457e3328c8"
+      },
+      {
+        "title": "前身AI-CN原仓",
+        "url": "https://github.com/1556880640-bot/ai-cn"
+      },
+      {
+        "title": "固定完整八文件树",
+        "url": "https://api.github.com/repos/1556880640-bot/zhixu/git/trees/d85adac01a15af7206ec72eda10d994b36a4b37a?recursive=1"
+      },
+      {
+        "title": "Git refs核对",
+        "url": "https://api.github.com/repos/1556880640-bot/zhixu/git/refs"
+      },
+      {
+        "title": "GitHub Releases核对",
+        "url": "https://api.github.com/repos/1556880640-bot/zhixu/releases?per_page=100"
+      }
+    ],
+    "verification_notes": "2026-10-10只读核验。基线86项语言、26项开放Issue正文和69条Issue评论按名称、别名、作者与原仓检索去重。前轮两仓处于搜索级，本轮以共享提交及明确改名记录合为1项新深入项目。所读知序完整树8项、truncated=false，三条Git提交追到空parents根。代码字段由固定README逐行提取并逐字核验。AI模型调用路径、模拟分支和开发共同署名分别记录。README所述自然语言定位、生态兼容与AI能力按作者文档及具体源码范围记录；引号与标点转换、入口全局、完整错误行映射、REPL状态保留、包安装与全部模型功能继续待核。项目安装、编译、执行、测试及模型请求均保持待核。 现存三次提交消息均含Claude Sonnet 4.6共同署名，属于开发记录中的AI协作标记；工具会话、生成比例与人工复核继续待核。",
+    "verified_at": "2026-10-10",
+    "id": "lang-088"
+  },
+  {
+    "name": "china++（chinaplusplus）",
+    "aliases": [
+      "china++",
+      "chinapp",
+      "China++（chinaplusplus）"
+    ],
+    "category": "C++中文关键字宏层／头文件式语法实验",
+    "author": "原仓由GitHub组织chinaplusplus持有；现存三次提交Git署名xbw，GitHub映射到账号windworst。自然人中文姓名与组织完整分工待核实。",
+    "first_publication": "现存根提交99361dbe21ba782c1e754df3bcf5281ac0ad62e9记录2023-04-21T04:33:29Z，原仓创建于04:33:43Z；当前头同日11:23:47Z。iclasspeople/chinapp Fork创建于2025-04-14T10:08:57Z，原仓历史起点为2023年。准确首次公开时刻待核实。",
+    "description": "china++是通过C++头文件宏定义提供中文类型、流程控制和入口名称的语法实验。核心头把“整数”“返回”“如果”“否则”“又如”分别映射到int、return、if、else和else if，并提供计次循环、先判断循环及后判断循环的中文成对写法。“主函数”展开为main，输入输出扩展把“打印”映射为printf。原作者main.cpp连续展示这些写法，Makefile的demo目标使用g++编译该源文件。实现沿C++预处理与宿主编译链工作，项目按中文关键字宏层分类。2025年Fork继承原仓2023年源码，按一项历史项目归档。",
+    "features": [
+      "中文整数类型、返回与条件分支宏",
+      "中文计次循环、while与do-while宏",
+      "主函数入口宏和打印扩展",
+      "C++头文件引入及g++构建入口"
+    ],
+    "code": "  计次循环(次数, 5) {\n    如果(次数==1) {\n      打印(\"苹果\\n\");\n    } 又如(次数==2) {\n      打印(\"梨子\\n\");\n    } 又如(次数==3) {\n      打印(\"香蕉\\n\");\n    } 又如(次数==4) {\n      打印(\"草莓\\n\");\n    } 否则 {\n      打印(\"鸭蛋\\n\");\n    }\n  }",
+    "code_source": "https://github.com/chinaplusplus/chinapp/blob/dc9dc98cb963cecdd4db1c69da86698207e7ef31/main.cpp#L26-L38",
+    "code_context": "固定提交main.cpp第26—38行完整连续13行，位于第4—41行主函数内，是完整的计次循环与条件分支块。保留两空格基础缩进、花括号、又如写法及字符串转义。文件第1—2行引入核心与输入输出头，第40行返回0。实际编译与打印结果待核实。",
+    "implementation": "main.cpp第1—2行引入china++/核心.h及china++/扩展/输入输出.h。核心.h第3—18行用#define映射中文类型、return、if/else if/else、for/while/do-while及main，输入输出.h第3—5行引入stdio.h并把打印映射到printf。Makefile第9—10行的demo目标调用g++ main.cpp -o main.app；第1—7行另以amalgamate合并头文件。执行依赖C++预处理、g++编译及C标准输入输出库，独立运行、宏作用域边界与各编译器兼容性待核实。",
+    "status": "公开历史源码与连续中文原例可读；原仓archived=false，所读main头dc9dc98cb963cecdd4db1c69da86698207e7ef31记录2023-04-21T11:23:47Z。当前维护计划、编译及现代平台兼容性待核实。",
+    "version": "现存三次提交均在2023-04-21。2026-10-10读取Git refs只有main分支，Releases列表为空；独立语言版号及正式发行物待核实。 固定仓库许可声明与全文待核实。",
+    "license": "GitHub许可元数据为null，固定完整八项树包含五个文本源码／构建／说明文件及.gitignore；公开许可声明、许可全文与授权范围待核实。",
+    "ai_involvement": "所读原仓README、三次提交及四份实现／构建文本的AI开发参与声明待核实。开发工具、模型、生成比例与人工复核范围继续核实。",
+    "relations": "iclasspeople/chinapp的GitHub parent与source均指向chinaplusplus/chinapp，头提交同为dc9dc98cb963cecdd4db1c69da86698207e7ef31，固定完整树路径及blob SHA逐项相同，按同一项目合并。YoloLogic/ChinesePlusPlus等其他中文C++关键字层各有作者与原仓，本项目与其源码继承或设计借鉴关系待核实。",
+    "references": [
+      {
+        "title": "原仓与组织归属元数据",
+        "url": "https://api.github.com/repos/chinaplusplus/chinapp"
+      },
+      {
+        "title": "固定原作者README",
+        "url": "https://github.com/chinaplusplus/chinapp/blob/dc9dc98cb963cecdd4db1c69da86698207e7ef31/README.md#L1-L5"
+      },
+      {
+        "title": "固定连续13行计次循环与分支原例",
+        "url": "https://github.com/chinaplusplus/chinapp/blob/dc9dc98cb963cecdd4db1c69da86698207e7ef31/main.cpp#L26-L38"
+      },
+      {
+        "title": "完整主函数、头文件引用与返回",
+        "url": "https://github.com/chinaplusplus/chinapp/blob/dc9dc98cb963cecdd4db1c69da86698207e7ef31/main.cpp#L1-L41"
+      },
+      {
+        "title": "固定中文核心关键字与循环宏",
+        "url": "https://github.com/chinaplusplus/chinapp/blob/dc9dc98cb963cecdd4db1c69da86698207e7ef31/china++/核心.h#L3-L18"
+      },
+      {
+        "title": "固定打印宏与C标准库接入",
+        "url": "https://github.com/chinaplusplus/chinapp/blob/dc9dc98cb963cecdd4db1c69da86698207e7ef31/china++/扩展/输入输出.h#L1-L5"
+      },
+      {
+        "title": "固定g++构建与头文件合并目标",
+        "url": "https://github.com/chinaplusplus/chinapp/blob/dc9dc98cb963cecdd4db1c69da86698207e7ef31/Makefile#L1-L10"
+      },
+      {
+        "title": "2023根提交与GitHub作者映射",
+        "url": "https://github.com/chinaplusplus/chinapp/commit/99361dbe21ba782c1e754df3bcf5281ac0ad62e9"
+      },
+      {
+        "title": "当前头提交与作者署名",
+        "url": "https://github.com/chinaplusplus/chinapp/commit/dc9dc98cb963cecdd4db1c69da86698207e7ef31"
+      },
+      {
+        "title": "2025 Fork的明确parent与source元数据",
+        "url": "https://api.github.com/repos/iclasspeople/chinapp"
+      },
+      {
+        "title": "原仓固定完整树",
+        "url": "https://api.github.com/repos/chinaplusplus/chinapp/git/trees/dc9dc98cb963cecdd4db1c69da86698207e7ef31?recursive=1"
+      },
+      {
+        "title": "Fork同头完整树",
+        "url": "https://api.github.com/repos/iclasspeople/chinapp/git/trees/dc9dc98cb963cecdd4db1c69da86698207e7ef31?recursive=1"
+      },
+      {
+        "title": "Git refs核对",
+        "url": "https://api.github.com/repos/chinaplusplus/chinapp/git/refs"
+      },
+      {
+        "title": "GitHub Releases核对",
+        "url": "https://api.github.com/repos/chinaplusplus/chinapp/releases?per_page=100"
+      }
+    ],
+    "verification_notes": "2026-10-10只读核验。前轮iclasspeople/chinapp处于搜索级，本轮沿Fork元数据追到2023原仓。基线语言目录、开放Issue与69条Issue评论按chinapp、china++、chinaplusplus、windworst及原仓检索去重。完整树8项且truncated=false；原仓与Fork共享头和全部blob。代码字段由固定main.cpp第26—38行提取并逐字核验。宏映射涉及类型与控制结构，按C++中文关键字层收录。2025是Fork建库时间，2023是原仓现存历史；首次公开日与未来维护状态继续核实。项目编译、头文件合并工具安装、程序执行与测试结果待核实。 AI开发参与及具体工具／模型待核实。",
+    "verified_at": "2026-10-10",
+    "id": "lang-089"
+  },
+  {
+    "name": "天河语言（ThLang）",
+    "aliases": [
+      "天河语言",
+      "ThLang",
+      "Thlang",
+      "Tianhe Language",
+      "天狐语言",
+      "Tianhu Language"
+    ],
+    "category": "中文关键字编译语言／C++—LLVM实验工具链",
+    "author": "Sen；GitHub账号tianhuzong，Gitee账号thzsen，Bilibili发布账号Californium-252（UID3494354284972407）。作者个人README、Gitee简介和B站项目简介形成互链。",
+    "first_publication": "GitHub仓库创建于2023-08-13T06:18:09Z；现存主线最早提交为2023-08-14T12:41:56Z，初版README提交为同日13:17:17Z。2024-03-14 README改述C++／LLVM编译路线，2025-01-12提交将天狐语言改名天河语言。仓库创建、Git提交与最早对外公开发布时间分别记录；准确首发时间待核实。",
+    "description": "天河语言（ThLang，早期名天狐语言）是Sen维护的中文关键字编译语言实验，原作者将其定位为便于新手和儿童入门的编程工具，配套工具称为始皇编译器。现存源码使用“整数型”“如果”“否则”“返回”“外部”以及“且”“或”等中文语法，保留括号、花括号和常见运算符。C++前端通过词法规则与Bison语法构造抽象语法树，随后生成LLVM IR，源码提供目标文件生成及LLD链接入口。原仓保存完整三行中文入口程序，并将“入口”函数映射为main。项目历史展示了从Python解释型设想到C++／LLVM编译方向的演变；2026年README与目录记录进一步重构计划。当前材料可用于研究中文语法、编译前端和LLVM接入方式，实际构建、平台兼容性与完整语言语义待核实。",
+    "features": [
+      "中文类型、条件、返回与外部声明关键字",
+      "Unicode标识符、花括号代码块及可选分号组织",
+      "中文“入口”函数映射为main",
+      "C++词法／Bison语法规则构造AST",
+      "LLVM IR、目标文件与LLD链接实现入口",
+      ".th与.thlang源码扩展名及CLI项目初始化模板"
+    ],
+    "code": "整数型 入口(){\n    返回 0;\n}",
+    "code_source": "https://github.com/tianhuzong/ThLang/blob/779844e806391ca79421378f48b2aa7de2f4f837/bin/thlang/main.th#L1-L3",
+    "code_context": "固定提交779844e806391ca79421378f48b2aa7de2f4f837的bin/thlang/main.th第1—3行完整连续原文，保留四空格缩进、半角括号、花括号和分号，显示时省略末尾换行。文件blob为84c8e1a8e1915371e29e23cfd53e4ec2df043251。src/acli.cpp的ThInit保存相同初始化模板；src/codegen.cpp第494行将“入口”映射到main。独立编译与运行结果待核实。",
+    "implementation": "当前固定源码以C++实现。src/lex.l将中文关键字映射为TOKEN_IF、TOKEN_ELSE、TOKEN_INT、TOKEN_RETURN和TOKEN_EXTERN；src/parser.y解析函数、变量声明、条件分支和返回并构造AST。src/libthlang.cpp的compile_toir调用yyparse及root_module.codegen生成LLVM IR，compile_from_files_to_exe处理.th／.thlang输入、生成目标文件并进入LLD链接。src/codegen.cpp使用LLVM IRBuilder生成分支、返回与函数；src/TypeSystem.cpp记录中文类型到LLVM类型的映射。src/CMakeLists.txt链接thlang共享库、LLVM、RE-flex及LLD相关库。src/acli.cpp包含init、info和build入口；当前CMake的compiler目标采用src/main.cpp。上述内容按静态源码记录，各入口构建与运行覆盖待核实。",
+    "version": "本轮固定main提交779844e806391ca79421378f48b2aa7de2f4f837，作者与提交者时间均为2026-06-21T04:22:56Z；仓库pushed_at为2026-06-21T04:28:57Z。GitHub Releases集合为空。bin/thlang/ThlangProject.json的version=1.0.0属于示例项目元数据，src/acli.cpp将1.0.0作为新包默认版本。本轮Git引用集合列main与shared_ptr两个分支；编译器正式版本编号和发行包待核实。 本体许可待核实：README自述开源，GitHub license=null；固定根目录的项目级许可证正文待核。示例包的MIT字段与编译器本体授权范围分别核实。",
+    "license": "README自述开源。GitHub license检测值为null，固定根目录的项目级许可证正文待核实。bin/thlang/ThlangProject.json的MIT字段属于示例包元数据，CLI可由用户填写包许可证且默认MIT；其对编译器本体的授权范围待核实。第三方目录保留各依赖许可文件。",
+    "ai_involvement": "AI工具、模型、生成比例和人工复核范围待核实。",
+    "relations": "同仓历史将天狐语言（Tianhu Language）演变为天河语言（Tianhe Language），按同一语言记录。作者TinyToyCompiler的README说明该测试编译器用于探索ThLang开发遇到的问题，并引用stardust95/TinyCompiler；具体源码继承范围待核实。Californium-252在2024年BV1bm421x7AK中展示的.zh中文编译器具有已核中文原例与zhpy工作目录线索；它与ThLang及gasolin/zhpy的实现关系继续在Issue #24核实。",
+    "status": "2026-10-10公开原仓、连续中文例程和实现文件可读，archived=false。2026-05-05作者Issue #1提出重写计划，2026-06-21提交调整目录并暂停工作流；新分层目录中的多项文件大小为0，现有非空实现继续位于src/lex.l、src/parser.y、src/codegen.cpp和src/libthlang.cpp等路径。项目处于实验与重构阶段，独立运行、测试、自举及持续维护计划待核实。",
+    "evidence_level": "作者公开互链、固定中文程序及C++／LLVM实现可见；运行与发行状态分层记录",
+    "verification_notes": "2026-10-10只读核验。基线93815086f1778802ea57ddeeec8ad717e355814f含86项语言，按ThLang、天河语言、天狐语言及作者账号排重；既有研究日志未命中，百科Issue检索ThLang与天狐返回空。通过Issue #24原视频作者链发现本项目，新增正式建议1项。读取固定源码树、主要前端／代码生成／CLI文件、历史README、改名提交、作者个人README及公开B站／Gitee页面。中文循环的完整词法与语法对应、示例包MIT和1.0.0的本体适用范围、2024视频继承关系及AI参与继续待核实。项目源码采用静态阅读，构建、运行、编译测试和二进制执行均留待专项核验。",
+    "verified_at": "2026-10-10",
+    "repository_created_at": "2023-08-13T06:18:09Z",
+    "repository_pushed_at": "2026-06-21T04:28:57Z",
+    "references": [
+      {
+        "title": "原仓README：天河语言及2026重构计划",
+        "url": "https://github.com/tianhuzong/ThLang/blob/779844e806391ca79421378f48b2aa7de2f4f837/README.md"
+      },
+      {
+        "title": "固定连续中文原例：main.th第1—3行",
+        "url": "https://github.com/tianhuzong/ThLang/blob/779844e806391ca79421378f48b2aa7de2f4f837/bin/thlang/main.th#L1-L3"
+      },
+      {
+        "title": "中文词法规则：如果、否则、整数型、返回及外部",
+        "url": "https://github.com/tianhuzong/ThLang/blob/779844e806391ca79421378f48b2aa7de2f4f837/src/lex.l#L45-L57"
+      },
+      {
+        "title": "语法规则与AST构造",
+        "url": "https://github.com/tianhuzong/ThLang/blob/779844e806391ca79421378f48b2aa7de2f4f837/src/parser.y#L70-L201"
+      },
+      {
+        "title": "函数返回及入口名称到main的映射",
+        "url": "https://github.com/tianhuzong/ThLang/blob/779844e806391ca79421378f48b2aa7de2f4f837/src/codegen.cpp#L470-L503"
+      },
+      {
+        "title": "源码到LLVM IR及对象文件、LLD链接入口",
+        "url": "https://github.com/tianhuzong/ThLang/blob/779844e806391ca79421378f48b2aa7de2f4f837/src/libthlang.cpp"
+      },
+      {
+        "title": "中文类型名称到LLVM类型的映射",
+        "url": "https://github.com/tianhuzong/ThLang/blob/779844e806391ca79421378f48b2aa7de2f4f837/src/TypeSystem.cpp"
+      },
+      {
+        "title": "CLI初始化模板、包版本及许可的用户参数",
+        "url": "https://github.com/tianhuzong/ThLang/blob/779844e806391ca79421378f48b2aa7de2f4f837/src/acli.cpp"
+      },
+      {
+        "title": "示例项目的1.0.0与MIT元数据",
+        "url": "https://github.com/tianhuzong/ThLang/blob/779844e806391ca79421378f48b2aa7de2f4f837/bin/thlang/ThlangProject.json"
+      },
+      {
+        "title": "当前CMake构建入口",
+        "url": "https://github.com/tianhuzong/ThLang/blob/779844e806391ca79421378f48b2aa7de2f4f837/src/CMakeLists.txt"
+      },
+      {
+        "title": "2023年天狐语言早期README",
+        "url": "https://github.com/tianhuzong/ThLang/blob/f72dd88b0d353eb4e2cab26113deb187237e54b3/README.md"
+      },
+      {
+        "title": "2024年README转为C++与LLVM编译方向",
+        "url": "https://github.com/tianhuzong/ThLang/blob/fd6325be8db0325fdf21dd7d0d57587d5064342f/README.md"
+      },
+      {
+        "title": "2025年天狐改名天河的原始提交",
+        "url": "https://github.com/tianhuzong/ThLang/commit/84bf8805bbd7d8e192bb2f84da8e237a1f91efae"
+      },
+      {
+        "title": "作者个人README：Sen、GitHub、Gitee与B站UID互链",
+        "url": "https://github.com/tianhuzong/tianhuzong/blob/52feca7bcfc158c376958c57d0708bb24559315e/README.md"
+      },
+      {
+        "title": "同UID原视频简介：直接链接tianhuzong的项目",
+        "url": "https://www.bilibili.com/video/BV191GVzGEwU/"
+      },
+      {
+        "title": "作者Gitee主页：Sen与B站UID互链",
+        "url": "https://gitee.com/thzsen"
+      },
+      {
+        "title": "同作者TinyToyCompiler：与ThLang的开发关系自述",
+        "url": "https://github.com/tianhuzong/TinyToyCompiler/blob/e2d09969694ba940c3594e556105e3c2c18747c4/README.md"
+      },
+      {
+        "title": "作者2026年重写计划Issue",
+        "url": "https://github.com/tianhuzong/ThLang/issues/1"
+      },
+      {
+        "title": "原仓元数据：创建、更新与许可检测",
+        "url": "https://api.github.com/repos/tianhuzong/ThLang"
+      },
+      {
+        "title": "当前固定提交",
+        "url": "https://github.com/tianhuzong/ThLang/commit/779844e806391ca79421378f48b2aa7de2f4f837"
+      },
+      {
+        "title": "Git引用集合：main与shared_ptr分支",
+        "url": "https://api.github.com/repos/tianhuzong/ThLang/git/refs"
+      }
+    ],
+    "id": "lang-090"
   }
 ]

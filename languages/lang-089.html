@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>china++（chinaplusplus）｜中文编程语言百科</title><link rel="stylesheet" href="../style.css"></head><body><header><h1>china++（chinaplusplus）</h1></header><main><p><a href="../">返回语言目录</a></p>
+<h2>语言介绍</h2><p>china++是通过C++头文件宏定义提供中文类型、流程控制和入口名称的语法实验。核心头把“整数”“返回”“如果”“否则”“又如”分别映射到int、return、if、else和else if，并提供计次循环、先判断循环及后判断循环的中文成对写法。“主函数”展开为main，输入输出扩展把“打印”映射为printf。原作者main.cpp连续展示这些写法，Makefile的demo目标使用g++编译该源文件。实现沿C++预处理与宿主编译链工作，项目按中文关键字宏层分类。2025年Fork继承原仓2023年源码，按一项历史项目归档。</p>
+<h2>分类与别名</h2><p>C++中文关键字宏层／头文件式语法实验；别名：china++；chinapp；China++（chinaplusplus）</p>
+<h2>作者与公开历史</h2><p>原仓由GitHub组织chinaplusplus持有；现存三次提交Git署名xbw，GitHub映射到账号windworst。自然人中文姓名与组织完整分工待核实。</p><p>现存根提交99361dbe21ba782c1e754df3bcf5281ac0ad62e9记录2023-04-21T04:33:29Z，原仓创建于04:33:43Z；当前头同日11:23:47Z。iclasspeople/chinapp Fork创建于2025-04-14T10:08:57Z，原仓历史起点为2023年。准确首次公开时刻待核实。</p>
+<h2>设计与特征</h2><p>中文整数类型、返回与条件分支宏；中文计次循环、while与do-while宏；主函数入口宏和打印扩展；C++头文件引入及g++构建入口</p>
+<h2>中文语法示例</h2><pre><code>  计次循环(次数, 5) {
+    如果(次数==1) {
+      打印(&quot;苹果\n&quot;);
+    } 又如(次数==2) {
+      打印(&quot;梨子\n&quot;);
+    } 又如(次数==3) {
+      打印(&quot;香蕉\n&quot;);
+    } 又如(次数==4) {
+      打印(&quot;草莓\n&quot;);
+    } 否则 {
+      打印(&quot;鸭蛋\n&quot;);
+    }
+  }</code></pre><p>固定提交main.cpp第26—38行完整连续13行，位于第4—41行主函数内，是完整的计次循环与条件分支块。保留两空格基础缩进、花括号、又如写法及字符串转义。文件第1—2行引入核心与输入输出头，第40行返回0。实际编译与打印结果待核实。 <a href="https://github.com/chinaplusplus/chinapp/blob/dc9dc98cb963cecdd4db1c69da86698207e7ef31/main.cpp#L26-L38">示例来源</a></p>
+<h2>实现与运行环境</h2><p>main.cpp第1—2行引入china++/核心.h及china++/扩展/输入输出.h。核心.h第3—18行用#define映射中文类型、return、if/else if/else、for/while/do-while及main，输入输出.h第3—5行引入stdio.h并把打印映射到printf。Makefile第9—10行的demo目标调用g++ main.cpp -o main.app；第1—7行另以amalgamate合并头文件。执行依赖C++预处理、g++编译及C标准输入输出库，独立运行、宏作用域边界与各编译器兼容性待核实。</p>
+<h2>版本与维护状态</h2><p>现存三次提交均在2023-04-21。2026-10-10读取Git refs只有main分支，Releases列表为空；独立语言版号及正式发行物待核实。 固定仓库许可声明与全文待核实。</p><p>公开历史源码与连续中文原例可读；原仓archived=false，所读main头dc9dc98cb963cecdd4db1c69da86698207e7ef31记录2023-04-21T11:23:47Z。当前维护计划、编译及现代平台兼容性待核实。</p>
+<h2>与其他项目的关系</h2><p>iclasspeople/chinapp的GitHub parent与source均指向chinaplusplus/chinapp，头提交同为dc9dc98cb963cecdd4db1c69da86698207e7ef31，固定完整树路径及blob SHA逐项相同，按同一项目合并。YoloLogic/ChinesePlusPlus等其他中文C++关键字层各有作者与原仓，本项目与其源码继承或设计借鉴关系待核实。</p>
+<h2>核验说明</h2><p>2026-10-10只读核验。前轮iclasspeople/chinapp处于搜索级，本轮沿Fork元数据追到2023原仓。基线语言目录、开放Issue与69条Issue评论按chinapp、china++、chinaplusplus、windworst及原仓检索去重。完整树8项且truncated=false；原仓与Fork共享头和全部blob。代码字段由固定main.cpp第26—38行提取并逐字核验。宏映射涉及类型与控制结构，按C++中文关键字层收录。2025是Fork建库时间，2023是原仓现存历史；首次公开日与未来维护状态继续核实。项目编译、头文件合并工具安装、程序执行与测试结果待核实。 AI开发参与及具体工具／模型待核实。</p>
+<h2>参考资料</h2><ul><li><a href="https://api.github.com/repos/chinaplusplus/chinapp">原仓与组织归属元数据</a></li>
+<li><a href="https://github.com/chinaplusplus/chinapp/blob/dc9dc98cb963cecdd4db1c69da86698207e7ef31/README.md#L1-L5">固定原作者README</a></li>
+<li><a href="https://github.com/chinaplusplus/chinapp/blob/dc9dc98cb963cecdd4db1c69da86698207e7ef31/main.cpp#L26-L38">固定连续13行计次循环与分支原例</a></li>
+<li><a href="https://github.com/chinaplusplus/chinapp/blob/dc9dc98cb963cecdd4db1c69da86698207e7ef31/main.cpp#L1-L41">完整主函数、头文件引用与返回</a></li>
+<li><a href="https://github.com/chinaplusplus/chinapp/blob/dc9dc98cb963cecdd4db1c69da86698207e7ef31/china++/核心.h#L3-L18">固定中文核心关键字与循环宏</a></li>
+<li><a href="https://github.com/chinaplusplus/chinapp/blob/dc9dc98cb963cecdd4db1c69da86698207e7ef31/china++/扩展/输入输出.h#L1-L5">固定打印宏与C标准库接入</a></li>
+<li><a href="https://github.com/chinaplusplus/chinapp/blob/dc9dc98cb963cecdd4db1c69da86698207e7ef31/Makefile#L1-L10">固定g++构建与头文件合并目标</a></li>
+<li><a href="https://github.com/chinaplusplus/chinapp/commit/99361dbe21ba782c1e754df3bcf5281ac0ad62e9">2023根提交与GitHub作者映射</a></li>
+<li><a href="https://github.com/chinaplusplus/chinapp/commit/dc9dc98cb963cecdd4db1c69da86698207e7ef31">当前头提交与作者署名</a></li>
+<li><a href="https://api.github.com/repos/iclasspeople/chinapp">2025 Fork的明确parent与source元数据</a></li>
+<li><a href="https://api.github.com/repos/chinaplusplus/chinapp/git/trees/dc9dc98cb963cecdd4db1c69da86698207e7ef31?recursive=1">原仓固定完整树</a></li>
+<li><a href="https://api.github.com/repos/iclasspeople/chinapp/git/trees/dc9dc98cb963cecdd4db1c69da86698207e7ef31?recursive=1">Fork同头完整树</a></li>
+<li><a href="https://api.github.com/repos/chinaplusplus/chinapp/git/refs">Git refs核对</a></li>
+<li><a href="https://api.github.com/repos/chinaplusplus/chinapp/releases?per_page=100">GitHub Releases核对</a></li></ul><p>资料核验日期：2026-10-10</p><p><a href="https://github.com/yuyan-lang/chinese-programming-languages/issues/new">补充资料或纠错</a></p></main><footer>站点由<a href="https://yuyan-lang.org/">豫言编程语言</a>提供</footer></body></html>
