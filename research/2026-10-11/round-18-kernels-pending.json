@@ -1,0 +1,466 @@
+[
+  {
+    "id": "mimicryos-annihilation006",
+    "name": "MimicryOS",
+    "checked_at": "2026-10-11",
+    "selection_status": "待核候选",
+    "repository": "Annihilation006/MimicryOS",
+    "source_snapshot": {
+      "branch": "main",
+      "commit": "b2ed7ca8392c91c0386aeee055e242ee0c433b2d",
+      "committed_at": "2026-10-02T14:28:18Z"
+    },
+    "repository_created_at": "2026-08-27T10:33:05Z",
+    "author": {
+      "handle": "Annihilation006",
+      "attribution": "仓库维护账号与固定README署名相符；自然人及社区成员角色待核。",
+      "china_basis": {
+        "status": "待核实",
+        "text": "中文README与公开项目内容已核对；明确中国作者或中国社区归属的原始公开声明待补。公开GitHub主页简介及所在地字段为空。"
+      }
+    },
+    "sources": [
+      {
+        "id": "mi1",
+        "title": "作者仓库元数据",
+        "url": "https://api.github.com/repos/Annihilation006/MimicryOS",
+        "kind": "平台元数据",
+        "supports": [
+          "创建时间",
+          "维护账号",
+          "默认分支",
+          "许可证字段"
+        ]
+      },
+      {
+        "id": "mi2",
+        "title": "固定提交",
+        "url": "https://github.com/Annihilation006/MimicryOS/commit/b2ed7ca8392c91c0386aeee055e242ee0c433b2d",
+        "kind": "固定提交",
+        "supports": [
+          "提交时间",
+          "快照"
+        ]
+      },
+      {
+        "id": "mi3",
+        "title": "固定完整源码树",
+        "url": "https://api.github.com/repos/Annihilation006/MimicryOS/git/trees/b2ed7ca8392c91c0386aeee055e242ee0c433b2d?recursive=1",
+        "kind": "固定源码树",
+        "supports": [
+          "文件范围"
+        ]
+      },
+      {
+        "id": "mi4",
+        "title": "固定 README.md",
+        "url": "https://github.com/Annihilation006/MimicryOS/blob/b2ed7ca8392c91c0386aeee055e242ee0c433b2d/README.md",
+        "kind": "固定作者文件",
+        "supports": [
+          "源码或文档的静态内容"
+        ]
+      },
+      {
+        "id": "mi5",
+        "title": "固定 Makefile",
+        "url": "https://github.com/Annihilation006/MimicryOS/blob/b2ed7ca8392c91c0386aeee055e242ee0c433b2d/Makefile",
+        "kind": "固定作者文件",
+        "supports": [
+          "源码或文档的静态内容"
+        ]
+      },
+      {
+        "id": "mi6",
+        "title": "固定 linker.ld",
+        "url": "https://github.com/Annihilation006/MimicryOS/blob/b2ed7ca8392c91c0386aeee055e242ee0c433b2d/linker.ld",
+        "kind": "固定作者文件",
+        "supports": [
+          "源码或文档的静态内容"
+        ]
+      },
+      {
+        "id": "mi7",
+        "title": "固定 kernel.c",
+        "url": "https://github.com/Annihilation006/MimicryOS/blob/b2ed7ca8392c91c0386aeee055e242ee0c433b2d/kernel.c",
+        "kind": "固定作者文件",
+        "supports": [
+          "源码或文档的静态内容"
+        ]
+      },
+      {
+        "id": "mi8",
+        "title": "固定 filesystem.mod.c",
+        "url": "https://github.com/Annihilation006/MimicryOS/blob/b2ed7ca8392c91c0386aeee055e242ee0c433b2d/filesystem.mod.c",
+        "kind": "固定作者文件",
+        "supports": [
+          "源码或文档的静态内容"
+        ]
+      },
+      {
+        "id": "mi9",
+        "title": "固定 task.h",
+        "url": "https://github.com/Annihilation006/MimicryOS/blob/b2ed7ca8392c91c0386aeee055e242ee0c433b2d/task.h",
+        "kind": "固定作者文件",
+        "supports": [
+          "源码或文档的静态内容"
+        ]
+      },
+      {
+        "id": "mi10",
+        "title": "固定 bootboot.h",
+        "url": "https://github.com/Annihilation006/MimicryOS/blob/b2ed7ca8392c91c0386aeee055e242ee0c433b2d/bootboot.h",
+        "kind": "固定作者文件",
+        "supports": [
+          "源码或文档的静态内容"
+        ]
+      },
+      {
+        "id": "mi11",
+        "title": "固定 LICENSE",
+        "url": "https://github.com/Annihilation006/MimicryOS/blob/b2ed7ca8392c91c0386aeee055e242ee0c433b2d/LICENSE",
+        "kind": "固定作者文件",
+        "supports": [
+          "源码或文档的静态内容"
+        ]
+      },
+      {
+        "id": "mi12",
+        "title": "固定 memory.h",
+        "url": "https://github.com/Annihilation006/MimicryOS/blob/b2ed7ca8392c91c0386aeee055e242ee0c433b2d/memory.h",
+        "kind": "固定作者文件",
+        "supports": [
+          "源码或文档的静态内容"
+        ]
+      },
+      {
+        "id": "mi13",
+        "title": "固定 module.h",
+        "url": "https://github.com/Annihilation006/MimicryOS/blob/b2ed7ca8392c91c0386aeee055e242ee0c433b2d/module.h",
+        "kind": "固定作者文件",
+        "supports": [
+          "源码或文档的静态内容"
+        ]
+      },
+      {
+        "id": "mi14",
+        "title": "固定 idt.h",
+        "url": "https://github.com/Annihilation006/MimicryOS/blob/b2ed7ca8392c91c0386aeee055e242ee0c433b2d/idt.h",
+        "kind": "固定作者文件",
+        "supports": [
+          "源码或文档的静态内容"
+        ]
+      },
+      {
+        "id": "mi15",
+        "title": "固定 pic.h",
+        "url": "https://github.com/Annihilation006/MimicryOS/blob/b2ed7ca8392c91c0386aeee055e242ee0c433b2d/pic.h",
+        "kind": "固定作者文件",
+        "supports": [
+          "源码或文档的静态内容"
+        ]
+      },
+      {
+        "id": "mi16",
+        "title": "固定 tasks.mod.c",
+        "url": "https://github.com/Annihilation006/MimicryOS/blob/b2ed7ca8392c91c0386aeee055e242ee0c433b2d/tasks.mod.c",
+        "kind": "固定作者文件",
+        "supports": [
+          "源码或文档的静态内容"
+        ]
+      },
+      {
+        "id": "mi17",
+        "title": "固定 mouse.mod.c",
+        "url": "https://github.com/Annihilation006/MimicryOS/blob/b2ed7ca8392c91c0386aeee055e242ee0c433b2d/mouse.mod.c",
+        "kind": "固定作者文件",
+        "supports": [
+          "源码或文档的静态内容"
+        ]
+      },
+      {
+        "id": "mi18",
+        "title": "固定 desktop.mod.c",
+        "url": "https://github.com/Annihilation006/MimicryOS/blob/b2ed7ca8392c91c0386aeee055e242ee0c433b2d/desktop.mod.c",
+        "kind": "固定作者文件",
+        "supports": [
+          "源码或文档的静态内容"
+        ]
+      },
+      {
+        "id": "mi19",
+        "title": "固定 png.mod.c",
+        "url": "https://github.com/Annihilation006/MimicryOS/blob/b2ed7ca8392c91c0386aeee055e242ee0c433b2d/png.mod.c",
+        "kind": "固定作者文件",
+        "supports": [
+          "源码或文档的静态内容"
+        ]
+      },
+      {
+        "id": "mi20",
+        "title": "保留提交历史",
+        "url": "https://api.github.com/repos/Annihilation006/MimicryOS/commits?per_page=100",
+        "kind": "提交历史",
+        "supports": [
+          "阶段沿革"
+        ]
+      },
+      {
+        "id": "mi21",
+        "title": "Releases集合",
+        "url": "https://api.github.com/repos/Annihilation006/MimicryOS/releases?per_page=100",
+        "kind": "发行元数据",
+        "supports": [
+          "查询时空集合"
+        ]
+      },
+      {
+        "id": "mi22",
+        "title": "维护账号公开主页",
+        "url": "https://github.com/Annihilation006",
+        "kind": "公开主页",
+        "supports": [
+          "公开自述检查"
+        ]
+      }
+    ],
+    "short_description": "Annihilation006维护的实验性x86-64内核源码项目，采用BOOTBOOT引导协议，包含Shell、堆分配、固定扇区文件读写、图形和PS/2相关代码。作者自述使用AI开发并逐渐转向人工开发。",
+    "kernel_positioning": {
+      "text": "Makefile以-m64、-ffreestanding构建独立kernel.elf；链接脚本指定_start和高地址PT_LOAD段。_start执行cli、设栈后进入kernel_main。BOOTBOOT信息与帧缓冲被内核读取。自有内核入口源码可见。",
+      "evidence_level": "源码可见"
+    },
+    "architectures": [
+      {
+        "text": "x86-64目标由-m64及ld -m elf_x86_64确认；部分task/IDT头文件保存32位寄存器字段，架构阶段整合待核。",
+        "evidence_level": "源码可见"
+      }
+    ],
+    "capabilities": {
+      "boot": "BOOTBOOT结构、链接脚本与_start入口；引导器发行物和镜像打包链待补。",
+      "memory": "0x200000起始、0x100000大小的固定堆，链表分割分配，kfree标记空闲；页表、地址空间隔离与完整物理内存管理待核。",
+      "filesystem": "filesystem.mod.c为名称32字节、内容256字节的内存链表；kernel.c另含标为FAT12的固定LBA2880/2885/2890读写路径。通用FAT12簇链及磁盘一致性待核。",
+      "scheduling": "task.h与tasks.mod.c有任务API和示例；当前Makefile构建对象及kernel_main路径的调度接入待核。",
+      "drivers": "ATA PIO端口I/O、PS/2键盘轮询、PS/2鼠标模块、BOOTBOOT帧缓冲与stb_image PNG调用可见。"
+    },
+    "project_relationships": [
+      {
+        "text": "README明确致谢CoolPot的部分开源文件及XIAOYI80386；精确文件、上游版本与整体继承范围待核。",
+        "evidence_level": "作者声明"
+      },
+      {
+        "text": "bootboot.h及linker.ld保留bzt 2017—2021署名与MIT许可文本；png.mod.c引用stb_image.h。",
+        "evidence_level": "源码可见"
+      }
+    ],
+    "license": {
+      "text": "根LICENSE为MIT，署名2025 annihilation006；CoolPot继承文件与第三方资源适用许可继续待核。",
+      "evidence_level": "源码可见"
+    },
+    "dates": {
+      "text": "仓库创建2026-08-27；保留根提交时间2026-08-27T10:00:23Z。LICENSE年份2025及date命令常量2025-08-25分别记录，首次公开时间待核。"
+    },
+    "status": {
+      "source_completeness": "README自述公开文件为较旧版本，最新源码另有群入口。固定Makefile依赖font.o，当前完整树对应对象、字体源和生成规则待补。",
+      "release": "查询时Releases为空；Shell源码显示v0.1，正式发行版待核。",
+      "author_demo": "公开原片、截图、时间点及与快照对应待补。",
+      "runtime_verification": "本轮为静态阅读；独立构建、启动、功能与安全验证待核。"
+    },
+    "pending_verification": [
+      "明确中国作者或中国社区公开自述",
+      "CoolPot精确文件与固定上游、继承许可范围",
+      "当前源码与群内新版本沿革",
+      "font.o和完整构建/引导输入",
+      "调度、中断、64位结构的版本整合",
+      "FAT12通用性与磁盘读写范围",
+      "作者原片与固定源码版本对应",
+      "独立运行结果"
+    ]
+  },
+  {
+    "id": "causenix-frcreeper",
+    "name": "Causenix OS",
+    "checked_at": "2026-10-11",
+    "selection_status": "待核候选",
+    "repository": "FRCREEPER/causenix",
+    "source_snapshot": {
+      "branch": "main",
+      "commit": "f7ab3f38bac9b944b184e9226a6e8da5d65dde2e",
+      "committed_at": "2026-10-06T15:46:44Z"
+    },
+    "repository_created_at": "2026-10-06T06:15:52Z",
+    "author": {
+      "handle": "FRCREEPER",
+      "attribution": "仓库维护账号与固定README署名相符；自然人及社区成员角色待核。",
+      "china_basis": {
+        "status": "待核实",
+        "text": "中文README与公开项目内容已核对；明确中国作者或中国社区归属的原始公开声明待补。公开GitHub主页简介及所在地字段为空。"
+      }
+    },
+    "sources": [
+      {
+        "id": "ca1",
+        "title": "作者仓库元数据",
+        "url": "https://api.github.com/repos/FRCREEPER/causenix",
+        "kind": "平台元数据",
+        "supports": [
+          "创建时间",
+          "维护账号",
+          "默认分支",
+          "许可证字段"
+        ]
+      },
+      {
+        "id": "ca2",
+        "title": "固定提交",
+        "url": "https://github.com/FRCREEPER/causenix/commit/f7ab3f38bac9b944b184e9226a6e8da5d65dde2e",
+        "kind": "固定提交",
+        "supports": [
+          "提交时间",
+          "快照"
+        ]
+      },
+      {
+        "id": "ca3",
+        "title": "固定完整源码树",
+        "url": "https://api.github.com/repos/FRCREEPER/causenix/git/trees/f7ab3f38bac9b944b184e9226a6e8da5d65dde2e?recursive=1",
+        "kind": "固定源码树",
+        "supports": [
+          "文件范围"
+        ]
+      },
+      {
+        "id": "ca4",
+        "title": "固定 README.md",
+        "url": "https://github.com/FRCREEPER/causenix/blob/f7ab3f38bac9b944b184e9226a6e8da5d65dde2e/README.md",
+        "kind": "固定作者文件",
+        "supports": [
+          "源码或文档的静态内容"
+        ]
+      },
+      {
+        "id": "ca5",
+        "title": "固定 src/netcmd.c",
+        "url": "https://github.com/FRCREEPER/causenix/blob/f7ab3f38bac9b944b184e9226a6e8da5d65dde2e/src/netcmd.c",
+        "kind": "固定作者文件",
+        "supports": [
+          "源码或文档的静态内容"
+        ]
+      },
+      {
+        "id": "ca6",
+        "title": "固定 src/netcmd.h",
+        "url": "https://github.com/FRCREEPER/causenix/blob/f7ab3f38bac9b944b184e9226a6e8da5d65dde2e/src/netcmd.h",
+        "kind": "固定作者文件",
+        "supports": [
+          "源码或文档的静态内容"
+        ]
+      },
+      {
+        "id": "ca7",
+        "title": "固定 src/shell.h",
+        "url": "https://github.com/FRCREEPER/causenix/blob/f7ab3f38bac9b944b184e9226a6e8da5d65dde2e/src/shell.h",
+        "kind": "固定作者文件",
+        "supports": [
+          "源码或文档的静态内容"
+        ]
+      },
+      {
+        "id": "ca8",
+        "title": "固定 src/e1000.h",
+        "url": "https://github.com/FRCREEPER/causenix/blob/f7ab3f38bac9b944b184e9226a6e8da5d65dde2e/src/e1000.h",
+        "kind": "固定作者文件",
+        "supports": [
+          "源码或文档的静态内容"
+        ]
+      },
+      {
+        "id": "ca9",
+        "title": "固定 index.html",
+        "url": "https://github.com/FRCREEPER/causenix/blob/f7ab3f38bac9b944b184e9226a6e8da5d65dde2e/index.html",
+        "kind": "固定作者文件",
+        "supports": [
+          "源码或文档的静态内容"
+        ]
+      },
+      {
+        "id": "ca10",
+        "title": "固定 manifest.json",
+        "url": "https://github.com/FRCREEPER/causenix/blob/f7ab3f38bac9b944b184e9226a6e8da5d65dde2e/manifest.json",
+        "kind": "固定作者文件",
+        "supports": [
+          "源码或文档的静态内容"
+        ]
+      },
+      {
+        "id": "ca11",
+        "title": "保留提交历史",
+        "url": "https://api.github.com/repos/FRCREEPER/causenix/commits?per_page=100",
+        "kind": "提交历史",
+        "supports": [
+          "阶段沿革"
+        ]
+      },
+      {
+        "id": "ca12",
+        "title": "Releases集合",
+        "url": "https://api.github.com/repos/FRCREEPER/causenix/releases?per_page=100",
+        "kind": "发行元数据",
+        "supports": [
+          "查询时空集合"
+        ]
+      },
+      {
+        "id": "ca13",
+        "title": "维护账号公开主页",
+        "url": "https://github.com/FRCREEPER",
+        "kind": "公开主页",
+        "supports": [
+          "公开自述检查"
+        ]
+      }
+    ],
+    "short_description": "FRCREEPER维护的Causenix OS公开软件源，README介绍自制x86-64系统；当前快照保留网络命令队列源码、接口头文件、软件清单和两项ELF应用文件。",
+    "kernel_positioning": {
+      "text": "README声称采用Limine引导、LIFS/FAT32、图形桌面与e1000网络栈。当前固定源码树的自身内核入口、链接/构建脚本、调度、内存、文件系统和e1000实现待补。",
+      "evidence_level": "作者声明与源码范围核对"
+    },
+    "architectures": [
+      {
+        "text": "x86-64与Limine为README声明；完整内核构建目标与UEFI/Linux关系待核。",
+        "evidence_level": "作者声明"
+      }
+    ],
+    "capabilities": {
+      "network": "netcmd.c可见64槽、每槽256字节的环形队列与shell_parse调用；白名单含help/echo/ls/cat/fsck/gc/mount/mkdir/rm等。完整UDP解析、e1000和调用上下文待核。",
+      "other": "调度、内存、LIFS/FAT32、图形、内核程序加载继续待原始实现补证。"
+    },
+    "project_relationships": [
+      {
+        "text": "README列Limine；完整版本与引导物许可待核。",
+        "evidence_level": "作者声明"
+      }
+    ],
+    "license": {
+      "text": "平台license字段为空；固定树的完整项目许可与两项ELF源码及授权范围待补。",
+      "evidence_level": "源码范围核对"
+    },
+    "dates": {
+      "text": "仓库创建2026-10-06T06:15:52Z；17个保留提交均为10月6日；首次公开时间待核。"
+    },
+    "status": {
+      "source_completeness": "固定完整树11项（9文件、2目录）；README下载中心与当前index/manifest软件源阶段分别保存。README列出的myos.elf及downloads目录在当前快照中的对应内容待补。",
+      "release": "Releases查询为空；manifest两项应用均标0.1.0，系统正式版本待核。",
+      "author_demo": "作者公开视频、功能画面及版本对应待补。",
+      "runtime_verification": "二进制仅核对树和manifest元数据；独立运行及文件哈希复核待核。"
+    },
+    "pending_verification": [
+      "明确中国作者或中国社区公开自述",
+      "内核入口、完整源码与构建链",
+      "UEFI/固件/Linux依赖边界",
+      "软件源与README下载中心阶段沿革",
+      "完整项目与应用许可",
+      "网络输入验证、命令权限、调用上下文",
+      "应用ELF源码及manifest哈希复核",
+      "作者原片与独立运行"
+    ]
+  }
+]
