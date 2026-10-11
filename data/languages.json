@@ -3961,7 +3961,7 @@
     "implementation": "官方资料将底本记为LLVM/Clang 24.0.0git。Linux线的zh-keywords.patch使用AddKeyword将中文拼写注册到tok::kw_*，把“主函数”映射到main，并为中文预处理指令映射pp词元；zh-diagnostics.patch按诊断编号查找中文正文，配有英文回退和-fno-chinese-diagnostics开关。Windows固定树包含库头、安装脚本和发行二进制；Linux固定树提供核心修改补丁、生成器和测试。完整上游基线、补丁重放、发行包与源码对应性及运行能力待核实。",
     "status": "已核验原视频、官网、固定源码/补丁与官方发行记录。本轮采用只读资料核验。项目原创部分自v0.3起采用自定义源码可见许可，规定内部修改和再发布范围；LLVM/MSVC等派生部件各按上游许可。",
     "version": "Windows最新取得的正式发行为v0.3（2026-10-09T07:26:25Z）；Linux线为v0.4（2026-10-10T02:54:50Z）。原视频简介仍标注0.1。两条平台线分别记录版本与库层覆盖。",
-    "relations": "Windows ChinesePlusPlus与LinuxChinesePlusPlus为同作者的Chinese++平台线，合并为一个语言项目。Linux README明确关联Windows官方库并说明分别演进。Afiredream/ChinesePlusPlusCompiler的GitHub parent/source均指向YoloLogic/ChinesePlusPlus，按同源分叉处理。中文大战代码为官网另列的配套编辑器；同作者ChinesePython、ChineseTypeScript和ChineseJava分别保留各自项目身份。",
+    "relations": "Windows ChinesePlusPlus与LinuxChinesePlusPlus为同作者的Chinese++平台线，合并为一个语言项目。Linux README明确关联Windows官方库并说明分别演进。Afiredream/ChinesePlusPlusCompiler的GitHub parent/source均指向YoloLogic/ChinesePlusPlus，按同源分叉处理。中文大战代码为官网另列的配套编辑器；同作者ChinesePython、ChineseTypeScript和ChineseJava分别保留各自项目身份。 2026-10-11补核分叉固定头62a9384017ee397e6cc5cd71988fdc527880a8a6与上游8a528b432a6df276dbe095a97adc868ae4831eac的比较，上游领先6次提交、分叉独有提交为0，合并基点等于分叉头。",
     "references": [
       {
         "title": "原视频：作者、中文示例与官方仓库入口",
@@ -4022,9 +4022,17 @@
       {
         "title": "Afiredream分叉元数据",
         "url": "https://api.github.com/repos/Afiredream/ChinesePlusPlusCompiler"
+      },
+      {
+        "title": "分叉头与上游固定历史的祖先比较",
+        "url": "https://api.github.com/repos/YoloLogic/ChinesePlusPlus/compare/62a9384017ee397e6cc5cd71988fdc527880a8a6...8a528b432a6df276dbe095a97adc868ae4831eac"
+      },
+      {
+        "title": "分叉固定原例：与上游同段文字对应",
+        "url": "https://github.com/Afiredream/ChinesePlusPlusCompiler/blob/62a9384017ee397e6cc5cd71988fdc527880a8a6/vscode-kit/%E7%A4%BA%E4%BE%8B.cpp#L23-L28"
       }
     ],
-    "verification_notes": "2026-10-10只读核验。Windows固定提交8a528b432a6df276dbe095a97adc868ae4831eac，Linux固定提交006ff08ebf22f7040f163f2c9192d67c5c26cae8。原视频00:13画面可见中文预处理及入口代码，逐字短例采用清晰的固定仓库原文。原片UID、简介仓库、置顶官网和官网作者署名组成身份链。官方补丁及译名清单记录与AI讨论class译为“类型”；AI编写核心代码及贡献比例待核实。官网安装说明、自测数字和诊断计数存在版本差异，条目按对应平台发行与实际补丁记录功能。Windows v0.1资产后来更新，初次发行时间与当前附件时间分别处理。跨平台库覆盖、兼容性、性能与可重建性待核实。",
+    "verification_notes": "2026-10-10只读核验。Windows固定提交8a528b432a6df276dbe095a97adc868ae4831eac，Linux固定提交006ff08ebf22f7040f163f2c9192d67c5c26cae8。原视频00:13画面可见中文预处理及入口代码，逐字短例采用清晰的固定仓库原文。原片UID、简介仓库、置顶官网和官网作者署名组成身份链。官方补丁及译名清单记录与AI讨论class译为“类型”；AI编写核心代码及贡献比例待核实。官网安装说明、自测数字和诊断计数存在版本差异，条目按对应平台发行与实际补丁记录功能。Windows v0.1资产后来更新，初次发行时间与当前附件时间分别处理。跨平台库覆盖、兼容性、性能与可重建性待核实。 2026-10-11增补仅针对Afiredream分叉：GitHub parent/source与祖先链相互印证，固定示例第23—28行与本条原例逐字一致；其他平台、版本和功能信息维持2026-10-10的固定来源。",
     "code_source_detail": {
       "repository": "YoloLogic/ChinesePlusPlus",
       "branch": "main",
@@ -4034,7 +4042,7 @@
       "blob_sha": "1b99ebc8355aa6edaa670745f75c4843c42747da",
       "verification": "GitHub接口按固定commit读取，连续原文摘录"
     },
-    "verified_at": "2026-10-10",
+    "verified_at": "2026-10-11",
     "id": "lang-046"
   },
   {
@@ -8195,5 +8203,111 @@
       }
     ],
     "id": "lang-090"
+  },
+  {
+    "name": "Rule DSL Core",
+    "aliases": [
+      "RuleDSL",
+      "DSL Core"
+    ],
+    "category": "中英双关键字规则DSL／Go AST解释与规则引擎库",
+    "author": "Gitee账号blizzard1413，显示名blizzard；固定LICENSE版权署名为2026 blizzard1413，README另署DSL Core Team。自然人姓名与团队构成待核实。",
+    "first_publication": "原作者README将v1.0.0完成时间写为2026-01-06；Go官方包目录v1.2.0显示发布日2026-01-08。作者完成日期与包版本发布日期分别记录；仓库创建、根提交及首次对外公开日期待核实。",
+    "description": "Rule DSL Core是一套以Go实现的中英双关键字规则DSL及嵌入式规则引擎。原作者采用JavaScript／TypeScript风格的箭头函数、类型注解和模块声明，并用“规则、让、常量、如果、否则、循环、当、返回”等中文词元表达业务逻辑。固定ANTLR4语法将中英文词元接入同一解析规则，Go Visitor生成自有AST，模块加载器登记导出规则，求值器处理表达式和控制流，规则执行器返回结果。中文原文件保存问候、求和、阶乘与业务计算示例；固定求和原例使用中文循环、变量声明和返回。类型名称及Array、Math等内置接口保留英文。当前材料可用于研究中文业务规则与Go宿主接入方式。",
+    "features": [
+      "中英文规则、变量、控制流与逻辑词元",
+      "中文标识符与半角结构标点",
+      "箭头规则、参数类型注解与导入导出",
+      "ANTLR4语法到Go Visitor与自有AST",
+      "Go宿主模块加载、按名执行及返回值接口",
+      "固定中文求和与嵌套条件原始例程"
+    ],
+    "code": "export 规则 求和 = (开始: number, 结束: number): number => {\n    让 总和 = 0;\n    循环 (让 i = 开始; i <= 结束; i = i + 1) {\n        总和 = 总和 + i;\n    }\n    返回 总和;\n}",
+    "code_source": "https://gitee.com/blizzard1413/dsl/blob/199a2bac8e5b5dcf68be1e87756b4764b3c74e40/examples/05-chinese-keywords/%E4%B8%AD%E6%96%87%E7%A4%BA%E4%BE%8B.dsl#L28-L34",
+    "code_context": "固定提交199a2bac8e5b5dcf68be1e87756b4764b3c74e40的中文示例.dsl第28—34行，原文件内完整连续的导出求和规则。通过Gitee公开代码页的pre文本取得，保留代码页呈现的换行、四空格缩进与半角标点；省去展示段末尾换行。规则从开始值累加到结束值并返回总和。整文件另含嵌套条件、阶乘和中文数组接口示例。独立运行与输出待核实。",
+    "implementation": "固定RuleDSL.g4第25—32行定义规则与箭头函数，第77—111行接入变量、分支、循环及返回，第238—254行定义17个中文词元。parser.go第35—79行创建ANTLR输入流、生成词法器、Token流与生成解析器，随后调用Program和ASTBuilder。visitor_declarations.go第104—159行构造规则名、参数、返回类型与规则体；visitor_statements.go第109—151行构造C式循环AST。module/loader.go第67—112行解析并登记导出规则；engine.go创建解析器、加载器、求值器和执行器。evaluator/statements.go第93—141行处理C式循环，第173—184行将返回值封装为ReturnValue，engine/executor.go第63—113行执行规则体并取得结果。go.mod声明Go1.24.0和antlr4-go/antlr/v4 v4.13.1；Taskfile.yml保存ANTLR4生成Go解析器命令，.gitignore将parser/generated列为生成产物路径。生成产物、项目构建与执行结果待独立核验。",
+    "version": "固定公开源码提交199a2bac8e5b5dcf68be1e87756b4764b3c74e40；Gitee根页显示main、46次提交及v1.0.0／v1.1.0／v1.2.0三个标签，头提交标题为v1.2.0。Go包目录v1.2.0显示2026-01-08，并展示存在模块新版本的提示。标签绝对时间与准确最新版本待核实。固定根LICENSE采用MIT许可。",
+    "license": "固定根LICENSE全文为MIT License，版权行为Copyright (c) 2026 blizzard1413；第三方依赖适用各自许可证。",
+    "ai_involvement": "原仓展示.kiro/specs目录，作为开发工具线索保存。AI参与声明、具体模型、生成比例及人工复核范围待核实。",
+    "relations": "原仓与Go模块路径均为gitee.com/blizzard1413/dsl，RuleDSL、DSL Core和Rule DSL Core按同一项目记录。JS／TS属于原作者声明的语法风格；ANTLR4为解析器生成工具，Go为宿主实现。具体上游源码继承关系待核实。",
+    "status": "2026-10-11固定公开语法、中文程序、Go解析／AST／求值／执行源码及MIT全文可读。项目生成器产物、依赖安装、编译、测试、性能和平台兼容性待专项核验；原作者覆盖率和性能数字按作者文档声明保存。",
+    "evidence_level": "固定源码静态核验：中文原例与Go实现正文可见；原作者完成、测试与性能声明分层；独立运行待核实",
+    "verification_notes": "2026-10-11只读研究，将Issue35旧候选推进为正式DSL条目。网页提取器对固定文件返回Cache miss或不可访问；云端浏览器随后成功读取公开代码正文。固定中文示例.dsl使用“循环”并以嵌套“如果”组织多分支；同目录README循环原例使用“对于”，条件原例使用连写“否则如果”，文档与源码分别保存。语法FOR_CN映射“循环”；否则与如果分别为词元，连写形式与中文Identifier最长匹配存在静态冲突风险。VisitIfStatement仅使用首个条件及首／末语句构造分支，else-if链语义覆盖待核。for-of在语法和Visitor层可见，当前executeForStmt按初始化、条件、更新和循环体处理；for-of求值覆盖待核。结构符号按半角语法定义，Identifier中文起始范围为U+4E00—U+9FA5，类型关键字采用number、string、boolean、object和array；全角结构标点待核。提交详情跳转登录页，绝对提交时间保留待核。 原仓展示.kiro/specs目录，作为开发工具线索保存。AI参与声明、具体模型、生成比例及人工复核范围待核实。",
+    "verified_at": "2026-10-11",
+    "references": [
+      {
+        "title": "原仓说明与版本标签入口",
+        "url": "https://gitee.com/blizzard1413/dsl"
+      },
+      {
+        "title": "固定中文求和原例",
+        "url": "https://gitee.com/blizzard1413/dsl/blob/199a2bac8e5b5dcf68be1e87756b4764b3c74e40/examples/05-chinese-keywords/%E4%B8%AD%E6%96%87%E7%A4%BA%E4%BE%8B.dsl#L28-L34"
+      },
+      {
+        "title": "固定完整中文原例与嵌套分支",
+        "url": "https://gitee.com/blizzard1413/dsl/blob/199a2bac8e5b5dcf68be1e87756b4764b3c74e40/examples/05-chinese-keywords/%E4%B8%AD%E6%96%87%E7%A4%BA%E4%BE%8B.dsl#L1-L41"
+      },
+      {
+        "title": "固定词法、语法与中文标识符规则",
+        "url": "https://gitee.com/blizzard1413/dsl/blob/199a2bac8e5b5dcf68be1e87756b4764b3c74e40/parser/grammar/RuleDSL.g4"
+      },
+      {
+        "title": "固定Go解析入口",
+        "url": "https://gitee.com/blizzard1413/dsl/blob/199a2bac8e5b5dcf68be1e87756b4764b3c74e40/parser/parser.go#L35-L79"
+      },
+      {
+        "title": "固定规则与箭头函数AST构造",
+        "url": "https://gitee.com/blizzard1413/dsl/blob/199a2bac8e5b5dcf68be1e87756b4764b3c74e40/parser/visitor_declarations.go#L104-L159"
+      },
+      {
+        "title": "固定分支及循环AST构造",
+        "url": "https://gitee.com/blizzard1413/dsl/blob/199a2bac8e5b5dcf68be1e87756b4764b3c74e40/parser/visitor_statements.go#L84-L151"
+      },
+      {
+        "title": "固定模块解析与规则导出登记",
+        "url": "https://gitee.com/blizzard1413/dsl/blob/199a2bac8e5b5dcf68be1e87756b4764b3c74e40/module/loader.go#L67-L112"
+      },
+      {
+        "title": "固定引擎组装与按名执行",
+        "url": "https://gitee.com/blizzard1413/dsl/blob/199a2bac8e5b5dcf68be1e87756b4764b3c74e40/engine/engine.go"
+      },
+      {
+        "title": "固定循环与返回求值",
+        "url": "https://gitee.com/blizzard1413/dsl/blob/199a2bac8e5b5dcf68be1e87756b4764b3c74e40/evaluator/statements.go#L93-L184"
+      },
+      {
+        "title": "固定规则执行与返回值接收",
+        "url": "https://gitee.com/blizzard1413/dsl/blob/199a2bac8e5b5dcf68be1e87756b4764b3c74e40/engine/executor.go#L63-L113"
+      },
+      {
+        "title": "固定MIT许可及版权署名",
+        "url": "https://gitee.com/blizzard1413/dsl/blob/199a2bac8e5b5dcf68be1e87756b4764b3c74e40/LICENSE#L1-L21"
+      },
+      {
+        "title": "固定Go版本与ANTLR依赖",
+        "url": "https://gitee.com/blizzard1413/dsl/blob/199a2bac8e5b5dcf68be1e87756b4764b3c74e40/go.mod#L1-L15"
+      },
+      {
+        "title": "固定ANTLR生成任务",
+        "url": "https://gitee.com/blizzard1413/dsl/blob/199a2bac8e5b5dcf68be1e87756b4764b3c74e40/Taskfile.yml#L1-L8"
+      },
+      {
+        "title": "固定生成目录忽略规则",
+        "url": "https://gitee.com/blizzard1413/dsl/blob/199a2bac8e5b5dcf68be1e87756b4764b3c74e40/.gitignore#L33-L36"
+      },
+      {
+        "title": "固定中文README的文档差异",
+        "url": "https://gitee.com/blizzard1413/dsl/blob/199a2bac8e5b5dcf68be1e87756b4764b3c74e40/examples/05-chinese-keywords/README.md"
+      },
+      {
+        "title": "Go包目录版本发布日期",
+        "url": "https://pkg.go.dev/gitee.com/blizzard1413/dsl"
+      },
+      {
+        "title": "原始待核议题与旧来源记录",
+        "url": "https://github.com/yuyan-lang/chinese-programming-languages/issues/35"
+      }
+    ],
+    "id": "lang-091"
   }
 ]

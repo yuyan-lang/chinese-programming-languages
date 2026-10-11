@@ -1,0 +1,45 @@
+[
+  {
+    "name": "HongshouStudio/-中文C#编辑器（正式名称待核实）",
+    "record_type": "search_lead_recheck",
+    "new_discovery": false,
+    "formal_entry": false,
+    "repository": "https://github.com/HongshouStudio/-",
+    "snapshot": null,
+    "checked_at": "2026-10-11",
+    "category": "作者描述为中文关键字映射C#代码编辑器；具体语言分类待核实",
+    "findings": "第十六轮搜索级记录已列出此仓。仓库创建2026-09-28T06:50:18Z，描述称首版基于C#语法，可编译运行中文关键字映射的C#代码。实时元数据size=0；contents返回404 This repository is empty；commits返回409 Git Repository is empty；branches及releases均为空数组。正式项目名、中文原例、映射表、编译入口与许可继续待核实。",
+    "next_steps": [
+      "后续出现公开README、作者例程或实现时再核对正式名称、作者身份和项目沿革。",
+      "固定首个可读提交，取得连续中文原例、中文词到C#转换链及宿主编译调用证据。",
+      "按原始发布记录分列仓库创建、实现提交、首发及版本日期；取得适用许可。"
+    ],
+    "references": [
+      {
+        "title": "仓库与作者描述",
+        "url": "https://api.github.com/repos/HongshouStudio/-"
+      },
+      {
+        "title": "文件目录空仓响应",
+        "url": "https://api.github.com/repos/HongshouStudio/-/contents"
+      },
+      {
+        "title": "提交空仓响应",
+        "url": "https://api.github.com/repos/HongshouStudio/-/commits"
+      },
+      {
+        "title": "公开分支",
+        "url": "https://api.github.com/repos/HongshouStudio/-/branches"
+      },
+      {
+        "title": "公开发行",
+        "url": "https://api.github.com/repos/HongshouStudio/-/releases"
+      },
+      {
+        "title": "前轮已有搜索记录",
+        "url": "https://github.com/yuyan-lang/chinese-programming-languages/blob/565357c62953e94ea6824b32e801e82622278861/research/2026-10-10/round-16-discovery.md"
+      }
+    ]
+  }
+]
+
