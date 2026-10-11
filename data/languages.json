@@ -8309,5 +8309,110 @@
       }
     ],
     "id": "lang-091"
+  },
+  {
+    "name": "大雄语",
+    "aliases": [
+      "DxLang"
+    ],
+    "category": "中文脚本语言／Python AST树遍历解释器",
+    "author": "开发者自署尼古拉斯大雄；GitHub账号xxiaoxiong，根提交署名Nicholas-Xiong。账号与提交作者由GitHub元数据关联，自然人姓名待核实。",
+    "first_publication": "原仓创建于2026-03-29T01:47:04Z，唯一保留根提交fa7b3d0202861ed15a58ae861582e89f704175a7记录时间为2026-03-29T01:47:45Z。语言首次对外发布日待核实。",
+    "description": "大雄语（DxLang）是一门以中文关键字组织程序的解释型脚本语言，作者将编译原理学习和个人技术展示作为项目目标。固定原仓提供中文需求设计、七个.dx例程和Python实现。程序以“大雄启动／大雄结束”包围语句，变量用“设…为…”定义，函数用“函”与花括号组织，条件、循环和返回采用“若／则／结束”“当”“循／在”“归”等词元。运行链由手写词法分析、递归下降解析、自有AST和树遍历求值器组成；文件运行、交互输入与命令行字符串入口均有源码。原例覆盖斐波那契、排序、猜数字及学校管理等场景。",
+    "features": [
+      "中文关键字、中文及拉丁字母标识符",
+      "条件、多分支、循环与控制跳转",
+      "函数、递归、闭包作用域与返回信号",
+      "数字、字符串、列表、字典、布尔与空值",
+      "Python宿主的手写词法、递归下降与AST求值",
+      "文件、REPL和代码字符串运行入口"
+    ],
+    "code": "函 斐波那契迭代(n) {\n    若 n <= 1 则\n        归 n\n    结束\n    设 雄_a 为 0\n    设 雄_b 为 1\n    设 雄_i 为 2\n    当 雄_i <= n 则\n        设 雄_c 为 雄_a + 雄_b\n        雄_a = 雄_b\n        雄_b = 雄_c\n        雄_i += 1\n    结束\n    归 雄_b\n}",
+    "code_source": "https://github.com/xxiaoxiong/DaLang/blob/fa7b3d0202861ed15a58ae861582e89f704175a7/examples/fibonacci.dx#L15-L29",
+    "code_context": "固定提交fa7b3d0202861ed15a58ae861582e89f704175a7中examples/fibonacci.dx第15—29行完整连续函数，逐字保留换行、四空格缩进及半角标点。原文件第4／48行提供程序包围标记，第40—41行循环调用该函数，第46行调用斐波那契迭代(30)。该片段展示中文声明、条件、循环及返回；独立执行与输出待核实。",
+    "implementation": "Python源码main.py的run_code依次调用DxLexer.tokenize、DxParser.parse与DxVM.run。dx_lexer.py定义汉字词元，并将连续标识符扫描结果与KEYWORDS集合匹配。dx_parser.py以递归下降方法生成ProgramNode、IfNode、WhileNode、ForNode及FuncDefNode等自有AST。dx_vm.py第81—100行明确自述树遍历解释器，execute按节点类型分派并递归求值；Scope对象保存作用域链，函数定义保存定义时作用域，调用创建局部作用域，归语句通过DxReturnSignal传递结果。dx_std.py登记中文数学、字符串、容器、随机和文件函数。固定main.py保存九项冒烟用例；通过状态待独立核验。",
+    "version": "固定公开源码提交fa7b3d0202861ed15a58ae861582e89f704175a7；main.py横幅自标DxLang v1.0.0、运行时名DxRuntime。2026-10-11公开Releases接口返回空集合。自标版本与正式发行日期分别记录。",
+    "license": "GitHub许可元数据为空，固定完整树公开许可正文待补。源码阅读可核验，复用与再分发授权待核实。",
+    "ai_involvement": "固定需求设计文档第639行声明“文档部分内容可能由 AI 生成”。该声明范围为文档；实现代码的AI参与、具体模型、生成比例及人工审查范围待核实。",
+    "relations": "大雄语与DxLang由设计文档及原始例程明确对应；DaLang是原仓名称，DxRuntime为运行时名称。GitHub仓库fork字段为false，唯一保留根提交parents为空。源码采用Python宿主、自有词法／解析／AST及求值路径；更早开发沿革和具体上游代码继承待核实。",
+    "status": "2026-10-11固定中文原例、需求设计和Python解释实现正文可读。实际安装、执行、测试结果、性能、完整功能覆盖和Python版本兼容性待独立核验。",
+    "evidence_level": "固定源码静态核验：中文原程序与Python词法、解析、AST求值链可见；作者设计及版本声明分层；独立运行待核实",
+    "verification_notes": "从Issue #3的README缺失线索推进，完整固定树包含25项（目录及文件），truncated=false；项目说明位于中文命名设计文档。设计文档采用“栈式虚拟机”表述，实际dx_vm.py按AST节点递归执行，条目按树遍历解释器分类。实际逻辑运算符为&&、||、!；雄_作为原例变量命名习惯记录。parse_input的类型后缀分支与词法关键字集合存在静态差异，类型输入能力待专项核验。源码文件读取仅用于静态分析；测试、例程输出及作者仓库描述中的测试结果继续等待复现。保留原Issue来源。 GitHub许可元数据为空，固定完整树公开许可正文待补。源码阅读可核验，复用与再分发授权待核实。 固定需求设计文档第639行声明“文档部分内容可能由 AI 生成”。该声明范围为文档；实现代码的AI参与、具体模型、生成比例及人工审查范围待核实。",
+    "verified_at": "2026-10-11",
+    "references": [
+      {
+        "title": "原作者仓库与描述",
+        "url": "https://github.com/xxiaoxiong/DaLang"
+      },
+      {
+        "title": "仓库创建与许可元数据",
+        "url": "https://api.github.com/repos/xxiaoxiong/DaLang"
+      },
+      {
+        "title": "唯一保留根提交与作者",
+        "url": "https://github.com/xxiaoxiong/DaLang/commit/fa7b3d0202861ed15a58ae861582e89f704175a7"
+      },
+      {
+        "title": "固定中文迭代斐波那契原例",
+        "url": "https://github.com/xxiaoxiong/DaLang/blob/fa7b3d0202861ed15a58ae861582e89f704175a7/examples/fibonacci.dx#L15-L29"
+      },
+      {
+        "title": "固定完整中文原程序",
+        "url": "https://github.com/xxiaoxiong/DaLang/blob/fa7b3d0202861ed15a58ae861582e89f704175a7/examples/fibonacci.dx#L1-L48"
+      },
+      {
+        "title": "固定中文词元与标识符",
+        "url": "https://github.com/xxiaoxiong/DaLang/blob/fa7b3d0202861ed15a58ae861582e89f704175a7/src/dx_lexer.py#L22-L65"
+      },
+      {
+        "title": "固定词元匹配逻辑",
+        "url": "https://github.com/xxiaoxiong/DaLang/blob/fa7b3d0202861ed15a58ae861582e89f704175a7/src/dx_lexer.py#L206-L235"
+      },
+      {
+        "title": "固定程序、声明和语句入口",
+        "url": "https://github.com/xxiaoxiong/DaLang/blob/fa7b3d0202861ed15a58ae861582e89f704175a7/src/dx_parser.py#L95-L157"
+      },
+      {
+        "title": "固定条件、循环与函数解析",
+        "url": "https://github.com/xxiaoxiong/DaLang/blob/fa7b3d0202861ed15a58ae861582e89f704175a7/src/dx_parser.py#L239-L309"
+      },
+      {
+        "title": "固定AST树遍历执行入口",
+        "url": "https://github.com/xxiaoxiong/DaLang/blob/fa7b3d0202861ed15a58ae861582e89f704175a7/src/dx_vm.py#L81-L144"
+      },
+      {
+        "title": "固定作用域、函数与返回路径",
+        "url": "https://github.com/xxiaoxiong/DaLang/blob/fa7b3d0202861ed15a58ae861582e89f704175a7/src/dx_vm.py#L280-L398"
+      },
+      {
+        "title": "固定文件、REPL及字符串运行入口",
+        "url": "https://github.com/xxiaoxiong/DaLang/blob/fa7b3d0202861ed15a58ae861582e89f704175a7/main.py#L23-L140"
+      },
+      {
+        "title": "固定标准库注册",
+        "url": "https://github.com/xxiaoxiong/DaLang/blob/fa7b3d0202861ed15a58ae861582e89f704175a7/src/dx_std.py#L539-L603"
+      },
+      {
+        "title": "固定AST节点结构",
+        "url": "https://github.com/xxiaoxiong/DaLang/blob/fa7b3d0202861ed15a58ae861582e89f704175a7/src/dx_ast.py"
+      },
+      {
+        "title": "固定需求设计及AI声明",
+        "url": "https://github.com/xxiaoxiong/DaLang/blob/fa7b3d0202861ed15a58ae861582e89f704175a7/%E5%A4%A7%E9%9B%84%E8%AF%AD%EF%BC%88DxLang%EF%BC%89%E9%9C%80%E6%B1%82%E4%B8%8E%E8%AE%BE%E8%AE%A1%E6%96%87%E6%A1%A3.md#L639"
+      },
+      {
+        "title": "完整固定树",
+        "url": "https://github.com/xxiaoxiong/DaLang/tree/fa7b3d0202861ed15a58ae861582e89f704175a7"
+      },
+      {
+        "title": "发行列表",
+        "url": "https://github.com/xxiaoxiong/DaLang/releases"
+      },
+      {
+        "title": "原始待核线索",
+        "url": "https://github.com/yuyan-lang/chinese-programming-languages/issues/3"
+      }
+    ],
+    "id": "lang-092"
   }
 ]
