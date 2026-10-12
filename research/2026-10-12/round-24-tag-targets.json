@@ -1,0 +1,24 @@
+{
+  "rows": [
+    {
+      "commitCell": "199a2ba \n2026-01-08 10:59",
+      "commitCellHtml": "<div class=\"tag-item-action tag-last-commit\">\n<div class=\"tag-item-action-row\">\n<a href=\"/blizzard1413/dsl/commit/199a2bac8e5b5dcf68be1e87756b4764b3c74e40\">199a2ba</a>\n<i class=\"icon green info circle tag-popup-msg\" data-content=\"v1.2.0: 完成统一插件系统所有任务\"></i>\n</div>\n<div class=\"tag-item-action-row\">\n2026-01-08 10:59\n</div>\n</div>",
+      "commitHref": "https://gitee.com/blizzard1413/dsl/commit/199a2bac8e5b5dcf68be1e87756b4764b3c74e40",
+      "name": "v1.2.0"
+    },
+    {
+      "commitCell": "ac1d5ef \n2026-01-07 14:22",
+      "commitCellHtml": "<div class=\"tag-item-action tag-last-commit\">\n<div class=\"tag-item-action-row\">\n<a href=\"/blizzard1413/dsl/commit/ac1d5ef6efb3e96bc475f92c0c0edb3c1743f493\">ac1d5ef</a>\n<i class=\"icon green info circle tag-popup-msg\" data-content=\"release: DSL Core v1.1.0\"></i>\n</div>\n<div class=\"tag-item-action-row\">\n2026-01-07 14:22\n</div>\n</div>",
+      "commitHref": "https://gitee.com/blizzard1413/dsl/commit/ac1d5ef6efb3e96bc475f92c0c0edb3c1743f493",
+      "name": "v1.1.0"
+    },
+    {
+      "commitCell": "b2bbb67 \n2026-01-06 18:37",
+      "commitCellHtml": "<div class=\"tag-item-action tag-last-commit\">\n<div class=\"tag-item-action-row\">\n<a href=\"/blizzard1413/dsl/commit/b2bbb6742a9c44699ac4ad18eca7a47ee85be43a\">b2bbb67</a>\n<i class=\"icon green info circle tag-popup-msg\" data-content=\" Release v1.0.0 - Complete all 22 tasks with excellent performance\"></i>\n</div>\n<div class=\"tag-item-action-row\">\n2026-01-06 18:37\n</div>\n</div>",
+      "commitHref": "https://gitee.com/blizzard1413/dsl/commit/b2bbb6742a9c44699ac4ad18eca7a47ee85be43a",
+      "name": "v1.0.0"
+    }
+  ],
+  "url": "https://gitee.com/blizzard1413/dsl/tags",
+  "checked_at": "2026-10-12"
+}

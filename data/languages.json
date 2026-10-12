@@ -8212,7 +8212,7 @@
     ],
     "category": "中英双关键字规则DSL／Go AST解释与规则引擎库",
     "author": "Gitee账号blizzard1413，显示名blizzard；固定LICENSE版权署名为2026 blizzard1413，README另署DSL Core Team。自然人姓名与团队构成待核实。",
-    "first_publication": "原作者README将v1.0.0完成时间写为2026-01-06；Go官方包目录v1.2.0显示发布日2026-01-08。作者完成日期与包版本发布日期分别记录；仓库创建、根提交及首次对外公开日期待核实。",
+    "first_publication": "原作者README将v1.0.0完成时间写为2026-01-06；Gitee的v1.0.0发行版时间提示为2026-01-06 18:41:27 +0800，目标提交为b2bbb6742a9c44699ac4ad18eca7a47ee85be43a。Go官方包目录v1.2.0显示发布日2026-01-08。作者完成、平台发行与包版本日期分别记录；仓库创建、根提交及首次对外公开日期待核实。",
     "description": "Rule DSL Core是一套以Go实现的中英双关键字规则DSL及嵌入式规则引擎。原作者采用JavaScript／TypeScript风格的箭头函数、类型注解和模块声明，并用“规则、让、常量、如果、否则、循环、当、返回”等中文词元表达业务逻辑。固定ANTLR4语法将中英文词元接入同一解析规则，Go Visitor生成自有AST，模块加载器登记导出规则，求值器处理表达式和控制流，规则执行器返回结果。中文原文件保存问候、求和、阶乘与业务计算示例；固定求和原例使用中文循环、变量声明和返回。类型名称及Array、Math等内置接口保留英文。当前材料可用于研究中文业务规则与Go宿主接入方式。",
     "features": [
       "中英文规则、变量、控制流与逻辑词元",
@@ -8226,14 +8226,14 @@
     "code_source": "https://gitee.com/blizzard1413/dsl/blob/199a2bac8e5b5dcf68be1e87756b4764b3c74e40/examples/05-chinese-keywords/%E4%B8%AD%E6%96%87%E7%A4%BA%E4%BE%8B.dsl#L28-L34",
     "code_context": "固定提交199a2bac8e5b5dcf68be1e87756b4764b3c74e40的中文示例.dsl第28—34行，原文件内完整连续的导出求和规则。通过Gitee公开代码页的pre文本取得，保留代码页呈现的换行、四空格缩进与半角标点；省去展示段末尾换行。规则从开始值累加到结束值并返回总和。整文件另含嵌套条件、阶乘和中文数组接口示例。独立运行与输出待核实。",
     "implementation": "固定RuleDSL.g4第25—32行定义规则与箭头函数，第77—111行接入变量、分支、循环及返回，第238—254行定义17个中文词元。parser.go第35—79行创建ANTLR输入流、生成词法器、Token流与生成解析器，随后调用Program和ASTBuilder。visitor_declarations.go第104—159行构造规则名、参数、返回类型与规则体；visitor_statements.go第109—151行构造C式循环AST。module/loader.go第67—112行解析并登记导出规则；engine.go创建解析器、加载器、求值器和执行器。evaluator/statements.go第93—141行处理C式循环，第173—184行将返回值封装为ReturnValue，engine/executor.go第63—113行执行规则体并取得结果。go.mod声明Go1.24.0和antlr4-go/antlr/v4 v4.13.1；Taskfile.yml保存ANTLR4生成Go解析器命令，.gitignore将parser/generated列为生成产物路径。生成产物、项目构建与执行结果待独立核验。",
-    "version": "固定公开源码提交199a2bac8e5b5dcf68be1e87756b4764b3c74e40；Gitee根页显示main、46次提交及v1.0.0／v1.1.0／v1.2.0三个标签，头提交标题为v1.2.0。Go包目录v1.2.0显示2026-01-08，并展示存在模块新版本的提示。标签绝对时间与准确最新版本待核实。固定根LICENSE采用MIT许可。",
+    "version": "2026-10-12公开Gitee根页显示main、46次提交及3个标签。v1.0.0指向b2bbb6742a9c44699ac4ad18eca7a47ee85be43a，目标提交时间为2026-01-06 18:37:26 +0800；v1.1.0指向ac1d5ef6efb3e96bc475f92c0c0edb3c1743f493，目标提交时间为2026-01-07 14:22:28 +0800；v1.2.0指向199a2bac8e5b5dcf68be1e87756b4764b3c74e40，与已核固定源码一致，目标提交时间为2026-01-08 10:59:41 +0800。标签页时间列归于提交信息，标签对象自身的创建时间待核实。公开发行版列表列v1.0.0并标最新版，其发布时间为2026-01-06 18:41:27 +0800；标签列表的最高语义版本为v1.2.0。Go包目录v1.2.0显示2026-01-08及存在模块新版本提示，包索引提示与原仓标签、发行版分别记录，跨平台准确最新版本待核实。固定根LICENSE采用MIT许可。",
     "license": "固定根LICENSE全文为MIT License，版权行为Copyright (c) 2026 blizzard1413；第三方依赖适用各自许可证。",
     "ai_involvement": "原仓展示.kiro/specs目录，作为开发工具线索保存。AI参与声明、具体模型、生成比例及人工复核范围待核实。",
     "relations": "原仓与Go模块路径均为gitee.com/blizzard1413/dsl，RuleDSL、DSL Core和Rule DSL Core按同一项目记录。JS／TS属于原作者声明的语法风格；ANTLR4为解析器生成工具，Go为宿主实现。具体上游源码继承关系待核实。",
-    "status": "2026-10-11固定公开语法、中文程序、Go解析／AST／求值／执行源码及MIT全文可读。项目生成器产物、依赖安装、编译、测试、性能和平台兼容性待专项核验；原作者覆盖率和性能数字按作者文档声明保存。",
+    "status": "2026-10-12复核固定公开parser目录，并取得grammar_test.go和parser_test.go源码。grammar_test.go保存中文标识符词元断言、英文for-of解析用例及完整程序AST断言；parser_test.go保存规则、表达式、错误、格式化往返与控制流解析用例。测试源码、作者覆盖率／性能声明及独立运行结果分别记录。固定目录列出ast、grammar及Go文件；parser/generated的生成产物正文、生成器版本与构建对应、依赖安装、编译、测试、性能和平台兼容性待专项核验。",
     "evidence_level": "固定源码静态核验：中文原例与Go实现正文可见；原作者完成、测试与性能声明分层；独立运行待核实",
-    "verification_notes": "2026-10-11只读研究，将Issue35旧候选推进为正式DSL条目。网页提取器对固定文件返回Cache miss或不可访问；云端浏览器随后成功读取公开代码正文。固定中文示例.dsl使用“循环”并以嵌套“如果”组织多分支；同目录README循环原例使用“对于”，条件原例使用连写“否则如果”，文档与源码分别保存。语法FOR_CN映射“循环”；否则与如果分别为词元，连写形式与中文Identifier最长匹配存在静态冲突风险。VisitIfStatement仅使用首个条件及首／末语句构造分支，else-if链语义覆盖待核。for-of在语法和Visitor层可见，当前executeForStmt按初始化、条件、更新和循环体处理；for-of求值覆盖待核。结构符号按半角语法定义，Identifier中文起始范围为U+4E00—U+9FA5，类型关键字采用number、string、boolean、object和array；全角结构标点待核。提交详情跳转登录页，绝对提交时间保留待核。 原仓展示.kiro/specs目录，作为开发工具线索保存。AI参与声明、具体模型、生成比例及人工复核范围待核实。",
-    "verified_at": "2026-10-11",
+    "verification_notes": "2026-10-11只读研究，将Issue35旧候选推进为正式DSL条目。网页提取器对固定文件返回Cache miss或不可访问；云端浏览器随后成功读取公开代码正文。固定中文示例.dsl使用“循环”并以嵌套“如果”组织多分支；同目录README循环原例使用“对于”，条件原例使用连写“否则如果”，文档与源码分别保存。语法FOR_CN映射“循环”；否则与如果分别为词元，连写形式与中文Identifier最长匹配存在静态冲突风险。VisitIfStatement仅使用首个条件及首／末语句构造分支，else-if链语义覆盖待核。for-of在语法和Visitor层可见，当前executeForStmt按初始化、条件、更新和循环体处理；for-of求值覆盖待核。结构符号按半角语法定义，Identifier中文起始范围为U+4E00—U+9FA5，类型关键字采用number、string、boolean、object和array；全角结构标点待核。提交详情的旧访问记录为跳转登录页。2026-10-12通过公开根页、标签页及标签树的日期提示取得3个标签目标提交的绝对时间；commits/main仍跳转登录，读取在此结束，根提交与仓库创建时间待核实。 原仓展示.kiro/specs目录，作为开发工具线索保存。AI参与声明、具体模型、生成比例及人工复核范围待核实。 2026-10-12固定.kiro/specs可见dsl-core、dsl-v1.1-event-plugin、dsl-v1.2-unified-plugin三个目录，dsl-core/tasks.md保存22任务与十阶段实施计划及作者完成声明；AI参与程度继续待核。新读取的两份解析测试源码用于补充保存测试层级；实际运行与各中文边界专项用例覆盖待核实。",
+    "verified_at": "2026-10-12",
     "references": [
       {
         "title": "原仓说明与版本标签入口",
@@ -8306,6 +8306,42 @@
       {
         "title": "原始待核议题与旧来源记录",
         "url": "https://github.com/yuyan-lang/chinese-programming-languages/issues/35"
+      },
+      {
+        "title": "公开标签目标提交与提交时间列表",
+        "url": "https://gitee.com/blizzard1413/dsl/tags"
+      },
+      {
+        "title": "v1.0.0目标提交时间提示",
+        "url": "https://gitee.com/blizzard1413/dsl/tree/v1.0.0"
+      },
+      {
+        "title": "v1.1.0目标提交时间提示",
+        "url": "https://gitee.com/blizzard1413/dsl/tree/v1.1.0"
+      },
+      {
+        "title": "公开发行版列表",
+        "url": "https://gitee.com/blizzard1413/dsl/releases"
+      },
+      {
+        "title": "v1.0.0首次稳定发行版",
+        "url": "https://gitee.com/blizzard1413/dsl/releases/tag/v1.0.0"
+      },
+      {
+        "title": "固定词法与语法测试源码",
+        "url": "https://gitee.com/blizzard1413/dsl/blob/199a2bac8e5b5dcf68be1e87756b4764b3c74e40/parser/grammar_test.go"
+      },
+      {
+        "title": "固定解析接口与往返测试源码",
+        "url": "https://gitee.com/blizzard1413/dsl/blob/199a2bac8e5b5dcf68be1e87756b4764b3c74e40/parser/parser_test.go"
+      },
+      {
+        "title": "固定Kiro核心实施计划",
+        "url": "https://gitee.com/blizzard1413/dsl/blob/199a2bac8e5b5dcf68be1e87756b4764b3c74e40/.kiro/specs/dsl-core/tasks.md"
+      },
+      {
+        "title": "固定解析器目录清单",
+        "url": "https://gitee.com/blizzard1413/dsl/tree/199a2bac8e5b5dcf68be1e87756b4764b3c74e40/parser"
       }
     ],
     "id": "lang-091"
