@@ -4656,5 +4656,456 @@
         ]
       }
     ]
+  },
+  {
+    "id": "yiyiya",
+    "name": "YiYiYa",
+    "aliases": [
+      "YiYiYa OS"
+    ],
+    "checked_at": "2026-10-12",
+    "short_description": "YiYiYa 是 evilbinary 维护的开源学习型操作系统，使用 duck 内核和独立应用、库子模块。公开源码包含多架构适配、线程调度、内存管理、VFS、ELF装载与设备驱动。",
+    "author": {
+      "people": [
+        {
+          "name": "evilbinary",
+          "handle": "evilbinary"
+        }
+      ],
+      "organization": null,
+      "attribution": {
+        "text": "evilbinary 账号维护 YiYiYa 与 duck；duck README 明确标注 YiYiYa kernel。 内核初始化文件署名evilbinary，同名账号在百科议题推荐本项目。",
+        "evidence_level": "作者声明",
+        "source_ids": [
+          "yy1",
+          "yy4",
+          "yy6",
+          "yy7",
+          "yy22"
+        ]
+      },
+      "china_basis": {
+        "text": "作者 GitHub 公开主页所在地填写 China。按所在地自述记录中国关联，国籍待核实。",
+        "evidence_level": "作者声明",
+        "source_ids": [
+          "yy1"
+        ]
+      }
+    },
+    "kernel_positioning": {
+      "text": "YiYiYa 使用 duck 内核。简介描述宏内核及向微内核、混合内核演进，architecture.md自述微内核；具体隔离与服务部署边界待核实。",
+      "evidence_level": "作者声明与源码可见",
+      "source_ids": [
+        "yy3",
+        "yy6",
+        "yy7",
+        "yy16"
+      ]
+    },
+    "dates": {
+      "first_public": {
+        "date": null,
+        "status": "待核实"
+      },
+      "repository_created": {
+        "at": "2017-04-03T17:14:28Z",
+        "source_ids": [
+          "yy19"
+        ],
+        "meaning": "GitHub created_at 元数据"
+      },
+      "first_github_release": {
+        "version": "v1.1",
+        "published_at": "2022-02-13T15:23:13Z",
+        "source_ids": [
+          "yy21"
+        ],
+        "meaning": "当前 Releases 集合中最早记录"
+      }
+    },
+    "architectures": [
+      {
+        "text": "duck 固定树包含 x86、armv5、armv7、armv7-a、armv8-a、riscv、lx6 等架构目录，以及 i386-pc、raspi2/3/5、v3s、t113-s3、stm32f4xx、riscv-virt 等平台目录；目录存在按源码适配线索记录。",
+        "evidence_level": "源码可见",
+        "source_ids": [
+          "yy14"
+        ]
+      },
+      {
+        "text": "当前平台文档列出 ARM、AArch64、QEMU RISC-V Virt 与 x86 支持；Raspberry Pi 5 标记移植中、待真机验证。简介中的 RISC-V 规划状态单独保留。",
+        "evidence_level": "作者声明",
+        "source_ids": [
+          "yy3",
+          "yy15"
+        ]
+      }
+    ],
+    "capabilities": {
+      "boot": [
+        {
+          "text": "简介列出 U-Boot 引导及直接引导模式；内核初始化串联异常、页管理、系统调用、调度、模块、VFS与线程。",
+          "evidence_level": "作者声明与源码可见",
+          "source_ids": [
+            "yy3",
+            "yy7"
+          ]
+        }
+      ],
+      "scheduling": [
+        {
+          "text": "schedule_next 按CPU筛选可运行线程，再比较 priority 与 counter；定时器调度调用上下文切换。源码注释说明共享内核栈约束及用户态边界切换策略。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "yy8"
+          ]
+        }
+      ],
+      "memory": [
+        {
+          "text": "memory.c提供物理内存分配接口并调用mm_alloc等底层分配器，包含进程VMA分配指针、地址转换释放及可重入锁保护。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "yy9"
+          ]
+        }
+      ],
+      "filesystem": [
+        {
+          "text": "VFS包含挂载、读写、目录枚举；FAT模块接入文件和设备读写。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "yy10",
+            "yy12"
+          ]
+        }
+      ],
+      "drivers": [
+        {
+          "text": "AHCI模块包含命令槽选择、DMA命令构造及磁盘端口读写。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "yy13"
+          ]
+        }
+      ],
+      "userspace": [
+        {
+          "text": "ELF32加载器包含小端ELF32头校验、程序头读取、PT_LOAD段处理、用户页分配及缓存同步。 该路径处理ET_EXEC，PT_INTERP分支返回失败；动态解释器加载能力待核实。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "yy11"
+          ]
+        }
+      ]
+    },
+    "implementation_languages": [
+      {
+        "text": "本轮读取的 duck 内核、调度、内存、VFS及驱动实现使用C；源码树包含架构汇编，主仓构建配置使用Python。",
+        "evidence_level": "源码可见",
+        "source_ids": [
+          "yy5",
+          "yy7",
+          "yy8",
+          "yy14"
+        ]
+      }
+    ],
+    "project_relationships": [
+      {
+        "text": "主仓通过Git子模块关联duck内核、app、eggs和foot；各子模块版本独立固定。",
+        "evidence_level": "源码可见",
+        "source_ids": [
+          "yy4",
+          "yy5"
+        ]
+      }
+    ],
+    "status": {
+      "latest_formal_release": {
+        "version": "v1.4",
+        "published_at": "2023-11-11T05:41:27Z",
+        "source_ids": [
+          "yy21"
+        ]
+      },
+      "source_snapshot": {
+        "branch": "main",
+        "commit": "265c8456d8699359ad626651515185fc3b82d176",
+        "committed_at": "2026-10-05T08:59:00Z",
+        "source_ids": [
+          "yy20"
+        ]
+      },
+      "kernel_snapshot": {
+        "repository": "https://github.com/evilbinary/duck",
+        "commit": "84684a525fdc6b341d0ceb5e50a64eb7444caaad",
+        "source_ids": [
+          "yy5",
+          "yy14"
+        ]
+      },
+      "license": {
+        "name": "主仓许可证文件LGPL-2.1；duck许可证文件GPL-2.0",
+        "source_ids": [
+          "yy17",
+          "yy18"
+        ],
+        "note": "简介写作GPL2.1；按实际许可证文件分别记录，各组件及捆绑资源整体授权范围待核。"
+      },
+      "runtime_verification": {
+        "status": "待核实",
+        "scope": "本次仅公开资料及源码静态阅读",
+        "author_demo": {
+          "text": "固定README包含截图和两条user-images视频引用，作者展示资料已定位。画面内容、录像版本与硬件对应待核实。",
+          "evidence_level": "作者展示资源可见",
+          "source_ids": [
+            "yy2"
+          ]
+        },
+        "independent_run": {
+          "status": "待核实",
+          "text": "独立构建、启动及硬件运行待核实。"
+        }
+      }
+    },
+    "links": {
+      "source": "https://github.com/evilbinary/YiYiYa",
+      "kernel_source": "https://github.com/evilbinary/duck",
+      "documentation": "https://github.com/evilbinary/YiYiYa/blob/265c8456d8699359ad626651515185fc3b82d176/docs/develop/简介.md",
+      "video_channel": {
+        "url": null,
+        "status": "待核实"
+      },
+      "individual_video": {
+        "url": null,
+        "status": "待核实"
+      }
+    },
+    "pending_verification": [
+      "首次公开日期及早期版本沿革",
+      "微内核、混合内核定位及服务隔离边界",
+      "各架构和硬件实际构建、启动与应用运行覆盖",
+      "POSIX兼容完整性及性能",
+      "B站原作者账号、原片与固定代码版本关联",
+      "各子模块及第三方资源的整体许可范围",
+      "完整原创范围、既有组件来源及AI开发参与"
+    ],
+    "sources": [
+      {
+        "id": "yy1",
+        "title": "evilbinary GitHub 公开主页",
+        "url": "https://github.com/evilbinary",
+        "kind": "作者自述",
+        "supports": [
+          "所在地 China",
+          "置顶 YiYiYa"
+        ]
+      },
+      {
+        "id": "yy2",
+        "title": "YiYiYa README",
+        "url": "https://github.com/evilbinary/YiYiYa/blob/265c8456d8699359ad626651515185fc3b82d176/README.md",
+        "kind": "固定作者文档",
+        "supports": [
+          "项目定位",
+          "开发入口",
+          "QQ讨论社区",
+          "截图与嵌入演示"
+        ]
+      },
+      {
+        "id": "yy3",
+        "title": "YiYiYa 简介",
+        "url": "https://github.com/evilbinary/YiYiYa/blob/265c8456d8699359ad626651515185fc3b82d176/docs/develop/简介.md",
+        "kind": "固定作者文档",
+        "supports": [
+          "学习用途",
+          "架构演进",
+          "功能声明"
+        ]
+      },
+      {
+        "id": "yy4",
+        "title": "子模块关联",
+        "url": "https://github.com/evilbinary/YiYiYa/blob/265c8456d8699359ad626651515185fc3b82d176/.gitmodules",
+        "kind": "固定源码",
+        "supports": [
+          "duck/eggs/app/foot"
+        ]
+      },
+      {
+        "id": "yy5",
+        "title": "主仓固定树",
+        "url": "https://api.github.com/repos/evilbinary/YiYiYa/git/trees/265c8456d8699359ad626651515185fc3b82d176?recursive=1",
+        "kind": "固定树元数据",
+        "supports": [
+          "子模块精确提交"
+        ]
+      },
+      {
+        "id": "yy6",
+        "title": "duck README",
+        "url": "https://github.com/evilbinary/duck/blob/84684a525fdc6b341d0ceb5e50a64eb7444caaad/README.md",
+        "kind": "固定作者文档",
+        "supports": [
+          "YiYiYa kernel"
+        ]
+      },
+      {
+        "id": "yy7",
+        "title": "内核初始化",
+        "url": "https://github.com/evilbinary/duck/blob/84684a525fdc6b341d0ceb5e50a64eb7444caaad/kernel/kernel.c",
+        "kind": "固定源码",
+        "supports": [
+          "异常、页管理、系统调用、调度、模块、VFS和线程初始化"
+        ]
+      },
+      {
+        "id": "yy8",
+        "title": "调度实现",
+        "url": "https://github.com/evilbinary/duck/blob/84684a525fdc6b341d0ceb5e50a64eb7444caaad/kernel/schedule.c",
+        "kind": "固定源码",
+        "supports": [
+          "CPU线程选择",
+          "priority/counter排序",
+          "时钟调度",
+          "用户态边界切换限制"
+        ]
+      },
+      {
+        "id": "yy9",
+        "title": "内存管理",
+        "url": "https://github.com/evilbinary/duck/blob/84684a525fdc6b341d0ceb5e50a64eb7444caaad/kernel/memory.c",
+        "kind": "固定源码",
+        "supports": [
+          "物理分配",
+          "VMA分配",
+          "释放和锁"
+        ]
+      },
+      {
+        "id": "yy10",
+        "title": "VFS",
+        "url": "https://github.com/evilbinary/duck/blob/84684a525fdc6b341d0ceb5e50a64eb7444caaad/kernel/vfs.c",
+        "kind": "固定源码",
+        "supports": [
+          "挂载",
+          "读写",
+          "目录枚举"
+        ]
+      },
+      {
+        "id": "yy11",
+        "title": "ELF32加载",
+        "url": "https://github.com/evilbinary/duck/blob/84684a525fdc6b341d0ceb5e50a64eb7444caaad/modules/loader/elf.c",
+        "kind": "固定源码",
+        "supports": [
+          "ELF32小端校验",
+          "程序头及段加载"
+        ]
+      },
+      {
+        "id": "yy12",
+        "title": "FAT与VFS接入",
+        "url": "https://github.com/evilbinary/duck/blob/84684a525fdc6b341d0ceb5e50a64eb7444caaad/modules/fat/mod.c",
+        "kind": "固定源码",
+        "supports": [
+          "FAT文件读写",
+          "设备读写"
+        ]
+      },
+      {
+        "id": "yy13",
+        "title": "AHCI驱动",
+        "url": "https://github.com/evilbinary/duck/blob/84684a525fdc6b341d0ceb5e50a64eb7444caaad/modules/ahci/ahci.c",
+        "kind": "固定源码",
+        "supports": [
+          "DMA命令与端口读写"
+        ]
+      },
+      {
+        "id": "yy14",
+        "title": "duck固定树",
+        "url": "https://api.github.com/repos/evilbinary/duck/git/trees/84684a525fdc6b341d0ceb5e50a64eb7444caaad?recursive=1",
+        "kind": "固定树元数据",
+        "supports": [
+          "架构与平台目录"
+        ]
+      },
+      {
+        "id": "yy15",
+        "title": "当前平台支持说明",
+        "url": "https://github.com/evilbinary/YiYiYa/blob/265c8456d8699359ad626651515185fc3b82d176/docs/develop/platform-support.md",
+        "kind": "固定作者文档",
+        "supports": [
+          "ARM/RISC-V/x86作者支持状态",
+          "树莓派5移植中"
+        ]
+      },
+      {
+        "id": "yy16",
+        "title": "当前架构说明",
+        "url": "https://github.com/evilbinary/YiYiYa/blob/265c8456d8699359ad626651515185fc3b82d176/docs/develop/architecture/architecture.md",
+        "kind": "固定作者文档",
+        "supports": [
+          "微内核定位"
+        ]
+      },
+      {
+        "id": "yy17",
+        "title": "YiYiYa LICENSE",
+        "url": "https://github.com/evilbinary/YiYiYa/blob/265c8456d8699359ad626651515185fc3b82d176/LICENSE",
+        "kind": "固定许可证文本",
+        "supports": [
+          "LGPL-2.1"
+        ]
+      },
+      {
+        "id": "yy18",
+        "title": "duck LICENSE",
+        "url": "https://github.com/evilbinary/duck/blob/84684a525fdc6b341d0ceb5e50a64eb7444caaad/LICENSE",
+        "kind": "固定许可证文本",
+        "supports": [
+          "GPL-2.0"
+        ]
+      },
+      {
+        "id": "yy19",
+        "title": "主仓元数据",
+        "url": "https://api.github.com/repos/evilbinary/YiYiYa",
+        "kind": "平台元数据",
+        "supports": [
+          "创建日期",
+          "默认分支"
+        ]
+      },
+      {
+        "id": "yy20",
+        "title": "固定提交",
+        "url": "https://github.com/evilbinary/YiYiYa/commit/265c8456d8699359ad626651515185fc3b82d176",
+        "kind": "提交元数据",
+        "supports": [
+          "快照时间"
+        ]
+      },
+      {
+        "id": "yy21",
+        "title": "Releases",
+        "url": "https://api.github.com/repos/evilbinary/YiYiYa/releases?per_page=100",
+        "kind": "平台发布元数据",
+        "supports": [
+          "v1.1至v1.4时间"
+        ]
+      },
+      {
+        "id": "yy22",
+        "title": "作者在百科议题推荐YiYiYa",
+        "url": "https://github.com/yuyan-lang/chinese-programming-languages/issues/52#issuecomment-6117437906",
+        "kind": "原作者公开评论",
+        "supports": [
+          "维护账号与项目关联"
+        ]
+      }
+    ]
   }
 ]

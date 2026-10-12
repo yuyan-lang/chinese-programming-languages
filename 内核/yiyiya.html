@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>YiYiYa｜操作系统内核资料</title><link rel="stylesheet" href="../style.css"></head><body><header><h1>YiYiYa</h1><p>中国人自主开发的操作系统内核</p></header><main>
+<p><a href="https://中文编程语言.yuyan-lang.org/内核/">返回内核目录</a> · <a href="https://中文编程语言.yuyan-lang.org/">中文编程语言百科</a></p>
+<h2>项目介绍</h2><p>YiYiYa 是 evilbinary 维护的开源学习型操作系统，使用 duck 内核和独立应用、库子模块。公开源码包含多架构适配、线程调度、内存管理、VFS、ELF装载与设备驱动。 <a href="#yy2">[yy2]</a> <a href="#yy4">[yy4]</a> <a href="#yy6">[yy6]</a> <a href="#yy7">[yy7]</a></p><p>YiYiYa 使用 duck 内核。简介描述宏内核及向微内核、混合内核演进，architecture.md自述微内核；具体隔离与服务部署边界待核实。 <small>作者声明与源码可见</small> <a href="#yy3">[yy3]</a> <a href="#yy6">[yy6]</a> <a href="#yy7">[yy7]</a> <a href="#yy16">[yy16]</a></p>
+<h2>作者与公开归属</h2><p>evilbinary 账号维护 YiYiYa 与 duck；duck README 明确标注 YiYiYa kernel。 内核初始化文件署名evilbinary，同名账号在百科议题推荐本项目。 <small>作者声明</small> <a href="#yy1">[yy1]</a> <a href="#yy4">[yy4]</a> <a href="#yy6">[yy6]</a> <a href="#yy7">[yy7]</a> <a href="#yy22">[yy22]</a></p><p>作者 GitHub 公开主页所在地填写 China。按所在地自述记录中国关联，国籍待核实。 <small>作者声明</small> <a href="#yy1">[yy1]</a></p>
+<h2>公开历史与版本</h2><p>GitHub仓库创建于2017-04-03T17:14:28Z；当前Releases集合最早为v1.1，发布于2022-02-13T15:23:13Z；最新正式发布为v1.4，发布于2023-11-11T05:41:27Z。首次公开日期待核实。 <a href="#yy19">[yy19]</a> <a href="#yy21">[yy21]</a></p>
+<p>主仓固定提交265c8456d8699359ad626651515185fc3b82d176，提交时间2026-10-05T08:59:00Z；duck子模块固定84684a525fdc6b341d0ceb5e50a64eb7444caaad。 <a href="#yy5">[yy5]</a> <a href="#yy20">[yy20]</a></p>
+<h2>体系结构与实现</h2><p>duck 固定树包含 x86、armv5、armv7、armv7-a、armv8-a、riscv、lx6 等架构目录，以及 i386-pc、raspi2/3/5、v3s、t113-s3、stm32f4xx、riscv-virt 等平台目录；目录存在按源码适配线索记录。 <small>源码可见</small> <a href="#yy14">[yy14]</a></p>
+<p>当前平台文档列出 ARM、AArch64、QEMU RISC-V Virt 与 x86 支持；Raspberry Pi 5 标记移植中、待真机验证。简介中的 RISC-V 规划状态单独保留。 <small>作者声明</small> <a href="#yy3">[yy3]</a> <a href="#yy15">[yy15]</a></p><p>本轮读取的 duck 内核、调度、内存、VFS及驱动实现使用C；源码树包含架构汇编，主仓构建配置使用Python。 <small>源码可见</small> <a href="#yy5">[yy5]</a> <a href="#yy7">[yy7]</a> <a href="#yy8">[yy8]</a> <a href="#yy14">[yy14]</a></p>
+<h2>启动与内核边界</h2><p>简介列出 U-Boot 引导及直接引导模式；内核初始化串联异常、页管理、系统调用、调度、模块、VFS与线程。 <small>作者声明与源码可见</small> <a href="#yy3">[yy3]</a> <a href="#yy7">[yy7]</a></p>
+<h2>调度</h2><p>schedule_next 按CPU筛选可运行线程，再比较 priority 与 counter；定时器调度调用上下文切换。源码注释说明共享内核栈约束及用户态边界切换策略。 <small>源码可见</small> <a href="#yy8">[yy8]</a></p>
+<h2>内存管理</h2><p>memory.c提供物理内存分配接口并调用mm_alloc等底层分配器，包含进程VMA分配指针、地址转换释放及可重入锁保护。 <small>源码可见</small> <a href="#yy9">[yy9]</a></p>
+<h2>文件系统</h2><p>VFS包含挂载、读写、目录枚举；FAT模块接入文件和设备读写。 <small>源码可见</small> <a href="#yy10">[yy10]</a> <a href="#yy12">[yy12]</a></p>
+<h2>设备驱动</h2><p>AHCI模块包含命令槽选择、DMA命令构造及磁盘端口读写。 <small>源码可见</small> <a href="#yy13">[yy13]</a></p>
+<h2>用户程序加载</h2><p>ELF32加载器包含小端ELF32头校验、程序头读取、PT_LOAD段处理、用户页分配及缓存同步。 该路径处理ET_EXEC，PT_INTERP分支返回失败；动态解释器加载能力待核实。 <small>源码可见</small> <a href="#yy11">[yy11]</a></p>
+<h2>项目关系与许可</h2><p>主仓通过Git子模块关联duck内核、app、eggs和foot；各子模块版本独立固定。 <small>源码可见</small> <a href="#yy4">[yy4]</a> <a href="#yy5">[yy5]</a></p><p>主仓许可证文件LGPL-2.1；duck许可证文件GPL-2.0。简介写作GPL2.1；按实际许可证文件分别记录，各组件及捆绑资源整体授权范围待核。 <a href="#yy17">[yy17]</a> <a href="#yy18">[yy18]</a></p>
+<h2>演示与运行核验</h2><p>固定README包含截图和两条user-images视频引用，作者展示资料已定位。画面内容、录像版本与硬件对应待核实。 <small>作者展示资源可见</small> <a href="#yy2">[yy2]</a></p><p>独立构建、启动及硬件运行待核实。 B站原作者账号、原片及版本关联待核实。</p>
+<h2>待核资料</h2><ul><li>首次公开日期及早期版本沿革</li><li>微内核、混合内核定位及服务隔离边界</li><li>各架构和硬件实际构建、启动与应用运行覆盖</li><li>POSIX兼容完整性及性能</li><li>B站原作者账号、原片与固定代码版本关联</li><li>各子模块及第三方资源的整体许可范围</li><li>完整原创范围、既有组件来源及AI开发参与</li></ul>
+<h2>原始资料</h2><ul><li id="yy1"><a href="https://github.com/evilbinary">evilbinary GitHub 公开主页</a> · 作者自述</li>
+<li id="yy2"><a href="https://github.com/evilbinary/YiYiYa/blob/265c8456d8699359ad626651515185fc3b82d176/README.md">YiYiYa README</a> · 固定作者文档</li>
+<li id="yy3"><a href="https://github.com/evilbinary/YiYiYa/blob/265c8456d8699359ad626651515185fc3b82d176/docs/develop/简介.md">YiYiYa 简介</a> · 固定作者文档</li>
+<li id="yy4"><a href="https://github.com/evilbinary/YiYiYa/blob/265c8456d8699359ad626651515185fc3b82d176/.gitmodules">子模块关联</a> · 固定源码</li>
+<li id="yy5"><a href="https://api.github.com/repos/evilbinary/YiYiYa/git/trees/265c8456d8699359ad626651515185fc3b82d176?recursive=1">主仓固定树</a> · 固定树元数据</li>
+<li id="yy6"><a href="https://github.com/evilbinary/duck/blob/84684a525fdc6b341d0ceb5e50a64eb7444caaad/README.md">duck README</a> · 固定作者文档</li>
+<li id="yy7"><a href="https://github.com/evilbinary/duck/blob/84684a525fdc6b341d0ceb5e50a64eb7444caaad/kernel/kernel.c">内核初始化</a> · 固定源码</li>
+<li id="yy8"><a href="https://github.com/evilbinary/duck/blob/84684a525fdc6b341d0ceb5e50a64eb7444caaad/kernel/schedule.c">调度实现</a> · 固定源码</li>
+<li id="yy9"><a href="https://github.com/evilbinary/duck/blob/84684a525fdc6b341d0ceb5e50a64eb7444caaad/kernel/memory.c">内存管理</a> · 固定源码</li>
+<li id="yy10"><a href="https://github.com/evilbinary/duck/blob/84684a525fdc6b341d0ceb5e50a64eb7444caaad/kernel/vfs.c">VFS</a> · 固定源码</li>
+<li id="yy11"><a href="https://github.com/evilbinary/duck/blob/84684a525fdc6b341d0ceb5e50a64eb7444caaad/modules/loader/elf.c">ELF32加载</a> · 固定源码</li>
+<li id="yy12"><a href="https://github.com/evilbinary/duck/blob/84684a525fdc6b341d0ceb5e50a64eb7444caaad/modules/fat/mod.c">FAT与VFS接入</a> · 固定源码</li>
+<li id="yy13"><a href="https://github.com/evilbinary/duck/blob/84684a525fdc6b341d0ceb5e50a64eb7444caaad/modules/ahci/ahci.c">AHCI驱动</a> · 固定源码</li>
+<li id="yy14"><a href="https://api.github.com/repos/evilbinary/duck/git/trees/84684a525fdc6b341d0ceb5e50a64eb7444caaad?recursive=1">duck固定树</a> · 固定树元数据</li>
+<li id="yy15"><a href="https://github.com/evilbinary/YiYiYa/blob/265c8456d8699359ad626651515185fc3b82d176/docs/develop/platform-support.md">当前平台支持说明</a> · 固定作者文档</li>
+<li id="yy16"><a href="https://github.com/evilbinary/YiYiYa/blob/265c8456d8699359ad626651515185fc3b82d176/docs/develop/architecture/architecture.md">当前架构说明</a> · 固定作者文档</li>
+<li id="yy17"><a href="https://github.com/evilbinary/YiYiYa/blob/265c8456d8699359ad626651515185fc3b82d176/LICENSE">YiYiYa LICENSE</a> · 固定许可证文本</li>
+<li id="yy18"><a href="https://github.com/evilbinary/duck/blob/84684a525fdc6b341d0ceb5e50a64eb7444caaad/LICENSE">duck LICENSE</a> · 固定许可证文本</li>
+<li id="yy19"><a href="https://api.github.com/repos/evilbinary/YiYiYa">主仓元数据</a> · 平台元数据</li>
+<li id="yy20"><a href="https://github.com/evilbinary/YiYiYa/commit/265c8456d8699359ad626651515185fc3b82d176">固定提交</a> · 提交元数据</li>
+<li id="yy21"><a href="https://api.github.com/repos/evilbinary/YiYiYa/releases?per_page=100">Releases</a> · 平台发布元数据</li>
+<li id="yy22"><a href="https://github.com/yuyan-lang/chinese-programming-languages/issues/52#issuecomment-6117437906">作者在百科议题推荐YiYiYa</a> · 原作者公开评论</li></ul><p>资料核验日期：2026-10-12</p><p><a href="https://github.com/yuyan-lang/chinese-programming-languages/issues/52">研究议题与补充资料</a></p></main><footer>站点由<a href="https://yuyan-lang.org/">豫言编程语言</a>提供</footer></body></html>
