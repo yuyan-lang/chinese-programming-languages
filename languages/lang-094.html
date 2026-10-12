@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Smal-lang｜中文编程语言百科</title><link rel="stylesheet" href="../style.css"></head><body><header><h1>Smal-lang</h1></header><main><p><a href="../">返回语言目录</a></p>
+<h2>语言介绍</h2><p>Smal-lang面向中文使用者与编程初学者，以“设…为…”或“…是…”赋值，“显示／打印／告诉用户”输出，“让用户输入”接收数据，并用“重复…次做”和“如果…那么／否则”组织控制流。当前实现把Python解释器和PyQt5编辑运行环境放在main.py中，支持缩进块、中文四则运算词和当前次数。IDE包含文件打开保存、语法高亮及可直接填入编辑区的连续中文原例。</p>
+<h2>分类与别名</h2><p>入门中文脚本语言／Python逐行解释器与PyQt IDE；别名：Smal</p>
+<h2>作者与公开历史</h2><p>版权正文及提交署名Smal Smith；GitHub关联账号CodeWatcher-Smal。自然人身份待核实。</p><p>原仓创建及保留根提交f7eac1f04bec3692e0d3654ada950840a8c384cf记录时间为2025-08-12T03:42:50Z。其后源码提交记录为2025-08-12T04:42:58Z与04:49:44Z。更早版本与语言首次公开日期待核实。</p>
+<h2>设计与特征</h2><p>中文赋值、输入与输出语句；缩进式重复循环与等于条件分支；加／减／乘／除以及括号表达式；循环计数器当前次数从1开始；Python正则匹配及逐行求值实现；PyQt5编辑、运行、输出与.smal文件界面</p>
+<h2>中文语法示例</h2><pre><code>设 问候语 为 &quot;你好，&quot;
+
+让用户输入 用户名
+
+显示 问候语 加 用户名
+
+让用户输入 年龄
+显示 &quot;你好，&quot; 加 用户名 加 &quot;，你今年&quot; 加 年龄 加 &quot;岁&quot;
+
+让用户输入 数字
+显示 &quot;你输入的数字加5等于：&quot; 加 (数字 加 5)
+
+让用户输入 次数
+重复 次数 次做
+    显示 &quot;这是第&quot; 加 当前次数 加 &quot;次循环&quot;</code></pre><p>固定main.py第392—406行show_example中的三引号字符串值。移除Python赋值及字符串包围符后保留连续15行原例、空行、四空格循环缩进与标点；末尾字符串换行按展示裁去。示例需要交互输入，独立执行结果待核实。 <a href="https://github.com/CodeWatcher-Smal/Smal-lang/blob/87bdf15d9d37d55ef08f038bac0fa54cbcb852ef/main.py#L391-L408">示例来源</a></p>
+<h2>实现与运行环境</h2><p>SmalIDE.run_code将编辑器文本送入SmalInterpreter.execute。execute逐行识别重复与如果，收集四空格或制表符缩进的块；条件用等于比较求值结果，循环用Python range并把当前次数设为i+1。execute_line以正则分别处理赋值、输出和QInputDialog输入；parse_expression移除引号、递归处理括号、替换变量及当前次数，再依次处理乘除、减与加。加在所有项可转数字时求和，否则连接字符串。词元识别、解析和执行集中于这些方法。</p>
+<h2>版本与维护状态</h2><p>固定公开源码87bdf15d9d37d55ef08f038bac0fa54cbcb852ef（2025-08-12T04:49:44Z）；ReadMe.md、窗口标题和关于对话框自标v2.3.2。2026-10-11公开Releases列表为空，早期版本沿革及正式发行日待核实。</p><p>2026-10-11完整固定树包含ReadMe.md、main.py和LICENSE三文件，中文原例与解释链可静态核验。PyQt安装、IDE交互、执行输出及版本兼容性待独立核验。</p>
+<h2>与其他项目的关系</h2><p>Smal与Smal-lang由ReadMe.md、IDE名称与仓库信息对应。Python和PyQt5为宿主及界面依赖。GitHub fork字段为false，保留根提交parents为空；更早项目、移植和具体上游代码继承待核实。</p>
+<h2>核验说明</h2><p>原始README.md路径线索通过完整树定位到大小写为ReadMe.md的文档。该文档示例含转义与HTML实体，主例采用main.py嵌入原文。控制块的正文经execute_line分派，当前该方法处理赋值、输出和输入；嵌套控制流支持待核实。表达式移除引号后按空白边界替换变量并作正则运算，严格字符串语义、运算优先级和错误覆盖待核实。源码提供顶层条件与循环；完整语言能力与性能等待运行核验。保留Issue #3原始线索及第十九轮剩余候选确认。 固定LICENSE全文为MIT，Copyright (c) 2025 Smal Smith；ReadMe.md许可说明与GitHub许可元数据一致。 已读取ReadMe.md、main.py、LICENSE与三条提交记录；AI开发参与、具体模型、生成比例和人工复核范围待核实。</p>
+<h2>参考资料</h2><ul><li><a href="https://github.com/CodeWatcher-Smal/Smal-lang">原作者仓库</a></li>
+<li><a href="https://api.github.com/repos/CodeWatcher-Smal/Smal-lang">仓库元数据</a></li>
+<li><a href="https://github.com/CodeWatcher-Smal/Smal-lang/tree/87bdf15d9d37d55ef08f038bac0fa54cbcb852ef">固定完整树</a></li>
+<li><a href="https://github.com/CodeWatcher-Smal/Smal-lang/commit/f7eac1f04bec3692e0d3654ada950840a8c384cf">根提交与日期</a></li>
+<li><a href="https://github.com/CodeWatcher-Smal/Smal-lang/commit/87bdf15d9d37d55ef08f038bac0fa54cbcb852ef">固定当前提交与作者</a></li>
+<li><a href="https://github.com/CodeWatcher-Smal/Smal-lang/blob/87bdf15d9d37d55ef08f038bac0fa54cbcb852ef/ReadMe.md">固定原始说明与版本</a></li>
+<li><a href="https://github.com/CodeWatcher-Smal/Smal-lang/blob/87bdf15d9d37d55ef08f038bac0fa54cbcb852ef/main.py#L391-L408">连续中文嵌入原例</a></li>
+<li><a href="https://github.com/CodeWatcher-Smal/Smal-lang/blob/87bdf15d9d37d55ef08f038bac0fa54cbcb852ef/main.py#L56-L160">表达式解析与求值</a></li>
+<li><a href="https://github.com/CodeWatcher-Smal/Smal-lang/blob/87bdf15d9d37d55ef08f038bac0fa54cbcb852ef/main.py#L162-L198">逐行中文语句匹配</a></li>
+<li><a href="https://github.com/CodeWatcher-Smal/Smal-lang/blob/87bdf15d9d37d55ef08f038bac0fa54cbcb852ef/main.py#L200-L295">循环与条件解析执行</a></li>
+<li><a href="https://github.com/CodeWatcher-Smal/Smal-lang/blob/87bdf15d9d37d55ef08f038bac0fa54cbcb852ef/main.py#L410-L426">IDE运行及程序入口</a></li>
+<li><a href="https://github.com/CodeWatcher-Smal/Smal-lang/blob/87bdf15d9d37d55ef08f038bac0fa54cbcb852ef/LICENSE">MIT许可正文</a></li>
+<li><a href="https://github.com/yuyan-lang/chinese-programming-languages/issues/3">原始待核线索</a></li>
+<li><a href="https://github.com/yuyan-lang/chinese-programming-languages/issues/3#issuecomment-6111978135">第十九轮待核确认</a></li>
+<li><a href="https://github.com/CodeWatcher-Smal/Smal-lang/releases">发行列表</a></li></ul><p>资料核验日期：2026-10-11</p><p><a href="https://github.com/yuyan-lang/chinese-programming-languages/issues/new">补充资料或纠错</a></p></main><footer>站点由<a href="https://yuyan-lang.org/">豫言编程语言</a>提供</footer></body></html>
