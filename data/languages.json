@@ -8957,5 +8957,169 @@
         "url": "https://github.com/mehaotian/xuyu/blob/2974fd20dc0b0a91eab3a83c063c21a8527a897b/docs/02-%E6%8A%80%E6%9C%AF%E8%AE%BE%E8%AE%A1/%E6%8A%80%E6%9C%AF%E6%9E%B6%E6%9E%84%E4%B8%8E%E5%AE%9E%E7%8E%B0%E8%B7%AF%E7%BA%BF.md#L1-L68"
       }
     ]
+  },
+  {
+    "id": "lang-097",
+    "name": "螣蛇",
+    "aliases": [
+      "Tengshe"
+    ],
+    "category": "中文／拼音双写动态语言／Go树遍历AST解释器",
+    "author": "GitHub账号Xzach88维护。根提交与源码上传提交署名Xcz，GitHub将作者关联至Xzach88；2026-08-25两条提交署名Xzach88，其author及committer账号关联字段为null。真实姓名、开发分工与完整贡献沿革待核实。",
+    "first_publication": "仓库创建于2026-08-22T07:32:19Z；根提交fb564dbf47579d9f1f3ef427e0d3e645b30e8748记录2026-08-22T07:32:20Z，当时包含两行README。源码、原例、测试与六项二进制于86cc18db2c763660751fb2501468505a57dc6a50提交加入，时间2026-08-22T08:28:33Z。首次对外公开日待核实。",
+    "description": "螣蛇以“把…给…”、“要是…就…”、“做法”、“给出”、“重复”和“约束”等中文词形及部分拼音别名书写程序，包含动态变量、条件、函数、列表管道与运行时类型约束。Go实现将源码经模式识别、缩进预处理、词法分析和语法分析生成AST，再由运行时逐节点求值。仓库附本地浏览器工作台、中文提示、绘图与教学追踪，以及将源码附加至解释器副本的单文件打包路径。",
+    "features": [
+      "中文语句与词法表内的拼音别名",
+      "动态变量与可选运行时类型约束",
+      "条件、函数、循环、列表过滤与映射",
+      "Go词法／解析／AST求值调用链",
+      "Go goroutine并发循环与同步输出",
+      "本地浏览器工作台、绘图及教学变量追踪",
+      "解释器副本附加源码的单文件打包"
+    ],
+    "code": "把 18 给 年龄\n约束 年龄 为 整数\n说(\"年龄：\" + 年龄)",
+    "code_source": "https://github.com/Xzach88/Tengshe/blob/fd8251db3c3d835508c85d222dd00a919ae0047b/hello.tsh#L2-L4",
+    "code_context": "固定提交根目录hello.tsh第2—4行的连续三行原文，保留中文标点、空格和引号。内容依次赋值、施加整数约束并输出年龄。README记录的examples/hello.tsh按文档路径保存；固定树中的实际原例位于根目录。原例运行输出待独立核验。",
+    "implementation": "go.mod声明go 1.22，require列表为空。main.go第47—70行按完整标识符归一部分中文／拼音词形，第102—230行生成词元；第376—629行解析赋值、输出、输入、条件、循环、函数、约束与错误处理语句，第631—725行按优先级构造表达式、函数调用与属性访问。Value为any，数值节点为float64；Env保存变量及类型约束，Runtime.run／exec／eval递归执行AST。executeSource依次调用detectMode、prepareSource、lex、Parser.Parse与Runtime.run，文件CLI和工作台/api/run均进入此链。飞循环使用Go goroutine及WaitGroup。extras.go提供文件、CSV、文本写入、HTTP、SMTP、机器人与画板内置函数；packBinary复制当前解释器并追加源码与TSHBIN01尾部，runEmbedded读取尾部后回到runSource。",
+    "version": "README自标V1.0，main.go注释和交互提示自标“V1.0 原型”，版本命令显示“V1.0 工作台”。固定main提交fd8251db3c3d835508c85d222dd00a919ae0047b时间2026-08-25T10:02:16Z，实际tree为31ebaeefabac442310699b66ac1005d2a0bfd898，与2026-08-22源码上传提交完全相同。中间提交增加Pages网站包，固定提交将其移除。独立语言版本规范及正式发行沿革待核实。",
+    "license": "2026-10-12读取固定完整树，20项均为根目录文件，其中14项文本与6项二进制。许可正文待核实；GitHub许可元数据为null。源码、文档、二进制与第三方内容的授权范围待核实。",
+    "ai_involvement": "README与workbench.go提供“小灵”离线启发式问答，以及可选的兼容OpenAI Chat Completions接口。remoteMentor将代码、错误及问题组成请求，模型由环境变量选择，默认字符串为gpt-5-mini；该字符串记录产品接口默认值。实际AI开发参与、使用模型、生成比例及人工复核范围待核实。",
+    "relations": "仓库名Tengshe、README名称螣蛇、Go模块tengshe与.tsh原例构成同一项目身份链。GitHub元数据fork=false。Go为当前实现语言；README将Python作为设计比较对象。具体源码继承、借鉴项目、其他语言兼容关系与作者同账号项目之间的技术联系待核实。",
+    "status": "固定源码包含中文原例、前端至AST运行时完整调用链、工作台、打包器和11个Test函数。当前能力按源码静态观察记录；独立构建、测试、二进制启动、跨平台行为与性能待核实。README后续方向包含.xlsx／.docx适配、LSP、断点调试器、包管理器与原生桌面窗口壳。",
+    "evidence_level": "原仓固定源码静态核验：连续中文原例、词法归一、语句解析、AST求值、CLI及工作台入口可见",
+    "verification_notes": "2026-10-12只读复核百科AGENTS.md、Issue65、96项语言数据及原仓固定源码。完整树20文件，truncated=false；main保留4条提交，根提交parents为空。词法器将连续字母、汉字、数字及下划线读为完整标识符，中文关键字依靠空白或标点分隔。README中的让/rang、如果/ruguo、调用、连写一直做，以及工作台建议中的打印，其语法支持待核实；解析器现有循环词形为分开的“一直”“做”。“用”分支跳过本行并生成提示字符串；模块加载语义待核实。“不/not”列入词法归一表。一元解析分支接受+、-、!，该逻辑词的完整语义待核实。类型约束已识别整数、数值、文本、布尔值及列表等，未知类型名在typeMatches中返回true。缩进预处理按文本规则插入大括号，独立“结束”清空当前缩进栈；任意混写及源行号对应待核实。并发输出使用互斥锁，变量环境为可向父作用域写入的普通map，并发变量安全待核实。六项二进制的源码对应、构建可复现性、运行与测试结果待核实。本轮安装、构建、测试及候选程序执行均为0。",
+    "verified_at": "2026-10-12",
+    "repository_created_at": "2026-08-22T07:32:19Z",
+    "repository_pushed_at": "2026-08-25T10:02:17Z",
+    "first_commit_at": "2026-08-22T07:32:20Z",
+    "latest_commit_at": "2026-08-25T10:02:16Z",
+    "release_status": "2026-10-12 GitHub Releases集合为空；git/refs/tags返回404。固定树根目录保存Windows、macOS、Linux的amd64／arm64共六项二进制。正式发行日、标签及产物版本对应待核实。",
+    "code_source_detail": {
+      "repository": "Xzach88/Tengshe",
+      "branch": "main",
+      "commit": "fd8251db3c3d835508c85d222dd00a919ae0047b",
+      "path": "hello.tsh",
+      "lines": "2-4",
+      "blob_sha": "677c3420156b0910471a3c8398e7f71fc65e0155",
+      "verification": "GitHub连接器按固定commit读取完整文件，提取连续第2—4行原文"
+    },
+    "references": [
+      {
+        "title": "待复核原始议题",
+        "url": "https://github.com/yuyan-lang/chinese-programming-languages/issues/65"
+      },
+      {
+        "title": "原仓元数据、创建日期与许可字段",
+        "url": "https://api.github.com/repos/Xzach88/Tengshe"
+      },
+      {
+        "title": "固定完整源码树",
+        "url": "https://github.com/Xzach88/Tengshe/tree/fd8251db3c3d835508c85d222dd00a919ae0047b"
+      },
+      {
+        "title": "固定README、设计与后续方向",
+        "url": "https://github.com/Xzach88/Tengshe/blob/fd8251db3c3d835508c85d222dd00a919ae0047b/README.md"
+      },
+      {
+        "title": "原始连续中文赋值与约束示例",
+        "url": "https://github.com/Xzach88/Tengshe/blob/fd8251db3c3d835508c85d222dd00a919ae0047b/hello.tsh#L2-L4"
+      },
+      {
+        "title": "中文与拼音词法归一",
+        "url": "https://github.com/Xzach88/Tengshe/blob/fd8251db3c3d835508c85d222dd00a919ae0047b/main.go#L47-L70"
+      },
+      {
+        "title": "标识符与字符串边界",
+        "url": "https://github.com/Xzach88/Tengshe/blob/fd8251db3c3d835508c85d222dd00a919ae0047b/main.go#L102-L230"
+      },
+      {
+        "title": "语句及代码块解析",
+        "url": "https://github.com/Xzach88/Tengshe/blob/fd8251db3c3d835508c85d222dd00a919ae0047b/main.go#L376-L629"
+      },
+      {
+        "title": "表达式与调用解析",
+        "url": "https://github.com/Xzach88/Tengshe/blob/fd8251db3c3d835508c85d222dd00a919ae0047b/main.go#L631-L725"
+      },
+      {
+        "title": "环境赋值与约束匹配",
+        "url": "https://github.com/Xzach88/Tengshe/blob/fd8251db3c3d835508c85d222dd00a919ae0047b/main.go#L747-L817"
+      },
+      {
+        "title": "AST执行及并发循环",
+        "url": "https://github.com/Xzach88/Tengshe/blob/fd8251db3c3d835508c85d222dd00a919ae0047b/main.go#L863-L1016"
+      },
+      {
+        "title": "表达式求值与内置函数",
+        "url": "https://github.com/Xzach88/Tengshe/blob/fd8251db3c3d835508c85d222dd00a919ae0047b/main.go#L1017-L1307"
+      },
+      {
+        "title": "文件和工作台共用执行入口",
+        "url": "https://github.com/Xzach88/Tengshe/blob/fd8251db3c3d835508c85d222dd00a919ae0047b/main.go#L1310-L1334"
+      },
+      {
+        "title": "Go模块与版本",
+        "url": "https://github.com/Xzach88/Tengshe/blob/fd8251db3c3d835508c85d222dd00a919ae0047b/go.mod"
+      },
+      {
+        "title": "缩进与结束预处理",
+        "url": "https://github.com/Xzach88/Tengshe/blob/fd8251db3c3d835508c85d222dd00a919ae0047b/indent.go"
+      },
+      {
+        "title": "模式和扩展标准库",
+        "url": "https://github.com/Xzach88/Tengshe/blob/fd8251db3c3d835508c85d222dd00a919ae0047b/extras.go#L34-L397"
+      },
+      {
+        "title": "解释器附加源码打包",
+        "url": "https://github.com/Xzach88/Tengshe/blob/fd8251db3c3d835508c85d222dd00a919ae0047b/extras.go#L399-L465"
+      },
+      {
+        "title": "工作台拼音建议与AI陪练接口",
+        "url": "https://github.com/Xzach88/Tengshe/blob/fd8251db3c3d835508c85d222dd00a919ae0047b/workbench.go#L34-L166"
+      },
+      {
+        "title": "本地工作台运行入口",
+        "url": "https://github.com/Xzach88/Tengshe/blob/fd8251db3c3d835508c85d222dd00a919ae0047b/workbench.go#L175-L218"
+      },
+      {
+        "title": "架构决策与功能边界",
+        "url": "https://github.com/Xzach88/Tengshe/blob/fd8251db3c3d835508c85d222dd00a919ae0047b/ARCHITECTURE.md"
+      },
+      {
+        "title": "核心测试源码",
+        "url": "https://github.com/Xzach88/Tengshe/blob/fd8251db3c3d835508c85d222dd00a919ae0047b/main_test.go"
+      },
+      {
+        "title": "工作台及标准库测试源码",
+        "url": "https://github.com/Xzach88/Tengshe/blob/fd8251db3c3d835508c85d222dd00a919ae0047b/workbench_test.go"
+      },
+      {
+        "title": "六目标构建脚本",
+        "url": "https://github.com/Xzach88/Tengshe/blob/fd8251db3c3d835508c85d222dd00a919ae0047b/build.sh"
+      },
+      {
+        "title": "根提交与两行README",
+        "url": "https://github.com/Xzach88/Tengshe/commit/fb564dbf47579d9f1f3ef427e0d3e645b30e8748"
+      },
+      {
+        "title": "源码及二进制加入提交",
+        "url": "https://github.com/Xzach88/Tengshe/commit/86cc18db2c763660751fb2501468505a57dc6a50"
+      },
+      {
+        "title": "固定提交与移除网站包",
+        "url": "https://github.com/Xzach88/Tengshe/commit/fd8251db3c3d835508c85d222dd00a919ae0047b"
+      },
+      {
+        "title": "保留提交集合",
+        "url": "https://api.github.com/repos/Xzach88/Tengshe/commits?per_page=100"
+      },
+      {
+        "title": "发行集合",
+        "url": "https://api.github.com/repos/Xzach88/Tengshe/releases"
+      },
+      {
+        "title": "标签命名空间查询",
+        "url": "https://api.github.com/repos/Xzach88/Tengshe/git/refs/tags"
+      }
+    ]
   }
 ]
