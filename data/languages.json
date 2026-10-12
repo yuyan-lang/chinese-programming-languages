@@ -8414,5 +8414,209 @@
       }
     ],
     "id": "lang-092"
+  },
+  {
+    "name": "灵码（Ling）",
+    "aliases": [
+      "灵码",
+      "Ling",
+      "ling-code"
+    ],
+    "category": "中文脚本语言／JavaScript正则转译层",
+    "author": "GitHub账号zf199606维护并署名提交；2026-07-24设计方案自署墨灵。两种署名的自然人对应关系待核实。",
+    "first_publication": "原仓创建于2026-08-21T06:40:09Z。保留根提交eb6704a2bbef20f4acc652bf2ba3315bb40f0b79记录时间为2026-08-20T09:38:47Z；设计方案页内日期为2026-07-24。文档日期、提交时间和建库时间分别记录，首次公开发布日期待核实。",
+    "description": "灵码（Ling）以中文关键字书写变量、函数、条件和循环，配套浏览器IDE、Playground、命令行、模板及包工具。固定源码中的语言实现采用有序正则替换，将.灵程序转换为JavaScript，再交给JavaScript宿主执行。原仓保存50个编号模板及3个独立示例，斐波那契原例展示“定义／如果／返回／遍历／在”等中文语法及字符串插值。设计文档另列Rust、AST、WebAssembly和原生后端路线，具体完成情况待核实。",
+    "features": [
+      "中文声明、函数、条件与循环关键字",
+      "花括号块、半角数学符号及中文标识符",
+      "中文列表／字符串方法映射与字符串插值",
+      "JavaScript正则转译和宿主执行",
+      "浏览器IDE、Playground与Node.js CLI源码",
+      "规则／模板式补全、自然语言生成与诊断接口"
+    ],
+    "code": "定义 斐波那契(n) {\n    如果 n <= 1 {\n        返回 n\n    }\n    返回 斐波那契(n - 1) + 斐波那契(n - 2)\n}\n\n-- 递归版本（较慢，但展示递归能力）\n打印(\"📐 斐波那契数列（递归，前15项）：\")\n遍历 i 在 0..14 {\n    打印(\"F({i}) = {斐波那契(i)}\")\n}",
+    "code_source": "https://github.com/zf199606/ling-code/blob/5654cd1f578eaf642a8f8f0731aa77e5d04a4cbb/%E7%81%B5%E7%A0%81%E7%A4%BA%E4%BE%8B/09_%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97.%E7%81%B5#L4-L15",
+    "code_context": "固定原例第4—15行连续摘录，含完整递归函数、作者原注释及遍历调用，保留空白和标点。性能描述是原注释；运行输出、速度与递归深度待核实。",
+    "implementation": "灵码编译器/ling.js中LingTranslator.translate依次处理注释、字面量、逻辑运算符、字符串插值、核心语法及标准库映射。_syntax把让／定、定义、如果、遍历／当／循环等模式改写为JavaScript字符串，_stdlib映射中文方法；词元处理与语法转换集中在正则规则。CLI第387—416行读取源文件、调用translate，再以new Function注入runtime、console、require、process、fs与path执行生成代码。Playground第205—350行也提供translate→new Function路径。独立词法器、AST及语义分析属于设计资料的待核能力。",
+    "version": "固定公开提交5654cd1f578eaf642a8f8f0731aa77e5d04a4cbb（2026-08-23T15:14:52Z）。提交标题自标v3.5.1；CLI文件头自标V0.5，帮助横幅v0.4；规范文件名V1.0而正文标题V2.0，AI引擎文件头V1.0。2026-10-11公开Releases列表为空，正式统一版本待核实。",
+    "license": "原仓许可元数据为空，完整固定树的项目级许可正文待补。index.html的MIT字段位于导出项目模板；ai-server中的Apache 2.0字段位于ForgeStencil参考配置。原仓整体复用与再分发授权待核实。",
+    "ai_involvement": "项目包含名为AI引擎的规则／模板系统，lingma-ai.js文件头明确“基于规则+模板”。盘古适配器注释说明当前通过增强规则模拟，代码按模式分派到本地函数；真实模型调用效果待核实。设计方案列DeepSeek／通义千问／豆包为选型，模型实际使用与代码生成参与、比例、人工审核范围待核实。",
+    "relations": "Ling与灵码由语言规范明确对应，ling-code为仓库名，灵码工作室为配套环境。GitHub fork字段为false，保留根提交parents为空。源码以JavaScript为转译及执行宿主；设计资料中的竞品、模型和ForgeStencil引用按作者参考信息记录，具体代码继承关系待核实。与现有灵语、LingCpp分别按仓库与实现区分。",
+    "status": "2026-10-11固定中文原例、文档和JavaScript实现可读。本轮为静态核验；安装、执行、测试、性能、部署效果与功能完整性待独立核验。",
+    "evidence_level": "固定源码静态核验：中文原例、正则转译与JavaScript执行链可见；设计路线、AI功能与代码生成参与分层",
+    "verification_notes": "完整固定树112项，truncated=false。--check在转译返回后输出通过信息，独立JavaScript语法解析与运行属于后续路径；该提示的验证范围为转译阶段。导入／导出语句当前转换成注释。正则转换作用于源字符串，字符串边界、复杂表达式和嵌套结构的可靠性待核实。CLI将输入转换为prompt调用，Node.js输入适配待核实。规范的静态类型、完整模块、Rust/Wasm后端及教程幂运算等能力需逐项对照实现。版本标签与正式发行分别记录。保留Issue #3原始线索及第十九轮剩余候选确认。 原仓许可元数据为空，完整固定树的项目级许可正文待补。index.html的MIT字段位于导出项目模板；ai-server中的Apache 2.0字段位于ForgeStencil参考配置。原仓整体复用与再分发授权待核实。 项目包含名为AI引擎的规则／模板系统，lingma-ai.js文件头明确“基于规则+模板”。盘古适配器注释说明当前通过增强规则模拟，代码按模式分派到本地函数；真实模型调用效果待核实。设计方案列DeepSeek／通义千问／豆包为选型，模型实际使用与代码生成参与、比例、人工审核范围待核实。",
+    "verified_at": "2026-10-11",
+    "references": [
+      {
+        "title": "原作者仓库",
+        "url": "https://github.com/zf199606/ling-code"
+      },
+      {
+        "title": "仓库元数据",
+        "url": "https://api.github.com/repos/zf199606/ling-code"
+      },
+      {
+        "title": "固定完整树",
+        "url": "https://github.com/zf199606/ling-code/tree/5654cd1f578eaf642a8f8f0731aa77e5d04a4cbb"
+      },
+      {
+        "title": "根提交与日期",
+        "url": "https://github.com/zf199606/ling-code/commit/eb6704a2bbef20f4acc652bf2ba3315bb40f0b79"
+      },
+      {
+        "title": "当前固定提交",
+        "url": "https://github.com/zf199606/ling-code/commit/5654cd1f578eaf642a8f8f0731aa77e5d04a4cbb"
+      },
+      {
+        "title": "连续中文原例",
+        "url": "https://github.com/zf199606/ling-code/blob/5654cd1f578eaf642a8f8f0731aa77e5d04a4cbb/%E7%81%B5%E7%A0%81%E7%A4%BA%E4%BE%8B/09_%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97.%E7%81%B5#L4-L15"
+      },
+      {
+        "title": "完整原例",
+        "url": "https://github.com/zf199606/ling-code/blob/5654cd1f578eaf642a8f8f0731aa77e5d04a4cbb/%E7%81%B5%E7%A0%81%E7%A4%BA%E4%BE%8B/09_%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97.%E7%81%B5"
+      },
+      {
+        "title": "固定转译规则",
+        "url": "https://github.com/zf199606/ling-code/blob/5654cd1f578eaf642a8f8f0731aa77e5d04a4cbb/%E7%81%B5%E7%A0%81%E7%BC%96%E8%AF%91%E5%99%A8/ling.js#L14-L170"
+      },
+      {
+        "title": "CLI转译与执行",
+        "url": "https://github.com/zf199606/ling-code/blob/5654cd1f578eaf642a8f8f0731aa77e5d04a4cbb/%E7%81%B5%E7%A0%81%E7%BC%96%E8%AF%91%E5%99%A8/ling.js#L376-L423"
+      },
+      {
+        "title": "浏览器转译与执行",
+        "url": "https://github.com/zf199606/ling-code/blob/5654cd1f578eaf642a8f8f0731aa77e5d04a4cbb/%E7%81%B5%E7%A0%81Playground/index.html#L205-L350"
+      },
+      {
+        "title": "语言规范与版本",
+        "url": "https://github.com/zf199606/ling-code/blob/5654cd1f578eaf642a8f8f0731aa77e5d04a4cbb/%E7%81%B5%E7%A0%81%E8%AF%AD%E8%A8%80%E8%A7%84%E8%8C%83_V1.0.md"
+      },
+      {
+        "title": "设计方案署名与路线",
+        "url": "https://github.com/zf199606/ling-code/blob/5654cd1f578eaf642a8f8f0731aa77e5d04a4cbb/%E4%B8%AD%E6%96%87%E7%BC%96%E7%A8%8B%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%A1%88.md"
+      },
+      {
+        "title": "AI规则与模板引擎",
+        "url": "https://github.com/zf199606/ling-code/blob/5654cd1f578eaf642a8f8f0731aa77e5d04a4cbb/ai-server/lingma-ai.js#L1-L55"
+      },
+      {
+        "title": "盘古适配器静态实现",
+        "url": "https://github.com/zf199606/ling-code/blob/5654cd1f578eaf642a8f8f0731aa77e5d04a4cbb/ai-server/lingma-ai.js#L2847-L2867"
+      },
+      {
+        "title": "ForgeStencil参考配置",
+        "url": "https://github.com/zf199606/ling-code/blob/5654cd1f578eaf642a8f8f0731aa77e5d04a4cbb/ai-server/lingma-ai.js#L1895-L1914"
+      },
+      {
+        "title": "导出项目许可模板",
+        "url": "https://github.com/zf199606/ling-code/blob/5654cd1f578eaf642a8f8f0731aa77e5d04a4cbb/index.html#L4295-L4325"
+      },
+      {
+        "title": "原始待核线索",
+        "url": "https://github.com/yuyan-lang/chinese-programming-languages/issues/3"
+      },
+      {
+        "title": "第十九轮待核确认",
+        "url": "https://github.com/yuyan-lang/chinese-programming-languages/issues/3#issuecomment-6111978135"
+      },
+      {
+        "title": "发行列表",
+        "url": "https://github.com/zf199606/ling-code/releases"
+      }
+    ],
+    "id": "lang-093"
+  },
+  {
+    "name": "Smal-lang",
+    "aliases": [
+      "Smal"
+    ],
+    "category": "入门中文脚本语言／Python逐行解释器与PyQt IDE",
+    "author": "版权正文及提交署名Smal Smith；GitHub关联账号CodeWatcher-Smal。自然人身份待核实。",
+    "first_publication": "原仓创建及保留根提交f7eac1f04bec3692e0d3654ada950840a8c384cf记录时间为2025-08-12T03:42:50Z。其后源码提交记录为2025-08-12T04:42:58Z与04:49:44Z。更早版本与语言首次公开日期待核实。",
+    "description": "Smal-lang面向中文使用者与编程初学者，以“设…为…”或“…是…”赋值，“显示／打印／告诉用户”输出，“让用户输入”接收数据，并用“重复…次做”和“如果…那么／否则”组织控制流。当前实现把Python解释器和PyQt5编辑运行环境放在main.py中，支持缩进块、中文四则运算词和当前次数。IDE包含文件打开保存、语法高亮及可直接填入编辑区的连续中文原例。",
+    "features": [
+      "中文赋值、输入与输出语句",
+      "缩进式重复循环与等于条件分支",
+      "加／减／乘／除以及括号表达式",
+      "循环计数器当前次数从1开始",
+      "Python正则匹配及逐行求值实现",
+      "PyQt5编辑、运行、输出与.smal文件界面"
+    ],
+    "code": "设 问候语 为 \"你好，\"\n\n让用户输入 用户名\n\n显示 问候语 加 用户名\n\n让用户输入 年龄\n显示 \"你好，\" 加 用户名 加 \"，你今年\" 加 年龄 加 \"岁\"\n\n让用户输入 数字\n显示 \"你输入的数字加5等于：\" 加 (数字 加 5)\n\n让用户输入 次数\n重复 次数 次做\n    显示 \"这是第\" 加 当前次数 加 \"次循环\"",
+    "code_source": "https://github.com/CodeWatcher-Smal/Smal-lang/blob/87bdf15d9d37d55ef08f038bac0fa54cbcb852ef/main.py#L391-L408",
+    "code_context": "固定main.py第392—406行show_example中的三引号字符串值。移除Python赋值及字符串包围符后保留连续15行原例、空行、四空格循环缩进与标点；末尾字符串换行按展示裁去。示例需要交互输入，独立执行结果待核实。",
+    "implementation": "SmalIDE.run_code将编辑器文本送入SmalInterpreter.execute。execute逐行识别重复与如果，收集四空格或制表符缩进的块；条件用等于比较求值结果，循环用Python range并把当前次数设为i+1。execute_line以正则分别处理赋值、输出和QInputDialog输入；parse_expression移除引号、递归处理括号、替换变量及当前次数，再依次处理乘除、减与加。加在所有项可转数字时求和，否则连接字符串。词元识别、解析和执行集中于这些方法。",
+    "version": "固定公开源码87bdf15d9d37d55ef08f038bac0fa54cbcb852ef（2025-08-12T04:49:44Z）；ReadMe.md、窗口标题和关于对话框自标v2.3.2。2026-10-11公开Releases列表为空，早期版本沿革及正式发行日待核实。",
+    "license": "固定LICENSE全文为MIT，Copyright (c) 2025 Smal Smith；ReadMe.md许可说明与GitHub许可元数据一致。",
+    "ai_involvement": "已读取ReadMe.md、main.py、LICENSE与三条提交记录；AI开发参与、具体模型、生成比例和人工复核范围待核实。",
+    "relations": "Smal与Smal-lang由ReadMe.md、IDE名称与仓库信息对应。Python和PyQt5为宿主及界面依赖。GitHub fork字段为false，保留根提交parents为空；更早项目、移植和具体上游代码继承待核实。",
+    "status": "2026-10-11完整固定树包含ReadMe.md、main.py和LICENSE三文件，中文原例与解释链可静态核验。PyQt安装、IDE交互、执行输出及版本兼容性待独立核验。",
+    "evidence_level": "固定源码静态核验：中文原例、Python逐行解析与求值、IDE调用链及MIT许可正文可见",
+    "verification_notes": "原始README.md路径线索通过完整树定位到大小写为ReadMe.md的文档。该文档示例含转义与HTML实体，主例采用main.py嵌入原文。控制块的正文经execute_line分派，当前该方法处理赋值、输出和输入；嵌套控制流支持待核实。表达式移除引号后按空白边界替换变量并作正则运算，严格字符串语义、运算优先级和错误覆盖待核实。源码提供顶层条件与循环；完整语言能力与性能等待运行核验。保留Issue #3原始线索及第十九轮剩余候选确认。 固定LICENSE全文为MIT，Copyright (c) 2025 Smal Smith；ReadMe.md许可说明与GitHub许可元数据一致。 已读取ReadMe.md、main.py、LICENSE与三条提交记录；AI开发参与、具体模型、生成比例和人工复核范围待核实。",
+    "verified_at": "2026-10-11",
+    "references": [
+      {
+        "title": "原作者仓库",
+        "url": "https://github.com/CodeWatcher-Smal/Smal-lang"
+      },
+      {
+        "title": "仓库元数据",
+        "url": "https://api.github.com/repos/CodeWatcher-Smal/Smal-lang"
+      },
+      {
+        "title": "固定完整树",
+        "url": "https://github.com/CodeWatcher-Smal/Smal-lang/tree/87bdf15d9d37d55ef08f038bac0fa54cbcb852ef"
+      },
+      {
+        "title": "根提交与日期",
+        "url": "https://github.com/CodeWatcher-Smal/Smal-lang/commit/f7eac1f04bec3692e0d3654ada950840a8c384cf"
+      },
+      {
+        "title": "固定当前提交与作者",
+        "url": "https://github.com/CodeWatcher-Smal/Smal-lang/commit/87bdf15d9d37d55ef08f038bac0fa54cbcb852ef"
+      },
+      {
+        "title": "固定原始说明与版本",
+        "url": "https://github.com/CodeWatcher-Smal/Smal-lang/blob/87bdf15d9d37d55ef08f038bac0fa54cbcb852ef/ReadMe.md"
+      },
+      {
+        "title": "连续中文嵌入原例",
+        "url": "https://github.com/CodeWatcher-Smal/Smal-lang/blob/87bdf15d9d37d55ef08f038bac0fa54cbcb852ef/main.py#L391-L408"
+      },
+      {
+        "title": "表达式解析与求值",
+        "url": "https://github.com/CodeWatcher-Smal/Smal-lang/blob/87bdf15d9d37d55ef08f038bac0fa54cbcb852ef/main.py#L56-L160"
+      },
+      {
+        "title": "逐行中文语句匹配",
+        "url": "https://github.com/CodeWatcher-Smal/Smal-lang/blob/87bdf15d9d37d55ef08f038bac0fa54cbcb852ef/main.py#L162-L198"
+      },
+      {
+        "title": "循环与条件解析执行",
+        "url": "https://github.com/CodeWatcher-Smal/Smal-lang/blob/87bdf15d9d37d55ef08f038bac0fa54cbcb852ef/main.py#L200-L295"
+      },
+      {
+        "title": "IDE运行及程序入口",
+        "url": "https://github.com/CodeWatcher-Smal/Smal-lang/blob/87bdf15d9d37d55ef08f038bac0fa54cbcb852ef/main.py#L410-L426"
+      },
+      {
+        "title": "MIT许可正文",
+        "url": "https://github.com/CodeWatcher-Smal/Smal-lang/blob/87bdf15d9d37d55ef08f038bac0fa54cbcb852ef/LICENSE"
+      },
+      {
+        "title": "原始待核线索",
+        "url": "https://github.com/yuyan-lang/chinese-programming-languages/issues/3"
+      },
+      {
+        "title": "第十九轮待核确认",
+        "url": "https://github.com/yuyan-lang/chinese-programming-languages/issues/3#issuecomment-6111978135"
+      },
+      {
+        "title": "发行列表",
+        "url": "https://github.com/CodeWatcher-Smal/Smal-lang/releases"
+      }
+    ],
+    "id": "lang-094"
   }
 ]
