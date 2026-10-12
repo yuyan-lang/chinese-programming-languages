@@ -8801,5 +8801,161 @@
         "url": "https://api.github.com/repos/heikeling/CN-Language/releases"
       }
     ]
+  },
+  {
+    "id": "lang-096",
+    "name": "XuYu",
+    "aliases": [
+      "xuyu",
+      "中文语言实验器"
+    ],
+    "category": "中文赋值关键字的早期AST解释器／实验性语言设计",
+    "author": "GitHub账号mehaotian维护；两条保留提交的作者、提交者与关联账号均为mehaotian。README自述个人发起、面向爱好者共同建设。真实姓名与完整贡献分工待核实。",
+    "first_publication": "GitHub仓库创建于2026-09-22T01:48:00Z；根提交345c6efc8f038e810a122e3d1eaf98d32b8c5707时间为2026-09-22T02:09:05Z。部分设计和实现文档标注2026-09-21，该日期按文档自标保存。首次对外公开日期待核实。",
+    "description": "XuYu是现代中文编程语言实验项目，当前Go实现以“设置”作为赋值关键字，支持中文及ASCII标识符、多条换行分隔赋值、整数变量引用、四则运算和括号优先级。源码经手写词法器、分层递归下降解析器和AST解释器进入整数变量环境，CLI显示排序后的环境调试表示。v0.1候选规范另提出“定义、如、否则、当、重复、遍历、返回、导入”等语法，输出及条件代码块列为后续里程碑。",
+    "features": [
+      "已实现“设置”中文赋值关键字",
+      "中文及ASCII标识符与换行语句边界",
+      "整数变量、四则表达式及括号优先级",
+      "Go手写词法／递归下降解析／AST解释链",
+      "中文错误定位及.中文件CLI入口",
+      "v0.1候选规范与分阶段实现记录"
+    ],
+    "code": "设置 基数 = 10\n设置 总数 = (基数 + 2) * 3 - 4 / 2\n",
+    "code_source": "https://github.com/mehaotian/xuyu/blob/2974fd20dc0b0a91eab3a83c063c21a8527a897b/examples/%E9%98%B6%E6%AE%B50/%E6%95%B4%E6%95%B0%E8%A1%A8%E8%BE%BE%E5%BC%8F.%E4%B8%AD#L1-L2",
+    "code_context": "固定提交examples/阶段0/整数表达式.中第1—2行的完整连续原文，保留末尾换行。第一行设置基数，第二行引用基数计算总数。README与CLI测试源码列出预期输出“环境[基数=10, 总数=34]”，CLI测试断言另含末尾换行；本轮为静态源码核验，独立执行待核实。",
+    "implementation": "Go模块声明go 1.22。lexer.go第130—134行将精确词形“设置”标记为KindKeyword；第201—215行接受下划线、Han字符、ASCII字母及后续数字。parser.go第63—91行强制解析“设置 标识符 = 表达式”，第31—55行以换行分隔语句，第93—182行以加减、乘除、基本表达式分层处理优先级并将十进制整数解析为int64。interpreter.Run逐条执行Assignment，evaluateExpression计算整数、变量和二元运算，环境为map[string]int64，并显式检查除零。runner.RunFile依次读取文件、Lex、Parse和Run。CLI支持帮助、版本、运行命令并输出environment.String()。当前语言关键字集合为“设置”；“输出”“如／否则”等按设计和计划保存。",
+    "version": "CLI自标0.0.1-dev，候选语言规范自标v0.1，两者分别记录。固定main提交2974fd20dc0b0a91eab3a83c063c21a8527a897b时间为2026-09-22T08:56:30Z；2026-10-12复查main仍指向该提交。当前整合计划标记M1整数表达式完成、M2输出和M3条件代码块为后续工作。",
+    "license": "2026-10-12固定完整树109项、80个文件，许可正文待核实；GitHub许可元数据为null。风险与待决事项文档明确将许可证列为待决项。代码、规范和后续发行的许可适用范围待核实。",
+    "ai_involvement": "固定仓库包含AGENTS.md及.cursor/rules协作规则，AGENTS.md含AI注释与文档协作约束；候选规范讨论IDE代码建议和确定性编译边界。实际AI开发参与、模型、生成比例及人工复核范围待核实。",
+    "relations": "仓库名xuyu、README名称XuYu、Go模块github.com/mehaotian/xuyu及cmd/zhongwen构成同一项目身份链。GitHub元数据fork=false。作者将Python、Go、Rust、易语言、文言和MoonBit列为参照或灵感；具体源码继承及与其他中文语言的兼容关系待核实。Go为当前实现语言，LLVM、Native和WASM属于文档规划。",
+    "status": "早期语言实验器，中文赋值关键字、整数表达式和完整前端至AST解释链已获固定源码支持。输出、条件、循环、函数、对象、模块及原生编译按后续计划或实验性规范记录；独立运行与完整语言实现待核实。",
+    "evidence_level": "原仓固定源码静态核验：连续中文关键字原例、词法识别、赋值解析、AST求值和CLI调用链可见",
+    "verification_notes": "2026-10-12只读核验。已读百科AGENTS.md、Issue22及全部6条评论、原候选记录、现有95条语言数据和相关研究日志。原仓固定递归树109项、80文件、truncated=false；main保留两条提交，根提交parents为空，当前提交新增整数表达式闭环。原例直接取完整两行.中文件；“设置”同时有词法与语法实现，可据此记录当前已实现的中文语法。v0.1控制流原例按设计层单列。README预期输出和仓库测试断言按作者证据记录，本轮安装、构建、测试及候选程序执行均为0。一元负号列为当前暂缓能力，整数溢出策略、Unicode数字边界与规范冻结状态继续待核实。",
+    "verified_at": "2026-10-12",
+    "repository_created_at": "2026-09-22T01:48:00Z",
+    "repository_pushed_at": "2026-09-22T08:56:41Z",
+    "first_commit_at": "2026-09-22T02:09:05Z",
+    "latest_commit_at": "2026-09-22T08:56:30Z",
+    "release_status": "2026-10-12读取GitHub Releases集合为空；git/refs/tags返回404。公开发行物与正式发行日期待核实。",
+    "code_source_detail": {
+      "repository": "mehaotian/xuyu",
+      "branch": "main",
+      "commit": "2974fd20dc0b0a91eab3a83c063c21a8527a897b",
+      "path": "examples/阶段0/整数表达式.中",
+      "lines": "1-2",
+      "blob_sha": "dbd725280d662f52d649dfdd6fd2f1c4c8e9c542",
+      "verification": "GitHub连接器按固定commit读取完整文件，连续原文及末尾换行保留"
+    },
+    "references": [
+      {
+        "title": "固定README：身份、当前能力与后续计划",
+        "url": "https://github.com/mehaotian/xuyu/blob/2974fd20dc0b0a91eab3a83c063c21a8527a897b/README.md"
+      },
+      {
+        "title": "完整中文赋值与整数表达式原例",
+        "url": "https://github.com/mehaotian/xuyu/blob/2974fd20dc0b0a91eab3a83c063c21a8527a897b/examples/%E9%98%B6%E6%AE%B50/%E6%95%B4%E6%95%B0%E8%A1%A8%E8%BE%BE%E5%BC%8F.%E4%B8%AD#L1-L2"
+      },
+      {
+        "title": "词法器：“设置”关键字精确识别",
+        "url": "https://github.com/mehaotian/xuyu/blob/2974fd20dc0b0a91eab3a83c063c21a8527a897b/internal/lexer/lexer.go#L115-L141"
+      },
+      {
+        "title": "标识符字符规则",
+        "url": "https://github.com/mehaotian/xuyu/blob/2974fd20dc0b0a91eab3a83c063c21a8527a897b/internal/lexer/lexer.go#L201-L215"
+      },
+      {
+        "title": "赋值解析与换行语句边界",
+        "url": "https://github.com/mehaotian/xuyu/blob/2974fd20dc0b0a91eab3a83c063c21a8527a897b/internal/parser/parser.go#L27-L91"
+      },
+      {
+        "title": "表达式分层解析与整数范围",
+        "url": "https://github.com/mehaotian/xuyu/blob/2974fd20dc0b0a91eab3a83c063c21a8527a897b/internal/parser/parser.go#L93-L182"
+      },
+      {
+        "title": "AST节点与赋值结构",
+        "url": "https://github.com/mehaotian/xuyu/blob/2974fd20dc0b0a91eab3a83c063c21a8527a897b/internal/ast/ast.go"
+      },
+      {
+        "title": "环境与表达式解释执行",
+        "url": "https://github.com/mehaotian/xuyu/blob/2974fd20dc0b0a91eab3a83c063c21a8527a897b/internal/interpreter/interpreter.go#L27-L140"
+      },
+      {
+        "title": "文件读取至解释器的调用链",
+        "url": "https://github.com/mehaotian/xuyu/blob/2974fd20dc0b0a91eab3a83c063c21a8527a897b/internal/runner/runner.go#L16-L34"
+      },
+      {
+        "title": "CLI版本、命令与调试环境输出",
+        "url": "https://github.com/mehaotian/xuyu/blob/2974fd20dc0b0a91eab3a83c063c21a8527a897b/cmd/zhongwen/main.go#L14-L59"
+      },
+      {
+        "title": "原仓CLI整数表达式测试断言",
+        "url": "https://github.com/mehaotian/xuyu/blob/2974fd20dc0b0a91eab3a83c063c21a8527a897b/cmd/zhongwen/main_test.go#L54-L65"
+      },
+      {
+        "title": "Go模块与工具链版本",
+        "url": "https://github.com/mehaotian/xuyu/blob/2974fd20dc0b0a91eab3a83c063c21a8527a897b/go.mod#L1-L3"
+      },
+      {
+        "title": "v0.1候选关键字和语法骨架",
+        "url": "https://github.com/mehaotian/xuyu/blob/2974fd20dc0b0a91eab3a83c063c21a8527a897b/docs/01-%E4%BA%A7%E5%93%81%E4%B8%8E%E8%AF%AD%E8%A8%80/%E8%AF%AD%E8%A8%80%E8%A7%84%E8%8C%83-v0.1.md#L43-L84"
+      },
+      {
+        "title": "规范中的连续条件设计原例",
+        "url": "https://github.com/mehaotian/xuyu/blob/2974fd20dc0b0a91eab3a83c063c21a8527a897b/docs/01-%E4%BA%A7%E5%93%81%E4%B8%8E%E8%AF%AD%E8%A8%80/%E8%AF%AD%E8%A8%80%E8%A7%84%E8%8C%83-v0.1.md#L88-L97"
+      },
+      {
+        "title": "M1现状、M2输出及M3条件计划",
+        "url": "https://github.com/mehaotian/xuyu/blob/2974fd20dc0b0a91eab3a83c063c21a8527a897b/docs/10-%E5%BC%80%E5%8F%91%E8%AE%A1%E5%88%92/05-%E5%BD%93%E5%89%8D%E9%98%B6%E6%AE%B5%E6%95%B4%E5%90%88%E8%AE%A1%E5%88%92.md"
+      },
+      {
+        "title": "许可待决原始记录",
+        "url": "https://github.com/mehaotian/xuyu/blob/2974fd20dc0b0a91eab3a83c063c21a8527a897b/docs/00-%E9%A1%B9%E7%9B%AE%E8%AF%84%E5%AE%A1/%E9%A3%8E%E9%99%A9%E4%B8%8E%E5%BE%85%E5%86%B3%E4%BA%8B%E9%A1%B9.md"
+      },
+      {
+        "title": "作者列明的参照项目",
+        "url": "https://github.com/mehaotian/xuyu/blob/2974fd20dc0b0a91eab3a83c063c21a8527a897b/docs/00-%E9%A1%B9%E7%9B%AE%E8%AF%84%E5%AE%A1/%E7%AB%9E%E5%93%81%E4%B8%8E%E5%8F%82%E7%85%A7%E9%A1%B9%E7%9B%AE%E5%88%86%E6%9E%90.md"
+      },
+      {
+        "title": "协作规则与AI相关文字",
+        "url": "https://github.com/mehaotian/xuyu/blob/2974fd20dc0b0a91eab3a83c063c21a8527a897b/AGENTS.md"
+      },
+      {
+        "title": "固定完整文件树",
+        "url": "https://api.github.com/repos/mehaotian/xuyu/git/trees/2974fd20dc0b0a91eab3a83c063c21a8527a897b?recursive=1"
+      },
+      {
+        "title": "根提交：作者与日期",
+        "url": "https://github.com/mehaotian/xuyu/commit/345c6efc8f038e810a122e3d1eaf98d32b8c5707"
+      },
+      {
+        "title": "当前提交：作者与日期",
+        "url": "https://github.com/mehaotian/xuyu/commit/2974fd20dc0b0a91eab3a83c063c21a8527a897b"
+      },
+      {
+        "title": "根提交至当前提交的变化",
+        "url": "https://github.com/mehaotian/xuyu/compare/345c6efc8f038e810a122e3d1eaf98d32b8c5707...2974fd20dc0b0a91eab3a83c063c21a8527a897b"
+      },
+      {
+        "title": "仓库元数据",
+        "url": "https://api.github.com/repos/mehaotian/xuyu"
+      },
+      {
+        "title": "公开发行集合",
+        "url": "https://api.github.com/repos/mehaotian/xuyu/releases"
+      },
+      {
+        "title": "标签引用读取",
+        "url": "https://api.github.com/repos/mehaotian/xuyu/git/refs/tags"
+      },
+      {
+        "title": "Issue22原始候选",
+        "url": "https://github.com/yuyan-lang/chinese-programming-languages/issues/22"
+      },
+      {
+        "title": "技术路线：Go、IR与后置Native／WASM／LLVM设计",
+        "url": "https://github.com/mehaotian/xuyu/blob/2974fd20dc0b0a91eab3a83c063c21a8527a897b/docs/02-%E6%8A%80%E6%9C%AF%E8%AE%BE%E8%AE%A1/%E6%8A%80%E6%9C%AF%E6%9E%B6%E6%9E%84%E4%B8%8E%E5%AE%9E%E7%8E%B0%E8%B7%AF%E7%BA%BF.md#L1-L68"
+      }
+    ]
   }
 ]
