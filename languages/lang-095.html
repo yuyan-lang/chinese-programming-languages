@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>CN Language｜中文编程语言百科</title><link rel="stylesheet" href="../style.css"></head><body><header><h1>CN Language</h1></header><main><p><a href="../">返回语言目录</a></p>
+<h2>语言介绍</h2><p>CN Language使用中文关键词及Python式缩进、表达式书写程序，提供“从…导入库…”、“如果／否则如果／否则”、“定义”、“返回值”和“变量循环…里面”等映射。Python实现逐项替换源字符串，再使用exec执行，中文输入输出及图形接口由Python函数和Tkinter、EasyGUI提供。原仓可视化编辑器保存猜拳、猜数字、计算器与窗口等连续中文原例；2024年的Chinese Code Studio源码副本与发行继续采用相同语言转换链。</p>
+<h2>分类与别名</h2><p>Python中文关键词转译层／Tkinter可视化编程环境；别名：CN-Language；CN编程语言；Cn</p>
+<h2>作者与公开历史</h2><p>原仓heikeling/CN-Language的六条保留提交署名heikeling。HeiKe-Tom维护2024年的源码副本与Chinese Code Studio发行；tomkiyang保存GitHub fork。三个账号的自然人身份与相互关系待核实。</p><p>原仓创建于2022-11-03T12:53:04Z，根提交ad38c862e03692902e1aa65a95e7723446806612记录2022-11-03T12:53:05Z。HeiKe-Tom仓库创建于2024-01-11T07:32:07Z，其根提交为当日07:33:15Z；tomkiyang fork创建于2025-05-08T09:25:43Z。首次公开日待核实，建库、提交及软件发行日期分别记录。</p>
+<h2>设计与特征</h2><p>中文条件、函数、导入与循环词元映射；中文括号、逗号与冒号转成Python标点；Python字符串替换转译与exec宿主执行；中文输入、输出、类型转换与图形函数；Tkinter编辑器、.cn保存及内嵌原例；Chinese Code Studio Windows发行记录</p>
+<h2>中文语法示例</h2><pre><code>从 随机 导入库 *
+电脑猜拳=生成随机数(1,3)
+玩家=询问（&#39;请输入猜拳&#39;）
+如果 玩家 == &#39;石头&#39; 和 电脑猜拳 == 1：
+	打印（&#39;平局啦&#39;,&#39;blue&#39;）
+否则如果 玩家 == &#39;石头&#39; 和 电脑猜拳 == 2：
+	打印（&#39;你赢啦&#39;,&#39;green&#39;）
+否则如果 玩家 == &#39;石头&#39; 和 电脑猜拳 == 3：
+	打印（&#39;很遗憾，你输了&#39;，&#39;red&#39;）
+否则如果 玩家 == &#39;剪刀&#39; 和 电脑猜拳 == 1：
+	打印（&#39;很遗憾，你输了&#39;，&#39;red&#39;）
+否则如果 玩家 == &#39;剪刀&#39; 和 电脑猜拳 == 2：
+	打印（&#39;平局啦&#39;,&#39;blue&#39;）
+否则如果 玩家 == &#39;剪刀&#39; 和 电脑猜拳 == 3：
+	打印（&#39;你赢啦&#39;,&#39;green&#39;）
+否则如果 玩家 == &#39;布&#39; 和 电脑猜拳 == 1：
+	打印（&#39;你赢啦&#39;,&#39;blue&#39;）
+否则如果 玩家 == &#39;布&#39; 和 电脑猜拳 == 2：
+	打印（&#39;很遗憾，你输了&#39;，&#39;red&#39;）
+否则如果 玩家 == &#39;布&#39; 和 电脑猜拳 == 3：
+	打印（&#39;平局啦&#39;，&#39;green&#39;）</code></pre><p>原仓固定main.pyw第513—533行cq函数中的完整21行猜拳程序。提取仅去除Python的code.insert调用及三引号包围符，换行统一为LF，保留制表符缩进、全角／半角标点与原文。HeiKe-Tom副本相同行段逐行相同。例程依赖随机.py及编辑器注入的询问、打印，运行输出待独立核验。 <a href="https://github.com/heikeling/CN-Language/blob/6540faf32f98712931028a7014c5ea3c2eef0629/main.pyw#L513-L533">示例来源</a></p>
+<h2>实现与运行环境</h2><p>main.pyw的yx读取编辑器文本并写入code.txt，随后从文件读取codes；第172—243行以str.replace映射中文关键字、方法和全角标点，第248—250行写new.py并exec(codes)。第137—164行提供打印、询问、创建界面、弹出、显示按钮、类型转换等Python包装函数。F5路径yxf5在第312—384行保留一组转换及执行流程；按钮／菜单和F5分别绑定到这些入口。随机.py将生成随机数转交random.randint。Cnexe.py另从code.txt转换并exec；编辑器“编译exe”路径以xcopy复制Cnexe.exe及code.txt。源码静态显示Python转译与宿主执行机制。</p>
+<h2>版本与维护状态</h2><p>原仓固定提交6540faf32f98712931028a7014c5ea3c2eef0629，时间2022-11-20T04:56:56Z；2026-10-12原仓Releases列表为空。HeiKe-Tom固定ae2fdc7cf47e83fca1f450012be590876a794764，时间2024-01-14T09:54:15Z，窗口自标Chinese Code Studio v1.0.1。v1.0.0发行于2024-01-12T07:25:51Z，标签指向2043485553dfae2d750ed9054ff7c28e22dcbe74；v1.0.1发行于2024-01-14T09:47:35Z，标签指向7ba2af7cc7dcf4599cd1ae2e3d3f85c1e047e72d。语言独立语义版本待核实。</p><p>2026-10-12静态读取原仓、fork与源码副本；完整固定树、中文原例、Python转换与exec调用可见。依赖安装、网络服务、Windows打包资产、IDE交互与运行输出待独立核验。</p>
+<h2>与其他项目的关系</h2><p>tomkiyang/CN-Language的GitHub parent及source均指向heikeling/CN-Language，默认分支与原仓同为6540faf32f98712931028a7014c5ea3c2eef0629。HeiKe-Tom仓库元数据fork=false，固定嵌套源码与heikeling原仓有20个同路径对应blob一致，包括Cnexe.py、ku.py、LICENSE和随机.py；main.pyw同为699行正文，逐行比较有7行差异，中文转换链和内嵌猜拳原例一致。代码对应支持将Chinese Code Studio记录为此语言的源码副本／配套发行。heikeling与HeiKe-Tom的账号ID分别为110018283、140880011；账号迁移、共同作者及授权沿革待核实。</p>
+<h2>核验说明</h2><p>两个运行入口的条件循环分支均检测“条件循环”后替换“弹出”为while；该规则及完整循环行为待核实。替换直接作用于整个源字符串，字符串／注释边界、关键词碰撞、复杂程序语义待核实。按钮路径与F5路径的规则集合分别保存，前者另含列表、画布、监听。运行计时的结束点位于exec之前，其涵盖范围为前置读写和转换。原仓main.pyw导入Wdata，固定树内该依赖待补；HeiKe-Tom副本含Wdata.py。HeiKe-Tom副本的错误翻译函数定义大写URL而调用小写url，错误路径待核实。原仓与副本main.cn按UTF-8读取出现替代字符，正式主例采用可逐字核对的UTF-8嵌入猜拳程序。许可、AI参与、软件版本与执行验证分别记录。2024年v1.0.1发行说明自述开始要求联网，具体网络行为与可用性待独立核验。 原仓根LICENSE与HeiKe-Tom的CN-Language/LICENSE均为Apache License 2.0全文，blob相同。附录保留年份／权利人占位符。原仓GitHub许可元数据为Apache-2.0；HeiKe-Tom根级元数据为空，其许可文件位于嵌套源码目录。打包发行资产、新增文件与第三方依赖的具体许可适用范围待逐项核实。 本次读取源码、原例、提交和发行资料；AI开发参与、模型、生成比例及人工复核范围待核实。源码中的有道翻译调用用于错误信息处理。</p>
+<h2>参考资料</h2><ul><li><a href="https://github.com/yuyan-lang/chinese-programming-languages/issues/3">Issue #3原始线索与候选关系</a></li>
+<li><a href="https://github.com/yuyan-lang/chinese-programming-languages/issues/3#issuecomment-6116655862">第二十轮后剩余候选</a></li>
+<li><a href="https://github.com/HeiKe-Tom/CN-Language">原始HeiKe-Tom仓库线索</a></li>
+<li><a href="https://github.com/tomkiyang/CN-Language">原始tomkiyang关联线索</a></li>
+<li><a href="https://api.github.com/repos/heikeling/CN-Language">原仓元数据及创建日期</a></li>
+<li><a href="https://api.github.com/repos/tomkiyang/CN-Language">fork来源元数据</a></li>
+<li><a href="https://api.github.com/repos/HeiKe-Tom/CN-Language">源码副本元数据</a></li>
+<li><a href="https://github.com/heikeling/CN-Language/tree/6540faf32f98712931028a7014c5ea3c2eef0629">原仓固定完整树</a></li>
+<li><a href="https://github.com/HeiKe-Tom/CN-Language/tree/ae2fdc7cf47e83fca1f450012be590876a794764">副本固定完整树</a></li>
+<li><a href="https://github.com/heikeling/CN-Language/commit/ad38c862e03692902e1aa65a95e7723446806612">原仓根提交与署名</a></li>
+<li><a href="https://github.com/heikeling/CN-Language/commit/6540faf32f98712931028a7014c5ea3c2eef0629">原仓固定提交日期</a></li>
+<li><a href="https://github.com/heikeling/CN-Language/blob/6540faf32f98712931028a7014c5ea3c2eef0629/README.md">原仓名称说明</a></li>
+<li><a href="https://github.com/heikeling/CN-Language/blob/6540faf32f98712931028a7014c5ea3c2eef0629/main.pyw#L513-L533">连续中文猜拳原例</a></li>
+<li><a href="https://github.com/heikeling/CN-Language/blob/6540faf32f98712931028a7014c5ea3c2eef0629/main.pyw#L137-L164">中文运行时包装函数</a></li>
+<li><a href="https://github.com/heikeling/CN-Language/blob/6540faf32f98712931028a7014c5ea3c2eef0629/main.pyw#L165-L250">中文映射与执行入口</a></li>
+<li><a href="https://github.com/heikeling/CN-Language/blob/6540faf32f98712931028a7014c5ea3c2eef0629/main.pyw#L305-L384">F5转换及exec路径</a></li>
+<li><a href="https://github.com/heikeling/CN-Language/blob/6540faf32f98712931028a7014c5ea3c2eef0629/main.pyw#L394-L446">编辑器运行绑定与打包复制</a></li>
+<li><a href="https://github.com/heikeling/CN-Language/blob/6540faf32f98712931028a7014c5ea3c2eef0629/%E9%9A%8F%E6%9C%BA.py">随机库实现</a></li>
+<li><a href="https://github.com/heikeling/CN-Language/blob/6540faf32f98712931028a7014c5ea3c2eef0629/Cnexe.py">固定独立代码执行器</a></li>
+<li><a href="https://github.com/heikeling/CN-Language/blob/6540faf32f98712931028a7014c5ea3c2eef0629/LICENSE">原仓Apache 2.0正文</a></li>
+<li><a href="https://github.com/HeiKe-Tom/CN-Language/blob/ae2fdc7cf47e83fca1f450012be590876a794764/CN-Language/LICENSE">副本同blob许可</a></li>
+<li><a href="https://github.com/HeiKe-Tom/CN-Language/blob/ae2fdc7cf47e83fca1f450012be590876a794764/CN-Language/main.pyw">副本中文原例与转换实现</a></li>
+<li><a href="https://github.com/HeiKe-Tom/CN-Language/blob/ae2fdc7cf47e83fca1f450012be590876a794764/README.md">副本README下载与截图入口</a></li>
+<li><a href="https://github.com/HeiKe-Tom/CN-Language/commit/c0e9b5ac1c33fb347d7f0be5b90b0f9e95cbd024">副本根提交</a></li>
+<li><a href="https://github.com/HeiKe-Tom/CN-Language/releases/tag/v1.0.0">Chinese Code Studio v1.0.0发行</a></li>
+<li><a href="https://github.com/HeiKe-Tom/CN-Language/releases/tag/v1.0.1">Chinese Code Studio v1.0.1发行</a></li>
+<li><a href="https://api.github.com/repos/HeiKe-Tom/CN-Language/git/refs/tags">软件发行标签固定指向</a></li>
+<li><a href="https://api.github.com/repos/heikeling/CN-Language/releases">原仓发行集合</a></li></ul><p>资料核验日期：2026-10-12</p><p><a href="https://github.com/yuyan-lang/chinese-programming-languages/issues/new">补充资料或纠错</a></p></main><footer>站点由<a href="https://yuyan-lang.org/">豫言编程语言</a>提供</footer></body></html>
