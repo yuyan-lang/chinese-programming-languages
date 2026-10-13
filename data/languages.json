@@ -9233,5 +9233,78 @@
         "url": "https://api.github.com/repos/hctj353056/FSG-language/releases"
       }
     ]
+  },
+  {
+    "id": "lang-099",
+    "name": "青语言",
+    "aliases": [
+      "Qing"
+    ],
+    "category": "独立中文解释语言（官方文档与原例核验）",
+    "author": "数心开物工作室。宁近农在2023-06-07的原作者文章中介绍项目并链接官网；官网链接Gitee账号NjinN下的核心库与配套例程仓，构成公开身份链。具体团队分工待核实。",
+    "first_publication": "官方《语法概览》标注创建于2023-04-22、更新于2023-04-25；作者介绍文章显示2023-06-07 09:25。上述为页面日期，时区及首次对外公开日待核实。",
+    "description": "青语言以中文关键字和标点组织程序，使用#标记变量、@标记函数。官方文档展示条件、循环、函数与语境，面向编程学习及日常程序表达。",
+    "features": [
+      "中文控制流及运算符",
+      "变量与函数前缀标记",
+      "语境与对象访问",
+      "官方函数、循环及多任务原例",
+      "作者说明的DLL扩展方式"
+    ],
+    "code": "@显示、“你好，编程世界”",
+    "code_source": "https://doc.qingyuyan.cn/?a=index&aid=490411908277469184&id=2&m=Article",
+    "code_context": "官方0.9文档《语法概览》“第一个程序”完整单行原文；顿号传递单个参数。原页另存完整循环及函数原例。独立执行结果待核实。",
+    "implementation": "原仓README声明使用C#、运行于.NET，开发环境列VS2022和.NET7。所见仓库根目录包含Lang、Proto、Script、Std、Test、Program.cs与Qing.csproj。解析及求值调用链正文、实际平台覆盖待核实。",
+    "version": "所读官方使用文档自标0.9。Gitee根页快照链接提交2633a9f5c70743dfc4ffd6ca6d31fbbe3ad11501；该页面缓存约5个月，提交时间、固定文件正文和当前版本对应待核实。",
+    "license": "所读Gitee根页许可文字以木兰宽松许可证第2版为基础，另列关于函数及创作声明的保留、调用或可见展示要求；条目按含附加要求的项目许可记录。固定LICENSE正文与版权署名待核实。",
+    "ai_involvement": "官网介绍AI功能扩展。开发过程中是否使用AI、具体模型和贡献范围待核实。",
+    "relations": "官网互链NjinN/Qing核心库和NjinN/qingexample例程仓，按同项目配套材料归并。作者说明将JavaScript语法、Lisp核心与Rebol语境作为设计参考；源码继承关系待核实。",
+    "status": "身份链、官方语法与原始程序达到文档层面收录范围。固定源码、运行结果、发行历史及版本兼容性继续待核实。",
+    "evidence_level": "官方文档和原例可读；原仓目录可见；实现细节按作者说明分层记录",
+    "verification_notes": "2026-10-13复核作者文章、官网、官方0.9语法页与Gitee根页。网页工具分别提供带缓存时间的页面；仓库统计保持快照口径。固定README、Program.cs、Lang目录及提交详情读取失败，记为访问缺口。文档多任务原例与仓库README的元关键字用法存在差别，具体版本对应待核实。安装、构建、测试及候选程序执行均为0。",
+    "verified_at": "2026-10-13",
+    "repository_created_at": "待核实",
+    "repository_pushed_at": "待核实",
+    "first_commit_at": "待核实",
+    "latest_commit_at": "待核实",
+    "release_status": "所见Gitee缓存页面显示0标签及无Release；实时发行状态、正式版本日期与产物对应待核实。",
+    "code_source_detail": {
+      "source_type": "官方语法文档",
+      "document_version": "0.9",
+      "section": "语法概览／第一个程序",
+      "page_created_at": "2023-04-22",
+      "page_updated_at": "2023-04-25",
+      "verification": "逐字保存官方单行原例；固定源码提交对应待核实"
+    },
+    "references": [
+      {
+        "title": "原始待核议题",
+        "url": "https://github.com/yuyan-lang/chinese-programming-languages/issues/3"
+      },
+      {
+        "title": "宁近农：关于青语言语法设计的讨论",
+        "url": "https://www.cnblogs.com/NjinN/p/17462373.html"
+      },
+      {
+        "title": "青语言官网与配套仓库入口",
+        "url": "https://qingyuyan.cn/"
+      },
+      {
+        "title": "官方0.9语法概览与原始程序",
+        "url": "https://doc.qingyuyan.cn/?a=index&aid=490411908277469184&id=2&m=Article"
+      },
+      {
+        "title": "原仓README、目录与许可文字（页面快照）",
+        "url": "https://gitee.com/NjinN/Qing"
+      },
+      {
+        "title": "根页链接的提交定位（正文待核）",
+        "url": "https://gitee.com/NjinN/Qing/commit/2633a9f5c70743dfc4ffd6ca6d31fbbe3ad11501"
+      },
+      {
+        "title": "官网列出的配套例程仓",
+        "url": "https://gitee.com/NjinN/qingexample"
+      }
+    ]
   }
 ]
