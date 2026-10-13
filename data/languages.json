@@ -9121,5 +9121,117 @@
         "url": "https://api.github.com/repos/Xzach88/Tengshe/git/refs/tags"
       }
     ]
+  },
+  {
+    "id": "lang-098",
+    "name": "FSG",
+    "aliases": [
+      "蜉熵阁汇编语言",
+      "FSG语言"
+    ],
+    "category": "中文汇编／字节码语言原型",
+    "author": "GitHub账号hctj353056维护。README署名蜉蝣为项目设计者、灵镜为AI助手；根提交署名蜉蝣并关联hctj353056。具体开发分工与人工复核范围待核实。",
+    "first_publication": "仓库创建于2026-04-13T10:36:27Z；main保留历史的根提交4c9d3c9b3b6556fc04dccb98d6a9fa242650b7e4记录2026-04-29T23:54:37Z。首次对外公开日待核实。",
+    "description": "FSG以载常、打印、加、赋值、比较和条件跳转等中文指令书写寄存器汇编程序，同时提供英文指令映射。Python编译器将源码经词法识别、两遍标签处理和指令编码生成FSGB字节码；仓库另保存Python虚拟机及其内置汇编器。作者以用FSG编写FSG编译器为项目目标，当前按源码可见的中文汇编与字节码原型收录。",
+    "features": [
+      "中文与英文指令映射",
+      "R0至R7八个寄存器和中文标签",
+      "两遍标签处理与相对跳转编码",
+      "FSGB字节码及Python虚拟机",
+      "算术、比较、条件跳转与寄存器输出原例",
+      "FSG编译器的阶段性实验与路线图"
+    ],
+    "code": "_开始:\n    载常 R0, 1\n循环:\n    打印 R0\n    载常 R1, 1\n    加 R2, R0, R1\n    赋值 R0, R2\n    载常 R1, 5\n    比较 R0, R1\n    若大于跳转 结束\n    跳转 循环\n结束:\n    载常 R0, 42\n    打印 R0\n    停止\n",
+    "code_source": "https://github.com/hctj353056/FSG-language/blob/a8314117b6dd7d42376d583797b91f2232a44025/examples/test_loop_cn.fsg#L1-L15",
+    "code_context": "固定提交examples/test_loop_cn.fsg第1—15行完整连续原文，保留缩进和末尾换行。程序文本包含寄存器初始化、循环输出、加法、比较、条件跳转和停止。编译器与VM的停止操作码存在差异；完整运行结果待独立核验。",
+    "implementation": "README声明Python>=3.10和纯Python实现。src/fsg编译器1.py的OPCODES保存中英文映射，lex识别标签、指令、寄存器、整数与字符串；compile_tokens先计算标签地址，再生成指令和数据；build_fsgb写入FSGB魔数、0x0100版本及代码／数据长度。compile_file串联UTF-8文件读取、词法分析、编码与写入。src/simple_vm.py另含Assembler和FSGVM，VMState保存八个寄存器、程序计数器、栈指针、标志位与内存；装载器将代码和只读数据放入内存，run经取指分派调用处理函数。PRINT使用Python print输出寄存器数值。",
+    "version": "README将v3.0中文关键字支持、v3.1跳转偏移修复和v3.2内置命令支持均记为2026-04-30；Python编译器自标v3.2，中文FSG示例自标v3.0。固定main提交a8314117b6dd7d42376d583797b91f2232a44025时间为2026-05-09T10:56:50Z。docs/MEMORY.md标题使用2024-04-30，年份对应关系待核实。",
+    "license": "固定根LICENSE保存MIT许可证全文，版权署名2026蜉熵阁；GitHub许可元数据识别为MIT。",
+    "ai_involvement": "README将灵镜列为AI助手，中文FSG示例头部署名“蜉熵阁 - 灵镜(ling)”。具体模型、参与任务、生成比例及人工复核范围待核实。",
+    "relations": "仓库名FSG-language、README名称FSG（蜉熵阁汇编语言）和.fsg原例构成同一项目身份链。GitHub元数据fork=false。bootstrap_result.md将c4列为架构参考，具体源码继承待核实。README将早期符语目录称为早期实验代码；它与当前FSG的版本继承和兼容关系待核实。Python为当前实现语言。",
+    "status": "中文指令映射、连续中文程序、字节码生成和VM取指分派可核对。各实现兼容性、完整输入编译链、自编译闭环与字节码一致性待核实。作者报告中的Stage0编译Stage1结果及后续自编译目标按阶段性材料记录。",
+    "evidence_level": "固定源码静态核验：中文原例、指令识别、两遍标签处理、FSGB生成及VM装载／分派可见",
+    "verification_notes": "2026-10-13只读复核AGENTS.md、Issue67及评论、97项语言数据和原仓固定资料。完整递归树50项、45文件；main保留11条提交。中文编译器把停止编码为0xF0、打印串为0x51、输入为0x52；VM枚举为HALT=0x01、SYSCALL=0xF0、INPUT=0x51、PRINTS=0x52。examples/fsg编译器2_中文版.fsg保存版本数值输出与循环，完整源码输入解析及编译输出链待核实。bootstrap_test_v0.py调用Python Assembler.assemble处理compiler_v0.fsg，并将Stage1编译Stage1列为下一步；bootstrap_result.md长期目标列出自编译及字节码一致性。自举验证.py调用Python编译器和VM并比较打印文本，比较失败分支之后仍可到达末尾成功打印。脚本路径与固定布局对应继续待核。本轮安装、构建、测试及候选程序执行均为0。",
+    "verified_at": "2026-10-13",
+    "repository_created_at": "2026-04-13T10:36:27Z",
+    "repository_pushed_at": "2026-05-09T11:25:08Z",
+    "first_commit_at": "2026-04-29T23:54:37Z",
+    "latest_commit_at": "2026-05-09T10:56:50Z",
+    "release_status": "2026-10-13读取Releases集合为空，git/refs/tags返回404。README版本按作者文档记录，正式发行日与产物对应待核实。",
+    "code_source_detail": {
+      "repository": "hctj353056/FSG-language",
+      "branch": "main",
+      "commit": "a8314117b6dd7d42376d583797b91f2232a44025",
+      "path": "examples/test_loop_cn.fsg",
+      "lines": "1-15",
+      "blob_sha": "cbf07e40d059a49ed05982115715b19f6a542294",
+      "verification": "固定提交完整15行原文及末尾换行"
+    },
+    "references": [
+      {
+        "title": "原始议题及自举补证",
+        "url": "https://github.com/yuyan-lang/chinese-programming-languages/issues/67"
+      },
+      {
+        "title": "README.md",
+        "url": "https://github.com/hctj353056/FSG-language/blob/a8314117b6dd7d42376d583797b91f2232a44025/README.md"
+      },
+      {
+        "title": "examples/test_loop_cn.fsg",
+        "url": "https://github.com/hctj353056/FSG-language/blob/a8314117b6dd7d42376d583797b91f2232a44025/examples/test_loop_cn.fsg"
+      },
+      {
+        "title": "src/fsg编译器1.py",
+        "url": "https://github.com/hctj353056/FSG-language/blob/a8314117b6dd7d42376d583797b91f2232a44025/src/fsg编译器1.py"
+      },
+      {
+        "title": "src/simple_vm.py",
+        "url": "https://github.com/hctj353056/FSG-language/blob/a8314117b6dd7d42376d583797b91f2232a44025/src/simple_vm.py"
+      },
+      {
+        "title": "examples/fsg编译器2_中文版.fsg",
+        "url": "https://github.com/hctj353056/FSG-language/blob/a8314117b6dd7d42376d583797b91f2232a44025/examples/fsg编译器2_中文版.fsg"
+      },
+      {
+        "title": "bootstrap/bootstrap_test_v0.py",
+        "url": "https://github.com/hctj353056/FSG-language/blob/a8314117b6dd7d42376d583797b91f2232a44025/bootstrap/bootstrap_test_v0.py"
+      },
+      {
+        "title": "bootstrap/bootstrap_result.md",
+        "url": "https://github.com/hctj353056/FSG-language/blob/a8314117b6dd7d42376d583797b91f2232a44025/bootstrap/bootstrap_result.md"
+      },
+      {
+        "title": "bootstrap/自举验证.py",
+        "url": "https://github.com/hctj353056/FSG-language/blob/a8314117b6dd7d42376d583797b91f2232a44025/bootstrap/自举验证.py"
+      },
+      {
+        "title": "docs/MEMORY.md",
+        "url": "https://github.com/hctj353056/FSG-language/blob/a8314117b6dd7d42376d583797b91f2232a44025/docs/MEMORY.md"
+      },
+      {
+        "title": "早期符语/符语.py",
+        "url": "https://github.com/hctj353056/FSG-language/blob/a8314117b6dd7d42376d583797b91f2232a44025/早期符语/符语.py"
+      },
+      {
+        "title": "LICENSE",
+        "url": "https://github.com/hctj353056/FSG-language/blob/a8314117b6dd7d42376d583797b91f2232a44025/LICENSE"
+      },
+      {
+        "title": "原仓元数据",
+        "url": "https://api.github.com/repos/hctj353056/FSG-language"
+      },
+      {
+        "title": "保留提交历史",
+        "url": "https://api.github.com/repos/hctj353056/FSG-language/commits?per_page=100"
+      },
+      {
+        "title": "根提交",
+        "url": "https://github.com/hctj353056/FSG-language/commit/4c9d3c9b3b6556fc04dccb98d6a9fa242650b7e4"
+      },
+      {
+        "title": "发行集合",
+        "url": "https://api.github.com/repos/hctj353056/FSG-language/releases"
+      }
+    ]
   }
 ]
