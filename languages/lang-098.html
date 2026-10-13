@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>FSG｜中文编程语言百科</title><link rel="stylesheet" href="../style.css"></head><body><header><h1>FSG</h1></header><main><p><a href="../">返回语言目录</a></p>
+<h2>语言介绍</h2><p>FSG以载常、打印、加、赋值、比较和条件跳转等中文指令书写寄存器汇编程序，同时提供英文指令映射。Python编译器将源码经词法识别、两遍标签处理和指令编码生成FSGB字节码；仓库另保存Python虚拟机及其内置汇编器。作者以用FSG编写FSG编译器为项目目标，当前按源码可见的中文汇编与字节码原型收录。</p>
+<h2>分类与别名</h2><p>中文汇编／字节码语言原型；别名：蜉熵阁汇编语言；FSG语言</p>
+<h2>作者与公开历史</h2><p>GitHub账号hctj353056维护。README署名蜉蝣为项目设计者、灵镜为AI助手；根提交署名蜉蝣并关联hctj353056。具体开发分工与人工复核范围待核实。</p><p>仓库创建于2026-04-13T10:36:27Z；main保留历史的根提交4c9d3c9b3b6556fc04dccb98d6a9fa242650b7e4记录2026-04-29T23:54:37Z。首次对外公开日待核实。</p>
+<h2>设计与特征</h2><p>中文与英文指令映射；R0至R7八个寄存器和中文标签；两遍标签处理与相对跳转编码；FSGB字节码及Python虚拟机；算术、比较、条件跳转与寄存器输出原例；FSG编译器的阶段性实验与路线图</p>
+<h2>中文语法示例</h2><pre><code>_开始:
+    载常 R0, 1
+循环:
+    打印 R0
+    载常 R1, 1
+    加 R2, R0, R1
+    赋值 R0, R2
+    载常 R1, 5
+    比较 R0, R1
+    若大于跳转 结束
+    跳转 循环
+结束:
+    载常 R0, 42
+    打印 R0
+    停止
+</code></pre><p>固定提交examples/test_loop_cn.fsg第1—15行完整连续原文，保留缩进和末尾换行。程序文本包含寄存器初始化、循环输出、加法、比较、条件跳转和停止。编译器与VM的停止操作码存在差异；完整运行结果待独立核验。 <a href="https://github.com/hctj353056/FSG-language/blob/a8314117b6dd7d42376d583797b91f2232a44025/examples/test_loop_cn.fsg#L1-L15">示例来源</a></p>
+<h2>实现与运行环境</h2><p>README声明Python&gt;=3.10和纯Python实现。src/fsg编译器1.py的OPCODES保存中英文映射，lex识别标签、指令、寄存器、整数与字符串；compile_tokens先计算标签地址，再生成指令和数据；build_fsgb写入FSGB魔数、0x0100版本及代码／数据长度。compile_file串联UTF-8文件读取、词法分析、编码与写入。src/simple_vm.py另含Assembler和FSGVM，VMState保存八个寄存器、程序计数器、栈指针、标志位与内存；装载器将代码和只读数据放入内存，run经取指分派调用处理函数。PRINT使用Python print输出寄存器数值。</p>
+<h2>版本与维护状态</h2><p>README将v3.0中文关键字支持、v3.1跳转偏移修复和v3.2内置命令支持均记为2026-04-30；Python编译器自标v3.2，中文FSG示例自标v3.0。固定main提交a8314117b6dd7d42376d583797b91f2232a44025时间为2026-05-09T10:56:50Z。docs/MEMORY.md标题使用2024-04-30，年份对应关系待核实。</p><p>中文指令映射、连续中文程序、字节码生成和VM取指分派可核对。各实现兼容性、完整输入编译链、自编译闭环与字节码一致性待核实。作者报告中的Stage0编译Stage1结果及后续自编译目标按阶段性材料记录。</p>
+<h2>许可与AI参与</h2><p>固定根LICENSE保存MIT许可证全文，版权署名2026蜉熵阁；GitHub许可元数据识别为MIT。</p><p>README将灵镜列为AI助手，中文FSG示例头部署名“蜉熵阁 - 灵镜(ling)”。具体模型、参与任务、生成比例及人工复核范围待核实。</p>
+<h2>与其他项目的关系</h2><p>仓库名FSG-language、README名称FSG（蜉熵阁汇编语言）和.fsg原例构成同一项目身份链。GitHub元数据fork=false。bootstrap_result.md将c4列为架构参考，具体源码继承待核实。README将早期符语目录称为早期实验代码；它与当前FSG的版本继承和兼容关系待核实。Python为当前实现语言。</p>
+<h2>核验说明</h2><p>2026-10-13只读复核AGENTS.md、Issue67及评论、97项语言数据和原仓固定资料。完整递归树50项、45文件；main保留11条提交。中文编译器把停止编码为0xF0、打印串为0x51、输入为0x52；VM枚举为HALT=0x01、SYSCALL=0xF0、INPUT=0x51、PRINTS=0x52。examples/fsg编译器2_中文版.fsg保存版本数值输出与循环，完整源码输入解析及编译输出链待核实。bootstrap_test_v0.py调用Python Assembler.assemble处理compiler_v0.fsg，并将Stage1编译Stage1列为下一步；bootstrap_result.md长期目标列出自编译及字节码一致性。自举验证.py调用Python编译器和VM并比较打印文本，比较失败分支之后仍可到达末尾成功打印。脚本路径与固定布局对应继续待核。本轮安装、构建、测试及候选程序执行均为0。</p>
+<h2>参考资料</h2><ul><li><a href="https://github.com/yuyan-lang/chinese-programming-languages/issues/67">原始议题及自举补证</a></li>
+<li><a href="https://github.com/hctj353056/FSG-language/blob/a8314117b6dd7d42376d583797b91f2232a44025/README.md">README.md</a></li>
+<li><a href="https://github.com/hctj353056/FSG-language/blob/a8314117b6dd7d42376d583797b91f2232a44025/examples/test_loop_cn.fsg">examples/test_loop_cn.fsg</a></li>
+<li><a href="https://github.com/hctj353056/FSG-language/blob/a8314117b6dd7d42376d583797b91f2232a44025/src/fsg编译器1.py">src/fsg编译器1.py</a></li>
+<li><a href="https://github.com/hctj353056/FSG-language/blob/a8314117b6dd7d42376d583797b91f2232a44025/src/simple_vm.py">src/simple_vm.py</a></li>
+<li><a href="https://github.com/hctj353056/FSG-language/blob/a8314117b6dd7d42376d583797b91f2232a44025/examples/fsg编译器2_中文版.fsg">examples/fsg编译器2_中文版.fsg</a></li>
+<li><a href="https://github.com/hctj353056/FSG-language/blob/a8314117b6dd7d42376d583797b91f2232a44025/bootstrap/bootstrap_test_v0.py">bootstrap/bootstrap_test_v0.py</a></li>
+<li><a href="https://github.com/hctj353056/FSG-language/blob/a8314117b6dd7d42376d583797b91f2232a44025/bootstrap/bootstrap_result.md">bootstrap/bootstrap_result.md</a></li>
+<li><a href="https://github.com/hctj353056/FSG-language/blob/a8314117b6dd7d42376d583797b91f2232a44025/bootstrap/自举验证.py">bootstrap/自举验证.py</a></li>
+<li><a href="https://github.com/hctj353056/FSG-language/blob/a8314117b6dd7d42376d583797b91f2232a44025/docs/MEMORY.md">docs/MEMORY.md</a></li>
+<li><a href="https://github.com/hctj353056/FSG-language/blob/a8314117b6dd7d42376d583797b91f2232a44025/早期符语/符语.py">早期符语/符语.py</a></li>
+<li><a href="https://github.com/hctj353056/FSG-language/blob/a8314117b6dd7d42376d583797b91f2232a44025/LICENSE">LICENSE</a></li>
+<li><a href="https://api.github.com/repos/hctj353056/FSG-language">原仓元数据</a></li>
+<li><a href="https://api.github.com/repos/hctj353056/FSG-language/commits?per_page=100">保留提交历史</a></li>
+<li><a href="https://github.com/hctj353056/FSG-language/commit/4c9d3c9b3b6556fc04dccb98d6a9fa242650b7e4">根提交</a></li>
+<li><a href="https://api.github.com/repos/hctj353056/FSG-language/releases">发行集合</a></li></ul><p>资料核验日期：2026-10-13</p><p><a href="https://github.com/yuyan-lang/chinese-programming-languages/issues/new">补充资料或纠错</a></p></main><footer>站点由<a href="https://yuyan-lang.org/">豫言编程语言</a>提供</footer></body></html>
