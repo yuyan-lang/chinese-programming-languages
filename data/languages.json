@@ -9382,5 +9382,96 @@
         "url": "https://github.com/yucheng-lang/yucheng/commit/a5de19574471ea41d0c399b06f6958ae8a746d64"
       }
     ]
+  },
+  {
+    "id": "lang-101",
+    "name": "ChineseCpp（含 ChineseCplus 前身）",
+    "aliases": [
+      "ChineseCplus",
+      "-ChineseCplus",
+      "chinese-OrientedProgramming"
+    ],
+    "category": "C++ 中文关键字与标准库别名宏层",
+    "author": "GitHub账号JinSuperOfficial维护两处仓库；前身工程保存JinSuper创作署名，新仓许可署名2026 JinSuperOfficial。",
+    "first_publication": "前身仓库创建于2026-08-24T06:56:35Z，保留历史根提交记录2026-08-24T06:56:03Z。2026-08-30前身README宣布弃用并链接ChineseCpp作为后续更新入口。首次对外公开时间待核实。",
+    "description": "ChineseCpp与作者已归档的ChineseCplus前身按明确后续仓库链接合为一项。前身使用C++预处理宏提供中文类型、条件、循环和标准库函数别名，原始程序读取输入并在循环中输出偶数。当前可核实现和例程限定于前身阶段。",
+    "features": [
+      "C++预处理宏映射",
+      "中文类型、条件和循环词元",
+      "标准库输入输出与字符串转换别名",
+      "原仓明确后续项目链接"
+    ],
+    "code": "\t\t如果(变量 % 2 == 零)\n\t\t{\n\t\t\t标准库::字符输出 << 变量 << \"\\t是偶数\" << 标准库::结束行;\n\t\t}",
+    "code_source": "https://github.com/JinSuperOfficial/-ChineseCplus/blob/035a0433eb215d8843774662912a40dd026f4ef4/main/main.cpp#L13-L16",
+    "code_context": "前身main/main.cpp第13—16行的完整条件语句短引。完整原程序第3—18行包含头文件、入口、输入及循环，依赖同仓cop.h。保留原制表符缩进；运行结果待核实。",
+    "implementation": "前身main/cop.h通过#define把中文名称映射至C++关键字、类型与标准库名称，并以枚举提供零值。原例使用cop.h、iostream及string，入口宏mian()映射到main()。公开工程保存Visual C++项目文件，README要求支持中文标识符的C++编译器。ChineseCpp固定新仓保存README与LICENSE，其后续实现及与前身的兼容性待核实。",
+    "version": "前身固定提交035a0433eb215d8843774662912a40dd026f4ef4；ChineseCpp固定提交739f835d2bb38202ec08c2cbf30793df152abb6a。正式版本号待核实。",
+    "license": "前身LICENSE.txt提供MIT许可正文，版权行保留[year]与[fullname]占位符；ChineseCpp的MIT许可正文署名2026 JinSuperOfficial。两阶段版权字段分别保存。",
+    "ai_involvement": "AI参与、具体模型及人工复核范围待核实。",
+    "relations": "前身README直接链接ChineseCpp作为后续更新仓库，按同一项目沿革归并。实现类别依据前身C++宏与原例确认；ChineseCpp新阶段的编译器或头文件实现继续待核实。",
+    "status": "前身仓库已归档，固定宏定义、连续原程序与后续项目链接已核。后续实现、正式发行及独立编译运行待核实。",
+    "evidence_level": "固定源码、原始程序与明确项目沿革的静态核验",
+    "verification_notes": "2026-10-14读取两仓固定README、许可、完整树与提交历史，逐项核对前身宏定义与原程序。前身树12项，新仓树2项，均truncated=false。未进行候选编译或执行。",
+    "verified_at": "2026-10-14",
+    "repository_created_at": "2026-08-24T06:56:35Z",
+    "repository_pushed_at": "2026-08-30T03:14:35Z",
+    "first_commit_at": "2026-08-24T06:56:03Z",
+    "latest_commit_at": "2026-08-30T03:14:35Z",
+    "release_status": "时间字段对应前身仓库；ChineseCpp创建于2026-08-30T03:09:52Z，初始提交时间03:09:53Z。正式发行与附件对应待核实。",
+    "code_source_detail": {
+      "repository": "JinSuperOfficial/-ChineseCplus",
+      "branch": "main",
+      "commit": "035a0433eb215d8843774662912a40dd026f4ef4",
+      "path": "main/main.cpp",
+      "lines": "13-16",
+      "blob_sha": "99f9092570eeed6b15a92d85ddcec38846247e64",
+      "verification": "原程序内完整条件语句；保留缩进，展示换行采用LF"
+    },
+    "references": [
+      {
+        "title": "原始待核议题",
+        "url": "https://github.com/yuyan-lang/chinese-programming-languages/issues/16"
+      },
+      {
+        "title": "前身README：宏层定位及后续仓库链接",
+        "url": "https://github.com/JinSuperOfficial/-ChineseCplus/blob/035a0433eb215d8843774662912a40dd026f4ef4/README.md"
+      },
+      {
+        "title": "固定中文宏定义",
+        "url": "https://github.com/JinSuperOfficial/-ChineseCplus/blob/035a0433eb215d8843774662912a40dd026f4ef4/main/cop.h"
+      },
+      {
+        "title": "固定完整原始程序",
+        "url": "https://github.com/JinSuperOfficial/-ChineseCplus/blob/035a0433eb215d8843774662912a40dd026f4ef4/main/main.cpp"
+      },
+      {
+        "title": "前身MIT许可正文与版权占位符",
+        "url": "https://github.com/JinSuperOfficial/-ChineseCplus/blob/035a0433eb215d8843774662912a40dd026f4ef4/LICENSE.txt"
+      },
+      {
+        "title": "新仓README",
+        "url": "https://github.com/JinSuperOfficial/ChineseCpp/blob/739f835d2bb38202ec08c2cbf30793df152abb6a/README.md"
+      },
+      {
+        "title": "新仓MIT许可与署名",
+        "url": "https://github.com/JinSuperOfficial/ChineseCpp/blob/739f835d2bb38202ec08c2cbf30793df152abb6a/LICENSE"
+      },
+      {
+        "title": "前身固定源码树",
+        "url": "https://github.com/JinSuperOfficial/-ChineseCplus/tree/035a0433eb215d8843774662912a40dd026f4ef4"
+      },
+      {
+        "title": "前身仓库元数据",
+        "url": "https://api.github.com/repos/JinSuperOfficial/-ChineseCplus"
+      },
+      {
+        "title": "新仓仓库元数据",
+        "url": "https://api.github.com/repos/JinSuperOfficial/ChineseCpp"
+      },
+      {
+        "title": "前身保留提交历史",
+        "url": "https://api.github.com/repos/JinSuperOfficial/-ChineseCplus/commits?per_page=100"
+      }
+    ]
   }
 ]
