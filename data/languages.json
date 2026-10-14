@@ -9473,5 +9473,83 @@
         "url": "https://api.github.com/repos/JinSuperOfficial/-ChineseCplus/commits?per_page=100"
       }
     ]
+  },
+  {
+    "id": "lang-102",
+    "name": "墨言（moyan_lang）",
+    "aliases": [
+      "Moyan",
+      "moyan_compiler"
+    ],
+    "category": "中文编程语言（项目文档语法核验）",
+    "author": "GitCode组织“墨言编程语言”（moyan_lang）发布项目，所见master头提交关联账号amor2022。语言原作者、团队分工及署名沿革待核实。",
+    "first_publication": "项目侧栏记录v0.1.0日期为2025-12-16；发行正文、首次公开日期及该日期的时区待核实。",
+    "description": "墨言项目README以篇章、引言、正文、结语组织中文程序，原例通过恒有声明常量，并用书表达输出操作。本条目依据2026-10-13原项目文档的读取记录收录，实际解析与执行语义继续待核实。",
+    "features": [
+      "篇章、引言、正文、结语的程序结构",
+      "恒有常量声明原例",
+      "书输出语句原例",
+      "作者文档中的类、异步、枚举及Lambda示例"
+    ],
+    "code": "篇章 你好世界\n\n引言\n    注：添加常量\n    恒有 问好 者，为 「你好，墨言！」。\n毕\n\n正文\n    书 问好。\n毕\n\n结语\n毕",
+    "code_source": "https://gitcode.com/moyan_lang/moyan_compiler/blob/master/README.md",
+    "code_context": "2026-10-13读取README保存的完整连续原例，保留缩进及空行。2026-10-14依据Issue #26存档复核转录。原例与固定SHA文件的逐字对应、独立运行及输出结果待核实。",
+    "implementation": "项目介绍声明Rust实现。README描述递归下降、AST解释执行、VM字节码及原生可执行文件输出。2026-10-13所见src文件表列有lexer、parser、ast、interpreter、vm、code_generator、runtime、commands、type_checker、semantic_analyzer，以及main.rs、lib.rs、stdlib_loader.rs、stdlib_registry.rs。文件内部调用、解析规则及执行语义待核实。",
+    "version": "2026-10-13所见master头为11e0367837834df1f2fb5655a494b4fda9cdec3d，README页面标注最后修改提交411b21edf03f03a53d062975d9a96fcf7a4fa47c。页面正文与固定文件的对应待核实。",
+    "license": "README许可证章节声明MIT License。完整许可正文、版权署名及适用范围待核实。",
+    "ai_involvement": "项目自述全部使用AI开发，定位为玩具项目，并说明测试覆盖有限及Windows测试范围。具体模型、人工复核与开发过程待核实。",
+    "relations": "本条目限定于GitCode moyan_lang/moyan_compiler。项目结构中的moyanv2名称、skywalk163资料所列同名墨言及其他同名项目之间的身份与继承关系待核实。",
+    "status": "中文连续原例和项目文档已取得，src目录条目可见。固定文件、Rust实现正文、发行及同源关系继续待核实。",
+    "evidence_level": "原项目文档与目录读取记录；2026-10-14复核既有存档",
+    "verification_notes": "原始README和src目录核验日期为2026-10-13，证据存于Issue #26评论6151455940；2026-10-14复核该存档并整理条目。此前Cargo.toml读取出现访问频次限制与登录要求，后续请求停止。动态分支与固定文件的内容对应待核实。安装、构建、测试与候选程序执行均为0。",
+    "verified_at": "2026-10-13",
+    "repository_created_at": "待核实",
+    "repository_pushed_at": "待核实",
+    "first_commit_at": "待核实",
+    "latest_commit_at": "待核实",
+    "release_status": "根页侧栏列v0.1.0及2025-12-16。发行正文与附件、包版本、提交日期及版本对应待核实。",
+    "code_source_detail": {
+      "repository": "GitCode moyan_lang/moyan_compiler",
+      "branch": "master",
+      "commit": "待核实：正文与固定SHA文件的逐字对应",
+      "path": "README.md",
+      "lines": "2026-10-13读取的完整你好世界原例；固定行号待核实",
+      "blob_sha": "待核实",
+      "verification": "原始动态README读取记录见Issue #26评论6151455940；2026-10-14复核转录"
+    },
+    "references": [
+      {
+        "title": "墨言原始项目",
+        "url": "https://gitcode.com/moyan_lang/moyan_compiler"
+      },
+      {
+        "title": "原始README（动态分支）",
+        "url": "https://gitcode.com/moyan_lang/moyan_compiler/blob/master/README.md"
+      },
+      {
+        "title": "2026-10-13原例、目录和访问记录存档",
+        "url": "https://github.com/yuyan-lang/chinese-programming-languages/issues/26#issuecomment-6151455940"
+      },
+      {
+        "title": "所见master头提交",
+        "url": "https://gitcode.com/moyan_lang/moyan_compiler/commit/11e0367837834df1f2fb5655a494b4fda9cdec3d?ref=master"
+      },
+      {
+        "title": "README页面标注的最后修改提交",
+        "url": "https://gitcode.com/moyan_lang/moyan_compiler/commit/411b21edf03f03a53d062975d9a96fcf7a4fa47c?ref=master"
+      },
+      {
+        "title": "原始src文件目录",
+        "url": "https://gitcode.com/moyan_lang/moyan_compiler/tree/master/src"
+      },
+      {
+        "title": "v0.1.0发行入口（正文待核实）",
+        "url": "https://gitcode.com/moyan_lang/moyan_compiler/releases/v0.1.0"
+      },
+      {
+        "title": "待核议题与剩余缺口",
+        "url": "https://github.com/yuyan-lang/chinese-programming-languages/issues/26"
+      }
+    ]
   }
 ]
