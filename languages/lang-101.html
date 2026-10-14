@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ChineseCpp（含 ChineseCplus 前身）｜中文编程语言百科</title><link rel="stylesheet" href="../style.css"></head><body><header><h1>ChineseCpp（含 ChineseCplus 前身）</h1></header><main><p><a href="../">返回语言目录</a></p>
+<h2>语言介绍</h2><p>ChineseCpp与作者已归档的ChineseCplus前身按明确后续仓库链接合为一项。前身使用C++预处理宏提供中文类型、条件、循环和标准库函数别名，原始程序读取输入并在循环中输出偶数。当前可核实现和例程限定于前身阶段。</p>
+<h2>分类与别名</h2><p>C++ 中文关键字与标准库别名宏层；别名：ChineseCplus；-ChineseCplus；chinese-OrientedProgramming</p>
+<h2>作者与公开历史</h2><p>GitHub账号JinSuperOfficial维护两处仓库；前身工程保存JinSuper创作署名，新仓许可署名2026 JinSuperOfficial。 前身仓库创建于2026-08-24T06:56:35Z，保留历史根提交记录2026-08-24T06:56:03Z。2026-08-30前身README宣布弃用并链接ChineseCpp作为后续更新入口。首次对外公开时间待核实。</p>
+<h2>设计与特征</h2><p>C++预处理宏映射；中文类型、条件和循环词元；标准库输入输出与字符串转换别名；原仓明确后续项目链接</p>
+<h2>中文语法示例</h2><pre><code>		如果(变量 % 2 == 零)
+		{
+			标准库::字符输出 &lt;&lt; 变量 &lt;&lt; &quot;\t是偶数&quot; &lt;&lt; 标准库::结束行;
+		}</code></pre><p>前身main/main.cpp第13—16行的完整条件语句短引。完整原程序第3—18行包含头文件、入口、输入及循环，依赖同仓cop.h。保留原制表符缩进；运行结果待核实。 <a href="https://github.com/JinSuperOfficial/-ChineseCplus/blob/035a0433eb215d8843774662912a40dd026f4ef4/main/main.cpp#L13-L16">示例来源</a></p>
+<h2>实现与运行环境</h2><p>前身main/cop.h通过#define把中文名称映射至C++关键字、类型与标准库名称，并以枚举提供零值。原例使用cop.h、iostream及string，入口宏mian()映射到main()。公开工程保存Visual C++项目文件，README要求支持中文标识符的C++编译器。ChineseCpp固定新仓保存README与LICENSE，其后续实现及与前身的兼容性待核实。</p>
+<h2>版本与维护状态</h2><p>前身固定提交035a0433eb215d8843774662912a40dd026f4ef4；ChineseCpp固定提交739f835d2bb38202ec08c2cbf30793df152abb6a。正式版本号待核实。 前身仓库已归档，固定宏定义、连续原程序与后续项目链接已核。后续实现、正式发行及独立编译运行待核实。</p>
+<h2>许可与AI参与</h2><p>前身LICENSE.txt提供MIT许可正文，版权行保留[year]与[fullname]占位符；ChineseCpp的MIT许可正文署名2026 JinSuperOfficial。两阶段版权字段分别保存。 AI参与、具体模型及人工复核范围待核实。</p>
+<h2>与其他项目的关系</h2><p>前身README直接链接ChineseCpp作为后续更新仓库，按同一项目沿革归并。实现类别依据前身C++宏与原例确认；ChineseCpp新阶段的编译器或头文件实现继续待核实。</p>
+<h2>核验说明</h2><p>2026-10-14读取两仓固定README、许可、完整树与提交历史，逐项核对前身宏定义与原程序。前身树12项，新仓树2项，均truncated=false。未进行候选编译或执行。</p>
+<h2>参考资料</h2><ul><li><a href="https://github.com/yuyan-lang/chinese-programming-languages/issues/16">原始待核议题</a></li>
+<li><a href="https://github.com/JinSuperOfficial/-ChineseCplus/blob/035a0433eb215d8843774662912a40dd026f4ef4/README.md">前身README：宏层定位及后续仓库链接</a></li>
+<li><a href="https://github.com/JinSuperOfficial/-ChineseCplus/blob/035a0433eb215d8843774662912a40dd026f4ef4/main/cop.h">固定中文宏定义</a></li>
+<li><a href="https://github.com/JinSuperOfficial/-ChineseCplus/blob/035a0433eb215d8843774662912a40dd026f4ef4/main/main.cpp">固定完整原始程序</a></li>
+<li><a href="https://github.com/JinSuperOfficial/-ChineseCplus/blob/035a0433eb215d8843774662912a40dd026f4ef4/LICENSE.txt">前身MIT许可正文与版权占位符</a></li>
+<li><a href="https://github.com/JinSuperOfficial/ChineseCpp/blob/739f835d2bb38202ec08c2cbf30793df152abb6a/README.md">新仓README</a></li>
+<li><a href="https://github.com/JinSuperOfficial/ChineseCpp/blob/739f835d2bb38202ec08c2cbf30793df152abb6a/LICENSE">新仓MIT许可与署名</a></li>
+<li><a href="https://github.com/JinSuperOfficial/-ChineseCplus/tree/035a0433eb215d8843774662912a40dd026f4ef4">前身固定源码树</a></li>
+<li><a href="https://api.github.com/repos/JinSuperOfficial/-ChineseCplus">前身仓库元数据</a></li>
+<li><a href="https://api.github.com/repos/JinSuperOfficial/ChineseCpp">新仓仓库元数据</a></li>
+<li><a href="https://api.github.com/repos/JinSuperOfficial/-ChineseCplus/commits?per_page=100">前身保留提交历史</a></li></ul><p>资料核验日期：2026-10-14</p><p><a href="https://github.com/yuyan-lang/chinese-programming-languages/issues/new">补充资料或纠错</a></p></main><footer>站点由<a href="https://yuyan-lang.org/">豫言编程语言</a>提供</footer></body></html>
