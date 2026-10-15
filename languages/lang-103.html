@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>说了算（Saysuan）｜中文编程语言百科</title><link rel="stylesheet" href="../style.css"></head><body><header><h1>说了算（Saysuan）</h1></header><main><p><a href="../">返回语言目录</a></p>
+<h2>语言介绍</h2><p>说了算以中文口语句式组织数据处理与算术程序，源文件后缀为.suan。当前文档定位为中文数据对话工具；固定原例和CLI源码支持按中文数据分析DSL收录。程序可使用设、算、显示与量词表达赋值、运算及输出，表操作使用明确结果名或命名话题块。</p>
+<h2>分类与别名</h2><p>中文数据分析DSL与Python转译实现；别名：Saysuan</p>
+<h2>作者与公开历史</h2><p>GitHub／GitCode账号badhope发布项目，MIT许可署名2026 badhope。作者固定个人README将GitHub的badhope、X33834、Morningstar202604及GitCode／Gitee的badhope列为同一人的账号。保留提交历史另有x1882署名，其与badhope的关系及具体分工待核实。 CHANGELOG将v0.1.0记为2026-09-28；保留历史根提交为2026-09-29T10:57:13Z，消息标v0.9.0首个开源版本。GitHub仓库创建于2026-10-14T08:47:28Z。开发日志日期、提交时间、建库时间分别记录，首次对外公开时刻待核实。</p>
+<h2>设计与特征</h2><p>中文口语句式与.suan原文件；块、角、个等量词及运算类型检查；显式命名的筛选、分组汇总与排序；Node.js前端生成Python与pandas调用；文档分别列出CLI与Web覆盖范围</p>
+<h2>中文语法示例</h2><pre><code>设 「单价」 为 5 块 5 角
+设 「数量」 为 10 个
+算 「货款」 = 「单价」 乘 「数量」
+显示 「货款」</code></pre><p>固定demo.suan第11—14行的完整算术序列短引，20个空白分词；原样保留换行。四句依次定义单价、数量、货款并显示货款。完整原文件另含CSV筛选和汇总例程；本短例独立运行结果待核实。 <a href="https://github.com/badhope/saysuan/blob/719f1b3db510902527c0ad9cc7d439fad92b16fc/demo.suan#L11-L14">示例来源</a></p>
+<h2>实现与运行环境</h2><p>saysuan.js分派文件、单句及REPL入口。src/cli.js读取.suan并调用compiler.js，生成同名.py；参数--仅编译控制停在生成阶段，其余文件路径调用Python。tokenizer.js识别中文运算词、量词和名字，compiler.js表达式引擎递归处理优先级并调用types.js检查量词，语句匹配后生成Python及pandas操作。README运行说明列Node.js≥18、Python≥3.8，package.json的engines列Node≥14；实际最低兼容版本待核实。SPEC将Web列为内联JavaScript／Chart.js路线，双端具体覆盖与独立执行分别待核。</p>
+<h2>版本与维护状态</h2><p>固定提交719f1b3db510902527c0ad9cc7d439fad92b16fc，提交时间2026-10-09T07:58:26Z；package.json与compiler.js标1.1.0，SPEC标v1.1.0。CHANGELOG将v1.0.0与v1.1.0记为2026-10-09。 连续中文原例、CLI词法／表达式／生成入口、固定MIT正文与保留提交历史已核。原README入门片段采用省略存到的表操作和排序后结果名称；固定CLI顶层规则采用显式存到结果，话题块采用块名绑定。原README片段的端别、运行与修订对应继续待核。</p>
+<h2>许可与AI参与</h2><p>固定LICENSE提供MIT许可全文，版权署名2026 badhope。配套依赖、发行包与第三方材料的许可范围分别核实。 固定发布指南声明AI协作过程台账保留在本地，并说明.aqg目录被忽略。AI参与按作者自述记录，具体模型、代码比例与人工复核范围待核实。</p>
+<h2>与其他项目的关系</h2><p>固定发布指南直接链接GitCode badhope/saysuan；本次GitHub头提交与Issue #31此前记录的GitCode头提交相同。两平台同一快照关系有固定提交支持，持续同步状态待核实。CHANGELOG记载v1.0转向中文数据对话工具的定位沿革。</p>
+<h2>核验说明</h2><p>2026-10-15通过GitHub只读接口取得固定树和原文件，复用Issue #31的2026-10-14作者身份链。固定demo.suan、词法、量词类型规则、CLI生成及Python调用分别核对。README测试数字作为作者说明保存。GitCode既有访问频次与登录限制保持原边界。候选执行、安装、构建及测试均为0。</p>
+<h2>参考资料</h2><ul><li><a href="https://github.com/yuyan-lang/chinese-programming-languages/issues/31">原始待核议题与既有GitCode记录</a></li>
+<li><a href="https://github.com/yuyan-lang/chinese-programming-languages/issues/31#issuecomment-6163790501">2026-10-14跨平台身份补证</a></li>
+<li><a href="https://github.com/badhope/badhope/blob/067b65180fb3a4ede505c19f76db722fb6817a41/README.md#L42-L54">作者固定个人README账号互链</a></li>
+<li><a href="https://github.com/badhope/saysuan/blob/719f1b3db510902527c0ad9cc7d439fad92b16fc/demo.suan#L11-L14">固定原始算术程序</a></li>
+<li><a href="https://github.com/badhope/saysuan/blob/719f1b3db510902527c0ad9cc7d439fad92b16fc/例子/门店月报.suan">固定门店月报原例</a></li>
+<li><a href="https://github.com/badhope/saysuan/blob/719f1b3db510902527c0ad9cc7d439fad92b16fc/README.md">固定README与入门表操作</a></li>
+<li><a href="https://github.com/badhope/saysuan/blob/719f1b3db510902527c0ad9cc7d439fad92b16fc/SPEC.md">固定SPEC及双端覆盖表</a></li>
+<li><a href="https://github.com/badhope/saysuan/blob/719f1b3db510902527c0ad9cc7d439fad92b16fc/saysuan.js">程序入口</a></li>
+<li><a href="https://github.com/badhope/saysuan/blob/719f1b3db510902527c0ad9cc7d439fad92b16fc/src/cli.js">CLI生成与Python调用</a></li>
+<li><a href="https://github.com/badhope/saysuan/blob/719f1b3db510902527c0ad9cc7d439fad92b16fc/src/tokenizer.js">表达式词法</a></li>
+<li><a href="https://github.com/badhope/saysuan/blob/719f1b3db510902527c0ad9cc7d439fad92b16fc/src/types.js">量词类型规则</a></li>
+<li><a href="https://github.com/badhope/saysuan/blob/719f1b3db510902527c0ad9cc7d439fad92b16fc/src/compiler.js#L94-L108">顶层表操作规则</a></li>
+<li><a href="https://github.com/badhope/saysuan/blob/719f1b3db510902527c0ad9cc7d439fad92b16fc/src/compiler.js#L865-L906">结果绑定与pandas生成</a></li>
+<li><a href="https://github.com/badhope/saysuan/blob/719f1b3db510902527c0ad9cc7d439fad92b16fc/src/compiler.js#L918-L948">算术原例的赋值实现</a></li>
+<li><a href="https://github.com/badhope/saysuan/blob/719f1b3db510902527c0ad9cc7d439fad92b16fc/src/compiler.js#L1214-L1235">表达式运算与显示实现</a></li>
+<li><a href="https://github.com/badhope/saysuan/blob/719f1b3db510902527c0ad9cc7d439fad92b16fc/LICENSE">固定MIT许可</a></li>
+<li><a href="https://github.com/badhope/saysuan/blob/719f1b3db510902527c0ad9cc7d439fad92b16fc/package.json">包版本与运行环境字段</a></li>
+<li><a href="https://github.com/badhope/saysuan/blob/719f1b3db510902527c0ad9cc7d439fad92b16fc/CHANGELOG.md">开发版本日志</a></li>
+<li><a href="https://github.com/badhope/saysuan/blob/719f1b3db510902527c0ad9cc7d439fad92b16fc/发布指南.md">发布指南：GitCode直链与AI协作说明</a></li>
+<li><a href="https://api.github.com/repos/badhope/saysuan">当前GitHub仓库元数据</a></li>
+<li><a href="https://github.com/badhope/saysuan/tree/719f1b3db510902527c0ad9cc7d439fad92b16fc">固定源码树</a></li>
+<li><a href="https://github.com/badhope/saysuan/commit/529192c6fbc9a07afd7d45a5a5dba9a5267e6fb4">保留历史根提交</a></li>
+<li><a href="https://github.com/badhope/saysuan/commit/719f1b3db510902527c0ad9cc7d439fad92b16fc">固定头提交与时间</a></li>
+<li><a href="https://api.github.com/repos/badhope/saysuan/releases">GitHub公开发行集合</a></li></ul><p>核验日期：2026-10-15</p><p><a href="https://github.com/yuyan-lang/chinese-programming-languages/issues/new">补充资料或纠错</a></p></main><footer>站点由<a href="https://yuyan-lang.org/">豫言编程语言</a>提供</footer></body></html>
