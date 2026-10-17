@@ -9595,7 +9595,7 @@
     "relations": "固定发布指南直接链接GitCode badhope/saysuan；本次GitHub头提交与Issue #31此前记录的GitCode头提交相同。两平台同一快照关系有固定提交支持，持续同步状态待核实。CHANGELOG记载v1.0转向中文数据对话工具的定位沿革。",
     "status": "连续中文原例、CLI词法／表达式／生成入口、固定MIT正文与保留提交历史已核。原README入门片段采用省略存到的表操作和排序后结果名称；固定CLI顶层规则采用显式存到结果，话题块采用块名绑定。固定Web内联规则将表操作结果命名为结果，页面内置分组与排序原例也使用结果。原README中排序后结果名称的版本、端别及运行对应继续待核。",
     "evidence_level": "固定原文件、源码调用链、许可及提交元数据的静态核验",
-    "verification_notes": "2026-10-15通过GitHub只读接口取得固定树和原文件，复用Issue #31的2026-10-14作者身份链。固定demo.suan、词法、量词类型规则、CLI生成及Python调用分别核对。README测试数字作为作者说明保存。GitCode既有访问频次与登录限制保持原边界。候选执行、安装、构建及测试均为0。2026-10-17补读同一固定提交的playground.html、compiler-js.js与runtime-js.js，核对页面脚本入口、内联生成与调用链、结果绑定及独立模块差异。核验采用静态源码阅读。",
+    "verification_notes": "2026-10-15通过GitHub只读接口取得固定树和原文件，复用Issue #31的2026-10-14作者身份链。固定demo.suan、词法、量词类型规则、CLI生成及Python调用分别核对。README测试数字作为作者说明保存。GitCode既有访问频次与登录限制保持原边界。候选执行、安装、构建及测试均为0。2026-10-17补读同一固定提交的playground.html、compiler-js.js与runtime-js.js，核对页面脚本入口、内联生成与调用链、结果绑定及独立模块差异。核验采用静态源码阅读。上述Web源码结论对应2026-10-17约11:00 UTC成功读取的固定源码观察。15:08 UTC复核时，同一playground.html固定文件、原仓元数据与固定树均返回404；原因及当前公开可访问性待核实。",
     "verified_at": "2026-10-17",
     "repository_created_at": "2026-10-14T08:47:28Z",
     "repository_pushed_at": "2026-10-14T09:07:24Z",

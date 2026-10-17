@@ -22,3 +22,9 @@
 先读根AGENTS.md、目录树、开放Issue／PR和Issue #31全部既有评论，复核2026-10-15说了算研究及当前lang-103。随后仅读取GitHub原仓上述固定文件；定向词为playground、编译、run、Function、结果、存到、分组和compiler-js。范围限定同一固定快照的Web实现与独立模块，其他分支、历史版本及未公开资料保留遗漏风险。GitCode既有访问限制保持原边界。
 
 证据等级为固定源码静态阅读。本次候选执行、安装、构建和测试均为0；页面实际运行与浏览器渲染均待核。数据对象、对应HTML与本研究记录作资料一致性检查；主例、原有24项引用及其余102项语言保留。目录仍为103项语言、10项内核。
+
+## 后续可访问性复核
+
+上述源码结论对应2026-10-17约11:00 UTC成功读取的固定源码观察。读取工具为GitHub文件接口，传入raw.githubusercontent.com/badhope/saysuan/719f1b3db510902527c0ad9cc7d439fad92b16fc/下的playground.html、src/compiler-js.js与src/runtime-js.js路径。
+
+2026-10-17 15:08 UTC复核时，同一playground.html固定文件、https://api.github.com/repos/badhope/saysuan 及固定提交的递归树接口均返回404。原因及当前公开可访问性待核实。本轮历史静态观察与当前访问结果分别保留，资料PR暂缓合并，后续继续核验来源可访问性。
