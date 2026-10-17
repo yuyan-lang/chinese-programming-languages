@@ -8,11 +8,11 @@
 设 「数量」 为 10 个
 算 「货款」 = 「单价」 乘 「数量」
 显示 「货款」</code></pre><p>固定demo.suan第11—14行的完整算术序列短引，20个空白分词；原样保留换行。四句依次定义单价、数量、货款并显示货款。完整原文件另含CSV筛选和汇总例程；本短例独立运行结果待核实。 <a href="https://github.com/badhope/saysuan/blob/719f1b3db510902527c0ad9cc7d439fad92b16fc/demo.suan#L11-L14">示例来源</a></p>
-<h2>实现与运行环境</h2><p>saysuan.js分派文件、单句及REPL入口。src/cli.js读取.suan并调用compiler.js，生成同名.py；参数--仅编译控制停在生成阶段，其余文件路径调用Python。tokenizer.js识别中文运算词、量词和名字，compiler.js表达式引擎递归处理优先级并调用types.js检查量词，语句匹配后生成Python及pandas操作。README运行说明列Node.js≥18、Python≥3.8，package.json的engines列Node≥14；实际最低兼容版本待核实。SPEC将Web列为内联JavaScript／Chart.js路线，双端具体覆盖与独立执行分别待核。</p>
-<h2>版本与维护状态</h2><p>固定提交719f1b3db510902527c0ad9cc7d439fad92b16fc，提交时间2026-10-09T07:58:26Z；package.json与compiler.js标1.1.0，SPEC标v1.1.0。CHANGELOG将v1.0.0与v1.1.0记为2026-10-09。 连续中文原例、CLI词法／表达式／生成入口、固定MIT正文与保留提交历史已核。原README入门片段采用省略存到的表操作和排序后结果名称；固定CLI顶层规则采用显式存到结果，话题块采用块名绑定。原README片段的端别、运行与修订对应继续待核。</p>
+<h2>实现与运行环境</h2><p>saysuan.js分派文件、单句及REPL入口。src/cli.js读取.suan并调用compiler.js，生成同名.py；参数--仅编译控制停在生成阶段，其余文件路径调用Python。tokenizer.js识别中文运算词、量词和名字，compiler.js表达式引擎递归处理优先级并调用types.js检查量词，语句匹配后生成Python及pandas操作。README运行说明列Node.js≥18、Python≥3.8，package.json的engines列Node≥14；实际最低兼容版本待核实。固定playground.html保存内联编译器与运行时：run读取编辑器文本，调用内联编译函数，再用Function构造器执行生成的JavaScript，并传入运行时、内置文件和输出回调。页面加载Chart.js提供图表支持。内联CSV读取采用显式存到名称，筛选、分组和排序统一绑定结果；分组规则提取分组列、聚合列与聚合方式。src/compiler-js.js保存独立的JavaScript生成实现，其分组分支固定使用金额列与总和聚合；两个入口的覆盖分别核验。双端完整语义对应与独立执行继续待核。</p>
+<h2>版本与维护状态</h2><p>固定提交719f1b3db510902527c0ad9cc7d439fad92b16fc，提交时间2026-10-09T07:58:26Z；package.json与compiler.js标1.1.0，SPEC标v1.1.0。CHANGELOG将v1.0.0与v1.1.0记为2026-10-09。 连续中文原例、CLI词法／表达式／生成入口、固定MIT正文与保留提交历史已核。原README入门片段采用省略存到的表操作和排序后结果名称；固定CLI顶层规则采用显式存到结果，话题块采用块名绑定。固定Web内联规则将表操作结果命名为结果，页面内置分组与排序原例也使用结果。原README中排序后结果名称的版本、端别及运行对应继续待核。</p>
 <h2>许可与AI参与</h2><p>固定LICENSE提供MIT许可全文，版权署名2026 badhope。配套依赖、发行包与第三方材料的许可范围分别核实。 固定发布指南声明AI协作过程台账保留在本地，并说明.aqg目录被忽略。AI参与按作者自述记录，具体模型、代码比例与人工复核范围待核实。</p>
 <h2>与其他项目的关系</h2><p>固定发布指南直接链接GitCode badhope/saysuan；本次GitHub头提交与Issue #31此前记录的GitCode头提交相同。两平台同一快照关系有固定提交支持，持续同步状态待核实。CHANGELOG记载v1.0转向中文数据对话工具的定位沿革。</p>
-<h2>核验说明</h2><p>2026-10-15通过GitHub只读接口取得固定树和原文件，复用Issue #31的2026-10-14作者身份链。固定demo.suan、词法、量词类型规则、CLI生成及Python调用分别核对。README测试数字作为作者说明保存。GitCode既有访问频次与登录限制保持原边界。候选执行、安装、构建及测试均为0。</p>
+<h2>核验说明</h2><p>2026-10-15通过GitHub只读接口取得固定树和原文件，复用Issue #31的2026-10-14作者身份链。固定demo.suan、词法、量词类型规则、CLI生成及Python调用分别核对。README测试数字作为作者说明保存。GitCode既有访问频次与登录限制保持原边界。候选执行、安装、构建及测试均为0。2026-10-17补读同一固定提交的playground.html、compiler-js.js与runtime-js.js，核对页面脚本入口、内联生成与调用链、结果绑定及独立模块差异。核验采用静态源码阅读。</p>
 <h2>参考资料</h2><ul><li><a href="https://github.com/yuyan-lang/chinese-programming-languages/issues/31">原始待核议题与既有GitCode记录</a></li>
 <li><a href="https://github.com/yuyan-lang/chinese-programming-languages/issues/31#issuecomment-6163790501">2026-10-14跨平台身份补证</a></li>
 <li><a href="https://github.com/badhope/badhope/blob/067b65180fb3a4ede505c19f76db722fb6817a41/README.md#L42-L54">作者固定个人README账号互链</a></li>
@@ -36,4 +36,8 @@
 <li><a href="https://github.com/badhope/saysuan/tree/719f1b3db510902527c0ad9cc7d439fad92b16fc">固定源码树</a></li>
 <li><a href="https://github.com/badhope/saysuan/commit/529192c6fbc9a07afd7d45a5a5dba9a5267e6fb4">保留历史根提交</a></li>
 <li><a href="https://github.com/badhope/saysuan/commit/719f1b3db510902527c0ad9cc7d439fad92b16fc">固定头提交与时间</a></li>
-<li><a href="https://api.github.com/repos/badhope/saysuan/releases">GitHub公开发行集合</a></li></ul><p>核验日期：2026-10-15</p><p><a href="https://github.com/yuyan-lang/chinese-programming-languages/issues/new">补充资料或纠错</a></p></main><footer>站点由<a href="https://yuyan-lang.org/">豫言编程语言</a>提供</footer></body></html>
+<li><a href="https://api.github.com/repos/badhope/saysuan/releases">GitHub公开发行集合</a></li>
+<li><a href="https://github.com/badhope/saysuan/blob/719f1b3db510902527c0ad9cc7d439fad92b16fc/playground.html#L364-L438">Web内联语句生成与结果绑定</a></li>
+<li><a href="https://github.com/badhope/saysuan/blob/719f1b3db510902527c0ad9cc7d439fad92b16fc/playground.html#L520-L555">Web编辑器编译与Function执行入口</a></li>
+<li><a href="https://github.com/badhope/saysuan/blob/719f1b3db510902527c0ad9cc7d439fad92b16fc/playground.html#L174-L182">Web内置分组与排序原例</a></li>
+<li><a href="https://github.com/badhope/saysuan/blob/719f1b3db510902527c0ad9cc7d439fad92b16fc/src/compiler-js.js#L112-L132">独立JavaScript生成模块的表操作</a></li></ul><p>核验日期：2026-10-17</p><p><a href="https://github.com/yuyan-lang/chinese-programming-languages/issues/new">补充资料或纠错</a></p></main><footer>站点由<a href="https://yuyan-lang.org/">豫言编程语言</a>提供</footer></body></html>
