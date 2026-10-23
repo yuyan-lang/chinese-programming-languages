@@ -5022,12 +5022,12 @@
     "code": "函数 求平方根(x):\n    如果 x < 0:\n        抛出 异常_值错误(\"不能为负\")\n    返回 x ** 0.5\n\n数字 = 求平方根(9)\n打印(数字)",
     "code_source": "https://github.com/52zwbc/zw/blob/36e929a0d4e868a8700f5ec5e7563b541c9518d4/README.md#L353-L359",
     "code_context": "固定README第353—359行连续原文，包含完整求平方根函数及调用、输出。括号与标点按原例保留。该代码作为作者公开语法例程记录。",
-    "implementation": "README第76—81行描述Python运行时自动注册中文内置名及.zw执行入口；官网第207—239行介绍VSCode插件将中文程序转换为标准Python并运行。上述执行能力依据作者说明。zw及zwpy固定树各含README.md和微信赞赏.jpg；转换器、插件实现、运行时源码与发行附件对应性待核实。同账号python313zw、python314zw公开CPython中文修改源码，已作为关联候选单独记录；与本项运行环境的对应关系待核实。",
-    "version": "固定zw文档提交36e929a0d4e868a8700f5ec5e7563b541c9518d4，提交时间2026-09-10T13:57:25Z；zwpy对应文档提交74e561072b928abcfc688c3225ba6b860441c619。两仓Release列表为空，标签命名空间返回404。官网安装文件名包含zwpy2_2.exe与zwpy313_2_win7.exe；这些字符串按文件名记录，稳定版本号、发布时间与附件内容待核实。",
-    "relations": "zw的README明确将zwpy简称为zw；zw与zwpy的README共享blob SHA 04a763bf1cd19daea2ff17cf55a41b91e4b5afa2，全文一致，作为同一项目的两个入口。官网列出zwpython别名。华夏编程lang-054采用Bilibili UID3493272276175446与.hx原例；本项采用52zwbc仓库、52中文编程官网与.zw原例。两项的作者及代码沿革关系待核实。python313zw／python314zw的项目归属与技术沿革继续核验。",
-    "status": "名称、作者账号、固定中文原例、完整映射表、同源文档与官网入口已核。执行实现、映射规则完整性、发行版本、许可范围及独立运行待核实。",
-    "verification_notes": "2026-10-10只读核验。先读取55项语言目录、AGENTS.md、Issue #3正文及3条评论、round-6总日志与Gitee/Bilibili日志。zw默认分支4次提交；根提交父列表为空。两仓当前README逐字比对一致。已检查官网静态原页、同账号仓库列表、华夏近名检索与既有身份链。README首个遍历原例使用“在”，关键词表使用“属于”；标点约定与示例适用范围待核实。精确代码采用同文件第353—359行。研究依据公开静态资料，运行和测试结果待核实。",
-    "verified_at": "2026-10-10",
+    "implementation": "README第76—81行描述Python运行时自动注册中文内置名及.zw执行入口；官网第207—239行介绍VSCode插件将中文程序转换为标准Python并运行。上述执行能力依据作者说明。zw及zwpy固定树各含README.md和微信赞赏.jpg；转换器、插件实现及本项目分发包所用运行时源码的对应性待核实。同账号python313zw、python314zw公开CPython中文修改源码，已作为关联候选单独记录；与本项运行环境的对应关系待核实。 2026-10-12补核：两CPython仓库Parser/pegen.c实现35个中文硬关键字及匹配／情形软关键字，site.py加载中文内置，打印在C内置表注册；两仓安装成功页直接链接52中文编程官网。具体zwpy安装包与这两库的固定提交、发行附件对应继续待核。",
+    "version": "固定zw文档提交36e929a0d4e868a8700f5ec5e7563b541c9518d4，提交时间2026-09-10T13:57:25Z；zwpy对应文档提交74e561072b928abcfc688c3225ba6b860441c619。zw与zwpy两文档仓库Release列表为空，标签命名空间返回404。官网安装文件名包含zwpy2_2.exe与zwpy313_2_win7.exe；这些字符串按文件名记录，稳定版本号、发布时间与附件内容待核实。 关联源码采用python313zw 84fee06c5dd87bc5547d7c715a1e760dc107c720（v3.13.16-zh2／v3.13.16-win7-5）及python314zw a14d42425a5f9c845555783e4ed1cadad7b7df43（v3.14.8-zh8／v3.14.8-win7-3）。两个官方CPython对应版本标签另经核验；313中文仓库的精确上游导入基线继续待核。",
+    "relations": "zw的README明确将zwpy简称为zw；zw与zwpy的README共享blob SHA 04a763bf1cd19daea2ff17cf55a41b91e4b5afa2，全文一致，作为同一项目的两个入口。官网列出zwpython别名。华夏编程lang-054采用Bilibili UID3493272276175446与.hx原例；本项采用52zwbc仓库、52中文编程官网与.zw原例。两项的作者及代码沿革关系待核实。python313zw／python314zw的项目归属与技术沿革继续核验。 两库35项硬关键字与zw固定文档逐项一致，安装页有明确官网链接，作为关联实现资料保存。python314zw独立根提交6dfb550b45b6e47e4b35403565b2f428ca11541f与官方CPython v3.14.8提交8e6e75d9102e39bed2a2b279203a396741180f12共享完整tree SHA 5c846838d075d0d44c37549e11cdc334fbef2054。两库各有独立根，统一项目发行阶段与具体包级对应继续待核。",
+    "status": "名称、作者账号、固定中文原例、完整映射表、同源文档与官网入口已核。同作者两处CPython中文实现的解析器入口、内置注册、官网链接及发行元数据已核。zwpy具体运行环境与关联源码的包级对应、插件实现、映射规则完整性、整体许可范围及独立运行待核实。",
+    "verification_notes": "2026-10-10只读核验。先读取55项语言目录、AGENTS.md、Issue #3正文及3条评论、round-6总日志与Gitee/Bilibili日志。zw默认分支4次提交；根提交父列表为空。两仓当前README逐字比对一致。已检查官网静态原页、同账号仓库列表、华夏近名检索与既有身份链。README首个遍历原例使用“在”，关键词表使用“属于”；标点约定与示例适用范围待核实。精确代码采用同文件第353—359行。研究依据公开静态资料，运行和测试结果待核实。 2026-10-12读取Issue #22正文及全部7条评论，核对两CPython库限定语法、内置、启动、安装页、发行与提交历史。35项硬关键字两库相同且均出现于zw文档。314导入根与官方上游完整tree相同。两库根LICENSE保留PSF Version 2及历史许可；zwpy文档、插件及完整安装包许可范围继续待核。按关联实现补强既有条目，语言总数保持。",
+    "verified_at": "2026-10-12",
     "references": [
       {
         "title": "固定项目名称与中文Python定位",
@@ -5072,6 +5072,78 @@
       {
         "title": "华夏编程原作者安装教程与.hx资料",
         "url": "https://www.bilibili.com/video/BV1Gtpg65EfU/"
+      },
+      {
+        "title": "python313zw 中文关键字解析器入口",
+        "url": "https://github.com/52zwbc/python313zw/blob/84fee06c5dd87bc5547d7c715a1e760dc107c720/Parser/pegen.c"
+      },
+      {
+        "title": "python313zw 中文内置启动加载",
+        "url": "https://github.com/52zwbc/python313zw/blob/84fee06c5dd87bc5547d7c715a1e760dc107c720/Lib/site.py"
+      },
+      {
+        "title": "python313zw 安装页官网及作者声明",
+        "url": "https://github.com/52zwbc/python313zw/blob/84fee06c5dd87bc5547d7c715a1e760dc107c720/Tools/msi/bundle/Default.wxl"
+      },
+      {
+        "title": "python313zw 原作者中文冒烟原例",
+        "url": "https://github.com/52zwbc/python313zw/blob/84fee06c5dd87bc5547d7c715a1e760dc107c720/test_zh.py"
+      },
+      {
+        "title": "python313zw 源码许可文本",
+        "url": "https://github.com/52zwbc/python313zw/blob/84fee06c5dd87bc5547d7c715a1e760dc107c720/LICENSE"
+      },
+      {
+        "title": "python314zw 中文关键字解析器入口",
+        "url": "https://github.com/52zwbc/python314zw/blob/a14d42425a5f9c845555783e4ed1cadad7b7df43/Parser/pegen.c"
+      },
+      {
+        "title": "python314zw 中文内置启动加载",
+        "url": "https://github.com/52zwbc/python314zw/blob/a14d42425a5f9c845555783e4ed1cadad7b7df43/Lib/site.py"
+      },
+      {
+        "title": "python314zw 安装页官网及作者声明",
+        "url": "https://github.com/52zwbc/python314zw/blob/a14d42425a5f9c845555783e4ed1cadad7b7df43/Tools/msi/bundle/Default.wxl"
+      },
+      {
+        "title": "python314zw 原作者中文冒烟原例",
+        "url": "https://github.com/52zwbc/python314zw/blob/a14d42425a5f9c845555783e4ed1cadad7b7df43/test_zh.py"
+      },
+      {
+        "title": "python314zw 源码许可文本",
+        "url": "https://github.com/52zwbc/python314zw/blob/a14d42425a5f9c845555783e4ed1cadad7b7df43/LICENSE"
+      },
+      {
+        "title": "314上游导入根及tree元数据",
+        "url": "https://api.github.com/repos/52zwbc/python314zw/git/commits/6dfb550b45b6e47e4b35403565b2f428ca11541f"
+      },
+      {
+        "title": "CPython官方v3.14.8固定标签",
+        "url": "https://api.github.com/repos/python/cpython/git/tags/992560c2cc62d47b308cec662feb485456847931"
+      },
+      {
+        "title": "CPython官方v3.13.16固定标签",
+        "url": "https://api.github.com/repos/python/cpython/git/tags/3b55c23ff4a6aa32f77be661802a3978d7324f88"
+      },
+      {
+        "title": "python313zw v3.13.16-zh2发行元数据",
+        "url": "https://github.com/52zwbc/python313zw/releases/tag/v3.13.16-zh2"
+      },
+      {
+        "title": "python313zw v3.13.16-win7-5发行元数据",
+        "url": "https://github.com/52zwbc/python313zw/releases/tag/v3.13.16-win7-5"
+      },
+      {
+        "title": "python314zw v3.14.8-zh8发行元数据",
+        "url": "https://github.com/52zwbc/python314zw/releases/tag/v3.14.8-zh8"
+      },
+      {
+        "title": "python314zw v3.14.8-win7-3发行元数据",
+        "url": "https://github.com/52zwbc/python314zw/releases/tag/v3.14.8-win7-3"
+      },
+      {
+        "title": "CPython v3.14.8目标提交与完整树",
+        "url": "https://api.github.com/repos/python/cpython/git/commits/8e6e75d9102e39bed2a2b279203a396741180f12"
       }
     ],
     "id": "lang-059"
