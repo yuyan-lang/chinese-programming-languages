@@ -1,5 +1,132 @@
 [
   {
+    "id": "yuyan-os",
+    "name": "豫言操作系统",
+    "aliases": [],
+    "checked_at": "2026-10-23",
+    "selection_status": "已收录",
+    "short_description": "豫言操作系统由豫言项目维护，包含 ARM64 与 AMD64 裸机内核、用户态执行器和中文命令壳。内核与用户态通过豫言工具链生成，作者文档记录了 QEMU 下的启动、交互与持久文件系统验证。",
+    "author": {
+      "organization": "yuyan-lang",
+      "attribution": {
+        "text": "操作系统实现与架构文档保存在 yuyan-lang/yuyan 官方仓库。",
+        "evidence_level": "源码可见",
+        "source_ids": [
+          "y1",
+          "y3",
+          "y4"
+        ]
+      }
+    },
+    "kernel_positioning": {
+      "text": "项目同时维护裸机系统与浏览器、Node、云端 Worker 等平台宿主，共用版本化的程序装载、执行与系统能力接口。",
+      "evidence_level": "作者声明",
+      "source_ids": [
+        "y1",
+        "y3"
+      ]
+    },
+    "architectures": [
+      {
+        "text": "裸机原型面向 ARM64 与 AMD64；作者文档记录两架构的 QEMU 验证。",
+        "evidence_level": "作者声明",
+        "source_ids": [
+          "y1",
+          "y2"
+        ]
+      }
+    ],
+    "implementation_languages": [
+      {
+        "text": "内核机器码由豫言源码生成，架构无关部分逐步使用底层豫言；用户态执行器与命令壳使用豫言。",
+        "evidence_level": "作者声明",
+        "source_ids": [
+          "y2",
+          "y4"
+        ]
+      }
+    ],
+    "capabilities": {
+      "kernel": [
+        {
+          "text": "作者基线列出页权限隔离、定时抢占、任务管理、消息邮箱、动态内存块及设备窗口与 IOMMU 隔离。",
+          "evidence_level": "作者声明",
+          "source_ids": [
+            "y2"
+          ]
+        }
+      ],
+      "filesystem": [
+        {
+          "text": "作者基线列出用户态 Virtio 块驱动和带 jbd2 日志的 ext4 持久文件系统。",
+          "evidence_level": "作者声明",
+          "source_ids": [
+            "y2"
+          ]
+        }
+      ]
+    },
+    "project_relationships": [
+      {
+        "text": "裸机内核、用户态执行器及跨平台宿主在豫言语言仓库共同维护；作者文档另记录 Linux 驱动客体的装载与设备转交路线。",
+        "evidence_level": "作者声明",
+        "source_ids": [
+          "y2",
+          "y3"
+        ]
+      }
+    ],
+    "status": {
+      "source_snapshot": {
+        "commit": "78f66573f8af7c33747958211aae36a8646e805f",
+        "source_ids": [
+          "y1",
+          "y2",
+          "y3",
+          "y4"
+        ]
+      },
+      "runtime_verification": {
+        "status": "待核实",
+        "scope": "本条基于固定作者文档与源码目录核验；独立构建、启动和功能复现待核实。"
+      }
+    },
+    "links": {
+      "source": "https://github.com/yuyan-lang/yuyan",
+      "documentation": "https://github.com/yuyan-lang/yuyan/blob/78f66573f8af7c33747958211aae36a8646e805f/豫言操作系统/文档/豫言操作系统总体架构.汉语.md"
+    },
+    "pending_verification": [
+      "操作系统独立发行版本与首次公开日期",
+      "固定快照对应的独立构建、启动及功能复现"
+    ],
+    "sources": [
+      {
+        "id": "y1",
+        "title": "豫言操作系统总体架构",
+        "url": "https://github.com/yuyan-lang/yuyan/blob/78f66573f8af7c33747958211aae36a8646e805f/豫言操作系统/文档/豫言操作系统总体架构.汉语.md",
+        "kind": "固定作者文档"
+      },
+      {
+        "id": "y2",
+        "title": "豫言双架构裸机原型说明",
+        "url": "https://github.com/yuyan-lang/yuyan/blob/78f66573f8af7c33747958211aae36a8646e805f/豫言操作系统/裸机/说明.汉语.md",
+        "kind": "固定作者文档"
+      },
+      {
+        "id": "y3",
+        "title": "豫言操作系统实现目录",
+        "url": "https://github.com/yuyan-lang/yuyan/blob/78f66573f8af7c33747958211aae36a8646e805f/豫言操作系统/总览.汉语.md",
+        "kind": "固定作者文档"
+      },
+      {
+        "id": "y4",
+        "title": "裸机实现源码目录",
+        "url": "https://github.com/yuyan-lang/yuyan/tree/78f66573f8af7c33747958211aae36a8646e805f/豫言操作系统/裸机",
+        "kind": "固定源码目录"
+      }
+    ]
+  },
+  {
     "id": "dragonos",
     "name": "DragonOS",
     "aliases": [

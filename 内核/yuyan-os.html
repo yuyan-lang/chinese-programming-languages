@@ -1,0 +1,9 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>豫言操作系统 · 中国人自主开发的操作系统内核</title><link rel="stylesheet" href="../style.css"></head><body><header><h1>豫言操作系统</h1><p>核验日期：2026-10-23 · 固定资料快照：2026-10-11</p></header><main>
+<p><a href="https://中文编程语言.yuyan-lang.org/内核/">返回内核目录</a></p>
+<p>豫言操作系统由豫言项目维护，包含 ARM64 与 AMD64 裸机内核、用户态执行器和中文命令壳。内核与用户态通过豫言工具链生成，作者文档记录了 QEMU 下的启动、交互与持久文件系统验证。</p>
+<h2>项目与实现</h2><p>操作系统实现与架构文档保存在 yuyan-lang/yuyan 官方仓库。项目同时维护裸机系统与浏览器、Node、云端 Worker 等平台宿主，共用版本化的程序装载、执行与系统能力接口。</p><p>内核机器码由豫言源码生成，架构无关部分逐步使用底层豫言；用户态执行器与命令壳使用豫言。</p>
+<h2>作者记录的裸机能力</h2><p>作者基线列出页权限隔离、定时抢占、任务管理、消息邮箱、动态内存块及设备窗口与 IOMMU 隔离。</p><p>作者基线列出用户态 Virtio 块驱动和带 jbd2 日志的 ext4 持久文件系统。</p><p>裸机内核、用户态执行器及跨平台宿主在豫言语言仓库共同维护；作者文档另记录 Linux 驱动客体的装载与设备转交路线。</p>
+<h2>资料范围</h2><p>本条采用固定提交 78f66573f8af7c33747958211aae36a8646e805f。平台功能及 QEMU 验证按作者文档记录；源码目录公开可见。独立构建、启动和功能复现待核实。操作系统独立发行版本与首次公开日期待核实。</p>
+<h2>原始来源</h2><ul><li><a href="https://github.com/yuyan-lang/yuyan/blob/78f66573f8af7c33747958211aae36a8646e805f/豫言操作系统/文档/豫言操作系统总体架构.汉语.md">豫言操作系统总体架构</a>（固定作者文档）</li><li><a href="https://github.com/yuyan-lang/yuyan/blob/78f66573f8af7c33747958211aae36a8646e805f/豫言操作系统/裸机/说明.汉语.md">豫言双架构裸机原型说明</a>（固定作者文档）</li><li><a href="https://github.com/yuyan-lang/yuyan/blob/78f66573f8af7c33747958211aae36a8646e805f/豫言操作系统/总览.汉语.md">豫言操作系统实现目录</a>（固定作者文档）</li><li><a href="https://github.com/yuyan-lang/yuyan/tree/78f66573f8af7c33747958211aae36a8646e805f/豫言操作系统/裸机">裸机实现源码目录</a>（固定源码目录）</li></ul>
+</main><footer>站点由<a href="https://yuyan-lang.org/">豫言编程语言</a>提供</footer></body></html>
