@@ -5,7 +5,7 @@
     "krcyos"
   ],
   "checked_at": "2026-10-25",
-  "selection_status": "已收录",
+  "selection_status": "待核候选",
   "short_description": "KrcyOS 是 KercyDing 使用 Zig 开发的 RISC-V 学习型内核，经 OpenSBI 启动，包含 Sv39 分页、内存分配、定时调度与用户态系统调用实验。作者主仓位于 KercyCode，GitHub 保存只读镜像。",
   "author": {
     "people": [
