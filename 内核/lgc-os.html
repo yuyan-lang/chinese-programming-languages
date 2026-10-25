@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>lgc-os｜操作系统内核资料</title><link rel="stylesheet" href="../style.css"></head><body>
+<header><h1>lgc-os</h1><p>操作系统内核资料</p></header><main>
+<p><a href="https://中文编程语言.yuyan-lang.org/内核/">返回内核目录</a> · <a href="https://中文编程语言.yuyan-lang.org/">中文编程语言百科</a></p>
+<h2>项目介绍</h2>
+<p>lgc-os 是 lightfl0w 在 B站公开发布、使用配套 lgc 语言编写的 x86-64 实验内核，包含 GDT／TSS、分页、中断、抢占任务、RAMFS、ELF64 装载和限定 Linux ABI。微内核与自举能力按作者定位及具体源码分别记录。 <small>资料概述</small> </p><p>这是有自身启动目标和硬件特权初始化路径的实验内核。kernel/os.lg使用@boot，调用GDT、IDT、分页、系统调用、PIC/PIT和进程初始化，再进入shell；build.py通过lgc生成lgc-os.img。微内核名称属于作者定位。服务隔离与IPC架构边界继续待核实。 <small>源码可见；微内核名称为作者声明</small> <a href="#lo7">[lo7]</a> <a href="#lo8">[lo8]</a> <a href="#lo9">[lo9]</a> <a href="#lo19">[lo19]</a></p>
+
+<h2>作者与公开关联</h2>
+<p>两条原片由Lightfl0w（UID3690980152707649）发布。微内核原片简介直链lgc-os；语言原片简介同时直链lgc及lgc-os。OS固定README直接指向同账号lgc。 <small>作者声明</small> <a href="#lo1">[lo1]</a> <a href="#lo2">[lo2]</a> <a href="#lo3">[lo3]</a> <a href="#lo7">[lo7]</a></p><p>原作者 Lightfl0w（UID3690980152707649）在 B站用中文发布 lgc-os，原片简介直接给出 lightfl0w/lgc-os。按可核实的中文技术社区发布关联收录；作者国籍待核实。 <small>原作者中文社区发布</small> <a href="#lo1">[lo1]</a> <a href="#lo30">[lo30]</a></p>
+
+<h2>体系结构与实现</h2>
+<p>固定源码采用PML4/PDPT/PD/PT分页结构、x86-64 MSR系统调用与64位寄存器保存；构建脚本使用qemu-system-x86_64。已核目标为x86-64。 <small>源码可见</small> <a href="#lo9">[lo9]</a> <a href="#lo11">[lo11]</a> <a href="#lo13">[lo13]</a> <a href="#lo19">[lo19]</a></p><p>lgc：内核主要源码；.lg文件及asm机器码字节。 <small>源码可见</small> <a href="#lo8">[lo8]</a> <a href="#lo9">[lo9]</a> <a href="#lo11">[lo11]</a> <a href="#lo21">[lo21]</a></p><p>Python / Shell / C：构建与测试脚本、用户示例。 <small>源码可见</small> <a href="#lo19">[lo19]</a> <a href="#lo20">[lo20]</a> <a href="#lo21">[lo21]</a></p>
+
+<h2>启动</h2>
+<p>@boot入口生成可引导内核镜像；README说明BIOS将首扇区载入，内核占后续扇区。引导生成器属于配套lgc，具体二进制版本绑定待核实。 <small>源码可见与作者声明</small> <a href="#lo7">[lo7]</a> <a href="#lo8">[lo8]</a> <a href="#lo19">[lo19]</a> <a href="#lgc-boot-example">[lgc-boot-example]</a></p>
+
+<h2>任务调度</h2>
+<p>core.lg设置MAXPROC=8，维护FREE/READY/RUN/ZOMBIE状态、每任务CR3与内核栈。pick_next轮转寻找READY任务，IRQ0分发进入sched_irq并切换寄存器帧和页表。 <small>源码可见</small> <a href="#lo10">[lo10]</a></p>
+
+<h2>内存管理</h2>
+<p>mm.lg从0x1000000至0x4000000按4KiB递增分配页帧，为地址空间创建PML4/PDPT/PD/PT并按缺页映射用户页。core.lg设置页表权限位；完整内存隔离与W^X保证待独立验证。 <small>源码可见</small> <a href="#lo9">[lo9]</a> <a href="#lo13">[lo13]</a> <a href="#lo29">[lo29]</a></p>
+
+<h2>文件系统</h2>
+<p>fs.lg提供32个RAMFS文件槽，每个新文件预留1MiB；ata.lg以PIO端口读写扇区，shell的save命令调用ata_write及flush。 <small>源码可见</small> <a href="#lo15">[lo15]</a> <a href="#lo16">[lo16]</a> <a href="#lo18">[lo18]</a></p>
+
+<h2>设备驱动</h2>
+<p>VGA文本缓冲位于0xB8000；键盘代码轮询0x60/0x64并译码，串口使用COM1，定时中断使用PIC/PIT。 <small>源码可见</small> <a href="#lo9">[lo9]</a> <a href="#lo17">[lo17]</a></p>
+
+<h2>用户程序与兼容接口</h2>
+<p>ELF加载器读取64位入口与program headers，对PT_LOAD段复制文件内容并清零BSS。shell创建地址空间、初始栈和用户进程，提供exec/bg/ps。 <small>源码可见</small> <a href="#lo14">[lo14]</a> <a href="#lo18">[lo18]</a></p><p>系统调用分发覆盖read/write/open/close、部分stat、mmap/brk等Linux x86-64编号。mprotect/munmap等编号直接返回0，未知编号返回-38。具体应用兼容性按已实现接口逐项核验。 <small>源码可见</small> <a href="#lo11">[lo11]</a> <a href="#lo12">[lo12]</a></p>
+
+<h2>自举流程</h2>
+<p>测试脚本向客体发送exec lgc.elf os.lg os.bin及save命令，随后由宿主提取镜像、复制预载文件区并再次启动QEMU，再运行hello_c和a.lg编译测试。该脚本记录内核自举往返设计。 <small>源码可见</small> <a href="#lo20">[lo20]</a></p><p>README将运行自举版lgc、静态glibc C程序及自举往返列为完成项。 <small>作者声明</small> <a href="#lo7">[lo7]</a></p>
+
+<h2>原作者演示</h2>
+<p>00:18：截图播放器读数00:18/00:45，可见QEMU窗口与lgc-os命令提示符；视频字幕说明能够启动。 <small>既有研究记录的作者演示</small> <a href="#lo1">[lo1]</a></p>
+<p>00:34：AX读数00:34/00:45；画面可见selfhost_test.sh、宿主终端中的save输出及镜像提取流程。最终二次启动结果与当前源码的对应继续待核实。 <small>既有研究记录的作者演示</small> <a href="#lo1">[lo1]</a> <a href="#lo20">[lo20]</a></p>
+<p>00:12：AX读数00:12/00:43；画面显示C版编译器代码和终端，字幕为语言特性的小测试。可读语法细节以固定源码为准。 <small>既有研究记录的作者演示</small> <a href="#lo2">[lo2]</a></p>
+<p>以上画面沿用既有研究观察，本轮复核原片公开元数据与源码关联；独立运行与视频二进制的固定源码对应待核实。</p>
+<h2>配套编译工具</h2><p>lgc 是配套语言与编译器工程；C版和自举版词法表使用英文关键词，按英文语法的自制编译语言记录。该工具与 lgc-os 内核分别保存。<a href="#lgc-c-keywords">[lgc-c-keywords]</a> <a href="#lgc-selfhost-keywords">[lgc-selfhost-keywords]</a></p>
+<h2>项目与上游关系</h2>
+<p>lgc与lgc-os分别承担语言编译器和使用该语言的内核实例角色，两者同属lightfl0w账号。原片及README建立明确关联。 <small>作者声明与源码可见</small> <a href="#lo1">[lo1]</a> <a href="#lo2">[lo2]</a> <a href="#lo7">[lo7]</a> <a href="#lo19">[lo19]</a></p><p>build.py通过外部LGC_SRC读取lgc.lg并生成usr/lgc.elf，OS固定树保存编译器二进制。其blob为08baf7259a8b0cf4d7718978b2fec13ae8843ad1；与lgc源码提交的精确对应待核实。 <small>源码可见</small> <a href="#lo19">[lo19]</a> <a href="#lo21">[lo21]</a> <a href="#lgc-os-tree">[lgc-os-tree]</a></p><p>README声明设计参考《操作系统真相还原》。原始代码来源、全部继承与AI参与范围继续待核实。 <small>作者声明</small> <a href="#lo7">[lo7]</a></p><p>微内核称谓来自README与原片标题。固定代码把ATA、RAMFS和shell直接引入@boot内核，README也标注ring0 shell；用户态系统服务、IPC与严格微内核架构分类继续待核实。 <small>源码可见与作者声明</small> <a href="#lo7">[lo7]</a> <a href="#lo8">[lo8]</a> <a href="#lo15">[lo15]</a> <a href="#lo16">[lo16]</a> <a href="#lo18">[lo18]</a></p><p>固定README保留16MB内存布局和调度策略待办；较新build.py把RAMFS预载地址设为0x4000000，core.lg已有IRQ0抢占和轮转选择，mm.lg引入独立地址空间。文档和实现采用阶段对照。 <small>源码可见与作者文档阶段对照</small> <a href="#lo7">[lo7]</a> <a href="#lo10">[lo10]</a> <a href="#lo13">[lo13]</a> <a href="#lo19">[lo19]</a> <a href="#lo22">[lo22]</a></p><p>CoreZ-OS继续沿用第十二轮研究及Issue38，本轮以该记录核对作者背景。项目间共享实现、改名或继承关系待核实。 <small>目录关系核对</small> <a href="#lo27">[lo27]</a> <a href="#lo28">[lo28]</a></p>
+
+<h2>版本与维护状态</h2>
+<p>固定 main 提交：<a href="https://github.com/lightfl0w/lgc-os/commit/ba606a063fd557bf28ad13a4c16f9e214b0deddd">ba606a063fd557bf28ad13a4c16f9e214b0deddd</a>；提交时间 2026-09-27T09:55:16Z。</p>
+<p>许可记录：待核实。lgc-os固定完整树共有28项，根目录及子目录许可文件待取得；API license为null。配套lgc在2026-10-05加入GPL-3.0-or-later声明，OS、预置BusyBox/glibc程序及编译器二进制的许可适用范围分别待核实。 <small>许可文本与作者声明</small> <a href="#lo6">[lo6]</a> <a href="#lo21">[lo21]</a> <a href="#lgc-license">[lgc-license]</a> <a href="#lgc-commit">[lgc-commit]</a></p>
+<p>原片公开发布时间 2026-09-27T07:00:06Z，UTC+8 为 2026-09-27T15:00:06+08:00；来源为平台 pubdate。 <small>原平台公开元数据</small> <a href="#lo30">[lo30]</a></p>
+<h2>核验范围与待核资料</h2>
+<p>本轮复核公开元数据、原作者关联与固定源码；演示画面沿用2026-10-10研究记录。独立构建、启动、调度、应用及自举运行结果待核实。</p>
+<ul><li>微内核服务分离与IPC边界、具体架构分类</li><li>项目首次对外公开时间、配套语言原片规范时间戳；内核原片规范时间已核</li><li>原片二进制、lgc-os固定源码及lgc编译器具体版本对应</li><li>README内存布局及调度待办与较新代码的阶段对应</li><li>lgc-os自身许可、第三方预置二进制许可与全部继承关系</li><li>完整自举往返、应用兼容、内存保护和任务调度的独立运行结果</li><li>作者国籍的公开自述</li></ul>
+<h2>参考资料</h2><ul>
+<li id="lo1"><a href="https://www.bilibili.com/video/BV166at6hEgN/">Lightfl0w微内核自举原片</a>（作者原视频发布页）</li>
+<li id="lo2"><a href="https://www.bilibili.com/video/BV1pghX6NEE8/">Lightfl0w自制语言原片</a>（作者原视频发布页）</li>
+<li id="lo3"><a href="https://space.bilibili.com/3690980152707649/">Lightfl0w B站公开主页</a>（作者公开主页）</li>
+<li id="lo4"><a href="https://github.com/lightfl0w">Lightfl0w GitHub公开主页</a>（作者公开主页）</li>
+<li id="lo5"><a href="https://github.com/lightfl0w/lightfl0w/blob/8b2b9f53a85e7387ad253142912c87204e23a61e/README.md">固定个人README</a>（固定作者资料）</li>
+<li id="lo6"><a href="https://api.github.com/repos/lightfl0w/lgc-os">lgc-os仓库元数据</a>（动态仓库元数据）</li>
+<li id="lo7"><a href="https://github.com/lightfl0w/lgc-os/blob/ba606a063fd557bf28ad13a4c16f9e214b0deddd/README.md#L1-L107">lgc-os固定源码 README.md</a>（固定源码）</li>
+<li id="lo8"><a href="https://github.com/lightfl0w/lgc-os/blob/ba606a063fd557bf28ad13a4c16f9e214b0deddd/kernel/os.lg#L1-L42">lgc-os固定源码 kernel/os.lg</a>（固定源码）</li>
+<li id="lo9"><a href="https://github.com/lightfl0w/lgc-os/blob/ba606a063fd557bf28ad13a4c16f9e214b0deddd/kernel/core.lg#L65-L158">lgc-os固定源码 kernel/core.lg</a>（固定源码）</li>
+<li id="lo10"><a href="https://github.com/lightfl0w/lgc-os/blob/ba606a063fd557bf28ad13a4c16f9e214b0deddd/kernel/core.lg#L160-L449">lgc-os固定源码 kernel/core.lg</a>（固定源码）</li>
+<li id="lo11"><a href="https://github.com/lightfl0w/lgc-os/blob/ba606a063fd557bf28ad13a4c16f9e214b0deddd/kernel/core.lg#L451-L522">lgc-os固定源码 kernel/core.lg</a>（固定源码）</li>
+<li id="lo12"><a href="https://github.com/lightfl0w/lgc-os/blob/ba606a063fd557bf28ad13a4c16f9e214b0deddd/kernel/core.lg#L1058-L1104">lgc-os固定源码 kernel/core.lg</a>（固定源码）</li>
+<li id="lo13"><a href="https://github.com/lightfl0w/lgc-os/blob/ba606a063fd557bf28ad13a4c16f9e214b0deddd/kernel/mm.lg#L1-L76">lgc-os固定源码 kernel/mm.lg</a>（固定源码）</li>
+<li id="lo14"><a href="https://github.com/lightfl0w/lgc-os/blob/ba606a063fd557bf28ad13a4c16f9e214b0deddd/kernel/elf.lg#L1-L26">lgc-os固定源码 kernel/elf.lg</a>（固定源码）</li>
+<li id="lo15"><a href="https://github.com/lightfl0w/lgc-os/blob/ba606a063fd557bf28ad13a4c16f9e214b0deddd/kernel/fs.lg#L1-L93">lgc-os固定源码 kernel/fs.lg</a>（固定源码）</li>
+<li id="lo16"><a href="https://github.com/lightfl0w/lgc-os/blob/ba606a063fd557bf28ad13a4c16f9e214b0deddd/kernel/ata.lg#L1-L97">lgc-os固定源码 kernel/ata.lg</a>（固定源码）</li>
+<li id="lo17"><a href="https://github.com/lightfl0w/lgc-os/blob/ba606a063fd557bf28ad13a4c16f9e214b0deddd/kernel/vga.lg#L1-L106">lgc-os固定源码 kernel/vga.lg</a>（固定源码）</li>
+<li id="lo18"><a href="https://github.com/lightfl0w/lgc-os/blob/ba606a063fd557bf28ad13a4c16f9e214b0deddd/kernel/shell.lg#L200-L291">lgc-os固定源码 kernel/shell.lg</a>（固定源码）</li>
+<li id="lo19"><a href="https://github.com/lightfl0w/lgc-os/blob/ba606a063fd557bf28ad13a4c16f9e214b0deddd/build.py#L1-L110">lgc-os固定源码 build.py</a>（固定源码）</li>
+<li id="lo20"><a href="https://github.com/lightfl0w/lgc-os/blob/ba606a063fd557bf28ad13a4c16f9e214b0deddd/tools/selfhost_test.sh#L1-L62">lgc-os固定源码 tools/selfhost_test.sh</a>（固定源码）</li>
+<li id="lo21"><a href="https://api.github.com/repos/lightfl0w/lgc-os/git/trees/ba606a063fd557bf28ad13a4c16f9e214b0deddd?recursive=1">lgc-os固定完整Git树</a>（固定Git树）</li>
+<li id="lo22"><a href="https://github.com/lightfl0w/lgc-os/commit/ba606a063fd557bf28ad13a4c16f9e214b0deddd">lgc-os固定提交</a>（固定提交）</li>
+<li id="lo23"><a href="https://api.github.com/repos/lightfl0w/lgc-os/commits?per_page=100">lgc-os提交历史</a>（动态提交列表）</li>
+<li id="lo24"><a href="https://github.com/lightfl0w/lgc-os/commit/888d98dd603ea7346693a70e31187495899807dd">lgc-os自举往返阶段提交</a>（固定提交）</li>
+<li id="lo25"><a href="https://api.github.com/repos/lightfl0w/lgc-os/releases?per_page=100">lgc-os Releases集合</a>（动态仓库元数据）</li>
+<li id="lo26"><a href="https://api.github.com/repos/lightfl0w/lgc-os/git/matching-refs/tags/">lgc-os标签refs集合</a>（动态仓库元数据）</li>
+<li id="lo27"><a href="https://github.com/yuyan-lang/chinese-programming-languages/blob/65e45d07d80a36412625665931ce4a4402641480/research/2026-10-10/round-12-kernels.md">第十二轮内核研究基线</a>（固定目录研究）</li>
+<li id="lo28"><a href="https://github.com/yuyan-lang/chinese-programming-languages/issues/38">CoreZ-OS待核Issue38</a>（目录议题）</li>
+<li id="lgc-commit"><a href="https://github.com/lightfl0w/lgc/commit/0f92930ead271723e615623d5e85d488903ea3fa">lgc main 固定提交</a>（原始资料）</li>
+<li id="lgc-readme"><a href="https://github.com/lightfl0w/lgc/blob/0f92930ead271723e615623d5e85d488903ea3fa/README.md#L1-L49">lightfl0w/lgc README.md L1–L49</a>（原始资料）</li>
+<li id="lgc-selfhost-readme"><a href="https://github.com/lightfl0w/lgc/blob/0f92930ead271723e615623d5e85d488903ea3fa/README.md#L98-L100">lightfl0w/lgc README.md L98–L100</a>（原始资料）</li>
+<li id="lgc-c-keywords"><a href="https://github.com/lightfl0w/lgc/blob/0f92930ead271723e615623d5e85d488903ea3fa/src/main.c#L68-L95">lightfl0w/lgc src/main.c L68–L95</a>（原始资料）</li>
+<li id="lgc-c-lexer"><a href="https://github.com/lightfl0w/lgc/blob/0f92930ead271723e615623d5e85d488903ea3fa/src/main.c#L126-L221">lightfl0w/lgc src/main.c L126–L221</a>（原始资料）</li>
+<li id="lgc-selfhost-lexer"><a href="https://github.com/lightfl0w/lgc/blob/0f92930ead271723e615623d5e85d488903ea3fa/src/lgc.lg#L283-L308">lightfl0w/lgc src/lgc.lg L283–L308</a>（原始资料）</li>
+<li id="lgc-selfhost-keywords"><a href="https://github.com/lightfl0w/lgc/blob/0f92930ead271723e615623d5e85d488903ea3fa/src/lgc.lg#L1850-L1881">lightfl0w/lgc src/lgc.lg L1850–L1881</a>（原始资料）</li>
+<li id="lgc-fac-example"><a href="https://github.com/lightfl0w/lgc/blob/0f92930ead271723e615623d5e85d488903ea3fa/tests/fac.lg#L1-L8">lightfl0w/lgc tests/fac.lg L1–L8</a>（原始资料）</li>
+<li id="lgc-boot-example"><a href="https://github.com/lightfl0w/lgc/blob/0f92930ead271723e615623d5e85d488903ea3fa/examples/hello.lg#L1-L20">lightfl0w/lgc examples/hello.lg L1–L20</a>（原始资料）</li>
+<li id="lgc-license"><a href="https://github.com/lightfl0w/lgc/blob/0f92930ead271723e615623d5e85d488903ea3fa/LICENSE#L1-L8">lightfl0w/lgc LICENSE L1–L8</a>（原始资料）</li>
+<li id="lgc-tree"><a href="https://github.com/lightfl0w/lgc/tree/0f92930ead271723e615623d5e85d488903ea3fa">lgc固定递归树</a>（原始资料）</li>
+<li id="lgc-releases-observation"><a href="https://api.github.com/repos/lightfl0w/lgc/releases">lgc Releases读取时状态</a>（原始资料）</li>
+<li id="lgc-tags-observation"><a href="https://api.github.com/repos/lightfl0w/lgc/git/matching-refs/tags/">lgc tags refs读取时状态</a>（原始资料）</li>
+<li id="lgc-os-readme"><a href="https://github.com/lightfl0w/lgc-os/blob/ba606a063fd557bf28ad13a4c16f9e214b0deddd/README.md#L1-L25">lgc-os固定README</a>（原始资料）</li>
+<li id="lgc-os-build"><a href="https://github.com/lightfl0w/lgc-os/blob/ba606a063fd557bf28ad13a4c16f9e214b0deddd/build.py#L14-L52">lgc-os外部自举编译器源码入口</a>（原始资料）</li>
+<li id="lgc-os-tree"><a href="https://github.com/lightfl0w/lgc-os/tree/ba606a063fd557bf28ad13a4c16f9e214b0deddd">lgc-os固定递归树</a>（原始资料）</li>
+<li id="lo29"><a href="https://github.com/lightfl0w/lgc-os/blob/ba606a063fd557bf28ad13a4c16f9e214b0deddd/kernel/core.lg#L1142-L1150">lgc-os固定源码：缺页中断按需映射</a>（固定源码）</li>
+<li id="lo30"><a href="https://api.bilibili.com/x/web-interface/view?bvid=BV166at6hEgN">lgc-os 原片公开元数据</a>（原平台公开元数据）</li>
+</ul><p>资料核验日期：2026-10-25</p></main><footer>站点由<a href="https://yuyan-lang.org/">豫言编程语言</a>提供</footer></body></html>

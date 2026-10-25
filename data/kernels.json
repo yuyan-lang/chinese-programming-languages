@@ -5234,5 +5234,4495 @@
         ]
       }
     ]
+  },
+  {
+    "id": "antzos",
+    "name": "AntzOS",
+    "aliases": [
+      "Antz",
+      "Antz OS"
+    ],
+    "checked_at": "2026-10-25",
+    "selection_status": "已收录",
+    "short_description": "AntzOS 是 AntzUhl（CasterWx）在博客园公开开发过程的 x86 学习型内核，使用 C 与汇编实现图形终端、键盘事件、计时和简易文本编辑，构建链采用 Haribote／OSASK 相关工具及组件。",
+    "author": {
+      "people": [
+        {
+          "name": "AntzUhl",
+          "handle": "CasterWx"
+        }
+      ],
+      "attribution": {
+        "text": "原仓 README 链接 LexMoon 博客园系列，系列原作署名 AntzUhl 并直接给出 CasterWx/AntzOS，建立作者与源码的双向关联。",
+        "evidence_level": "作者原始互链",
+        "source_ids": [
+          "az1",
+          "az10",
+          "az14"
+        ]
+      },
+      "china_basis": {
+        "text": "作者在中文技术社区博客园持续发布 Antz 开发系列；GitHub 主页所在地自述为 China。按中文社区发布与所在地记录中国关联，国籍待核实。",
+        "evidence_level": "作者公开自述与社区发布",
+        "source_ids": [
+          "az10",
+          "az11",
+          "az14"
+        ]
+      }
+    },
+    "kernel_positioning": {
+      "text": "这是采用 Haribote／OSASK 相关构建组件的个人学习内核。BIOS 汇编设置显示、GDT 与 CR0 保护模式，载入 C 内核；HariMain 初始化中断、PIT、键盘与图形终端。UNIX-based 保留为作者目标。",
+      "evidence_level": "源码可见",
+      "source_ids": [
+        "az1",
+        "az2",
+        "az3",
+        "az4",
+        "az6"
+      ]
+    },
+    "architectures": [
+      {
+        "text": "x86 32 位保护模式；asmhead.asm 以 i486p 指令集设置 GDT 与 CR0，并通过远跳转进入内核。",
+        "evidence_level": "源码可见",
+        "source_ids": [
+          "az3"
+        ]
+      }
+    ],
+    "implementation_languages": [
+      {
+        "text": "C 与 x86 汇编；Makefile 使用 nask、cc1、gas2nask、obj2bim 和 bim2hrb 生成 antz.sys 与 antz.img。",
+        "evidence_level": "源码可见",
+        "source_ids": [
+          "az2",
+          "az3",
+          "az4"
+        ]
+      }
+    ],
+    "capabilities": {
+      "boot": [
+        {
+          "text": "BIOS 路径调用 VBE，支持失败后转入 320×200 模式，随后设置保护模式、复制内核并初始化堆栈。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "az3"
+          ]
+        }
+      ],
+      "interrupts": [
+        {
+          "text": "GDT／IDT 与 PIC 初始化、键盘／鼠标 FIFO 及 PIT IRQ0 路径可见；主循环消费输入事件并重绘终端。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "az4",
+            "az5",
+            "az6"
+          ]
+        }
+      ],
+      "graphics": [
+        {
+          "text": "图形终端按键分派 version、reset、vim、vimshow 等命令，vim 分支维护固定文本行缓存；定时器驱动运行时间与动画重绘。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "az4",
+            "az5"
+          ]
+        }
+      ],
+      "scheduling": [
+        {
+          "text": "README 将任务调度列为后续工作；Thread.md 保存 PCB、线程栈与 thread_start 示例，固定 Makefile 的内核对象集合链接计时器。线程调度集成状态待核实。",
+          "evidence_level": "作者文档与源码阶段对照",
+          "source_ids": [
+            "az1",
+            "az2",
+            "az9"
+          ]
+        }
+      ]
+    },
+    "project_relationships": [
+      {
+        "text": "构建明确使用 include/haribote.rul、nask、obj2bim、bim2hrb 及附带运行库；stdio.h 头文件保留 H.Kawai／KL-01 署名。记录这一已见继承范围，内核各文件与精确 Haribote／OSASK 上游版本的对应待核实。",
+        "evidence_level": "源码可见",
+        "source_ids": [
+          "az2",
+          "az7"
+        ]
+      },
+      {
+        "text": "README 将封面与启动动画图片来源标为 phodal/daily。图像再分发与全部组件许可范围分别待核实。",
+        "evidence_level": "作者声明",
+        "source_ids": [
+          "az1"
+        ]
+      }
+    ],
+    "status": {
+      "source_snapshot": {
+        "branch": "master",
+        "commit": "80b574057fb65642d2575c22348775e7854cdce8",
+        "committed_at": "2020-03-12T14:20:08Z",
+        "source_ids": [
+          "az13"
+        ]
+      },
+      "source_version": {
+        "text": "version 命令输出 Antz.version.2.0。该源码字符串与发行标签分别保存。",
+        "evidence_level": "源码可见",
+        "source_ids": [
+          "az4"
+        ]
+      },
+      "releases": {
+        "text": "当前发行集合保存 Antz-2.0.1（v2.0，2018-10-27T12:06:57Z）、Antz-3.1.1（v3.1.1，2018-11-18T05:04:15Z），以及预发布 Antz-3.2.1（2019-03-19T16:13:47Z）和 Antz 3.2.2（2019-04-02T12:06:06Z）；四项附件集合均为空。",
+        "source_ids": [
+          "az12"
+        ]
+      },
+      "license": {
+        "name": "根 MIT 许可",
+        "scope": "根文件署名 2018 Mou Wang；H.Kawai／KL-01 头文件、附带工具库及图片分别记录，整体分发许可待核实。",
+        "source_ids": [
+          "az8",
+          "az7",
+          "az1"
+        ]
+      },
+      "runtime_verification": {
+        "status": "待核实",
+        "scope": "本轮采用固定源码与原作者文章静态阅读；独立构建、启动和测试均为0。作者 README 提供截图及动图入口，画面与源码版本对应待核实。"
+      }
+    },
+    "links": {
+      "source": "https://github.com/CasterWx/AntzOS",
+      "documentation": "https://www.cnblogs.com/LexMoon/category/1262287.html"
+    },
+    "pending_verification": [
+      "精确 Haribote／OSASK 上游版本与逐文件继承范围",
+      "附带工具库、字体和图片的完整许可范围",
+      "发行、镜像、原作者动图与固定源码的对应",
+      "任务调度集成及独立构建、启动与功能运行",
+      "首发历史、AI参与及国籍自述"
+    ],
+    "sources": [
+      {
+        "id": "az1",
+        "title": "AntzOS 固定 README",
+        "url": "https://github.com/CasterWx/AntzOS/blob/80b574057fb65642d2575c22348775e7854cdce8/README.md",
+        "kind": "固定源码",
+        "supports": [
+          "AntzOS 固定 README"
+        ]
+      },
+      {
+        "id": "az2",
+        "title": "构建目标与 Haribote 规则",
+        "url": "https://github.com/CasterWx/AntzOS/blob/80b574057fb65642d2575c22348775e7854cdce8/Makefile",
+        "kind": "固定源码",
+        "supports": [
+          "构建目标与 Haribote 规则"
+        ]
+      },
+      {
+        "id": "az3",
+        "title": "BIOS 图形与保护模式入口",
+        "url": "https://github.com/CasterWx/AntzOS/blob/80b574057fb65642d2575c22348775e7854cdce8/boot/asmhead.asm",
+        "kind": "固定源码",
+        "supports": [
+          "BIOS 图形与保护模式入口"
+        ]
+      },
+      {
+        "id": "az4",
+        "title": "内核入口、命令与文本编辑",
+        "url": "https://github.com/CasterWx/AntzOS/blob/80b574057fb65642d2575c22348775e7854cdce8/main/bootpack.c",
+        "kind": "固定源码",
+        "supports": [
+          "内核入口、命令与文本编辑"
+        ]
+      },
+      {
+        "id": "az5",
+        "title": "PIT 与定时中断",
+        "url": "https://github.com/CasterWx/AntzOS/blob/80b574057fb65642d2575c22348775e7854cdce8/task/timer.c",
+        "kind": "固定源码",
+        "supports": [
+          "PIT 与定时中断"
+        ]
+      },
+      {
+        "id": "az6",
+        "title": "GDT 与 IDT 初始化",
+        "url": "https://github.com/CasterWx/AntzOS/blob/80b574057fb65642d2575c22348775e7854cdce8/lgdt/set_lgdt.c",
+        "kind": "固定源码",
+        "supports": [
+          "GDT 与 IDT 初始化"
+        ]
+      },
+      {
+        "id": "az7",
+        "title": "H.Kawai／KL-01 头文件署名",
+        "url": "https://github.com/CasterWx/AntzOS/blob/80b574057fb65642d2575c22348775e7854cdce8/include/stdio.h",
+        "kind": "固定源码",
+        "supports": [
+          "H.Kawai／KL-01 头文件署名"
+        ]
+      },
+      {
+        "id": "az8",
+        "title": "根 MIT 许可",
+        "url": "https://github.com/CasterWx/AntzOS/blob/80b574057fb65642d2575c22348775e7854cdce8/LICENSE",
+        "kind": "固定源码",
+        "supports": [
+          "根 MIT 许可"
+        ]
+      },
+      {
+        "id": "az9",
+        "title": "线程设计文档",
+        "url": "https://github.com/CasterWx/AntzOS/blob/80b574057fb65642d2575c22348775e7854cdce8/OS-Build/Thread.md",
+        "kind": "固定源码",
+        "supports": [
+          "线程设计文档"
+        ]
+      },
+      {
+        "id": "az10",
+        "title": "AntzUhl 博客园原作：实现图形化界面",
+        "url": "https://www.cnblogs.com/LexMoon/p/antz09.html",
+        "kind": "原作者技术文章",
+        "supports": [
+          "AntzUhl 博客园原作：实现图形化界面"
+        ]
+      },
+      {
+        "id": "az11",
+        "title": "AntzUhl／CasterWx GitHub 主页",
+        "url": "https://github.com/CasterWx",
+        "kind": "作者公开主页",
+        "supports": [
+          "AntzUhl／CasterWx GitHub 主页"
+        ]
+      },
+      {
+        "id": "az12",
+        "title": "AntzOS 发行记录",
+        "url": "https://api.github.com/repos/CasterWx/AntzOS/releases?per_page=100",
+        "kind": "发行元数据",
+        "supports": [
+          "AntzOS 发行记录"
+        ]
+      },
+      {
+        "id": "az13",
+        "title": "AntzOS 固定提交",
+        "url": "https://github.com/CasterWx/AntzOS/commit/80b574057fb65642d2575c22348775e7854cdce8",
+        "kind": "提交元数据",
+        "supports": [
+          "AntzOS 固定提交"
+        ]
+      },
+      {
+        "id": "az14",
+        "title": "AntzUhl 博客园原作：Boot Sector",
+        "url": "https://www.cnblogs.com/LexMoon/p/antz01.html",
+        "kind": "原作者技术文章",
+        "supports": [
+          "AntzUhl 博客园原作：Boot Sector"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "corez-os",
+    "name": "CoreZ-OS",
+    "aliases": [
+      "CoreZ OS",
+      "CoreZ"
+    ],
+    "checked_at": "2026-10-25",
+    "selection_status": "已收录",
+    "short_description": "CoreZ-OS 是 lightfl0w 在 B站公开发布的 x86-64 实验内核，以 C 与汇编实现独立引导、任务调度、内存与文件系统，配有用户进程和限定 Win32／GDI 兼容层。GitHub 仓库当前标记归档。",
+    "author": {
+      "people": [
+        {
+          "handle": "lightfl0w",
+          "public_alias": "Lightfl0w",
+          "github_url": "https://github.com/lightfl0w",
+          "bilibili_uid": "3690980152707649",
+          "bilibili_url": "https://space.bilibili.com/3690980152707649/"
+        }
+      ],
+      "attribution": {
+        "text": "原片BV1krYP6iEv5由Lightfl0w（UID3690980152707649）发布，简介直接给出lightfl0w/CoreZ-OS源码地址。GitHub项目和账号采用同一handle。",
+        "evidence_level": "作者发布页",
+        "source_ids": [
+          "cz1",
+          "cz2",
+          "cz3"
+        ]
+      },
+      "china_basis": {
+        "text": "原作者 Lightfl0w（UID3690980152707649）在 B站用中文发布 CoreZ-OS，原片简介直接给出 lightfl0w/CoreZ-OS。按可核实的中文技术社区发布关联收录；作者国籍待核实。",
+        "evidence_level": "原作者中文社区发布",
+        "source_ids": [
+          "cz1",
+          "cz30"
+        ]
+      }
+    },
+    "kernel_positioning": {
+      "text": "这是具有独立引导、内核链接目标和用户进程加载路径的实验系统。固定entry.asm以64位汇编进入kmain；内核自行初始化内存、GDT/TSS、IDT、系统调用、线程、设备和文件系统，再启动/bin/shell.elf。",
+      "evidence_level": "源码可见",
+      "source_ids": [
+        "cz6",
+        "cz7",
+        "cz8",
+        "cz12"
+      ]
+    },
+    "dates": {
+      "first_public": {
+        "date": null,
+        "status": "待核实",
+        "known_public_record": "GitHub仓库创建时间和原视频发布日期原值分别保存；最早对外公开时间继续待核实。",
+        "source_ids": [
+          "cz1",
+          "cz4",
+          "cz25"
+        ]
+      },
+      "repository_created": {
+        "at": "2026-08-30T04:51:40Z",
+        "meaning": "GitHub created_at元数据",
+        "source_ids": [
+          "cz4"
+        ]
+      },
+      "video_published": {
+        "published_at": "2026-10-01T03:17:06Z",
+        "unix_timestamp": 1790824626,
+        "china_standard_time": "2026-10-01T11:17:06+08:00",
+        "meaning": "B站公开接口 pubdate，按 UTC 与 UTC+8 分别换算",
+        "source_ids": [
+          "cz30"
+        ]
+      }
+    },
+    "architectures": [
+      {
+        "text": "固定链接脚本指定elf64-x86-64与i386:x86-64，entry.asm使用bits 64；该快照的已核对内核目标为x86-64。",
+        "evidence_level": "源码可见",
+        "source_ids": [
+          "cz6",
+          "cz8",
+          "cz12"
+        ]
+      }
+    ],
+    "implementation_languages": [
+      {
+        "text": "内核以C及x86汇编实现，构建配置采用-ffreestanding、-fno-builtin，并独立生成kernel.elf。Python负责工程构建组织。",
+        "evidence_level": "源码可见",
+        "source_ids": [
+          "cz6",
+          "cz7",
+          "cz12"
+        ]
+      }
+    ],
+    "capabilities": {
+      "boot": [
+        {
+          "text": "BIOS路径包括位于0x7C00的主引导代码、活动分区读取、后续loader与长模式入口；boot.asm包含INT13磁盘读和55AA结尾。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "cz6",
+            "cz9",
+            "cz10"
+          ]
+        },
+        {
+          "text": "UEFI入口读取ELF内核、建立页表并获取固件内存映射；成功调用exit_boot_services后生成Multiboot2参数，经landing入口转交内核。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "cz11"
+          ]
+        }
+      ],
+      "scheduling": [
+        {
+          "text": "thread.c维护每CPU就绪位图和运行队列权重，依据虚拟运行时间与deadline选取任务，通过process_activate和switch_to切换。timer及重调度IPI路径调用调度器。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "cz13",
+            "cz14"
+          ]
+        },
+        {
+          "text": "固定SMP代码通过INIT/SIPI唤醒AP，建立每CPU描述符、TSS和idle任务，并切入任务上下文；完整多核运行行为待核实。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "cz26"
+          ]
+        }
+      ],
+      "memory": [
+        {
+          "text": "pool.c建立物理页位图与虚拟地址位图，包含PML4等四级页表访问、MMIO映射和page_cow_resolve写时复制处理。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "cz15"
+          ]
+        }
+      ],
+      "filesystem": [
+        {
+          "text": "fsapi.c定义ext2与ext4两组VFS操作表，包含查找、读写、目录项与inode分配接口，并按磁盘探测结果选择根文件系统操作表。具体文件系统格式覆盖和数据完整性待核实。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "cz16"
+          ]
+        }
+      ],
+      "drivers": [
+        {
+          "text": "固定README列出PS/2键鼠、IDE、E1000、RTL8139、ACPI/APIC及帧缓冲进展；固定Git树另有NVMe、VirtIO与VMware显示相关源码。各设备实际兼容范围待核实。",
+          "evidence_level": "作者声明与源码目录可见",
+          "source_ids": [
+            "cz5",
+            "cz23"
+          ]
+        }
+      ],
+      "applications": [
+        {
+          "text": "pe_load检查AMD64机器类型，建立PE映像并通过win32_resolve处理导入；API表提供窗口和GDI函数映射，未解析导入落入占位处理。兼容范围按具体API和示例程序核验。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "cz17",
+            "cz29"
+          ]
+        },
+        {
+          "text": "GDI实现设置4个应用、4个窗口、12个设备上下文等固定资源上限；win_gui.c示例调用TextOutA、Rectangle、Ellipse、LineTo并响应键盘字符。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "cz18",
+            "cz19"
+          ]
+        },
+        {
+          "text": "作者原片标题说明移植fish shell与简易WinGDI程序支持；固定README和构建脚本记录fish子模块及构建目标。fish运行版本与原片二进制对应待核实。",
+          "evidence_level": "作者声明与构建源码可见",
+          "source_ids": [
+            "cz1",
+            "cz5",
+            "cz12",
+            "cz20"
+          ]
+        }
+      ]
+    },
+    "project_relationships": [
+      {
+        "text": "项目固定README将其定位为教学型内核，并说明从16位引导到64位内核的开发路线。整体原创范围、参考工程继承和AI参与范围继续待核实。",
+        "evidence_level": "作者声明",
+        "source_ids": [
+          "cz5"
+        ]
+      },
+      {
+        "text": "固定.gitmodules与Git树共同记录musl、libc-testsuite、BusyBox、fish、PCRE2和flanterm的上游及固定提交。README给出对应许可声明；完整第三方文件及分发许可范围继续待核实。",
+        "evidence_level": "源码可见",
+        "source_ids": [
+          "cz5",
+          "cz20",
+          "cz23"
+        ]
+      },
+      {
+        "text": "同一固定README保留AP启动阶段和多核调度路线项；2026-10-01的7cdbd4f提交说明基础AP调度，当前thread.c和smp.c已经包含每CPU选取及AP任务切换路径。文档和较新源码分别记录，稳定性和覆盖范围待核实。",
+        "evidence_level": "作者文档与源码阶段对照",
+        "source_ids": [
+          "cz5",
+          "cz13",
+          "cz25",
+          "cz26"
+        ]
+      }
+    ],
+    "status": {
+      "source_snapshot": {
+        "branch": "main",
+        "commit": "8016bb2e8cf39001a7d2a89ece8c2ecf8381522e",
+        "committed_at": "2026-10-02T09:01:56Z",
+        "source_ids": [
+          "cz22",
+          "cz23"
+        ]
+      },
+      "latest_github_release": {
+        "version": null,
+        "status": "待核实",
+        "observed": "核验时Releases集合返回空数组。",
+        "source_ids": [
+          "cz24"
+        ]
+      },
+      "license": {
+        "name": "GPL-3.0",
+        "scope": "固定根LICENSE为GPLv3全文；历史声明署名CoreZ Team，写明GPLv3或更新版本。完整源码和第三方许可适用范围分别核实。",
+        "source_ids": [
+          "cz21",
+          "cz27",
+          "cz5",
+          "cz20"
+        ]
+      },
+      "runtime_verification": {
+        "status": "待核实",
+        "scope": "本轮复核公开元数据、原作者关联与固定源码；演示画面沿用2026-10-10研究记录。独立构建、启动、调度、应用及自举运行结果待核实。"
+      },
+      "maintenance": {
+        "text": "2026-10-25 仓库元数据为 archived=true；main 仍指向 8016bb2e 固定快照。",
+        "evidence_level": "仓库元数据",
+        "source_ids": [
+          "cz4"
+        ]
+      }
+    },
+    "video_observations": [
+      {
+        "video_url": "https://www.bilibili.com/video/BV1krYP6iEv5/",
+        "timestamp": "00:26",
+        "text": "画面可见QEMU窗口及TianoCore引导标志。",
+        "evidence_level": "作者演示",
+        "source_ids": [
+          "cz1"
+        ]
+      },
+      {
+        "video_url": "https://www.bilibili.com/video/BV1krYP6iEv5/",
+        "timestamp": "01:01",
+        "text": "截图中播放器读数为01:01/01:08；桌面上可见终端和包含矩形、椭圆、斜线的测试窗口。该图案与win_gui.c示例相符，录屏二进制的固定提交对应待核实。",
+        "evidence_level": "作者演示",
+        "source_ids": [
+          "cz1",
+          "cz19"
+        ],
+        "observation_note": "同次AX文本读数为01:02；以截图自身可见时间01:01记录。"
+      }
+    ],
+    "links": {
+      "source": "https://github.com/lightfl0w/CoreZ-OS",
+      "video_channel": {
+        "url": "https://space.bilibili.com/3690980152707649/",
+        "source_ids": [
+          "cz1",
+          "cz3"
+        ]
+      },
+      "individual_video": {
+        "url": "https://www.bilibili.com/video/BV1krYP6iEv5/",
+        "published_date": "2026-10-01",
+        "evidence": "公开接口保存作者UID、简介源码直链与 pubdate。"
+      }
+    },
+    "pending_verification": [
+      "项目最早公开日期及正式版本；B站原片规范发布时间已按公开接口固定",
+      "原片录屏二进制与固定源码的版本对应",
+      "README与较新调度、固件及中断源码的阶段对应",
+      "完整上游继承、原始代码来源和AI参与范围",
+      "根许可证适用范围与全部第三方许可、资源字库许可",
+      "fish、PE/GDI、网络和文件系统具体兼容与测试覆盖",
+      "独立构建、引导、任务调度及功能运行",
+      "作者国籍的公开自述"
+    ],
+    "sources": [
+      {
+        "id": "cz1",
+        "title": "Lightfl0w发布的CoreZ-OS原片",
+        "url": "https://www.bilibili.com/video/BV1krYP6iEv5/",
+        "kind": "作者原视频发布页",
+        "supports": [
+          "B站作者与GitHub源码直接关联",
+          "fish shell与简易WinGDI声明",
+          "日期原值与01:08时长",
+          "01:01终端和绘图窗口画面"
+        ]
+      },
+      {
+        "id": "cz2",
+        "title": "Lightfl0w公开GitHub主页",
+        "url": "https://github.com/lightfl0w",
+        "kind": "作者公开主页",
+        "supports": [
+          "公开开发账号",
+          "中国归属自述待核实"
+        ]
+      },
+      {
+        "id": "cz3",
+        "title": "Lightfl0w公开B站投稿列表",
+        "url": "https://space.bilibili.com/3690980152707649/upload/video",
+        "kind": "作者公开频道",
+        "supports": [
+          "原片与UID关联",
+          "频道列4条视频",
+          "原片日期显示9月30日"
+        ]
+      },
+      {
+        "id": "cz4",
+        "title": "CoreZ-OS仓库元数据",
+        "url": "https://api.github.com/repos/lightfl0w/CoreZ-OS",
+        "kind": "仓库元数据",
+        "supports": [
+          "创建时间",
+          "主分支",
+          "GPL-3.0元数据"
+        ]
+      },
+      {
+        "id": "cz5",
+        "title": "CoreZ-OS 固定源码 README.md",
+        "url": "https://github.com/lightfl0w/CoreZ-OS/blob/8016bb2e8cf39001a7d2a89ece8c2ecf8381522e/README.md",
+        "kind": "固定源码",
+        "supports": [
+          "项目定位与作者功能说明",
+          "子模块许可声明",
+          "SMP等文档阶段说明"
+        ]
+      },
+      {
+        "id": "cz6",
+        "title": "CoreZ-OS 固定源码 arch/x86/asm/entry.asm",
+        "url": "https://github.com/lightfl0w/CoreZ-OS/blob/8016bb2e8cf39001a7d2a89ece8c2ecf8381522e/arch/x86/asm/entry.asm#L1-L89",
+        "kind": "固定源码",
+        "supports": [
+          "64位内核入口与kmain调用"
+        ]
+      },
+      {
+        "id": "cz7",
+        "title": "CoreZ-OS 固定源码 kernel/init/main.c",
+        "url": "https://github.com/lightfl0w/CoreZ-OS/blob/8016bb2e8cf39001a7d2a89ece8c2ecf8381522e/kernel/init/main.c#L58-L157",
+        "kind": "固定源码",
+        "supports": [
+          "内核初始化及用户进程入口"
+        ]
+      },
+      {
+        "id": "cz8",
+        "title": "CoreZ-OS 固定源码 linker/kernel.ld",
+        "url": "https://github.com/lightfl0w/CoreZ-OS/blob/8016bb2e8cf39001a7d2a89ece8c2ecf8381522e/linker/kernel.ld#L1-L9",
+        "kind": "固定源码",
+        "supports": [
+          "独立ELF64内核链接布局"
+        ]
+      },
+      {
+        "id": "cz9",
+        "title": "CoreZ-OS 固定源码 arch/x86/boot/boot.asm",
+        "url": "https://github.com/lightfl0w/CoreZ-OS/blob/8016bb2e8cf39001a7d2a89ece8c2ecf8381522e/arch/x86/boot/boot.asm",
+        "kind": "固定源码",
+        "supports": [
+          "MBR引导入口、INT13磁盘读与55AA标志"
+        ]
+      },
+      {
+        "id": "cz10",
+        "title": "CoreZ-OS 固定源码 arch/x86/boot/loader.asm",
+        "url": "https://github.com/lightfl0w/CoreZ-OS/blob/8016bb2e8cf39001a7d2a89ece8c2ecf8381522e/arch/x86/boot/loader.asm",
+        "kind": "固定源码",
+        "supports": [
+          "实模式到长模式引导",
+          "FAT32与VBE引导准备"
+        ]
+      },
+      {
+        "id": "cz11",
+        "title": "CoreZ-OS 固定源码 arch/x86/uefi/main.c",
+        "url": "https://github.com/lightfl0w/CoreZ-OS/blob/8016bb2e8cf39001a7d2a89ece8c2ecf8381522e/arch/x86/uefi/main.c#L680-L803",
+        "kind": "固定源码",
+        "supports": [
+          "UEFI引导、ExitBootServices与内核转交"
+        ]
+      },
+      {
+        "id": "cz12",
+        "title": "CoreZ-OS 固定源码 build.py",
+        "url": "https://github.com/lightfl0w/CoreZ-OS/blob/8016bb2e8cf39001a7d2a89ece8c2ecf8381522e/build.py",
+        "kind": "固定源码",
+        "supports": [
+          "freestanding C编译",
+          "kernel.elf生成",
+          "fish构建入口"
+        ]
+      },
+      {
+        "id": "cz13",
+        "title": "CoreZ-OS 固定源码 kernel/sched/thread.c",
+        "url": "https://github.com/lightfl0w/CoreZ-OS/blob/8016bb2e8cf39001a7d2a89ece8c2ecf8381522e/kernel/sched/thread.c#L595-L692",
+        "kind": "固定源码",
+        "supports": [
+          "每CPU就绪位图",
+          "虚拟运行时间和截止值选取",
+          "上下文切换"
+        ]
+      },
+      {
+        "id": "cz14",
+        "title": "CoreZ-OS 固定源码 arch/x86/interrupt/interrupt.c",
+        "url": "https://github.com/lightfl0w/CoreZ-OS/blob/8016bb2e8cf39001a7d2a89ece8c2ecf8381522e/arch/x86/interrupt/interrupt.c#L244-L282",
+        "kind": "固定源码",
+        "supports": [
+          "timer与IPI触发调度"
+        ]
+      },
+      {
+        "id": "cz15",
+        "title": "CoreZ-OS 固定源码 kernel/mm/pool/pool.c",
+        "url": "https://github.com/lightfl0w/CoreZ-OS/blob/8016bb2e8cf39001a7d2a89ece8c2ecf8381522e/kernel/mm/pool/pool.c",
+        "kind": "固定源码",
+        "supports": [
+          "物理页池、页表与COW处理"
+        ]
+      },
+      {
+        "id": "cz16",
+        "title": "CoreZ-OS 固定源码 kernel/fs/fsapi.c",
+        "url": "https://github.com/lightfl0w/CoreZ-OS/blob/8016bb2e8cf39001a7d2a89ece8c2ecf8381522e/kernel/fs/fsapi.c",
+        "kind": "固定源码",
+        "supports": [
+          "ext2和ext4 VFS操作表与探测"
+        ]
+      },
+      {
+        "id": "cz17",
+        "title": "CoreZ-OS 固定源码 kernel/userprog/pe.c",
+        "url": "https://github.com/lightfl0w/CoreZ-OS/blob/8016bb2e8cf39001a7d2a89ece8c2ecf8381522e/kernel/userprog/pe.c",
+        "kind": "固定源码",
+        "supports": [
+          "AMD64 PE加载与导入解析"
+        ]
+      },
+      {
+        "id": "cz18",
+        "title": "CoreZ-OS 固定源码 kernel/syscall/win32_gdi.c",
+        "url": "https://github.com/lightfl0w/CoreZ-OS/blob/8016bb2e8cf39001a7d2a89ece8c2ecf8381522e/kernel/syscall/win32_gdi.c",
+        "kind": "固定源码",
+        "supports": [
+          "窗口、DC、GDI对象上限",
+          "绘图函数实现"
+        ]
+      },
+      {
+        "id": "cz19",
+        "title": "CoreZ-OS 固定源码 apps/win_gui.c",
+        "url": "https://github.com/lightfl0w/CoreZ-OS/blob/8016bb2e8cf39001a7d2a89ece8c2ecf8381522e/apps/win_gui.c",
+        "kind": "固定源码",
+        "supports": [
+          "窗口、绘图与键盘输入示例"
+        ]
+      },
+      {
+        "id": "cz20",
+        "title": "CoreZ-OS 固定源码 .gitmodules",
+        "url": "https://github.com/lightfl0w/CoreZ-OS/blob/8016bb2e8cf39001a7d2a89ece8c2ecf8381522e/.gitmodules",
+        "kind": "固定源码",
+        "supports": [
+          "musl等6个第三方入口"
+        ]
+      },
+      {
+        "id": "cz21",
+        "title": "CoreZ-OS 固定源码 LICENSE",
+        "url": "https://github.com/lightfl0w/CoreZ-OS/blob/8016bb2e8cf39001a7d2a89ece8c2ecf8381522e/LICENSE",
+        "kind": "固定源码",
+        "supports": [
+          "根GPLv3全文"
+        ]
+      },
+      {
+        "id": "cz22",
+        "title": "CoreZ-OS固定提交",
+        "url": "https://github.com/lightfl0w/CoreZ-OS/commit/8016bb2e8cf39001a7d2a89ece8c2ecf8381522e",
+        "kind": "固定提交",
+        "supports": [
+          "2026-10-02T09:01:56Z快照"
+        ]
+      },
+      {
+        "id": "cz23",
+        "title": "CoreZ-OS固定递归Git树",
+        "url": "https://api.github.com/repos/lightfl0w/CoreZ-OS/git/trees/8016bb2e8cf39001a7d2a89ece8c2ecf8381522e?recursive=1",
+        "kind": "固定Git树",
+        "supports": [
+          "源码路径",
+          "6个固定gitlink"
+        ]
+      },
+      {
+        "id": "cz24",
+        "title": "CoreZ-OS Releases集合",
+        "url": "https://api.github.com/repos/lightfl0w/CoreZ-OS/releases?per_page=100",
+        "kind": "仓库元数据",
+        "supports": [
+          "核验时空集合"
+        ]
+      },
+      {
+        "id": "cz25",
+        "title": "CoreZ-OS公开提交列表（第1页）",
+        "url": "https://api.github.com/repos/lightfl0w/CoreZ-OS/commits?per_page=100&page=1",
+        "kind": "提交历史",
+        "supports": [
+          "fish、UEFI、PE/GDI、AP调度等阶段提交"
+        ]
+      },
+      {
+        "id": "cz26",
+        "title": "CoreZ-OS 固定源码 kernel/init/smp/smp.c",
+        "url": "https://github.com/lightfl0w/CoreZ-OS/blob/8016bb2e8cf39001a7d2a89ece8c2ecf8381522e/kernel/init/smp/smp.c",
+        "kind": "固定源码",
+        "supports": [
+          "AP启动、idle任务与上下文切换"
+        ]
+      },
+      {
+        "id": "cz27",
+        "title": "CoreZ-OS补充GPLv3全文提交",
+        "url": "https://github.com/lightfl0w/CoreZ-OS/commit/689bb08d0587e921fbb3d895d6a62cbbdc23345a",
+        "kind": "许可历史",
+        "supports": [
+          "旧文件署名CoreZ Team",
+          "旧文件GPLv3或更新版本声明",
+          "2026-09-13替换为全文"
+        ]
+      },
+      {
+        "id": "cz28",
+        "title": "Lightfl0w公开动态页",
+        "url": "https://space.bilibili.com/3690980152707649/dynamic",
+        "kind": "作者公开频道",
+        "supports": [
+          "当前可读动态为空"
+        ]
+      },
+      {
+        "id": "cz29",
+        "title": "CoreZ-OS 固定源码 kernel/syscall/win32.c",
+        "url": "https://github.com/lightfl0w/CoreZ-OS/blob/8016bb2e8cf39001a7d2a89ece8c2ecf8381522e/kernel/syscall/win32.c",
+        "kind": "固定源码",
+        "supports": [
+          "Win32 API映射与未解析导入处理"
+        ]
+      },
+      {
+        "id": "cz30",
+        "title": "CoreZ-OS 原片公开元数据",
+        "url": "https://api.bilibili.com/x/web-interface/view?bvid=BV1krYP6iEv5",
+        "kind": "原平台公开元数据",
+        "supports": [
+          "原作者UID3690980152707649",
+          "简介直接关联源码",
+          "pubdate=1790824626",
+          "时长68秒"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "lgc-os",
+    "name": "lgc-os",
+    "aliases": [
+      "lgc os"
+    ],
+    "checked_at": "2026-10-25",
+    "discovery_classification": "第十二轮旧背景首次深入",
+    "first_seen_round": 12,
+    "truly_new_discovery": false,
+    "selection_status": "已收录",
+    "short_description": "lgc-os 是 lightfl0w 在 B站公开发布、使用配套 lgc 语言编写的 x86-64 实验内核，包含 GDT／TSS、分页、中断、抢占任务、RAMFS、ELF64 装载和限定 Linux ABI。微内核与自举能力按作者定位及具体源码分别记录。",
+    "author": {
+      "people": [
+        {
+          "handle": "lightfl0w",
+          "public_alias": "Lightfl0w",
+          "github_url": "https://github.com/lightfl0w",
+          "bilibili_uid": "3690980152707649",
+          "bilibili_url": "https://space.bilibili.com/3690980152707649/"
+        }
+      ],
+      "attribution": {
+        "text": "两条原片由Lightfl0w（UID3690980152707649）发布。微内核原片简介直链lgc-os；语言原片简介同时直链lgc及lgc-os。OS固定README直接指向同账号lgc。",
+        "evidence_level": "作者声明",
+        "source_ids": [
+          "lo1",
+          "lo2",
+          "lo3",
+          "lo7"
+        ]
+      },
+      "china_basis": {
+        "text": "原作者 Lightfl0w（UID3690980152707649）在 B站用中文发布 lgc-os，原片简介直接给出 lightfl0w/lgc-os。按可核实的中文技术社区发布关联收录；作者国籍待核实。",
+        "evidence_level": "原作者中文社区发布",
+        "source_ids": [
+          "lo1",
+          "lo30"
+        ]
+      }
+    },
+    "kernel_positioning": {
+      "text": "这是有自身启动目标和硬件特权初始化路径的实验内核。kernel/os.lg使用@boot，调用GDT、IDT、分页、系统调用、PIC/PIT和进程初始化，再进入shell；build.py通过lgc生成lgc-os.img。微内核名称属于作者定位。服务隔离与IPC架构边界继续待核实。",
+      "evidence_level": "源码可见；微内核名称为作者声明",
+      "source_ids": [
+        "lo7",
+        "lo8",
+        "lo9",
+        "lo19"
+      ]
+    },
+    "dates": {
+      "first_public": {
+        "date": null,
+        "status": "待核实",
+        "known_public_record": "仓库创建时间、Git提交作者时间和视频日期分别保存。",
+        "source_ids": [
+          "lo1",
+          "lo2",
+          "lo6",
+          "lo23"
+        ]
+      },
+      "repository_created": {
+        "at": "2026-09-25T13:23:09Z",
+        "meaning": "GitHub created_at元数据",
+        "source_ids": [
+          "lo6"
+        ]
+      },
+      "oldest_visible_commit": {
+        "at": "2026-09-20T13:28:25Z",
+        "commit": "26169e309d4cd0c67a4031e8e2abfe770cec2b8a",
+        "meaning": "当前Git历史的作者提交时间；首次对外公开时间待核实。",
+        "source_ids": [
+          "lo23"
+        ]
+      },
+      "video_published": {
+        "published_at": "2026-09-27T07:00:06Z",
+        "unix_timestamp": 1790492406,
+        "china_standard_time": "2026-09-27T15:00:06+08:00",
+        "meaning": "B站公开接口 pubdate，按 UTC 与 UTC+8 分别换算",
+        "source_ids": [
+          "lo30"
+        ]
+      }
+    },
+    "architectures": [
+      {
+        "text": "固定源码采用PML4/PDPT/PD/PT分页结构、x86-64 MSR系统调用与64位寄存器保存；构建脚本使用qemu-system-x86_64。已核目标为x86-64。",
+        "evidence_level": "源码可见",
+        "source_ids": [
+          "lo9",
+          "lo11",
+          "lo13",
+          "lo19"
+        ]
+      }
+    ],
+    "implementation_languages": [
+      {
+        "name": "lgc",
+        "role": "内核主要源码；.lg文件及asm机器码字节",
+        "source_ids": [
+          "lo8",
+          "lo9",
+          "lo11",
+          "lo21"
+        ],
+        "text": "lgc：内核主要源码；.lg文件及asm机器码字节"
+      },
+      {
+        "name": "Python / Shell / C",
+        "role": "构建与测试脚本、用户示例",
+        "source_ids": [
+          "lo19",
+          "lo20",
+          "lo21"
+        ],
+        "text": "Python / Shell / C：构建与测试脚本、用户示例"
+      }
+    ],
+    "capabilities": {
+      "boot": [
+        {
+          "text": "@boot入口生成可引导内核镜像；README说明BIOS将首扇区载入，内核占后续扇区。引导生成器属于配套lgc，具体二进制版本绑定待核实。",
+          "evidence_level": "源码可见与作者声明",
+          "source_ids": [
+            "lo7",
+            "lo8",
+            "lo19",
+            "lgc-boot-example"
+          ]
+        }
+      ],
+      "scheduling": [
+        {
+          "text": "core.lg设置MAXPROC=8，维护FREE/READY/RUN/ZOMBIE状态、每任务CR3与内核栈。pick_next轮转寻找READY任务，IRQ0分发进入sched_irq并切换寄存器帧和页表。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "lo10"
+          ]
+        }
+      ],
+      "memory": [
+        {
+          "text": "mm.lg从0x1000000至0x4000000按4KiB递增分配页帧，为地址空间创建PML4/PDPT/PD/PT并按缺页映射用户页。core.lg设置页表权限位；完整内存隔离与W^X保证待独立验证。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "lo9",
+            "lo13",
+            "lo29"
+          ]
+        }
+      ],
+      "filesystem": [
+        {
+          "text": "fs.lg提供32个RAMFS文件槽，每个新文件预留1MiB；ata.lg以PIO端口读写扇区，shell的save命令调用ata_write及flush。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "lo15",
+            "lo16",
+            "lo18"
+          ]
+        }
+      ],
+      "drivers": [
+        {
+          "text": "VGA文本缓冲位于0xB8000；键盘代码轮询0x60/0x64并译码，串口使用COM1，定时中断使用PIC/PIT。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "lo9",
+            "lo17"
+          ]
+        }
+      ],
+      "applications": [
+        {
+          "text": "ELF加载器读取64位入口与program headers，对PT_LOAD段复制文件内容并清零BSS。shell创建地址空间、初始栈和用户进程，提供exec/bg/ps。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "lo14",
+            "lo18"
+          ]
+        },
+        {
+          "text": "系统调用分发覆盖read/write/open/close、部分stat、mmap/brk等Linux x86-64编号。mprotect/munmap等编号直接返回0，未知编号返回-38。具体应用兼容性按已实现接口逐项核验。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "lo11",
+            "lo12"
+          ]
+        }
+      ],
+      "self_hosting": [
+        {
+          "text": "测试脚本向客体发送exec lgc.elf os.lg os.bin及save命令，随后由宿主提取镜像、复制预载文件区并再次启动QEMU，再运行hello_c和a.lg编译测试。该脚本记录内核自举往返设计。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "lo20"
+          ]
+        },
+        {
+          "text": "README将运行自举版lgc、静态glibc C程序及自举往返列为完成项。",
+          "evidence_level": "作者声明",
+          "source_ids": [
+            "lo7"
+          ]
+        }
+      ]
+    },
+    "project_relationships": [
+      {
+        "text": "lgc与lgc-os分别承担语言编译器和使用该语言的内核实例角色，两者同属lightfl0w账号。原片及README建立明确关联。",
+        "evidence_level": "作者声明与源码可见",
+        "source_ids": [
+          "lo1",
+          "lo2",
+          "lo7",
+          "lo19"
+        ]
+      },
+      {
+        "text": "build.py通过外部LGC_SRC读取lgc.lg并生成usr/lgc.elf，OS固定树保存编译器二进制。其blob为08baf7259a8b0cf4d7718978b2fec13ae8843ad1；与lgc源码提交的精确对应待核实。",
+        "evidence_level": "源码可见",
+        "source_ids": [
+          "lo19",
+          "lo21",
+          "lgc-os-tree"
+        ]
+      },
+      {
+        "text": "README声明设计参考《操作系统真相还原》。原始代码来源、全部继承与AI参与范围继续待核实。",
+        "evidence_level": "作者声明",
+        "source_ids": [
+          "lo7"
+        ]
+      },
+      {
+        "text": "微内核称谓来自README与原片标题。固定代码把ATA、RAMFS和shell直接引入@boot内核，README也标注ring0 shell；用户态系统服务、IPC与严格微内核架构分类继续待核实。",
+        "evidence_level": "源码可见与作者声明",
+        "source_ids": [
+          "lo7",
+          "lo8",
+          "lo15",
+          "lo16",
+          "lo18"
+        ]
+      },
+      {
+        "text": "固定README保留16MB内存布局和调度策略待办；较新build.py把RAMFS预载地址设为0x4000000，core.lg已有IRQ0抢占和轮转选择，mm.lg引入独立地址空间。文档和实现采用阶段对照。",
+        "evidence_level": "源码可见与作者文档阶段对照",
+        "source_ids": [
+          "lo7",
+          "lo10",
+          "lo13",
+          "lo19",
+          "lo22"
+        ]
+      },
+      {
+        "text": "CoreZ-OS继续沿用第十二轮研究及Issue38，本轮以该记录核对作者背景。项目间共享实现、改名或继承关系待核实。",
+        "evidence_level": "目录关系核对",
+        "source_ids": [
+          "lo27",
+          "lo28"
+        ]
+      }
+    ],
+    "companion_language": {
+      "name": "lgc",
+      "classification": "英文语法的自制编译语言／配套工具",
+      "formal_chinese_language_entry": false,
+      "text": "C版词法表列22个英文关键词，自举实现词法表也使用英文关键词；连续完整fac.lg与@boot示例均已核对。中文关键词条目本轮为0。",
+      "source_ids": [
+        "lgc-c-keywords",
+        "lgc-selfhost-keywords",
+        "lgc-fac-example",
+        "lgc-boot-example"
+      ]
+    },
+    "status": {
+      "source_snapshot": {
+        "branch": "main",
+        "commit": "ba606a063fd557bf28ad13a4c16f9e214b0deddd",
+        "committed_at": "2026-09-27T09:55:16Z",
+        "source_ids": [
+          "lo21",
+          "lo22"
+        ]
+      },
+      "latest_github_release": {
+        "version": null,
+        "status": "待核实",
+        "observed": "核验时Releases与matching-refs/tags均返回空数组。",
+        "source_ids": [
+          "lo25",
+          "lo26"
+        ]
+      },
+      "license": {
+        "name": null,
+        "status": "待核实",
+        "scope": "lgc-os固定完整树共有28项，根目录及子目录许可文件待取得；API license为null。配套lgc在2026-10-05加入GPL-3.0-or-later声明，OS、预置BusyBox/glibc程序及编译器二进制的许可适用范围分别待核实。",
+        "source_ids": [
+          "lo6",
+          "lo21",
+          "lgc-license",
+          "lgc-commit"
+        ]
+      },
+      "runtime_verification": {
+        "status": "待核实",
+        "scope": "本轮复核公开元数据、原作者关联与固定源码；演示画面沿用2026-10-10研究记录。独立构建、启动、调度、应用及自举运行结果待核实。"
+      }
+    },
+    "video_observations": [
+      {
+        "video_url": "https://www.bilibili.com/video/BV166at6hEgN/",
+        "duration": "00:45",
+        "timestamp": "00:18",
+        "text": "截图播放器读数00:18/00:45，可见QEMU窗口与lgc-os命令提示符；视频字幕说明能够启动。",
+        "evidence_level": "作者演示",
+        "source_ids": [
+          "lo1"
+        ]
+      },
+      {
+        "video_url": "https://www.bilibili.com/video/BV166at6hEgN/",
+        "duration": "00:45",
+        "timestamp": "00:34",
+        "text": "AX读数00:34/00:45；画面可见selfhost_test.sh、宿主终端中的save输出及镜像提取流程。最终二次启动结果与当前源码的对应继续待核实。",
+        "evidence_level": "作者演示",
+        "source_ids": [
+          "lo1",
+          "lo20"
+        ],
+        "observation_note": "00:34来自同次AX；随后截图控制条隐藏。该时间点按相邻观察记录，保留异步读数边界。"
+      },
+      {
+        "video_url": "https://www.bilibili.com/video/BV1pghX6NEE8/",
+        "duration": "00:43",
+        "timestamp": "00:12",
+        "text": "AX读数00:12/00:43；画面显示C版编译器代码和终端，字幕为语言特性的小测试。可读语法细节以固定源码为准。",
+        "evidence_level": "作者演示",
+        "source_ids": [
+          "lo2"
+        ],
+        "observation_note": "时间点来自相邻AX；截图控制条隐藏。"
+      }
+    ],
+    "links": {
+      "repository": "https://github.com/lightfl0w/lgc-os",
+      "video": "https://www.bilibili.com/video/BV166at6hEgN/",
+      "language_repository": "https://github.com/lightfl0w/lgc",
+      "language_video": "https://www.bilibili.com/video/BV1pghX6NEE8/"
+    },
+    "pending_verification": [
+      "微内核服务分离与IPC边界、具体架构分类",
+      "项目首次对外公开时间、配套语言原片规范时间戳；内核原片规范时间已核",
+      "原片二进制、lgc-os固定源码及lgc编译器具体版本对应",
+      "README内存布局及调度待办与较新代码的阶段对应",
+      "lgc-os自身许可、第三方预置二进制许可与全部继承关系",
+      "完整自举往返、应用兼容、内存保护和任务调度的独立运行结果",
+      "作者国籍的公开自述"
+    ],
+    "sources": [
+      {
+        "id": "lo1",
+        "title": "Lightfl0w微内核自举原片",
+        "url": "https://www.bilibili.com/video/BV166at6hEgN/",
+        "kind": "作者原视频发布页",
+        "supports": [
+          "UID、源码直链、日期原值、00:45时长、00:18与00:34画面"
+        ],
+        "checked_at": "2026-10-10"
+      },
+      {
+        "id": "lo2",
+        "title": "Lightfl0w自制语言原片",
+        "url": "https://www.bilibili.com/video/BV1pghX6NEE8/",
+        "kind": "作者原视频发布页",
+        "supports": [
+          "同一UID、同时直链lgc与lgc-os、日期原值、00:43时长"
+        ],
+        "checked_at": "2026-10-10"
+      },
+      {
+        "id": "lo3",
+        "title": "Lightfl0w B站公开主页",
+        "url": "https://space.bilibili.com/3690980152707649/",
+        "kind": "作者公开主页",
+        "supports": [
+          "同一账号发布两个原片",
+          "视频列表日期9月26日及9月27日",
+          "公开简介QWQ"
+        ],
+        "checked_at": "2026-10-10"
+      },
+      {
+        "id": "lo4",
+        "title": "Lightfl0w GitHub公开主页",
+        "url": "https://github.com/lightfl0w",
+        "kind": "作者公开主页",
+        "supports": [
+          "开发账号与置顶lgc、lgc-os",
+          "中国归属自述待核实"
+        ],
+        "checked_at": "2026-10-10"
+      },
+      {
+        "id": "lo5",
+        "title": "固定个人README",
+        "url": "https://github.com/lightfl0w/lightfl0w/blob/8b2b9f53a85e7387ad253142912c87204e23a61e/README.md",
+        "kind": "固定作者资料",
+        "supports": [
+          "我是lightfl0w自述",
+          "中国归属自述待核实"
+        ],
+        "checked_at": "2026-10-10",
+        "revision": "8b2b9f53a85e7387ad253142912c87204e23a61e"
+      },
+      {
+        "id": "lo6",
+        "title": "lgc-os仓库元数据",
+        "url": "https://api.github.com/repos/lightfl0w/lgc-os",
+        "kind": "动态仓库元数据",
+        "supports": [
+          "created_at",
+          "main分支",
+          "fork=false",
+          "license=null"
+        ],
+        "checked_at": "2026-10-10"
+      },
+      {
+        "id": "lo7",
+        "title": "lgc-os固定源码 README.md",
+        "url": "https://github.com/lightfl0w/lgc-os/blob/ba606a063fd557bf28ad13a4c16f9e214b0deddd/README.md#L1-L107",
+        "kind": "固定源码",
+        "supports": [
+          "lgc关联、作者微内核定位、设计参考书、作者功能与自举声明、文档内存布局和待办"
+        ],
+        "checked_at": "2026-10-10",
+        "revision": "ba606a063fd557bf28ad13a4c16f9e214b0deddd"
+      },
+      {
+        "id": "lo8",
+        "title": "lgc-os固定源码 kernel/os.lg",
+        "url": "https://github.com/lightfl0w/lgc-os/blob/ba606a063fd557bf28ad13a4c16f9e214b0deddd/kernel/os.lg#L1-L42",
+        "kind": "固定源码",
+        "supports": [
+          "@boot入口、内核初始化、ring0 shell"
+        ],
+        "checked_at": "2026-10-10",
+        "revision": "ba606a063fd557bf28ad13a4c16f9e214b0deddd"
+      },
+      {
+        "id": "lo9",
+        "title": "lgc-os固定源码 kernel/core.lg",
+        "url": "https://github.com/lightfl0w/lgc-os/blob/ba606a063fd557bf28ad13a4c16f9e214b0deddd/kernel/core.lg#L65-L158",
+        "kind": "固定源码",
+        "supports": [
+          "GDT/TSS、四级分页基础、IDT、PIC/PIT"
+        ],
+        "checked_at": "2026-10-10",
+        "revision": "ba606a063fd557bf28ad13a4c16f9e214b0deddd"
+      },
+      {
+        "id": "lo10",
+        "title": "lgc-os固定源码 kernel/core.lg",
+        "url": "https://github.com/lightfl0w/lgc-os/blob/ba606a063fd557bf28ad13a4c16f9e214b0deddd/kernel/core.lg#L160-L449",
+        "kind": "固定源码",
+        "supports": [
+          "最多8个任务槽、任务状态、轮转选择、IRQ0抢占、独立CR3切换"
+        ],
+        "checked_at": "2026-10-10",
+        "revision": "ba606a063fd557bf28ad13a4c16f9e214b0deddd"
+      },
+      {
+        "id": "lo11",
+        "title": "lgc-os固定源码 kernel/core.lg",
+        "url": "https://github.com/lightfl0w/lgc-os/blob/ba606a063fd557bf28ad13a4c16f9e214b0deddd/kernel/core.lg#L451-L522",
+        "kind": "固定源码",
+        "supports": [
+          "x86-64 MSR系统调用入口、寄存器保存与sysret机器码"
+        ],
+        "checked_at": "2026-10-10",
+        "revision": "ba606a063fd557bf28ad13a4c16f9e214b0deddd"
+      },
+      {
+        "id": "lo12",
+        "title": "lgc-os固定源码 kernel/core.lg",
+        "url": "https://github.com/lightfl0w/lgc-os/blob/ba606a063fd557bf28ad13a4c16f9e214b0deddd/kernel/core.lg#L1058-L1104",
+        "kind": "固定源码",
+        "supports": [
+          "Linux ABI编号分发、占位返回、默认ENOSYS"
+        ],
+        "checked_at": "2026-10-10",
+        "revision": "ba606a063fd557bf28ad13a4c16f9e214b0deddd"
+      },
+      {
+        "id": "lo13",
+        "title": "lgc-os固定源码 kernel/mm.lg",
+        "url": "https://github.com/lightfl0w/lgc-os/blob/ba606a063fd557bf28ad13a4c16f9e214b0deddd/kernel/mm.lg#L1-L76",
+        "kind": "固定源码",
+        "supports": [
+          "页帧bump分配、地址空间建立、用户页映射"
+        ],
+        "checked_at": "2026-10-10",
+        "revision": "ba606a063fd557bf28ad13a4c16f9e214b0deddd"
+      },
+      {
+        "id": "lo14",
+        "title": "lgc-os固定源码 kernel/elf.lg",
+        "url": "https://github.com/lightfl0w/lgc-os/blob/ba606a063fd557bf28ad13a4c16f9e214b0deddd/kernel/elf.lg#L1-L26",
+        "kind": "固定源码",
+        "supports": [
+          "ELF64字段与PT_LOAD拷贝及清零"
+        ],
+        "checked_at": "2026-10-10",
+        "revision": "ba606a063fd557bf28ad13a4c16f9e214b0deddd"
+      },
+      {
+        "id": "lo15",
+        "title": "lgc-os固定源码 kernel/fs.lg",
+        "url": "https://github.com/lightfl0w/lgc-os/blob/ba606a063fd557bf28ad13a4c16f9e214b0deddd/kernel/fs.lg#L1-L93",
+        "kind": "固定源码",
+        "supports": [
+          "RAMFS固定32槽、新建文件每槽预留1MiB及ATA预载"
+        ],
+        "checked_at": "2026-10-10",
+        "revision": "ba606a063fd557bf28ad13a4c16f9e214b0deddd"
+      },
+      {
+        "id": "lo16",
+        "title": "lgc-os固定源码 kernel/ata.lg",
+        "url": "https://github.com/lightfl0w/lgc-os/blob/ba606a063fd557bf28ad13a4c16f9e214b0deddd/kernel/ata.lg#L1-L97",
+        "kind": "固定源码",
+        "supports": [
+          "ATA PIO端口读写与flush"
+        ],
+        "checked_at": "2026-10-10",
+        "revision": "ba606a063fd557bf28ad13a4c16f9e214b0deddd"
+      },
+      {
+        "id": "lo17",
+        "title": "lgc-os固定源码 kernel/vga.lg",
+        "url": "https://github.com/lightfl0w/lgc-os/blob/ba606a063fd557bf28ad13a4c16f9e214b0deddd/kernel/vga.lg#L1-L106",
+        "kind": "固定源码",
+        "supports": [
+          "VGA文本输出与PS/2键盘轮询"
+        ],
+        "checked_at": "2026-10-10",
+        "revision": "ba606a063fd557bf28ad13a4c16f9e214b0deddd"
+      },
+      {
+        "id": "lo18",
+        "title": "lgc-os固定源码 kernel/shell.lg",
+        "url": "https://github.com/lightfl0w/lgc-os/blob/ba606a063fd557bf28ad13a4c16f9e214b0deddd/kernel/shell.lg#L200-L291",
+        "kind": "固定源码",
+        "supports": [
+          "save持久化扇区、exec/bg、shell在内核中运行"
+        ],
+        "checked_at": "2026-10-10",
+        "revision": "ba606a063fd557bf28ad13a4c16f9e214b0deddd"
+      },
+      {
+        "id": "lo19",
+        "title": "lgc-os固定源码 build.py",
+        "url": "https://github.com/lightfl0w/lgc-os/blob/ba606a063fd557bf28ad13a4c16f9e214b0deddd/build.py#L1-L110",
+        "kind": "固定源码",
+        "supports": [
+          "外部LGC_SRC、预置编译器、内核镜像目标、QEMU命令、64MiB RAMFS地址"
+        ],
+        "checked_at": "2026-10-10",
+        "revision": "ba606a063fd557bf28ad13a4c16f9e214b0deddd"
+      },
+      {
+        "id": "lo20",
+        "title": "lgc-os固定源码 tools/selfhost_test.sh",
+        "url": "https://github.com/lightfl0w/lgc-os/blob/ba606a063fd557bf28ad13a4c16f9e214b0deddd/tools/selfhost_test.sh#L1-L62",
+        "kind": "固定源码",
+        "supports": [
+          "客体内编译os.lg、save到扇区、宿主提取镜像并再次启动的测试步骤"
+        ],
+        "checked_at": "2026-10-10",
+        "revision": "ba606a063fd557bf28ad13a4c16f9e214b0deddd"
+      },
+      {
+        "id": "lo21",
+        "title": "lgc-os固定完整Git树",
+        "url": "https://api.github.com/repos/lightfl0w/lgc-os/git/trees/ba606a063fd557bf28ad13a4c16f9e214b0deddd?recursive=1",
+        "kind": "固定Git树",
+        "supports": [
+          "truncated=false",
+          "内核源码与二进制清单",
+          "固定树许可文件缺口",
+          "无gitlink与编译器源码副本"
+        ],
+        "checked_at": "2026-10-10",
+        "revision": "ba606a063fd557bf28ad13a4c16f9e214b0deddd"
+      },
+      {
+        "id": "lo22",
+        "title": "lgc-os固定提交",
+        "url": "https://github.com/lightfl0w/lgc-os/commit/ba606a063fd557bf28ad13a4c16f9e214b0deddd",
+        "kind": "固定提交",
+        "supports": [
+          "2026-09-27T09:55:16Z",
+          "抢占任务实现"
+        ],
+        "checked_at": "2026-10-10",
+        "revision": "ba606a063fd557bf28ad13a4c16f9e214b0deddd"
+      },
+      {
+        "id": "lo23",
+        "title": "lgc-os提交历史",
+        "url": "https://api.github.com/repos/lightfl0w/lgc-os/commits?per_page=100",
+        "kind": "动态提交列表",
+        "supports": [
+          "14个提交的阶段日期",
+          "初始历史2026-09-20",
+          "自举、内存、抢占阶段"
+        ],
+        "checked_at": "2026-10-10"
+      },
+      {
+        "id": "lo24",
+        "title": "lgc-os自举往返阶段提交",
+        "url": "https://github.com/lightfl0w/lgc-os/commit/888d98dd603ea7346693a70e31187495899807dd",
+        "kind": "固定提交",
+        "supports": [
+          "2026-09-27T06:29:25Z",
+          "增加自举测试与ATA写回"
+        ],
+        "checked_at": "2026-10-10",
+        "revision": "888d98dd603ea7346693a70e31187495899807dd"
+      },
+      {
+        "id": "lo25",
+        "title": "lgc-os Releases集合",
+        "url": "https://api.github.com/repos/lightfl0w/lgc-os/releases?per_page=100",
+        "kind": "动态仓库元数据",
+        "supports": [
+          "读取时空数组"
+        ],
+        "checked_at": "2026-10-10"
+      },
+      {
+        "id": "lo26",
+        "title": "lgc-os标签refs集合",
+        "url": "https://api.github.com/repos/lightfl0w/lgc-os/git/matching-refs/tags/",
+        "kind": "动态仓库元数据",
+        "supports": [
+          "读取时空数组"
+        ],
+        "checked_at": "2026-10-10"
+      },
+      {
+        "id": "lo27",
+        "title": "第十二轮内核研究基线",
+        "url": "https://github.com/yuyan-lang/chinese-programming-languages/blob/65e45d07d80a36412625665931ce4a4402641480/research/2026-10-10/round-12-kernels.md",
+        "kind": "固定目录研究",
+        "supports": [
+          "两个BV为旧背景入口",
+          "CoreZ-OS保留原待核议题"
+        ],
+        "checked_at": "2026-10-10",
+        "revision": "65e45d07d80a36412625665931ce4a4402641480"
+      },
+      {
+        "id": "lo28",
+        "title": "CoreZ-OS待核Issue38",
+        "url": "https://github.com/yuyan-lang/chinese-programming-languages/issues/38",
+        "kind": "目录议题",
+        "supports": [
+          "作者归属原缺口",
+          "正文与1条评论已读"
+        ],
+        "checked_at": "2026-10-10"
+      },
+      {
+        "id": "lgc-commit",
+        "title": "lgc main 固定提交",
+        "url": "https://github.com/lightfl0w/lgc/commit/0f92930ead271723e615623d5e85d488903ea3fa",
+        "api_url": "https://api.github.com/repos/lightfl0w/lgc/commits/0f92930ead271723e615623d5e85d488903ea3fa",
+        "revision": "0f92930ead271723e615623d5e85d488903ea3fa",
+        "fixed": true,
+        "description": "2026-10-05T11:19:41Z，提交说明 feat: 添加许可证",
+        "accessed_at": "2026-10-10T20:33:24Z"
+      },
+      {
+        "id": "lgc-readme",
+        "title": "lightfl0w/lgc README.md L1–L49",
+        "url": "https://github.com/lightfl0w/lgc/blob/0f92930ead271723e615623d5e85d488903ea3fa/README.md#L1-L49",
+        "repository": "lightfl0w/lgc",
+        "revision": "0f92930ead271723e615623d5e85d488903ea3fa",
+        "path": "README.md",
+        "blob_sha": "6124a736e268ed0cce15407bdf20cd21b8dd88ac",
+        "line_start": 1,
+        "line_end": 49,
+        "fixed": true,
+        "description": "教学用类 C 小语言、原生 x86-64 输出、语言特性与英文关键字",
+        "accessed_at": "2026-10-10T20:33:24Z"
+      },
+      {
+        "id": "lgc-selfhost-readme",
+        "title": "lightfl0w/lgc README.md L98–L100",
+        "url": "https://github.com/lightfl0w/lgc/blob/0f92930ead271723e615623d5e85d488903ea3fa/README.md#L98-L100",
+        "repository": "lightfl0w/lgc",
+        "revision": "0f92930ead271723e615623d5e85d488903ea3fa",
+        "path": "README.md",
+        "blob_sha": "6124a736e268ed0cce15407bdf20cd21b8dd88ac",
+        "line_start": 98,
+        "line_end": 100,
+        "fixed": true,
+        "description": "自举版源文件与ELF后端声明",
+        "accessed_at": "2026-10-10T20:33:24Z"
+      },
+      {
+        "id": "lgc-c-keywords",
+        "title": "lightfl0w/lgc src/main.c L68–L95",
+        "url": "https://github.com/lightfl0w/lgc/blob/0f92930ead271723e615623d5e85d488903ea3fa/src/main.c#L68-L95",
+        "repository": "lightfl0w/lgc",
+        "revision": "0f92930ead271723e615623d5e85d488903ea3fa",
+        "path": "src/main.c",
+        "blob_sha": "f287199c8c81ee88de88488ede3877624fc8a9f5",
+        "line_start": 68,
+        "line_end": 95,
+        "fixed": true,
+        "description": "C实现token枚举与完整22项LEX_KEYWORDS表",
+        "accessed_at": "2026-10-10T20:33:24Z"
+      },
+      {
+        "id": "lgc-c-lexer",
+        "title": "lightfl0w/lgc src/main.c L126–L221",
+        "url": "https://github.com/lightfl0w/lgc/blob/0f92930ead271723e615623d5e85d488903ea3fa/src/main.c#L126-L221",
+        "repository": "lightfl0w/lgc",
+        "revision": "0f92930ead271723e615623d5e85d488903ea3fa",
+        "path": "src/main.c",
+        "blob_sha": "f287199c8c81ee88de88488ede3877624fc8a9f5",
+        "line_start": 126,
+        "line_end": 221,
+        "fixed": true,
+        "description": "注释跳过、英文关键词匹配和单字节词法处理",
+        "accessed_at": "2026-10-10T20:33:24Z"
+      },
+      {
+        "id": "lgc-selfhost-lexer",
+        "title": "lightfl0w/lgc src/lgc.lg L283–L308",
+        "url": "https://github.com/lightfl0w/lgc/blob/0f92930ead271723e615623d5e85d488903ea3fa/src/lgc.lg#L283-L308",
+        "repository": "lightfl0w/lgc",
+        "revision": "0f92930ead271723e615623d5e85d488903ea3fa",
+        "path": "src/lgc.lg",
+        "blob_sha": "5cb212056dfd91f322cd2319c4a2a14ef784e4c7",
+        "line_start": 283,
+        "line_end": 308,
+        "fixed": true,
+        "description": "自举词法匹配主表及const/for/in/naked补充",
+        "accessed_at": "2026-10-10T20:33:24Z"
+      },
+      {
+        "id": "lgc-selfhost-keywords",
+        "title": "lightfl0w/lgc src/lgc.lg L1850–L1881",
+        "url": "https://github.com/lightfl0w/lgc/blob/0f92930ead271723e615623d5e85d488903ea3fa/src/lgc.lg#L1850-L1881",
+        "repository": "lightfl0w/lgc",
+        "revision": "0f92930ead271723e615623d5e85d488903ea3fa",
+        "path": "src/lgc.lg",
+        "blob_sha": "5cb212056dfd91f322cd2319c4a2a14ef784e4c7",
+        "line_start": 1850,
+        "line_end": 1881,
+        "fixed": true,
+        "description": "自举版英文关键字表及补充关键词初始化",
+        "accessed_at": "2026-10-10T20:33:24Z"
+      },
+      {
+        "id": "lgc-fac-example",
+        "title": "lightfl0w/lgc tests/fac.lg L1–L8",
+        "url": "https://github.com/lightfl0w/lgc/blob/0f92930ead271723e615623d5e85d488903ea3fa/tests/fac.lg#L1-L8",
+        "repository": "lightfl0w/lgc",
+        "revision": "0f92930ead271723e615623d5e85d488903ea3fa",
+        "path": "tests/fac.lg",
+        "blob_sha": "644032fbde8f64d13fc7b6e77815d406d3455e57",
+        "line_start": 1,
+        "line_end": 8,
+        "fixed": true,
+        "description": "连续完整阶乘源程序",
+        "accessed_at": "2026-10-10T20:33:24Z"
+      },
+      {
+        "id": "lgc-boot-example",
+        "title": "lightfl0w/lgc examples/hello.lg L1–L20",
+        "url": "https://github.com/lightfl0w/lgc/blob/0f92930ead271723e615623d5e85d488903ea3fa/examples/hello.lg#L1-L20",
+        "repository": "lightfl0w/lgc",
+        "revision": "0f92930ead271723e615623d5e85d488903ea3fa",
+        "path": "examples/hello.lg",
+        "blob_sha": "45a8dbd35d1a349a1a67350ac8d259cb4c415cd0",
+        "line_start": 1,
+        "line_end": 20,
+        "fixed": true,
+        "description": "连续完整引导示例源程序",
+        "accessed_at": "2026-10-10T20:33:24Z"
+      },
+      {
+        "id": "lgc-license",
+        "title": "lightfl0w/lgc LICENSE L1–L8",
+        "url": "https://github.com/lightfl0w/lgc/blob/0f92930ead271723e615623d5e85d488903ea3fa/LICENSE#L1-L8",
+        "repository": "lightfl0w/lgc",
+        "revision": "0f92930ead271723e615623d5e85d488903ea3fa",
+        "path": "LICENSE",
+        "blob_sha": "5339911e8427138cf71414aeeda5d5c940c8ec42",
+        "line_start": 1,
+        "line_end": 8,
+        "fixed": true,
+        "description": "GNU GPL v3 or later简短授权声明；完整许可证正文待补",
+        "accessed_at": "2026-10-10T20:33:24Z"
+      },
+      {
+        "id": "lgc-tree",
+        "title": "lgc固定递归树",
+        "url": "https://github.com/lightfl0w/lgc/tree/0f92930ead271723e615623d5e85d488903ea3fa",
+        "api_url": "https://api.github.com/repos/lightfl0w/lgc/git/trees/0f92930ead271723e615623d5e85d488903ea3fa?recursive=1",
+        "revision": "0f92930ead271723e615623d5e85d488903ea3fa",
+        "fixed": true,
+        "description": "完整递归树truncated=false，共23项；独立版本清单待取得",
+        "accessed_at": "2026-10-10T20:33:24Z"
+      },
+      {
+        "id": "lgc-releases-observation",
+        "title": "lgc Releases读取时状态",
+        "url": "https://api.github.com/repos/lightfl0w/lgc/releases",
+        "fixed": false,
+        "description": "读取返回[]；发行集合为空，记录本次读取状态",
+        "observed_response": [],
+        "accessed_at": "2026-10-10T20:33:24Z"
+      },
+      {
+        "id": "lgc-tags-observation",
+        "title": "lgc tags refs读取时状态",
+        "url": "https://api.github.com/repos/lightfl0w/lgc/git/matching-refs/tags/",
+        "fixed": false,
+        "description": "读取返回[]；标签集合为空，记录本次读取状态",
+        "observed_response": [],
+        "accessed_at": "2026-10-10T20:33:24Z"
+      },
+      {
+        "id": "lgc-os-readme",
+        "title": "lgc-os固定README",
+        "url": "https://github.com/lightfl0w/lgc-os/blob/ba606a063fd557bf28ad13a4c16f9e214b0deddd/README.md#L1-L25",
+        "revision": "ba606a063fd557bf28ad13a4c16f9e214b0deddd",
+        "path": "README.md",
+        "blob_sha": "9f56f7e9c29be1f4b490e2c916f1ab74c83f90ec",
+        "fixed": true,
+        "description": "明示用lgc编译器写的64位微内核；构建通过LGC_SRC提供自举源码路径",
+        "accessed_at": "2026-10-10T20:33:24Z"
+      },
+      {
+        "id": "lgc-os-build",
+        "title": "lgc-os外部自举编译器源码入口",
+        "url": "https://github.com/lightfl0w/lgc-os/blob/ba606a063fd557bf28ad13a4c16f9e214b0deddd/build.py#L14-L52",
+        "revision": "ba606a063fd557bf28ad13a4c16f9e214b0deddd",
+        "path": "build.py",
+        "blob_sha": "df42f8d49592a8a2ca0b774e22b81612e7118dfb",
+        "fixed": true,
+        "description": "LGC_SRC环境变量/default路径与lgc -f elf -b 0x180000 LGC_SRC usr/lgc.elf构建命令；未绑定lgc提交或版本",
+        "accessed_at": "2026-10-10T20:33:24Z"
+      },
+      {
+        "id": "lgc-os-tree",
+        "title": "lgc-os固定递归树",
+        "url": "https://github.com/lightfl0w/lgc-os/tree/ba606a063fd557bf28ad13a4c16f9e214b0deddd",
+        "api_url": "https://api.github.com/repos/lightfl0w/lgc-os/git/trees/ba606a063fd557bf28ad13a4c16f9e214b0deddd?recursive=1",
+        "revision": "ba606a063fd557bf28ad13a4c16f9e214b0deddd",
+        "fixed": true,
+        "description": "truncated=false；保存usr/lgc.elf，编译器源码由外部LGC_SRC提供",
+        "accessed_at": "2026-10-10T20:33:24Z"
+      },
+      {
+        "id": "lo29",
+        "title": "lgc-os固定源码：缺页中断按需映射",
+        "url": "https://github.com/lightfl0w/lgc-os/blob/ba606a063fd557bf28ad13a4c16f9e214b0deddd/kernel/core.lg#L1142-L1150",
+        "kind": "固定源码",
+        "supports": [
+          "读取保存的缺页错误码与地址并调用as_map_user处理缺页"
+        ],
+        "checked_at": "2026-10-10",
+        "revision": "ba606a063fd557bf28ad13a4c16f9e214b0deddd"
+      },
+      {
+        "id": "lo30",
+        "title": "lgc-os 原片公开元数据",
+        "url": "https://api.bilibili.com/x/web-interface/view?bvid=BV166at6hEgN",
+        "kind": "原平台公开元数据",
+        "supports": [
+          "原作者UID3690980152707649",
+          "简介直接关联源码",
+          "pubdate=1790492406",
+          "时长45秒"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "quantumnec",
+    "name": "QuantumNEC",
+    "aliases": [],
+    "checked_at": "2026-10-25",
+    "short_description": "QuantumNEC 是 SegmentationFaultCD 开发的实验操作系统内核。当前 limine 分支面向 x86-64，采用现代 C++ 与汇编，包含 Limine 启动、MuQSS 调度代码、页内存分配、页表及系统调用服务框架。",
+    "author": {
+      "people": [
+        {
+          "handle": "SegmentationFaultCD",
+          "github_url": "https://github.com/SegmentationFaultCD",
+          "bilibili_handle": "段错误核心已转储",
+          "bilibili_url": "https://space.bilibili.com/1226480503"
+        }
+      ],
+      "organization": "个人项目；公开参与 plos-clan 社区",
+      "attribution": {
+        "text": "社区项目页明确将 QuantumNEC 归于 SegmentationFaultCD，并直接链接 Bilibili 账号段错误核心已转储；GitHub 组织介绍把 SegmentationFaultCD 列入管理员。",
+        "evidence_level": "社区项目页与组织自述",
+        "source_ids": [
+          "q1",
+          "q2"
+        ]
+      },
+      "china_basis": {
+        "text": "plos-clan 的组织介绍明确说明其为 OS & PL 开发交流群的 GitHub 组织；中文社区项目页直接归属该项目并关联维护者。按中文开发社区关联收录，作者国籍待核实。",
+        "evidence_level": "社区自述与直接项目关联",
+        "source_ids": [
+          "q1",
+          "q26"
+        ]
+      }
+    },
+    "kernel_positioning": {
+      "text": "构建文件生成 micro_kernel.elf，固定源码包含启动入口、内存管理、中断、任务调度和系统调用模块，README 说明个人操作系统项目。",
+      "evidence_level": "作者声明与源码可见",
+      "source_ids": [
+        "q5",
+        "q6",
+        "q7"
+      ]
+    },
+    "dates": {
+      "development_started": {
+        "date": "2023-01-01",
+        "basis": "README 作者自述",
+        "source_ids": [
+          "q5"
+        ]
+      },
+      "first_public": {
+        "date": null,
+        "status": "待核实",
+        "known_public_record": "原作者频道列出 2023-04-02 的《操作系统成长日志#1 测试异常处理成功》。该视频与当前仓库之间的历史对应继续核实。",
+        "source_ids": [
+          "q8"
+        ]
+      },
+      "repository_created": {
+        "at": "2024-09-16T02:12:45Z",
+        "repository_id": 857944900,
+        "meaning": "GitHub 仓库 created_at",
+        "source_ids": [
+          "q9"
+        ]
+      },
+      "earliest_retained_commit": {
+        "at": "2024-09-16T02:29:14Z",
+        "commit": "576ef489e45e30ea8088751b9edd97e3add25a89",
+        "meaning": "当前主分支可达历史中的根提交，parents 为空",
+        "source_ids": [
+          "q10"
+        ]
+      }
+    },
+    "architectures": [
+      {
+        "text": "xmake.lua 指定 x86-64，链接参数目标为 x86_64-freestanding。",
+        "evidence_level": "源码可见",
+        "source_ids": [
+          "q6"
+        ]
+      }
+    ],
+    "capabilities": {
+      "boot": [
+        {
+          "text": "loader_entry 声明 Limine revision 3 请求，初始化串口、IDT、GDT、页分配器、高半区映射、堆、页表、显示、ACPI、APIC 和任务相关结构。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "q7"
+          ]
+        }
+      ],
+      "scheduling": [
+        {
+          "text": "Muqss.cpp 包含时间片、nice 权重、虚拟截止时间、实时队列、调度队列以及 yield、wake_up 和任务选择逻辑。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "q11"
+          ]
+        },
+        {
+          "text": "固定启动入口中的 SMP、系统调用、模块加载和开中断调用处于注释状态，随后运行内存与 C++ 容器测试。此快照的多任务运行状态待核实。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "q7"
+          ]
+        }
+      ],
+      "memory": [
+        {
+          "text": "page.cpp 从 Limine 内存映射统计空闲范围，建立页面区域、位图与红黑树结构；启动入口包含 4 KiB、2 MiB、1 GiB 分配器测试调用。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "q12",
+            "q7"
+          ]
+        }
+      ],
+      "filesystem": [
+        {
+          "text": "文件系统服务包含接口骨架：内核 handle 返回传入中断帧，服务进程 main 执行 syscall 后进入循环。完整 VFS 与持久文件系统运行能力待核实。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "q13",
+            "q14"
+          ]
+        }
+      ],
+      "drivers": [
+        {
+          "text": "源码树包含 ACPI、串口、APIC、HPET 与 CPU 初始化模块。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "q15"
+          ]
+        }
+      ]
+    },
+    "implementation_languages": [
+      {
+        "text": "构建配置采用 C23/C++26，内核代码主要为 C++，中断与系统调用目录包含汇编文件。",
+        "evidence_level": "源码可见",
+        "source_ids": [
+          "q6",
+          "q15"
+        ]
+      }
+    ],
+    "project_relationships": [
+      {
+        "text": "README 列出 Limine、libos-terminal 与 fmt；.gitmodules 记录相应上游地址。",
+        "evidence_level": "作者声明与源码可见",
+        "source_ids": [
+          "q5",
+          "q16"
+        ]
+      },
+      {
+        "text": "源码树将 Limine 固定到 0765b5db055680471cea3180e8277dcf701847dc，将 fmt 固定到 e9ddc97b9aa8acf323212d55f45f1d6e6e4f8ab3。libos-terminal 在该树以头文件与静态库文件保存，二进制来源版本待核实。",
+        "evidence_level": "源码树元数据",
+        "source_ids": [
+          "q15",
+          "q16"
+        ]
+      },
+      {
+        "text": "仓库保留 limine、Edk2、LegacyBIOS 分支；plos-clan/QuantumNEC 为另一公开仓库，默认 Edk2。仓库迁移及各分支源码继承范围待核实。",
+        "evidence_level": "仓库元数据",
+        "source_ids": [
+          "q17",
+          "q18"
+        ]
+      },
+      {
+        "text": "2026-07-27 固定提交说明使用 Opencode 重建 arch。AI 辅助范围以该提交说明记录，整个项目的生成比例待核实。",
+        "evidence_level": "提交作者声明",
+        "source_ids": [
+          "q19"
+        ]
+      },
+      {
+        "text": "作者与 plos-clan 的 Edk2 分支保存相同提交 194a2591ef30bfd91d407b74f427caf9497ce459、相同源码树 108196f61b44e4a0f2e70b24e767f8a631add918；该快照时间为2024-09-16T02:54:46Z。其他阶段的迁移过程继续待核实。",
+        "evidence_level": "提交与源码树元数据",
+        "source_ids": [
+          "q28"
+        ]
+      }
+    ],
+    "status": {
+      "source_snapshot": {
+        "branch": "limine",
+        "commit": "6216373689baa6302cdb2a3b4656955063510b1e",
+        "committed_at": "2026-07-27T15:30:53Z",
+        "source_ids": [
+          "q19"
+        ]
+      },
+      "latest_formal_release": {
+        "version": null,
+        "status": "待核实",
+        "note": "核验时 Releases 集合返回空数组",
+        "source_ids": [
+          "q20"
+        ]
+      },
+      "license": {
+        "name": "GPL-3.0（根 LICENSE）",
+        "source_ids": [
+          "q21"
+        ],
+        "third_party": [
+          {
+            "name": "Limine",
+            "license": "BSD-2-Clause 文本",
+            "source_ids": [
+              "q22"
+            ]
+          },
+          {
+            "name": "fmt",
+            "license": "MIT 文本与可选嵌入例外",
+            "source_ids": [
+              "q23"
+            ]
+          }
+        ],
+        "scope_note": "libos-terminal 静态库、固件与完整第三方许可清单继续待核实"
+      },
+      "runtime_verification": {
+        "status": "待核实",
+        "scope": "本轮覆盖原作者与社区页面、GitHub 元数据和源码静态阅读；演示功能、固定快照独立构建与运行继续核验"
+      }
+    },
+    "links": {
+      "source": "https://github.com/SegmentationFaultCD/QuantumNEC",
+      "documentation": "https://docs.plos-clan.org/project/QuantumNEC",
+      "video_channel": {
+        "url": "https://space.bilibili.com/1226480503",
+        "source_ids": [
+          "q1"
+        ]
+      },
+      "individual_video": {
+        "url": "https://www.bilibili.com/video/BV1yuWFzSEbi/",
+        "published_date": "2025-09-21",
+        "evidence": "社区作者页直接关联频道，频道与原片页面互相吻合",
+        "published_at": "2025-09-21T03:16:02Z",
+        "date_basis": "B站公开API pubdate；旧日志的2025-09-20为页面显示日期"
+      },
+      "historical_videos": [
+        {
+          "url": "https://www.bilibili.com/video/BV13M411u7yc/",
+          "title": "操作系统成长日志#1 测试异常处理成功",
+          "channel_date": "2023-04-02"
+        },
+        {
+          "url": "https://www.bilibili.com/video/BV14s4y1i7YS/",
+          "title": "操作系统成长日志#2 内存方面的完工和展望",
+          "channel_date": "2023-05-31"
+        },
+        {
+          "url": "https://www.bilibili.com/video/BV1a1421f755/",
+          "title": "操作系统成长日志#3 进程，线程管理，调度，ACPI，分页等等功能的实现",
+          "date_note": "2024 年发布；页面重绘存在时区日期差异，精确时间待核实"
+        }
+      ]
+    },
+    "pending_verification": [
+      "作者国籍与进一步的中国地域关联公开自述；本条按已验证的中文开发社区关联记录",
+      "原作者视频中功能运行画面、时间点与源码版本对应",
+      "当前快照的独立构建、启动、多任务、SMP 和模块加载",
+      "Edk2、LegacyBIOS、limine 分支与 plos-clan 同名仓库的继承/迁移关系",
+      "完整文件系统/VFS实现与进度",
+      "libos-terminal 静态库、固件及完整第三方许可/版本",
+      "首个公开日期与正式版本"
+    ],
+    "sources": [
+      {
+        "id": "q1",
+        "title": "社区 QuantumNEC 作者自述及 B站互链",
+        "url": "https://github.com/plos-clan/docs/blob/fc84dc13f484e8a0bc87e62d1956312b6a9a6a46/docs/project/QuantumNEC.md",
+        "kind": "固定社区文档",
+        "supports": [
+          "作者",
+          "实现语言",
+          "原视频频道"
+        ]
+      },
+      {
+        "id": "q2",
+        "title": "plos-clan 组织公开管理员介绍",
+        "url": "https://github.com/plos-clan",
+        "kind": "组织自述",
+        "supports": [
+          "社区参与关系"
+        ]
+      },
+      {
+        "id": "q3",
+        "title": "SegmentationFaultCD 公开档案",
+        "url": "https://github.com/SegmentationFaultCD",
+        "kind": "作者主页",
+        "supports": [
+          "归属核查"
+        ]
+      },
+      {
+        "id": "q4",
+        "title": "plos-clan 关于页",
+        "url": "https://plos-clan.org/about/",
+        "kind": "社区官网",
+        "supports": [
+          "归属核查"
+        ]
+      },
+      {
+        "id": "q5",
+        "title": "QuantumNEC 固定 README",
+        "url": "https://github.com/SegmentationFaultCD/QuantumNEC/blob/6216373689baa6302cdb2a3b4656955063510b1e/README.md",
+        "kind": "固定作者文档",
+        "supports": [
+          "定位",
+          "开发起点",
+          "依赖"
+        ]
+      },
+      {
+        "id": "q6",
+        "title": "xmake 构建配置",
+        "url": "https://github.com/SegmentationFaultCD/QuantumNEC/blob/6216373689baa6302cdb2a3b4656955063510b1e/xmake.lua",
+        "kind": "固定源码",
+        "supports": [
+          "架构",
+          "编译语言",
+          "内核产物"
+        ]
+      },
+      {
+        "id": "q7",
+        "title": "内核启动入口",
+        "url": "https://github.com/SegmentationFaultCD/QuantumNEC/blob/6216373689baa6302cdb2a3b4656955063510b1e/source/kernel/boot/kloader.cpp",
+        "kind": "固定源码",
+        "supports": [
+          "启动",
+          "当前启用调用"
+        ]
+      },
+      {
+        "id": "q8",
+        "title": "原作者 B站频道",
+        "url": "https://space.bilibili.com/1226480503",
+        "kind": "作者频道",
+        "supports": [
+          "历史视频入口"
+        ]
+      },
+      {
+        "id": "q9",
+        "title": "仓库元数据",
+        "url": "https://api.github.com/repos/SegmentationFaultCD/QuantumNEC",
+        "kind": "平台元数据",
+        "supports": [
+          "仓库创建",
+          "许可字段"
+        ]
+      },
+      {
+        "id": "q10",
+        "title": "当前历史中的根提交",
+        "url": "https://github.com/SegmentationFaultCD/QuantumNEC/commit/576ef489e45e30ea8088751b9edd97e3add25a89",
+        "kind": "提交元数据",
+        "supports": []
+      },
+      {
+        "id": "q11",
+        "title": "MuQSS 调度实现",
+        "url": "https://github.com/SegmentationFaultCD/QuantumNEC/blob/6216373689baa6302cdb2a3b4656955063510b1e/source/kernel/task/schedule/Muqss.cpp",
+        "kind": "固定源码",
+        "supports": [
+          "调度"
+        ]
+      },
+      {
+        "id": "q12",
+        "title": "页面分配初始化",
+        "url": "https://github.com/SegmentationFaultCD/QuantumNEC/blob/6216373689baa6302cdb2a3b4656955063510b1e/source/kernel/memory/allocator/page.cpp",
+        "kind": "固定源码",
+        "supports": [
+          "内存"
+        ]
+      },
+      {
+        "id": "q13",
+        "title": "内核文件系统服务",
+        "url": "https://github.com/SegmentationFaultCD/QuantumNEC/blob/6216373689baa6302cdb2a3b4656955063510b1e/source/kernel/syscall/services/filesystem.cpp",
+        "kind": "固定源码",
+        "supports": [
+          "服务骨架"
+        ]
+      },
+      {
+        "id": "q14",
+        "title": "文件系统服务进程",
+        "url": "https://github.com/SegmentationFaultCD/QuantumNEC/blob/6216373689baa6302cdb2a3b4656955063510b1e/source/module/filesystem/fs_servicer.cpp",
+        "kind": "固定源码",
+        "supports": [
+          "服务骨架"
+        ]
+      },
+      {
+        "id": "q15",
+        "title": "固定源码树",
+        "url": "https://api.github.com/repos/SegmentationFaultCD/QuantumNEC/git/trees/6216373689baa6302cdb2a3b4656955063510b1e?recursive=1",
+        "kind": "源码树元数据",
+        "supports": [
+          "模块",
+          "子模块版本"
+        ]
+      },
+      {
+        "id": "q16",
+        "title": "上游子模块配置",
+        "url": "https://github.com/SegmentationFaultCD/QuantumNEC/blob/6216373689baa6302cdb2a3b4656955063510b1e/.gitmodules",
+        "kind": "固定配置",
+        "supports": [
+          "上游"
+        ]
+      },
+      {
+        "id": "q17",
+        "title": "分支集合",
+        "url": "https://api.github.com/repos/SegmentationFaultCD/QuantumNEC/branches?per_page=100",
+        "kind": "平台元数据",
+        "supports": []
+      },
+      {
+        "id": "q18",
+        "title": "plos-clan 同名仓库元数据",
+        "url": "https://api.github.com/repos/plos-clan/QuantumNEC",
+        "kind": "平台元数据",
+        "supports": []
+      },
+      {
+        "id": "q19",
+        "title": "固定提交与 Opencode 说明",
+        "url": "https://github.com/SegmentationFaultCD/QuantumNEC/commit/6216373689baa6302cdb2a3b4656955063510b1e",
+        "kind": "提交作者说明",
+        "supports": [
+          "快照",
+          "AI辅助"
+        ]
+      },
+      {
+        "id": "q20",
+        "title": "Releases 集合",
+        "url": "https://api.github.com/repos/SegmentationFaultCD/QuantumNEC/releases?per_page=20",
+        "kind": "平台元数据",
+        "supports": []
+      },
+      {
+        "id": "q21",
+        "title": "根 LICENSE",
+        "url": "https://github.com/SegmentationFaultCD/QuantumNEC/blob/6216373689baa6302cdb2a3b4656955063510b1e/LICENSE",
+        "kind": "固定许可文本",
+        "supports": [
+          "GPLv3"
+        ]
+      },
+      {
+        "id": "q22",
+        "title": "固定 Limine 许可",
+        "url": "https://github.com/Limine-Bootloader/Limine/blob/0765b5db055680471cea3180e8277dcf701847dc/LICENSE",
+        "kind": "固定上游许可",
+        "supports": []
+      },
+      {
+        "id": "q23",
+        "title": "固定 fmt 许可",
+        "url": "https://github.com/fmtlib/fmt/blob/e9ddc97b9aa8acf323212d55f45f1d6e6e4f8ab3/LICENSE",
+        "kind": "固定上游许可",
+        "supports": []
+      },
+      {
+        "id": "q24",
+        "title": "原作者现代 C++ 开发记录",
+        "url": "https://www.bilibili.com/video/BV1yuWFzSEbi/",
+        "kind": "原作者视频页",
+        "supports": [
+          "标题",
+          "日期",
+          "频道"
+        ]
+      },
+      {
+        "id": "q25",
+        "title": "原作者历史日志#3",
+        "url": "https://www.bilibili.com/video/BV1a1421f755/",
+        "kind": "原作者视频页",
+        "supports": [
+          "历史阶段"
+        ]
+      },
+      {
+        "id": "q26",
+        "title": "plos-clan 中文交流社区及管理员介绍",
+        "url": "https://github.com/plos-clan/.github/blob/3671e17129ec6f9e08eccf547ab7b3d1caa1addd/profile/README.md",
+        "kind": "固定原始来源"
+      },
+      {
+        "id": "q27",
+        "title": "QuantumNEC 原片公开元数据",
+        "url": "https://api.bilibili.com/x/web-interface/view?bvid=BV1yuWFzSEbi",
+        "kind": "平台视频元数据"
+      },
+      {
+        "id": "q28",
+        "title": "作者与社区 Edk2 相同固定提交",
+        "url": "https://github.com/SegmentationFaultCD/QuantumNEC/commit/194a2591ef30bfd91d407b74f427caf9497ce459",
+        "kind": "固定原始来源"
+      }
+    ]
+  },
+  {
+    "id": "racaos",
+    "name": "racaOS",
+    "aliases": [],
+    "checked_at": "2026-10-25",
+    "short_description": "racaOS 是 zzjrabbit 维护、历经多次重构的操作系统项目。当前 edition21 采用 Rust，面向 LoongArch64，围绕 Zodiac 框架、动态内核模块和内存管理组织。历史分支保存 x86-64 系统。",
+    "author": {
+      "people": [
+        {
+          "handle": "zzjrabbit",
+          "github_url": "https://github.com/zzjrabbit",
+          "public_aliases": [
+            "UEFIer"
+          ]
+        }
+      ],
+      "organization": "个人项目；公开参与 plos-clan 社区",
+      "attribution": {
+        "text": "社区项目页将 racaOS 归于 UEFIer，并直接链接 zzjrabbit/racaOS；社区管理页列出 zzjrabbit 的公开社区角色。",
+        "evidence_level": "社区项目页与组织自述",
+        "source_ids": [
+          "r1",
+          "r2"
+        ]
+      },
+      "china_basis": {
+        "text": "plos-clan 的组织介绍明确说明其为 OS & PL 开发交流群的 GitHub 组织；中文社区项目页直接归属该项目并关联维护者。按中文开发社区关联收录，作者国籍待核实。",
+        "evidence_level": "社区自述与直接项目关联",
+        "source_ids": [
+          "r1",
+          "r26"
+        ]
+      }
+    },
+    "kernel_positioning": {
+      "text": "README 将当前实现描述为增强 framekernel 的实验实践，以 Zodiac 框架和动态模块组织内核。源码包含 freestanding Rust 入口、Limine 请求、页帧分配、虚拟地址空间与 ELF 模块加载。",
+      "evidence_level": "作者声明与源码可见",
+      "source_ids": [
+        "r5",
+        "r6",
+        "r7",
+        "r8"
+      ]
+    },
+    "dates": {
+      "development_started": {
+        "date": "2023-01-28",
+        "basis": "README 第一版生日的作者自述",
+        "source_ids": [
+          "r5"
+        ]
+      },
+      "current_edition_started": {
+        "date": "2025-11-20",
+        "basis": "README 当前版本生日的作者自述",
+        "source_ids": [
+          "r5"
+        ]
+      },
+      "first_public": {
+        "date": null,
+        "status": "待核实"
+      },
+      "repository_created": {
+        "at": "2024-06-05T23:18:15Z",
+        "repository_id": 811092792,
+        "meaning": "GitHub created_at",
+        "source_ids": [
+          "r9"
+        ]
+      },
+      "current_edition_root_commit": {
+        "at": "2025-11-23T03:41:04Z",
+        "commit": "879e7fa0d1c13d213397aa3cf8de33255ed87698",
+        "meaning": "edition21 可达历史的根提交，parents 为空；与项目首次公开日期分开记录",
+        "source_ids": [
+          "r10"
+        ]
+      }
+    },
+    "architectures": [
+      {
+        "text": "edition21 README 标明 LoongArch64；builder 使用 qemu-system-loongarch64、virt 机型和 la464 CPU 参数。",
+        "evidence_level": "作者声明与源码可见",
+        "source_ids": [
+          "r5",
+          "r11"
+        ]
+      },
+      {
+        "text": "edition12 README 标明 x86_64；旧文档与旧版本记录按历史阶段保存。",
+        "evidence_level": "历史作者声明",
+        "source_ids": [
+          "r12"
+        ]
+      }
+    ],
+    "capabilities": {
+      "boot": [
+        {
+          "text": "Zodiac 的 kmain 声明 Limine base revision 4、可执行文件与地址请求，初始化框架后转交主函数；init 加载模块后进入 idle_loop。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "r6",
+            "r7"
+          ]
+        }
+      ],
+      "scheduling": [
+        {
+          "text": "当前 README 将多任务列为路线图项；modules/task/src/lib.rs 的模块入口为空，Zodiac task 模块定义任务上下文接口。",
+          "evidence_level": "作者声明与源码可见",
+          "source_ids": [
+            "r5",
+            "r13",
+            "r14"
+          ]
+        }
+      ],
+      "memory": [
+        {
+          "text": "BitmapFrameAllocator 从 Limine 可用区域构造 4 KiB 页帧位图，提供连续页帧分配与回收；memory 模块以 Vmar 映射测试内存，写入并读回测试值。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "r15",
+            "r16"
+          ]
+        }
+      ],
+      "filesystem": [
+        {
+          "text": "当前 README 将 FAT/ext2/ext4 列为路线图项；modules/filesystem/src/lib.rs 的模块入口为空。当前版 VFS 与持久文件系统实现状态待核实。",
+          "evidence_level": "作者声明与源码可见",
+          "source_ids": [
+            "r5",
+            "r17"
+          ]
+        }
+      ],
+      "drivers": [
+        {
+          "text": "源码树包含 LoongArch64 寄存器、页表、串口、ACPI 与中断代码；当前 README 将 AHCI/NVMe、网络和更多驱动列为路线图项。",
+          "evidence_level": "源码可见与作者路线图",
+          "source_ids": [
+            "r5",
+            "r18"
+          ]
+        }
+      ],
+      "modules": [
+        {
+          "text": "init 模块清单加载 core_dylib、logger、errors、memory、filesystem、task，Module::load 在解析模块后调用入口。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "r8"
+          ]
+        }
+      ]
+    },
+    "implementation_languages": [
+      {
+        "text": "当前工作区由 Rust crates、modules 与 Zodiac 组成，体系结构目录包含汇编。",
+        "evidence_level": "源码可见",
+        "source_ids": [
+          "r18",
+          "r19"
+        ]
+      }
+    ],
+    "project_relationships": [
+      {
+        "text": "当前 README 感谢 Asterinas 的 OSTD/OSDK 设计启发及 wenxuanjun 的页表示例。",
+        "evidence_level": "作者声明",
+        "source_ids": [
+          "r5"
+        ]
+      },
+      {
+        "text": "社区项目页记录 racaOS 基于 TrashOS，并注明 wenxuanjun 提供基础代码、lihanrui2913 提供过驱动；该文档描述 x86-64 阶段。继承范围及与 edition21 的对应继续待核实。",
+        "evidence_level": "社区文档",
+        "source_ids": [
+          "r1"
+        ]
+      },
+      {
+        "text": "edition12 README 说明 raca_loader 基于 bootloader 0.11.3，感谢 phil-opp 的 x86_64 库与 rCore 的引导/驱动模板及中断重构思路。",
+        "evidence_level": "历史作者声明",
+        "source_ids": [
+          "r12"
+        ]
+      },
+      {
+        "text": "edition21 Cargo.lock 固定 Limine crate 0.5.0、acpi 6.0.1、talc 4.4.3 与 elf 0.8.0。完整依赖许可证与二进制引导组件版本继续核实。",
+        "evidence_level": "源码可见",
+        "source_ids": [
+          "r20"
+        ]
+      }
+    ],
+    "status": {
+      "source_snapshot": {
+        "branch": "edition21",
+        "commit": "72ab92f0e296fd6889059315afa5a9850ae582ba",
+        "committed_at": "2025-12-08T14:53:56Z",
+        "source_ids": [
+          "r21"
+        ]
+      },
+      "latest_formal_release": {
+        "version": "v16.1.0",
+        "published_at": "2024-12-06T14:02:15Z",
+        "stage": "历史版本；与当前 edition21 分开记录",
+        "source_ids": [
+          "r22"
+        ]
+      },
+      "license": {
+        "name": null,
+        "status": "待核实",
+        "text": "edition21 的固定完整树与包清单中许可字段待补。历史 edition19 的根 LICENSE 为 Apache-2.0，Zodiac 清单署名 Zhenjia Zeng、版本0.3.0；社区旧页的GPLv2徽章另按历史声明记录。",
+        "source_ids": [
+          "r1",
+          "r18",
+          "r27",
+          "r28"
+        ]
+      },
+      "runtime_verification": {
+        "status": "待核实",
+        "scope": "本轮覆盖公开网页、平台元数据及源码静态阅读；当前和历史版本独立运行继续待核实"
+      }
+    },
+    "links": {
+      "source": "https://github.com/zzjrabbit/racaOS",
+      "documentation": "https://docs.plos-clan.org/project/racaos",
+      "website": "https://zzjrabbit.github.io/",
+      "historical_release": "https://github.com/zzjrabbit/racaOS/releases/tag/v16.1.0",
+      "historical_community_post": "https://www.bilibili.com/opus/809991700591149093"
+    },
+    "pending_verification": [
+      "作者国籍与进一步的中国地域关联公开自述；本条按已验证的中文开发社区关联记录",
+      "当前版本许可与历史 GPLv2 文档的适用范围",
+      "TrashOS、rCore 模板、旧 x86-64 分支及当前 LoongArch64 版的源码继承范围",
+      "原作者视频账号、完整原片及其对应源码版本",
+      "edition21 的独立构建与运行",
+      "旧版本运行能力与当前路线图的逐项沿革",
+      "项目首次公开日期和完整第三方组件许可"
+    ],
+    "sources": [
+      {
+        "id": "r1",
+        "title": "社区 racaOS 项目页",
+        "url": "https://github.com/plos-clan/docs/blob/fc84dc13f484e8a0bc87e62d1956312b6a9a6a46/docs/project/racaos.md",
+        "kind": "固定社区文档",
+        "supports": [
+          "作者别名",
+          "仓库链接",
+          "历史关系",
+          "历史许可徽章"
+        ]
+      },
+      {
+        "id": "r2",
+        "title": "社区管理页",
+        "url": "https://github.com/plos-clan/docs/blob/fc84dc13f484e8a0bc87e62d1956312b6a9a6a46/docs/group/group.md",
+        "kind": "固定社区文档",
+        "supports": [
+          "zzjrabbit 社区角色"
+        ]
+      },
+      {
+        "id": "r3",
+        "title": "作者 GitHub 公开档案",
+        "url": "https://github.com/zzjrabbit",
+        "kind": "作者主页",
+        "supports": [
+          "归属核查"
+        ]
+      },
+      {
+        "id": "r4",
+        "title": "作者个人网站关于页",
+        "url": "https://zzjrabbit.github.io/about.html",
+        "kind": "作者网站",
+        "supports": [
+          "归属核查"
+        ]
+      },
+      {
+        "id": "r5",
+        "title": "edition21 README",
+        "url": "https://github.com/zzjrabbit/racaOS/blob/72ab92f0e296fd6889059315afa5a9850ae582ba/README.md",
+        "kind": "固定作者文档",
+        "supports": [
+          "定位",
+          "版本阶段",
+          "路线图"
+        ]
+      },
+      {
+        "id": "r6",
+        "title": "Zodiac 引导接口",
+        "url": "https://github.com/zzjrabbit/racaOS/blob/72ab92f0e296fd6889059315afa5a9850ae582ba/zodiac/src/boot/mod.rs",
+        "kind": "固定源码",
+        "supports": [
+          "引导"
+        ]
+      },
+      {
+        "id": "r7",
+        "title": "init 内核主函数",
+        "url": "https://github.com/zzjrabbit/racaOS/blob/72ab92f0e296fd6889059315afa5a9850ae582ba/init/src/main.rs",
+        "kind": "固定源码",
+        "supports": [
+          "主函数"
+        ]
+      },
+      {
+        "id": "r8",
+        "title": "内核模块清单与入口",
+        "url": "https://github.com/zzjrabbit/racaOS/blob/72ab92f0e296fd6889059315afa5a9850ae582ba/init/src/module/mod.rs",
+        "kind": "固定源码",
+        "supports": [
+          "模块"
+        ]
+      },
+      {
+        "id": "r9",
+        "title": "racaOS 仓库元数据",
+        "url": "https://api.github.com/repos/zzjrabbit/racaOS",
+        "kind": "平台元数据",
+        "supports": [
+          "创建日期",
+          "许可字段"
+        ]
+      },
+      {
+        "id": "r10",
+        "title": "edition21 根提交",
+        "url": "https://github.com/zzjrabbit/racaOS/commit/879e7fa0d1c13d213397aa3cf8de33255ed87698",
+        "kind": "提交元数据",
+        "supports": []
+      },
+      {
+        "id": "r11",
+        "title": "LoongArch64 系统构建与运行配置",
+        "url": "https://github.com/zzjrabbit/racaOS/blob/72ab92f0e296fd6889059315afa5a9850ae582ba/builder/src/main.rs",
+        "kind": "固定源码",
+        "supports": [
+          "目标架构"
+        ]
+      },
+      {
+        "id": "r12",
+        "title": "edition12 历史 README",
+        "url": "https://github.com/zzjrabbit/racaOS/blob/45a4861daf1061c21cb71ac7f5cad0b2ab973d94/README.md",
+        "kind": "历史文档",
+        "supports": [
+          "旧平台",
+          "上游关系"
+        ]
+      },
+      {
+        "id": "r13",
+        "title": "任务模块占位",
+        "url": "https://github.com/zzjrabbit/racaOS/blob/72ab92f0e296fd6889059315afa5a9850ae582ba/modules/task/src/lib.rs",
+        "kind": "固定源码",
+        "supports": [
+          "任务状态"
+        ]
+      },
+      {
+        "id": "r14",
+        "title": "Zodiac 任务接口",
+        "url": "https://github.com/zzjrabbit/racaOS/blob/72ab92f0e296fd6889059315afa5a9850ae582ba/zodiac/src/task/mod.rs",
+        "kind": "固定源码",
+        "supports": []
+      },
+      {
+        "id": "r15",
+        "title": "位图页帧分配器",
+        "url": "https://github.com/zzjrabbit/racaOS/blob/72ab92f0e296fd6889059315afa5a9850ae582ba/zodiac/src/mem/frame.rs",
+        "kind": "固定源码",
+        "supports": [
+          "内存"
+        ]
+      },
+      {
+        "id": "r16",
+        "title": "Vmar 内存模块与测试",
+        "url": "https://github.com/zzjrabbit/racaOS/blob/72ab92f0e296fd6889059315afa5a9850ae582ba/modules/memory/src/lib.rs",
+        "kind": "固定源码",
+        "supports": [
+          "内存"
+        ]
+      },
+      {
+        "id": "r17",
+        "title": "文件系统模块占位",
+        "url": "https://github.com/zzjrabbit/racaOS/blob/72ab92f0e296fd6889059315afa5a9850ae582ba/modules/filesystem/src/lib.rs",
+        "kind": "固定源码",
+        "supports": [
+          "文件系统状态"
+        ]
+      },
+      {
+        "id": "r18",
+        "title": "edition21 完整源码树",
+        "url": "https://api.github.com/repos/zzjrabbit/racaOS/git/trees/72ab92f0e296fd6889059315afa5a9850ae582ba?recursive=1",
+        "kind": "源码树元数据",
+        "supports": []
+      },
+      {
+        "id": "r19",
+        "title": "工作区配置",
+        "url": "https://github.com/zzjrabbit/racaOS/blob/72ab92f0e296fd6889059315afa5a9850ae582ba/Cargo.toml",
+        "kind": "固定配置",
+        "supports": [
+          "实现语言",
+          "结构"
+        ]
+      },
+      {
+        "id": "r20",
+        "title": "依赖锁定文件",
+        "url": "https://github.com/zzjrabbit/racaOS/blob/72ab92f0e296fd6889059315afa5a9850ae582ba/Cargo.lock",
+        "kind": "固定依赖清单",
+        "supports": [
+          "上游版本"
+        ]
+      },
+      {
+        "id": "r21",
+        "title": "固定提交",
+        "url": "https://github.com/zzjrabbit/racaOS/commit/72ab92f0e296fd6889059315afa5a9850ae582ba",
+        "kind": "提交元数据",
+        "supports": []
+      },
+      {
+        "id": "r22",
+        "title": "v16.1.0 历史正式发布",
+        "url": "https://github.com/zzjrabbit/racaOS/releases/tag/v16.1.0",
+        "kind": "发布说明",
+        "supports": [
+          "历史版本"
+        ]
+      },
+      {
+        "id": "r23",
+        "title": "2023 年社区成员 racaOS 关联文章",
+        "url": "https://www.bilibili.com/opus/809991700591149093",
+        "kind": "社区成员文章",
+        "supports": [
+          "历史线索"
+        ]
+      },
+      {
+        "id": "r24",
+        "title": "分支集合",
+        "url": "https://api.github.com/repos/zzjrabbit/racaOS/branches?per_page=100",
+        "kind": "平台元数据",
+        "supports": [
+          "历次重构阶段"
+        ]
+      },
+      {
+        "id": "r26",
+        "title": "plos-clan 中文交流社区及管理员介绍",
+        "url": "https://github.com/plos-clan/.github/blob/3671e17129ec6f9e08eccf547ab7b3d1caa1addd/profile/README.md",
+        "kind": "固定原始来源"
+      },
+      {
+        "id": "r27",
+        "title": "edition19 Apache-2.0 许可证",
+        "url": "https://github.com/zzjrabbit/racaOS/blob/6dd22e52f28459f191d35d1815b6b960842d167f/LICENSE",
+        "kind": "固定原始来源"
+      },
+      {
+        "id": "r28",
+        "title": "edition19 Zodiac 包清单",
+        "url": "https://github.com/zzjrabbit/racaOS/blob/6dd22e52f28459f191d35d1815b6b960842d167f/zodiac/Cargo.toml",
+        "kind": "固定原始来源"
+      }
+    ]
+  },
+  {
+    "id": "os002",
+    "name": "OS002",
+    "aliases": [
+      "OS002-UEFI"
+    ],
+    "checked_at": "2026-10-25",
+    "short_description": "OS002 是 Liu Chunyi（Liu_Chunyi／Chunyi1031）公开的 x86_64 实验操作系统项目。项目以 C 和内联汇编实现内核，使用 UEFI 引导，源码包含线程调度、时钟与键盘中断、物理内存管理和命令行测试入口。",
+    "author": {
+      "people": [
+        {
+          "name": "Liu Chunyi",
+          "handle": "Chunyi1031",
+          "github_url": "https://github.com/Chunyi1031",
+          "bilibili_handle": "Liu_Chunyi",
+          "bilibili_url": "https://space.bilibili.com/3546765877840766/"
+        }
+      ],
+      "organization": "个人项目",
+      "attribution": {
+        "text": "原作者视频简介直接链接 Chunyi1031/OS002-UEFI；该仓库 README 署名 Liu Chunyi。",
+        "evidence_level": "原作者视频与仓库文档",
+        "source_ids": [
+          "o1",
+          "o2"
+        ]
+      },
+      "china_basis": {
+        "text": "Liu_Chunyi 在中文开发社区 B站发布 OS002 原片，简介直接链接本源码仓库；固定 README 署名 Liu Chunyi。按原作者中文技术发布与源码关联记录，作者国籍待核实。",
+        "evidence_level": "原作者发布与直接源码关联",
+        "source_ids": [
+          "o1",
+          "o2",
+          "o21"
+        ]
+      }
+    },
+    "kernel_positioning": {
+      "text": "仓库单独组织 Bootloader 与 Kernel。内核使用 freestanding、-nostdlib、-m64 构建选项，以 _start 为入口接收引导器数据，包含自身任务、中断与物理内存实现。",
+      "evidence_level": "源码可见",
+      "source_ids": [
+        "o5",
+        "o6",
+        "o7"
+      ]
+    },
+    "dates": {
+      "first_public": {
+        "date": null,
+        "status": "待核实",
+        "known_public_record": "2026-03-14 原视频及 README 署名日期",
+        "source_ids": [
+          "o1",
+          "o2"
+        ]
+      },
+      "repository_created": {
+        "at": "2026-03-14T06:27:44Z",
+        "repository_id": 1181445819,
+        "meaning": "GitHub created_at 元数据",
+        "source_ids": [
+          "o8"
+        ]
+      },
+      "author_video": {
+        "published_at": "2026-03-14T13:23:35Z",
+        "source_ids": [
+          "o21"
+        ]
+      }
+    },
+    "architectures": [
+      {
+        "text": "README 要求 x86_64、单核 CPU、256MB 内存与 128MB 磁盘，并列出 Linux/GNU GCC 及 qemu-system-x86_64 环境。",
+        "evidence_level": "作者声明",
+        "source_ids": [
+          "o2"
+        ]
+      },
+      {
+        "text": "内核编译选项为 -m64，引导程序产物为 BOOTx64.EFI。",
+        "evidence_level": "源码可见",
+        "source_ids": [
+          "o5",
+          "o9"
+        ]
+      }
+    ],
+    "capabilities": {
+      "boot": [
+        {
+          "text": "UEFI 引导器读取 SYS/kernel，取得 GOP 帧缓冲、ACPI RSDP 和内存映射，将 BootShare 传入内核。当前快照包含 ExitBootServices 调用。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "o6",
+            "o10"
+          ]
+        }
+      ],
+      "scheduling": [
+        {
+          "text": "Task.c 包含内核线程创建、内核栈与线程控制块、寄存器和 rsp 切换、就绪/睡眠队列、互斥锁与信号量；IRQ0 处理调用 schedule。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "o11",
+            "o12"
+          ]
+        }
+      ],
+      "memory": [
+        {
+          "text": "PMemory.c 根据 UEFI 内存描述符建立物理内存块与位图，提供连续页分配和释放。用户态地址空间与完整分页机制待核实。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "o13"
+          ]
+        }
+      ],
+      "filesystem": [
+        {
+          "text": "已确认的文件读取位于引导阶段，使用 EFI_SIMPLE_FILE_SYSTEM_PROTOCOL、OpenVolume 和文件 Read；当前内核文件系统与块设备驱动实现继续待核实。",
+          "evidence_level": "源码可见与资料缺口",
+          "source_ids": [
+            "o14",
+            "o7"
+          ]
+        }
+      ],
+      "drivers": [
+        {
+          "text": "源码包含 IDT 安装、8259 PIC、PIT 时钟、键盘端口读取、串口、ACPI 和帧缓冲绘图。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "o6",
+            "o12",
+            "o15",
+            "o7"
+          ]
+        }
+      ],
+      "shell": [
+        {
+          "text": "内核入口进入命令循环，README 列出系统信息、内存、异常、中断及线程测试命令。",
+          "evidence_level": "作者文档与源码可见",
+          "source_ids": [
+            "o2",
+            "o6"
+          ]
+        }
+      ]
+    },
+    "implementation_languages": [
+      {
+        "text": "核心源文件使用 C；线程上下文切换和底层操作含内联汇编，内核使用 GNU GCC 工具链。",
+        "evidence_level": "源码可见",
+        "source_ids": [
+          "o5",
+          "o6",
+          "o11"
+        ]
+      }
+    ],
+    "project_relationships": [
+      {
+        "text": "引导器明确链接随附 GNU-EFI 的 crt0、libefi 与 libgnuefi；仓库包含 OVMF.fd 和上游预编译对象/静态库，完整版本及许可清单待核实。",
+        "evidence_level": "源码可见",
+        "source_ids": [
+          "o9",
+          "o16",
+          "o7"
+        ]
+      },
+      {
+        "text": "中断与物理内存源码注释列出学习视频；PIC.c 注明 OSDev Wiki 的 8259 PIC 参考来源。教程与代码继承的具体范围继续待核实。",
+        "evidence_level": "源码注释",
+        "source_ids": [
+          "o12",
+          "o13",
+          "o15"
+        ]
+      }
+    ],
+    "status": {
+      "source_snapshot": {
+        "branch": "main",
+        "commit": "be37cce6b0963e35d4481ea22d7688b76e19e80c",
+        "committed_at": "2026-04-03T11:36:44Z",
+        "source_ids": [
+          "o17"
+        ]
+      },
+      "latest_formal_release": {
+        "version": null,
+        "status": "待核实",
+        "text": "核验时 GitHub 页面展示 0 个标签，Releases 集合为空。",
+        "source_ids": [
+          "o18",
+          "o19"
+        ]
+      },
+      "license": {
+        "name": "GPL-3.0",
+        "text": "根 LICENSE 为 GPLv3；随附 GNU-EFI、OVMF 等第三方组件的适用许可另待核实。",
+        "source_ids": [
+          "o20",
+          "o8",
+          "o16"
+        ]
+      },
+      "runtime_verification": {
+        "status": "待核实",
+        "scope": "本轮仅静态阅读公开源码和作者文档、核对视频页面；独立编译、QEMU/实机运行继续待核实。",
+        "author_warning": "README 提醒实体机运行可能出现异常。",
+        "source_ids": [
+          "o2"
+        ]
+      }
+    },
+    "video_observations": [
+      {
+        "title": "OS002 原作者演示：C 语言、多线程与中断",
+        "url": "https://www.bilibili.com/video/BV1sTwtzuEP8/",
+        "bvid": "BV1sTwtzuEP8",
+        "published_date": "2026-03-14",
+        "duration": "04:02",
+        "observation": "原片页面确认作者、日期、时长及仓库链接；核心功能画面的可靠时间点继续待核实。",
+        "evidence_level": "原作者视频页面",
+        "source_ids": [
+          "o1"
+        ]
+      }
+    ],
+    "version_boundary": {
+      "text": "2026-04-03 的最新提交新增 ExitBootServices 调用；2026-03-14 视频与当前源码分阶段记录，原片对应提交及退出启动服务的运行结果待核实。",
+      "evidence_level": "提交差异与视频日期",
+      "source_ids": [
+        "o1",
+        "o17"
+      ]
+    },
+    "links": {
+      "source": "https://github.com/Chunyi1031/OS002-UEFI",
+      "video_channel": "https://space.bilibili.com/3546765877840766/",
+      "individual_video": "https://www.bilibili.com/video/BV1sTwtzuEP8/",
+      "issue": "https://github.com/yuyan-lang/chinese-programming-languages/issues/23"
+    },
+    "pending_verification": [
+      "作者国籍与进一步的中国地域关联公开自述；本条按已验证的中文开发社区关联记录",
+      "2026-03-14 原视频所对应的固定提交与功能画面时间点",
+      "当前快照 ExitBootServices 成功执行及后续内核运行",
+      "独立构建、QEMU 启动、线程/中断/内存功能正确性与稳定性",
+      "GNU-EFI、OVMF 及预编译组件的精确来源版本与完整许可",
+      "教程参考与代码继承的具体范围",
+      "内核文件系统、块设备、用户态及虚拟内存的实现状态",
+      "首个公开日期与正式版本"
+    ],
+    "sources": [
+      {
+        "id": "o1",
+        "title": "OS002 原作者演示与源码链接",
+        "url": "https://www.bilibili.com/video/BV1sTwtzuEP8/",
+        "kind": "原作者视频页",
+        "supports": [
+          "作者",
+          "原BV",
+          "日期",
+          "仓库关联"
+        ]
+      },
+      {
+        "id": "o2",
+        "title": "OS002 固定 README",
+        "url": "https://github.com/Chunyi1031/OS002-UEFI/blob/be37cce6b0963e35d4481ea22d7688b76e19e80c/README.md",
+        "kind": "固定作者文档",
+        "supports": [
+          "署名",
+          "架构",
+          "环境",
+          "运行要求",
+          "命令",
+          "实机提示"
+        ]
+      },
+      {
+        "id": "o3",
+        "title": "Liu_Chunyi B站频道",
+        "url": "https://space.bilibili.com/3546765877840766/",
+        "kind": "作者频道",
+        "supports": [
+          "归属核查"
+        ]
+      },
+      {
+        "id": "o4",
+        "title": "Chunyi1031 GitHub 主页",
+        "url": "https://github.com/Chunyi1031",
+        "kind": "作者主页",
+        "supports": [
+          "归属核查"
+        ]
+      },
+      {
+        "id": "o5",
+        "title": "内核独立构建参数",
+        "url": "https://github.com/Chunyi1031/OS002-UEFI/blob/be37cce6b0963e35d4481ea22d7688b76e19e80c/Kernel/Makefile#L64-L65",
+        "kind": "固定源码",
+        "supports": [
+          "freestanding",
+          "x86_64",
+          "入口"
+        ]
+      },
+      {
+        "id": "o6",
+        "title": "内核主入口与命令实现",
+        "url": "https://github.com/Chunyi1031/OS002-UEFI/blob/be37cce6b0963e35d4481ea22d7688b76e19e80c/Kernel/kernel/main.c",
+        "kind": "固定源码",
+        "supports": [
+          "启动交接",
+          "初始化",
+          "命令"
+        ]
+      },
+      {
+        "id": "o7",
+        "title": "固定完整源码树",
+        "url": "https://api.github.com/repos/Chunyi1031/OS002-UEFI/git/trees/be37cce6b0963e35d4481ea22d7688b76e19e80c?recursive=1",
+        "kind": "源码树元数据",
+        "supports": [
+          "模块范围",
+          "随附上游文件"
+        ]
+      },
+      {
+        "id": "o8",
+        "title": "OS002-UEFI 仓库元数据",
+        "url": "https://api.github.com/repos/Chunyi1031/OS002-UEFI",
+        "kind": "平台元数据",
+        "supports": [
+          "仓库创建时间",
+          "默认分支",
+          "许可字段"
+        ]
+      },
+      {
+        "id": "o9",
+        "title": "GNU-EFI 引导链接配置",
+        "url": "https://github.com/Chunyi1031/OS002-UEFI/blob/be37cce6b0963e35d4481ea22d7688b76e19e80c/Bootloader/Makefile#L54-L56",
+        "kind": "固定源码",
+        "supports": [
+          "上游依赖",
+          "EFI产物"
+        ]
+      },
+      {
+        "id": "o10",
+        "title": "UEFI 引导入口与内核跳转",
+        "url": "https://github.com/Chunyi1031/OS002-UEFI/blob/be37cce6b0963e35d4481ea22d7688b76e19e80c/Bootloader/main/main.c#L166-L194",
+        "kind": "固定源码",
+        "supports": [
+          "ExitBootServices",
+          "内核入口"
+        ]
+      },
+      {
+        "id": "o11",
+        "title": "线程、上下文切换与同步实现",
+        "url": "https://github.com/Chunyi1031/OS002-UEFI/blob/be37cce6b0963e35d4481ea22d7688b76e19e80c/Kernel/kernel/Task.c",
+        "kind": "固定源码",
+        "supports": [
+          "调度",
+          "线程",
+          "互斥锁",
+          "信号量"
+        ]
+      },
+      {
+        "id": "o12",
+        "title": "PIC、PIT、中断处理与 OSDev 参考",
+        "url": "https://github.com/Chunyi1031/OS002-UEFI/blob/be37cce6b0963e35d4481ea22d7688b76e19e80c/Kernel/kernel/interrupt/PIC.c",
+        "kind": "固定源码",
+        "supports": [
+          "中断",
+          "时钟调度",
+          "键盘",
+          "参考来源"
+        ]
+      },
+      {
+        "id": "o13",
+        "title": "物理内存管理及参考注释",
+        "url": "https://github.com/Chunyi1031/OS002-UEFI/blob/be37cce6b0963e35d4481ea22d7688b76e19e80c/Kernel/kernel/mm/PMemory.c",
+        "kind": "固定源码",
+        "supports": [
+          "内存分配",
+          "参考来源"
+        ]
+      },
+      {
+        "id": "o14",
+        "title": "UEFI 引导文件读取",
+        "url": "https://github.com/Chunyi1031/OS002-UEFI/blob/be37cce6b0963e35d4481ea22d7688b76e19e80c/Bootloader/main/Tools.c#L47-L189",
+        "kind": "固定源码",
+        "supports": [
+          "文件读取层次"
+        ]
+      },
+      {
+        "id": "o15",
+        "title": "IDT 初始化及参考注释",
+        "url": "https://github.com/Chunyi1031/OS002-UEFI/blob/be37cce6b0963e35d4481ea22d7688b76e19e80c/Kernel/kernel/interrupt/IDT.c",
+        "kind": "固定源码",
+        "supports": [
+          "中断",
+          "参考来源"
+        ]
+      },
+      {
+        "id": "o16",
+        "title": "随附 GNU-EFI README",
+        "url": "https://github.com/Chunyi1031/OS002-UEFI/blob/be37cce6b0963e35d4481ea22d7688b76e19e80c/Bootloader/GNU-EFI/README.gnuefi.md#L71-L90",
+        "kind": "固定上游说明",
+        "supports": [
+          "上游出处",
+          "版权线索"
+        ]
+      },
+      {
+        "id": "o17",
+        "title": "4月3日补入 ExitBootServices 的固定提交",
+        "url": "https://github.com/Chunyi1031/OS002-UEFI/commit/be37cce6b0963e35d4481ea22d7688b76e19e80c",
+        "kind": "提交差异",
+        "supports": [
+          "快照",
+          "版本边界"
+        ]
+      },
+      {
+        "id": "o18",
+        "title": "OS002 Releases 集合",
+        "url": "https://api.github.com/repos/Chunyi1031/OS002-UEFI/releases",
+        "kind": "平台元数据",
+        "supports": [
+          "正式发布状态"
+        ]
+      },
+      {
+        "id": "o19",
+        "title": "OS002-UEFI 仓库主页",
+        "url": "https://github.com/Chunyi1031/OS002-UEFI",
+        "kind": "平台页面",
+        "supports": [
+          "标签状态"
+        ]
+      },
+      {
+        "id": "o20",
+        "title": "根 GPLv3 许可证",
+        "url": "https://github.com/Chunyi1031/OS002-UEFI/blob/be37cce6b0963e35d4481ea22d7688b76e19e80c/LICENSE",
+        "kind": "固定许可文本",
+        "supports": [
+          "项目许可"
+        ]
+      },
+      {
+        "id": "o21",
+        "title": "OS002 原片公开元数据（pubdate与简介）",
+        "url": "https://api.bilibili.com/x/web-interface/view?bvid=BV1sTwtzuEP8",
+        "kind": "平台视频元数据"
+      }
+    ]
+  },
+  {
+    "id": "vergeos-open-newera",
+    "name": "VergeOS Open（NewEra Studio）",
+    "aliases": [
+      "VoidOS"
+    ],
+    "checked_at": "2026-10-25",
+    "short_description": "新启年工作室发布的x86 32位爱好者操作系统。作者原片直接关联公开C与汇编仓库，固定快照包含Multiboot入口、内存管理、任务轮转、tar初始内存盘及设备驱动；原作者中文技术发布与源码关联已核，成员国籍待核实。",
+    "author": {
+      "people": [
+        {
+          "handle": "max257026-svg",
+          "public_alias": "SYSTEM-WinDF-114514"
+        }
+      ],
+      "organization": "NewEra Studio（新启年工作室）",
+      "attribution": {
+        "text": "2026-07-02原片由新启年工作室-NES发布，简介直接列出仓库；固定README与LICENSE署名NewEra Studio；频道公告直接关联工作室官网。",
+        "evidence_level": "作者声明",
+        "source_ids": [
+          "vo1",
+          "vo2",
+          "vo3",
+          "vo4",
+          "vo26"
+        ]
+      },
+      "china_basis": {
+        "text": "新启年工作室-NES 在中文开发社区 B站发布 VergeOS Open，原片简介直接链接本仓库；固定 README 与根许可证署名 NewEra Studio。按工作室的中文技术发布与源码关联记录，成员国籍待核实。",
+        "evidence_level": "原作者发布与直接源码关联",
+        "source_ids": [
+          "vo1",
+          "vo3",
+          "vo26",
+          "vo32"
+        ]
+      }
+    },
+    "kernel_positioning": {
+      "text": "固定工程以Multiboot进入32位汇编入口，再调用C内核；构建配置独立链接voidos.bin，内核初始化中断、内存、任务、输入设备与图形入口。这些源码支持自身内核工程的定位。整体原创范围和上游继承继续待核实。",
+      "evidence_level": "源码可见",
+      "source_ids": [
+        "vo10",
+        "vo11",
+        "vo12"
+      ]
+    },
+    "dates": {
+      "first_public": {
+        "date": null,
+        "status": "待核实",
+        "known_public_record": "官网时间轴记述2026-06-27开发计划与2026-07-02发布；2026-07-02原片和GitHub初始提交均已定位。",
+        "source_ids": [
+          "vo1",
+          "vo5",
+          "vo8"
+        ]
+      },
+      "repository_created": {
+        "at": "2026-07-02T07:36:37Z",
+        "meaning": "GitHub created_at 元数据",
+        "source_ids": [
+          "vo7"
+        ]
+      },
+      "earliest_retained_commit": {
+        "at": "2026-07-02T07:36:55Z",
+        "commit": "d6041c2f2c2a95d73b22a7df8142a0d7d345f319",
+        "meaning": "当前main初始提交，parents为空",
+        "source_ids": [
+          "vo8"
+        ]
+      },
+      "author_video": {
+        "published_at": "2026-07-02T10:33:07Z",
+        "source_ids": [
+          "vo32"
+        ]
+      }
+    },
+    "architectures": [
+      {
+        "text": "README列出x86 32位；入口使用BITS 32，编译目标为i686-elf、-m32与ELF32。",
+        "evidence_level": "源码可见",
+        "source_ids": [
+          "vo3",
+          "vo10",
+          "vo12"
+        ]
+      }
+    ],
+    "capabilities": {
+      "boot": [
+        {
+          "text": "Multiboot魔数、16KiB内核栈与kernel_main调用位于boot.asm；C入口读取Multiboot内存、模块和framebuffer信息。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "vo10",
+            "vo11"
+          ]
+        },
+        {
+          "text": "官网当前产品说明记录Legacy BIOS、CLI命令行与基础网络；网站所述阶段与固定仓库快照对应关系待核实。",
+          "evidence_level": "作者声明",
+          "source_ids": [
+            "vo6"
+          ]
+        }
+      ],
+      "scheduling": [
+        {
+          "text": "task.c保存32个任务槽、4KiB任务栈和就绪链表；task_yield按链表轮转并切换ESP。PIT回调累加tick_count。抢占调度、退出任务回收和切换正确性继续待核实。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "vo13",
+            "vo14"
+          ]
+        }
+      ],
+      "memory": [
+        {
+          "text": "物理页分配采用4KiB页位图，跟踪上限32MiB；分页模块建立0—32MiB恒等映射并设置CR3及CR0分页位。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "vo15",
+            "vo16"
+          ]
+        },
+        {
+          "text": "堆分配采用first-fit、块分裂和相邻空闲块合并；配置为16MiB上限、1MiB初始空间，按1MiB扩展。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "vo17",
+            "vo18"
+          ]
+        }
+      ],
+      "filesystem": [
+        {
+          "text": "initrd.c解析ustar内存盘，建立最多64项文件表，提供按名称查找、读取及列表接口。持久化磁盘文件系统与设备读写路径继续待核实。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "vo19"
+          ]
+        }
+      ],
+      "drivers": [
+        {
+          "text": "键盘与鼠标源码分别注册IRQ1与IRQ12，处理PS/2扫描码和三字节鼠标包；PIT注册IRQ0。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "vo14",
+            "vo21",
+            "vo22"
+          ]
+        },
+        {
+          "text": "图形驱动接受Multiboot帧缓冲参数，并包含BGA寄存器与PCI BAR0查找函数，设置1024×768×32bpp路径。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "vo20"
+          ]
+        }
+      ]
+    },
+    "implementation_languages": [
+      {
+        "text": "固定内核、驱动与库以C实现，启动、中断和上下文入口采用NASM汇编；build.sh配置C11 freestanding。",
+        "evidence_level": "源码可见",
+        "source_ids": [
+          "vo9",
+          "vo12"
+        ]
+      }
+    ],
+    "project_relationships": [
+      {
+        "text": "README使用VergeOS Open项目名及VoidOS工作目录；固定源码、输出文件和内核banner沿用VoidOS v0.2。",
+        "evidence_level": "作者声明",
+        "source_ids": [
+          "vo3",
+          "vo8",
+          "vo11"
+        ]
+      },
+      {
+        "text": "构建与运行脚本引用i686-elf工具链、NASM、QEMU；Windows工具配置指向lordmilko/i686-elf-tools 13.2.0与NASM 2.16.03，GRUB用于可选ISO构建。完整工具与分发包许可范围待核实。",
+        "evidence_level": "源码可见",
+        "source_ids": [
+          "vo12",
+          "vo27",
+          "vo28"
+        ]
+      },
+      {
+        "text": "ELF32加载器从initrd读取PT_LOAD段，映射权限参数为supervisor；PE32加载器解析i386文件并提供有限Win32桩。Shell将加载入口交给task_create和task_yield。完整用户态隔离、Windows应用兼容及程序运行继续待核实。",
+        "evidence_level": "源码可见",
+        "source_ids": [
+          "vo23",
+          "vo24",
+          "vo25"
+        ]
+      },
+      {
+        "text": "FendosPE系统官方另在2026-10-05发布同名VergeOS并关联TX工作室。两个发布账号、官网与分发入口分别保存；合作、改名与代码继承关系待核实。",
+        "evidence_level": "待核实",
+        "source_ids": [
+          "vo1",
+          "vo2",
+          "vo30",
+          "vo31"
+        ]
+      }
+    ],
+    "status": {
+      "source_snapshot": {
+        "branch": "main",
+        "commit": "d6041c2f2c2a95d73b22a7df8142a0d7d345f319",
+        "committed_at": "2026-07-02T07:36:55Z",
+        "source_ids": [
+          "vo8"
+        ]
+      },
+      "observed_version": {
+        "version": "v0.2",
+        "meaning": "初始提交标题与源码banner的版本文字",
+        "source_ids": [
+          "vo8",
+          "vo11"
+        ]
+      },
+      "latest_formal_release": {
+        "status": "待核实",
+        "observation": "2026-10-10读取GitHub Releases集合为空。",
+        "source_ids": [
+          "vo29"
+        ]
+      },
+      "license": {
+        "name": "MIT",
+        "scope": "根LICENSE署名2026 NewEra Studio；完整上游来源与第三方许可范围继续待核实。",
+        "source_ids": [
+          "vo26",
+          "vo27"
+        ]
+      },
+      "runtime_verification": {
+        "status": "待核实",
+        "scope": "本轮为公开页面与固定源码静态阅读。独立构建、启动、安装、脚本执行及ISO运行均未开展。原片可靠功能画面时间点与提交对应继续待核实。"
+      }
+    },
+    "video_observations": [],
+    "links": {
+      "source": "https://github.com/max257026-svg/VergeOS-Open-VoidOS-",
+      "website": "https://www.newera2625.top/",
+      "video_channel": {
+        "url": "https://space.bilibili.com/3546976190728987/",
+        "source_ids": [
+          "vo1",
+          "vo2"
+        ]
+      },
+      "individual_video": {
+        "url": "https://www.bilibili.com/video/BV1fPTj6FEcb/",
+        "published_date": "2026-07-02",
+        "evidence": "已核对作者、标题、页面日期、简介及仓库直链；频道标示00:36。"
+      }
+    },
+    "pending_verification": [
+      "作者国籍与进一步的中国地域关联公开自述；本条按已验证的中文开发社区关联记录",
+      "与TX工作室／FendosPE同名VergeOS的合作或代码继承关系",
+      "最早公开日期及v0.2以前历史",
+      "完整原始代码来源、第三方许可与参考工程关系",
+      "原片可靠功能时间点、固定提交和分发包的版本对应",
+      "独立构建、启动、任务切换、内存管理与设备运行",
+      "抢占调度、用户态隔离、PE兼容的实际范围",
+      "官网基础网络、文件系统路线与当前源码阶段对应",
+      "完整发行物、initrd内容与可复现构建资料"
+    ],
+    "sources": [
+      {
+        "id": "vo1",
+        "title": "VergeOS Open 作者原片（2026-07-02）",
+        "url": "https://www.bilibili.com/video/BV1fPTj6FEcb/",
+        "kind": "作者原视频发布页",
+        "supports": [
+          "发布账号",
+          "原片日期",
+          "仓库直接链接",
+          "x86与C/汇编声明"
+        ]
+      },
+      {
+        "id": "vo2",
+        "title": "新启年工作室 B站公开频道",
+        "url": "https://space.bilibili.com/3546976190728987/",
+        "kind": "作者频道",
+        "supports": [
+          "原片代表作",
+          "官网直接关联"
+        ]
+      },
+      {
+        "id": "vo3",
+        "title": "VergeOS Open 固定 README",
+        "url": "https://github.com/max257026-svg/VergeOS-Open-VoidOS-/blob/d6041c2f2c2a95d73b22a7df8142a0d7d345f319/README.md",
+        "kind": "固定作者文档",
+        "supports": [
+          "NewEra Studio署名",
+          "项目定位",
+          "架构和功能声明",
+          "VoidOS目录名称"
+        ]
+      },
+      {
+        "id": "vo4",
+        "title": "max257026-svg GitHub公开主页",
+        "url": "https://github.com/max257026-svg",
+        "kind": "维护者主页",
+        "supports": [
+          "公开技术账号",
+          "仓库归属",
+          "归属核验范围"
+        ]
+      },
+      {
+        "id": "vo5",
+        "title": "新启年工作室官网时间轴",
+        "url": "https://www.newera2625.top/#timeline",
+        "kind": "工作室自述",
+        "supports": [
+          "2026-06-27开发计划",
+          "2026-07-02发布记录"
+        ]
+      },
+      {
+        "id": "vo6",
+        "title": "新启年工作室官网产品页",
+        "url": "https://www.newera2625.top/#products",
+        "kind": "工作室自述",
+        "supports": [
+          "当前VergeOS开发中状态",
+          "Legacy BIOS与CLI和基础网络声明"
+        ]
+      },
+      {
+        "id": "vo7",
+        "title": "VergeOS Open 仓库元数据",
+        "url": "https://api.github.com/repos/max257026-svg/VergeOS-Open-VoidOS-",
+        "kind": "平台元数据",
+        "supports": [
+          "仓库创建日期",
+          "main分支",
+          "MIT识别"
+        ]
+      },
+      {
+        "id": "vo8",
+        "title": "固定初始提交",
+        "url": "https://github.com/max257026-svg/VergeOS-Open-VoidOS-/commit/d6041c2f2c2a95d73b22a7df8142a0d7d345f319",
+        "kind": "提交元数据",
+        "supports": [
+          "v0.2提交名",
+          "2026-07-02提交时间",
+          "快照"
+        ]
+      },
+      {
+        "id": "vo9",
+        "title": "完整固定源码树",
+        "url": "https://api.github.com/repos/max257026-svg/VergeOS-Open-VoidOS-/git/trees/d6041c2f2c2a95d73b22a7df8142a0d7d345f319?recursive=1",
+        "kind": "源码树元数据",
+        "supports": [
+          "85个文件与目录条目",
+          "静态范围",
+          "构建产物范围"
+        ]
+      },
+      {
+        "id": "vo10",
+        "title": "32位Multiboot启动入口",
+        "url": "https://github.com/max257026-svg/VergeOS-Open-VoidOS-/blob/d6041c2f2c2a95d73b22a7df8142a0d7d345f319/boot/boot.asm",
+        "kind": "固定源码快照",
+        "supports": [
+          "Multiboot头",
+          "32位入口",
+          "kernel_main调用"
+        ]
+      },
+      {
+        "id": "vo11",
+        "title": "内核初始化入口",
+        "url": "https://github.com/max257026-svg/VergeOS-Open-VoidOS-/blob/d6041c2f2c2a95d73b22a7df8142a0d7d345f319/kernel/kernel.c",
+        "kind": "固定源码快照",
+        "supports": [
+          "GDT/IDT/IRQ",
+          "内存和任务初始化",
+          "initrd模块与桌面入口"
+        ]
+      },
+      {
+        "id": "vo12",
+        "title": "C和汇编构建脚本",
+        "url": "https://github.com/max257026-svg/VergeOS-Open-VoidOS-/blob/d6041c2f2c2a95d73b22a7df8142a0d7d345f319/build.sh",
+        "kind": "固定构建配置",
+        "supports": [
+          "freestanding C11",
+          "i686目标",
+          "voidos.bin",
+          "ELF和PE源文件"
+        ]
+      },
+      {
+        "id": "vo13",
+        "title": "轮转任务实现",
+        "url": "https://github.com/max257026-svg/VergeOS-Open-VoidOS-/blob/d6041c2f2c2a95d73b22a7df8142a0d7d345f319/kernel/task.c",
+        "kind": "固定源码快照",
+        "supports": [
+          "32任务槽",
+          "就绪链表",
+          "主动yield和ESP切换"
+        ]
+      },
+      {
+        "id": "vo14",
+        "title": "PIT驱动",
+        "url": "https://github.com/max257026-svg/VergeOS-Open-VoidOS-/blob/d6041c2f2c2a95d73b22a7df8142a0d7d345f319/drivers/pit.c",
+        "kind": "固定源码快照",
+        "supports": [
+          "IRQ0计数器",
+          "调度范围核验"
+        ]
+      },
+      {
+        "id": "vo15",
+        "title": "物理内存页位图",
+        "url": "https://github.com/max257026-svg/VergeOS-Open-VoidOS-/blob/d6041c2f2c2a95d73b22a7df8142a0d7d345f319/kernel/mem.c",
+        "kind": "固定源码快照",
+        "supports": [
+          "4KiB页",
+          "32MiB跟踪上限",
+          "分配释放"
+        ]
+      },
+      {
+        "id": "vo16",
+        "title": "分页与映射",
+        "url": "https://github.com/max257026-svg/VergeOS-Open-VoidOS-/blob/d6041c2f2c2a95d73b22a7df8142a0d7d345f319/kernel/paging.c",
+        "kind": "固定源码快照",
+        "supports": [
+          "32MiB恒等映射",
+          "CR3和CR0",
+          "页面映射"
+        ]
+      },
+      {
+        "id": "vo17",
+        "title": "内核堆分配器",
+        "url": "https://github.com/max257026-svg/VergeOS-Open-VoidOS-/blob/d6041c2f2c2a95d73b22a7df8142a0d7d345f319/kernel/kmalloc.c",
+        "kind": "固定源码快照",
+        "supports": [
+          "first-fit",
+          "分裂合并",
+          "1MiB增长"
+        ]
+      },
+      {
+        "id": "vo18",
+        "title": "内核堆配置",
+        "url": "https://github.com/max257026-svg/VergeOS-Open-VoidOS-/blob/d6041c2f2c2a95d73b22a7df8142a0d7d345f319/kernel/kmalloc.h",
+        "kind": "固定源码快照",
+        "supports": [
+          "16MiB上限",
+          "1MiB初始值"
+        ]
+      },
+      {
+        "id": "vo19",
+        "title": "tar初始内存盘",
+        "url": "https://github.com/max257026-svg/VergeOS-Open-VoidOS-/blob/d6041c2f2c2a95d73b22a7df8142a0d7d345f319/kernel/initrd.c",
+        "kind": "固定源码快照",
+        "supports": [
+          "ustar解析",
+          "64文件表",
+          "查找读取"
+        ]
+      },
+      {
+        "id": "vo20",
+        "title": "BGA与framebuffer驱动",
+        "url": "https://github.com/max257026-svg/VergeOS-Open-VoidOS-/blob/d6041c2f2c2a95d73b22a7df8142a0d7d345f319/drivers/vbe.c",
+        "kind": "固定源码快照",
+        "supports": [
+          "PCI BAR0",
+          "BGA寄存器",
+          "1024×768×32bpp",
+          "Multiboot帧缓冲"
+        ]
+      },
+      {
+        "id": "vo21",
+        "title": "PS/2键盘驱动",
+        "url": "https://github.com/max257026-svg/VergeOS-Open-VoidOS-/blob/d6041c2f2c2a95d73b22a7df8142a0d7d345f319/drivers/keyboard.c",
+        "kind": "固定源码快照",
+        "supports": [
+          "IRQ1",
+          "扫描码与缓冲区"
+        ]
+      },
+      {
+        "id": "vo22",
+        "title": "PS/2鼠标驱动",
+        "url": "https://github.com/max257026-svg/VergeOS-Open-VoidOS-/blob/d6041c2f2c2a95d73b22a7df8142a0d7d345f319/drivers/mouse.c",
+        "kind": "固定源码快照",
+        "supports": [
+          "IRQ12",
+          "控制器命令",
+          "鼠标数据包"
+        ]
+      },
+      {
+        "id": "vo23",
+        "title": "ELF32加载器",
+        "url": "https://github.com/max257026-svg/VergeOS-Open-VoidOS-/blob/d6041c2f2c2a95d73b22a7df8142a0d7d345f319/kernel/elf.c",
+        "kind": "固定源码快照",
+        "supports": [
+          "ELF32与EM_386",
+          "PT_LOAD",
+          "supervisor映射"
+        ]
+      },
+      {
+        "id": "vo24",
+        "title": "PE32加载器与Win32桩",
+        "url": "https://github.com/max257026-svg/VergeOS-Open-VoidOS-/blob/d6041c2f2c2a95d73b22a7df8142a0d7d345f319/kernel/pe.c",
+        "kind": "固定源码快照",
+        "supports": [
+          "MZ/PE与i386",
+          "节映射",
+          "有限Win32桩"
+        ]
+      },
+      {
+        "id": "vo25",
+        "title": "Shell运行入口",
+        "url": "https://github.com/max257026-svg/VergeOS-Open-VoidOS-/blob/d6041c2f2c2a95d73b22a7df8142a0d7d345f319/kernel/shell.c",
+        "kind": "固定源码快照",
+        "supports": [
+          "run与wrun",
+          "task_create和task_yield"
+        ]
+      },
+      {
+        "id": "vo26",
+        "title": "根MIT许可证",
+        "url": "https://github.com/max257026-svg/VergeOS-Open-VoidOS-/blob/d6041c2f2c2a95d73b22a7df8142a0d7d345f319/LICENSE",
+        "kind": "固定许可证文件",
+        "supports": [
+          "NewEra Studio署名",
+          "MIT条款"
+        ]
+      },
+      {
+        "id": "vo27",
+        "title": "工具链安装脚本（只读）",
+        "url": "https://github.com/max257026-svg/VergeOS-Open-VoidOS-/blob/d6041c2f2c2a95d73b22a7df8142a0d7d345f319/scripts/setup_tools.bat",
+        "kind": "固定配置快照",
+        "supports": [
+          "lordmilko/i686-elf-tools 13.2.0",
+          "NASM 2.16.03",
+          "QEMU与GRUB依赖"
+        ]
+      },
+      {
+        "id": "vo28",
+        "title": "QEMU启动脚本（只读）",
+        "url": "https://github.com/max257026-svg/VergeOS-Open-VoidOS-/blob/d6041c2f2c2a95d73b22a7df8142a0d7d345f319/run.sh",
+        "kind": "固定配置快照",
+        "supports": [
+          "qemu-system-i386",
+          "128MiB内存配置",
+          "initrd.tar依赖"
+        ]
+      },
+      {
+        "id": "vo29",
+        "title": "GitHub Releases集合",
+        "url": "https://api.github.com/repos/max257026-svg/VergeOS-Open-VoidOS-/releases?per_page=100",
+        "kind": "平台元数据",
+        "supports": [
+          "核验时空集合"
+        ]
+      },
+      {
+        "id": "vo30",
+        "title": "TX工作室关联的同名VergeOS原片",
+        "url": "https://www.bilibili.com/video/BV1UaHp6KEYx/",
+        "kind": "同名项目原片",
+        "supports": [
+          "FendosPE账号",
+          "2026-10-05发布",
+          "TX官网关系"
+        ]
+      },
+      {
+        "id": "vo31",
+        "title": "TX工作室官网",
+        "url": "https://txgzsgw.mysxl.cn/#vergeos",
+        "kind": "同名项目官网",
+        "supports": [
+          "TX署名",
+          "VergeOS Beta分发"
+        ]
+      },
+      {
+        "id": "vo32",
+        "title": "VergeOS Open 原片公开元数据（pubdate与简介）",
+        "url": "https://api.bilibili.com/x/web-interface/view?bvid=BV1fPTj6FEcb",
+        "kind": "平台视频元数据"
+      }
+    ]
+  },
+  {
+    "id": "kunos",
+    "name": "KunOS",
+    "aliases": [],
+    "checked_at": "2026-10-25",
+    "short_description": "KunOS 是 hellopgrmm 公开发布的16位实模式汇编学习型操作系统，源码包含BIOS引导、命令解释器、外部应用分派与XKFS文件管理器。",
+    "author": {
+      "people": [
+        {
+          "handle": "hellopgrmm",
+          "bilibili_handle": "小猫头鹰Owl-"
+        }
+      ],
+      "organization": null,
+      "attribution": {
+        "text": "小猫头鹰Owl- 发布原片，简介直接链接 hellopgrmm/KunOS。",
+        "evidence_level": "原作者公开发布",
+        "source_ids": [
+          "ku1",
+          "ku2"
+        ]
+      },
+      "china_basis": {
+        "text": "原作者在中文开发社区 B站发布汇编操作系统及XKFS开发演示，并直接关联源码仓库。按中文技术发布与源码关联记录，作者国籍待核实。",
+        "evidence_level": "原作者发布与直接源码关联",
+        "source_ids": [
+          "ku1",
+          "ku2"
+        ]
+      }
+    },
+    "kernel_positioning": {
+      "text": "16位实模式学习型内核；引导扇区读取后跳转0x0000:0x7e00，内核提供键盘输入、命令分派并通过BIOS中断访问显示和磁盘。",
+      "evidence_level": "源码可见",
+      "source_ids": [
+        "ku3",
+        "ku4",
+        "ku5"
+      ]
+    },
+    "dates": {
+      "first_public": {
+        "date": null,
+        "status": "待核实"
+      }
+    },
+    "architectures": [
+      {
+        "text": "x86 16位实模式，源码使用 NASM bits 16。",
+        "evidence_level": "源码可见",
+        "source_ids": [
+          "ku3",
+          "ku4"
+        ]
+      }
+    ],
+    "capabilities": {
+      "boot": [
+        {
+          "text": "boot.asm保存0xAA55签名，以INT 13h读取32扇区到0x7e00并远跳转内核。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "ku4"
+          ]
+        }
+      ],
+      "scheduling": [
+        {
+          "text": "内核以命令循环和显式应用入口转移组织执行；多任务调度与隔离机制待核实。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "ku5"
+          ]
+        }
+      ],
+      "memory": [
+        {
+          "text": "version 4应用入口分别使用0xa200、0xa800、0xae00、0xbc00；按固定地址布局装载，动态内存管理待核实。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "ku5"
+          ]
+        }
+      ],
+      "filesystem": [
+        {
+          "text": "XKFS文件管理器保存超级块、文件表、扇区分配与创建/读取/目录操作；历史原片01:40显示同名菜单。内核fsw/fsr/fsl命令按README的伪文件系统说明单列。",
+          "evidence_level": "源码可见与既有作者演示记录",
+          "source_ids": [
+            "ku3",
+            "ku6",
+            "ku10",
+            "ku11"
+          ]
+        }
+      ],
+      "drivers": [
+        {
+          "text": "通过BIOS INT 10h、INT 13h等接口操作显示和软盘，图形测试使用13h模式绘点。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "ku4",
+            "ku5",
+            "ku6"
+          ]
+        }
+      ]
+    },
+    "implementation_languages": [
+      {
+        "text": "内核、引导器和随附应用使用汇编；build.bat调用NASM生成平面二进制。",
+        "evidence_level": "源码可见",
+        "source_ids": [
+          "ku4",
+          "ku5",
+          "ku7"
+        ]
+      }
+    ],
+    "project_relationships": [
+      {
+        "text": "项目使用BIOS固件服务、NASM及QEMU；完整源码原创范围和随附工具版本许可待核实。",
+        "evidence_level": "源码可见",
+        "source_ids": [
+          "ku3",
+          "ku7"
+        ]
+      }
+    ],
+    "status": {
+      "source_snapshot": {
+        "branch": "main",
+        "commit": "2e5e70dc6ff43330cb4869719c66dab51eda1788",
+        "committed_at": "2026-10-25T08:54:10Z",
+        "source_ids": [
+          "ku8"
+        ]
+      },
+      "observed_version": {
+        "version": "version 4",
+        "text": "源码字符串 KunOS version 4(2026/10/25 16:27:38)，括号时间为源码自标时间。",
+        "source_ids": [
+          "ku5"
+        ]
+      },
+      "latest_formal_release": {
+        "version": null,
+        "status": "待核实"
+      },
+      "license": {
+        "name": "README 自定义授权声明",
+        "text": "作者允许下载代码、修改和分发；标准标识及随附组件完整许可范围待核实。",
+        "source_ids": [
+          "ku3"
+        ]
+      },
+      "runtime_verification": {
+        "status": "待核实",
+        "scope": "本轮只读静态资料核验；历史原片01:40的XKFS菜单为作者演示。version 4镜像对应及独立运行待核实。"
+      }
+    },
+    "links": {
+      "source": "https://github.com/hellopgrmm/KunOS",
+      "video_channel": {
+        "url": "https://space.bilibili.com/3494379228498773/"
+      },
+      "individual_video": {
+        "url": "https://www.bilibili.com/video/BV1Gkho6fEcd/",
+        "published_date": "2026-09-26"
+      }
+    },
+    "pending_verification": [
+      "作者国籍与进一步的中国地域关联公开自述",
+      "version 4源码与随附ikun.img镜像对应；当前镜像blob沿用10月18日版本",
+      "XKFS第二软盘初始化、完整应用装入与持久化正确性",
+      "独立构建、启动与各虚拟机运行覆盖",
+      "标准许可证、随附NASM及完整继承来源"
+    ],
+    "sources": [
+      {
+        "id": "ku1",
+        "title": "KunOS 原作者视频",
+        "url": "https://www.bilibili.com/video/BV1Gkho6fEcd/",
+        "kind": "原作者视频"
+      },
+      {
+        "id": "ku2",
+        "title": "KunOS 原片公开元数据",
+        "url": "https://api.bilibili.com/x/web-interface/view?bvid=BV1Gkho6fEcd",
+        "kind": "平台视频元数据"
+      },
+      {
+        "id": "ku3",
+        "title": "固定 README 与自定义授权",
+        "url": "https://github.com/hellopgrmm/KunOS/blob/2e5e70dc6ff43330cb4869719c66dab51eda1788/README.md",
+        "kind": "固定原始来源"
+      },
+      {
+        "id": "ku4",
+        "title": "16位引导入口",
+        "url": "https://github.com/hellopgrmm/KunOS/blob/2e5e70dc6ff43330cb4869719c66dab51eda1788/BK/boot.asm",
+        "kind": "固定原始来源"
+      },
+      {
+        "id": "ku5",
+        "title": "内核与应用分派",
+        "url": "https://github.com/hellopgrmm/KunOS/blob/2e5e70dc6ff43330cb4869719c66dab51eda1788/BK/kernel.asm",
+        "kind": "固定原始来源"
+      },
+      {
+        "id": "ku6",
+        "title": "XKFS 文件管理器",
+        "url": "https://github.com/hellopgrmm/KunOS/blob/2e5e70dc6ff43330cb4869719c66dab51eda1788/BINARY/3_fileman.asm",
+        "kind": "固定原始来源"
+      },
+      {
+        "id": "ku7",
+        "title": "NASM 构建脚本",
+        "url": "https://github.com/hellopgrmm/KunOS/blob/2e5e70dc6ff43330cb4869719c66dab51eda1788/build.bat",
+        "kind": "固定原始来源"
+      },
+      {
+        "id": "ku8",
+        "title": "version 4 固定提交",
+        "url": "https://github.com/hellopgrmm/KunOS/commit/2e5e70dc6ff43330cb4869719c66dab51eda1788",
+        "kind": "提交元数据"
+      },
+      {
+        "id": "ku9",
+        "title": "当前完整固定树",
+        "url": "https://api.github.com/repos/hellopgrmm/KunOS/git/trees/2e5e70dc6ff43330cb4869719c66dab51eda1788?recursive=1",
+        "kind": "源码树元数据"
+      },
+      {
+        "id": "ku10",
+        "title": "9月固定XKFS源码",
+        "url": "https://github.com/hellopgrmm/KunOS/blob/bf1a46593a12365afc7d7fef45518339d7ab0af1/BINARY/fileman.asm",
+        "kind": "固定原始来源"
+      },
+      {
+        "id": "ku11",
+        "title": "既有version 4核验评论",
+        "url": "https://github.com/yuyan-lang/chinese-programming-languages/issues/13#issuecomment-6396549562",
+        "kind": "既有核验记录"
+      }
+    ]
+  },
+  {
+    "id": "mimicryos",
+    "name": "MimicryOS",
+    "aliases": [],
+    "checked_at": "2026-10-25",
+    "short_description": "MimicryOS 是 Annihilation006 发起、使用 C 与少量汇编的 x86-64 学习型操作系统。当前BOOTBOOT阶段包含独立ELF内核、固定堆、ATA PIO、PS/2键盘轮询、Shell和简化磁盘文件操作。",
+    "author": {
+      "people": [
+        {
+          "handle": "Annihilation006"
+        },
+        {
+          "handle": "ming_yv1"
+        },
+        {
+          "handle": "Hugo_YuGuo"
+        }
+      ],
+      "organization": null,
+      "attribution": {
+        "text": "README列出Annihilation006负责内核架构、内存、文件系统与Shell；ming_yv1负责驱动修复、工程及工具链；Hugo_YuGuo负责后续桌面与用户态应用。",
+        "evidence_level": "作者声明",
+        "source_ids": [
+          "mi2"
+        ]
+      },
+      "china_basis": {
+        "text": "Annihilation006 在百科议题公开自述为中国开发者，并说明本人及DeepSeek AI参与开发。",
+        "evidence_level": "原作者明确自述",
+        "source_ids": [
+          "mi1"
+        ]
+      }
+    },
+    "kernel_positioning": {
+      "text": "BOOTBOOT加载的独立x86-64内核工程；Makefile以freestanding参数链接kernel.elf，_start设置栈并进入kernel_main，初始化堆和模块后进入Shell。",
+      "evidence_level": "源码可见",
+      "source_ids": [
+        "mi3",
+        "mi4",
+        "mi5"
+      ]
+    },
+    "dates": {
+      "first_public": {
+        "date": null,
+        "status": "待核实"
+      },
+      "author_video": {
+        "published_at": "2026-10-24T16:30:33Z",
+        "source_ids": [
+          "mi13"
+        ]
+      }
+    },
+    "architectures": [
+      {
+        "text": "当前构建目标为ELF64 x86-64；BOOTBOOT负责进入64位长模式。",
+        "evidence_level": "源码可见",
+        "source_ids": [
+          "mi2",
+          "mi3",
+          "mi5"
+        ]
+      }
+    ],
+    "capabilities": {
+      "boot": [
+        {
+          "text": "_start执行cli、设置16KiB静态内核栈后进入kernel_main；链接脚本保留BOOTBOOT高地址符号和PT_LOAD布局。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "mi4",
+            "mi5"
+          ]
+        }
+      ],
+      "scheduling": [
+        {
+          "text": "BUILD.md将多任务与Ring 3列为后续功能；当前主流程进入键盘轮询Shell，IDT与int 0x80整合继续待核实。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "mi4",
+            "mi8"
+          ]
+        }
+      ],
+      "memory": [
+        {
+          "text": "1MiB静态堆采用next单向链表、first-fit分割及相邻空闲块合并。README的双向链表描述按当前源码具体结构限定。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "mi4"
+          ]
+        }
+      ],
+      "filesystem": [
+        {
+          "text": "kernel.c以FAT12风格实现格式化、根目录及文件操作；数据区固定为LBA2890单扇区，根目录16项和8.3文件名。完整簇链、子目录及长文件名属于后续阶段。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "mi4",
+            "mi8"
+          ]
+        }
+      ],
+      "drivers": [
+        {
+          "text": "源码保存ATA PIO扇区读写、超时轮询、PS/2键盘轮询与PSF帧缓冲字符绘制；鼠标模块保存初始化和数据读取函数。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "mi4",
+            "mi10"
+          ]
+        }
+      ],
+      "shell": [
+        {
+          "text": "Shell支持左右光标、中间插入、退格及命令分派；desktop命令直接调用矩形背景、任务栏和窗口边框绘制函数。模块自动注册中的desktop项处于注释状态。完整交互桌面待核实。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "mi4",
+            "mi9"
+          ]
+        }
+      ]
+    },
+    "implementation_languages": [
+      {
+        "text": "内核及模块以C实现，_start和端口操作含内联汇编。",
+        "evidence_level": "源码可见",
+        "source_ids": [
+          "mi3",
+          "mi4"
+        ]
+      }
+    ],
+    "project_relationships": [
+      {
+        "text": "BOOTBOOT提供引导协议和示例链接脚本；stb_image用于PNG解码。内附bootboot.h和linker.ld保留bzt署名及MIT许可。",
+        "evidence_level": "源码可见",
+        "source_ids": [
+          "mi2",
+          "mi5",
+          "mi6"
+        ]
+      },
+      {
+        "text": "作者说明早期移植pl_readline；当前README声明移除该库，改用自身Shell行编辑器。旧快照曾致谢CoolPot部分文件，完整逐文件继承和固定上游版本待核实。",
+        "evidence_level": "作者声明与当前源码可见",
+        "source_ids": [
+          "mi1",
+          "mi2",
+          "mi16"
+        ]
+      },
+      {
+        "text": "作者说明由人类主导架构设计、AI辅助代码与排错；原作者评论明确工具为DeepSeek。",
+        "evidence_level": "作者声明",
+        "source_ids": [
+          "mi1",
+          "mi2"
+        ]
+      },
+      {
+        "text": "现历史根与旧快照compare返回无共同祖先，当前及旧阶段分别固定；历史重建过程和完整对应待核实。",
+        "evidence_level": "既有平台元数据核验",
+        "source_ids": [
+          "mi17"
+        ]
+      }
+    ],
+    "status": {
+      "source_snapshot": {
+        "branch": "main",
+        "commit": "e5d79e4311910c44b870ad7c36e4e8268eac9f6e",
+        "committed_at": "2026-10-24T16:35:42Z",
+        "source_ids": [
+          "mi14"
+        ]
+      },
+      "observed_version": {
+        "version": "源码sysinfo字串v0.1",
+        "source_ids": [
+          "mi4"
+        ]
+      },
+      "latest_formal_release": {
+        "version": null,
+        "status": "待核实"
+      },
+      "license": {
+        "name": "MIT（根项目）",
+        "text": "根LICENSE署名2025 annihilation006；BOOTBOOT等组件各自保留许可。font.psf原始来源与完整组件授权范围待核实。",
+        "source_ids": [
+          "mi7",
+          "mi5",
+          "mi6",
+          "mi15"
+        ]
+      },
+      "runtime_verification": {
+        "status": "待核实",
+        "scope": "只读静态核验；原仓短链已解析到作者视频，具体功能画面时间点、镜像对应与独立构建启动待核实。"
+      }
+    },
+    "links": {
+      "source": "https://github.com/Annihilation006/MimicryOS",
+      "video_channel": {
+        "url": "https://space.bilibili.com/3546392479926809/",
+        "source_ids": [
+          "mi13"
+        ]
+      },
+      "individual_video": {
+        "url": "https://www.bilibili.com/video/BV1MAHM6fEq3/",
+        "published_at": "2026-10-24T16:30:33Z",
+        "evidence": "原仓README短链跳转及公开API的发布账号、标题和MimicryOS简介一致。"
+      }
+    },
+    "pending_verification": [
+      "镜像打包配置iso_build/myos.json、sys/config与tools/genfont.py固定原件",
+      "BOOTBOOT工具链固定版本、font.psf来源和完整第三方许可",
+      "新旧快照逐文件继承及pl_readline/CoolPot参考范围",
+      "IDT/int 0x80、多任务、分页与Ring 3各阶段的实现和整合",
+      "作者原片具体功能时间点、对应源码和独立构建启动"
+    ],
+    "sources": [
+      {
+        "id": "mi1",
+        "title": "作者中国开发者与DeepSeek参与自述",
+        "url": "https://github.com/yuyan-lang/chinese-programming-languages/issues/52#issuecomment-6362756351",
+        "kind": "原作者评论"
+      },
+      {
+        "id": "mi2",
+        "title": "当前 README",
+        "url": "https://github.com/Annihilation006/MimicryOS/blob/e5d79e4311910c44b870ad7c36e4e8268eac9f6e/README.md",
+        "kind": "固定原始来源"
+      },
+      {
+        "id": "mi3",
+        "title": "独立ELF64构建配置",
+        "url": "https://github.com/Annihilation006/MimicryOS/blob/e5d79e4311910c44b870ad7c36e4e8268eac9f6e/Makefile",
+        "kind": "固定原始来源"
+      },
+      {
+        "id": "mi4",
+        "title": "当前内核实现",
+        "url": "https://github.com/Annihilation006/MimicryOS/blob/e5d79e4311910c44b870ad7c36e4e8268eac9f6e/kernel.c",
+        "kind": "固定原始来源"
+      },
+      {
+        "id": "mi5",
+        "title": "BOOTBOOT示例链接脚本及许可",
+        "url": "https://github.com/Annihilation006/MimicryOS/blob/e5d79e4311910c44b870ad7c36e4e8268eac9f6e/linker.ld",
+        "kind": "固定原始来源"
+      },
+      {
+        "id": "mi6",
+        "title": "BOOTBOOT协议头及许可",
+        "url": "https://github.com/Annihilation006/MimicryOS/blob/e5d79e4311910c44b870ad7c36e4e8268eac9f6e/bootboot.h",
+        "kind": "固定原始来源"
+      },
+      {
+        "id": "mi7",
+        "title": "根MIT许可证",
+        "url": "https://github.com/Annihilation006/MimicryOS/blob/e5d79e4311910c44b870ad7c36e4e8268eac9f6e/LICENSE",
+        "kind": "固定原始来源"
+      },
+      {
+        "id": "mi8",
+        "title": "当前构建指南与遗留功能说明",
+        "url": "https://github.com/Annihilation006/MimicryOS/blob/e5d79e4311910c44b870ad7c36e4e8268eac9f6e/BUILD.md",
+        "kind": "固定原始来源"
+      },
+      {
+        "id": "mi9",
+        "title": "矩形桌面绘制模块",
+        "url": "https://github.com/Annihilation006/MimicryOS/blob/e5d79e4311910c44b870ad7c36e4e8268eac9f6e/desktop.mod.c",
+        "kind": "固定原始来源"
+      },
+      {
+        "id": "mi10",
+        "title": "鼠标模块",
+        "url": "https://github.com/Annihilation006/MimicryOS/blob/e5d79e4311910c44b870ad7c36e4e8268eac9f6e/mouse.mod.c",
+        "kind": "固定原始来源"
+      },
+      {
+        "id": "mi11",
+        "title": "内存文件模块",
+        "url": "https://github.com/Annihilation006/MimicryOS/blob/e5d79e4311910c44b870ad7c36e4e8268eac9f6e/filesystem.mod.c",
+        "kind": "固定原始来源"
+      },
+      {
+        "id": "mi12",
+        "title": "MimicryOS原仓关联视频",
+        "url": "https://www.bilibili.com/video/BV1MAHM6fEq3/",
+        "kind": "原作者视频"
+      },
+      {
+        "id": "mi13",
+        "title": "MimicryOS原片公开元数据",
+        "url": "https://api.bilibili.com/x/web-interface/view?bvid=BV1MAHM6fEq3",
+        "kind": "平台视频元数据"
+      },
+      {
+        "id": "mi14",
+        "title": "固定头提交",
+        "url": "https://github.com/Annihilation006/MimicryOS/commit/e5d79e4311910c44b870ad7c36e4e8268eac9f6e",
+        "kind": "提交元数据"
+      },
+      {
+        "id": "mi15",
+        "title": "完整固定树",
+        "url": "https://api.github.com/repos/Annihilation006/MimicryOS/git/trees/e5d79e4311910c44b870ad7c36e4e8268eac9f6e?recursive=1",
+        "kind": "源码树元数据"
+      },
+      {
+        "id": "mi16",
+        "title": "早期CoolPot文件声明",
+        "url": "https://github.com/Annihilation006/MimicryOS/blob/b2ed7ca8392c91c0386aeee055e242ee0c433b2d/README.md",
+        "kind": "固定原始来源"
+      },
+      {
+        "id": "mi17",
+        "title": "既有字体和重建历史核验",
+        "url": "https://github.com/yuyan-lang/chinese-programming-languages/issues/52#issuecomment-6391980826",
+        "kind": "既有核验记录"
+      }
+    ]
   }
 ]

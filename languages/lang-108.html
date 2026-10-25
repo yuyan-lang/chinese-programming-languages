@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>意语言｜中文编程语言百科</title><link rel="stylesheet" href="../style.css"></head><body><header><h1>意语言</h1></header><main><p><a href="../">返回语言目录</a></p>
+<h2>语言介绍</h2><p>意语言的公开设计使用模块、公开函数、规则、成等中文句式表达程序与推理规则。文档提出显式长度头的八字定宽记录和称为意元的语义层，并提供递归求和模块原例。当前条目依据原作者固定设计文档收录。</p>
+<h2>分类与别名</h2><p>实验性中文语言设计（原作者文档与原例核验）；别名：Intent Language</p>
+<h2>作者与日期</h2><p>GitCode账号gcw_2sDxn3gI发布的文章将该账号列为意语言设计与实现者。文章说明人类提供源码与设计思路，Huawei Cloud IaC Architecture Partner Agent撰写评估文字。真实姓名及具体贡献分工待核实。 原文自标日期2026-10-04；固定迁移提交f8e93ab160e174a236c88f0dbdcd39f3c30fc8c5的时间为2026-10-14T15:09:22+08:00。文档日期、提交时间与首次对外公开时间分别记录，首次公开待核实。</p>
+<h2>语言特性</h2><ul><li>中文模块和函数设计</li><li>规则式条件与递归原例</li><li>显式长度头记录方案</li><li>意元语义标注设计</li><li>面向AI生成程序的设计定位</li></ul>
+<h2>中文代码示例</h2><pre><code>模块 意语言示例
+版本 13
+公开意义 计算总和
+公开函数 计算总和（参数 列表）成 总数
+  规则 若 列表 为空 成 0
+  规则 否则 成 列表首项 加 计算总和（列表余项）
+结束函数
+结束模块</code></pre><p>固定原仓README第60—67行完整模块原文，保留全角括号、缩进和版本行。版本13属于示例内容。此处展示作者公开设计；程序执行、语法覆盖和正式版本对应待核实。 <a href="https://gitcode.com/gcw_2sDxn3gI/ai-agent-recommends-intent-language/blob/f8e93ab160e174a236c88f0dbdcd39f3c30fc8c5/README.md#L60-L67">示例来源</a></p>
+<h2>实现与运行环境</h2><p>文章说明JavaScript宿主、七条中文VM指令与前端校验方案，并自述阅读过四个核心源文件。固定说明仓仅保存README；作者明确迁移到directional-computing-chengfu的docs/ai-agent-perspectives/intent-language.md。迁移主仓固定879634672b8f2d4fe4893f9cc8228b455702c691保存同文，意语言四个核心文件及完整编译执行链继续待核实。</p>
+<h2>版本与维护状态</h2><p>公开说明使用约40%完成度表述；中文原例包含版本13。两者按文档自述保存，正式语言版本、发行物及兼容性待核实。</p>
+<h2>当前状态</h2><p>固定原始中文设计与完整模块原例已核验。384项测试、前端自举和约40%完成度按文章自述记录，独立复现待核实。</p>
+<h2>许可证</h2><p>固定说明仓保存README一项文件，许可正文待核实；迁移主仓页面的MIT标签与意语言文档及尚待取得的实现之间的许可范围待核实。</p>
+<h2>AI参与</h2><p>原文明确由人类作者提供全部源代码与设计思路，Huawei Cloud IaC Architecture Partner Agent阅读后撰写评估文章。AI参与实现的具体范围待核实。</p>
+<h2>与其他项目的关系</h2><p>说明仓的固定迁移提示直接链接同账号directional-computing-chengfu主仓，迁移路径保存同篇意语言介绍。条目将两处说明合为一个设计项目。文中关于自举、测试和完成度的说明属于作者材料中的评估声明。</p>
+<h2>证据等级</h2><p>原作者固定Git文档与连续中文设计原例；实现细节按作者说明分层记录</p>
+<h2>核验说明</h2><p>2026-10-25只读获取说明仓及作者明确链接的迁移主仓。说明仓固定README的blob为e6f63123cf00e1dc7448443a4495725705fc82e1；迁移文档blob为43e1707b86a23bd4cd67af4811afa7551d01d817。核对迁移声明、作者署名、原例与实现状态。候选程序执行、安装、构建和测试均为0。</p>
+<h2>参考资料</h2><ul><li><a href="https://github.com/yuyan-lang/chinese-programming-languages/issues/3">原始待核议题</a></li><li><a href="https://gitcode.com/gcw_2sDxn3gI/ai-agent-recommends-intent-language/blob/f8e93ab160e174a236c88f0dbdcd39f3c30fc8c5/README.md#L60-L67">固定原作者说明与完整模块原例</a></li><li><a href="https://gitcode.com/gcw_2sDxn3gI/ai-agent-recommends-intent-language/blob/f8e93ab160e174a236c88f0dbdcd39f3c30fc8c5/README.md">固定说明全文、署名与迁移声明</a></li><li><a href="https://gitcode.com/gcw_2sDxn3gI/ai-agent-recommends-intent-language/commit/f8e93ab160e174a236c88f0dbdcd39f3c30fc8c5">固定说明提交</a></li><li><a href="https://gitcode.com/gcw_2sDxn3gI/directional-computing-chengfu/blob/879634672b8f2d4fe4893f9cc8228b455702c691/docs/ai-agent-perspectives/intent-language.md">作者明确链接的迁移文档</a></li></ul><p>资料核验日期：2026-10-25</p><p><a href="https://github.com/yuyan-lang/chinese-programming-languages/issues/new">补充资料或纠错</a></p></main><footer>站点由<a href="https://yuyan-lang.org/">豫言编程语言</a>提供</footer></body></html>

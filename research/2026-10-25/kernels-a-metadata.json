@@ -1,0 +1,113 @@
+{
+  "checked_at": "2026-10-25",
+  "method": "GitHub connector 只读元数据和固定文本；B站公开接口只读 GET；候选安装、构建、运行与测试均为0",
+  "repositories": [
+    {
+      "url": "https://api.github.com/repos/CasterWx/AntzOS",
+      "full_name": "CasterWx/AntzOS",
+      "default_branch": "master",
+      "archived": false,
+      "pushed_at": "2020-03-12T14:20:09Z",
+      "fixed_head": "80b574057fb65642d2575c22348775e7854cdce8",
+      "truncated": false
+    },
+    {
+      "url": "https://api.github.com/repos/KercyDing/krcyos",
+      "full_name": "KercyDing/krcyos",
+      "default_branch": "main",
+      "archived": false,
+      "pushed_at": "2026-10-22T05:02:51Z",
+      "fixed_head": "0f0115ecc83610335642ee51e4f1f2c9d1886028",
+      "truncated": false
+    },
+    {
+      "url": "https://api.github.com/repos/lightfl0w/CoreZ-OS",
+      "full_name": "lightfl0w/CoreZ-OS",
+      "default_branch": "main",
+      "archived": true,
+      "pushed_at": "2026-10-04T00:37:38Z",
+      "fixed_head": "8016bb2e8cf39001a7d2a89ece8c2ecf8381522e",
+      "truncated": false
+    },
+    {
+      "url": "https://api.github.com/repos/lightfl0w/lgc-os",
+      "full_name": "lightfl0w/lgc-os",
+      "default_branch": "main",
+      "archived": false,
+      "pushed_at": "2026-09-27T09:55:31Z",
+      "fixed_head": "ba606a063fd557bf28ad13a4c16f9e214b0deddd",
+      "truncated": false
+    },
+    {
+      "url": "https://api.github.com/repos/xuchenruisz/hudos",
+      "full_name": "xuchenruisz/hudos",
+      "default_branch": "内核6.1",
+      "archived": false,
+      "pushed_at": "2026-10-24T12:19:13Z",
+      "fixed_head": "b4a244b808b6786d5c3a1fd98102055f7f582488",
+      "truncated": false
+    }
+  ],
+  "hudos_branches": [
+    {
+      "name": "api6.0",
+      "sha": "67016fa07953af3f48bea02d10330c267c20bdd4"
+    },
+    {
+      "name": "h/ux1.0",
+      "sha": "b4a244b808b6786d5c3a1fd98102055f7f582488"
+    },
+    {
+      "name": "main",
+      "sha": "cc37a6e8274d4a9eb1980307299a5b1a380874d2"
+    },
+    {
+      "name": "内核6.1",
+      "sha": "b4a244b808b6786d5c3a1fd98102055f7f582488"
+    }
+  ],
+  "original_video_metadata": [
+    {
+      "url": "https://api.bilibili.com/x/web-interface/view?bvid=BV1krYP6iEv5",
+      "bvid": "BV1krYP6iEv5",
+      "title": "[自制操作系统] 一个移植了fish shell且兼容很简陋WinGDI程序的自制OS🤔",
+      "pubdate": 1790824626,
+      "ctime": 1790824626,
+      "desc": "https://github.com/lightfl0w/CoreZ-OS\n不知道怎么剪视频所以很简陋见谅",
+      "owner": {
+        "mid": 3690980152707649,
+        "name": "Lightfl0w",
+        "face": "https://i1.hdslb.com/bfs/face/01d0075649ebb921c66e4130e2445b3486b27257.jpg"
+      },
+      "duration": 68
+    },
+    {
+      "url": "https://api.bilibili.com/x/web-interface/view?bvid=BV166at6hEgN",
+      "bvid": "BV166at6hEgN",
+      "title": "[自制微内核] 自制的微内核实现了自举",
+      "pubdate": 1790492406,
+      "ctime": 1790492406,
+      "desc": "lgc os源码: https://github.com/lightfl0w/lgc-os\n视频剪的可能有点烂，见谅",
+      "owner": {
+        "mid": 3690980152707649,
+        "name": "Lightfl0w",
+        "face": "https://i1.hdslb.com/bfs/face/01d0075649ebb921c66e4130e2445b3486b27257.jpg"
+      },
+      "duration": 45
+    },
+    {
+      "url": "https://api.bilibili.com/x/web-interface/view?bvid=BV1wiaU6REGn",
+      "bvid": "BV1wiaU6REGn",
+      "title": "初中生做的操作系统！最新开源！",
+      "pubdate": 1790946000,
+      "ctime": 1790944007,
+      "desc": "官方论坛：chat.hudos.cn\n仓库地址：github.com/xuchenruisz/hudos",
+      "owner": {
+        "mid": 514146062,
+        "name": "双子星观测站",
+        "face": "https://i2.hdslb.com/bfs/face/2061acb9bbbea15685455f1fae51a6dc12ad1dd3.jpg"
+      },
+      "duration": 159
+    }
+  ]
+}

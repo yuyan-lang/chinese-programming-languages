@@ -1,0 +1,219 @@
+{
+  "核验日期": "2026-10-25",
+  "候选执行次数": 0,
+  "RexLang": {
+    "仓库": "https://gitee.com/RonxBulld/RexLang",
+    "固定提交": "6b11e5a5cc0e27b6c722db3c164e94d072710b7d",
+    "固定文件": [
+      {
+        "path": "README.md",
+        "blob": "bd7b97de1ba9015abacb9b25158c5311ad000765",
+        "bytes": 3829,
+        "sha256": "2526442d29a2a3bc131d06807dffda05c70f5fd32ed9699b731687f394035e9c"
+      },
+      {
+        "path": "License.txt",
+        "blob": "f2ae2e1653554ac246964019609e1c09e137c6d4",
+        "bytes": 11846,
+        "sha256": "0ebef9adee7d2e9506541fd3f7950ccd2e35a9c796217c7f9259c711f602ee3e"
+      },
+      {
+        "path": "INSTALL.md",
+        "blob": "408d7d230822a78cd3a34f05b6b692e4943a3c4e",
+        "bytes": 788,
+        "sha256": "d3141de351d9574774c6f0502fb8fb2b3e6d1f86b5fe53b35e2e7a21567cb30f"
+      },
+      {
+        "path": "oe_test/gcd_algorithm.txt",
+        "blob": "f0bdd739dfbcaba323fe2f415ec12aa9c3886576",
+        "bytes": 629,
+        "sha256": "405c77a7c0336a2f39559523f62a40599dc906f2aa35ec54ebabb7dca587cac1"
+      },
+      {
+        "path": "Compiler/main_entity.cpp",
+        "blob": "b6d12eb3f465381b1eeee7f4ee534280ea1ab1fd",
+        "bytes": 3222,
+        "sha256": "183c601b5e5634e23c92f76be6ddc263433e2b6d95a7817ba19b9e4fe10a94d5"
+      },
+      {
+        "path": "Compiler/compile_driver.cpp",
+        "blob": "5e947f09b854316f37e4d5f246563e0359683338",
+        "bytes": 7099,
+        "sha256": "087c905c285f121ae3d2ead6b6d40bec71d8773cad02b1a2f465fefb0c92b24c"
+      },
+      {
+        "path": "Compiler/rexlang_compiler/AstGenerate.cpp",
+        "blob": "9d774f4ffda14e0ef85584e07b347dab17e9f384",
+        "bytes": 1898,
+        "sha256": "a70d587c6cccf21d47c7168f7cff56e6f56625734e0622f0f82d6e03a9dceafa"
+      },
+      {
+        "path": "Compiler/rexlang_compiler/rexLang.g4",
+        "blob": "2affd7d9e347f27e814f8b35b497f516ae280c98",
+        "bytes": 11186,
+        "sha256": "93599fff62d6b182ee459636c7fc5465e7fb9923ce4f46fd8f76366bbab006d3"
+      },
+      {
+        "path": "Compiler/ir/LLVMIR/EmitLLVMIR.cpp",
+        "blob": "bd1b6c521b5e9f8c09e504cbbf5b18f55fd908c1",
+        "bytes": 823,
+        "sha256": "520419fb5a42a5bea5a5569749f34f30ae275a0d4f995ed4f2b544d42db6b8b4"
+      },
+      {
+        "path": "Compiler/codegen/LLCodeGen.cpp",
+        "blob": "8ff927777cb56991c82082ff583303b31ef362ec",
+        "bytes": 2478,
+        "sha256": "b8dd0d6deeb88ecbf20000679fe7d4a3d76dab73f089ffb50558e9c1a488cba9"
+      },
+      {
+        "path": "Compiler/link/Linker.cpp",
+        "blob": "71fe1c7c993b5834eb4ebbd4a78f3d9cab648f3d",
+        "bytes": 7329,
+        "sha256": "decae2c4f5fd44ded26c63eacfb329d4537c8c870853d617875094570b77adb2"
+      }
+    ]
+  },
+  "意语言": {
+    "仓库": "https://gitcode.com/gcw_2sDxn3gI/ai-agent-recommends-intent-language",
+    "固定提交": "f8e93ab160e174a236c88f0dbdcd39f3c30fc8c5",
+    "README_blob": "e6f63123cf00e1dc7448443a4495725705fc82e1",
+    "迁移仓固定提交": "879634672b8f2d4fe4893f9cc8228b455702c691",
+    "迁移文档_blob": "43e1707b86a23bd4cd67af4811afa7551d01d817"
+  },
+  "Hanyu-Lang": {
+    "原始源码包_SHA256": "9a3ec70999c2b6418b540c2cdc3585de6df9a2f2c638856a5105532894d79f06",
+    "原始包字节数": 10095,
+    "所读成员": [
+      {
+        "path": "hanyu_lang-0.1.2/LICENSE",
+        "bytes": 67,
+        "sha256": "cd1bf8b21124716aeaa16c30f912115ca48949a9c5fc68db27a299999b956def",
+        "encoding": "UTF-8"
+      },
+      {
+        "path": "hanyu_lang-0.1.2/PKG-INFO",
+        "bytes": 2033,
+        "sha256": "92ad1ccddfeb761959142d12c188d4debcd6ee1cee9ee78d4830863a9f007607",
+        "encoding": "UTF-8"
+      },
+      {
+        "path": "hanyu_lang-0.1.2/README.md",
+        "bytes": 807,
+        "sha256": "f813d7163b43aa61a1e1ca58728681fca30ea0f5caae2d6acef2236b83922c46",
+        "encoding": "UTF-8"
+      },
+      {
+        "path": "hanyu_lang-0.1.2/gui/__init__.py",
+        "bytes": 67,
+        "sha256": "e473749d3888c4260b6247f06707947e54dde019d6b9bdcb014794cb11cb5713",
+        "encoding": "UTF-8"
+      },
+      {
+        "path": "hanyu_lang-0.1.2/gui/main_window.py",
+        "bytes": 4839,
+        "sha256": "bb7d0f474f44fc0aefb618e32654fcdd18eacf280496d9b5b62aa8e1fb0b73e6",
+        "encoding": "UTF-8"
+      },
+      {
+        "path": "hanyu_lang-0.1.2/hanyu_lang.egg-info/PKG-INFO",
+        "bytes": 2033,
+        "sha256": "92ad1ccddfeb761959142d12c188d4debcd6ee1cee9ee78d4830863a9f007607",
+        "encoding": "UTF-8"
+      },
+      {
+        "path": "hanyu_lang-0.1.2/setup.py",
+        "bytes": 4029,
+        "sha256": "39449cb77d5dcceae1b05cf55958263b8f3ef147cf90c39f73fc01629d9703fa",
+        "encoding": "UTF-8"
+      },
+      {
+        "path": "hanyu_lang-0.1.2/src/hanyu_lang/__init__.py",
+        "bytes": 142,
+        "sha256": "ec0e1f23bdb6593246f8134de973e8e4ca4e88551f32df929b8f709818bb1e1a",
+        "encoding": "UTF-16"
+      },
+      {
+        "path": "hanyu_lang-0.1.2/src/hanyu_lang/cli.py",
+        "bytes": 895,
+        "sha256": "c50adf701c0f03a02f70f0b227147cd84fe14946e01423e0873e6fd31a2860cc",
+        "encoding": "UTF-8"
+      },
+      {
+        "path": "hanyu_lang-0.1.2/src/hanyu_lang/lexer.py",
+        "bytes": 1859,
+        "sha256": "5a4fe34569a2e3222e55b95f3609883dd29923272f8990b36fdf1fdec12ffb83",
+        "encoding": "UTF-8"
+      },
+      {
+        "path": "hanyu_lang-0.1.2/src/hanyu_lang/parser.py",
+        "bytes": 1932,
+        "sha256": "a394cd705ccbec82814133b8e07550cb6f8cf59ef778adddc31d1b3b87d73103",
+        "encoding": "UTF-8"
+      },
+      {
+        "path": "hanyu_lang-0.1.2/src/hanyu_lang/runtime/__init__.py",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "encoding": "UTF-8"
+      },
+      {
+        "path": "hanyu_lang-0.1.2/src/hanyu_lang/runtime/interpreter.py",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "encoding": "UTF-8"
+      },
+      {
+        "path": "hanyu_lang-0.1.2/src/hanyu_lang/runtime.py",
+        "bytes": 354,
+        "sha256": "1a3c62a944fbeb5ed2be52c2ff6e874f2d20491cd6bbe58102d9b40ac86971d5",
+        "encoding": "UTF-8"
+      },
+      {
+        "path": "hanyu_lang-0.1.2/src/hanyu_lang/typing.py",
+        "bytes": 75,
+        "sha256": "9ab30dfc65a54ca5b327ed4bb912efce0c5f70ed31c4b2bcc04326abeb6e7f19",
+        "encoding": "UTF-8"
+      },
+      {
+        "path": "hanyu_lang-0.1.2/tests/test_basic.py",
+        "bytes": 294,
+        "sha256": "9cd58e5be1ae87661866aad47b31c171a8fc60350b8e9a87ddc608f37c982a79",
+        "encoding": "UTF-8"
+      },
+      {
+        "path": "hanyu_lang-0.1.2/tests/test_lexer.py",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "encoding": "UTF-8"
+      }
+    ]
+  },
+  "PYCH": {
+    "原始附件": [
+      {
+        "url": "https://github.com/qingsububao/PYCH-Language/releases/download/pych4.0/main.py",
+        "asset_id": 479462953,
+        "bytes": 15508,
+        "sha256": "7169b20e365e86456fff8a627b2f33f7d79a12a392b02de3c7c8170cf8306e9a"
+      },
+      {
+        "url": "https://github.com/qingsububao/PYCH-Language/releases/download/4.1.a/main.py",
+        "asset_id": 480078995,
+        "bytes": 15048,
+        "sha256": "5833c3b0f00f72478625450383c059d9c9d5c02fd26fbf3e66801b88e2a246a4"
+      },
+      {
+        "url": "https://github.com/qingsububao/PYCH-Language/releases/download/pych0/FileCompilerAndInterpreterForPYCH.py",
+        "asset_id": 479409018,
+        "bytes": 3135,
+        "sha256": "bcd37026c7f378267029888d9a7e6a2c12a3fd5e19ad24720cf18385bfbf57cf"
+      },
+      {
+        "url": "https://github.com/qingsububao/PYCH-Language/releases/download/4.1.a/main.1.py",
+        "asset_id": 480076657,
+        "bytes": 14387,
+        "sha256": "10bde4d680b6626e03518a1ceb45653c9a1fbb3ab8105df8d51642f5dfb4bfbe"
+      }
+    ]
+  }
+}

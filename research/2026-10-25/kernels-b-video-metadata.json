@@ -1,0 +1,141 @@
+[
+  {
+    "bv": "BV1tyH76QERz",
+    "code": 0,
+    "title": "初中生从零自研OS：不靠现有内核，实现应用加载与内存隔离？ -NeoRunST开发日志",
+    "owner": {
+      "mid": 3546925078940468,
+      "name": "热土工作室RTStudio"
+    },
+    "pubdate": 1791119658,
+    "date_utc": "2026-10-04T13:14:18+00:00",
+    "desc": "-",
+    "source_url": "https://api.bilibili.com/x/web-interface/view?bvid=BV1tyH76QERz",
+    "captured_at": "2026-10-25"
+  },
+  {
+    "bv": "BV1sTwtzuEP8",
+    "code": 0,
+    "title": "12岁自制操作系统，4686行代码，C语言，支持多线程，中断系统—OS002",
+    "owner": {
+      "mid": 3546765877840766,
+      "name": "Liu_Chunyi"
+    },
+    "pubdate": 1773494615,
+    "date_utc": "2026-03-14T13:23:35+00:00",
+    "desc": "源代码：https://github.com/Chunyi1031/OS002-UEFI",
+    "source_url": "https://api.bilibili.com/x/web-interface/view?bvid=BV1sTwtzuEP8",
+    "captured_at": "2026-10-25"
+  },
+  {
+    "bv": "BV1fPTj6FEcb",
+    "code": 0,
+    "title": "VergeOS Open 自研操作系统全新发布",
+    "owner": {
+      "mid": 3546976190728987,
+      "name": "新启年工作室-NES"
+    },
+    "pubdate": 1782988387,
+    "date_utc": "2026-07-02T10:33:07+00:00",
+    "desc": "从零手写的 x86 操作系统。没有 Linux 内核，没有嵌入式框架，纯汇编 + C 硬搓。\nMIT 开源  github.com/max257026-svg/VergeOS-Open-VoidOS-",
+    "source_url": "https://api.bilibili.com/x/web-interface/view?bvid=BV1fPTj6FEcb",
+    "captured_at": "2026-10-25"
+  },
+  {
+    "bv": "BV1Thh264EtM",
+    "code": 0,
+    "title": "中国第一个纯AI写出的操作系统，纯RUST完成，支持多语言显示，非手写内核，多种主题支持，全功能，高性能野生操作系统",
+    "owner": {
+      "mid": 595021134,
+      "name": "编剧笨笨"
+    },
+    "pubdate": 1790336517,
+    "date_utc": "2026-09-25T11:41:57+00:00",
+    "desc": "如题：中国第一个纯AI写出的操作系统，纯RUST完成，支持多语言显示，非手写内核，多种主题支持，全功能，高性能。一个生手一边学一边写，也能手搓野生操作系统了。操作系统再也不是遥不可及的梦了。",
+    "source_url": "https://api.bilibili.com/x/web-interface/view?bvid=BV1Thh264EtM",
+    "captured_at": "2026-10-25"
+  },
+  {
+    "bv": "BV1oZap6CE8X",
+    "code": 0,
+    "title": "中国第一个纯AI写出的操作系统——大更新版本",
+    "owner": {
+      "mid": 595021134,
+      "name": "编剧笨笨"
+    },
+    "pubdate": 1790699108,
+    "date_utc": "2026-09-29T16:25:08+00:00",
+    "desc": "1、字体系统全面更新为矢量字支持\n2、图标系统全面更新为矢量图标（图标还在画）\n3、GUI高资源占用问题解决，脏区污染问题解决\n4、优化主题配色\n5、把基本硬件识别功能全部放在bootloader\n6、空载24小时测试通过，内核稳定，桌面不卡死",
+    "source_url": "https://api.bilibili.com/x/web-interface/view?bvid=BV1oZap6CE8X",
+    "captured_at": "2026-10-25"
+  },
+  {
+    "bv": "BV1hwYA65EqL",
+    "code": 0,
+    "title": "中国第一个纯AI写出的操作系统——第一个应用支持，会缩放的扫雷",
+    "owner": {
+      "mid": 595021134,
+      "name": "编剧笨笨"
+    },
+    "pubdate": 1790808541,
+    "date_utc": "2026-09-30T22:49:01+00:00",
+    "desc": "1、USB1、USB2、USB3设备支持框架\n2、网络套件框架搭建\n3、按自有应用打包格式打包第一个应用：缩放扫雷\n4、优化启动性能\n5、优化即插即用\n6、三种平台实际运行测试",
+    "source_url": "https://api.bilibili.com/x/web-interface/view?bvid=BV1hwYA65EqL",
+    "captured_at": "2026-10-25"
+  },
+  {
+    "bv": "BV1UaHp6KEYx",
+    "code": 0,
+    "title": "全网首个支持双启动自研操作系统VergeOS",
+    "owner": {
+      "mid": 3493125223877029,
+      "name": "FendosPE系统官方"
+    },
+    "pubdate": 1791175326,
+    "date_utc": "2026-10-05T04:42:06+00:00",
+    "desc": "下载地址看这里:txgzsgw.mysxl.cn",
+    "source_url": "https://api.bilibili.com/x/web-interface/view?bvid=BV1UaHp6KEYx",
+    "captured_at": "2026-10-25"
+  },
+  {
+    "bv": "BV1yuWFzSEbi",
+    "code": 0,
+    "title": "当现代C++遇上操作系统[开发记录]",
+    "owner": {
+      "mid": 1226480503,
+      "name": "段错误核心已转储"
+    },
+    "pubdate": 1758424562,
+    "date_utc": "2025-09-21T03:16:02+00:00",
+    "desc": "",
+    "source_url": "https://api.bilibili.com/x/web-interface/view?bvid=BV1yuWFzSEbi",
+    "captured_at": "2026-10-25"
+  },
+  {
+    "bv": "BV1Gkho6fEcd",
+    "title": "初中生纯汇编自制极简操作系统（自研文件系统）",
+    "owner": {
+      "mid": 3494379228498773,
+      "name": "小猫头鹰Owl-"
+    },
+    "pubdate": 1790427725,
+    "desc": "开源地址：https://github.com/hellopgrmm/KunOS\n标题仅供娱乐。",
+    "date_utc": "2026-09-26T13:02:05+00:00",
+    "source_url": "https://api.bilibili.com/x/web-interface/view?bvid=BV1Gkho6fEcd",
+    "captured_at": "2026-10-25"
+  },
+  {
+    "bv": "BV1MAHM6fEq3",
+    "title": "又一个操作系统来了！",
+    "owner": {
+      "mid": 3546392479926809,
+      "name": "Annihilation006"
+    },
+    "pubdate": 1792859433,
+    "desc": "MimicryOS，一个新的自制操作系统，由AI和人类一起开发",
+    "date_utc": "2026-10-24T16:30:33+00:00",
+    "duration": 493,
+    "source_url": "https://api.bilibili.com/x/web-interface/view?bvid=BV1MAHM6fEq3",
+    "captured_at": "2026-10-25"
+  }
+]

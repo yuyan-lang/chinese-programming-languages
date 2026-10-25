@@ -1,0 +1,67 @@
+{
+  "counts": {
+    "languages": 110,
+    "kernels": 20
+  },
+  "changes": {
+    "languages": {
+      "added": [
+        "lang-104",
+        "lang-105",
+        "lang-106",
+        "lang-107",
+        "lang-108",
+        "lang-109",
+        "lang-110"
+      ],
+      "updated": [
+        "lang-090",
+        "lang-102"
+      ]
+    },
+    "kernels": {
+      "added": [
+        "antzos",
+        "corez-os",
+        "lgc-os",
+        "quantumnec",
+        "racaos",
+        "os002",
+        "vergeos-open-newera",
+        "kunos",
+        "mimicryos"
+      ],
+      "updated": []
+    }
+  },
+  "result": "PASS",
+  "baseline_commit": "3f59f9224b48998b4260b36792fad57ec130ca63",
+  "checked_at": "2026-10-25",
+  "preserved_existing_languages": 101,
+  "preserved_existing_kernels": 11,
+  "unchanged_protected_entries": [
+    "lang-001",
+    "yuyan-os"
+  ],
+  "verified_original_video_frames": 17,
+  "planned_completed_issues": [
+    11,
+    26,
+    27,
+    38,
+    41,
+    68
+  ],
+  "remaining_issues": 21,
+  "candidate_execution_count": 0,
+  "checks": [
+    "JSON语法与唯一ID",
+    "原始对象与全部旧引用保留",
+    "原例与HTML一致",
+    "来源ID和内部链接闭合",
+    "17张原片帧SHA-256",
+    "新研究日志内部链接",
+    "内核目录20项且原顺序保留",
+    "git diff --check"
+  ]
+}
