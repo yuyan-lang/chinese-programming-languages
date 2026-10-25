@@ -1,0 +1,298 @@
+{
+  "verified_at": "2026-10-25",
+  "method": "公开原站API、公开360p流与静态帧目视核验；未登录；候选执行为0。元数据选录不包含临时签名流URL。",
+  "videos": [
+    {
+      "bvid": "BV1EgKZ6VED9",
+      "url": "https://www.bilibili.com/video/BV1EgKZ6VED9/",
+      "metadata_url": "https://api.bilibili.com/x/web-interface/view?bvid=BV1EgKZ6VED9",
+      "title": "语程中文编程-代码易语言版本-IDE讲解",
+      "owner": {
+        "uid": 1252267598,
+        "name": "旭猜囱"
+      },
+      "pubdate": 1782807349,
+      "published_at": "2026-06-30T08:15:49Z",
+      "description": "如有需要学习与交流语程中文编程语言的\n可以到QQ群：1071251513",
+      "cid": 39529942975,
+      "duration_seconds": 225,
+      "public_stream_quality": 16,
+      "public_stream_duration_ms": 224374,
+      "frames": [
+        {
+          "time_seconds": 130,
+          "path": "evidence/BV1EgKZ6VED9-130.png",
+          "sha256": "b6fbbc5887de10b264ae10f4a97bb996b082ac88822b6cefb31cf6edb12afff3",
+          "method": "ffmpeg -ss <time_seconds> -i public-360p.mp4 -frames:v 1; 未缩放原帧"
+        },
+        {
+          "time_seconds": 160,
+          "path": "evidence/BV1EgKZ6VED9-160.png",
+          "sha256": "c99066d2692898740e576df451d222547ebc42d00cf92023b19b9faeb8c67b0d",
+          "method": "ffmpeg -ss <time_seconds> -i public-360p.mp4 -frames:v 1; 未缩放原帧"
+        }
+      ]
+    },
+    {
+      "bvid": "BV1GC4y1k7E8",
+      "url": "https://www.bilibili.com/video/BV1GC4y1k7E8/",
+      "metadata_url": "https://api.bilibili.com/x/web-interface/view?bvid=BV1GC4y1k7E8",
+      "title": "如意III中文编程v1.2测试版IDE操作示例",
+      "owner": {
+        "uid": 449120289,
+        "name": "jjh345"
+      },
+      "pubdate": 1706121984,
+      "published_at": "2024-01-24T18:46:24Z",
+      "description": "中文编程IDE，中英文混合编程，自动转换成C++，通过VS工具编译、链接生成应用程序；易学、简单、好用；自带智能提示、调试功能、头文件自动生成等功能…\nIDE初版为易语言程序，后自举生成C++程序，目前核心转换第三代，完成度99%",
+      "cid": 1418282936,
+      "duration_seconds": 1160,
+      "public_stream_quality": 16,
+      "public_stream_duration_ms": 1159514,
+      "frames": [
+        {
+          "time_seconds": 500,
+          "path": "evidence/BV1GC4y1k7E8-500.png",
+          "sha256": "c3c894550018fa3bbfe05c256adaa8c7b4dc7603baf88c443befacced358a501",
+          "method": "ffmpeg -ss <time_seconds> -i public-360p.mp4 -frames:v 1; 未缩放原帧"
+        }
+      ]
+    },
+    {
+      "bvid": "BV1qCpF6pEB5",
+      "url": "https://www.bilibili.com/video/BV1qCpF6pEB5/",
+      "metadata_url": "https://api.bilibili.com/x/web-interface/view?bvid=BV1qCpF6pEB5",
+      "title": "星端IDE正式发布，中文编程",
+      "owner": {
+        "uid": 3690979938798227,
+        "name": "沙雕方不白"
+      },
+      "pubdate": 1791267443,
+      "published_at": "2026-10-06T06:17:23Z",
+      "description": "-",
+      "cid": 42505602124,
+      "duration_seconds": 126,
+      "public_stream_quality": 16,
+      "public_stream_duration_ms": 125166,
+      "frames": [
+        {
+          "time_seconds": 60,
+          "path": "evidence/BV1qCpF6pEB5-60.png",
+          "sha256": "aa3e4006e163c062c3b5feb551f45e44b09588acdcd59d3f5254a130595df72a",
+          "method": "ffmpeg -ss <time_seconds> -i public-360p.mp4 -frames:v 1; 未缩放原帧"
+        },
+        {
+          "time_seconds": 90,
+          "path": "evidence/BV1qCpF6pEB5-90.png",
+          "sha256": "627938f39d51610d63f07ddd7ff5ae8fe9ca06ed6da9f9f0084d252131b89ac7",
+          "method": "ffmpeg -ss <time_seconds> -i public-360p.mp4 -frames:v 1; 未缩放原帧"
+        },
+        {
+          "time_seconds": 100,
+          "path": "evidence/BV1qCpF6pEB5-100.png",
+          "sha256": "1c11aab752caf3809d7688d460e4f426690e5ed59cba3224eb9413c0bd2f3a52",
+          "method": "ffmpeg -ss <time_seconds> -i public-360p.mp4 -frames:v 1; 未缩放原帧"
+        }
+      ]
+    },
+    {
+      "bvid": "BV1DhpM6YEMf",
+      "url": "https://www.bilibili.com/video/BV1DhpM6YEMf/",
+      "metadata_url": "https://api.bilibili.com/x/web-interface/view?bvid=BV1DhpM6YEMf",
+      "title": "PandaM编程语言1.1.2版本发布",
+      "owner": {
+        "uid": 3546712874421199,
+        "name": "星空空空525"
+      },
+      "pubdate": 1791356201,
+      "published_at": "2026-10-07T06:56:41Z",
+      "description": "官网:http://starrytech.top/pandam\nQ群:1128217552",
+      "cid": 42534832063,
+      "duration_seconds": 841,
+      "public_stream_quality": 16,
+      "public_stream_duration_ms": 840966,
+      "frames": [
+        {
+          "time_seconds": 403,
+          "path": "evidence/BV1DhpM6YEMf-403.png",
+          "sha256": "e2ccfc8f63fcb7227a7e5e2ee8ed4f04d9f1fc4519bb39de7c9c04e9568a6d74",
+          "method": "ffmpeg -ss <time_seconds> -i public-360p.mp4 -frames:v 1; 未缩放原帧"
+        }
+      ]
+    },
+    {
+      "bvid": "BV1gbhU6iEvT",
+      "url": "https://www.bilibili.com/video/BV1gbhU6iEvT/",
+      "metadata_url": "https://api.bilibili.com/x/web-interface/view?bvid=BV1gbhU6iEvT",
+      "title": "国产编程语言 甲辰Lang  已发布",
+      "owner": {
+        "uid": 1823337404,
+        "name": "南京甲辰语言工作室"
+      },
+      "pubdate": 1790345341,
+      "published_at": "2026-09-25T14:09:01Z",
+      "description": "国产编程语言 甲辰Lang 游戏脚本和跨平台界面开发方向",
+      "cid": 42197191156,
+      "duration_seconds": 1281,
+      "public_stream_quality": 16,
+      "public_stream_duration_ms": 1280002,
+      "frames": [
+        {
+          "time_seconds": 837,
+          "path": "evidence/BV1gbhU6iEvT-837.png",
+          "sha256": "dfd34c9ad036487def1251277fa86ab893742059d292f8ac0cec631689d8362d",
+          "method": "ffmpeg -ss <time_seconds> -i public-360p.mp4 -frames:v 1; 未缩放原帧"
+        }
+      ]
+    },
+    {
+      "bvid": "BV1kJa66eErd",
+      "url": "https://www.bilibili.com/video/BV1kJa66eErd/",
+      "metadata_url": "https://api.bilibili.com/x/web-interface/view?bvid=BV1kJa66eErd",
+      "title": "自制编程语言|SZ语言Beta1.0宣告片",
+      "owner": {
+        "uid": 3690995380128358,
+        "name": "不懂python的Jerry"
+      },
+      "pubdate": 1790863083,
+      "published_at": "2026-10-01T13:58:03Z",
+      "description": "SZ，为每一个编程幻想而生",
+      "cid": 42373417793,
+      "duration_seconds": 69,
+      "public_stream_quality": 16,
+      "public_stream_duration_ms": 68733,
+      "frames": [
+        {
+          "time_seconds": 50,
+          "path": "evidence/BV1kJa66eErd-50.png",
+          "sha256": "0f6132eec8a382e159adf44dd9818192c65c80c1339868e47e8937f8097c07f5",
+          "method": "ffmpeg -ss <time_seconds> -i public-360p.mp4 -frames:v 1; 未缩放原帧"
+        }
+      ]
+    },
+    {
+      "bvid": "BV19F5k6VEED",
+      "url": "https://www.bilibili.com/video/BV19F5k6VEED/",
+      "metadata_url": "https://api.bilibili.com/x/web-interface/view?bvid=BV19F5k6VEED",
+      "title": "【整活】中文GO语言代码编辑器",
+      "owner": {
+        "uid": 28695954,
+        "name": "唐姝"
+      },
+      "pubdate": 1778898259,
+      "published_at": "2026-05-16T02:24:19Z",
+      "description": "今天不搞游戏，把之前吹的牛皮实现一下。\n之前吹牛皮说自己搞个中文编程语言得了，现在来实现一下。【划掉】\n其实不算是搞了个中文编程语言，其实就是做了个中间层翻译。\n不过这个方案有个好处，不用封库。而且可以看到大部分翻译奇奇怪怪的。\n因为是给代码编辑器，做了个翻译文档规则然后丢给AI自动翻译的。\n只需要在代码编辑器的目录里面放上翻译映射文件【就是个JSON】\n然后可以敲GO原文代码，也可以输入拼音和拼音缩写。都能自动补全上。\n目前功能还不完善，但是我自己用够了【再也不用去背库了】\n交流群：1067424699",
+      "cid": 38367464856,
+      "duration_seconds": 300,
+      "public_stream_quality": 16,
+      "public_stream_duration_ms": 191982,
+      "frames": [
+        {
+          "time_seconds": 68,
+          "path": "evidence/BV19F5k6VEED-68.png",
+          "sha256": "46cee05ad2028a79af133ceafaae34331ba5ecf2c82e578175c0ed26279201a7",
+          "method": "ffmpeg -ss <time_seconds> -i public-360p.mp4 -frames:v 1; 未缩放原帧"
+        },
+        {
+          "time_seconds": 160,
+          "path": "evidence/BV19F5k6VEED-160.png",
+          "sha256": "8f609d24594f8b71888aeb1ed5dc84a07ce15305b3c5b386e4a69669d7668c8c",
+          "method": "ffmpeg -ss <time_seconds> -i public-360p.mp4 -frames:v 1; 未缩放原帧"
+        }
+      ]
+    },
+    {
+      "bvid": "BV1YKxXzJEX6",
+      "url": "https://www.bilibili.com/video/BV1YKxXzJEX6/",
+      "metadata_url": "https://api.bilibili.com/x/web-interface/view?bvid=BV1YKxXzJEX6",
+      "title": "中文编程？让AI当编译器！",
+      "owner": {
+        "uid": 93784977,
+        "name": "流明风P"
+      },
+      "pubdate": 1759834079,
+      "published_at": "2025-10-07T10:47:59Z",
+      "description": "挺好玩\n需要Agent有代码执行能力，否则AI只能靠模拟",
+      "cid": 32898220422,
+      "duration_seconds": 223,
+      "public_stream_quality": 16,
+      "public_stream_duration_ms": 222200,
+      "frames": [
+        {
+          "time_seconds": 201,
+          "path": "evidence/BV1YKxXzJEX6-201.png",
+          "sha256": "a18e6ac0959e52dbddb55bf0fad3e783bda562d671509f0ba1fb6790ef8f4c0a",
+          "method": "ffmpeg -ss <time_seconds> -i public-360p.mp4 -frames:v 1; 未缩放原帧"
+        },
+        {
+          "time_seconds": 221,
+          "path": "evidence/BV1YKxXzJEX6-221.png",
+          "sha256": "eef1ae7ad66225807d21769a4c5a20edbb1afe8dac230aa4375aadaff3f01552",
+          "method": "ffmpeg -ss <time_seconds> -i public-360p.mp4 -frames:v 1; 未缩放原帧"
+        }
+      ]
+    },
+    {
+      "bvid": "BV1bm421x7AK",
+      "url": "https://www.bilibili.com/video/BV1bm421x7AK/",
+      "metadata_url": "https://api.bilibili.com/x/web-interface/view?bvid=BV1bm421x7AK",
+      "title": "整活——自制中文编程语言编译器",
+      "owner": {
+        "uid": 3494354284972407,
+        "name": "Californium-252"
+      },
+      "pubdate": 1713607887,
+      "published_at": "2024-04-20T10:11:27Z",
+      "description": "吃饱太无聊坐在电脑前随便写了一个中文编译器，原理下次揭晓，欢迎评论区留言",
+      "cid": 1513841131,
+      "duration_seconds": 164,
+      "public_stream_quality": 16,
+      "public_stream_duration_ms": 163886,
+      "frames": [
+        {
+          "time_seconds": 90.296,
+          "path": "evidence/BV1bm421x7AK-90.296.png",
+          "sha256": "575aecb4bb331c97f3c496e2a06abdd49a17f6e254ef2ba14bf47b74d3da5abe",
+          "method": "ffmpeg -ss <time_seconds> -i public-360p.mp4 -frames:v 1; 未缩放原帧"
+        },
+        {
+          "time_seconds": 118.5,
+          "path": "evidence/BV1bm421x7AK-118.5.png",
+          "sha256": "62c699eef812ea62dbc891307627b2f7a1e3ffde11c5c981e5ab74538bdce9b8",
+          "method": "ffmpeg -ss <time_seconds> -i public-360p.mp4 -frames:v 1; 未缩放原帧"
+        },
+        {
+          "time_seconds": 158,
+          "path": "evidence/BV1bm421x7AK-158.png",
+          "sha256": "13be5c2c428b37db619ce8f876661d6c06761e25190f13692c1b7858086aec23",
+          "method": "ffmpeg -ss <time_seconds> -i public-360p.mp4 -frames:v 1; 未缩放原帧"
+        }
+      ]
+    },
+    {
+      "bvid": "BV1rb4y1s74k",
+      "url": "https://www.bilibili.com/video/BV1rb4y1s74k/",
+      "metadata_url": "https://api.bilibili.com/x/web-interface/view?bvid=BV1rb4y1s74k",
+      "title": "【飞鱼中文编程 第五课】基础语法，简单易学好理解，是否有编程基础都能秒懂",
+      "owner": {
+        "uid": 98575563,
+        "name": "飞鱼中文编程"
+      },
+      "pubdate": 1645760323,
+      "published_at": "2022-02-25T03:38:43Z",
+      "description": "学习基础语法可以让我们迅速掌握编程的核心交互逻辑，本节课通过诙谐易懂的案例讲解，让学者可以熟练掌握飞鱼的开发技巧",
+      "cid": 545282275,
+      "duration_seconds": 736,
+      "public_stream_quality": 16,
+      "public_stream_duration_ms": 735061,
+      "frames": [
+        {
+          "time_seconds": 377,
+          "path": "evidence/BV1rb4y1s74k-377.png",
+          "sha256": "5147e2d8c40b3f68420845c9261cb9a5c04958ad2faa9c3293af026327158d66",
+          "method": "ffmpeg -ss <time_seconds> -i public-360p.mp4 -frames:v 1; 未缩放原帧"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>玄（xuan.ide）｜中文编程语言百科</title><link rel="stylesheet" href="../style.css"></head><body><header><h1>玄（xuan.ide）</h1></header><main><p><a href="../">返回语言目录</a></p>
+<h2>语言介绍</h2><p>玄是将中文程序转为C++的语言前端，配套Win32图形编辑器。固定源文件提供完整中文预置程序，使用头文件、主程序、重复、遍历、整数列表、输出及返回。转译器将中文关键字、标点和专门控制结构生成C++，IDE通过外部g++的C++17模式编译，再捕获程序输出。</p>
+<h2>分类与别名</h2><p>中文C++转译前端与Win32 IDE；别名：《玄》；玄语言；xuan.ide</p>
+<h2>作者与公开历史</h2><p>原仓维护账号及唯一提交作者署名2301_77161129。同账号CSDN原文显示署名“学习智者”，并直接链接该原仓。真实姓名及完整贡献分工待核实。 保留历史唯一提交a1a5d09f534e2e2b1b6f6756b56f6bbb8ddef028，作者与提交者时间均为2026-09-13T17:18:30+08:00。同账号CSDN文章索引标2026-09-13；仓库创建、原文精确发布时间及首次对外公开时间待核实。</p>
+<h2>设计与特征</h2><p>中文类型、关键字、标点与标准库映射；重复计次、区间与遍历循环专门分支；data目录外置关键字表、类型表和手册；字符串、注释和转义标识符的扫描处理；Win32编辑、编译、运行、停止及帮助界面</p>
+<h2>中文语法示例</h2><pre><code>头文件《标准IO》
+使用命名空间标准；
+
+主程序：
+    重复 3 次《
+        输出：&quot;hi&quot;：换行；
+    》
+
+    整数列表 v = 【10， 20， 30】；
+    遍历 x 在 v 中《
+        输出：&quot;x=&quot;：x：换行；
+    》
+
+    返回 0；
+。
+</code></pre><p>固定xuan_ide.cpp第1468—1484行const char* demo的完整15行预置中文用户程序。按C++相邻字符串字面量的转义规则转录，保留末尾换行；源码第1484行将该程序放入编辑器。代码包含重复输出、列表遍历和返回，独立编译及运行结果待核实。 <a href="https://atomgit.com/2301_77161129/xuan.ide/blob/a1a5d09f534e2e2b1b6f6756b56f6bbb8ddef028/xuan_ide.cpp#L1468-L1484">示例来源</a></p>
+<h2>实现与运行环境</h2><p>固定xuan_ide.cpp使用Win32 API实现IDE。get_patterns第443—454行解析外置映射并按键长降序排序；translate_xuan第523行起逐段扫描，第618—654行保留双引号字符串、转义标识符及两类C++注释。重复、遍历、区间、类型转换和指针相关语法由专门分支处理，第1079—1108行应用一般映射及标识符边界检查。CompileAndRunTask第1173—1214行转译并写output.cpp，通过g++ -std=c++17 -pthread及GBK字符集参数生成output.exe；第1230—1240行在runAfter分支捕获可执行文件输出。具体语义边界、字符编码兼容性与独立运行待核实。</p>
+<h2>版本与维护状态</h2><p>固定唯一提交a1a5d09f534e2e2b1b6f6756b56f6bbb8ddef028自标《玄》IDE v3.8.2；提交摘要描述数据外置与全链路优化。完整树4文件：xuan_ide.cpp及data/help.txt、patterns.txt、types.txt。当前公开Git标签列表为空；版本沿革与发行附件待核实。 原仓固定实现、完整编辑器预置中文程序、外置映射与g++调用链已核；按中文C++转译前端收录。发行附件、许可、AI参与、首发和独立运行待核实。</p>
+<h2>许可与AI参与</h2><p>固定完整树4文件中独立许可正文及版权授权声明待补，原仓元数据许可字段为空。许可证与授权适用范围待核实。 本次固定源文件与手册中的AI开发参与声明待补；具体模型、生成范围及人工复核待核实。</p>
+<h2>与其他项目的关系</h2><p>GitCode与AtomGit同账号2301_77161129/xuan.ide为同一原仓入口。同账号CSDN文章直接链接原仓；本文按该固定源码和编辑器原例收录。已有玄语lang-044为chy818/xuanyu，分别保留项目身份；与玄语、玄铁的代码继承和作者关系待原始资料确认。</p>
+<h2>核验说明</h2><p>2026-10-25通过公开Git传输取得完整原仓，固定唯一提交及4文件；直接解码编辑器const char* demo，核对转译及编译调用。原CSDN搜索正文提供相同项目及原仓链接；直接HTTP读取原文返回521。正式条目原例采用原仓固定源，证据层级为原作者实现。候选安装、构建及程序执行均为0。</p>
+<h2>参考资料</h2><ul><li><a href="https://atomgit.com/2301_77161129/xuan.ide/blob/a1a5d09f534e2e2b1b6f6756b56f6bbb8ddef028/xuan_ide.cpp#L1468-L1485">固定完整预置中文程序</a></li>
+<li><a href="https://atomgit.com/2301_77161129/xuan.ide/blob/a1a5d09f534e2e2b1b6f6756b56f6bbb8ddef028/xuan_ide.cpp#L523-L654">固定转译器扫描与保护规则</a></li>
+<li><a href="https://atomgit.com/2301_77161129/xuan.ide/blob/a1a5d09f534e2e2b1b6f6756b56f6bbb8ddef028/xuan_ide.cpp#L809-L862">固定重复计次循环生成</a></li>
+<li><a href="https://atomgit.com/2301_77161129/xuan.ide/blob/a1a5d09f534e2e2b1b6f6756b56f6bbb8ddef028/xuan_ide.cpp#L1173-L1240">固定编译与运行调度</a></li>
+<li><a href="https://atomgit.com/2301_77161129/xuan.ide/blob/a1a5d09f534e2e2b1b6f6756b56f6bbb8ddef028/data/patterns.txt">固定外置中文关键字映射</a></li>
+<li><a href="https://atomgit.com/2301_77161129/xuan.ide/blob/a1a5d09f534e2e2b1b6f6756b56f6bbb8ddef028/data/types.txt">固定类型映射</a></li>
+<li><a href="https://atomgit.com/2301_77161129/xuan.ide/blob/a1a5d09f534e2e2b1b6f6756b56f6bbb8ddef028/data/help.txt">固定语言手册</a></li>
+<li><a href="https://atomgit.com/2301_77161129/xuan.ide/commit/a1a5d09f534e2e2b1b6f6756b56f6bbb8ddef028">固定唯一提交</a></li>
+<li><a href="https://blog.csdn.net/2301_77161129/article/details/165223767">原始CSDN文章与原仓互链</a></li>
+<li><a href="https://github.com/yuyan-lang/chinese-programming-languages/issues/40">原始候选议题</a></li></ul><p>资料核验日期：2026-10-25</p><p><a href="https://github.com/yuyan-lang/chinese-programming-languages/issues/new">补充资料或纠错</a></p></main><footer>站点由<a href="https://yuyan-lang.org/">豫言编程语言</a>提供</footer></body></html>

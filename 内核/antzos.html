@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AntzOS｜操作系统内核资料</title><link rel="stylesheet" href="../style.css"></head><body>
+<header><h1>AntzOS</h1><p>操作系统内核资料</p></header><main>
+<p><a href="https://中文编程语言.yuyan-lang.org/内核/">返回内核目录</a> · <a href="https://中文编程语言.yuyan-lang.org/">中文编程语言百科</a></p>
+<h2>项目介绍</h2>
+<p>AntzOS 是 AntzUhl（CasterWx）在博客园公开开发过程的 x86 学习型内核，使用 C 与汇编实现图形终端、键盘事件、计时和简易文本编辑，构建链采用 Haribote／OSASK 相关工具及组件。 <small>资料概述</small> </p><p>这是采用 Haribote／OSASK 相关构建组件的个人学习内核。BIOS 汇编设置显示、GDT 与 CR0 保护模式，载入 C 内核；HariMain 初始化中断、PIT、键盘与图形终端。UNIX-based 保留为作者目标。 <small>源码可见</small> <a href="#az1">[az1]</a> <a href="#az2">[az2]</a> <a href="#az3">[az3]</a> <a href="#az4">[az4]</a> <a href="#az6">[az6]</a></p>
+
+<h2>作者与公开关联</h2>
+<p>原仓 README 链接 LexMoon 博客园系列，系列原作署名 AntzUhl 并直接给出 CasterWx/AntzOS，建立作者与源码的双向关联。 <small>作者原始互链</small> <a href="#az1">[az1]</a> <a href="#az10">[az10]</a> <a href="#az14">[az14]</a></p><p>作者在中文技术社区博客园持续发布 Antz 开发系列；GitHub 主页所在地自述为 China。按中文社区发布与所在地记录中国关联，国籍待核实。 <small>作者公开自述与社区发布</small> <a href="#az10">[az10]</a> <a href="#az11">[az11]</a> <a href="#az14">[az14]</a></p>
+
+<h2>体系结构与实现</h2>
+<p>x86 32 位保护模式；asmhead.asm 以 i486p 指令集设置 GDT 与 CR0，并通过远跳转进入内核。 <small>源码可见</small> <a href="#az3">[az3]</a></p><p>C 与 x86 汇编；Makefile 使用 nask、cc1、gas2nask、obj2bim 和 bim2hrb 生成 antz.sys 与 antz.img。 <small>源码可见</small> <a href="#az2">[az2]</a> <a href="#az3">[az3]</a> <a href="#az4">[az4]</a></p>
+
+<h2>启动</h2>
+<p>BIOS 路径调用 VBE，支持失败后转入 320×200 模式，随后设置保护模式、复制内核并初始化堆栈。 <small>源码可见</small> <a href="#az3">[az3]</a></p>
+
+<h2>中断与输入</h2>
+<p>GDT／IDT 与 PIC 初始化、键盘／鼠标 FIFO 及 PIT IRQ0 路径可见；主循环消费输入事件并重绘终端。 <small>源码可见</small> <a href="#az4">[az4]</a> <a href="#az5">[az5]</a> <a href="#az6">[az6]</a></p>
+
+<h2>图形与交互</h2>
+<p>图形终端按键分派 version、reset、vim、vimshow 等命令，vim 分支维护固定文本行缓存；定时器驱动运行时间与动画重绘。 <small>源码可见</small> <a href="#az4">[az4]</a> <a href="#az5">[az5]</a></p>
+
+<h2>任务调度</h2>
+<p>README 将任务调度列为后续工作；Thread.md 保存 PCB、线程栈与 thread_start 示例，固定 Makefile 的内核对象集合链接计时器。线程调度集成状态待核实。 <small>作者文档与源码阶段对照</small> <a href="#az1">[az1]</a> <a href="#az2">[az2]</a> <a href="#az9">[az9]</a></p>
+
+<h2>项目与上游关系</h2>
+<p>构建明确使用 include/haribote.rul、nask、obj2bim、bim2hrb 及附带运行库；stdio.h 头文件保留 H.Kawai／KL-01 署名。记录这一已见继承范围，内核各文件与精确 Haribote／OSASK 上游版本的对应待核实。 <small>源码可见</small> <a href="#az2">[az2]</a> <a href="#az7">[az7]</a></p><p>README 将封面与启动动画图片来源标为 phodal/daily。图像再分发与全部组件许可范围分别待核实。 <small>作者声明</small> <a href="#az1">[az1]</a></p>
+
+<h2>版本与维护状态</h2>
+<p>固定 master 提交：<a href="https://github.com/CasterWx/AntzOS/commit/80b574057fb65642d2575c22348775e7854cdce8">80b574057fb65642d2575c22348775e7854cdce8</a>；提交时间 2020-03-12T14:20:08Z。</p>
+<p>version 命令输出 Antz.version.2.0。该源码字符串与发行标签分别保存。 <small>源码可见</small> <a href="#az4">[az4]</a></p>
+<p>当前发行集合保存 Antz-2.0.1（v2.0，2018-10-27T12:06:57Z）、Antz-3.1.1（v3.1.1，2018-11-18T05:04:15Z），以及预发布 Antz-3.2.1（2019-03-19T16:13:47Z）和 Antz 3.2.2（2019-04-02T12:06:06Z）；四项附件集合均为空。 <small></small> <a href="#az12">[az12]</a></p>
+<p>许可记录：根 MIT 许可。根文件署名 2018 Mou Wang；H.Kawai／KL-01 头文件、附带工具库及图片分别记录，整体分发许可待核实。 <small>许可文本与作者声明</small> <a href="#az8">[az8]</a> <a href="#az7">[az7]</a> <a href="#az1">[az1]</a></p>
+<h2>核验范围与待核资料</h2>
+<p>本轮采用固定源码与原作者文章静态阅读；独立构建、启动和测试均为0。作者 README 提供截图及动图入口，画面与源码版本对应待核实。</p>
+<ul><li>精确 Haribote／OSASK 上游版本与逐文件继承范围</li><li>附带工具库、字体和图片的完整许可范围</li><li>发行、镜像、原作者动图与固定源码的对应</li><li>任务调度集成及独立构建、启动与功能运行</li><li>首发历史、AI参与及国籍自述</li></ul>
+<h2>参考资料</h2><ul>
+<li id="az1"><a href="https://github.com/CasterWx/AntzOS/blob/80b574057fb65642d2575c22348775e7854cdce8/README.md">AntzOS 固定 README</a>（固定源码）</li>
+<li id="az2"><a href="https://github.com/CasterWx/AntzOS/blob/80b574057fb65642d2575c22348775e7854cdce8/Makefile">构建目标与 Haribote 规则</a>（固定源码）</li>
+<li id="az3"><a href="https://github.com/CasterWx/AntzOS/blob/80b574057fb65642d2575c22348775e7854cdce8/boot/asmhead.asm">BIOS 图形与保护模式入口</a>（固定源码）</li>
+<li id="az4"><a href="https://github.com/CasterWx/AntzOS/blob/80b574057fb65642d2575c22348775e7854cdce8/main/bootpack.c">内核入口、命令与文本编辑</a>（固定源码）</li>
+<li id="az5"><a href="https://github.com/CasterWx/AntzOS/blob/80b574057fb65642d2575c22348775e7854cdce8/task/timer.c">PIT 与定时中断</a>（固定源码）</li>
+<li id="az6"><a href="https://github.com/CasterWx/AntzOS/blob/80b574057fb65642d2575c22348775e7854cdce8/lgdt/set_lgdt.c">GDT 与 IDT 初始化</a>（固定源码）</li>
+<li id="az7"><a href="https://github.com/CasterWx/AntzOS/blob/80b574057fb65642d2575c22348775e7854cdce8/include/stdio.h">H.Kawai／KL-01 头文件署名</a>（固定源码）</li>
+<li id="az8"><a href="https://github.com/CasterWx/AntzOS/blob/80b574057fb65642d2575c22348775e7854cdce8/LICENSE">根 MIT 许可</a>（固定源码）</li>
+<li id="az9"><a href="https://github.com/CasterWx/AntzOS/blob/80b574057fb65642d2575c22348775e7854cdce8/OS-Build/Thread.md">线程设计文档</a>（固定源码）</li>
+<li id="az10"><a href="https://www.cnblogs.com/LexMoon/p/antz09.html">AntzUhl 博客园原作：实现图形化界面</a>（原作者技术文章）</li>
+<li id="az11"><a href="https://github.com/CasterWx">AntzUhl／CasterWx GitHub 主页</a>（作者公开主页）</li>
+<li id="az12"><a href="https://api.github.com/repos/CasterWx/AntzOS/releases?per_page=100">AntzOS 发行记录</a>（发行元数据）</li>
+<li id="az13"><a href="https://github.com/CasterWx/AntzOS/commit/80b574057fb65642d2575c22348775e7854cdce8">AntzOS 固定提交</a>（提交元数据）</li>
+<li id="az14"><a href="https://www.cnblogs.com/LexMoon/p/antz01.html">AntzUhl 博客园原作：Boot Sector</a>（原作者技术文章）</li>
+</ul><p>资料核验日期：2026-10-25</p></main><footer>站点由<a href="https://yuyan-lang.org/">豫言编程语言</a>提供</footer></body></html>

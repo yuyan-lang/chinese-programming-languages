@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Hanyu-Lang｜中文编程语言百科</title><link rel="stylesheet" href="../style.css"></head><body><header><h1>Hanyu-Lang</h1></header><main><p><a href="../">返回语言目录</a></p>
+<h2>语言介绍</h2><p>Hanyu-Lang的公开Python发布包保存中文关键字表、解析器草稿、命令行和GUI文件。作者测试使用打印(&quot;测试输出&quot;)演示中文输出。runtime.py提供按引号提取文本的有限输出原型；完整词法、解析和运行集成继续待核实。</p>
+<h2>分类与别名</h2><p>实验性中文语言原型（PyPI发布包静态核验）；别名：汉语编程语言（PyPI hanyu-lang）</p>
+<h2>作者与日期</h2><p>PyPI项目页维护者为lin8092_76。0.1.2包的Author及邮箱字段使用模板占位内容，真实姓名、团队与仓库身份待核实。 PyPI记录0.1.2源码包上传于2025-04-23T16:35:41.915376Z，wheel上传于2025-04-23T16:35:40.631282Z。该记录为此版本上传时间，项目首次对外公开时间待核实。</p>
+<h2>语言特性</h2><ul><li>中文打印单句与作者测试原例</li><li>如果、否则、循环、定义函数词元表</li><li>Python词法和解析器草稿</li><li>文件运行与Tkinter编辑器入口文件</li></ul>
+<h2>中文代码示例</h2><pre><code>打印(&quot;测试输出&quot;)</code></pre><p>原始0.1.2源码包tests/test_basic.py第6行传给引擎.执行的完整字符串参数。代码逐字保留。此原例配套的断言预期为测试输出，独立执行结果待核实。 <a href="https://files.pythonhosted.org/packages/75/5a/88b050c9b25cdd0e165b858d61a4f7852cda033db0caa410ab2dd11703ae/hanyu_lang-0.1.2.tar.gz">示例来源</a></p>
+<h2>实现与运行环境</h2><p>src/hanyu_lang/runtime.py的解释器.执行检查代码是否包含打印(与双引号，再通过split提取引号内文本。lexer.py定义中文关键词和标点；parser.py提供部分赋值及打印分派，其中下一个类型、解析打印等调用的对应定义待补。包同时包含runtime.py与空runtime/__init__.py、runtime/interpreter.py；CLI导入与解析集成存在待核缺口。GUI保存编辑和文件操作草稿，实际启动与跨平台行为待核实。</p>
+<h2>版本与维护状态</h2><p>PyPI与包元数据标0.1.2、Alpha；src/hanyu_lang/__init__.py中的__version__为0.1.3。版本字段差异按原件分别记录。Python要求为&gt;=3.8，实际最低兼容版本待核实。</p>
+<h2>当前状态</h2><p>原始包、中文词元表、单句作者原例和有限输出源码已静态核验。REPL、完整控制流、AST可视化与标准库按发布页声明留待实现证据核实。</p>
+<h2>许可证</h2><p>包元数据及README声明MIT；源码包LICENSE仅保存MIT License标题与年份、姓名占位行。完整授权正文、版权署名及发行包许可范围待核实。</p>
+<h2>AI参与</h2><p>开发过程的AI参与情况待核实。</p>
+<h2>与其他项目的关系</h2><p>项目Homepage字段使用yourusername/hanyu-lang占位链接，作者仓库待核实。按PyPI项目及0.1.2原始分发包记录独立身份，与其他同名汉语编程项目的关系待核实。</p>
+<h2>证据等级</h2><p>PyPI原始源码包、固定SHA256、作者测试原例与实现草稿的静态核验</p>
+<h2>核验说明</h2><p>2026-10-25只读下载0.1.2源码分发包，10095字节，SHA256为9a3ec70999c2b6418b540c2cdc3585de6df9a2f2c638856a5105532894d79f06，与PyPI JSON一致。通过tarfile只读各成员；__init__.py按原BOM使用UTF-16解码，其余所读文本按UTF-8。包内测试仅作为作者原例和预期结果证据。安装、构建、导入及测试执行均为0。</p>
+<h2>参考资料</h2><ul><li><a href="https://github.com/yuyan-lang/chinese-programming-languages/issues/5">原始待核议题</a></li><li><a href="https://pypi.org/project/hanyu-lang/0.1.2/">PyPI项目页与维护者</a></li><li><a href="https://pypi.org/pypi/hanyu-lang/0.1.2/json">PyPI 0.1.2原始元数据与下载摘要</a></li><li><a href="https://files.pythonhosted.org/packages/75/5a/88b050c9b25cdd0e165b858d61a4f7852cda033db0caa410ab2dd11703ae/hanyu_lang-0.1.2.tar.gz">原始源码包：测试原例、词法、解析及运行草稿</a></li><li><a href="https://files.pythonhosted.org/packages/4d/b5/b78d0e5c4de6bf4ada5e316e112f9132528def75e31e290521ae8a60c0e1/hanyu_lang-0.1.2-py3-none-any.whl">原始wheel分发记录</a></li></ul><p>资料核验日期：2026-10-25</p><p><a href="https://github.com/yuyan-lang/chinese-programming-languages/issues/new">补充资料或纠错</a></p></main><footer>站点由<a href="https://yuyan-lang.org/">豫言编程语言</a>提供</footer></body></html>

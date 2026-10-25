@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>RexLang｜中文编程语言百科</title><link rel="stylesheet" href="../style.css"></head><body><header><h1>RexLang</h1></header><main><p><a href="../">返回语言目录</a></p>
+<h2>语言介绍</h2><p>RexLang使用.程序集、.子程序、.局部变量、.如果和返回等中文句式组织程序，语法设计以易语言为蓝本。原仓保存C++编译器、ANTLR文法、LLVM代码生成与字符串、数组等运行时模块，目标为快速原型开发和算法验证。</p>
+<h2>分类与别名</h2><p>易语言风格的中文编译语言与运行时实现；别名：REXLang、快速表达扩展语言、Rapid Expression eXtension Language</p>
+<h2>作者与日期</h2><p>Gitee原仓账号RonxBulld维护；固定README与License.txt保存项目署名。原仓保留历史的提交作者为RonxBulld。公开职业主页将RexLang列为Yuanhui Feng的个人项目，该跨平台身份按既有搜索缓存记录，直接身份对应继续待核实。 保留历史根提交517e93712ab2b131de8a6734b46d558cf2f9a3ce的作者时间为2019-04-12T22:47:30+08:00。固定头提交时间为2020-09-23T22:18:47+08:00。上述为Git提交时间，首次对外公开时间待核实。</p>
+<h2>语言特性</h2><ul><li>中文声明、条件和循环文法</li><li>递归子程序与显式参数类型</li><li>ANTLR词法／语法分析与AST构造</li><li>LLVM目标文件生成和链接入口</li><li>配套中文回归例程与运行时源码</li></ul>
+<h2>中文代码示例</h2><pre><code>.子程序 gcd, 长整数型
+.参数 a, 长整数型
+.参数 b, 长整数型
+
+.如果 (b ＝ 0)
+    返回 (a)
+.否则
+    返回 (gcd (b, a ％ b))
+.如果结束</code></pre><p>固定提交oe_test/gcd_algorithm.txt第19—27行的连续原文，定义递归最大公约数子程序。保留原始缩进与全角运算符；同文件前文提供启动子程序、输入值和输出调用。独立执行结果待核实。 <a href="https://gitee.com/RonxBulld/RexLang/blob/6b11e5a5cc0e27b6c722db3c164e94d072710b7d/oe_test/gcd_algorithm.txt#L19-L27">示例来源</a></p>
+<h2>实现与运行环境</h2><p>Compiler/main_entity.cpp从文件列表进入BuildASTFromFiles，再调用目标代码生成和链接，最后提供启动产物的入口。AstGenerate.cpp调用rexLangLexer、rexLangParser及CST2ASTConvert；compile_driver.cpp合并翻译单元并进行语义分析，由EmitLLVMIR、LLCodeGen.WriteOutObject与Linker构成后续路径。README列ANTLR 4.7.2和LLVM 9.0.1；INSTALL.md保存Linux与Windows构建步骤。上述为固定源码静态调用链，完整构建、链接及平台覆盖待核实。</p>
+<h2>版本与维护状态</h2><p>固定master提交6b11e5a5cc0e27b6c722db3c164e94d072710b7d，保留历史202个提交；原仓标签0.1.0至0.1.4。标签、头提交与可下载发行物的版本映射待核实。例程中的.版本 2为源文件语法标记。</p>
+<h2>当前状态</h2><p>中文原例、固定文法、AST与LLVM生成／链接入口已静态核验。运行结果、当前维护计划与发行产物继续待核实。</p>
+<h2>许可证</h2><p>固定License.txt提供Apache-2.0正文及REXLang Extensions，附加保留项目名称与原始仓库地址的要求。README另列付费闭源书面授权及商业使用条件；两份文字的适用关系待核实。使用时应同时核对原始文件和第三方库许可。</p>
+<h2>AI参与</h2><p>开发过程中AI参与情况待核实。</p>
+<h2>与其他项目的关系</h2><p>README明确以易语言语法为蓝本，原仓同时提供独立的ANTLR文法、C++编译器和运行时模块。项目沿用RonxBulld/RexLang原仓身份；Gitee的其他fork按派生仓分别处理。兼容程度及源码继承范围待核实。</p>
+<h2>证据等级</h2><p>原作者公开Git仓库、固定中文例程与编译实现源码的静态核验</p>
+<h2>核验说明</h2><p>2026-10-25只读获取Gitee原仓及完整保留历史，核对固定原例、实现入口、文法、构建说明和两份许可文字。网页提交详情进入登录页；公开Git传输取得相同完整提交。安装、构建、测试及候选程序执行均为0。</p>
+<h2>参考资料</h2><ul><li><a href="https://github.com/yuyan-lang/chinese-programming-languages/issues/3">原始待核议题</a></li><li><a href="https://gitee.com/RonxBulld/RexLang/blob/6b11e5a5cc0e27b6c722db3c164e94d072710b7d/README.md">原仓README及项目范围</a></li><li><a href="https://gitee.com/RonxBulld/RexLang/blob/6b11e5a5cc0e27b6c722db3c164e94d072710b7d/oe_test/gcd_algorithm.txt#L19-L27">连续中文递归例程</a></li><li><a href="https://gitee.com/RonxBulld/RexLang/blob/6b11e5a5cc0e27b6c722db3c164e94d072710b7d/Compiler/rexlang_compiler/rexLang.g4">ANTLR中文文法</a></li><li><a href="https://gitee.com/RonxBulld/RexLang/blob/6b11e5a5cc0e27b6c722db3c164e94d072710b7d/Compiler/rexlang_compiler/AstGenerate.cpp">词法、语法和AST入口</a></li><li><a href="https://gitee.com/RonxBulld/RexLang/blob/6b11e5a5cc0e27b6c722db3c164e94d072710b7d/Compiler/compile_driver.cpp">语义分析与目标文件生成入口</a></li><li><a href="https://gitee.com/RonxBulld/RexLang/blob/6b11e5a5cc0e27b6c722db3c164e94d072710b7d/Compiler/main_entity.cpp">命令行编译、链接与执行入口</a></li><li><a href="https://gitee.com/RonxBulld/RexLang/blob/6b11e5a5cc0e27b6c722db3c164e94d072710b7d/Compiler/ir/LLVMIR/EmitLLVMIR.cpp">LLVM IR生成模块</a></li><li><a href="https://gitee.com/RonxBulld/RexLang/blob/6b11e5a5cc0e27b6c722db3c164e94d072710b7d/Compiler/codegen/LLCodeGen.cpp">目标代码生成模块</a></li><li><a href="https://gitee.com/RonxBulld/RexLang/blob/6b11e5a5cc0e27b6c722db3c164e94d072710b7d/Compiler/link/Linker.cpp">链接模块</a></li><li><a href="https://gitee.com/RonxBulld/RexLang/blob/6b11e5a5cc0e27b6c722db3c164e94d072710b7d/INSTALL.md">构建环境与步骤</a></li><li><a href="https://gitee.com/RonxBulld/RexLang/blob/6b11e5a5cc0e27b6c722db3c164e94d072710b7d/License.txt">固定根许可及附加要求</a></li><li><a href="https://gitee.com/RonxBulld/RexLang/commit/517e93712ab2b131de8a6734b46d558cf2f9a3ce">保留历史根提交</a></li><li><a href="https://gitee.com/RonxBulld/RexLang/commit/6b11e5a5cc0e27b6c722db3c164e94d072710b7d">固定头提交</a></li></ul><p>资料核验日期：2026-10-25</p><p><a href="https://github.com/yuyan-lang/chinese-programming-languages/issues/new">补充资料或纠错</a></p></main><footer>站点由<a href="https://yuyan-lang.org/">豫言编程语言</a>提供</footer></body></html>

@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CoreZ-OS｜操作系统内核资料</title><link rel="stylesheet" href="../style.css"></head><body>
+<header><h1>CoreZ-OS</h1><p>操作系统内核资料</p></header><main>
+<p><a href="https://中文编程语言.yuyan-lang.org/内核/">返回内核目录</a> · <a href="https://中文编程语言.yuyan-lang.org/">中文编程语言百科</a></p>
+<h2>项目介绍</h2>
+<p>CoreZ-OS 是 lightfl0w 在 B站公开发布的 x86-64 实验内核，以 C 与汇编实现独立引导、任务调度、内存与文件系统，配有用户进程和限定 Win32／GDI 兼容层。GitHub 仓库当前标记归档。 <small>资料概述</small> </p><p>这是具有独立引导、内核链接目标和用户进程加载路径的实验系统。固定entry.asm以64位汇编进入kmain；内核自行初始化内存、GDT/TSS、IDT、系统调用、线程、设备和文件系统，再启动/bin/shell.elf。 <small>源码可见</small> <a href="#cz6">[cz6]</a> <a href="#cz7">[cz7]</a> <a href="#cz8">[cz8]</a> <a href="#cz12">[cz12]</a></p>
+
+<h2>作者与公开关联</h2>
+<p>原片BV1krYP6iEv5由Lightfl0w（UID3690980152707649）发布，简介直接给出lightfl0w/CoreZ-OS源码地址。GitHub项目和账号采用同一handle。 <small>作者发布页</small> <a href="#cz1">[cz1]</a> <a href="#cz2">[cz2]</a> <a href="#cz3">[cz3]</a></p><p>原作者 Lightfl0w（UID3690980152707649）在 B站用中文发布 CoreZ-OS，原片简介直接给出 lightfl0w/CoreZ-OS。按可核实的中文技术社区发布关联收录；作者国籍待核实。 <small>原作者中文社区发布</small> <a href="#cz1">[cz1]</a> <a href="#cz30">[cz30]</a></p>
+
+<h2>体系结构与实现</h2>
+<p>固定链接脚本指定elf64-x86-64与i386:x86-64，entry.asm使用bits 64；该快照的已核对内核目标为x86-64。 <small>源码可见</small> <a href="#cz6">[cz6]</a> <a href="#cz8">[cz8]</a> <a href="#cz12">[cz12]</a></p><p>内核以C及x86汇编实现，构建配置采用-ffreestanding、-fno-builtin，并独立生成kernel.elf。Python负责工程构建组织。 <small>源码可见</small> <a href="#cz6">[cz6]</a> <a href="#cz7">[cz7]</a> <a href="#cz12">[cz12]</a></p>
+
+<h2>启动</h2>
+<p>BIOS路径包括位于0x7C00的主引导代码、活动分区读取、后续loader与长模式入口；boot.asm包含INT13磁盘读和55AA结尾。 <small>源码可见</small> <a href="#cz6">[cz6]</a> <a href="#cz9">[cz9]</a> <a href="#cz10">[cz10]</a></p><p>UEFI入口读取ELF内核、建立页表并获取固件内存映射；成功调用exit_boot_services后生成Multiboot2参数，经landing入口转交内核。 <small>源码可见</small> <a href="#cz11">[cz11]</a></p>
+
+<h2>任务调度</h2>
+<p>thread.c维护每CPU就绪位图和运行队列权重，依据虚拟运行时间与deadline选取任务，通过process_activate和switch_to切换。timer及重调度IPI路径调用调度器。 <small>源码可见</small> <a href="#cz13">[cz13]</a> <a href="#cz14">[cz14]</a></p><p>固定SMP代码通过INIT/SIPI唤醒AP，建立每CPU描述符、TSS和idle任务，并切入任务上下文；完整多核运行行为待核实。 <small>源码可见</small> <a href="#cz26">[cz26]</a></p>
+
+<h2>内存管理</h2>
+<p>pool.c建立物理页位图与虚拟地址位图，包含PML4等四级页表访问、MMIO映射和page_cow_resolve写时复制处理。 <small>源码可见</small> <a href="#cz15">[cz15]</a></p>
+
+<h2>文件系统</h2>
+<p>fsapi.c定义ext2与ext4两组VFS操作表，包含查找、读写、目录项与inode分配接口，并按磁盘探测结果选择根文件系统操作表。具体文件系统格式覆盖和数据完整性待核实。 <small>源码可见</small> <a href="#cz16">[cz16]</a></p>
+
+<h2>设备驱动</h2>
+<p>固定README列出PS/2键鼠、IDE、E1000、RTL8139、ACPI/APIC及帧缓冲进展；固定Git树另有NVMe、VirtIO与VMware显示相关源码。各设备实际兼容范围待核实。 <small>作者声明与源码目录可见</small> <a href="#cz5">[cz5]</a> <a href="#cz23">[cz23]</a></p>
+
+<h2>用户程序与兼容接口</h2>
+<p>pe_load检查AMD64机器类型，建立PE映像并通过win32_resolve处理导入；API表提供窗口和GDI函数映射，未解析导入落入占位处理。兼容范围按具体API和示例程序核验。 <small>源码可见</small> <a href="#cz17">[cz17]</a> <a href="#cz29">[cz29]</a></p><p>GDI实现设置4个应用、4个窗口、12个设备上下文等固定资源上限；win_gui.c示例调用TextOutA、Rectangle、Ellipse、LineTo并响应键盘字符。 <small>源码可见</small> <a href="#cz18">[cz18]</a> <a href="#cz19">[cz19]</a></p><p>作者原片标题说明移植fish shell与简易WinGDI程序支持；固定README和构建脚本记录fish子模块及构建目标。fish运行版本与原片二进制对应待核实。 <small>作者声明与构建源码可见</small> <a href="#cz1">[cz1]</a> <a href="#cz5">[cz5]</a> <a href="#cz12">[cz12]</a> <a href="#cz20">[cz20]</a></p>
+
+<h2>原作者演示</h2>
+<p>00:26：画面可见QEMU窗口及TianoCore引导标志。 <small>既有研究记录的作者演示</small> <a href="#cz1">[cz1]</a></p>
+<p>01:01：截图中播放器读数为01:01/01:08；桌面上可见终端和包含矩形、椭圆、斜线的测试窗口。该图案与win_gui.c示例相符，录屏二进制的固定提交对应待核实。 <small>既有研究记录的作者演示</small> <a href="#cz1">[cz1]</a> <a href="#cz19">[cz19]</a></p>
+<p>以上画面沿用既有研究观察，本轮复核原片公开元数据与源码关联；独立运行与视频二进制的固定源码对应待核实。</p>
+<h2>项目与上游关系</h2>
+<p>项目固定README将其定位为教学型内核，并说明从16位引导到64位内核的开发路线。整体原创范围、参考工程继承和AI参与范围继续待核实。 <small>作者声明</small> <a href="#cz5">[cz5]</a></p><p>固定.gitmodules与Git树共同记录musl、libc-testsuite、BusyBox、fish、PCRE2和flanterm的上游及固定提交。README给出对应许可声明；完整第三方文件及分发许可范围继续待核实。 <small>源码可见</small> <a href="#cz5">[cz5]</a> <a href="#cz20">[cz20]</a> <a href="#cz23">[cz23]</a></p><p>同一固定README保留AP启动阶段和多核调度路线项；2026-10-01的7cdbd4f提交说明基础AP调度，当前thread.c和smp.c已经包含每CPU选取及AP任务切换路径。文档和较新源码分别记录，稳定性和覆盖范围待核实。 <small>作者文档与源码阶段对照</small> <a href="#cz5">[cz5]</a> <a href="#cz13">[cz13]</a> <a href="#cz25">[cz25]</a> <a href="#cz26">[cz26]</a></p>
+
+<h2>版本与维护状态</h2>
+<p>固定 main 提交：<a href="https://github.com/lightfl0w/CoreZ-OS/commit/8016bb2e8cf39001a7d2a89ece8c2ecf8381522e">8016bb2e8cf39001a7d2a89ece8c2ecf8381522e</a>；提交时间 2026-10-02T09:01:56Z。</p>
+<p>2026-10-25 仓库元数据为 archived=true；main 仍指向 8016bb2e 固定快照。 <small>仓库元数据</small> <a href="#cz4">[cz4]</a></p>
+<p>许可记录：GPL-3.0。固定根LICENSE为GPLv3全文；历史声明署名CoreZ Team，写明GPLv3或更新版本。完整源码和第三方许可适用范围分别核实。 <small>许可文本与作者声明</small> <a href="#cz21">[cz21]</a> <a href="#cz27">[cz27]</a> <a href="#cz5">[cz5]</a> <a href="#cz20">[cz20]</a></p>
+<p>原片公开发布时间 2026-10-01T03:17:06Z，UTC+8 为 2026-10-01T11:17:06+08:00；来源为平台 pubdate。 <small>原平台公开元数据</small> <a href="#cz30">[cz30]</a></p>
+<h2>核验范围与待核资料</h2>
+<p>本轮复核公开元数据、原作者关联与固定源码；演示画面沿用2026-10-10研究记录。独立构建、启动、调度、应用及自举运行结果待核实。</p>
+<ul><li>项目最早公开日期及正式版本；B站原片规范发布时间已按公开接口固定</li><li>原片录屏二进制与固定源码的版本对应</li><li>README与较新调度、固件及中断源码的阶段对应</li><li>完整上游继承、原始代码来源和AI参与范围</li><li>根许可证适用范围与全部第三方许可、资源字库许可</li><li>fish、PE/GDI、网络和文件系统具体兼容与测试覆盖</li><li>独立构建、引导、任务调度及功能运行</li><li>作者国籍的公开自述</li></ul>
+<h2>参考资料</h2><ul>
+<li id="cz1"><a href="https://www.bilibili.com/video/BV1krYP6iEv5/">Lightfl0w发布的CoreZ-OS原片</a>（作者原视频发布页）</li>
+<li id="cz2"><a href="https://github.com/lightfl0w">Lightfl0w公开GitHub主页</a>（作者公开主页）</li>
+<li id="cz3"><a href="https://space.bilibili.com/3690980152707649/upload/video">Lightfl0w公开B站投稿列表</a>（作者公开频道）</li>
+<li id="cz4"><a href="https://api.github.com/repos/lightfl0w/CoreZ-OS">CoreZ-OS仓库元数据</a>（仓库元数据）</li>
+<li id="cz5"><a href="https://github.com/lightfl0w/CoreZ-OS/blob/8016bb2e8cf39001a7d2a89ece8c2ecf8381522e/README.md">CoreZ-OS 固定源码 README.md</a>（固定源码）</li>
+<li id="cz6"><a href="https://github.com/lightfl0w/CoreZ-OS/blob/8016bb2e8cf39001a7d2a89ece8c2ecf8381522e/arch/x86/asm/entry.asm#L1-L89">CoreZ-OS 固定源码 arch/x86/asm/entry.asm</a>（固定源码）</li>
+<li id="cz7"><a href="https://github.com/lightfl0w/CoreZ-OS/blob/8016bb2e8cf39001a7d2a89ece8c2ecf8381522e/kernel/init/main.c#L58-L157">CoreZ-OS 固定源码 kernel/init/main.c</a>（固定源码）</li>
+<li id="cz8"><a href="https://github.com/lightfl0w/CoreZ-OS/blob/8016bb2e8cf39001a7d2a89ece8c2ecf8381522e/linker/kernel.ld#L1-L9">CoreZ-OS 固定源码 linker/kernel.ld</a>（固定源码）</li>
+<li id="cz9"><a href="https://github.com/lightfl0w/CoreZ-OS/blob/8016bb2e8cf39001a7d2a89ece8c2ecf8381522e/arch/x86/boot/boot.asm">CoreZ-OS 固定源码 arch/x86/boot/boot.asm</a>（固定源码）</li>
+<li id="cz10"><a href="https://github.com/lightfl0w/CoreZ-OS/blob/8016bb2e8cf39001a7d2a89ece8c2ecf8381522e/arch/x86/boot/loader.asm">CoreZ-OS 固定源码 arch/x86/boot/loader.asm</a>（固定源码）</li>
+<li id="cz11"><a href="https://github.com/lightfl0w/CoreZ-OS/blob/8016bb2e8cf39001a7d2a89ece8c2ecf8381522e/arch/x86/uefi/main.c#L680-L803">CoreZ-OS 固定源码 arch/x86/uefi/main.c</a>（固定源码）</li>
+<li id="cz12"><a href="https://github.com/lightfl0w/CoreZ-OS/blob/8016bb2e8cf39001a7d2a89ece8c2ecf8381522e/build.py">CoreZ-OS 固定源码 build.py</a>（固定源码）</li>
+<li id="cz13"><a href="https://github.com/lightfl0w/CoreZ-OS/blob/8016bb2e8cf39001a7d2a89ece8c2ecf8381522e/kernel/sched/thread.c#L595-L692">CoreZ-OS 固定源码 kernel/sched/thread.c</a>（固定源码）</li>
+<li id="cz14"><a href="https://github.com/lightfl0w/CoreZ-OS/blob/8016bb2e8cf39001a7d2a89ece8c2ecf8381522e/arch/x86/interrupt/interrupt.c#L244-L282">CoreZ-OS 固定源码 arch/x86/interrupt/interrupt.c</a>（固定源码）</li>
+<li id="cz15"><a href="https://github.com/lightfl0w/CoreZ-OS/blob/8016bb2e8cf39001a7d2a89ece8c2ecf8381522e/kernel/mm/pool/pool.c">CoreZ-OS 固定源码 kernel/mm/pool/pool.c</a>（固定源码）</li>
+<li id="cz16"><a href="https://github.com/lightfl0w/CoreZ-OS/blob/8016bb2e8cf39001a7d2a89ece8c2ecf8381522e/kernel/fs/fsapi.c">CoreZ-OS 固定源码 kernel/fs/fsapi.c</a>（固定源码）</li>
+<li id="cz17"><a href="https://github.com/lightfl0w/CoreZ-OS/blob/8016bb2e8cf39001a7d2a89ece8c2ecf8381522e/kernel/userprog/pe.c">CoreZ-OS 固定源码 kernel/userprog/pe.c</a>（固定源码）</li>
+<li id="cz18"><a href="https://github.com/lightfl0w/CoreZ-OS/blob/8016bb2e8cf39001a7d2a89ece8c2ecf8381522e/kernel/syscall/win32_gdi.c">CoreZ-OS 固定源码 kernel/syscall/win32_gdi.c</a>（固定源码）</li>
+<li id="cz19"><a href="https://github.com/lightfl0w/CoreZ-OS/blob/8016bb2e8cf39001a7d2a89ece8c2ecf8381522e/apps/win_gui.c">CoreZ-OS 固定源码 apps/win_gui.c</a>（固定源码）</li>
+<li id="cz20"><a href="https://github.com/lightfl0w/CoreZ-OS/blob/8016bb2e8cf39001a7d2a89ece8c2ecf8381522e/.gitmodules">CoreZ-OS 固定源码 .gitmodules</a>（固定源码）</li>
+<li id="cz21"><a href="https://github.com/lightfl0w/CoreZ-OS/blob/8016bb2e8cf39001a7d2a89ece8c2ecf8381522e/LICENSE">CoreZ-OS 固定源码 LICENSE</a>（固定源码）</li>
+<li id="cz22"><a href="https://github.com/lightfl0w/CoreZ-OS/commit/8016bb2e8cf39001a7d2a89ece8c2ecf8381522e">CoreZ-OS固定提交</a>（固定提交）</li>
+<li id="cz23"><a href="https://api.github.com/repos/lightfl0w/CoreZ-OS/git/trees/8016bb2e8cf39001a7d2a89ece8c2ecf8381522e?recursive=1">CoreZ-OS固定递归Git树</a>（固定Git树）</li>
+<li id="cz24"><a href="https://api.github.com/repos/lightfl0w/CoreZ-OS/releases?per_page=100">CoreZ-OS Releases集合</a>（仓库元数据）</li>
+<li id="cz25"><a href="https://api.github.com/repos/lightfl0w/CoreZ-OS/commits?per_page=100&amp;page=1">CoreZ-OS公开提交列表（第1页）</a>（提交历史）</li>
+<li id="cz26"><a href="https://github.com/lightfl0w/CoreZ-OS/blob/8016bb2e8cf39001a7d2a89ece8c2ecf8381522e/kernel/init/smp/smp.c">CoreZ-OS 固定源码 kernel/init/smp/smp.c</a>（固定源码）</li>
+<li id="cz27"><a href="https://github.com/lightfl0w/CoreZ-OS/commit/689bb08d0587e921fbb3d895d6a62cbbdc23345a">CoreZ-OS补充GPLv3全文提交</a>（许可历史）</li>
+<li id="cz28"><a href="https://space.bilibili.com/3690980152707649/dynamic">Lightfl0w公开动态页</a>（作者公开频道）</li>
+<li id="cz29"><a href="https://github.com/lightfl0w/CoreZ-OS/blob/8016bb2e8cf39001a7d2a89ece8c2ecf8381522e/kernel/syscall/win32.c">CoreZ-OS 固定源码 kernel/syscall/win32.c</a>（固定源码）</li>
+<li id="cz30"><a href="https://api.bilibili.com/x/web-interface/view?bvid=BV1krYP6iEv5">CoreZ-OS 原片公开元数据</a>（原平台公开元数据）</li>
+</ul><p>资料核验日期：2026-10-25</p></main><footer>站点由<a href="https://yuyan-lang.org/">豫言编程语言</a>提供</footer></body></html>

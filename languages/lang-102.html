@@ -1,9 +1,9 @@
 <!doctype html>
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>墨言（moyan_lang）｜中文编程语言百科</title><link rel="stylesheet" href="../style.css"></head><body><header><h1>墨言（moyan_lang）</h1></header><main><p><a href="../">返回语言目录</a></p>
-<h2>语言介绍</h2><p>墨言项目README以篇章、引言、正文、结语组织中文程序，原例通过恒有声明常量，并用书表达输出操作。本条目依据2026-10-13原项目文档的读取记录收录，实际解析与执行语义继续待核实。</p>
-<h2>分类与别名</h2><p>中文编程语言（项目文档语法核验）；别名：Moyan；moyan_compiler</p>
-<h2>作者与公开历史</h2><p>GitCode组织“墨言编程语言”（moyan_lang）发布项目，所见master头提交关联账号amor2022。语言原作者、团队分工及署名沿革待核实。 项目侧栏记录v0.1.0日期为2025-12-16；发行正文、首次公开日期及该日期的时区待核实。</p>
-<h2>设计与特征</h2><p>篇章、引言、正文、结语的程序结构；恒有常量声明原例；书输出语句原例；作者文档中的类、异步、枚举及Lambda示例</p>
+<h2>语言介绍</h2><p>墨言是以Rust实现的中文AST解释语言，以篇章、引言、正文、结语组织程序，通过恒有声明常量，用书及书行表达输出。固定源码包含中文词法识别、递归下降解析、AST构造与解释执行链；CLI读取源文件后调用词法器、解析器与Interpreter.eval。项目另提供字节码VM和代码生成模块，相关能力按具体源码与作者文档分别记录。</p>
+<h2>分类与别名</h2><p>Rust实现的中文AST解释语言；别名：Moyan；moyan_compiler</p>
+<h2>作者与公开历史</h2><p>项目由GitCode／AtomGit组织“墨言编程语言”（moyan_lang）发布。公开保留的319条提交均署名amor2022，根提交与v0.1.0标签同署名；真实姓名、完整团队分工待核实。 保留历史根提交391cde95985f767a5d57eb6ef67c0ab9f726aa9e时间为2025-11-30T15:54:44+08:00。v0.1.0标签创建于2025-12-17T01:15:52Z，目标提交时间为2025-12-16T20:28:07+08:00；原项目侧栏日期2025-12-16另按发行页面观察记录。首次对外公开日期待核实。</p>
+<h2>设计与特征</h2><p>篇章、引言、正文、结语的中文程序结构；恒有常量、有变量和书／书行输出；Rust词法器、递归下降解析器与AST解释链；函数、控制流、类型、类和模块相关源码与原例；字节码VM、代码生成器与中文标准库目录</p>
 <h2>中文语法示例</h2><pre><code>篇章 你好世界
 
 引言
@@ -16,17 +16,26 @@
 毕
 
 结语
-毕</code></pre><p>2026-10-13读取README保存的完整连续原例，保留缩进及空行。2026-10-14依据Issue #26存档复核转录。原例与固定SHA文件的逐字对应、独立运行及输出结果待核实。 <a href="https://gitcode.com/moyan_lang/moyan_compiler/blob/master/README.md">示例来源</a></p>
-<h2>实现与运行环境</h2><p>项目介绍声明Rust实现。README描述递归下降、AST解释执行、VM字节码及原生可执行文件输出。2026-10-13所见src文件表列有lexer、parser、ast、interpreter、vm、code_generator、runtime、commands、type_checker、semantic_analyzer，以及main.rs、lib.rs、stdlib_loader.rs、stdlib_registry.rs。文件内部调用、解析规则及执行语义待核实。</p>
-<h2>版本与维护状态</h2><p>2026-10-13所见master头为11e0367837834df1f2fb5655a494b4fda9cdec3d，README页面标注最后修改提交411b21edf03f03a53d062975d9a96fcf7a4fa47c。页面正文与固定文件的对应待核实。 中文连续原例和项目文档已取得，src目录条目可见。固定文件、Rust实现正文、发行及同源关系继续待核实。</p>
-<h2>许可与AI参与</h2><p>README许可证章节声明MIT License。完整许可正文、版权署名及适用范围待核实。 项目自述全部使用AI开发，定位为玩具项目，并说明测试覆盖有限及Windows测试范围。具体模型、人工复核与开发过程待核实。</p>
-<h2>与其他项目的关系</h2><p>本条目限定于GitCode moyan_lang/moyan_compiler。项目结构中的moyanv2名称、skywalk163资料所列同名墨言及其他同名项目之间的身份与继承关系待核实。</p>
-<h2>核验说明</h2><p>原始README和src目录核验日期为2026-10-13，证据存于Issue #26评论6151455940；2026-10-14复核该存档并整理条目。此前Cargo.toml读取出现访问频次限制与登录要求，后续请求停止。动态分支与固定文件的内容对应待核实。安装、构建、测试与候选程序执行均为0。</p>
-<h2>参考资料</h2><ul><li><a href="https://gitcode.com/moyan_lang/moyan_compiler">墨言原始项目</a></li>
-<li><a href="https://gitcode.com/moyan_lang/moyan_compiler/blob/master/README.md">原始README（动态分支）</a></li>
-<li><a href="https://github.com/yuyan-lang/chinese-programming-languages/issues/26#issuecomment-6151455940">2026-10-13原例、目录和访问记录存档</a></li>
-<li><a href="https://gitcode.com/moyan_lang/moyan_compiler/commit/11e0367837834df1f2fb5655a494b4fda9cdec3d?ref=master">所见master头提交</a></li>
-<li><a href="https://gitcode.com/moyan_lang/moyan_compiler/commit/411b21edf03f03a53d062975d9a96fcf7a4fa47c?ref=master">README页面标注的最后修改提交</a></li>
-<li><a href="https://gitcode.com/moyan_lang/moyan_compiler/tree/master/src">原始src文件目录</a></li>
-<li><a href="https://gitcode.com/moyan_lang/moyan_compiler/releases/v0.1.0">v0.1.0发行入口（正文待核实）</a></li>
-<li><a href="https://github.com/yuyan-lang/chinese-programming-languages/issues/26">待核议题与剩余缺口</a></li></ul><p>原始资料核验日期：2026-10-13；存档复核日期：2026-10-14</p><p><a href="https://github.com/yuyan-lang/chinese-programming-languages/issues/new">补充资料或纠错</a></p></main><footer>站点由<a href="https://yuyan-lang.org/">豫言编程语言</a>提供</footer></body></html>
+毕</code></pre><p>固定README第233—245行完整连续13行原例。旧头11e0367837834df1f2fb5655a494b4fda9cdec3d与本次固定头的README均指向blob bc3b87978b46731e738e24131a068d5c9de9f8b7，原例与2026-10-13存档逐字对应，保留空行及缩进。独立运行与输出观察待核实。 <a href="https://gitcode.com/moyan_lang/moyan_compiler/blob/a392600d6b324c094b5d82367e4b86e207816b82/README.md#L233-L245">示例来源</a></p>
+<h2>实现与运行环境</h2><p>Cargo.toml声明Rust 2021、包名moyan和src/main.rs命令入口。main.rs第49行调用commands::run_file，run.rs第46—48行读取源文件，第140—179行依次Lexer.tokenize、Parser.parse、可选常量折叠及Interpreter.eval。lexer.rs第856—867行将篇章、引言、正文、结语、毕、恒有等识别为词元；书／书行保留为标识符，由parser.rs第399—400行分派为输出语句。parse_chapter第103—136行解析三段程序，parse_const_decl第664—692行构建常量声明；parse_print第2180—2238行构建Print节点。interpreter.rs第487—503行依次求值三段语句，第786—801行绑定常量，第1105—1147行求值并输出Print表达式。字节码VM、原生输出、异步与完整标准库覆盖另按作者说明和对应模块保存。</p>
+<h2>版本与维护状态</h2><p>固定master提交a392600d6b324c094b5d82367e4b86e207816b82，作者／提交者时间均为2026-10-25T23:23:03+08:00，消息为解释器模块拆分；该头完整树702个文件、保留历史319条提交。Cargo.toml自标0.2.0；v0.1.0为附注标签，标签对象aee2a9f3ad56b1ca250219492c64e7d887266087，目标提交c12a3a486ba6ed96ca859eb62af7eb5d848de5a2。包版本、标签与平台发行侧栏分别记录。 固定中文原例、Rust词法／递归下降／AST解释及CLI执行链已核。作者定位为玩具项目，并说明Windows测试范围和部分示例未经测试。独立运行、完整功能覆盖及发行附件对应待核实。</p>
+<h2>许可与AI参与</h2><p>固定README第573—575行声明MIT License。当前702文件完整树中的独立许可正文与版权署名待补；Cargo.toml未填写license字段。授权适用范围待核实。 项目自述全部使用AI开发，定位为玩具项目，并说明测试覆盖有限及Windows测试范围。具体模型、人工复核与开发过程待核实。</p>
+<h2>与其他项目的关系</h2><p>moyan_lang/moyan_compiler、Cargo包名moyan、描述“墨言·文心编程语言编译器”及同仓源码和例程构成一个项目。旧头与当前头的README blob一致。skywalk163所列同名墨言的身份关系、其他同名项目与外部moyan-runtime路径的项目关系待核实。</p>
+<h2>核验说明</h2><p>2026-10-25以公开Git传输只读取得仓库，固定头并逐段核对README、Cargo.toml、词法、解析、解释器及CLI源码；旧头与当前头README为同一blob，补齐此前固定正文缺口。原项目网页固定文件区仍仅显示外壳。原仓构建脚本、依赖、安装器、二进制及候选程序均未执行；独立运行为0。真实姓名、完整许可正文、精确首发和发行附件继续作为待补字段。</p>
+<h2>参考资料</h2><ul><li><a href="https://gitcode.com/moyan_lang/moyan_compiler/blob/a392600d6b324c094b5d82367e4b86e207816b82/README.md">固定README：定位、中文原例、AI声明及MIT文字</a></li>
+<li><a href="https://gitcode.com/moyan_lang/moyan_compiler/blob/a392600d6b324c094b5d82367e4b86e207816b82/src/lexer/lexer.rs#L845-L875">固定中文词法识别</a></li>
+<li><a href="https://gitcode.com/moyan_lang/moyan_compiler/blob/a392600d6b324c094b5d82367e4b86e207816b82/src/parser/parser.rs#L61-L136">固定篇章三段解析</a></li>
+<li><a href="https://gitcode.com/moyan_lang/moyan_compiler/blob/a392600d6b324c094b5d82367e4b86e207816b82/src/parser/parser.rs#L664-L692">固定常量声明解析</a></li>
+<li><a href="https://gitcode.com/moyan_lang/moyan_compiler/blob/a392600d6b324c094b5d82367e4b86e207816b82/src/parser/parser.rs#L2180-L2238">固定输出语句解析</a></li>
+<li><a href="https://gitcode.com/moyan_lang/moyan_compiler/blob/a392600d6b324c094b5d82367e4b86e207816b82/src/commands/run.rs#L117-L179">固定文件读取与词法、解析、解释调度</a></li>
+<li><a href="https://gitcode.com/moyan_lang/moyan_compiler/blob/a392600d6b324c094b5d82367e4b86e207816b82/src/interpreter/interpreter.rs#L485-L503">固定AST程序求值</a></li>
+<li><a href="https://gitcode.com/moyan_lang/moyan_compiler/blob/a392600d6b324c094b5d82367e4b86e207816b82/src/interpreter/interpreter.rs#L786-L826">固定常量绑定与变量环境</a></li>
+<li><a href="https://gitcode.com/moyan_lang/moyan_compiler/blob/a392600d6b324c094b5d82367e4b86e207816b82/src/interpreter/interpreter.rs#L1105-L1147">固定输出执行</a></li>
+<li><a href="https://gitcode.com/moyan_lang/moyan_compiler/blob/a392600d6b324c094b5d82367e4b86e207816b82/Cargo.toml">固定Cargo包版本和依赖</a></li>
+<li><a href="https://gitcode.com/moyan_lang/moyan_compiler/blob/a392600d6b324c094b5d82367e4b86e207816b82/src/main.rs#L26-L49">固定CLI入口</a></li>
+<li><a href="https://gitcode.com/moyan_lang/moyan_compiler/tree/a392600d6b324c094b5d82367e4b86e207816b82">固定完整文件树</a></li>
+<li><a href="https://gitcode.com/moyan_lang/moyan_compiler/tree/v0.1.0">v0.1.0标签入口</a></li>
+<li><a href="https://gitcode.com/moyan_lang/moyan_compiler/commit/391cde95985f767a5d57eb6ef67c0ab9f726aa9e">保留历史根提交</a></li>
+<li><a href="https://gitcode.com/moyan_lang/moyan_compiler/blob/11e0367837834df1f2fb5655a494b4fda9cdec3d/README.md">旧头README：与当前blob相同</a></li>
+<li><a href="https://github.com/yuyan-lang/chinese-programming-languages/issues/26#issuecomment-6151455940">2026-10-13原始观察存档</a></li>
+<li><a href="https://gitcode.com/moyan_lang/moyan_compiler/releases/v0.1.0">原项目发行入口</a></li><li><a href="https://gitcode.com/moyan_lang/moyan_compiler/blob/master/README.md">原始README（动态分支）</a></li><li><a href="https://gitcode.com/moyan_lang/moyan_compiler/commit/11e0367837834df1f2fb5655a494b4fda9cdec3d?ref=master">所见master头提交</a></li><li><a href="https://gitcode.com/moyan_lang/moyan_compiler/commit/411b21edf03f03a53d062975d9a96fcf7a4fa47c?ref=master">README页面标注的最后修改提交</a></li><li><a href="https://gitcode.com/moyan_lang/moyan_compiler/tree/master/src">原始src文件目录</a></li><li><a href="https://gitcode.com/moyan_lang/moyan_compiler">墨言原始项目</a></li><li><a href="https://github.com/yuyan-lang/chinese-programming-languages/issues/26">待核议题与剩余缺口</a></li></ul><p>资料核验日期：2026-10-25</p><p><a href="https://github.com/yuyan-lang/chinese-programming-languages/issues/new">补充资料或纠错</a></p></main><footer>站点由<a href="https://yuyan-lang.org/">豫言编程语言</a>提供</footer></body></html>

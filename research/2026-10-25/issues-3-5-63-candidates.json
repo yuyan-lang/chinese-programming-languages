@@ -1,0 +1,315 @@
+[
+  {
+    "id": "lang-107",
+    "name": "RexLang",
+    "aliases": [
+      "REXLang",
+      "快速表达扩展语言",
+      "Rapid Expression eXtension Language"
+    ],
+    "category": "易语言风格的中文编译语言与运行时实现",
+    "author": "Gitee原仓账号RonxBulld维护；固定README与License.txt保存项目署名。原仓保留历史的提交作者为RonxBulld。公开职业主页将RexLang列为Yuanhui Feng的个人项目，该跨平台身份按既有搜索缓存记录，直接身份对应继续待核实。",
+    "first_publication": "保留历史根提交517e93712ab2b131de8a6734b46d558cf2f9a3ce的作者时间为2019-04-12T22:47:30+08:00。固定头提交时间为2020-09-23T22:18:47+08:00。上述为Git提交时间，首次对外公开时间待核实。",
+    "description": "RexLang使用.程序集、.子程序、.局部变量、.如果和返回等中文句式组织程序，语法设计以易语言为蓝本。原仓保存C++编译器、ANTLR文法、LLVM代码生成与字符串、数组等运行时模块，目标为快速原型开发和算法验证。",
+    "features": [
+      "中文声明、条件和循环文法",
+      "递归子程序与显式参数类型",
+      "ANTLR词法／语法分析与AST构造",
+      "LLVM目标文件生成和链接入口",
+      "配套中文回归例程与运行时源码"
+    ],
+    "code": ".子程序 gcd, 长整数型\n.参数 a, 长整数型\n.参数 b, 长整数型\n\n.如果 (b ＝ 0)\n    返回 (a)\n.否则\n    返回 (gcd (b, a ％ b))\n.如果结束",
+    "code_source": "https://gitee.com/RonxBulld/RexLang/blob/6b11e5a5cc0e27b6c722db3c164e94d072710b7d/oe_test/gcd_algorithm.txt#L19-L27",
+    "code_context": "固定提交oe_test/gcd_algorithm.txt第19—27行的连续原文，定义递归最大公约数子程序。保留原始缩进与全角运算符；同文件前文提供启动子程序、输入值和输出调用。独立执行结果待核实。",
+    "implementation": "Compiler/main_entity.cpp从文件列表进入BuildASTFromFiles，再调用目标代码生成和链接，最后提供启动产物的入口。AstGenerate.cpp调用rexLangLexer、rexLangParser及CST2ASTConvert；compile_driver.cpp合并翻译单元并进行语义分析，由EmitLLVMIR、LLCodeGen.WriteOutObject与Linker构成后续路径。README列ANTLR 4.7.2和LLVM 9.0.1；INSTALL.md保存Linux与Windows构建步骤。上述为固定源码静态调用链，完整构建、链接及平台覆盖待核实。",
+    "version": "固定master提交6b11e5a5cc0e27b6c722db3c164e94d072710b7d，保留历史202个提交；原仓标签0.1.0至0.1.4。标签、头提交与可下载发行物的版本映射待核实。例程中的.版本 2为源文件语法标记。",
+    "license": "固定License.txt提供Apache-2.0正文及REXLang Extensions，附加保留项目名称与原始仓库地址的要求。README另列付费闭源书面授权及商业使用条件；两份文字的适用关系待核实。使用时应同时核对原始文件和第三方库许可。",
+    "ai_involvement": "开发过程中AI参与情况待核实。",
+    "relations": "README明确以易语言语法为蓝本，原仓同时提供独立的ANTLR文法、C++编译器和运行时模块。项目沿用RonxBulld/RexLang原仓身份；Gitee的其他fork按派生仓分别处理。兼容程度及源码继承范围待核实。",
+    "status": "中文原例、固定文法、AST与LLVM生成／链接入口已静态核验。运行结果、当前维护计划与发行产物继续待核实。",
+    "evidence_level": "原作者公开Git仓库、固定中文例程与编译实现源码的静态核验",
+    "verification_notes": "2026-10-25只读获取Gitee原仓及完整保留历史，核对固定原例、实现入口、文法、构建说明和两份许可文字。网页提交详情进入登录页；公开Git传输取得相同完整提交。安装、构建、测试及候选程序执行均为0。",
+    "verified_at": "2026-10-25",
+    "first_commit_at": "2019-04-12T22:47:30+08:00",
+    "latest_commit_at": "2020-09-23T22:18:47+08:00",
+    "release_status": "原仓保存五个0.1.x标签；正式发行附件、发布日期和二进制对应待核实。",
+    "code_source_detail": {
+      "repository": "RonxBulld/RexLang",
+      "branch": "master",
+      "commit": "6b11e5a5cc0e27b6c722db3c164e94d072710b7d",
+      "path": "oe_test/gcd_algorithm.txt",
+      "lines": "19-27",
+      "blob_sha": "f0bdd739dfbcaba323fe2f415ec12aa9c3886576",
+      "verification": "公开Git传输取得原始blob，逐字摘录连续子程序"
+    },
+    "references": [
+      {
+        "title": "原始待核议题",
+        "url": "https://github.com/yuyan-lang/chinese-programming-languages/issues/3"
+      },
+      {
+        "title": "原仓README及项目范围",
+        "url": "https://gitee.com/RonxBulld/RexLang/blob/6b11e5a5cc0e27b6c722db3c164e94d072710b7d/README.md"
+      },
+      {
+        "title": "连续中文递归例程",
+        "url": "https://gitee.com/RonxBulld/RexLang/blob/6b11e5a5cc0e27b6c722db3c164e94d072710b7d/oe_test/gcd_algorithm.txt#L19-L27"
+      },
+      {
+        "title": "ANTLR中文文法",
+        "url": "https://gitee.com/RonxBulld/RexLang/blob/6b11e5a5cc0e27b6c722db3c164e94d072710b7d/Compiler/rexlang_compiler/rexLang.g4"
+      },
+      {
+        "title": "词法、语法和AST入口",
+        "url": "https://gitee.com/RonxBulld/RexLang/blob/6b11e5a5cc0e27b6c722db3c164e94d072710b7d/Compiler/rexlang_compiler/AstGenerate.cpp"
+      },
+      {
+        "title": "语义分析与目标文件生成入口",
+        "url": "https://gitee.com/RonxBulld/RexLang/blob/6b11e5a5cc0e27b6c722db3c164e94d072710b7d/Compiler/compile_driver.cpp"
+      },
+      {
+        "title": "命令行编译、链接与执行入口",
+        "url": "https://gitee.com/RonxBulld/RexLang/blob/6b11e5a5cc0e27b6c722db3c164e94d072710b7d/Compiler/main_entity.cpp"
+      },
+      {
+        "title": "LLVM IR生成模块",
+        "url": "https://gitee.com/RonxBulld/RexLang/blob/6b11e5a5cc0e27b6c722db3c164e94d072710b7d/Compiler/ir/LLVMIR/EmitLLVMIR.cpp"
+      },
+      {
+        "title": "目标代码生成模块",
+        "url": "https://gitee.com/RonxBulld/RexLang/blob/6b11e5a5cc0e27b6c722db3c164e94d072710b7d/Compiler/codegen/LLCodeGen.cpp"
+      },
+      {
+        "title": "链接模块",
+        "url": "https://gitee.com/RonxBulld/RexLang/blob/6b11e5a5cc0e27b6c722db3c164e94d072710b7d/Compiler/link/Linker.cpp"
+      },
+      {
+        "title": "构建环境与步骤",
+        "url": "https://gitee.com/RonxBulld/RexLang/blob/6b11e5a5cc0e27b6c722db3c164e94d072710b7d/INSTALL.md"
+      },
+      {
+        "title": "固定根许可及附加要求",
+        "url": "https://gitee.com/RonxBulld/RexLang/blob/6b11e5a5cc0e27b6c722db3c164e94d072710b7d/License.txt"
+      },
+      {
+        "title": "保留历史根提交",
+        "url": "https://gitee.com/RonxBulld/RexLang/commit/517e93712ab2b131de8a6734b46d558cf2f9a3ce"
+      },
+      {
+        "title": "固定头提交",
+        "url": "https://gitee.com/RonxBulld/RexLang/commit/6b11e5a5cc0e27b6c722db3c164e94d072710b7d"
+      }
+    ]
+  },
+  {
+    "id": "lang-108",
+    "name": "意语言",
+    "aliases": [
+      "Intent Language"
+    ],
+    "category": "实验性中文语言设计（原作者文档与原例核验）",
+    "author": "GitCode账号gcw_2sDxn3gI发布的文章将该账号列为意语言设计与实现者。文章说明人类提供源码与设计思路，Huawei Cloud IaC Architecture Partner Agent撰写评估文字。真实姓名及具体贡献分工待核实。",
+    "first_publication": "原文自标日期2026-10-04；固定迁移提交f8e93ab160e174a236c88f0dbdcd39f3c30fc8c5的时间为2026-10-14T15:09:22+08:00。文档日期、提交时间与首次对外公开时间分别记录，首次公开待核实。",
+    "description": "意语言的公开设计使用模块、公开函数、规则、成等中文句式表达程序与推理规则。文档提出显式长度头的八字定宽记录和称为意元的语义层，并提供递归求和模块原例。当前条目依据原作者固定设计文档收录。",
+    "features": [
+      "中文模块和函数设计",
+      "规则式条件与递归原例",
+      "显式长度头记录方案",
+      "意元语义标注设计",
+      "面向AI生成程序的设计定位"
+    ],
+    "code": "模块 意语言示例\n版本 13\n公开意义 计算总和\n公开函数 计算总和（参数 列表）成 总数\n  规则 若 列表 为空 成 0\n  规则 否则 成 列表首项 加 计算总和（列表余项）\n结束函数\n结束模块",
+    "code_source": "https://gitcode.com/gcw_2sDxn3gI/ai-agent-recommends-intent-language/blob/f8e93ab160e174a236c88f0dbdcd39f3c30fc8c5/README.md#L60-L67",
+    "code_context": "固定原仓README第60—67行完整模块原文，保留全角括号、缩进和版本行。版本13属于示例内容。此处展示作者公开设计；程序执行、语法覆盖和正式版本对应待核实。",
+    "implementation": "文章说明JavaScript宿主、七条中文VM指令与前端校验方案，并自述阅读过四个核心源文件。固定说明仓仅保存README；作者明确迁移到directional-computing-chengfu的docs/ai-agent-perspectives/intent-language.md。迁移主仓固定879634672b8f2d4fe4893f9cc8228b455702c691保存同文，意语言四个核心文件及完整编译执行链继续待核实。",
+    "version": "公开说明使用约40%完成度表述；中文原例包含版本13。两者按文档自述保存，正式语言版本、发行物及兼容性待核实。",
+    "license": "固定说明仓保存README一项文件，许可正文待核实；迁移主仓页面的MIT标签与意语言文档及尚待取得的实现之间的许可范围待核实。",
+    "ai_involvement": "原文明确由人类作者提供全部源代码与设计思路，Huawei Cloud IaC Architecture Partner Agent阅读后撰写评估文章。AI参与实现的具体范围待核实。",
+    "relations": "说明仓的固定迁移提示直接链接同账号directional-computing-chengfu主仓，迁移路径保存同篇意语言介绍。条目将两处说明合为一个设计项目。文中关于自举、测试和完成度的说明属于作者材料中的评估声明。",
+    "status": "固定原始中文设计与完整模块原例已核验。384项测试、前端自举和约40%完成度按文章自述记录，独立复现待核实。",
+    "evidence_level": "原作者固定Git文档与连续中文设计原例；实现细节按作者说明分层记录",
+    "verification_notes": "2026-10-25只读获取说明仓及作者明确链接的迁移主仓。说明仓固定README的blob为e6f63123cf00e1dc7448443a4495725705fc82e1；迁移文档blob为43e1707b86a23bd4cd67af4811afa7551d01d817。核对迁移声明、作者署名、原例与实现状态。候选程序执行、安装、构建和测试均为0。",
+    "verified_at": "2026-10-25",
+    "code_source_detail": {
+      "repository": "gcw_2sDxn3gI/ai-agent-recommends-intent-language",
+      "branch": "main",
+      "commit": "f8e93ab160e174a236c88f0dbdcd39f3c30fc8c5",
+      "path": "README.md",
+      "lines": "60-67",
+      "blob_sha": "e6f63123cf00e1dc7448443a4495725705fc82e1",
+      "verification": "公开Git原始blob逐字摘录；按设计文档原例收录"
+    },
+    "references": [
+      {
+        "title": "原始待核议题",
+        "url": "https://github.com/yuyan-lang/chinese-programming-languages/issues/3"
+      },
+      {
+        "title": "固定原作者说明与完整模块原例",
+        "url": "https://gitcode.com/gcw_2sDxn3gI/ai-agent-recommends-intent-language/blob/f8e93ab160e174a236c88f0dbdcd39f3c30fc8c5/README.md#L60-L67"
+      },
+      {
+        "title": "固定说明全文、署名与迁移声明",
+        "url": "https://gitcode.com/gcw_2sDxn3gI/ai-agent-recommends-intent-language/blob/f8e93ab160e174a236c88f0dbdcd39f3c30fc8c5/README.md"
+      },
+      {
+        "title": "固定说明提交",
+        "url": "https://gitcode.com/gcw_2sDxn3gI/ai-agent-recommends-intent-language/commit/f8e93ab160e174a236c88f0dbdcd39f3c30fc8c5"
+      },
+      {
+        "title": "作者明确链接的迁移文档",
+        "url": "https://gitcode.com/gcw_2sDxn3gI/directional-computing-chengfu/blob/879634672b8f2d4fe4893f9cc8228b455702c691/docs/ai-agent-perspectives/intent-language.md"
+      }
+    ]
+  },
+  {
+    "id": "lang-109",
+    "name": "Hanyu-Lang",
+    "aliases": [
+      "汉语编程语言（PyPI hanyu-lang）"
+    ],
+    "category": "实验性中文语言原型（PyPI发布包静态核验）",
+    "author": "PyPI项目页维护者为lin8092_76。0.1.2包的Author及邮箱字段使用模板占位内容，真实姓名、团队与仓库身份待核实。",
+    "first_publication": "PyPI记录0.1.2源码包上传于2025-04-23T16:35:41.915376Z，wheel上传于2025-04-23T16:35:40.631282Z。该记录为此版本上传时间，项目首次对外公开时间待核实。",
+    "description": "Hanyu-Lang的公开Python发布包保存中文关键字表、解析器草稿、命令行和GUI文件。作者测试使用打印(\"测试输出\")演示中文输出。runtime.py提供按引号提取文本的有限输出原型；完整词法、解析和运行集成继续待核实。",
+    "features": [
+      "中文打印单句与作者测试原例",
+      "如果、否则、循环、定义函数词元表",
+      "Python词法和解析器草稿",
+      "文件运行与Tkinter编辑器入口文件"
+    ],
+    "code": "打印(\"测试输出\")",
+    "code_source": "https://files.pythonhosted.org/packages/75/5a/88b050c9b25cdd0e165b858d61a4f7852cda033db0caa410ab2dd11703ae/hanyu_lang-0.1.2.tar.gz",
+    "code_context": "原始0.1.2源码包tests/test_basic.py第6行传给引擎.执行的完整字符串参数。代码逐字保留。此原例配套的断言预期为测试输出，独立执行结果待核实。",
+    "implementation": "src/hanyu_lang/runtime.py的解释器.执行检查代码是否包含打印(与双引号，再通过split提取引号内文本。lexer.py定义中文关键词和标点；parser.py提供部分赋值及打印分派，其中下一个类型、解析打印等调用的对应定义待补。包同时包含runtime.py与空runtime/__init__.py、runtime/interpreter.py；CLI导入与解析集成存在待核缺口。GUI保存编辑和文件操作草稿，实际启动与跨平台行为待核实。",
+    "version": "PyPI与包元数据标0.1.2、Alpha；src/hanyu_lang/__init__.py中的__version__为0.1.3。版本字段差异按原件分别记录。Python要求为>=3.8，实际最低兼容版本待核实。",
+    "license": "包元数据及README声明MIT；源码包LICENSE仅保存MIT License标题与年份、姓名占位行。完整授权正文、版权署名及发行包许可范围待核实。",
+    "ai_involvement": "开发过程的AI参与情况待核实。",
+    "relations": "项目Homepage字段使用yourusername/hanyu-lang占位链接，作者仓库待核实。按PyPI项目及0.1.2原始分发包记录独立身份，与其他同名汉语编程项目的关系待核实。",
+    "status": "原始包、中文词元表、单句作者原例和有限输出源码已静态核验。REPL、完整控制流、AST可视化与标准库按发布页声明留待实现证据核实。",
+    "evidence_level": "PyPI原始源码包、固定SHA256、作者测试原例与实现草稿的静态核验",
+    "verification_notes": "2026-10-25只读下载0.1.2源码分发包，10095字节，SHA256为9a3ec70999c2b6418b540c2cdc3585de6df9a2f2c638856a5105532894d79f06，与PyPI JSON一致。通过tarfile只读各成员；__init__.py按原BOM使用UTF-16解码，其余所读文本按UTF-8。包内测试仅作为作者原例和预期结果证据。安装、构建、导入及测试执行均为0。",
+    "verified_at": "2026-10-25",
+    "release_status": "本条目核对PyPI 0.1.2源码包；wheel存在于发布记录，内部内容与源码包的逐项对应待核实。",
+    "code_source_detail": {
+      "source_type": "PyPI原始源码分发包",
+      "distribution": "hanyu_lang-0.1.2.tar.gz",
+      "sha256": "9a3ec70999c2b6418b540c2cdc3585de6df9a2f2c638856a5105532894d79f06",
+      "path": "hanyu_lang-0.1.2/tests/test_basic.py",
+      "lines": "6",
+      "verification": "作者测试的执行字符串逐字摘录；包与元数据摘要一致"
+    },
+    "references": [
+      {
+        "title": "原始待核议题",
+        "url": "https://github.com/yuyan-lang/chinese-programming-languages/issues/5"
+      },
+      {
+        "title": "PyPI项目页与维护者",
+        "url": "https://pypi.org/project/hanyu-lang/0.1.2/"
+      },
+      {
+        "title": "PyPI 0.1.2原始元数据与下载摘要",
+        "url": "https://pypi.org/pypi/hanyu-lang/0.1.2/json"
+      },
+      {
+        "title": "原始源码包：测试原例、词法、解析及运行草稿",
+        "url": "https://files.pythonhosted.org/packages/75/5a/88b050c9b25cdd0e165b858d61a4f7852cda033db0caa410ab2dd11703ae/hanyu_lang-0.1.2.tar.gz"
+      },
+      {
+        "title": "原始wheel分发记录",
+        "url": "https://files.pythonhosted.org/packages/4d/b5/b78d0e5c4de6bf4ada5e316e112f9132528def75e31e290521ae8a60c0e1/hanyu_lang-0.1.2-py3-none-any.whl"
+      }
+    ]
+  },
+  {
+    "id": "lang-110",
+    "name": "客舍",
+    "aliases": [
+      "Kèshě",
+      "keshe-lang"
+    ],
+    "category": "中文Lisp方言设计与读取器解析原型",
+    "author": "GitHub keshe-lang/keshe-lang的提交关联账号为Fancyary；固定规范署名Wang Zhangli。Emacs China账号FCary发表过同名中文Lisp设计讨论，该论坛账号与仓库署名的直接身份对应待核实。",
+    "first_publication": "固定规范自标2026-08-26；GitHub建库时间为2026-08-26T09:49:33Z，保留历史根提交b008e9a23314ae783a8cf209eff836c2938db772时间为2026-08-26T09:49:34Z。文档日期、建库时间和首次公开时间分别记录，首次公开待核实。",
+    "description": "客舍用令、定、若、者、也、曰等古汉语虚词构造Lisp风格程序。公开草案规定前缀表达式、虚词分界、引用、宿主映射和假名形态标记，配有阶乘设计原例。固定仓库同时保存ClojureScript分词器与模板解析原型。",
+    "features": [
+      "古汉语虚词与前缀表达式设计",
+      "虚词分界及引用结构",
+      "假名后缀与投影视图方案",
+      "约、证与宿主映射设计",
+      "ClojureScript分词与模板解析原型"
+    ],
+    "code": "定階，甲，若等甲零者，1也，乘甲階减甲一也",
+    "code_source": "https://github.com/keshe-lang/keshe-lang/blob/2ab2153a46cdab9dd04976d068f62c72b5888474/README.md#L16",
+    "code_context": "固定README快速示例中的阶乘设计单行原文，保留繁简字形、数字和标点。规范另保存分隔式写法；此处按作者设计原例展示，完整运行与当前解析原型覆盖待核实。",
+    "implementation": "cljs/main.cljs定义tokenize、parse-rules、parse-by-syntax、parse-expression与parse入口，按规则表递归构造操作词和参数向量。parse-by-template接收ast-template并返回向量，宿主AST转换和求值连接继续待核实。静态源码的字符串扫描采用ASCII双引号，README原例使用「」；原型规则与规范的覆盖、边界及原例对应待核实。common-lisp/main.lisp与docs/index.html各为1字节。",
+    "version": "SPECIFICATION.md自标v0.1.0-alpha、设计冻结中；固定提交为2ab2153a46cdab9dd04976d068f62c72b5888474，时间2026-08-27T11:15:16Z。规范M0为进行中，最小解释器、宿主接入等列在后续路线图。",
+    "license": "根LICENSE保存Apache-2.0全文；README与规范将参考实现标为Apache-2.0、规范文本标为CC BY-SA 4.0。",
+    "ai_involvement": "规范将AI原生列为语言设计定位；开发过程的AI贡献范围、模型与人工审阅情况待核实。",
+    "relations": "README提出借用Common Lisp和Clojure生态，规范规划Clojure至JavaScript的宿主接入。Emacs China的FCary两篇客舍讨论在名称与虚词模板上相关；跨账号互链、项目阶段和源码对应单独待核实。",
+    "status": "固定原始规范、中文设计原例及解析原型源码已核验。宿主求值链、规范覆盖、完整程序运行及跨平台身份对应继续待核实。",
+    "evidence_level": "固定设计规范、作者原例与ClojureScript解析原型的静态核验",
+    "verification_notes": "2026-10-25通过GitHub只读连接器核对固定README、规范、main.cljs、parse-syntax.cljs、提交集合及发行集合。规范与实现分别记录：当前证据支持语言设计及解析原型。Emacs China讨论沿既有原帖索引证据保留，直接主题JSON本轮返回403。安装、构建、测试及候选程序执行均为0。",
+    "verified_at": "2026-10-25",
+    "repository_created_at": "2026-08-26T09:49:33Z",
+    "first_commit_at": "2026-08-26T09:49:34Z",
+    "latest_commit_at": "2026-08-27T11:15:16Z",
+    "release_status": "2026-10-25读取GitHub Releases集合为空。规范版本与实现版本分别记录。",
+    "code_source_detail": {
+      "repository": "keshe-lang/keshe-lang",
+      "branch": "main",
+      "commit": "2ab2153a46cdab9dd04976d068f62c72b5888474",
+      "path": "README.md",
+      "lines": "16",
+      "blob_sha": "6d308dffeec16d33e197741d8d31efb6ef5ad2a2",
+      "verification": "GitHub固定原始README逐字摘录设计原例"
+    },
+    "references": [
+      {
+        "title": "原始待核议题及论坛／仓库关系记录",
+        "url": "https://github.com/yuyan-lang/chinese-programming-languages/issues/63"
+      },
+      {
+        "title": "固定README与阶乘设计原例",
+        "url": "https://github.com/keshe-lang/keshe-lang/blob/2ab2153a46cdab9dd04976d068f62c72b5888474/README.md"
+      },
+      {
+        "title": "固定v0.1.0-alpha规范",
+        "url": "https://github.com/keshe-lang/keshe-lang/blob/2ab2153a46cdab9dd04976d068f62c72b5888474/SPECIFICATION.md"
+      },
+      {
+        "title": "ClojureScript分词和解析入口",
+        "url": "https://github.com/keshe-lang/keshe-lang/blob/2ab2153a46cdab9dd04976d068f62c72b5888474/cljs/main.cljs"
+      },
+      {
+        "title": "解析规则表与求值规则声明",
+        "url": "https://github.com/keshe-lang/keshe-lang/blob/2ab2153a46cdab9dd04976d068f62c72b5888474/cljs/parse-syntax.cljs"
+      },
+      {
+        "title": "固定Apache-2.0全文",
+        "url": "https://github.com/keshe-lang/keshe-lang/blob/2ab2153a46cdab9dd04976d068f62c72b5888474/LICENSE"
+      },
+      {
+        "title": "固定完整文件树",
+        "url": "https://api.github.com/repos/keshe-lang/keshe-lang/git/trees/2ab2153a46cdab9dd04976d068f62c72b5888474?recursive=1"
+      },
+      {
+        "title": "固定头提交与署名",
+        "url": "https://github.com/keshe-lang/keshe-lang/commit/2ab2153a46cdab9dd04976d068f62c72b5888474"
+      },
+      {
+        "title": "GitHub发行集合",
+        "url": "https://api.github.com/repos/keshe-lang/keshe-lang/releases"
+      },
+      {
+        "title": "FCary原始设计讨论：关联关系待核",
+        "url": "https://emacs-china.org/t/vs/32015"
+      },
+      {
+        "title": "FCary后缀讨论：关联关系待核",
+        "url": "https://emacs-china.org/t/topic/32075"
+      }
+    ]
+  }
+]
