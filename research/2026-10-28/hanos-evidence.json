@@ -1,0 +1,317 @@
+{
+  "checked_at": "2026-10-28",
+  "encyclopedia_baseline": "f6e83511d97bdf78b68b6665fb58bbde74b96c36",
+  "source_snapshot": {
+    "branch": "mainline",
+    "commit": "b449b6fed18ac820cd20fa3a7f519056e59a2867",
+    "committed_at": "2026-10-26T12:10:55Z",
+    "source_ids": [
+      "hn4",
+      "hn38"
+    ]
+  },
+  "author_profile": {
+    "source_url": "https://api.github.com/users/jjwang",
+    "observed_at_utc": "2026-10-28T09:20:34Z",
+    "response_status": 200,
+    "raw_response_bytes": 1304,
+    "raw_response_sha256": "ebe01997feea3807348ac4cb5d708961a77a9c296ac0de97fe4a20f2dcd44243",
+    "public_fields": {
+      "login": "jjwang",
+      "id": 1480750,
+      "name": "JW",
+      "location": "Beijing, China",
+      "blog": "",
+      "html_url": "https://github.com/jjwang",
+      "bio": null,
+      "created_at": "2012-02-28T04:26:10Z",
+      "updated_at": "2026-10-26T23:32:39Z"
+    },
+    "headers": {
+      "date": "Wed, 28 Oct 2026 09:19:40 GMT",
+      "cache-control": "public, max-age=60, s-maxage=60",
+      "etag": "W/\"09bdf38399ac15c8a090d57f98b873708aa31330272730ee55c775aa73fc5a30\"",
+      "last-modified": "Mon, 26 Oct 2026 23:32:39 GMT"
+    },
+    "interpretation": "location字段为作者所在地自述，用于HanOS的中国关联；国籍待核实。公开昵称与账号分别按API原值记录。"
+  },
+  "static_text_cache": [
+    {
+      "source_id": "hn2",
+      "path": "README.zh-cn.md",
+      "url": "https://github.com/jjwang/HanOS/blob/b449b6fed18ac820cd20fa3a7f519056e59a2867/README.zh-cn.md",
+      "cache_path": "/tmp/hanos-read-20261028/README.zh-cn.md",
+      "cached_text_bytes": 4223,
+      "cached_text_sha256": "671cb8b1763c150e606a8ff4664d43e0e105774dc8f845eddf05e56c9d08c9ce",
+      "blob_sha": "10f96624a3164526dec105af8a0a61afee3c76e8",
+      "size": 4222
+    },
+    {
+      "source_id": "hn5",
+      "path": "LICENSE",
+      "url": "https://github.com/jjwang/HanOS/blob/b449b6fed18ac820cd20fa3a7f519056e59a2867/LICENSE",
+      "cache_path": "/tmp/hanos-read-20261028/LICENSE",
+      "cached_text_bytes": 1078,
+      "cached_text_sha256": "5708970f9f05608eb91406bd33d6cd7a266ebefcc6455a76eafb0d9c4def27af",
+      "blob_sha": "6d6b06f4807d21a3c8a0d15556c2ae0daed92bf7",
+      "size": 1077
+    },
+    {
+      "source_id": "hn6",
+      "path": "kernel/GNUmakefile",
+      "url": "https://github.com/jjwang/HanOS/blob/b449b6fed18ac820cd20fa3a7f519056e59a2867/kernel/GNUmakefile",
+      "cache_path": "/tmp/hanos-read-20261028/kernel/GNUmakefile",
+      "cached_text_bytes": 3270,
+      "cached_text_sha256": "24c049d976f37f1768e5f96dbd38ffef7da6fccfc31fea7bda1ca53b26a71d3e",
+      "blob_sha": "07fe9bca10f78fb845a131838f911921bbb48109",
+      "size": 3269
+    },
+    {
+      "source_id": "hn7",
+      "path": "kernel/linker.ld",
+      "url": "https://github.com/jjwang/HanOS/blob/b449b6fed18ac820cd20fa3a7f519056e59a2867/kernel/linker.ld",
+      "cache_path": "/tmp/hanos-read-20261028/kernel/linker.ld",
+      "cached_text_bytes": 1256,
+      "cached_text_sha256": "7680fe62ef5d728298f69589f5594e4ad4cb6e731691f0f994281ac1423bc17b",
+      "blob_sha": "86dbf236ea662d5b27fd76be578e6f1063fb095f",
+      "size": 1255
+    },
+    {
+      "source_id": "hn8",
+      "path": "kernel/kmain.c",
+      "url": "https://github.com/jjwang/HanOS/blob/b449b6fed18ac820cd20fa3a7f519056e59a2867/kernel/kmain.c",
+      "cache_path": "/tmp/hanos-read-20261028/kernel/kmain.c",
+      "cached_text_bytes": 15978,
+      "cached_text_sha256": "bd648014f49e98f9c5463a48ed921141f395f8530cd44e3a85534eedd73864e8",
+      "blob_sha": "dc689b4731652054429194535c759144460e636d",
+      "size": 15977
+    },
+    {
+      "source_id": "hn9",
+      "path": "kernel/proc/sched.c",
+      "url": "https://github.com/jjwang/HanOS/blob/b449b6fed18ac820cd20fa3a7f519056e59a2867/kernel/proc/sched.c",
+      "cache_path": "/tmp/hanos-read-20261028/kernel/proc/sched.c",
+      "cached_text_bytes": 32241,
+      "cached_text_sha256": "296ffeffd55d4d6745dec8da7d723e1f3bbda8f2fbed11d74bef904e774e57ff",
+      "blob_sha": "99f8f74e8797e4213c9fa1e9e750b3747af9bf86",
+      "size": 32240
+    },
+    {
+      "source_id": "hn10",
+      "path": "kernel/proc/process.c",
+      "url": "https://github.com/jjwang/HanOS/blob/b449b6fed18ac820cd20fa3a7f519056e59a2867/kernel/proc/process.c",
+      "cache_path": "/tmp/hanos-read-20261028/kernel/proc/process.c",
+      "cached_text_bytes": 14662,
+      "cached_text_sha256": "6a6c89eba842d484c9fd530bd275b0a13d784b47b758e11158aef4dfda84d00b",
+      "blob_sha": "50219d4bc5c13a6e5d202dd93323e564c6cf862a",
+      "size": 14661
+    },
+    {
+      "source_id": "hn11",
+      "path": "kernel/mm/vmm.c",
+      "url": "https://github.com/jjwang/HanOS/blob/b449b6fed18ac820cd20fa3a7f519056e59a2867/kernel/mm/vmm.c",
+      "cache_path": "/tmp/hanos-read-20261028/kernel/mm/vmm.c",
+      "cached_text_bytes": 13985,
+      "cached_text_sha256": "60299222b8553cd336516d0221e783db67831b639a1ada6f3e5cb28fed2fa1fb",
+      "blob_sha": "36e3e57d82ef44e3f9a10b7abe02bd10b2ae8e52",
+      "size": 13984
+    },
+    {
+      "source_id": "hn12",
+      "path": "kernel/mm/buddy.c",
+      "url": "https://github.com/jjwang/HanOS/blob/b449b6fed18ac820cd20fa3a7f519056e59a2867/kernel/mm/buddy.c",
+      "cache_path": "/tmp/hanos-read-20261028/kernel/mm/buddy.c",
+      "cached_text_bytes": 12891,
+      "cached_text_sha256": "cae40e84bdf07b0ef0f6b1539a4e466c1b565eb3736fac9d841277558f6e15b3",
+      "blob_sha": "2e9fa7d3b3ae9f2c69510592bddf2051d671f5b2",
+      "size": 12890
+    },
+    {
+      "source_id": "hn13",
+      "path": "kernel/mm/memobj.c",
+      "url": "https://github.com/jjwang/HanOS/blob/b449b6fed18ac820cd20fa3a7f519056e59a2867/kernel/mm/memobj.c",
+      "cache_path": "/tmp/hanos-read-20261028/kernel/mm/memobj.c",
+      "cached_text_bytes": 2748,
+      "cached_text_sha256": "6cd21fe9fc8a39664216b6bbc5d5738cab2186dc6d53cfe5f7598a7dcaebae55",
+      "blob_sha": "4d61cb0490df62c134bb5e83129fe531adf8bc2e",
+      "size": 2747
+    },
+    {
+      "source_id": "hn14",
+      "path": "kernel/ipc/ipc.c",
+      "url": "https://github.com/jjwang/HanOS/blob/b449b6fed18ac820cd20fa3a7f519056e59a2867/kernel/ipc/ipc.c",
+      "cache_path": "/tmp/hanos-read-20261028/kernel/ipc/ipc.c",
+      "cached_text_bytes": 5940,
+      "cached_text_sha256": "7c7786ac9bdd80f69fe45c247f1a5f54d915914337bf297ec6cf9aeeff5782a5",
+      "blob_sha": "6dbed6288d953b423af4799b637b1eda6ee48fcd",
+      "size": 5939
+    },
+    {
+      "source_id": "hn15",
+      "path": "kernel/ipc/object.c",
+      "url": "https://github.com/jjwang/HanOS/blob/b449b6fed18ac820cd20fa3a7f519056e59a2867/kernel/ipc/object.c",
+      "cache_path": "/tmp/hanos-read-20261028/kernel/ipc/object.c",
+      "cached_text_bytes": 4967,
+      "cached_text_sha256": "1abad309b3c70ee5e01f0b1c3a619751a378db62182616349db292efd8a0dfc7",
+      "blob_sha": "46d0e360e7635903a5187d9ffaee5d32108ef104",
+      "size": 4966
+    },
+    {
+      "source_id": "hn16",
+      "path": "kernel/ipc/irq.c",
+      "url": "https://github.com/jjwang/HanOS/blob/b449b6fed18ac820cd20fa3a7f519056e59a2867/kernel/ipc/irq.c",
+      "cache_path": "/tmp/hanos-read-20261028/kernel/ipc/irq.c",
+      "cached_text_bytes": 2390,
+      "cached_text_sha256": "2af10ff2ed0f157c81fe52c6cee6d85ce917abe4fb99cdf0e5ff5af7a03acf04",
+      "blob_sha": "f34ba39b42e457afc6accfa461139b3ba9ac74da",
+      "size": 2389
+    },
+    {
+      "source_id": "hn17",
+      "path": "kernel/router/router.c",
+      "url": "https://github.com/jjwang/HanOS/blob/b449b6fed18ac820cd20fa3a7f519056e59a2867/kernel/router/router.c",
+      "cache_path": "/tmp/hanos-read-20261028/kernel/router/router.c",
+      "cached_text_bytes": 4070,
+      "cached_text_sha256": "d0d62369d20432a4aa27262b19ddbc13bf14b84a38f5a64813d0f9d7e8e66cc0",
+      "blob_sha": "9875bae5fd2db6ffc13303d558c79dd787e039b1",
+      "size": 4069
+    },
+    {
+      "source_id": "hn18",
+      "path": "kernel/srv/vfs_srv.c",
+      "url": "https://github.com/jjwang/HanOS/blob/b449b6fed18ac820cd20fa3a7f519056e59a2867/kernel/srv/vfs_srv.c",
+      "cache_path": "/tmp/hanos-read-20261028/kernel/srv/vfs_srv.c",
+      "cached_text_bytes": 5250,
+      "cached_text_sha256": "f306c629135472a22f39b577e0702ad0251e2dce316f3b7f1d142751218e8fae",
+      "blob_sha": "10836e400413a93412829ae39eda56826d083845",
+      "size": 5249
+    },
+    {
+      "source_id": "hn19",
+      "path": "kernel/srv/svc_monitor.c",
+      "url": "https://github.com/jjwang/HanOS/blob/b449b6fed18ac820cd20fa3a7f519056e59a2867/kernel/srv/svc_monitor.c",
+      "cache_path": "/tmp/hanos-read-20261028/kernel/srv/svc_monitor.c",
+      "cached_text_bytes": 1840,
+      "cached_text_sha256": "50a0177af9687391861f1fedaf188584bd155663987012da44a839109adab318",
+      "blob_sha": "c95e215b9182561c19e4c2d6d947dc16f586cd92",
+      "size": 1839
+    },
+    {
+      "source_id": "hn20",
+      "path": "userspace/GNUmakefile",
+      "url": "https://github.com/jjwang/HanOS/blob/b449b6fed18ac820cd20fa3a7f519056e59a2867/userspace/GNUmakefile",
+      "cache_path": "/tmp/hanos-read-20261028/userspace/GNUmakefile",
+      "cached_text_bytes": 6553,
+      "cached_text_sha256": "b2f8e4abfcaf77a9c223bf43ff91a679183c2c17b6d7bf505599e24eeb6dae5a",
+      "blob_sha": "5962835d89fa9a794902788d7b6af32fb310609f",
+      "size": 6552
+    },
+    {
+      "source_id": "hn21",
+      "path": "kernel/proc/syscall.c",
+      "url": "https://github.com/jjwang/HanOS/blob/b449b6fed18ac820cd20fa3a7f519056e59a2867/kernel/proc/syscall.c",
+      "cache_path": "/tmp/hanos-read-20261028/kernel/proc/syscall.c",
+      "cached_text_bytes": 103842,
+      "cached_text_sha256": "da46fd205bc4d93494f66cd0c4908c80f918cd51e63df12b5a4b04faed69b3cb",
+      "blob_sha": "d6ce8a86a9690cafbb41deb8c852168f21d60731",
+      "size": 103841
+    },
+    {
+      "source_id": "hn22",
+      "path": "include/syscall_nr.h",
+      "url": "https://github.com/jjwang/HanOS/blob/b449b6fed18ac820cd20fa3a7f519056e59a2867/include/syscall_nr.h",
+      "cache_path": "/tmp/hanos-read-20261028/include/syscall_nr.h",
+      "cached_text_bytes": 4474,
+      "cached_text_sha256": "cd7dbecaca6e7eb706620eeab47ef74bb711cb55dcc80c3d2669b19d1e320b94",
+      "blob_sha": "01f2c013c67b57f0a28a895e7151cf1a4bd63113",
+      "size": 4473
+    },
+    {
+      "source_id": "hn23",
+      "path": "3rdparty/musl/README.md",
+      "url": "https://github.com/jjwang/HanOS/blob/b449b6fed18ac820cd20fa3a7f519056e59a2867/3rdparty/musl/README.md",
+      "cache_path": "/tmp/hanos-read-20261028/3rdparty/musl/README.md",
+      "cached_text_bytes": 2241,
+      "cached_text_sha256": "64a6f52f7cfba2b344074fd3109e55de666eb901f1958b35ba3d3996de4e0943",
+      "blob_sha": "fba1499565e95dad80e42d26f047d01359cf812b",
+      "size": 2240
+    },
+    {
+      "source_id": "hn24",
+      "path": "3rdparty/libvterm/README.md",
+      "url": "https://github.com/jjwang/HanOS/blob/b449b6fed18ac820cd20fa3a7f519056e59a2867/3rdparty/libvterm/README.md",
+      "cache_path": "/tmp/hanos-read-20261028/3rdparty/libvterm/README.md",
+      "cached_text_bytes": 1424,
+      "cached_text_sha256": "5cdbbad92e236e5cdae1c12d22a159ee1df633bc0429136aefab0781b8a61846",
+      "blob_sha": "29310b7953c118c9ee170670f477ae1344436125",
+      "size": 1423
+    },
+    {
+      "source_id": "hn25",
+      "path": "GNUmakefile",
+      "url": "https://github.com/jjwang/HanOS/blob/b449b6fed18ac820cd20fa3a7f519056e59a2867/GNUmakefile",
+      "cache_path": "/tmp/hanos-read-20261028/GNUmakefile",
+      "cached_text_bytes": 3640,
+      "cached_text_sha256": "267e1af8c5a574fe524ec348121a10fa5f30a32412b04a30b30f883d61d015b5",
+      "blob_sha": "eca12c3e45d699bd1ae1e14d3317004e91608ac1",
+      "size": 3639
+    },
+    {
+      "source_id": "hn26",
+      "path": "VERSION",
+      "url": "https://github.com/jjwang/HanOS/blob/b449b6fed18ac820cd20fa3a7f519056e59a2867/VERSION",
+      "cache_path": "/tmp/hanos-read-20261028/VERSION",
+      "cached_text_bytes": 7,
+      "cached_text_sha256": "3ac5205de9c1ec4b022d53b557e4a6703fdd6cf7fb174382bfbfb1ff51a71ca5",
+      "blob_sha": "d917d3e26adc9854b4569871e20111c38de2606f",
+      "size": 6
+    },
+    {
+      "source_id": "hn27",
+      "path": "scripts/version.sh",
+      "url": "https://github.com/jjwang/HanOS/blob/b449b6fed18ac820cd20fa3a7f519056e59a2867/scripts/version.sh",
+      "cache_path": "/tmp/hanos-read-20261028/scripts/version.sh",
+      "cached_text_bytes": 706,
+      "cached_text_sha256": "57acee691ce123b19404083c583b8275066e13795b143037a8f009111f259913",
+      "blob_sha": "8557c73b86b202033fe038d95c9fc1578d38be7d",
+      "size": 705
+    },
+    {
+      "source_id": "hn28",
+      "path": "attic/hanos-microkernel-design-zh.md",
+      "url": "https://github.com/jjwang/HanOS/blob/b449b6fed18ac820cd20fa3a7f519056e59a2867/attic/hanos-microkernel-design-zh.md",
+      "cache_path": "/tmp/hanos-read-20261028/attic/hanos-microkernel-design-zh.md",
+      "cached_text_bytes": 30090,
+      "cached_text_sha256": "aa224538362d2b58db687131ab5ac0a231a8176e98f448257843180eba8cbb83",
+      "blob_sha": "ff85e6e6e3f56f75963cb1aa3732c017f35909f2",
+      "size": 30089
+    },
+    {
+      "source_id": "hn29",
+      "path": "userspace/servers/fat32.c",
+      "url": "https://github.com/jjwang/HanOS/blob/b449b6fed18ac820cd20fa3a7f519056e59a2867/userspace/servers/fat32.c",
+      "cache_path": "/tmp/hanos-read-20261028/userspace/servers/fat32.c",
+      "cached_text_bytes": 38785,
+      "cached_text_sha256": "57d96402e74e5391d40c1d09f9a5e3c85140034626cc34d6d113cca15d968110",
+      "blob_sha": "b4784d25a4b4789e35130a3959eab7e3d9700b7a",
+      "size": 38784
+    },
+    {
+      "source_id": "hn30",
+      "path": "attic/2026/2026-10-23-fat32-write-and-vfs-persistence-zh.md",
+      "url": "https://github.com/jjwang/HanOS/blob/b449b6fed18ac820cd20fa3a7f519056e59a2867/attic/2026/2026-10-23-fat32-write-and-vfs-persistence-zh.md",
+      "cache_path": "/tmp/hanos-read-20261028/attic/2026/2026-10-23-fat32-write-and-vfs-persistence-zh.md",
+      "cached_text_bytes": 836,
+      "cached_text_sha256": "9b4f39125e7fbbce2eafb0248181e07780b8f6894a20c766015aea12a680bd28",
+      "blob_sha": "f05b2bbf92ccb4c80abe71ac266b6d52d93062e6",
+      "size": 835
+    }
+  ],
+  "scope": "固定源码及公开作者资料只读；缓存为文本保存，原文件以固定提交URL及Git blob为准。候选安装、构建、启动、挂载、测试和执行均为0。",
+  "source_tree": {
+    "url": "https://api.github.com/repos/jjwang/HanOS/git/trees/b449b6fed18ac820cd20fa3a7f519056e59a2867?recursive=1",
+    "objects": 308,
+    "files": 267,
+    "truncated": false
+  }
+}

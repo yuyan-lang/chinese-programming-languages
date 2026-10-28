@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>HanOS（汉操作系统）｜操作系统内核资料</title><link rel="stylesheet" href="../style.css"></head><body>
+<header><h1>HanOS（汉操作系统）</h1><p>操作系统内核资料</p></header><main>
+<p><a href="https://中文编程语言.yuyan-lang.org/内核/">返回内核目录</a> · <a href="https://中文编程语言.yuyan-lang.org/">中文编程语言百科</a></p>
+<h2>项目介绍</h2>
+<p>HanOS 是 JW／jjwang 维护的 x86-64 操作系统，采用 C 与汇编实现内核，提供内存、调度、能力句柄 IPC 与用户态服务。作者将其定位为混合微内核；本条目按作者公开所在地记录中国关联，国籍待核实。</p>
+<p>作者定位为混合微内核。固定构建独立链接hanos.elf，kmain自行建立中断、页表、物理内存、APIC／SMP与调度；VFS等服务经用户进程装载并通过endpoint通信。内核仍保留设备驱动与引导基础，具体隔离与兼容完整性待核实。 <small>作者定位与源码可见</small> <a href="#hn6">[hn6]</a> <a href="#hn7">[hn7]</a> <a href="#hn8">[hn8]</a> <a href="#hn9">[hn9]</a> <a href="#hn18">[hn18]</a> <a href="#hn28">[hn28]</a></p>
+<h2>作者与中国关联</h2>
+<p>GitHub公开API显示JW／jjwang，根MIT许可署名JW, HanOS developer。OSDev发布账号junjie的2021公告与2026开发帖直接链接jjwang/HanOS，按公开项目发布关系记录。 <small>作者公开资料与原始互链</small> <a href="#hn1">[hn1]</a> <a href="#hn5">[hn5]</a> <a href="#hn32">[hn32]</a> <a href="#hn33">[hn33]</a></p>
+<p>按作者公开所在地Beijing, China记录中国关联，国籍待核实。中文README及中文技术设计文档按其原始文档事实保存。 <small>作者所在地自述与公开文档</small> <a href="#hn1">[hn1]</a> <a href="#hn2">[hn2]</a> <a href="#hn28">[hn28]</a></p>
+<h2>体系结构与实现</h2>
+<p>x86-64长模式；链接脚本指定elf64-x86-64、i386:x86-64、kmain入口与高地址内核布局。 <small>源码可见</small> <a href="#hn7">[hn7]</a></p>
+<p>内核与用户态主要使用C，内核编译选GNU11、freestanding与nostdlib，并含x86汇编；两部分各有独立构建规则。 <small>源码可见</small> <a href="#hn6">[hn6]</a> <a href="#hn20">[hn20]</a> <a href="#hn38">[hn38]</a></p>
+<h2>引导与内核入口</h2>
+<p>Limine提供帧缓冲、HHDM、内存图、RSDP、内核地址与initrd模块。kmain初始化描述符、中断、内存、APIC、SMP、系统调用，再建立kshell；kshell按依赖启动console、input／tty、block、文件系统、pipe、process与net等服务。 <small>源码可见</small> <a href="#hn8">[hn8]</a> <a href="#hn25">[hn25]</a></p>
+<h2>调度与用户进程</h2>
+<p>每CPU运行队列保存当前进程和就绪／睡眠状态；do_context_switch提升到期睡眠者、选择就绪任务，更新TSS／系统调用栈及地址空间后切换。APIC定时器在内核入口启动，实际时序与并发正确性待核实。 <small>源码可见</small> <a href="#hn8">[hn8]</a> <a href="#hn9">[hn9]</a></p>
+<p>sched_execve建立PROC_USER_MODE进程并装载ELF，process_clone为共享地址空间线程建立独立内核栈与用户返回帧。k_clone接受CLONE_VM路径，完整pthread和信号运行覆盖待核实。 <small>源码可见</small> <a href="#hn9">[hn9]</a> <a href="#hn10">[hn10]</a> <a href="#hn21">[hn21]</a></p>
+<h2>内存管理</h2>
+<p>默认配置使用伙伴分配器管理物理页；vmm_init根据Limine内存图建立内核PML4映射并写入CR3，用户地址空间共享内核半区。内存对象以引用计数物理页支撑，按用户权限映射用于IPC大块传输。 <small>源码可见</small> <a href="#hn8">[hn8]</a> <a href="#hn11">[hn11]</a> <a href="#hn12">[hn12]</a> <a href="#hn13">[hn13]</a></p>
+<h2>IPC与中断对象</h2>
+<p>endpoint保存有锁消息队列，发送唤醒等待键，接收路径先登记等待再检查队列。进程句柄包含槽索引、代数和权限；handle_get核对请求权限，路由器为服务请求建立应答endpoint并转移对象。 <small>源码可见</small> <a href="#hn14">[hn14]</a> <a href="#hn15">[hn15]</a> <a href="#hn17">[hn17]</a></p>
+<p>IRQ对象将中断线绑定到endpoint并投递IRQ_NOTIFY_TAG消息；用户态驱动通过句柄接收事件。实现提供中断消息机制，完整权限隔离与并发安全待核实。 <small>源码可见</small> <a href="#hn16">[hn16]</a> <a href="#hn28">[hn28]</a></p>
+<h2>用户态服务与接口</h2>
+<p>VFS启动适配通过sched_execve装载/bin/vfs，为其设置接收endpoint与只读initrd映射，并注册SVC_FS。用户态构建另列block、fat32、ext2、console、input、net、pipe、process与tty等服务。 <small>源码可见</small> <a href="#hn18">[hn18]</a> <a href="#hn20">[hn20]</a></p>
+<p>共享系统调用编号沿用Linux x86-64的对应编号，HanOS专用调用位于0x400及以上；syscall_funcs连接文件、网络、进程、对象和IPC入口。musl只链接到用户态，完整Linux／POSIX兼容范围待核实。 <small>源码可见</small> <a href="#hn21">[hn21]</a> <a href="#hn22">[hn22]</a> <a href="#hn23">[hn23]</a></p>
+<h2>文件系统阶段</h2>
+<p>当前FAT32服务包含create、write、truncate与unlink处理，写入采用8.3名称；2026-10-23作者记录说明VFS运行时文件写入ext2的/.vfs-store。持久性、恢复和文件系统正确性待独立验证。 <small>源码可见与作者技术记录</small> <a href="#hn29">[hn29]</a> <a href="#hn30">[hn30]</a></p>
+<h2>硬件与设备阶段</h2>
+<p>当前中文README记述AHCI与USB存储、xHCI／EHCI、PS/2、USB HID指针及Intel eDP；作者列Haswell、Broadwell和Skylake实机与QEMU测试阶段。具体硬件覆盖按作者测试声明记录。 <small>作者测试声明</small> <a href="#hn2">[hn2]</a></p>
+<h2>服务恢复机制</h2>
+<p>svc_monitor保存服务重启回调，在服务所属进程退出后轮询待重启状态并重新执行服务启动入口。服务内部状态恢复与实际容错覆盖待核实。 <small>源码可见</small> <a href="#hn19">[hn19]</a></p>
+<h2>项目沿革与上游关系</h2>
+<p>根构建选择Limine v8.x-binary，并提供OVMF镜像获取入口。当前内核构建依赖随仓limine.h，缺失时直接报错；旧快照中的trunk下载方式作为历史阶段保留。musl1.2.5与libvterm0.3.3由各自移植说明固定到版本，精确上游SHA与整体分发许可待核实。 <small>固定构建与作者文档</small> <a href="#hn6">[hn6]</a> <a href="#hn23">[hn23]</a> <a href="#hn24">[hn24]</a> <a href="#hn25">[hn25]</a> <a href="#hn36">[hn36]</a></p>
+<p>2021年OSDev对话中，ToaruOS作者指出早期cmos与键盘文件引用，junjie回应已删除相关代码、将按许可调整，并说明受到ToaruOS启发。该记录属于早期来源关系；当前逐文件继承、精确上游版本和许可保留范围待核实。 <small>原作者与上游作者历史对话</small> <a href="#hn32">[hn32]</a></p>
+<p>同账号HanOS-rs的a39ea39c固定阶段是Rust裸机启动原型，Cargo包标为barebones 0.1.0；它与当前C版的重写／继承关系，以及2007—2008年其他作者同名HanOS的对应继续待核实。 <small>历史固定源码与项目消歧</small> <a href="#hn34">[hn34]</a> <a href="#hn35">[hn35]</a> <a href="#hn31">[hn31]</a></p>
+<h2>文档与源码阶段</h2>
+<p>当前README保留只读FAT32表述；同一快照FAT32源码已有写入处理，10月23日工作记录说明写入与持久化阶段。文档声明和源码实现分别保存。 <small>文档与源码阶段对照</small> <a href="#hn2">[hn2]</a> <a href="#hn29">[hn29]</a> <a href="#hn30">[hn30]</a></p>
+<p>musl移植说明保留CLONE_VM与信号限制，当前k_clone已有共享地址空间线程创建路径；完整线程与信号运行能力继续待核实。 <small>文档与源码阶段对照</small> <a href="#hn21">[hn21]</a> <a href="#hn23">[hn23]</a></p>
+<p>设计文档的局限段仍保存服务崩溃停域与VFS不持久等较早描述；当前服务监控与10月23日持久化记录分别保存较新实现依据。 <small>文档与源码阶段对照</small> <a href="#hn19">[hn19]</a> <a href="#hn28">[hn28]</a> <a href="#hn30">[hn30]</a></p>
+<h2>版本、许可与核验范围</h2>
+<p>固定mainline提交：<a href="https://github.com/jjwang/HanOS/commit/b449b6fed18ac820cd20fa3a7f519056e59a2867">b449b6fed18ac820cd20fa3a7f519056e59a2867</a>，提交时间2026-10-26T12:10:55Z。</p>
+<p>VERSION基础版本为0.1.2；脚本文本为每次构建追加YYMMDD后缀，构建字符串与正式发行分别记录。 <a href="#hn26">[hn26]</a> <a href="#hn27">[hn27]</a></p>
+<p>当前根LICENSE署名Copyright (c) 2022 JW, HanOS developer；ToaruOS历史引用、musl、libvterm、字体与光标等组件的完整来源及许可分别待核。 <small>根许可与组件边界</small> <a href="#hn5">[hn5]</a> <a href="#hn23">[hn23]</a> <a href="#hn24">[hn24]</a> <a href="#hn32">[hn32]</a> <a href="#hn33">[hn33]</a></p>
+<p>作者2026-09-30的HD520开发帖记述AI工具辅助源码与寄存器调试。工具、模型、文件比例和整体人工复核范围待核实。 <small>作者声明</small> <a href="#hn33">[hn33]</a></p>
+<p>本轮完成当前固定源码与公开文档静态核对，作者图片／硬件测试采用作者声明层级。候选安装、构建、启动、挂载、测试和执行均为0。</p>
+<h2>待核资料</h2><ul>
+<li>作者国籍的直接公开自述</li>
+<li>ToaruOS早期文件引用与当前精确继承、上游版本和许可保留</li>
+<li>HanOS-rs与C版的继承／重写关系及2007—2008年同名项目消歧</li>
+<li>全部外部组件、字体与光标的固定版本及完整分发许可</li>
+<li>原作者图像／视频与源码版本对应、AI辅助范围</li>
+<li>权限隔离、IPC并发、线程／ABI、文件系统持久性和硬件覆盖的独立运行</li>
+<li>最早公开时刻与论坛时区、完整历史沿革</li>
+</ul>
+<h2>参考资料</h2><ul>
+<li id="hn1"><a href="https://api.github.com/users/jjwang">jjwang当前公开所在地与账号资料</a>（作者公开API）</li>
+<li id="hn3"><a href="https://api.github.com/repos/jjwang/HanOS">HanOS仓库元数据</a>（仓库元数据）</li>
+<li id="hn4"><a href="https://github.com/jjwang/HanOS/commit/b449b6fed18ac820cd20fa3a7f519056e59a2867">本轮固定mainline提交</a>（固定提交元数据）</li>
+<li id="hn2"><a href="https://github.com/jjwang/HanOS/blob/b449b6fed18ac820cd20fa3a7f519056e59a2867/README.zh-cn.md">当前中文README</a>（固定源码或作者文档）</li>
+<li id="hn5"><a href="https://github.com/jjwang/HanOS/blob/b449b6fed18ac820cd20fa3a7f519056e59a2867/LICENSE">当前根MIT许可</a>（固定源码或作者文档）</li>
+<li id="hn6"><a href="https://github.com/jjwang/HanOS/blob/b449b6fed18ac820cd20fa3a7f519056e59a2867/kernel/GNUmakefile">独立内核构建与随仓引导头依赖</a>（固定源码或作者文档）</li>
+<li id="hn7"><a href="https://github.com/jjwang/HanOS/blob/b449b6fed18ac820cd20fa3a7f519056e59a2867/kernel/linker.ld">独立ELF64链接布局</a>（固定源码或作者文档）</li>
+<li id="hn8"><a href="https://github.com/jjwang/HanOS/blob/b449b6fed18ac820cd20fa3a7f519056e59a2867/kernel/kmain.c">内核入口、服务启动与调度接入</a>（固定源码或作者文档）</li>
+<li id="hn9"><a href="https://github.com/jjwang/HanOS/blob/b449b6fed18ac820cd20fa3a7f519056e59a2867/kernel/proc/sched.c">每核队列、上下文切换与用户进程装载</a>（固定源码或作者文档）</li>
+<li id="hn10"><a href="https://github.com/jjwang/HanOS/blob/b449b6fed18ac820cd20fa3a7f519056e59a2867/kernel/proc/process.c">用户进程与共享地址空间线程</a>（固定源码或作者文档）</li>
+<li id="hn11"><a href="https://github.com/jjwang/HanOS/blob/b449b6fed18ac820cd20fa3a7f519056e59a2867/kernel/mm/vmm.c">页表、映射与地址空间</a>（固定源码或作者文档）</li>
+<li id="hn12"><a href="https://github.com/jjwang/HanOS/blob/b449b6fed18ac820cd20fa3a7f519056e59a2867/kernel/mm/buddy.c">物理页伙伴分配器</a>（固定源码或作者文档）</li>
+<li id="hn13"><a href="https://github.com/jjwang/HanOS/blob/b449b6fed18ac820cd20fa3a7f519056e59a2867/kernel/mm/memobj.c">共享内存对象</a>（固定源码或作者文档）</li>
+<li id="hn14"><a href="https://github.com/jjwang/HanOS/blob/b449b6fed18ac820cd20fa3a7f519056e59a2867/kernel/ipc/ipc.c">endpoint队列与阻塞唤醒</a>（固定源码或作者文档）</li>
+<li id="hn15"><a href="https://github.com/jjwang/HanOS/blob/b449b6fed18ac820cd20fa3a7f519056e59a2867/kernel/ipc/object.c">句柄代数与权限检查</a>（固定源码或作者文档）</li>
+<li id="hn16"><a href="https://github.com/jjwang/HanOS/blob/b449b6fed18ac820cd20fa3a7f519056e59a2867/kernel/ipc/irq.c">中断对象与消息投递</a>（固定源码或作者文档）</li>
+<li id="hn17"><a href="https://github.com/jjwang/HanOS/blob/b449b6fed18ac820cd20fa3a7f519056e59a2867/kernel/router/router.c">服务注册、路由与应答对象</a>（固定源码或作者文档）</li>
+<li id="hn18"><a href="https://github.com/jjwang/HanOS/blob/b449b6fed18ac820cd20fa3a7f519056e59a2867/kernel/srv/vfs_srv.c">用户态VFS启动与initrd授权</a>（固定源码或作者文档）</li>
+<li id="hn19"><a href="https://github.com/jjwang/HanOS/blob/b449b6fed18ac820cd20fa3a7f519056e59a2867/kernel/srv/svc_monitor.c">服务重启监控</a>（固定源码或作者文档）</li>
+<li id="hn20"><a href="https://github.com/jjwang/HanOS/blob/b449b6fed18ac820cd20fa3a7f519056e59a2867/userspace/GNUmakefile">用户服务与程序构建</a>（固定源码或作者文档）</li>
+<li id="hn21"><a href="https://github.com/jjwang/HanOS/blob/b449b6fed18ac820cd20fa3a7f519056e59a2867/kernel/proc/syscall.c">系统调用分派与线程入口</a>（固定源码或作者文档）</li>
+<li id="hn22"><a href="https://github.com/jjwang/HanOS/blob/b449b6fed18ac820cd20fa3a7f519056e59a2867/include/syscall_nr.h">Linux编号与HanOS扩展编号</a>（固定源码或作者文档）</li>
+<li id="hn23"><a href="https://github.com/jjwang/HanOS/blob/b449b6fed18ac820cd20fa3a7f519056e59a2867/3rdparty/musl/README.md">musl移植范围与版本说明</a>（固定源码或作者文档）</li>
+<li id="hn24"><a href="https://github.com/jjwang/HanOS/blob/b449b6fed18ac820cd20fa3a7f519056e59a2867/3rdparty/libvterm/README.md">libvterm用户态console依赖</a>（固定源码或作者文档）</li>
+<li id="hn25"><a href="https://github.com/jjwang/HanOS/blob/b449b6fed18ac820cd20fa3a7f519056e59a2867/GNUmakefile">镜像构建与Limine／OVMF入口</a>（固定源码或作者文档）</li>
+<li id="hn26"><a href="https://github.com/jjwang/HanOS/blob/b449b6fed18ac820cd20fa3a7f519056e59a2867/VERSION">基础源码版本</a>（固定源码或作者文档）</li>
+<li id="hn27"><a href="https://github.com/jjwang/HanOS/blob/b449b6fed18ac820cd20fa3a7f519056e59a2867/scripts/version.sh">构建日期版本后缀</a>（固定源码或作者文档）</li>
+<li id="hn28"><a href="https://github.com/jjwang/HanOS/blob/b449b6fed18ac820cd20fa3a7f519056e59a2867/attic/hanos-microkernel-design-zh.md">混合微内核设计说明</a>（固定源码或作者文档）</li>
+<li id="hn29"><a href="https://github.com/jjwang/HanOS/blob/b449b6fed18ac820cd20fa3a7f519056e59a2867/userspace/servers/fat32.c">FAT32服务读写实现</a>（固定源码或作者文档）</li>
+<li id="hn30"><a href="https://github.com/jjwang/HanOS/blob/b449b6fed18ac820cd20fa3a7f519056e59a2867/attic/2026/2026-10-23-fat32-write-and-vfs-persistence-zh.md">FAT32写入与VFS持久化作者记录</a>（固定源码或作者文档）</li>
+<li id="hn31"><a href="https://github.com/yuyan-lang/chinese-programming-languages/blob/f6e83511d97bdf78b68b6665fb58bbde74b96c36/research/2026-10-10/round-15-kernel.md">2026-10-10已有研究与45项来源</a>（既有研究）</li>
+<li id="hn32"><a href="https://forum.osdev.org/viewtopic.php?p=337922">2021年HanOS公告与ToaruOS历史对话</a>（原作者论坛发布与对话）</li>
+<li id="hn33"><a href="https://forum.osdev.org/viewtopic.php?p=354923">2026年HD520实机与AI辅助作者帖</a>（原作者论坛帖）</li>
+<li id="hn34"><a href="https://github.com/jjwang/HanOS-rs/blob/a39ea39c7352c5729b0a3fdcc76d1d65179d2f48/Cargo.toml">HanOS-rs固定Cargo清单</a>（历史固定源码）</li>
+<li id="hn35"><a href="https://github.com/jjwang/HanOS-rs/blob/a39ea39c7352c5729b0a3fdcc76d1d65179d2f48/src/main.rs">HanOS-rs固定裸机启动原型</a>（历史固定源码）</li>
+<li id="hn36"><a href="https://github.com/jjwang/HanOS/commit/089ce1cd9e9684fb79c91c8036e62476978fe150">2026-10-10旧C版快照</a>（历史提交元数据）</li>
+<li id="hn37"><a href="https://github.com/jjwang/HanOS/commit/c4572824150138d1c3efb861a48995b7013f7aaa">2026-10-18旧C版快照</a>（历史提交元数据）</li>
+<li id="hn38"><a href="https://api.github.com/repos/jjwang/HanOS/git/trees/b449b6fed18ac820cd20fa3a7f519056e59a2867?recursive=1">本轮完整固定源码树</a>（固定树元数据）</li>
+</ul><p>资料核验日期：2026-10-28</p></main><footer>站点由<a href="https://yuyan-lang.org/">豫言编程语言</a>提供</footer></body></html>
