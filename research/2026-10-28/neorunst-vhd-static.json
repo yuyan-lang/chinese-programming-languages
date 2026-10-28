@@ -1,0 +1,116 @@
+{
+  "checked_at": "2026-10-28",
+  "release": "https://github.com/CN-RTStudio/NeoRunST-DEV-KIT/releases/tag/v0.13.0",
+  "published_at": "2026-10-24T11:54:12Z",
+  "asset_url": "https://github.com/CN-RTStudio/NeoRunST-DEV-KIT/releases/download/v0.13.0/disk.vhd",
+  "official_sha256": "c41552de8ab94fab53563220d768f23ffce233a57d9cb141d9baf0b1b8489e15",
+  "http_range": "206; bytes 423731712-423732223/423732224",
+  "files": [
+    {
+      "file": "neorunst-v0.13.0.vhd",
+      "bytes": 423732224,
+      "sha256": "c41552de8ab94fab53563220d768f23ffce233a57d9cb141d9baf0b1b8489e15"
+    },
+    {
+      "file": "neorunst-runstload.efi",
+      "bytes": 66102,
+      "sha256": "35c23188fd322815cc97fcff9da2a1f3ce0f8dd4f69a69bdd934cd48c6d13eaf"
+    },
+    {
+      "file": "neorunst-RUNSTKNL.NEP",
+      "bytes": 1217032,
+      "sha256": "b64968c30e552487e73fd3e180f4e9880be6e64c02890de790cbcd0b5752c30e"
+    }
+  ],
+  "container": {
+    "type": "dynamic VHD",
+    "virtual_bytes": 1073741824,
+    "cluster_bytes": 2097152,
+    "gpt_partitions": [
+      {
+        "name": "EFI system partition",
+        "bytes": 329219072
+      },
+      {
+        "name": "Basic data partition",
+        "bytes": 743440384
+      }
+    ]
+  },
+  "kernel": {
+    "path": "RUNST/SYSTEM/RUNSTKNL.NEP",
+    "format": "ELF64 little-endian ET_EXEC x86-64",
+    "entry": "0x2000000",
+    "program_headers": [
+      {
+        "type": 1,
+        "flags": 7,
+        "offset": 4096,
+        "vaddr": "0x2000000",
+        "paddr": "0x2000000",
+        "filesz": 28664,
+        "memsz": 28664,
+        "align": 4096
+      },
+      {
+        "type": 1,
+        "flags": 5,
+        "offset": 32768,
+        "vaddr": "0xffff800002007000",
+        "paddr": "0x2007000",
+        "filesz": 335671,
+        "memsz": 335671,
+        "align": 4096
+      },
+      {
+        "type": 1,
+        "flags": 6,
+        "offset": 368640,
+        "vaddr": "0xffff800002059000",
+        "paddr": "0x2059000",
+        "filesz": 796372,
+        "memsz": 1049284,
+        "align": 4096
+      }
+    ],
+    "sections": 12
+  },
+  "data_partition_directory": [
+    {
+      "path": "RUNST/FONT/SourceHanSansSC.ttf",
+      "cluster": 5,
+      "size": 10807764
+    },
+    {
+      "path": "RUNST/FONT/zap-light16.psf",
+      "cluster": 2644,
+      "size": 5312
+    },
+    {
+      "path": "RUNST/SYSTEM/RUNSTKNL.NEP",
+      "cluster": 2647,
+      "size": 1217032
+    },
+    {
+      "path": "RUNST/SYSTEM/runstload.efi",
+      "cluster": 2945,
+      "size": 66102
+    },
+    {
+      "path": "RUNST/SYSTEM/CONFIG/system.rreg",
+      "cluster": 2963,
+      "size": 1584
+    },
+    {
+      "path": "RUNST/SYSTEM/CONFIG/default.rreg",
+      "cluster": 2964,
+      "size": 1708
+    },
+    {
+      "path": "RUNST/APP/BMPVIEW.NEP",
+      "cluster": 2966,
+      "size": 62520
+    }
+  ],
+  "scope": "候选执行/安装/构建/启动/宿主磁盘挂载均为0；qemu-img info、7zz、LLVM及自写只读FAT字节读取。7zz识别数据分区失败，使用BPB与FAT链显式读取，未修改或修复镜像。"
+}

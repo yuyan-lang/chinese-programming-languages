@@ -1,0 +1,77 @@
+NeoRunST v0.13.0发行物静态证据；原件URL与SHA见neorunst-vhd-static.json。
+
+GRUB配置原文：
+set timeout=30
+set default=0
+
+menuentry "NeoRunst" {
+    search --no-floppy --file --set=root /runst/system/runstload.efi
+    chainloader /runst/system/runstload.efi
+}
+
+
+内核关键指令摘录：
+
+<_start>
+
+
+<_start.p2>
+ 2000048: 0f 22 d8                     	mov	cr3, rax
+
+<_start.p3>
+ 200006d: 48 b8 0f 8f 00 02 00 80 ff ff	movabs	rax, -0x7ffffdff70f1
+ 2000077: ff e0                        	jmp	rax
+
+<IDTInit>
+ffff80000201115e: 48 b8 00 0f 12 02 00 80 ff ff	movabs	rax, -0x7ffffdedf100
+ffff80000201116d: 48 b8 00 0f 12 02 00 80 ff ff	movabs	rax, -0x7ffffdedf100
+ffff800002011177: 48 b9 00 ff 11 02 00 80 ff ff	movabs	rcx, -0x7ffffdee0100
+ffff800002011185: 48 b8 00 ff 11 02 00 80 ff ff	movabs	rax, -0x7ffffdee0100
+ffff80000201119c: 48 b8 22 11 05 02 00 80 ff ff	movabs	rax, -0x7ffffdfaeede
+ffff8000020111a6: ff d0                	call	rax
+ffff8000020111a8: 48 b8 00 0f 12 02 00 80 ff ff	movabs	rax, -0x7ffffdedf100
+ffff8000020111b2: 0f 01 18             	lidt	[rax]
+
+<timer_handler>
+ffff8000020120c4: 48 b8 8c 18 12 02 00 80 ff ff	movabs	rax, -0x7ffffdede774
+ffff8000020120d3: 48 b8 8c 18 12 02 00 80 ff ff	movabs	rax, -0x7ffffdede774
+ffff8000020120df: 48 b8 90 18 12 02 00 80 ff ff	movabs	rax, -0x7ffffdede770
+ffff8000020120ec: 48 ba a0 18 12 02 00 80 ff ff	movabs	rdx, -0x7ffffdede760
+ffff8000020120f9: 48 b8 98 18 12 02 00 80 ff ff	movabs	rax, -0x7ffffdede768
+ffff800002012106: 48 ba a8 18 12 02 00 80 ff ff	movabs	rdx, -0x7ffffdede758
+ffff800002012113: 48 b8 90 18 12 02 00 80 ff ff	movabs	rax, -0x7ffffdede770
+ffff800002012124: 48 b8 98 18 12 02 00 80 ff ff	movabs	rax, -0x7ffffdede768
+ffff80000201213c: 48 b8 9f e1 00 02 00 80 ff ff	movabs	rax, -0x7ffffdff1e61
+ffff800002012146: ff d0                	call	rax
+
+加载器Boot Services调用与返回检测：
+    3daa: 48 8b 44 24 38               	mov	rax, qword ptr [rsp + 0x38]
+    3daf: 48 8b 94 24 c8 00 00 00      	mov	rdx, qword ptr [rsp + 0xc8]
+    3db7: 4c 89 e1                     	mov	rcx, r12
+    3dba: 48 8b 40 60                  	mov	rax, qword ptr [rax + 0x60]
+    3dbe: ff 90 e8 00 00 00            	call	qword ptr [rax + 0xe8]
+    3dc4: 48 85 c0                     	test	rax, rax
+    3dc7: 0f 89 fe 04 00 00            	jns	0x42cb <efi_main+0x10cb>
+    42ea: 48 8b 7c 24 40               	mov	rdi, qword ptr [rsp + 0x40]
+    42ef: 48 8b 44 24 78               	mov	rax, qword ptr [rsp + 0x78]
+    42f4: ff d0                        	call	rax
+
+任务恢复/抢占汇编摘录：
+
+/tmp/kernels-b-20261028/neorunst-RUNSTKNL.NEP:	file format elf64-x86-64
+
+Disassembly of section .data:
+
+ffff800002059617 <nep_preempt_asm>:
+ffff800002059617: 0f ae 0d c2 2e 0c 00 	fxrstor	[rip + 0xc2ec2]         # 0xffff80000211c4e0 <g_kernel_fpu>
+ffff80000205961e: 48 8b 05 4b 2e 0c 00 	mov	rax, qword ptr [rip + 0xc2e4b] # 0xffff80000211c470 <g_kernel_cr3>
+ffff800002059625: 0f 22 d8             	mov	cr3, rax
+ffff800002059628: 48 8b 25 91 2e 0c 00 	mov	rsp, qword ptr [rip + 0xc2e91] # 0xffff80000211c4c0 <g_nep_kernel_rsp>
+ffff80000205962f: 41 5f                	pop	r15
+ffff800002059631: 41 5e                	pop	r14
+ffff800002059633: 41 5d                	pop	r13
+ffff800002059635: 41 5c                	pop	r12
+ffff800002059637: 5d                   	pop	rbp
+ffff800002059638: 5b                   	pop	rbx
+ffff800002059639: fb                   	sti
+ffff80000205963a: c3                   	ret
