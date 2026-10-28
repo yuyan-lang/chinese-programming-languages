@@ -1,0 +1,63 @@
+固定仓库快照2677b1ce的虚拟盘静态分析摘录；候选执行次数0。
+
+0000000000e393f0 <myos::mm::paging::init>:
+  e393f0: 48 81 ec 88 00 00 00         	sub	rsp, 0x88
+  e393f7: 48 89 7c 24 28               	mov	qword ptr [rsp + 0x28], rdi
+  e393fc: 48 89 7c 24 48               	mov	qword ptr [rsp + 0x48], rdi
+  e39401: 48 c7 c0 d0 27 00 01         	mov	rax, 0x10027d0
+  e39408: 48 85 c0                     	test	rax, rax
+  e3940b: 0f 94 c0                     	sete	al
+  e3940e: 24 ff                        	and	al, -0x1
+  e39410: 34 ff                        	xor	al, -0x1
+  e39412: a8 01                        	test	al, 0x1
+  e39414: 75 02                        	jne	0xe39418 <myos::mm::paging::init+0x28>
+  e39416: eb 65                        	jmp	0xe3947d <myos::mm::paging::init+0x8d>
+
+0000000000e3cb10 <myos::sched::context_switch>:
+  e3cb10: 48 89 2f                     	mov	qword ptr [rdi], rbp
+  e3cb13: 48 89 5f 08                  	mov	qword ptr [rdi + 0x8], rbx
+  e3cb17: 4c 89 67 10                  	mov	qword ptr [rdi + 0x10], r12
+  e3cb1b: 4c 89 6f 18                  	mov	qword ptr [rdi + 0x18], r13
+  e3cb1f: 4c 89 77 20                  	mov	qword ptr [rdi + 0x20], r14
+  e3cb23: 4c 89 7f 28                  	mov	qword ptr [rdi + 0x28], r15
+  e3cb27: 48 89 67 30                  	mov	qword ptr [rdi + 0x30], rsp
+  e3cb2b: 48 8b 2e                     	mov	rbp, qword ptr [rsi]
+  e3cb2e: 48 8b 5e 08                  	mov	rbx, qword ptr [rsi + 0x8]
+  e3cb32: 4c 8b 66 10                  	mov	r12, qword ptr [rsi + 0x10]
+  e3cb36: 4c 8b 6e 18                  	mov	r13, qword ptr [rsi + 0x18]
+
+0000000000e3e6f0 <myos::sched::timer_tick_schedule>:
+  e3e6f0: 48 83 ec 78                  	sub	rsp, 0x78
+  e3e6f4: 48 c7 c7 e9 27 00 01         	mov	rdi, 0x10027e9
+  e3e6fb: e8 60 e4 ff ff               	call	0xe3cb60 <<myos::sched::SpinLock>::lock>
+  e3e700: e8 2b f0 ff ff               	call	0xe3d730 <myos::sched::current_cpu_idx>
+  e3e705: 48 89 44 24 40               	mov	qword ptr [rsp + 0x40], rax
+  e3e70a: 48 89 44 24 58               	mov	qword ptr [rsp + 0x58], rax
+  e3e70f: 48 83 f8 08                  	cmp	rax, 0x8
+  e3e713: 73 17                        	jae	0xe3e72c <myos::sched::timer_tick_schedule+0x3c>
+  e3e715: 48 c7 c0 f8 a5 f7 00         	mov	rax, 0xf7a5f8
+  e3e71c: 48 85 c0                     	test	rax, rax
+  e3e71f: 0f 94 c0                     	sete	al
+
+0000000000e84420 <myos::interrupts::init>:
+  e84420: 48 83 ec 18                  	sub	rsp, 0x18
+  e84424: 48 c7 c0 30 d5 f7 00         	mov	rax, 0xf7d530
+  e8442b: 48 85 c0                     	test	rax, rax
+  e8442e: 0f 94 c0                     	sete	al
+  e84431: 24 ff                        	and	al, -0x1
+  e84433: 34 ff                        	xor	al, -0x1
+  e84435: a8 01                        	test	al, 0x1
+  e84437: 75 02                        	jne	0xe8443b <myos::interrupts::init+0x1b>
+  e84439: eb 2d                        	jmp	0xe84468 <myos::interrupts::init+0x48>
+  e8443b: 48 c7 c7 30 d5 f7 00         	mov	rdi, 0xf7d530
+  e84442: 48 89 7c 24 10               	mov	qword ptr [rsp + 0x10], rdi
+
+
+EFI引导交接：
+140007170: 49 8b 46 30                 	mov	rax, qword ptr [r14 + 0x30]
+140007177: 0f 22 d8                    	mov	cr3, rax
+14000719e: fa                          	cli
+14000719f: 48 89 c4                    	mov	rsp, rax
+1400071a2: 48 89 cf                    	mov	rdi, rcx
+1400071a6: 48 89 d0                    	mov	rax, rdx
+1400071a9: ff e0                       	jmp	rax

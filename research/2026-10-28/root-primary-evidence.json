@@ -1,0 +1,60 @@
+{
+  "scope": "公开原始材料的静态读取；候选执行、登录与提交程序均为0",
+  "sources": [
+    {
+      "url": "https://emacs-china.org/t/vs/32015.rss",
+      "retrieved_on": "2026-10-28",
+      "bytes": 21079,
+      "sha256": "df2a090736879951505b888b5feedb7797abecc82ac81674540ce541396884f3",
+      "first_post": "https://emacs-china.org/t/vs/32015/1",
+      "first_post_rss_date": "Sat, 29 Aug 2026 10:02:17 +0000",
+      "creator": "FCary"
+    },
+    {
+      "url": "https://emacs-china.org/t/topic/32075.rss",
+      "retrieved_on": "2026-10-28",
+      "bytes": 27754,
+      "sha256": "f97154fe445b18176fa2e69e1f6ba6f1f524b8851bdf171dc6bd02cd242cbc54",
+      "first_post": "https://emacs-china.org/t/topic/32075/1",
+      "first_post_rss_date": "Sat, 19 Sep 2026 03:27:16 +0000",
+      "creator": "FCary"
+    },
+    {
+      "url": "https://classroom.gdchenyi.com.cn/static/js/app.deb32d9322aa13d5f098.js",
+      "retrieved_on": "2026-10-28",
+      "bytes": 464753,
+      "sha256": "8ea9f05c41e69b919cf83b332c6879ac350516183ea13e89efeaf0360f56833b",
+      "locator": {
+        "getValue_character_offset_zero_based": 357380,
+        "public_template_module": "jhtX",
+        "public_system_function_template_module": "/4xR"
+      },
+      "observed_chain": [
+        "getMarkdown",
+        "BASE64.encode(markdown)",
+        "vm.socket.send(numb)",
+        "BASE64.decode(event.data)"
+      ]
+    },
+    {
+      "url": "https://www.gdchenyi.com.cn/nd.jsp?id=14",
+      "retrieved_on": "2026-10-28",
+      "bytes": 165378,
+      "sha256": "151231d2b37b14fdf4653eb3284b467034db9a0f7c14ecaf9d0411da99da40c7"
+    },
+    {
+      "url": "https://classroom.gdchenyi.com.cn/",
+      "retrieved_on": "2026-10-28",
+      "bytes": 2460,
+      "sha256": "0f3c8aa5a09d76463ab6b3e626806c36a7d4d9f7e77d1a5c03c95f568865907c"
+    },
+    {
+      "url": "https://www.xduph.com/pages/DownLoadResourceFile.aspx?doi=9E545399C8EDF7C891BFA6EB2E37DA86",
+      "retrieved_on": "2026-10-28",
+      "bytes": 2662912,
+      "sha256": "bc2cb9e9a0b861da33634d613409ee6aed7a40e7a98ab0b1157a386f54e621cc",
+      "static_text_locator": "实训系统登录网址段，直接链接https://classroom.gdchenyi.com.cn/#/login；随后要求选择开放实验",
+      "reading": "系统textutil仅转为文字，独立核对摘要与上轮一致；未登录或加载候选应用"
+    }
+  ]
+}

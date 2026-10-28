@@ -1,0 +1,216 @@
+{
+  "checked_at": "2026-10-28",
+  "baseline": "4e00d5240ff5ca99c745c2b00179c11e42bef800",
+  "author_source_observations": [
+    {
+      "url": "https://code.kercy666.com/api/v1/users/Kercy",
+      "checked_at": "2026-10-28",
+      "status": 200,
+      "http_date": "Wed, 28 Oct 2026 08:11:03 GMT",
+      "cache_control": "max-age=0, private, must-revalidate",
+      "raw_response_sha256": "f57c57d98327c0405fa3dd49496bf7315cf45da7d7e100709e6d0480d0350a41",
+      "public_fields": {
+        "id": 1,
+        "login": "Kercy",
+        "username": "Kercy",
+        "full_name": "KercyDing",
+        "location": "HeFei",
+        "website": "https://kercy666.com",
+        "description": "Talk less, code more.",
+        "visibility": "public"
+      }
+    },
+    {
+      "url": "https://code.kercy666.com/api/v1/repos/Kercy/krcyos",
+      "checked_at": "2026-10-28",
+      "status": 200,
+      "http_date": "Wed, 28 Oct 2026 08:11:53 GMT",
+      "cache_control": "max-age=0, private, must-revalidate",
+      "raw_response_sha256": "0b1ed4c62968a3f949b6bacd17e20bb6487c851913cd7658318e76abf667dbd7",
+      "public_fields": {
+        "id": 4,
+        "name": "krcyos",
+        "full_name": "Kercy/krcyos",
+        "description": "A toy RISC-V kernel built with Zig for OS exploration (WIP).",
+        "html_url": "https://code.kercy666.com/Kercy/krcyos",
+        "default_branch": "main",
+        "updated_at": "2026-10-22T05:02:32Z",
+        "archived": false,
+        "owner": {
+          "login": "Kercy",
+          "full_name": "KercyDing",
+          "location": "HeFei",
+          "website": "https://kercy666.com"
+        }
+      }
+    },
+    {
+      "url": "https://api.github.com/users/KercyDing",
+      "checked_at": "2026-10-28",
+      "status": 200,
+      "http_date": "Wed, 28 Oct 2026 08:13:21 GMT",
+      "cache_control": "public, max-age=60, s-maxage=60",
+      "raw_response_sha256": "ff4cbf4ee63aba849b78d28c6b5b74ddcb03b4bfcd99a955187da4955542b7d5",
+      "public_fields": {
+        "id": 152250600,
+        "login": "KercyDing",
+        "name": "Kercy",
+        "location": null,
+        "blog": "https://code.kercy666.com/Kercy",
+        "html_url": "https://github.com/KercyDing"
+      }
+    }
+  ],
+  "static_source_reading": {
+    "repository": "xuchenruisz/hudos",
+    "commit": "b4a244b808b6786d5c3a1fd98102055f7f582488",
+    "committed_at": "2026-10-06T23:21:49Z",
+    "main_file": "hudos_server.c",
+    "main_file_lines": 5624,
+    "selected_path_sources": [
+      {
+        "id": "hd40",
+        "title": "ELF映像、用户栈与重定位",
+        "url": "https://github.com/xuchenruisz/hudos/blob/b4a244b808b6786d5c3a1fd98102055f7f582488/hudos_server.c#L1268-L1379",
+        "kind": "固定源码",
+        "supports": [
+          "ELF64装载",
+          "固件物理页分配",
+          "64页用户栈"
+        ],
+        "checked_at": "2026-10-28"
+      },
+      {
+        "id": "hd41",
+        "title": "EL0入口与特权状态恢复汇编",
+        "url": "https://github.com/xuchenruisz/hudos/blob/b4a244b808b6786d5c3a1fd98102055f7f582488/mmu_asm.S#L216-L500",
+        "kind": "固定源码",
+        "supports": [
+          "自有同步向量",
+          "SP_EL0／ELR／SPSR",
+          "ERET与协程入口"
+        ],
+        "checked_at": "2026-10-28"
+      },
+      {
+        "id": "hd42",
+        "title": "EL0同步异常、退出与SVC分派",
+        "url": "https://github.com/xuchenruisz/hudos/blob/b4a244b808b6786d5c3a1fd98102055f7f582488/hudos_server.c#L1968-L2077",
+        "kind": "固定源码",
+        "supports": [
+          "固件向量窗口",
+          "SVC分派",
+          "退出状态与ERET"
+        ],
+        "checked_at": "2026-10-28"
+      },
+      {
+        "id": "hd43",
+        "title": "EL0协程让出与父端恢复",
+        "url": "https://github.com/xuchenruisz/hudos/blob/b4a244b808b6786d5c3a1fd98102055f7f582488/hudos_server.c#L1775-L1859",
+        "kind": "固定源码",
+        "supports": [
+          "通用及特权寄存器保存",
+          "固件TTBR／VBAR恢复",
+          "co_switch"
+        ],
+        "checked_at": "2026-10-28"
+      },
+      {
+        "id": "hd44",
+        "title": "协程创建、推进和输入队列",
+        "url": "https://github.com/xuchenruisz/hudos/blob/b4a244b808b6786d5c3a1fd98102055f7f582488/hudos_server.c#L4931-L5127",
+        "kind": "固定源码",
+        "supports": [
+          "exec_co",
+          "co_resume",
+          "co_push／co_kill"
+        ],
+        "checked_at": "2026-10-28"
+      },
+      {
+        "id": "hd45",
+        "title": "协程上下文与资源清理",
+        "url": "https://github.com/xuchenruisz/hudos/blob/b4a244b808b6786d5c3a1fd98102055f7f582488/hudos_server.c#L2638-L2710",
+        "kind": "固定源码",
+        "supports": [
+          "co_switch汇编",
+          "child_done",
+          "FreePool／FreePages"
+        ],
+        "checked_at": "2026-10-28"
+      },
+      {
+        "id": "hd46",
+        "title": "VirtIO-MMIO队列和收发设备初始化",
+        "url": "https://github.com/xuchenruisz/hudos/blob/b4a244b808b6786d5c3a1fd98102055f7f582488/hudos_server.c#L3140-L3258",
+        "kind": "固定源码",
+        "supports": [
+          "设备特性协商",
+          "收发队列直接寄存器编程"
+        ],
+        "checked_at": "2026-10-28"
+      },
+      {
+        "id": "hd47",
+        "title": "PCI HDA发现、DMA与轮询播放",
+        "url": "https://github.com/xuchenruisz/hudos/blob/b4a244b808b6786d5c3a1fd98102055f7f582488/hudos_server.c#L4088-L4370",
+        "kind": "固定源码",
+        "supports": [
+          "PCI／MMIO控制",
+          "固件分配／等待",
+          "DMA描述符"
+        ],
+        "checked_at": "2026-10-28"
+      },
+      {
+        "id": "hd48",
+        "title": "文件与终端系统调用分派",
+        "url": "https://github.com/xuchenruisz/hudos/blob/b4a244b808b6786d5c3a1fd98102055f7f582488/hudos_server.c#L4437-L4525",
+        "kind": "固定源码",
+        "supports": [
+          "EL0指针范围检查调用",
+          "EFI文件协议",
+          "输入阻塞让出"
+        ],
+        "checked_at": "2026-10-28"
+      },
+      {
+        "id": "hd49",
+        "title": "图形／输入协议与影子缓冲",
+        "url": "https://github.com/xuchenruisz/hudos/blob/b4a244b808b6786d5c3a1fd98102055f7f582488/hudos_server.c#L2720-L2783",
+        "kind": "固定源码",
+        "supports": [
+          "GOP／绝对指针",
+          "AllocatePool影子缓冲"
+        ],
+        "checked_at": "2026-10-28"
+      },
+      {
+        "id": "hd50",
+        "title": "固件页表授权与撤销",
+        "url": "https://github.com/xuchenruisz/hudos/blob/b4a244b808b6786d5c3a1fd98102055f7f582488/hudos_server.c#L2349-L2424",
+        "kind": "固定源码",
+        "supports": [
+          "4KiB页权限调整",
+          "描述符保存恢复",
+          "拆分页表回收"
+        ],
+        "checked_at": "2026-10-28"
+      },
+      {
+        "id": "hd51",
+        "title": "固件保存、自检和系统入口",
+        "url": "https://github.com/xuchenruisz/hudos/blob/b4a244b808b6786d5c3a1fd98102055f7f582488/hudos_server.c#L5537-L5622",
+        "kind": "固定源码",
+        "supports": [
+          "Boot Services持续提供服务",
+          "EL0自检与EL1回退",
+          "应用／shell入口"
+        ],
+        "checked_at": "2026-10-28"
+      }
+    ]
+  },
+  "verification_scope": "仅公开作者资料与固定源码静态阅读；候选安装、构建、启动、测试和执行均为0。"
+}

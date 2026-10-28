@@ -9724,5 +9724,1796 @@
         "kind": "既有核验记录"
       }
     ]
+  },
+  {
+    "id": "krcyos",
+    "name": "KrcyOS",
+    "aliases": [
+      "krcyos"
+    ],
+    "checked_at": "2026-10-28",
+    "selection_status": "已收录",
+    "short_description": "KrcyOS 是 KercyDing 使用 Zig 开发的 RISC-V 学习型内核，经 OpenSBI 启动，包含 Sv39 分页、内存分配、定时调度与用户态系统调用实验。作者主仓位于 KercyCode，GitHub 保存只读镜像。",
+    "author": {
+      "people": [
+        {
+          "name": "Kercy",
+          "handle": "KercyDing"
+        }
+      ],
+      "attribution": {
+        "text": "GitHub公开账号链接KercyCode的Kercy账号；该主仓账号公开全名为KercyDing，拥有Kercy/krcyos。固定README直接给出该主仓及GitHub镜像，作者原站自述维护KrcyOS。",
+        "evidence_level": "原作者跨平台互链",
+        "source_ids": [
+          "kc1",
+          "kc14",
+          "kc20",
+          "kc21",
+          "kc22"
+        ]
+      },
+      "china_basis": {
+        "text": "2026-10-28主仓KercyCode公开API中，Kercy账号自述所在地为HeFei，全名为KercyDing；同日GitHub API的location为空。按主仓作者所在地自述记录中国关联，国籍待核实。历史GitHub搜索缓存与这两项当前平台字段分别保存。",
+        "evidence_level": "作者主仓公开自述",
+        "source_ids": [
+          "kc20",
+          "kc21",
+          "kc22"
+        ]
+      }
+    },
+    "kernel_positioning": {
+      "text": "独立 riscv64-freestanding 内核链接目标由 OpenSBI 交接；_start 设置内核栈，main 清理 BSS 后初始化陷阱、内存与 UART，再进入 S态或 U态实验路径。",
+      "evidence_level": "源码可见",
+      "source_ids": [
+        "kc2",
+        "kc3",
+        "kc4"
+      ]
+    },
+    "architectures": [
+      {
+        "text": "RISC-V 64 位，QEMU virt；链接基址 0x80200000。real_board 分支提供构建与刷写提示，具体实板型号和运行覆盖待核实。",
+        "evidence_level": "源码可见",
+        "source_ids": [
+          "kc2",
+          "kc4"
+        ]
+      }
+    ],
+    "implementation_languages": [
+      {
+        "text": "Zig 与 RISC-V 汇编；固定 README 和构建入口采用 Zig 0.17.0。",
+        "evidence_level": "源码可见",
+        "source_ids": [
+          "kc1",
+          "kc2",
+          "kc3"
+        ]
+      }
+    ],
+    "capabilities": {
+      "boot": [
+        {
+          "text": "构建生成 krcyos，QEMU virt 通过 -bios 选择附带 OpenSBI，再通过 -kernel 加载该内核。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "kc2"
+          ]
+        }
+      ],
+      "memory": [
+        {
+          "text": "Sv39 三级页表建立区域映射和访问权限，更新 satp；内核初始化串联物理页、虚拟内存与堆管理。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "kc3",
+            "kc5"
+          ]
+        }
+      ],
+      "scheduling": [
+        {
+          "text": "调度器维护就绪与睡眠任务，通过定时陷阱选择下一任务并调用 switch_to 保存和恢复上下文。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "kc6",
+            "kc7"
+          ]
+        }
+      ],
+      "userspace": [
+        {
+          "text": "U态系统调用分派 write、read、exit；write 校验文件描述符及用户缓冲区，read 返回0，exit 记录信息后进入 User Mode Ended. panic。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "kc8"
+          ]
+        }
+      ],
+      "tests": [
+        {
+          "text": "super 模式定义内存、堆、断点与任务调度实验；user 模式定义 write→exit 冒烟路径。宿主单元测试由独立 test 构建步骤组织；通过结果与内核运行分别待核实。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "kc2",
+            "kc10",
+            "kc11"
+          ]
+        }
+      ]
+    },
+    "project_relationships": [
+      {
+        "text": "KercyCode 是作者声明的主仓，GitHub 是只读镜像。本条目固定于 GitHub 可读提交，平台间同步状态待核实。",
+        "evidence_level": "作者声明",
+        "source_ids": [
+          "kc1"
+        ]
+      },
+      {
+        "text": "build.zig 明确将随附 OpenSBI 固定为 v1.9，按日志级别选择普通或 debug 固件，debug 注释保存 FW_OPTIONS=0x1。OpenSBI 负责引导固件，Sv39、调度与陷阱实现位于本项目 os 目录；随附二进制的逐字节构建对应待核实。",
+        "evidence_level": "源码可见",
+        "source_ids": [
+          "kc2",
+          "kc3",
+          "kc5",
+          "kc6",
+          "kc7"
+        ]
+      },
+      {
+        "text": "文档目录列 RISC-V Reference Card 并记录 CC-BY-4.0，文档来源与根代码 MIT 分别保存。",
+        "evidence_level": "作者声明",
+        "source_ids": [
+          "kc13"
+        ]
+      }
+    ],
+    "status": {
+      "source_snapshot": {
+        "branch": "main",
+        "commit": "0f0115ecc83610335642ee51e4f1f2c9d1886028",
+        "committed_at": "2026-10-22T05:02:42Z",
+        "source_ids": [
+          "kc16"
+        ]
+      },
+      "source_version": {
+        "text": "包清单自标 0.0.1，作为源码版本记录。",
+        "evidence_level": "源码可见",
+        "source_ids": [
+          "kc12"
+        ]
+      },
+      "license": {
+        "name": "根 MIT 许可",
+        "scope": "根文件署名2026 KercyDing；OpenSBI v1.9 的 COPYING.BSD 与 ThirdPartyNotices 单独记录，随附固件构建对应及整体分发材料待核实。",
+        "source_ids": [
+          "kc9",
+          "kc17",
+          "kc18",
+          "kc19"
+        ]
+      },
+      "runtime_verification": {
+        "status": "待核实",
+        "scope": "技术资料沿用2026-10-25固定源码核验，本轮新增主仓作者资料与跨平台归属证据。候选安装、构建、测试和执行均为0。"
+      }
+    },
+    "links": {
+      "source": "https://github.com/KercyDing/krcyos",
+      "main_repository": "https://code.kercy666.com/Kercy/krcyos",
+      "author_site": "https://kercy666.com/"
+    },
+    "pending_verification": [
+      "KercyCode 与 GitHub 镜像同步及首次公开历史",
+      "随附 OpenSBI 二进制与 v1.9 源码的构建对应、分发许可材料",
+      "作者图片与固定源码对应、实板型号和独立运行",
+      "系统调用与调度覆盖、AI参与及国籍自述"
+    ],
+    "sources": [
+      {
+        "id": "kc1",
+        "title": "KrcyOS 固定 README 与主仓声明",
+        "url": "https://github.com/KercyDing/krcyos/blob/0f0115ecc83610335642ee51e4f1f2c9d1886028/README.md",
+        "kind": "固定源码",
+        "supports": [
+          "KrcyOS 固定 README 与主仓声明"
+        ]
+      },
+      {
+        "id": "kc2",
+        "title": "RISC-V 构建、OpenSBI 固定与测试入口",
+        "url": "https://github.com/KercyDing/krcyos/blob/0f0115ecc83610335642ee51e4f1f2c9d1886028/build.zig",
+        "kind": "固定源码",
+        "supports": [
+          "RISC-V 构建、OpenSBI 固定与测试入口"
+        ]
+      },
+      {
+        "id": "kc3",
+        "title": "内核 _start 与主初始化",
+        "url": "https://github.com/KercyDing/krcyos/blob/0f0115ecc83610335642ee51e4f1f2c9d1886028/os/main.zig",
+        "kind": "固定源码",
+        "supports": [
+          "内核 _start 与主初始化"
+        ]
+      },
+      {
+        "id": "kc4",
+        "title": "内核链接地址与入口",
+        "url": "https://github.com/KercyDing/krcyos/blob/0f0115ecc83610335642ee51e4f1f2c9d1886028/os/linker.ld",
+        "kind": "固定源码",
+        "supports": [
+          "内核链接地址与入口"
+        ]
+      },
+      {
+        "id": "kc5",
+        "title": "Sv39 虚拟内存",
+        "url": "https://github.com/KercyDing/krcyos/blob/0f0115ecc83610335642ee51e4f1f2c9d1886028/os/mm/vmm.zig",
+        "kind": "固定源码",
+        "supports": [
+          "Sv39 虚拟内存"
+        ]
+      },
+      {
+        "id": "kc6",
+        "title": "任务队列与上下文调度",
+        "url": "https://github.com/KercyDing/krcyos/blob/0f0115ecc83610335642ee51e4f1f2c9d1886028/os/task/scheduler.zig",
+        "kind": "固定源码",
+        "supports": [
+          "任务队列与上下文调度"
+        ]
+      },
+      {
+        "id": "kc7",
+        "title": "陷阱与系统调用分派",
+        "url": "https://github.com/KercyDing/krcyos/blob/0f0115ecc83610335642ee51e4f1f2c9d1886028/os/trap/root.zig",
+        "kind": "固定源码",
+        "supports": [
+          "陷阱与系统调用分派"
+        ]
+      },
+      {
+        "id": "kc8",
+        "title": "用户系统调用实现",
+        "url": "https://github.com/KercyDing/krcyos/blob/0f0115ecc83610335642ee51e4f1f2c9d1886028/os/syscall/root.zig",
+        "kind": "固定源码",
+        "supports": [
+          "用户系统调用实现"
+        ]
+      },
+      {
+        "id": "kc9",
+        "title": "KrcyOS 根 MIT 许可",
+        "url": "https://github.com/KercyDing/krcyos/blob/0f0115ecc83610335642ee51e4f1f2c9d1886028/LICENSE",
+        "kind": "固定源码",
+        "supports": [
+          "KrcyOS 根 MIT 许可"
+        ]
+      },
+      {
+        "id": "kc10",
+        "title": "S态测试路径",
+        "url": "https://github.com/KercyDing/krcyos/blob/0f0115ecc83610335642ee51e4f1f2c9d1886028/os/super_tests.zig",
+        "kind": "固定源码",
+        "supports": [
+          "S态测试路径"
+        ]
+      },
+      {
+        "id": "kc11",
+        "title": "U态 write 与 exit 冒烟路径",
+        "url": "https://github.com/KercyDing/krcyos/blob/0f0115ecc83610335642ee51e4f1f2c9d1886028/os/user/code.zig",
+        "kind": "固定源码",
+        "supports": [
+          "U态 write 与 exit 冒烟路径"
+        ]
+      },
+      {
+        "id": "kc12",
+        "title": "项目版本清单",
+        "url": "https://github.com/KercyDing/krcyos/blob/0f0115ecc83610335642ee51e4f1f2c9d1886028/build.zig.zon",
+        "kind": "固定源码",
+        "supports": [
+          "项目版本清单"
+        ]
+      },
+      {
+        "id": "kc13",
+        "title": "参考文档来源",
+        "url": "https://github.com/KercyDing/krcyos/blob/0f0115ecc83610335642ee51e4f1f2c9d1886028/docs/README.md",
+        "kind": "固定源码",
+        "supports": [
+          "参考文档来源"
+        ]
+      },
+      {
+        "id": "kc14",
+        "title": "Kercy 作者主页与自述项目",
+        "url": "https://kercy666.com/",
+        "kind": "作者原站",
+        "supports": [
+          "Kercy 作者主页与自述项目"
+        ]
+      },
+      {
+        "id": "kc15",
+        "title": "KercyDing GitHub 主页",
+        "url": "https://github.com/KercyDing",
+        "kind": "作者公开主页",
+        "supports": [
+          "KercyDing GitHub 主页"
+        ]
+      },
+      {
+        "id": "kc16",
+        "title": "KrcyOS 固定提交",
+        "url": "https://github.com/KercyDing/krcyos/commit/0f0115ecc83610335642ee51e4f1f2c9d1886028",
+        "kind": "提交元数据",
+        "supports": [
+          "KrcyOS 固定提交"
+        ]
+      },
+      {
+        "id": "kc17",
+        "title": "OpenSBI v1.9 上游发行",
+        "url": "https://github.com/riscv-software-src/opensbi/releases/tag/v1.9",
+        "kind": "上游发行",
+        "supports": [
+          "OpenSBI v1.9 上游发行"
+        ]
+      },
+      {
+        "id": "kc18",
+        "title": "OpenSBI 固定上游 BSD 许可",
+        "url": "https://github.com/riscv-software-src/opensbi/blob/cbf9f6734dd85a982c63e3cb5db7ffe09da839ca/COPYING.BSD",
+        "kind": "上游许可证",
+        "supports": [
+          "OpenSBI 固定上游 BSD 许可"
+        ]
+      },
+      {
+        "id": "kc19",
+        "title": "OpenSBI 第三方说明",
+        "url": "https://github.com/riscv-software-src/opensbi/blob/cbf9f6734dd85a982c63e3cb5db7ffe09da839ca/ThirdPartyNotices.md",
+        "kind": "上游许可说明",
+        "supports": [
+          "OpenSBI 第三方说明"
+        ]
+      },
+      {
+        "id": "kc20",
+        "title": "KercyDing GitHub公开API（2026-10-28）",
+        "url": "https://api.github.com/users/KercyDing",
+        "kind": "公开平台元数据",
+        "supports": [
+          "GitHub login=KercyDing",
+          "location=null",
+          "blog=https://code.kercy666.com/Kercy",
+          "HTTP Date=2026-10-28T08:13:21Z"
+        ],
+        "checked_at": "2026-10-28"
+      },
+      {
+        "id": "kc21",
+        "title": "KercyCode作者公开API（2026-10-28）",
+        "url": "https://code.kercy666.com/api/v1/users/Kercy",
+        "kind": "作者主仓公开资料",
+        "checked_at": "2026-10-28",
+        "supports": [
+          "login=Kercy",
+          "full_name=KercyDing",
+          "location=HeFei",
+          "website=https://kercy666.com",
+          "HTTP Date=2026-10-28T08:11:03Z"
+        ]
+      },
+      {
+        "id": "kc22",
+        "title": "KercyOS主仓公开元数据（2026-10-28）",
+        "url": "https://code.kercy666.com/api/v1/repos/Kercy/krcyos",
+        "kind": "作者主仓公开元数据",
+        "checked_at": "2026-10-28",
+        "supports": [
+          "full_name=Kercy/krcyos",
+          "owner.login=Kercy",
+          "owner.full_name=KercyDing",
+          "owner.location=HeFei",
+          "主仓地址与固定GitHub README一致"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "hudos／hodos",
+    "aliases": [
+      "hudos",
+      "hodos",
+      "hudos-server"
+    ],
+    "checked_at": "2026-10-28",
+    "source_repository": "https://github.com/xuchenruisz/hudos",
+    "source_commit": "b4a244b808b6786d5c3a1fd98102055f7f582488",
+    "short_description": "hudos 是双子星观测站发布的 ARM64 UEFI 承载实验内核与系统，包含自身 ELF 装载、EL0／SVC、页权限管理和父子协程；物理内存分配、通用设备服务及异步中断基础由固件提供。",
+    "author": {
+      "people": [
+        {
+          "name": "双子星观测站",
+          "github_handle": "xuchenruisz",
+          "bilibili_uid": "514146062"
+        }
+      ],
+      "attribution": {
+        "text": "2026年10月2日最新开源原片简介给出github.com/xuchenruisz/hudos及chat.hudos.cn；固定README署名双子星观测站（Gemini Observatory），项目论坛管理员公告也给出该仓库。自然人身份和具体成员分工待核实。",
+        "evidence_level": "作者原始互链",
+        "source_ids": [
+          "hd2",
+          "hd9",
+          "hd35"
+        ]
+      },
+      "china_basis": {
+        "text": "双子星观测站（UID514146062）在B站以中文发布hudos，原片公开接口的简介直接给出原仓与论坛。按原作者中文技术社区发布记录关联，国籍待核实。",
+        "evidence_level": "原作者中文社区发布",
+        "source_ids": [
+          "hd2",
+          "hd39"
+        ]
+      }
+    },
+    "kernel_positioning": {
+      "text": "按UEFI承载实验内核收录。项目在EFI应用环境中实现ELF映像／栈布局、EL0入口与同步异常分派、页权限调整和父子协程生命周期；UEFI持续提供物理页分配、文件／图形／输入服务及普通EL1服务窗口的向量基础。资源管理分工按这一固定实现记录。",
+      "evidence_level": "固定源码与有限分类判断",
+      "source_ids": [
+        "hd10",
+        "hd40",
+        "hd41",
+        "hd42",
+        "hd43",
+        "hd44",
+        "hd45",
+        "hd48",
+        "hd51"
+      ]
+    },
+    "dates": {
+      "repository_created": {
+        "at": "2026-09-14T10:38:39Z",
+        "meaning": "GitHub创建时间",
+        "source_ids": [
+          "hd6"
+        ]
+      },
+      "earliest_retained_commit": {
+        "at": "2026-09-14T10:40:57Z",
+        "commit": "cd2b6488f5b30aad8ca546fac01934f004ab7502",
+        "meaning": "当前历史无父根提交，仅有README；项目更早发布见B站合集",
+        "source_ids": [
+          "hd28",
+          "hd29"
+        ]
+      },
+      "known_announcement": {
+        "text": "最新开源原片BV1wiaU6REGn的公开接口pubdate已核为2026-10-02T13:00:00Z，UTC+8为21:00:00。其他历史原片的页面显示原值沿用2026-10-10研究；其规范时间戳、时区和项目首次公开日期继续待核。",
+        "evidence_level": "平台显示",
+        "source_ids": [
+          "hd1",
+          "hd2",
+          "hd4",
+          "hd37",
+          "hd39"
+        ]
+      },
+      "video_published": {
+        "published_at": "2026-10-02T13:00:00Z",
+        "unix_timestamp": 1790946000,
+        "china_standard_time": "2026-10-02T21:00:00+08:00",
+        "meaning": "B站公开接口pubdate",
+        "source_ids": [
+          "hd39"
+        ]
+      }
+    },
+    "architectures": [
+      {
+        "text": "AArch64／ARM64；clang目标aarch64-pc-win32-coff，用户ELF检查EM_AARCH64。源码调试目标包含QEMU virt、PL011、virtio-mmio。",
+        "evidence_level": "源码可见",
+        "source_ids": [
+          "hd10",
+          "hd12",
+          "hd14"
+        ]
+      }
+    ],
+    "implementation_languages": [
+      {
+        "text": "C与AArch64汇编；LLVM clang、lld-link、freestanding和nodefaultlib构建配置可读。",
+        "evidence_level": "源码可见",
+        "source_ids": [
+          "hd10",
+          "hd12",
+          "hd14",
+          "hd15"
+        ]
+      }
+    ],
+    "capabilities": {
+      "boot": [
+        {
+          "text": "efi_main保存固件系统表与Boot Services，执行EL0自检，查找ESP、初始化图形／输入，然后选择装载gui.elf或tdesktop.elf并进入shell。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "hd51"
+          ]
+        }
+      ],
+      "memory": [
+        {
+          "text": "elf_load计算PT_LOAD范围，为映像与64页用户栈向UEFI申请页面，装载段并处理限定重定位。项目负责映像布局和权限；物理页取得与释放使用固件AllocatePages／FreePages。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "hd40",
+            "hd45"
+          ]
+        },
+        {
+          "text": "默认g_el0_phaseb=0，EL0准备路径在固件页表中按4KiB页面调整子程序权限，必要时拆分块描述符；撤销授权时恢复原描述符并回收拆分表。私有克隆页表与ASID路径保留为显式开关。隔离正确性与权限覆盖待核实。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "hd12",
+            "hd13",
+            "hd50"
+          ]
+        }
+      ],
+      "scheduling": [
+        {
+          "text": "单组父子协程由应用主动调用exec_co／co_resume推进。read无可用输入时置blocked并让出，图形提交可按开关让出；EL0上下文保存通用寄存器、ELR／SPSR与SP_EL0，父端恢复执行；完整上下文恢复分支在done状态下调用co_child_cleanup回收子程序资源，其他退出分支的回收覆盖待核实。调度属于协作式程序管理。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "hd43",
+            "hd44",
+            "hd45",
+            "hd48"
+          ]
+        },
+        {
+          "text": "EL0执行窗口屏蔽IRQ／FIQ并安装项目向量；SVC进入EL1后切回固件向量，分派完成再恢复项目向量并ERET。普通固件服务窗口继续承担异步中断基础；项目异步向量为异常诊断与退出路径，抢占式调度待核实。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "hd12",
+            "hd41",
+            "hd42",
+            "hd43"
+          ]
+        }
+      ],
+      "userspace": [
+        {
+          "text": "项目ELF64加载器检查AArch64、ET_EXEC／ET_DYN和段范围；汇编入口设置SP_EL0、ELR_EL1、SPSR_EL1并ERET进入EL0，SVC向量保存寄存器帧交给C分派器。crt0与syscall.c同时提供EL0的SVC通道和EL1函数指针通道，入口按EL0自检／授权结果选择。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "hd15",
+            "hd16",
+            "hd40",
+            "hd41",
+            "hd42"
+          ]
+        },
+        {
+          "text": "系统调用保存32槽文件表、终端输入／输出缓冲及父子协程状态；read／write／open等接口转发到固件文件或输入服务。部分Linux AArch64编号和项目扩展编号可见，brk返回固定常量，完整ABI兼容待核实。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "hd12",
+            "hd44",
+            "hd48"
+          ]
+        }
+      ],
+      "filesystem": [
+        {
+          "text": "文件访问基于EFI_FILE_PROTOCOL和SimpleFileSystem；维护最多8卷、8挂载点、8磁盘和32个文件句柄槽。代码提供复制、删除、挂载及FAT格式化／分区操作。运行与数据一致性待核实。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "hd11",
+            "hd12"
+          ]
+        }
+      ],
+      "graphics": [
+        {
+          "text": "通过固件GOP选择显示模式并取得帧缓冲；Blt-only设备使用固件分配的影子缓冲并经GOP Blt提交，键盘及绝对指针使用UEFI协议。项目实现字形、像素和控制台绘制，以及图形提交时的协程让出。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "hd49",
+            "hd12",
+            "hd23",
+            "hd24"
+          ]
+        }
+      ],
+      "network": [
+        {
+          "text": "固定主文件包含virtio-mmio、ARP／IPv4、UDP、DHCP、DNS、TCP、HTTP及HTTPS调用链；TLS1.2握手使用0xCCA8并核对RSA-SHA256签名链。x509.c核验字段集中于公钥、签名算法和签名链；完整主机名、有效期及证书约束检查继续核实。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "hd12",
+            "hd19",
+            "hd20",
+            "hd21",
+            "hd22",
+            "hd38"
+          ]
+        }
+      ],
+      "audio": [
+        {
+          "text": "主文件包含HDA探测及44.1kHz／16位／单声道PCM播放接口，仍通过固件分配和等待服务组织。实机与音频正确性待核实。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "hd12"
+          ]
+        }
+      ],
+      "drivers": [
+        {
+          "text": "VirtIO-MMIO网络路径自行协商设备特性、建立收发描述符环并轮询；PCI HDA路径自行扫描配置空间、设置控制器／DMA描述符并轮询播放，内存与等待继续使用固件服务。硬件兼容与实际运行待核实。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "hd46",
+            "hd47"
+          ]
+        }
+      ]
+    },
+    "project_relationships": [
+      {
+        "text": "本项目以UEFI EFI_APPLICATION承载；物理内存、ESP文件与通用图形／输入协议交由固件，ELF、特权同步异常、页权限与协程管理使用项目自身实现。Linux编号、字体来源和局部接口兼容各按实际范围记录。",
+        "evidence_level": "源码可见",
+        "source_ids": [
+          "hd10",
+          "hd40",
+          "hd41",
+          "hd42",
+          "hd43",
+          "hd44",
+          "hd48",
+          "hd49",
+          "hd50"
+        ]
+      },
+      {
+        "text": "sun8x16.h头注标注Linux kernel字体；cjk16x16.h头注说明从系统STHeiti经gen_cjk_font.py／extend_cjk.py生成32×32位图。源字体精确版本、转换脚本和再分发许可范围待核实。",
+        "evidence_level": "源码可见",
+        "source_ids": [
+          "hd23",
+          "hd24"
+        ]
+      },
+      {
+        "text": "common.h称为四游戏框架的hudos移植接口，并提到games_adapter.c；原框架、适配实现、作者及许可范围待核实。",
+        "evidence_level": "源码可见",
+        "source_ids": [
+          "hd18"
+        ]
+      },
+      {
+        "text": "tls_roots.h说明根证书提取自系统信任库；固定版本与完整来源清单待核实。tls_cli.c列出RFC5246、7905、8439。",
+        "evidence_level": "源码可见",
+        "source_ids": [
+          "hd22",
+          "hd38"
+        ]
+      },
+      {
+        "text": "开发合集同时出现hudos、hudos-server及伪系统标题；当前仓源码、早期桌面作品、发布镜像及各演示版本的对应关系继续核实。",
+        "evidence_level": "原作者目录与源码对照",
+        "source_ids": [
+          "hd4",
+          "hd12",
+          "hd27",
+          "hd37"
+        ]
+      }
+    ],
+    "status": {
+      "source_snapshot": {
+        "branch": "内核6.1",
+        "commit": "b4a244b808b6786d5c3a1fd98102055f7f582488",
+        "committed_at": "2026-10-06T23:21:49Z",
+        "source_ids": [
+          "hd6",
+          "hd7",
+          "hd25"
+        ]
+      },
+      "source_version": {
+        "text": "主实现启动横幅为hudos-server 0.1；默认分支名为内核6.1；两者各按其原意保存。",
+        "evidence_level": "源码可见",
+        "source_ids": [
+          "hd6",
+          "hd12"
+        ]
+      },
+      "releases": {
+        "text": "2026-10-10研究记录保存2个Release、2个标签。正式V26.10.1.16发布于2026-10-02T04:11:28Z，对应标签1／adb0112527ce90244ff4904aaaeba6a25d7fa9d5；预发布hudos v26.10.4.20发布于2026-10-05T00:53:38Z，对应标签2／f632bf79977431300b2ede953636f48e8be723ec。前者1个qcow2.zip附件，后者qcow2.zip与论坛iOS客户端共2附件。源码、镜像及版本号对应待核。",
+        "source_ids": [
+          "hd26",
+          "hd27"
+        ]
+      },
+      "license": {
+        "name": "README声明GPL-2.0-or-later",
+        "text": "根README提供GPL第二版或任何后续版本的简短授权并署名双子星观测站。完整许可全文、字体、证书、游戏与7zip组件的许可及分发范围继续核实；GitHub license字段为null。",
+        "source_ids": [
+          "hd6",
+          "hd8",
+          "hd9",
+          "hd18",
+          "hd23",
+          "hd24",
+          "hd27"
+        ]
+      },
+      "ai_assistance": {
+        "status": "待核实",
+        "text": "同账号主页另列WorkBuddy纯汇编系统系列；hudos系列另有AI功能原片，项目站显示Qwen-Coder Chat。现有材料分别证明作者另一个AI编程系列和AI产品入口；当前hudos C／汇编源码的AI工具、模型、比例与人工复核范围继续待核。",
+        "source_ids": [
+          "hd3",
+          "hd4",
+          "hd12",
+          "hd36"
+        ]
+      },
+      "runtime_verification": {
+        "status": "待核实",
+        "scope": "本轮静态审阅固定源码连续路径及资源分工，安装、构建、启动、测试和候选执行均为0。作者原片元数据与历史发布资料沿用既有研究，具体画面和二进制版本对应待核实。"
+      },
+      "branch_observation": {
+        "text": "2026-10-25研究记录中，h/ux1.0与内核6.1均指向b4a244b808b6786d5c3a1fd98102055f7f582488；本轮连续源码分类固定于该提交。",
+        "source_ids": [
+          "hd6",
+          "hd25"
+        ]
+      }
+    },
+    "evidence_layers": {
+      "author_claims": {
+        "text": "作者发布开源、图形、AI功能和7zip移植标题，Release描述GUI与高危问题修复。",
+        "evidence_level": "作者声明",
+        "source_ids": [
+          "hd1",
+          "hd2",
+          "hd4",
+          "hd27"
+        ]
+      },
+      "source_visible": {
+        "text": "固定完整树为27项，其中26文件、1目录；核心C源码5624行，功能路径按固定内容保存。",
+        "evidence_level": "源码可见",
+        "source_ids": [
+          "hd8",
+          "hd12"
+        ]
+      },
+      "original_demonstration": {
+        "status": "待核实",
+        "text": "原片页面、简介、UID、时长和合集已取得。云端公开播放器的播放点击与像素截图连续出现CDP超时；逐帧内容、时间点和二进制版本对应继续待核。",
+        "source_ids": [
+          "hd1",
+          "hd2",
+          "hd37"
+        ]
+      },
+      "independent_runtime": {
+        "status": "待核实"
+      }
+    },
+    "notable_boundaries": [
+      {
+        "text": "mmu.c保留早期空初始化与EL1调用说明；当前hudos_server.c和mmu_asm.S已包含EL0窗口与SVC，按固定实现分别记录。",
+        "evidence_level": "源码可见",
+        "source_ids": [
+          "hd12",
+          "hd13",
+          "hd14"
+        ]
+      },
+      {
+        "text": "主文件早期网络段落及SYS_fetch注释保留HTTP阶段文字；实际sys_fetch分支已调用HTTPS与TLS实现。协议覆盖按实际路径继续核实。",
+        "evidence_level": "源码可见",
+        "source_ids": [
+          "hd12",
+          "hd20"
+        ]
+      },
+      {
+        "text": "10月4日提交为控制台字符缓冲和ELF文件偏移／大小添加边界检查；修复有效性及完整安全审计待核实。",
+        "evidence_level": "源码可见",
+        "source_ids": [
+          "hd34"
+        ]
+      },
+      {
+        "text": "随机数初始化混合UEFI时间和内核状态后以ChaCha20扩展；源码将其定位为演示用途。密码学安全、证书完整校验与真实网络环境覆盖待核实。",
+        "evidence_level": "源码可见",
+        "source_ids": [
+          "hd12",
+          "hd21"
+        ]
+      },
+      {
+        "text": "主文件含分区创建／删除和FAT格式化写路径；未来运行需明确可恢复试验磁盘和授权范围。",
+        "evidence_level": "源码可见",
+        "source_ids": [
+          "hd12"
+        ]
+      }
+    ],
+    "links": {
+      "source": "https://github.com/xuchenruisz/hudos",
+      "original_video": "https://www.bilibili.com/video/BV1wiaU6REGn/",
+      "author_profile": "https://space.bilibili.com/514146062",
+      "community": "https://chat.hudos.cn/forum"
+    },
+    "pending_verification": [
+      "各版本源码、qcow2镜像、早期伪系统与视频的精确对应",
+      "桌面与用户应用的完整源码和构建链",
+      "全部上游继承与字体、游戏、证书、7zip及许可全文",
+      "当前hudos源码的AI参与声明与复核范围",
+      "逐帧作者演示与独立构建、启动、EL0隔离、文件、网络和实机验证",
+      "首次公开历史、其他原片规范时刻和作者国籍自述",
+      "默认EL0权限与可选私有页表隔离的正确性、完整ABI与协程运行覆盖"
+    ],
+    "sources": [
+      {
+        "id": "hd1",
+        "title": "开源公告原片",
+        "url": "https://www.bilibili.com/video/BV1pthB64E37/",
+        "kind": "原作者视频页面",
+        "supports": [
+          "9月21日开源标题、发布账号和合集"
+        ]
+      },
+      {
+        "id": "hd2",
+        "title": "最新开源原片",
+        "url": "https://www.bilibili.com/video/BV1wiaU6REGn/",
+        "kind": "原作者视频页面",
+        "supports": [
+          "视频简介直接连接原仓与官方论坛；两种显示时刻"
+        ]
+      },
+      {
+        "id": "hd3",
+        "title": "发布者B站主页",
+        "url": "https://space.bilibili.com/514146062",
+        "kind": "原作者公开主页",
+        "supports": [
+          "作者名称；hudos系列与另一个WorkBuddy纯汇编系列"
+        ]
+      },
+      {
+        "id": "hd4",
+        "title": "原作者开发日志合集",
+        "url": "https://space.bilibili.com/514146062/lists/9078226?type=season",
+        "kind": "原作者视频目录",
+        "supports": [
+          "22项公开视频；早期hudos与hudos-server、伪系统和AI功能标题"
+        ]
+      },
+      {
+        "id": "hd5",
+        "title": "GitHub作者主页",
+        "url": "https://github.com/xuchenruisz",
+        "kind": "原作者公开主页",
+        "supports": [
+          "维护账号与公开仓库"
+        ]
+      },
+      {
+        "id": "hd6",
+        "title": "仓库元数据",
+        "url": "https://api.github.com/repos/xuchenruisz/hudos",
+        "kind": "平台元数据",
+        "supports": [
+          "创建时间、默认分支、13星、fork=false、许可元数据null"
+        ]
+      },
+      {
+        "id": "hd7",
+        "title": "固定头提交",
+        "url": "https://github.com/xuchenruisz/hudos/commit/b4a244b808b6786d5c3a1fd98102055f7f582488",
+        "kind": "固定提交元数据",
+        "supports": [
+          "2026-10-06T23:21:49Z"
+        ]
+      },
+      {
+        "id": "hd8",
+        "title": "固定完整源码树",
+        "url": "https://api.github.com/repos/xuchenruisz/hudos/git/trees/b4a244b808b6786d5c3a1fd98102055f7f582488?recursive=1",
+        "kind": "固定源码树",
+        "supports": [
+          "27项、26文件、1目录、truncated=false"
+        ]
+      },
+      {
+        "id": "hd9",
+        "title": "固定README及许可声明",
+        "url": "https://github.com/xuchenruisz/hudos/blob/b4a244b808b6786d5c3a1fd98102055f7f582488/README.md",
+        "kind": "固定作者文档",
+        "supports": [
+          "hodos拼写、双子星观测站署名、GPL-2.0-or-later简短声明"
+        ]
+      },
+      {
+        "id": "hd10",
+        "title": "ARM64 EFI构建",
+        "url": "https://github.com/xuchenruisz/hudos/blob/b4a244b808b6786d5c3a1fd98102055f7f582488/Makefile",
+        "kind": "固定源码",
+        "supports": [
+          "aarch64-pc-win32-coff与EFI_APPLICATION构建目标"
+        ]
+      },
+      {
+        "id": "hd11",
+        "title": "UEFI协议类型",
+        "url": "https://github.com/xuchenruisz/hudos/blob/b4a244b808b6786d5c3a1fd98102055f7f582488/efi.h",
+        "kind": "固定源码",
+        "supports": [
+          "自包含UEFI接口定义"
+        ]
+      },
+      {
+        "id": "hd12",
+        "title": "系统主实现",
+        "url": "https://github.com/xuchenruisz/hudos/blob/b4a244b808b6786d5c3a1fd98102055f7f582488/hudos_server.c",
+        "kind": "固定源码",
+        "supports": [
+          "固件服务、ELF装载、EL0、协程、文件、网络、音频与源码横幅版本"
+        ]
+      },
+      {
+        "id": "hd13",
+        "title": "早期MMU阶段实现",
+        "url": "https://github.com/xuchenruisz/hudos/blob/b4a244b808b6786d5c3a1fd98102055f7f582488/mmu.c",
+        "kind": "固定源码",
+        "supports": [
+          "hudos_mmu_init为空操作；解释固件向量与持续Boot Services"
+        ]
+      },
+      {
+        "id": "hd14",
+        "title": "AArch64异常与EL0汇编",
+        "url": "https://github.com/xuchenruisz/hudos/blob/b4a244b808b6786d5c3a1fd98102055f7f582488/mmu_asm.S",
+        "kind": "固定源码",
+        "supports": [
+          "异常向量、eret与EL0上下文"
+        ]
+      },
+      {
+        "id": "hd15",
+        "title": "用户程序启动",
+        "url": "https://github.com/xuchenruisz/hudos/blob/b4a244b808b6786d5c3a1fd98102055f7f582488/crt0.S",
+        "kind": "固定源码",
+        "supports": [
+          "EL1函数指针与EL0 SVC两种调用路径"
+        ]
+      },
+      {
+        "id": "hd16",
+        "title": "用户调用包装",
+        "url": "https://github.com/xuchenruisz/hudos/blob/b4a244b808b6786d5c3a1fd98102055f7f582488/syscall.c",
+        "kind": "固定源码",
+        "supports": [
+          "双路径调用、文件与图形API"
+        ]
+      },
+      {
+        "id": "hd17",
+        "title": "用户调用声明",
+        "url": "https://github.com/xuchenruisz/hudos/blob/b4a244b808b6786d5c3a1fd98102055f7f582488/syscall.h",
+        "kind": "固定源码",
+        "supports": [
+          "编号与接口定义"
+        ]
+      },
+      {
+        "id": "hd18",
+        "title": "游戏接口声明",
+        "url": "https://github.com/xuchenruisz/hudos/blob/b4a244b808b6786d5c3a1fd98102055f7f582488/common.h",
+        "kind": "固定源码",
+        "supports": [
+          "四游戏框架移植声明；原项目来源待核"
+        ]
+      },
+      {
+        "id": "hd19",
+        "title": "TLS原语声明",
+        "url": "https://github.com/xuchenruisz/hudos/blob/b4a244b808b6786d5c3a1fd98102055f7f582488/tls.h",
+        "kind": "固定源码",
+        "supports": [
+          "SHA256、ChaCha20、Poly1305与P256接口"
+        ]
+      },
+      {
+        "id": "hd20",
+        "title": "TLS1.2握手",
+        "url": "https://github.com/xuchenruisz/hudos/blob/b4a244b808b6786d5c3a1fd98102055f7f582488/tls_handshake.c",
+        "kind": "固定源码",
+        "supports": [
+          "0xCCA8握手与证书链签名核验路径"
+        ]
+      },
+      {
+        "id": "hd21",
+        "title": "X.509解析与签名核验",
+        "url": "https://github.com/xuchenruisz/hudos/blob/b4a244b808b6786d5c3a1fd98102055f7f582488/x509.c",
+        "kind": "固定源码",
+        "supports": [
+          "DER、RSA-SHA256和信任锚签名链"
+        ]
+      },
+      {
+        "id": "hd22",
+        "title": "证书信任锚头注",
+        "url": "https://github.com/xuchenruisz/hudos/blob/b4a244b808b6786d5c3a1fd98102055f7f582488/tls_roots.h",
+        "kind": "固定源码头部",
+        "supports": [
+          "从系统信任库提取的根证书"
+        ]
+      },
+      {
+        "id": "hd23",
+        "title": "ASCII字体来源头注",
+        "url": "https://github.com/xuchenruisz/hudos/blob/b4a244b808b6786d5c3a1fd98102055f7f582488/userland/sun8x16.h",
+        "kind": "固定源码头部",
+        "supports": [
+          "署明Linux kernel sun8x16来源"
+        ]
+      },
+      {
+        "id": "hd24",
+        "title": "中文字体来源头注",
+        "url": "https://github.com/xuchenruisz/hudos/blob/b4a244b808b6786d5c3a1fd98102055f7f582488/userland/cjk16x16.h",
+        "kind": "固定源码头部",
+        "supports": [
+          "STHeiti生成32×32位图字体"
+        ]
+      },
+      {
+        "id": "hd25",
+        "title": "分支集合",
+        "url": "https://api.github.com/repos/xuchenruisz/hudos/branches?per_page=100",
+        "kind": "平台元数据",
+        "supports": [
+          "main、api6.0、内核6.1与h/ux1.0分支",
+          "内核6.1与h/ux1.0同指b4a244b8"
+        ]
+      },
+      {
+        "id": "hd26",
+        "title": "标签引用集合",
+        "url": "https://api.github.com/repos/xuchenruisz/hudos/git/matching-refs/tags/",
+        "kind": "平台元数据",
+        "supports": [
+          "标签1和2精确提交"
+        ]
+      },
+      {
+        "id": "hd27",
+        "title": "发布集合",
+        "url": "https://api.github.com/repos/xuchenruisz/hudos/releases?per_page=100",
+        "kind": "原作者发布及平台元数据",
+        "supports": [
+          "正式V26.10.1.16与预发布v26.10.4.20；3个附件"
+        ]
+      },
+      {
+        "id": "hd28",
+        "title": "当前分支全部可见提交",
+        "url": "https://api.github.com/repos/xuchenruisz/hudos/commits?per_page=100",
+        "kind": "固定历史元数据",
+        "supports": [
+          "14项线性历史、无父根提交"
+        ]
+      },
+      {
+        "id": "hd29",
+        "title": "初始提交源码树",
+        "url": "https://api.github.com/repos/xuchenruisz/hudos/git/trees/cd2b6488f5b30aad8ca546fac01934f004ab7502?recursive=1",
+        "kind": "固定历史源码树",
+        "supports": [
+          "初始README单文件"
+        ]
+      },
+      {
+        "id": "hd30",
+        "title": "首个上传提交树",
+        "url": "https://api.github.com/repos/xuchenruisz/hudos/git/trees/184eaebe697741ef4f25fcbda9eb16c282750a3c?recursive=1",
+        "kind": "固定历史源码树",
+        "supports": [
+          "README与hudos-server1beta1压缩包"
+        ]
+      },
+      {
+        "id": "hd31",
+        "title": "main分支固定树",
+        "url": "https://api.github.com/repos/xuchenruisz/hudos/git/trees/cc37a6e8274d4a9eb1980307299a5b1a380874d2?recursive=1",
+        "kind": "固定源码树",
+        "supports": [
+          "19项文件；与当前分支区分"
+        ]
+      },
+      {
+        "id": "hd32",
+        "title": "api6.0分支固定树",
+        "url": "https://api.github.com/repos/xuchenruisz/hudos/git/trees/67016fa07953af3f48bea02d10330c267c20bdd4?recursive=1",
+        "kind": "固定源码树",
+        "supports": [
+          "24项文件"
+        ]
+      },
+      {
+        "id": "hd33",
+        "title": "api6.0 README",
+        "url": "https://github.com/xuchenruisz/hudos/blob/67016fa07953af3f48bea02d10330c267c20bdd4/README.md",
+        "kind": "固定作者文档",
+        "supports": [
+          "内核全面更新说明"
+        ]
+      },
+      {
+        "id": "hd34",
+        "title": "10月4日修复差异",
+        "url": "https://github.com/xuchenruisz/hudos/commit/37da3bd68997d6c9f11f3fce44b9dc401e093afa",
+        "kind": "固定提交差异",
+        "supports": [
+          "控制台容量检查及ELF范围检查改动"
+        ]
+      },
+      {
+        "id": "hd35",
+        "title": "项目论坛公开公告",
+        "url": "https://chat.hudos.cn/forum",
+        "kind": "原项目社区页面",
+        "supports": [
+          "管理员公告连接同一原仓；公开公告可读，正文入口要求同意条款"
+        ]
+      },
+      {
+        "id": "hd36",
+        "title": "项目AI聊天入口",
+        "url": "https://chat.hudos.cn/",
+        "kind": "原项目页面",
+        "supports": [
+          "Qwen-Coder Chat标题；密码入口与论坛导航"
+        ]
+      },
+      {
+        "id": "hd37",
+        "title": "早期hudos和hudos-server原片",
+        "url": "https://www.bilibili.com/video/BV1xehc6oENs/",
+        "kind": "原作者视频页面",
+        "supports": [
+          "项目并列命名、8月日期显示与合集差异"
+        ]
+      },
+      {
+        "id": "hd38",
+        "title": "TLS客户端说明",
+        "url": "https://github.com/xuchenruisz/hudos/blob/b4a244b808b6786d5c3a1fd98102055f7f582488/tls_cli.c",
+        "kind": "固定源码头部",
+        "supports": [
+          "RFC5246、7905、8439参考声明"
+        ]
+      },
+      {
+        "id": "hd39",
+        "title": "hudos开源原片公开元数据",
+        "url": "https://api.bilibili.com/x/web-interface/view?bvid=BV1wiaU6REGn",
+        "kind": "原平台公开元数据",
+        "supports": [
+          "UID514146062",
+          "简介直链原仓与论坛",
+          "pubdate=1790946000",
+          "时长159秒"
+        ]
+      },
+      {
+        "id": "hd40",
+        "title": "ELF映像、用户栈与重定位",
+        "url": "https://github.com/xuchenruisz/hudos/blob/b4a244b808b6786d5c3a1fd98102055f7f582488/hudos_server.c#L1268-L1379",
+        "kind": "固定源码",
+        "supports": [
+          "ELF64装载",
+          "固件物理页分配",
+          "64页用户栈"
+        ],
+        "checked_at": "2026-10-28"
+      },
+      {
+        "id": "hd41",
+        "title": "EL0入口与特权状态恢复汇编",
+        "url": "https://github.com/xuchenruisz/hudos/blob/b4a244b808b6786d5c3a1fd98102055f7f582488/mmu_asm.S#L216-L500",
+        "kind": "固定源码",
+        "supports": [
+          "自有同步向量",
+          "SP_EL0／ELR／SPSR",
+          "ERET与协程入口"
+        ],
+        "checked_at": "2026-10-28"
+      },
+      {
+        "id": "hd42",
+        "title": "EL0同步异常、退出与SVC分派",
+        "url": "https://github.com/xuchenruisz/hudos/blob/b4a244b808b6786d5c3a1fd98102055f7f582488/hudos_server.c#L1968-L2077",
+        "kind": "固定源码",
+        "supports": [
+          "固件向量窗口",
+          "SVC分派",
+          "退出状态与ERET"
+        ],
+        "checked_at": "2026-10-28"
+      },
+      {
+        "id": "hd43",
+        "title": "EL0协程让出与父端恢复",
+        "url": "https://github.com/xuchenruisz/hudos/blob/b4a244b808b6786d5c3a1fd98102055f7f582488/hudos_server.c#L1775-L1859",
+        "kind": "固定源码",
+        "supports": [
+          "通用及特权寄存器保存",
+          "固件TTBR／VBAR恢复",
+          "co_switch"
+        ],
+        "checked_at": "2026-10-28"
+      },
+      {
+        "id": "hd44",
+        "title": "协程创建、推进和输入队列",
+        "url": "https://github.com/xuchenruisz/hudos/blob/b4a244b808b6786d5c3a1fd98102055f7f582488/hudos_server.c#L4931-L5127",
+        "kind": "固定源码",
+        "supports": [
+          "exec_co",
+          "co_resume",
+          "co_push／co_kill"
+        ],
+        "checked_at": "2026-10-28"
+      },
+      {
+        "id": "hd45",
+        "title": "协程上下文与资源清理",
+        "url": "https://github.com/xuchenruisz/hudos/blob/b4a244b808b6786d5c3a1fd98102055f7f582488/hudos_server.c#L2638-L2710",
+        "kind": "固定源码",
+        "supports": [
+          "co_switch汇编",
+          "child_done",
+          "FreePool／FreePages"
+        ],
+        "checked_at": "2026-10-28"
+      },
+      {
+        "id": "hd46",
+        "title": "VirtIO-MMIO队列和收发设备初始化",
+        "url": "https://github.com/xuchenruisz/hudos/blob/b4a244b808b6786d5c3a1fd98102055f7f582488/hudos_server.c#L3140-L3258",
+        "kind": "固定源码",
+        "supports": [
+          "设备特性协商",
+          "收发队列直接寄存器编程"
+        ],
+        "checked_at": "2026-10-28"
+      },
+      {
+        "id": "hd47",
+        "title": "PCI HDA发现、DMA与轮询播放",
+        "url": "https://github.com/xuchenruisz/hudos/blob/b4a244b808b6786d5c3a1fd98102055f7f582488/hudos_server.c#L4088-L4370",
+        "kind": "固定源码",
+        "supports": [
+          "PCI／MMIO控制",
+          "固件分配／等待",
+          "DMA描述符"
+        ],
+        "checked_at": "2026-10-28"
+      },
+      {
+        "id": "hd48",
+        "title": "文件与终端系统调用分派",
+        "url": "https://github.com/xuchenruisz/hudos/blob/b4a244b808b6786d5c3a1fd98102055f7f582488/hudos_server.c#L4437-L4525",
+        "kind": "固定源码",
+        "supports": [
+          "EL0指针范围检查调用",
+          "EFI文件协议",
+          "输入阻塞让出"
+        ],
+        "checked_at": "2026-10-28"
+      },
+      {
+        "id": "hd49",
+        "title": "图形／输入协议与影子缓冲",
+        "url": "https://github.com/xuchenruisz/hudos/blob/b4a244b808b6786d5c3a1fd98102055f7f582488/hudos_server.c#L2720-L2783",
+        "kind": "固定源码",
+        "supports": [
+          "GOP／绝对指针",
+          "AllocatePool影子缓冲"
+        ],
+        "checked_at": "2026-10-28"
+      },
+      {
+        "id": "hd50",
+        "title": "固件页表授权与撤销",
+        "url": "https://github.com/xuchenruisz/hudos/blob/b4a244b808b6786d5c3a1fd98102055f7f582488/hudos_server.c#L2349-L2424",
+        "kind": "固定源码",
+        "supports": [
+          "4KiB页权限调整",
+          "描述符保存恢复",
+          "拆分页表回收"
+        ],
+        "checked_at": "2026-10-28"
+      },
+      {
+        "id": "hd51",
+        "title": "固件保存、自检和系统入口",
+        "url": "https://github.com/xuchenruisz/hudos/blob/b4a244b808b6786d5c3a1fd98102055f7f582488/hudos_server.c#L5537-L5622",
+        "kind": "固定源码",
+        "supports": [
+          "Boot Services持续提供服务",
+          "EL0自检与EL1回退",
+          "应用／shell入口"
+        ],
+        "checked_at": "2026-10-28"
+      }
+    ],
+    "id": "hudos",
+    "selection_status": "已收录",
+    "resource_boundaries": [
+      {
+        "resource": "程序与特权",
+        "project": "ELF段装载／重定位、EL0入口、SVC分派与退出",
+        "firmware": "EFI映像环境与固件服务调用窗口",
+        "source_ids": [
+          "hd40",
+          "hd41",
+          "hd42"
+        ]
+      },
+      {
+        "resource": "内存",
+        "project": "映像／栈布局、固件页表权限临时调整、可选克隆页表与回收",
+        "firmware": "物理页／缓冲区分配与默认地址空间",
+        "source_ids": [
+          "hd40",
+          "hd45",
+          "hd50"
+        ]
+      },
+      {
+        "resource": "调度与中断",
+        "project": "单父子协程、主动让出／恢复、自有同步异常向量",
+        "firmware": "普通EL1服务窗口的异步中断基础；EL0窗口屏蔽IRQ／FIQ",
+        "source_ids": [
+          "hd41",
+          "hd42",
+          "hd43",
+          "hd44"
+        ]
+      },
+      {
+        "resource": "文件、图形与输入",
+        "project": "文件表、挂载表、绘制与应用接口",
+        "firmware": "EFI_FILE_PROTOCOL／Block IO／GOP／键盘／指针协议",
+        "source_ids": [
+          "hd48",
+          "hd49",
+          "hd12"
+        ]
+      },
+      {
+        "resource": "网络与音频",
+        "project": "VirtIO-MMIO收发环、网络协议、PCI HDA控制器及DMA编程",
+        "firmware": "分配／等待服务及既有固件运行环境",
+        "source_ids": [
+          "hd46",
+          "hd47"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "bearos-medaifan",
+    "name": "BearOS／小熊操作系统",
+    "aliases": [
+      "BearOS",
+      "Bear OS"
+    ],
+    "checked_at": "2026-10-28",
+    "short_description": "BearOS（小熊操作系统）是宁净（嘟嘟熊／胖嘟嘟的超级熊）公开发布的x86学习型操作系统。作者技术文档记录32位保护模式内核、自定义任务调度与文件系统、中文输入、图形窗口及BasC应用。功能按作者文档阶段呈现。",
+    "author": {
+      "people": [
+        {
+          "name": "宁净",
+          "public_aliases": [
+            "嘟嘟熊",
+            "胖嘟嘟的超级熊"
+          ],
+          "website": "https://www.medaifan.net/",
+          "bilibili_url": "https://space.bilibili.com/111781531/"
+        }
+      ],
+      "organization": "MedAIFan 个人项目",
+      "attribution": {
+        "text": "官网自述作者姓名与网名；BearOS 项目页嵌入四条原视频；同一 B站频道的公告写明个人网站为 www.medaifan.net，原片简介也列出该网站。",
+        "evidence_level": "作者官网与原作者频道互链",
+        "source_ids": [
+          "b1",
+          "b2",
+          "b3",
+          "b4",
+          "b7"
+        ]
+      },
+      "china_basis": {
+        "text": "MedAIFan作者官网直接嵌入胖嘟嘟的超级熊在中文技术社区B站发布的BearOS原片，作者频道与个人网站互链。按公开作者与中文开发社区关联记录，国籍待核实。",
+        "evidence_level": "原作者官网与频道互链",
+        "source_ids": [
+          "b1",
+          "b2",
+          "b3",
+          "b4",
+          "b7"
+        ]
+      }
+    },
+    "kernel_positioning": {
+      "text": "作者技术文档说明从16位实模式转为32位保护模式，自行实现硬件驱动、时钟中断任务切换、内存管理和自定义文件系统，并将Shell重构为通过系统调用访问内核的应用。按该公开技术文档与原作者发布链收录自身内核项目阶段；源码继承与实际执行边界继续待核实。",
+      "evidence_level": "作者声明",
+      "source_ids": [
+        "b2",
+        "b7"
+      ]
+    },
+    "dates": {
+      "first_public": {
+        "date": null,
+        "status": "待核实",
+        "known_public_record": "2026-06-19 的 P1、P2、P3 原作者视频",
+        "source_ids": [
+          "b3",
+          "b4",
+          "b5",
+          "b6"
+        ]
+      },
+      "development_started": {
+        "date": null,
+        "status": "待核实",
+        "basis": "官网以“今年春节后”回顾开工时间，页面缺少明确成文日期。",
+        "source_ids": [
+          "b2"
+        ]
+      },
+      "latest_known_video": {
+        "date": "2026-10-07",
+        "precision": "日",
+        "title": "P4 自制操作系统 BearOS - 图形界面+音乐播放+机器学习",
+        "source_ids": [
+          "b7"
+        ]
+      }
+    },
+    "architectures": [
+      {
+        "text": "作者将当前 BearOS 描述为 x86 架构；官网记录从 16 位实模式发展到 32 位保护模式。",
+        "evidence_level": "作者声明",
+        "source_ids": [
+          "b2",
+          "b7"
+        ]
+      }
+    ],
+    "capabilities": {
+      "boot": [
+        {
+          "text": "官网描述自制开机引导；发布包使用 run.bat 启动 QEMU，run_whpx.bat 启用硬件虚拟化。",
+          "evidence_level": "作者声明",
+          "source_ids": [
+            "b2"
+          ]
+        }
+      ],
+      "scheduling": [
+        {
+          "text": "V0.2 开发日志描述依托时钟中断修改栈返回地址切换任务；应用启动后建立进程，可由控制台结束并回收资源。",
+          "evidence_level": "作者声明",
+          "source_ids": [
+            "b2"
+          ]
+        }
+      ],
+      "memory": [
+        {
+          "text": "V0.2 开发日志描述动态内存分配与回收，以及进程专属内存和栈空间；隔离机制与硬件保护边界待核实。",
+          "evidence_level": "作者声明",
+          "source_ids": [
+            "b2"
+          ]
+        }
+      ],
+      "filesystem": [
+        {
+          "text": "作者描述自定义文件系统、磁盘文件读写及程序加载；命令文档列出目录、复制、重命名、移动与删除等操作。",
+          "evidence_level": "作者声明",
+          "source_ids": [
+            "b2"
+          ]
+        }
+      ],
+      "drivers": [
+        {
+          "text": "V0.2 开发日志列出鼠标、DMA 磁盘访问和 AC97 音频驱动；应用清单包含 WAV 播放器。",
+          "evidence_level": "作者声明",
+          "source_ids": [
+            "b2"
+          ]
+        }
+      ],
+      "graphics": [
+        {
+          "text": "官网描述 1024×768 图形模式、中文显示与拼音输入；V0.2 增加窗口重叠、移动与关闭，多窗口 Shell 和独立输入法进程。",
+          "evidence_level": "作者声明",
+          "source_ids": [
+            "b2"
+          ]
+        }
+      ],
+      "userland": [
+        {
+          "text": "官网列出自研 C 类库、文本编辑器、俄罗斯方块、字符雨、浮点数与旋转立方体演示；BasC 应用清单包含逻辑回归训练与预测程序。",
+          "evidence_level": "作者声明",
+          "source_ids": [
+            "b2"
+          ]
+        }
+      ]
+    },
+    "implementation_languages": [
+      {
+        "text": "官网明确描述 C 标准库及宿主机交叉编译应用；内核核心实现语言、汇编比例与构建工具链待源码核实。",
+        "evidence_level": "作者声明与资料缺口",
+        "source_ids": [
+          "b2"
+        ]
+      }
+    ],
+    "project_relationships": [
+      {
+        "text": "作者把早期命令行使用方式与 DOS 联系，把 V0.2 窗口设计与早期 Windows 使用体验联系；这些陈述记录设计动机。内核和驱动的源码继承及引入组件清单待核实。",
+        "evidence_level": "作者声明",
+        "source_ids": [
+          "b2"
+        ]
+      },
+      {
+        "text": "BasC 是作者为 BearOS 创建的解释型语言，说明中提及 BASIC、C 类型定义和 Python 多返回值等设计来源。中文关键字及语法原例继续待核实。",
+        "evidence_level": "作者声明",
+        "source_ids": [
+          "b2",
+          "b6"
+        ]
+      }
+    ],
+    "status": {
+      "latest_known_author_package": {
+        "version": "V0.20",
+        "published_at": null,
+        "status": "官网当前公开提供下载入口；精确发布日期待核实",
+        "source_ids": [
+          "b2",
+          "b9"
+        ]
+      },
+      "historical_author_package": {
+        "version": "V0.10",
+        "source_ids": [
+          "b2",
+          "b8"
+        ]
+      },
+      "source_snapshot": {
+        "status": "待核实",
+        "text": "已检查的官网与频道公开页面提供发布包链接，源码仓库入口及固定源码快照继续待核实。"
+      },
+      "license": {
+        "name": null,
+        "status": "待核实",
+        "text": "BearOS 项目专属许可与第三方组件许可待核实；网站版权页脚按网站声明记录。"
+      },
+      "runtime_verification": {
+        "status": "待核实",
+        "scope": "本轮读取原作者技术文档与官网嵌入视频的发布链，视频关键帧和发行包静态分析未完成；独立构建、启动与实机运行待核实。"
+      }
+    },
+    "video_observations": [
+      {
+        "title": "P1 自制操作系统 BearOS -系统内核及文件管理",
+        "url": "https://www.bilibili.com/video/BV13oj66LEnk/",
+        "bvid": "BV13oj66LEnk",
+        "published_date": "2026-06-19",
+        "duration": "06:59",
+        "observed_time": "00:16",
+        "observation": "已观察作者讲述开发动机的开场字幕和宿主桌面；内核功能运行画面与时间点继续待核实。",
+        "evidence_level": "原作者视频首段观察",
+        "source_ids": [
+          "b4"
+        ]
+      },
+      {
+        "title": "P2 自制操作系统 BearOS - 自制全屏文本编辑器 + 中文输入法",
+        "url": "https://www.bilibili.com/video/BV1goj665EC6/",
+        "bvid": "BV1goj665EC6",
+        "published_date": "2026-06-19",
+        "duration": "02:10",
+        "observation": "官网嵌入、作者频道及合集标题已经交叉核对；功能演示时间点待核实。",
+        "evidence_level": "官网与作者频道元数据",
+        "source_ids": [
+          "b2",
+          "b3",
+          "b5"
+        ]
+      },
+      {
+        "title": "P3 自制操作系统 BearOS - 自制编程语言",
+        "url": "https://www.bilibili.com/video/BV1goj665EXe/",
+        "bvid": "BV1goj665EXe",
+        "published_date": "2026-06-19",
+        "duration": "04:34",
+        "observation": "原片页面、标题、频道和官网互链已核对；完整语法画面与时间点待核实。",
+        "evidence_level": "原作者视频页面",
+        "source_ids": [
+          "b6"
+        ]
+      },
+      {
+        "title": "P4 自制操作系统 BearOS - 图形界面+音乐播放+机器学习",
+        "url": "https://www.bilibili.com/video/BV1ttHC6bE9g/",
+        "bvid": "BV1ttHC6bE9g",
+        "published_date": "2026-10-07",
+        "duration": "19:49",
+        "observation": "原片页面明确声明 x86 架构和从零开发；功能运行画面、对应发布包版本与时间点待核实。",
+        "evidence_level": "原作者视频页面",
+        "source_ids": [
+          "b7"
+        ]
+      }
+    ],
+    "links": {
+      "website": "https://www.medaifan.net/",
+      "documentation": "https://www.medaifan.net/bearos.html",
+      "video_channel": "https://space.bilibili.com/111781531/",
+      "individual_video": "https://www.bilibili.com/video/BV1ttHC6bE9g/",
+      "issue": "https://github.com/yuyan-lang/chinese-programming-languages/issues/23"
+    },
+    "pending_verification": [
+      "作者国籍；当前采用原作者官网及中文技术社区公开关联",
+      "BearOS 源码入口、固定快照、核心实现语言与完整构建方式",
+      "引导器、内核、驱动与类库的上游关系及许可",
+      "V0.20 发布包内容、完整性及精确发布日期",
+      "多任务、地址空间隔离、文件持久化、DMA 与音频的功能演示时间点和源码对应",
+      "BasC 真实语法示例、关键字、解释器实现与语言许可",
+      "独立构建、QEMU 启动和实机运行"
+    ],
+    "sources": [
+      {
+        "id": "b1",
+        "title": "MedAIFan 作者官网",
+        "url": "https://www.medaifan.net/",
+        "kind": "作者官网",
+        "supports": [
+          "公开开发者身份",
+          "BearOS 项目入口"
+        ]
+      },
+      {
+        "id": "b2",
+        "title": "BearOS 项目页：V0.1/V0.2 开发历程、下载与命令",
+        "url": "https://www.medaifan.net/bearos.html",
+        "kind": "作者项目文档",
+        "supports": [
+          "版本阶段",
+          "架构",
+          "内核功能声明",
+          "运行说明",
+          "BasC",
+          "四条视频互链"
+        ]
+      },
+      {
+        "id": "b3",
+        "title": "胖嘟嘟的超级熊 B站频道与官网公告",
+        "url": "https://space.bilibili.com/111781531/",
+        "kind": "作者频道",
+        "supports": [
+          "作者官网互链",
+          "四条原视频"
+        ]
+      },
+      {
+        "id": "b4",
+        "title": "BearOS P1：系统内核及文件管理",
+        "url": "https://www.bilibili.com/video/BV13oj66LEnk/",
+        "kind": "原作者视频页",
+        "supports": [
+          "原片",
+          "作者",
+          "日期",
+          "首段观察"
+        ]
+      },
+      {
+        "id": "b5",
+        "title": "BearOS P2：文本编辑器与中文输入法",
+        "url": "https://www.bilibili.com/video/BV1goj665EC6/",
+        "kind": "官网嵌入与作者频道入口",
+        "supports": [
+          "原片入口",
+          "标题",
+          "日期"
+        ]
+      },
+      {
+        "id": "b6",
+        "title": "BearOS P3：自制编程语言",
+        "url": "https://www.bilibili.com/video/BV1goj665EXe/",
+        "kind": "原作者视频页",
+        "supports": [
+          "BasC 线索",
+          "原片",
+          "日期"
+        ]
+      },
+      {
+        "id": "b7",
+        "title": "BearOS P4：图形界面、音乐播放与机器学习",
+        "url": "https://www.bilibili.com/video/BV1ttHC6bE9g/",
+        "kind": "原作者视频页",
+        "supports": [
+          "x86",
+          "自制内核定位",
+          "原片",
+          "日期"
+        ]
+      },
+      {
+        "id": "b8",
+        "title": "官网提供的 V0.10 发布包链接",
+        "url": "https://pan.baidu.com/s/1Ca-J8UpR1VB8FIIz-8gx0Q?pwd=abcd",
+        "kind": "官网发布包链接；内容待核实",
+        "supports": [
+          "官网分发入口"
+        ]
+      },
+      {
+        "id": "b9",
+        "title": "官网提供的 V0.20 发布包链接",
+        "url": "https://pan.baidu.com/s/1d_e6mLHk6QuZvbVpeVjgcg?pwd=abcd",
+        "kind": "官网发布包链接；内容待核实",
+        "supports": [
+          "官网分发入口"
+        ]
+      },
+      {
+        "id": "b10",
+        "title": "既有 Issue #23",
+        "url": "https://github.com/yuyan-lang/chinese-programming-languages/issues/23",
+        "kind": "目录既有待核实线索",
+        "supports": [
+          "旧线索去重"
+        ]
+      }
+    ],
+    "selection_status": "已收录（作者技术文档阶段）"
   }
 ]

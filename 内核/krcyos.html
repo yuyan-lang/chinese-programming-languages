@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>KrcyOS｜操作系统内核资料</title><link rel="stylesheet" href="../style.css"></head><body>
+<header><h1>KrcyOS</h1><p>操作系统内核资料</p></header><main>
+<p><a href="https://中文编程语言.yuyan-lang.org/内核/">返回内核目录</a> · <a href="https://中文编程语言.yuyan-lang.org/">中文编程语言百科</a></p>
+<h2>项目介绍</h2>
+<p>KrcyOS 是 KercyDing 使用 Zig 开发的 RISC-V 学习型内核，经 OpenSBI 启动，包含 Sv39 分页、内存分配、定时调度与用户态系统调用实验。作者主仓位于 KercyCode，GitHub 保存只读镜像。</p>
+<p>独立 riscv64-freestanding 内核链接目标由 OpenSBI 交接；_start 设置内核栈，main 清理 BSS 后初始化陷阱、内存与 UART，再进入 S态或 U态实验路径。 <small>源码可见</small> <a href="#kc2">[kc2]</a> <a href="#kc3">[kc3]</a> <a href="#kc4">[kc4]</a></p>
+<h2>作者与公开关联</h2>
+<p>GitHub公开账号链接KercyCode的Kercy账号；该主仓账号公开全名为KercyDing，拥有Kercy/krcyos。固定README直接给出该主仓及GitHub镜像，作者原站自述维护KrcyOS。 <small>原作者跨平台互链</small> <a href="#kc1">[kc1]</a> <a href="#kc14">[kc14]</a> <a href="#kc20">[kc20]</a> <a href="#kc21">[kc21]</a> <a href="#kc22">[kc22]</a></p>
+<p>2026-10-28主仓KercyCode公开API中，Kercy账号自述所在地为HeFei，全名为KercyDing；同日GitHub API的location为空。按主仓作者所在地自述记录中国关联，国籍待核实。历史GitHub搜索缓存与这两项当前平台字段分别保存。 <small>作者主仓公开自述</small> <a href="#kc20">[kc20]</a> <a href="#kc21">[kc21]</a> <a href="#kc22">[kc22]</a></p>
+<h2>体系结构与实现</h2>
+<p>RISC-V 64 位，QEMU virt；链接基址 0x80200000。real_board 分支提供构建与刷写提示，具体实板型号和运行覆盖待核实。 <small>源码可见</small> <a href="#kc2">[kc2]</a> <a href="#kc4">[kc4]</a></p>
+<p>Zig 与 RISC-V 汇编；固定 README 和构建入口采用 Zig 0.17.0。 <small>源码可见</small> <a href="#kc1">[kc1]</a> <a href="#kc2">[kc2]</a> <a href="#kc3">[kc3]</a></p>
+<h2>启动与程序入口</h2>
+<p>构建生成 krcyos，QEMU virt 通过 -bios 选择附带 OpenSBI，再通过 -kernel 加载该内核。 <small>源码可见</small> <a href="#kc2">[kc2]</a></p>
+<h2>内存管理</h2>
+<p>Sv39 三级页表建立区域映射和访问权限，更新 satp；内核初始化串联物理页、虚拟内存与堆管理。 <small>源码可见</small> <a href="#kc3">[kc3]</a> <a href="#kc5">[kc5]</a></p>
+<h2>调度与中断分工</h2>
+<p>调度器维护就绪与睡眠任务，通过定时陷阱选择下一任务并调用 switch_to 保存和恢复上下文。 <small>源码可见</small> <a href="#kc6">[kc6]</a> <a href="#kc7">[kc7]</a></p>
+<h2>用户态接口</h2>
+<p>U态系统调用分派 write、read、exit；write 校验文件描述符及用户缓冲区，read 返回0，exit 记录信息后进入 User Mode Ended. panic。 <small>源码可见</small> <a href="#kc8">[kc8]</a></p>
+<h2>源码测试入口</h2>
+<p>super 模式定义内存、堆、断点与任务调度实验；user 模式定义 write→exit 冒烟路径。宿主单元测试由独立 test 构建步骤组织；通过结果与内核运行分别待核实。 <small>源码可见</small> <a href="#kc2">[kc2]</a> <a href="#kc10">[kc10]</a> <a href="#kc11">[kc11]</a></p>
+<h2>项目与上游关系</h2>
+<p>KercyCode 是作者声明的主仓，GitHub 是只读镜像。本条目固定于 GitHub 可读提交，平台间同步状态待核实。 <small>作者声明</small> <a href="#kc1">[kc1]</a></p>
+<p>build.zig 明确将随附 OpenSBI 固定为 v1.9，按日志级别选择普通或 debug 固件，debug 注释保存 FW_OPTIONS=0x1。OpenSBI 负责引导固件，Sv39、调度与陷阱实现位于本项目 os 目录；随附二进制的逐字节构建对应待核实。 <small>源码可见</small> <a href="#kc2">[kc2]</a> <a href="#kc3">[kc3]</a> <a href="#kc5">[kc5]</a> <a href="#kc6">[kc6]</a> <a href="#kc7">[kc7]</a></p>
+<p>文档目录列 RISC-V Reference Card 并记录 CC-BY-4.0，文档来源与根代码 MIT 分别保存。 <small>作者声明</small> <a href="#kc13">[kc13]</a></p>
+<h2>版本与许可</h2>
+<p>固定提交：<a href="https://github.com/KercyDing/krcyos/commit/0f0115ecc83610335642ee51e4f1f2c9d1886028">0f0115ecc83610335642ee51e4f1f2c9d1886028</a>，2026-10-22T05:02:42Z。</p>
+<p>根 MIT 许可。根文件署名2026 KercyDing；OpenSBI v1.9 的 COPYING.BSD 与 ThirdPartyNotices 单独记录，随附固件构建对应及整体分发材料待核实。 <small>许可文本与作者声明</small> <a href="#kc9">[kc9]</a> <a href="#kc17">[kc17]</a> <a href="#kc18">[kc18]</a> <a href="#kc19">[kc19]</a></p>
+<p>包清单自标 0.0.1，作为源码版本记录。 <small>源码可见</small> <a href="#kc12">[kc12]</a></p>
+<h2>核验范围与待核资料</h2>
+<p>技术资料沿用2026-10-25固定源码核验，本轮新增主仓作者资料与跨平台归属证据。候选安装、构建、测试和执行均为0。</p>
+<ul>
+<li>KercyCode 与 GitHub 镜像同步及首次公开历史</li>
+<li>随附 OpenSBI 二进制与 v1.9 源码的构建对应、分发许可材料</li>
+<li>作者图片与固定源码对应、实板型号和独立运行</li>
+<li>系统调用与调度覆盖、AI参与及国籍自述</li>
+</ul>
+<h2>参考资料</h2><ul>
+<li id="kc1"><a href="https://github.com/KercyDing/krcyos/blob/0f0115ecc83610335642ee51e4f1f2c9d1886028/README.md">KrcyOS 固定 README 与主仓声明</a>（固定源码）</li>
+<li id="kc2"><a href="https://github.com/KercyDing/krcyos/blob/0f0115ecc83610335642ee51e4f1f2c9d1886028/build.zig">RISC-V 构建、OpenSBI 固定与测试入口</a>（固定源码）</li>
+<li id="kc3"><a href="https://github.com/KercyDing/krcyos/blob/0f0115ecc83610335642ee51e4f1f2c9d1886028/os/main.zig">内核 _start 与主初始化</a>（固定源码）</li>
+<li id="kc4"><a href="https://github.com/KercyDing/krcyos/blob/0f0115ecc83610335642ee51e4f1f2c9d1886028/os/linker.ld">内核链接地址与入口</a>（固定源码）</li>
+<li id="kc5"><a href="https://github.com/KercyDing/krcyos/blob/0f0115ecc83610335642ee51e4f1f2c9d1886028/os/mm/vmm.zig">Sv39 虚拟内存</a>（固定源码）</li>
+<li id="kc6"><a href="https://github.com/KercyDing/krcyos/blob/0f0115ecc83610335642ee51e4f1f2c9d1886028/os/task/scheduler.zig">任务队列与上下文调度</a>（固定源码）</li>
+<li id="kc7"><a href="https://github.com/KercyDing/krcyos/blob/0f0115ecc83610335642ee51e4f1f2c9d1886028/os/trap/root.zig">陷阱与系统调用分派</a>（固定源码）</li>
+<li id="kc8"><a href="https://github.com/KercyDing/krcyos/blob/0f0115ecc83610335642ee51e4f1f2c9d1886028/os/syscall/root.zig">用户系统调用实现</a>（固定源码）</li>
+<li id="kc9"><a href="https://github.com/KercyDing/krcyos/blob/0f0115ecc83610335642ee51e4f1f2c9d1886028/LICENSE">KrcyOS 根 MIT 许可</a>（固定源码）</li>
+<li id="kc10"><a href="https://github.com/KercyDing/krcyos/blob/0f0115ecc83610335642ee51e4f1f2c9d1886028/os/super_tests.zig">S态测试路径</a>（固定源码）</li>
+<li id="kc11"><a href="https://github.com/KercyDing/krcyos/blob/0f0115ecc83610335642ee51e4f1f2c9d1886028/os/user/code.zig">U态 write 与 exit 冒烟路径</a>（固定源码）</li>
+<li id="kc12"><a href="https://github.com/KercyDing/krcyos/blob/0f0115ecc83610335642ee51e4f1f2c9d1886028/build.zig.zon">项目版本清单</a>（固定源码）</li>
+<li id="kc13"><a href="https://github.com/KercyDing/krcyos/blob/0f0115ecc83610335642ee51e4f1f2c9d1886028/docs/README.md">参考文档来源</a>（固定源码）</li>
+<li id="kc14"><a href="https://kercy666.com/">Kercy 作者主页与自述项目</a>（作者原站）</li>
+<li id="kc15"><a href="https://github.com/KercyDing">KercyDing GitHub 主页</a>（作者公开主页）</li>
+<li id="kc16"><a href="https://github.com/KercyDing/krcyos/commit/0f0115ecc83610335642ee51e4f1f2c9d1886028">KrcyOS 固定提交</a>（提交元数据）</li>
+<li id="kc17"><a href="https://github.com/riscv-software-src/opensbi/releases/tag/v1.9">OpenSBI v1.9 上游发行</a>（上游发行）</li>
+<li id="kc18"><a href="https://github.com/riscv-software-src/opensbi/blob/cbf9f6734dd85a982c63e3cb5db7ffe09da839ca/COPYING.BSD">OpenSBI 固定上游 BSD 许可</a>（上游许可证）</li>
+<li id="kc19"><a href="https://github.com/riscv-software-src/opensbi/blob/cbf9f6734dd85a982c63e3cb5db7ffe09da839ca/ThirdPartyNotices.md">OpenSBI 第三方说明</a>（上游许可说明）</li>
+<li id="kc20"><a href="https://api.github.com/users/KercyDing">KercyDing GitHub公开API（2026-10-28）</a>（公开平台元数据）</li>
+<li id="kc21"><a href="https://code.kercy666.com/api/v1/users/Kercy">KercyCode作者公开API（2026-10-28）</a>（作者主仓公开资料）</li>
+<li id="kc22"><a href="https://code.kercy666.com/api/v1/repos/Kercy/krcyos">KercyOS主仓公开元数据（2026-10-28）</a>（作者主仓公开元数据）</li>
+</ul><p>资料核验日期：2026-10-28</p></main><footer>站点由<a href="https://yuyan-lang.org/">豫言编程语言</a>提供</footer></body></html>

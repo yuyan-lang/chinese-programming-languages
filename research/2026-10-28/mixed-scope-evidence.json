@@ -1,0 +1,171 @@
+{
+  "verified_at": "2026-10-28",
+  "baseline": "4e00d5240ff5ca99c745c2b00179c11e42bef800",
+  "scope": {
+    "issues": [
+      16,
+      22,
+      40,
+      43
+    ],
+    "languages_added": 0,
+    "language_objects_changed": 0,
+    "recommend_close": [
+      43
+    ],
+    "keep_open": [
+      16,
+      22,
+      40
+    ]
+  },
+  "spcnyy": {
+    "repository": "xs-smz/spcnyy-",
+    "commit": "2d9087cade68fff2c966a7bf057141935b439ec0",
+    "commit_at": "2026-08-15T16:46:47Z",
+    "source_blobs": {
+      "setup/spcnyysetup.sh": "bd896ef420a1e7a2040e5bdd8ad87d24d53b51fa",
+      "windows_spcnyy.ps1": "7e4abde4fb89966bf8f5826d4a6c1e080172357f",
+      "README.md": "6a82887a001c9d1ceb8ef33831f4d7a1746e7edf",
+      "setup/pipe": "875fba4d18564561b297c281279c7f03a929b3b4"
+    },
+    "embedded_modules": [
+      "main.py",
+      "launcher.py",
+      "login.py",
+      "recharge.py",
+      "ai.py",
+      "language.py",
+      "editor.py"
+    ],
+    "finding": "七个内嵌模块、全部字符串常量、GUI写入点、提示词和两次保留提交已核；映射、插值槽与欢迎文字保持实现资料层级；作者连续中文用户程序待补。",
+    "candidate_executions": 0
+  },
+  "chinese_rust": {
+    "repository": "bo333/Chinese-Rust-Syntax-Design-and-Transpilation-Tool",
+    "commit": "4605fee9402c9ad6fe6e06771b6d2443105eada8",
+    "commit_at": "2026-07-03T05:36:32Z",
+    "tree_items": 81,
+    "files": 51,
+    "rust_sources": 34,
+    "test_annotations_in_sources": 0,
+    "history": [
+      {
+        "sha": "4605fee9402c9ad6fe6e06771b6d2443105eada8",
+        "date": "2026-07-03T05:36:32Z"
+      },
+      {
+        "sha": "75b725895c34321b8bd670679160ff3973d803e8",
+        "date": "2026-07-03T05:34:31Z"
+      },
+      {
+        "sha": "bd8ebc340636968c96200795525a374fbe88b6db",
+        "date": "2026-07-03T05:31:02Z"
+      },
+      {
+        "sha": "4a387265dd10fac5dd791bf4bac2d5d5708ebf8e",
+        "date": "2026-07-03T03:42:14Z"
+      },
+      {
+        "sha": "fd99a1de560a478f65276c3429b68bd71f02540c",
+        "date": "2026-07-03T03:40:08Z"
+      }
+    ],
+    "history_changed_or_deleted_paths": [
+      {
+        "path": "README.md",
+        "blobs": [
+          "dc4e9ec235d2e9db1f6f4dfae6ff364c5c71d3c5",
+          "bc890404156d0a9d959b27b0598d88fa6c45e9d5",
+          "1fb49e19ce568c3f0d625a730aaef1588d940b72"
+        ]
+      },
+      {
+        "path": "ZhongComputeRust/Compute",
+        "blobs": [
+          "1aa3ccadef0d3c923c6b23b5938e1e89f4f36163"
+        ]
+      }
+    ],
+    "deleted_compute": {
+      "commit": "bd8ebc340636968c96200795525a374fbe88b6db",
+      "blob": "1aa3ccadef0d3c923c6b23b5938e1e89f4f36163",
+      "classification": "英文Python NumPy／Matplotlib演示"
+    },
+    "finding": "完整历史树与34份Rust源码未补出中文连续用户程序；当前按设计与基础模块原型保留候选。",
+    "candidate_executions": 0
+  },
+  "lua": {
+    "repository": "https://gitee.com/lyzavng/lua",
+    "previous_commit": "c0e0b83f7bd323bac7e0326886652075d85d55db",
+    "git_attempt": {
+      "action": "git ls-remote",
+      "target": "https://gitee.com/lyzavng/lua.git",
+      "result": "failed",
+      "reason": "Recv failure: Connection reset by peer"
+    },
+    "tree_attempts": [
+      {
+        "url": "https://gitee.com/lyzavng/lua/tree/develop",
+        "result": "web工具不可访问"
+      },
+      {
+        "url": "https://gitee.com/lyzavng/lua/tree/feature",
+        "result": "web工具不可访问"
+      },
+      {
+        "url": "https://gitee.com/api/v5/repos/lyzavng/lua/git/trees/c0e0b83f7bd323bac7e0326886652075d85d55db?recursive=1",
+        "result": "web工具不可访问"
+      }
+    ],
+    "blocked_readme_read": false,
+    "finding": "新路径未返回可核文件列表或程序正文；沿用既有实现证据，作者连续中文程序待补。"
+  },
+  "naoyuyan": {
+    "decision": "本轮所核词表、输入工具、JavaScript教学手册及dshjs函数别名／JSON组合平台完成范围分类，正式语言目录增量0，建议合并研究后关闭#43。",
+    "scope_limit": "结论限本记录所列发布物；未来作者新增中文控制语法或不同实现时按新原件评估。",
+    "dsh": {
+      "repository": "2500ai/dshjs",
+      "commit": "82b1d5029a7d7acbd58633e106fd6165b0f1841d",
+      "commit_at": "2026-08-23T19:40:46Z",
+      "blobs": {
+        "README.md": "8f84db12f4c555fdcb394c463c5424a8a2e6bb13",
+        "bin/dsh.js": "ea4f6ba6ec342cb5a5d6c2fd45201e816cdee2e4",
+        "src/fn/registry.js": "52ce39f453cec2768ca63f7036bc5e853b323e9b",
+        "test/fn.test.js": "517cb7e1f69339980b519ede77bc4d278caa934c"
+      }
+    },
+    "js_manual": {
+      "url": "http://2500js.com/",
+      "http_status": 200,
+      "observed_at": "2026-10-28",
+      "bytes": 26695,
+      "sha256": "baefe5161c47face536ab07186f634cb6b10745a32791e97ac193f345a635e88",
+      "keyword_entries": 36,
+      "source_lines": {
+        "keyword_examples": "90-134",
+        "editor_language": "254-261",
+        "execution": "271-292"
+      },
+      "classification": "带单字标签的JavaScript交互式教学手册，运行入口直接new Function"
+    },
+    "article": {
+      "url": "https://blog.csdn.net/weixin_44191690/article/details/165245036",
+      "classification": "作者v1.5.1统一命名／接口说明，直接链接dshjs",
+      "author_marked_date": "2026.09.13",
+      "page_published_at": "2026-09-19 01:39:31"
+    },
+    "homepage": {
+      "url": "https://2500.ai/",
+      "direct_read": "timeout",
+      "indexed_summary": "标题2500单字统一命名，摘要描述编程语言统一与AI提示词快捷字，按索引层保存。"
+    }
+  },
+  "boundaries": {
+    "pr62": "取消合并仍有效，本轮未读取其diff、未复制入条目、未操作PR。",
+    "candidate_execution": 0,
+    "unknown_package_installation": 0,
+    "remote_writes": 0,
+    "automatic_review_denials": 0
+  }
+}

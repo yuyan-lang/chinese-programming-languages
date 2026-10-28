@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>hudos／hodos｜操作系统内核资料</title><link rel="stylesheet" href="../style.css"></head><body>
+<header><h1>hudos／hodos</h1><p>操作系统内核资料</p></header><main>
+<p><a href="https://中文编程语言.yuyan-lang.org/内核/">返回内核目录</a> · <a href="https://中文编程语言.yuyan-lang.org/">中文编程语言百科</a></p>
+<h2>项目介绍</h2>
+<p>hudos 是双子星观测站发布的 ARM64 UEFI 承载实验内核与系统，包含自身 ELF 装载、EL0／SVC、页权限管理和父子协程；物理内存分配、通用设备服务及异步中断基础由固件提供。</p>
+<p>按UEFI承载实验内核收录。项目在EFI应用环境中实现ELF映像／栈布局、EL0入口与同步异常分派、页权限调整和父子协程生命周期；UEFI持续提供物理页分配、文件／图形／输入服务及普通EL1服务窗口的向量基础。资源管理分工按这一固定实现记录。 <small>固定源码与有限分类判断</small> <a href="#hd10">[hd10]</a> <a href="#hd40">[hd40]</a> <a href="#hd41">[hd41]</a> <a href="#hd42">[hd42]</a> <a href="#hd43">[hd43]</a> <a href="#hd44">[hd44]</a> <a href="#hd45">[hd45]</a> <a href="#hd48">[hd48]</a> <a href="#hd51">[hd51]</a></p>
+<h2>作者与公开关联</h2>
+<p>2026年10月2日最新开源原片简介给出github.com/xuchenruisz/hudos及chat.hudos.cn；固定README署名双子星观测站（Gemini Observatory），项目论坛管理员公告也给出该仓库。自然人身份和具体成员分工待核实。 <small>作者原始互链</small> <a href="#hd2">[hd2]</a> <a href="#hd9">[hd9]</a> <a href="#hd35">[hd35]</a></p>
+<p>双子星观测站（UID514146062）在B站以中文发布hudos，原片公开接口的简介直接给出原仓与论坛。按原作者中文技术社区发布记录关联，国籍待核实。 <small>原作者中文社区发布</small> <a href="#hd2">[hd2]</a> <a href="#hd39">[hd39]</a></p>
+<h2>体系结构与实现</h2>
+<p>AArch64／ARM64；clang目标aarch64-pc-win32-coff，用户ELF检查EM_AARCH64。源码调试目标包含QEMU virt、PL011、virtio-mmio。 <small>源码可见</small> <a href="#hd10">[hd10]</a> <a href="#hd12">[hd12]</a> <a href="#hd14">[hd14]</a></p>
+<p>C与AArch64汇编；LLVM clang、lld-link、freestanding和nodefaultlib构建配置可读。 <small>源码可见</small> <a href="#hd10">[hd10]</a> <a href="#hd12">[hd12]</a> <a href="#hd14">[hd14]</a> <a href="#hd15">[hd15]</a></p>
+<h2>项目与固件的资源分工</h2><table><thead><tr><th>资源</th><th>项目自身实现</th><th>固件提供的基础</th></tr></thead><tbody>
+<tr><th>程序与特权</th><td>ELF段装载／重定位、EL0入口、SVC分派与退出 <a href="#hd40">[hd40]</a> <a href="#hd41">[hd41]</a> <a href="#hd42">[hd42]</a></td><td>EFI映像环境与固件服务调用窗口</td></tr>
+<tr><th>内存</th><td>映像／栈布局、固件页表权限临时调整、可选克隆页表与回收 <a href="#hd40">[hd40]</a> <a href="#hd45">[hd45]</a> <a href="#hd50">[hd50]</a></td><td>物理页／缓冲区分配与默认地址空间</td></tr>
+<tr><th>调度与中断</th><td>单父子协程、主动让出／恢复、自有同步异常向量 <a href="#hd41">[hd41]</a> <a href="#hd42">[hd42]</a> <a href="#hd43">[hd43]</a> <a href="#hd44">[hd44]</a></td><td>普通EL1服务窗口的异步中断基础；EL0窗口屏蔽IRQ／FIQ</td></tr>
+<tr><th>文件、图形与输入</th><td>文件表、挂载表、绘制与应用接口 <a href="#hd48">[hd48]</a> <a href="#hd49">[hd49]</a> <a href="#hd12">[hd12]</a></td><td>EFI_FILE_PROTOCOL／Block IO／GOP／键盘／指针协议</td></tr>
+<tr><th>网络与音频</th><td>VirtIO-MMIO收发环、网络协议、PCI HDA控制器及DMA编程 <a href="#hd46">[hd46]</a> <a href="#hd47">[hd47]</a></td><td>分配／等待服务及既有固件运行环境</td></tr>
+</tbody></table>
+<h2>启动与程序入口</h2>
+<p>efi_main保存固件系统表与Boot Services，执行EL0自检，查找ESP、初始化图形／输入，然后选择装载gui.elf或tdesktop.elf并进入shell。 <small>源码可见</small> <a href="#hd51">[hd51]</a></p>
+<h2>内存管理</h2>
+<p>elf_load计算PT_LOAD范围，为映像与64页用户栈向UEFI申请页面，装载段并处理限定重定位。项目负责映像布局和权限；物理页取得与释放使用固件AllocatePages／FreePages。 <small>源码可见</small> <a href="#hd40">[hd40]</a> <a href="#hd45">[hd45]</a></p>
+<p>默认g_el0_phaseb=0，EL0准备路径在固件页表中按4KiB页面调整子程序权限，必要时拆分块描述符；撤销授权时恢复原描述符并回收拆分表。私有克隆页表与ASID路径保留为显式开关。隔离正确性与权限覆盖待核实。 <small>源码可见</small> <a href="#hd12">[hd12]</a> <a href="#hd13">[hd13]</a> <a href="#hd50">[hd50]</a></p>
+<h2>调度与中断分工</h2>
+<p>单组父子协程由应用主动调用exec_co／co_resume推进。read无可用输入时置blocked并让出，图形提交可按开关让出；EL0上下文保存通用寄存器、ELR／SPSR与SP_EL0，父端恢复执行；完整上下文恢复分支在done状态下调用co_child_cleanup回收子程序资源，其他退出分支的回收覆盖待核实。调度属于协作式程序管理。 <small>源码可见</small> <a href="#hd43">[hd43]</a> <a href="#hd44">[hd44]</a> <a href="#hd45">[hd45]</a> <a href="#hd48">[hd48]</a></p>
+<p>EL0执行窗口屏蔽IRQ／FIQ并安装项目向量；SVC进入EL1后切回固件向量，分派完成再恢复项目向量并ERET。普通固件服务窗口继续承担异步中断基础；项目异步向量为异常诊断与退出路径，抢占式调度待核实。 <small>源码可见</small> <a href="#hd12">[hd12]</a> <a href="#hd41">[hd41]</a> <a href="#hd42">[hd42]</a> <a href="#hd43">[hd43]</a></p>
+<h2>用户态接口</h2>
+<p>项目ELF64加载器检查AArch64、ET_EXEC／ET_DYN和段范围；汇编入口设置SP_EL0、ELR_EL1、SPSR_EL1并ERET进入EL0，SVC向量保存寄存器帧交给C分派器。crt0与syscall.c同时提供EL0的SVC通道和EL1函数指针通道，入口按EL0自检／授权结果选择。 <small>源码可见</small> <a href="#hd15">[hd15]</a> <a href="#hd16">[hd16]</a> <a href="#hd40">[hd40]</a> <a href="#hd41">[hd41]</a> <a href="#hd42">[hd42]</a></p>
+<p>系统调用保存32槽文件表、终端输入／输出缓冲及父子协程状态；read／write／open等接口转发到固件文件或输入服务。部分Linux AArch64编号和项目扩展编号可见，brk返回固定常量，完整ABI兼容待核实。 <small>源码可见</small> <a href="#hd12">[hd12]</a> <a href="#hd44">[hd44]</a> <a href="#hd48">[hd48]</a></p>
+<h2>文件接口</h2>
+<p>文件访问基于EFI_FILE_PROTOCOL和SimpleFileSystem；维护最多8卷、8挂载点、8磁盘和32个文件句柄槽。代码提供复制、删除、挂载及FAT格式化／分区操作。运行与数据一致性待核实。 <small>源码可见</small> <a href="#hd11">[hd11]</a> <a href="#hd12">[hd12]</a></p>
+<h2>图形与输入</h2>
+<p>通过固件GOP选择显示模式并取得帧缓冲；Blt-only设备使用固件分配的影子缓冲并经GOP Blt提交，键盘及绝对指针使用UEFI协议。项目实现字形、像素和控制台绘制，以及图形提交时的协程让出。 <small>源码可见</small> <a href="#hd49">[hd49]</a> <a href="#hd12">[hd12]</a> <a href="#hd23">[hd23]</a> <a href="#hd24">[hd24]</a></p>
+<h2>网络实现</h2>
+<p>固定主文件包含virtio-mmio、ARP／IPv4、UDP、DHCP、DNS、TCP、HTTP及HTTPS调用链；TLS1.2握手使用0xCCA8并核对RSA-SHA256签名链。x509.c核验字段集中于公钥、签名算法和签名链；完整主机名、有效期及证书约束检查继续核实。 <small>源码可见</small> <a href="#hd12">[hd12]</a> <a href="#hd19">[hd19]</a> <a href="#hd20">[hd20]</a> <a href="#hd21">[hd21]</a> <a href="#hd22">[hd22]</a> <a href="#hd38">[hd38]</a></p>
+<h2>音频实现</h2>
+<p>主文件包含HDA探测及44.1kHz／16位／单声道PCM播放接口，仍通过固件分配和等待服务组织。实机与音频正确性待核实。 <small>源码可见</small> <a href="#hd12">[hd12]</a></p>
+<h2>设备控制</h2>
+<p>VirtIO-MMIO网络路径自行协商设备特性、建立收发描述符环并轮询；PCI HDA路径自行扫描配置空间、设置控制器／DMA描述符并轮询播放，内存与等待继续使用固件服务。硬件兼容与实际运行待核实。 <small>源码可见</small> <a href="#hd46">[hd46]</a> <a href="#hd47">[hd47]</a></p>
+<h2>项目与上游关系</h2>
+<p>本项目以UEFI EFI_APPLICATION承载；物理内存、ESP文件与通用图形／输入协议交由固件，ELF、特权同步异常、页权限与协程管理使用项目自身实现。Linux编号、字体来源和局部接口兼容各按实际范围记录。 <small>源码可见</small> <a href="#hd10">[hd10]</a> <a href="#hd40">[hd40]</a> <a href="#hd41">[hd41]</a> <a href="#hd42">[hd42]</a> <a href="#hd43">[hd43]</a> <a href="#hd44">[hd44]</a> <a href="#hd48">[hd48]</a> <a href="#hd49">[hd49]</a> <a href="#hd50">[hd50]</a></p>
+<p>sun8x16.h头注标注Linux kernel字体；cjk16x16.h头注说明从系统STHeiti经gen_cjk_font.py／extend_cjk.py生成32×32位图。源字体精确版本、转换脚本和再分发许可范围待核实。 <small>源码可见</small> <a href="#hd23">[hd23]</a> <a href="#hd24">[hd24]</a></p>
+<p>common.h称为四游戏框架的hudos移植接口，并提到games_adapter.c；原框架、适配实现、作者及许可范围待核实。 <small>源码可见</small> <a href="#hd18">[hd18]</a></p>
+<p>tls_roots.h说明根证书提取自系统信任库；固定版本与完整来源清单待核实。tls_cli.c列出RFC5246、7905、8439。 <small>源码可见</small> <a href="#hd22">[hd22]</a> <a href="#hd38">[hd38]</a></p>
+<p>开发合集同时出现hudos、hudos-server及伪系统标题；当前仓源码、早期桌面作品、发布镜像及各演示版本的对应关系继续核实。 <small>原作者目录与源码对照</small> <a href="#hd4">[hd4]</a> <a href="#hd12">[hd12]</a> <a href="#hd27">[hd27]</a> <a href="#hd37">[hd37]</a></p>
+<h2>版本与许可</h2>
+<p>固定提交：<a href="https://github.com/xuchenruisz/hudos/commit/b4a244b808b6786d5c3a1fd98102055f7f582488">b4a244b808b6786d5c3a1fd98102055f7f582488</a>，2026-10-06T23:21:49Z。</p>
+<p>README声明GPL-2.0-or-later。根README提供GPL第二版或任何后续版本的简短授权并署名双子星观测站。完整许可全文、字体、证书、游戏与7zip组件的许可及分发范围继续核实；GitHub license字段为null。 <small>许可文本与作者声明</small> <a href="#hd6">[hd6]</a> <a href="#hd8">[hd8]</a> <a href="#hd9">[hd9]</a> <a href="#hd18">[hd18]</a> <a href="#hd23">[hd23]</a> <a href="#hd24">[hd24]</a> <a href="#hd27">[hd27]</a></p>
+<p>2026-10-10研究记录保存2个Release、2个标签。正式V26.10.1.16发布于2026-10-02T04:11:28Z，对应标签1／adb0112527ce90244ff4904aaaeba6a25d7fa9d5；预发布hudos v26.10.4.20发布于2026-10-05T00:53:38Z，对应标签2／f632bf79977431300b2ede953636f48e8be723ec。前者1个qcow2.zip附件，后者qcow2.zip与论坛iOS客户端共2附件。源码、镜像及版本号对应待核。 <a href="#hd26">[hd26]</a> <a href="#hd27">[hd27]</a></p>
+<h2>核验范围与待核资料</h2>
+<p>本轮静态审阅固定源码连续路径及资源分工，安装、构建、启动、测试和候选执行均为0。作者原片元数据与历史发布资料沿用既有研究，具体画面和二进制版本对应待核实。</p>
+<ul>
+<li>各版本源码、qcow2镜像、早期伪系统与视频的精确对应</li>
+<li>桌面与用户应用的完整源码和构建链</li>
+<li>全部上游继承与字体、游戏、证书、7zip及许可全文</li>
+<li>当前hudos源码的AI参与声明与复核范围</li>
+<li>逐帧作者演示与独立构建、启动、EL0隔离、文件、网络和实机验证</li>
+<li>首次公开历史、其他原片规范时刻和作者国籍自述</li>
+<li>默认EL0权限与可选私有页表隔离的正确性、完整ABI与协程运行覆盖</li>
+</ul>
+<h2>参考资料</h2><ul>
+<li id="hd1"><a href="https://www.bilibili.com/video/BV1pthB64E37/">开源公告原片</a>（原作者视频页面）</li>
+<li id="hd2"><a href="https://www.bilibili.com/video/BV1wiaU6REGn/">最新开源原片</a>（原作者视频页面）</li>
+<li id="hd3"><a href="https://space.bilibili.com/514146062">发布者B站主页</a>（原作者公开主页）</li>
+<li id="hd4"><a href="https://space.bilibili.com/514146062/lists/9078226?type=season">原作者开发日志合集</a>（原作者视频目录）</li>
+<li id="hd5"><a href="https://github.com/xuchenruisz">GitHub作者主页</a>（原作者公开主页）</li>
+<li id="hd6"><a href="https://api.github.com/repos/xuchenruisz/hudos">仓库元数据</a>（平台元数据）</li>
+<li id="hd7"><a href="https://github.com/xuchenruisz/hudos/commit/b4a244b808b6786d5c3a1fd98102055f7f582488">固定头提交</a>（固定提交元数据）</li>
+<li id="hd8"><a href="https://api.github.com/repos/xuchenruisz/hudos/git/trees/b4a244b808b6786d5c3a1fd98102055f7f582488?recursive=1">固定完整源码树</a>（固定源码树）</li>
+<li id="hd9"><a href="https://github.com/xuchenruisz/hudos/blob/b4a244b808b6786d5c3a1fd98102055f7f582488/README.md">固定README及许可声明</a>（固定作者文档）</li>
+<li id="hd10"><a href="https://github.com/xuchenruisz/hudos/blob/b4a244b808b6786d5c3a1fd98102055f7f582488/Makefile">ARM64 EFI构建</a>（固定源码）</li>
+<li id="hd11"><a href="https://github.com/xuchenruisz/hudos/blob/b4a244b808b6786d5c3a1fd98102055f7f582488/efi.h">UEFI协议类型</a>（固定源码）</li>
+<li id="hd12"><a href="https://github.com/xuchenruisz/hudos/blob/b4a244b808b6786d5c3a1fd98102055f7f582488/hudos_server.c">系统主实现</a>（固定源码）</li>
+<li id="hd13"><a href="https://github.com/xuchenruisz/hudos/blob/b4a244b808b6786d5c3a1fd98102055f7f582488/mmu.c">早期MMU阶段实现</a>（固定源码）</li>
+<li id="hd14"><a href="https://github.com/xuchenruisz/hudos/blob/b4a244b808b6786d5c3a1fd98102055f7f582488/mmu_asm.S">AArch64异常与EL0汇编</a>（固定源码）</li>
+<li id="hd15"><a href="https://github.com/xuchenruisz/hudos/blob/b4a244b808b6786d5c3a1fd98102055f7f582488/crt0.S">用户程序启动</a>（固定源码）</li>
+<li id="hd16"><a href="https://github.com/xuchenruisz/hudos/blob/b4a244b808b6786d5c3a1fd98102055f7f582488/syscall.c">用户调用包装</a>（固定源码）</li>
+<li id="hd17"><a href="https://github.com/xuchenruisz/hudos/blob/b4a244b808b6786d5c3a1fd98102055f7f582488/syscall.h">用户调用声明</a>（固定源码）</li>
+<li id="hd18"><a href="https://github.com/xuchenruisz/hudos/blob/b4a244b808b6786d5c3a1fd98102055f7f582488/common.h">游戏接口声明</a>（固定源码）</li>
+<li id="hd19"><a href="https://github.com/xuchenruisz/hudos/blob/b4a244b808b6786d5c3a1fd98102055f7f582488/tls.h">TLS原语声明</a>（固定源码）</li>
+<li id="hd20"><a href="https://github.com/xuchenruisz/hudos/blob/b4a244b808b6786d5c3a1fd98102055f7f582488/tls_handshake.c">TLS1.2握手</a>（固定源码）</li>
+<li id="hd21"><a href="https://github.com/xuchenruisz/hudos/blob/b4a244b808b6786d5c3a1fd98102055f7f582488/x509.c">X.509解析与签名核验</a>（固定源码）</li>
+<li id="hd22"><a href="https://github.com/xuchenruisz/hudos/blob/b4a244b808b6786d5c3a1fd98102055f7f582488/tls_roots.h">证书信任锚头注</a>（固定源码头部）</li>
+<li id="hd23"><a href="https://github.com/xuchenruisz/hudos/blob/b4a244b808b6786d5c3a1fd98102055f7f582488/userland/sun8x16.h">ASCII字体来源头注</a>（固定源码头部）</li>
+<li id="hd24"><a href="https://github.com/xuchenruisz/hudos/blob/b4a244b808b6786d5c3a1fd98102055f7f582488/userland/cjk16x16.h">中文字体来源头注</a>（固定源码头部）</li>
+<li id="hd25"><a href="https://api.github.com/repos/xuchenruisz/hudos/branches?per_page=100">分支集合</a>（平台元数据）</li>
+<li id="hd26"><a href="https://api.github.com/repos/xuchenruisz/hudos/git/matching-refs/tags/">标签引用集合</a>（平台元数据）</li>
+<li id="hd27"><a href="https://api.github.com/repos/xuchenruisz/hudos/releases?per_page=100">发布集合</a>（原作者发布及平台元数据）</li>
+<li id="hd28"><a href="https://api.github.com/repos/xuchenruisz/hudos/commits?per_page=100">当前分支全部可见提交</a>（固定历史元数据）</li>
+<li id="hd29"><a href="https://api.github.com/repos/xuchenruisz/hudos/git/trees/cd2b6488f5b30aad8ca546fac01934f004ab7502?recursive=1">初始提交源码树</a>（固定历史源码树）</li>
+<li id="hd30"><a href="https://api.github.com/repos/xuchenruisz/hudos/git/trees/184eaebe697741ef4f25fcbda9eb16c282750a3c?recursive=1">首个上传提交树</a>（固定历史源码树）</li>
+<li id="hd31"><a href="https://api.github.com/repos/xuchenruisz/hudos/git/trees/cc37a6e8274d4a9eb1980307299a5b1a380874d2?recursive=1">main分支固定树</a>（固定源码树）</li>
+<li id="hd32"><a href="https://api.github.com/repos/xuchenruisz/hudos/git/trees/67016fa07953af3f48bea02d10330c267c20bdd4?recursive=1">api6.0分支固定树</a>（固定源码树）</li>
+<li id="hd33"><a href="https://github.com/xuchenruisz/hudos/blob/67016fa07953af3f48bea02d10330c267c20bdd4/README.md">api6.0 README</a>（固定作者文档）</li>
+<li id="hd34"><a href="https://github.com/xuchenruisz/hudos/commit/37da3bd68997d6c9f11f3fce44b9dc401e093afa">10月4日修复差异</a>（固定提交差异）</li>
+<li id="hd35"><a href="https://chat.hudos.cn/forum">项目论坛公开公告</a>（原项目社区页面）</li>
+<li id="hd36"><a href="https://chat.hudos.cn/">项目AI聊天入口</a>（原项目页面）</li>
+<li id="hd37"><a href="https://www.bilibili.com/video/BV1xehc6oENs/">早期hudos和hudos-server原片</a>（原作者视频页面）</li>
+<li id="hd38"><a href="https://github.com/xuchenruisz/hudos/blob/b4a244b808b6786d5c3a1fd98102055f7f582488/tls_cli.c">TLS客户端说明</a>（固定源码头部）</li>
+<li id="hd39"><a href="https://api.bilibili.com/x/web-interface/view?bvid=BV1wiaU6REGn">hudos开源原片公开元数据</a>（原平台公开元数据）</li>
+<li id="hd40"><a href="https://github.com/xuchenruisz/hudos/blob/b4a244b808b6786d5c3a1fd98102055f7f582488/hudos_server.c#L1268-L1379">ELF映像、用户栈与重定位</a>（固定源码）</li>
+<li id="hd41"><a href="https://github.com/xuchenruisz/hudos/blob/b4a244b808b6786d5c3a1fd98102055f7f582488/mmu_asm.S#L216-L500">EL0入口与特权状态恢复汇编</a>（固定源码）</li>
+<li id="hd42"><a href="https://github.com/xuchenruisz/hudos/blob/b4a244b808b6786d5c3a1fd98102055f7f582488/hudos_server.c#L1968-L2077">EL0同步异常、退出与SVC分派</a>（固定源码）</li>
+<li id="hd43"><a href="https://github.com/xuchenruisz/hudos/blob/b4a244b808b6786d5c3a1fd98102055f7f582488/hudos_server.c#L1775-L1859">EL0协程让出与父端恢复</a>（固定源码）</li>
+<li id="hd44"><a href="https://github.com/xuchenruisz/hudos/blob/b4a244b808b6786d5c3a1fd98102055f7f582488/hudos_server.c#L4931-L5127">协程创建、推进和输入队列</a>（固定源码）</li>
+<li id="hd45"><a href="https://github.com/xuchenruisz/hudos/blob/b4a244b808b6786d5c3a1fd98102055f7f582488/hudos_server.c#L2638-L2710">协程上下文与资源清理</a>（固定源码）</li>
+<li id="hd46"><a href="https://github.com/xuchenruisz/hudos/blob/b4a244b808b6786d5c3a1fd98102055f7f582488/hudos_server.c#L3140-L3258">VirtIO-MMIO队列和收发设备初始化</a>（固定源码）</li>
+<li id="hd47"><a href="https://github.com/xuchenruisz/hudos/blob/b4a244b808b6786d5c3a1fd98102055f7f582488/hudos_server.c#L4088-L4370">PCI HDA发现、DMA与轮询播放</a>（固定源码）</li>
+<li id="hd48"><a href="https://github.com/xuchenruisz/hudos/blob/b4a244b808b6786d5c3a1fd98102055f7f582488/hudos_server.c#L4437-L4525">文件与终端系统调用分派</a>（固定源码）</li>
+<li id="hd49"><a href="https://github.com/xuchenruisz/hudos/blob/b4a244b808b6786d5c3a1fd98102055f7f582488/hudos_server.c#L2720-L2783">图形／输入协议与影子缓冲</a>（固定源码）</li>
+<li id="hd50"><a href="https://github.com/xuchenruisz/hudos/blob/b4a244b808b6786d5c3a1fd98102055f7f582488/hudos_server.c#L2349-L2424">固件页表授权与撤销</a>（固定源码）</li>
+<li id="hd51"><a href="https://github.com/xuchenruisz/hudos/blob/b4a244b808b6786d5c3a1fd98102055f7f582488/hudos_server.c#L5537-L5622">固件保存、自检和系统入口</a>（固定源码）</li>
+</ul><p>资料核验日期：2026-10-28</p></main><footer>站点由<a href="https://yuyan-lang.org/">豫言编程语言</a>提供</footer></body></html>

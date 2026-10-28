@@ -1,0 +1,72 @@
+[
+  {
+    "id": "lang-111",
+    "name": "中文编程IDE（天文苑）",
+    "aliases": [
+      "中文编程IDE——本土化零基础编程开发工具"
+    ],
+    "category": "中文教学语法与浏览器IDE演示（原作者文档和程序截图核验）",
+    "author": "TRAE社区账号u701959982292476发布原帖，展示名为天文苑。作者自述从事国学与传统文化教育，并由其提出产品及语法需求，使用TRAE Work与TRAE IDE协作开发。真实姓名与开发分工的独立证据待核实。",
+    "first_publication": "原帖首帖创建于2026-07-15T10:57:35.281Z，当前公开修订时间为2026-07-15T12:30:25.597Z、版本8。文内开发会话日期属于作者保存的开发过程记录，首次对外公开时间分别待核实。",
+    "description": "该项目使用设、知、当、从、制作工序、返回和显示等中文句式组织教学程序，源码扩展名为.中码。作者原帖提供函数、变量、常量、条件及循环的连续程序截图，并展示代码帮助、AST入口和多平台工程导出界面。条目按原作者说明及原始程序附图收录。",
+    "features": [
+      "中文变量、常量与函数定义原例",
+      "制作工序和返回组织函数体",
+      "中文条件、循环及全角乘法示例",
+      "浏览器IDE、帮助和代码示例界面",
+      "作者说明的JavaScript生成与.中码导出"
+    ],
+    "code": "制作工序 计算圆面积(半径) {\n    知 圆周率 为 3.14159\n    设 面积 为 圆周率 × 半径 × 半径\n    返回 面积\n}\n\n设 结果 为 计算圆面积(5)",
+    "code_source": "https://trae-forum-cdn.trae.com.cn/prod/original/3X/2/0/20407b70c24da7f2b4e5a43cc5e0127cc191eb50.png",
+    "code_context": "原作者“代码运行效果演示”原图左侧编辑区第4—10行的连续内容，包含完整函数定义及调用。字符按原图转录，空行和缩进采用可读排版。原图右侧保存作者演示输出；本次独立运行次数为0，原始.中码文件字节与截图版本对应待核实。",
+    "implementation": "作者正文说明词法分析、语法解析与JavaScript代码生成三层流程，并介绍纯前端Web IDE。原图可核编辑器、帮助、运行／编译按钮、输出、转换代码和AST结构入口。编译器源码、解析到JavaScript生成的完整静态调用链及导出产物待核实。作者直接链接ide.tianwenyuan.com；本轮静态HTML请求返回403。",
+    "version": "程序与帮助原图右下角标中文编程IDE v1.0；正文将提交成品描述为初赛版本。界面版本、编译器版本、源码提交与发行产物的对应待核实。",
+    "license": "所读原帖未给出许可证正文；编译器、文档和发行产物的授权范围待核实。",
+    "ai_involvement": "作者明确说明TRAE Work用于需求、文档、界面迭代与部署，TRAE IDE用于词法、语法、代码生成及交互开发。作者自述按其需求向AI下达指令并反复修改；具体模型、代码贡献比例与人工复核范围待核实。",
+    "relations": "原作者首帖直接链接ide.tianwenyuan.com演示站，账号、程序附图与演示入口按同一项目材料记录。条目名称括号内采用作者展示名作限定。与同议题其他中文语言项目的继承关系待核实。",
+    "status": "原作者说明、完整函数与调用原例、帮助及作者演示原图已核验。实现源码、固定提交、正式发行、许可和独立运行继续待核实。",
+    "evidence_level": "原站公开主题JSON与内容地址原图核验；作者演示和实现自述分层记录",
+    "verification_notes": "2026-10-28只读获取主题165813的公开JSON，首帖ID280497、公开版本8，完整主题为1帖。JSON为61005字节，SHA256为7ad5a798541a032d2da21f87ded308f575a71a4fe5cea567aedea1d9fdd7f33f。运行效果原图为47578字节，SHA256为8a115ed4846deaf807ab58bc326867192a5371c8c50c5d23fdc4839d1658392d。另核帮助及代码示例原图。候选软件安装、构建、浏览器加载、测试及独立执行均为0。",
+    "verified_at": "2026-10-28",
+    "release_status": "原帖保存v1.0界面演示及线上入口；公开源码仓库、版本标签和独立发行包待核实。",
+    "code_source_detail": {
+      "source_type": "原作者论坛程序截图",
+      "topic_id": 165813,
+      "post_id": 280497,
+      "post_version": 8,
+      "image_sha256": "8a115ed4846deaf807ab58bc326867192a5371c8c50c5d23fdc4839d1658392d",
+      "region": "左侧编辑区第4—10行",
+      "verification": "人工按原图识别连续函数定义及调用；源码文件字节和固定Git提交待核实"
+    },
+    "references": [
+      {
+        "title": "原始社区线索议题",
+        "url": "https://github.com/yuyan-lang/chinese-programming-languages/issues/5"
+      },
+      {
+        "title": "作者完整参赛原帖：署名、日期、设计与AI分工",
+        "url": "https://forum.trae.cn/t/topic/165813"
+      },
+      {
+        "title": "原站公开主题JSON与修订元数据",
+        "url": "https://forum.trae.cn/t/165813.json"
+      },
+      {
+        "title": "作者程序与演示输出原图",
+        "url": "https://trae-forum-cdn.trae.com.cn/prod/original/3X/2/0/20407b70c24da7f2b4e5a43cc5e0127cc191eb50.png"
+      },
+      {
+        "title": "完整基础输出原例截图",
+        "url": "https://trae-forum-cdn.trae.com.cn/prod/original/3X/e/7/e7e2b7cac2bdba570baff7d95828604eb47b39af.png"
+      },
+      {
+        "title": "帮助页中文语法说明原图",
+        "url": "https://trae-forum-cdn.trae.com.cn/prod/original/3X/3/7/37ba014ed303678a71525c584c8034435652ce4f.png"
+      },
+      {
+        "title": "作者明确链接的演示站",
+        "url": "https://ide.tianwenyuan.com"
+      }
+    ]
+  }
+]
