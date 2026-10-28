@@ -11642,7 +11642,7 @@
     },
     "implementation_languages": [
       {
-        "text": "未剥离ELF保留kernel.c、nep.c、syscall.c、idt.c、gdt.c、fat32.c等编译单元及GCC15.2.0标记；入口、中断和任务恢复包含汇编。",
+        "text": "未剥离ELF的符号表保存kernel.c、nep.c、syscall.c、idt.c、gdt.c、fat32.c等编译单元名称，.comment保存GCC15.2.0标记；入口、中断和任务恢复包含汇编。",
         "evidence_level": "发行物静态分析",
         "source_ids": [
           "nr5"
@@ -11777,6 +11777,7 @@
         "url": "https://github.com/RETUSTU",
         "kind": "公开技术身份"
       }
-    ]
+    ],
+    "selection_status": "已收录（官方v0.13.0发行物静态核验）"
   }
 ]
