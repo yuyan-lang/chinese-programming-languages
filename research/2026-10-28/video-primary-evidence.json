@@ -1,0 +1,316 @@
+{
+  "verified_at": "2026-10-28",
+  "scope": "Issue #4与#33，新清晰度／新官方课程的静态帧；不保存临时签名流地址。",
+  "videos": [
+    {
+      "bvid": "BV1EgKZ6VED9",
+      "url": "https://www.bilibili.com/video/BV1EgKZ6VED9/",
+      "metadata_url": "https://api.bilibili.com/x/web-interface/view?bvid=BV1EgKZ6VED9",
+      "title": "语程中文编程-代码易语言版本-IDE讲解",
+      "owner": {
+        "name": "旭猜囱",
+        "uid": 1252267598
+      },
+      "published_at": "2026-06-30T08:15:49Z",
+      "pubdate": 1782807349,
+      "cid": 39529942975,
+      "duration_seconds": 225,
+      "description": "如有需要学习与交流语程中文编程语言的\n可以到QQ群：1071251513",
+      "playurl_request": "https://api.bilibili.com/x/player/playurl?bvid=BV1EgKZ6VED9&cid=39529942975&qn=80&fnval=0",
+      "response_quality": 64,
+      "response_format": "mp4720",
+      "actual_dash_video_id": null,
+      "support_formats": [
+        {
+          "quality": 64,
+          "format": "mp4720",
+          "can_watch_qn_reason": 0,
+          "limit_watch_reason": 0
+        },
+        {
+          "quality": 16,
+          "format": "mp4",
+          "can_watch_qn_reason": 0,
+          "limit_watch_reason": 0
+        }
+      ],
+      "frames": [
+        {
+          "time_seconds": 130,
+          "width": 1280,
+          "height": 714,
+          "path": "evidence/BV1EgKZ6VED9-130.png",
+          "sha256": "1b87338212e1ad20884cc4e61dffa7cfaa1e0ba60871f02792a7c5481294cd02",
+          "method": "ffmpeg直接从公开流按-ss时间解码，原始尺寸PNG；未登录、未使用付费清晰度或认证Cookie。"
+        },
+        {
+          "time_seconds": 190,
+          "width": 1280,
+          "height": 714,
+          "path": "evidence/BV1EgKZ6VED9-190.png",
+          "sha256": "f7d71e4acc864449e5bd785e4f3a16740665cf4527cb27b133db011bf9580889",
+          "method": "ffmpeg直接从公开流按-ss时间解码，原始尺寸PNG；未登录、未使用付费清晰度或认证Cookie。"
+        }
+      ]
+    },
+    {
+      "bvid": "BV1GC4y1k7E8",
+      "url": "https://www.bilibili.com/video/BV1GC4y1k7E8/",
+      "metadata_url": "https://api.bilibili.com/x/web-interface/view?bvid=BV1GC4y1k7E8",
+      "title": "如意III中文编程v1.2测试版IDE操作示例",
+      "owner": {
+        "name": "jjh345",
+        "uid": 449120289
+      },
+      "published_at": "2024-01-24T18:46:24Z",
+      "pubdate": 1706121984,
+      "cid": 1418282936,
+      "duration_seconds": 1160,
+      "description": "中文编程IDE，中英文混合编程，自动转换成C++，通过VS工具编译、链接生成应用程序；易学、简单、好用；自带智能提示、调试功能、头文件自动生成等功能…\nIDE初版为易语言程序，后自举生成C++程序，目前核心转换第三代，完成度99%",
+      "playurl_request": "https://api.bilibili.com/x/player/playurl?bvid=BV1GC4y1k7E8&cid=1418282936&qn=80&fnval=0",
+      "response_quality": 64,
+      "response_format": "mp4720",
+      "actual_dash_video_id": null,
+      "support_formats": [
+        {
+          "quality": 64,
+          "format": "mp4720",
+          "can_watch_qn_reason": 0,
+          "limit_watch_reason": 0
+        },
+        {
+          "quality": 16,
+          "format": "mp4",
+          "can_watch_qn_reason": 0,
+          "limit_watch_reason": 0
+        }
+      ],
+      "frames": [
+        {
+          "time_seconds": 735,
+          "width": 1280,
+          "height": 692,
+          "path": "evidence/BV1GC4y1k7E8-735.png",
+          "sha256": "53729d46d5707b545c463ae1a40c1593d3f5fe495a38b30e7ac5e90f1bca2047",
+          "method": "ffmpeg直接从公开流按-ss时间解码，原始尺寸PNG；未登录、未使用付费清晰度或认证Cookie。"
+        }
+      ]
+    },
+    {
+      "bvid": "BV1Rj421U7W7",
+      "url": "https://www.bilibili.com/video/BV1Rj421U7W7/",
+      "metadata_url": "https://api.bilibili.com/x/web-interface/view?bvid=BV1Rj421U7W7",
+      "title": "如意中文编程之语法定义、封装及流程结构",
+      "owner": {
+        "name": "jjh345",
+        "uid": 449120289
+      },
+      "published_at": "2024-03-06T06:32:25Z",
+      "pubdate": 1709706745,
+      "cid": 1460725298,
+      "duration_seconds": 178,
+      "description": "C++的中文预处理IDE",
+      "playurl_request": "https://api.bilibili.com/x/player/playurl?bvid=BV1Rj421U7W7&cid=1460725298&qn=80&fnval=0",
+      "response_quality": 64,
+      "response_format": "mp4720",
+      "actual_dash_video_id": null,
+      "support_formats": [
+        {
+          "quality": 64,
+          "format": "mp4720",
+          "can_watch_qn_reason": 0,
+          "limit_watch_reason": 0
+        },
+        {
+          "quality": 16,
+          "format": "mp4",
+          "can_watch_qn_reason": 0,
+          "limit_watch_reason": 0
+        }
+      ],
+      "frames": [
+        {
+          "time_seconds": 160,
+          "width": 1154,
+          "height": 720,
+          "path": "evidence/BV1Rj421U7W7-160.png",
+          "sha256": "60643f84ef001578559b4e922cdb1469bb98d559636ae3bbdfeb9811a9fb2a6b",
+          "method": "ffmpeg直接从公开流按-ss时间解码，原始尺寸PNG；未登录、未使用付费清晰度或认证Cookie。"
+        }
+      ]
+    },
+    {
+      "bvid": "BV1iu411X76D",
+      "url": "https://www.bilibili.com/video/BV1iu411X76D/",
+      "metadata_url": "https://api.bilibili.com/x/web-interface/view?bvid=BV1iu411X76D",
+      "title": "【飞鱼中文编程 第四课】数据类型，颠覆传统的英文编程写法，用中文建立变量和赋值",
+      "owner": {
+        "name": "飞鱼中文编程",
+        "uid": 98575563
+      },
+      "published_at": "2022-02-24T06:15:29Z",
+      "pubdate": 1645683329,
+      "cid": 545281504,
+      "duration_seconds": 526,
+      "description": "数据类型是编程必学的课程，每一个程序都是由大大小小的多个变量组成，数据的交互也依赖变量，本节课，让我们颠覆传统的英文编程写法，学习用中文建立变量和赋值",
+      "playurl_request": "https://api.bilibili.com/x/player/playurl?bvid=BV1iu411X76D&cid=545281504&qn=80&fnval=16",
+      "response_quality": 64,
+      "response_format": "flv720",
+      "actual_dash_video_id": 32,
+      "support_formats": [
+        {
+          "quality": 80,
+          "format": "flv",
+          "can_watch_qn_reason": 0,
+          "limit_watch_reason": 0
+        },
+        {
+          "quality": 64,
+          "format": "flv720",
+          "can_watch_qn_reason": 0,
+          "limit_watch_reason": 0
+        },
+        {
+          "quality": 32,
+          "format": "flv480",
+          "can_watch_qn_reason": 0,
+          "limit_watch_reason": 0
+        },
+        {
+          "quality": 16,
+          "format": "mp4",
+          "can_watch_qn_reason": 0,
+          "limit_watch_reason": 0
+        }
+      ],
+      "frames": [
+        {
+          "time_seconds": 250,
+          "width": 896,
+          "height": 480,
+          "path": "evidence/BV1iu411X76D-250.png",
+          "sha256": "87e17944b101ae0de2c6030e728413f8c7f75fc69a5cfa7b0e9ea9027fa03152",
+          "method": "ffmpeg直接从公开流按-ss时间解码，原始尺寸PNG；未登录、未使用付费清晰度或认证Cookie。"
+        }
+      ]
+    },
+    {
+      "bvid": "BV1vR4y1G7Cs",
+      "url": "https://www.bilibili.com/video/BV1vR4y1G7Cs/",
+      "metadata_url": "https://api.bilibili.com/x/web-interface/view?bvid=BV1vR4y1G7Cs",
+      "title": "【飞鱼中文编程 第17课】文件上传，1行代码把文件传到服务器，爽！",
+      "owner": {
+        "name": "飞鱼中文编程",
+        "uid": 98575563
+      },
+      "published_at": "2022-03-09T08:43:05Z",
+      "pubdate": 1646815385,
+      "cid": 545445160,
+      "duration_seconds": 820,
+      "description": "一行代码可以直接把本地的文件传到服务器，配合母语编程，真正把编程的门槛降到最低，用飞鱼中文编程就是一个字，快。",
+      "playurl_request": "https://api.bilibili.com/x/player/playurl?bvid=BV1vR4y1G7Cs&cid=545445160&qn=80&fnval=16",
+      "response_quality": 64,
+      "response_format": "flv720",
+      "actual_dash_video_id": 32,
+      "support_formats": [
+        {
+          "quality": 80,
+          "format": "flv",
+          "can_watch_qn_reason": 0,
+          "limit_watch_reason": 0
+        },
+        {
+          "quality": 64,
+          "format": "flv720",
+          "can_watch_qn_reason": 0,
+          "limit_watch_reason": 0
+        },
+        {
+          "quality": 32,
+          "format": "flv480",
+          "can_watch_qn_reason": 0,
+          "limit_watch_reason": 0
+        },
+        {
+          "quality": 16,
+          "format": "mp4",
+          "can_watch_qn_reason": 0,
+          "limit_watch_reason": 0
+        }
+      ],
+      "frames": [
+        {
+          "time_seconds": 160,
+          "width": 896,
+          "height": 480,
+          "path": "evidence/BV1vR4y1G7Cs-160.png",
+          "sha256": "ecf802ed33a310694f4c9550b778fc321d95098dcb276a432255e3af041935de",
+          "method": "ffmpeg直接从公开流按-ss时间解码，原始尺寸PNG；未登录、未使用付费清晰度或认证Cookie。"
+        },
+        {
+          "time_seconds": 250,
+          "width": 896,
+          "height": 480,
+          "path": "evidence/BV1vR4y1G7Cs-250.png",
+          "sha256": "bc93aefc71cacb6bb07efd7a5d145198e8a3609ba6b70de0cac56ab8cd3bcac1",
+          "method": "ffmpeg直接从公开流按-ss时间解码，原始尺寸PNG；未登录、未使用付费清晰度或认证Cookie。"
+        }
+      ]
+    },
+    {
+      "bvid": "BV19F411E7Bs",
+      "url": "https://www.bilibili.com/video/BV19F411E7Bs/",
+      "metadata_url": "https://api.bilibili.com/x/web-interface/view?bvid=BV19F411E7Bs",
+      "title": "【飞鱼中文编程 第二课】安装飞鱼编译环境，为正式开发做准备",
+      "owner": {
+        "name": "飞鱼中文编程",
+        "uid": 98575563
+      },
+      "published_at": "2022-02-22T08:36:33Z",
+      "pubdate": 1645518993,
+      "cid": 545280343,
+      "duration_seconds": 202,
+      "description": "本节课主要讲解如何使用飞鱼的一键环境部署器安装编译环境，全程只需点几个按钮，没有任何繁琐操作，一起来学习吧。",
+      "playurl_request": "https://api.bilibili.com/x/player/playurl?bvid=BV19F411E7Bs&cid=545280343&qn=80&fnval=16",
+      "response_quality": 64,
+      "response_format": "flv720",
+      "actual_dash_video_id": 32,
+      "support_formats": [
+        {
+          "quality": 80,
+          "format": "flv",
+          "can_watch_qn_reason": 0,
+          "limit_watch_reason": 0
+        },
+        {
+          "quality": 64,
+          "format": "flv720",
+          "can_watch_qn_reason": 0,
+          "limit_watch_reason": 0
+        },
+        {
+          "quality": 32,
+          "format": "flv480",
+          "can_watch_qn_reason": 0,
+          "limit_watch_reason": 0
+        },
+        {
+          "quality": 16,
+          "format": "mp4",
+          "can_watch_qn_reason": 0,
+          "limit_watch_reason": 0
+        }
+      ],
+      "frames": [
+        {
+          "time_seconds": 110,
+          "width": 896,
+          "height": 480,
+          "path": "evidence/BV19F411E7Bs-110.png",
+          "sha256": "6b8d14aadbb391191fcdc6f0c5a19543bcd90fdd80fa2479463f08dae7da2c12",
+          "method": "ffmpeg直接从公开流按-ss时间解码，原始尺寸PNG；未登录、未使用付费清晰度或认证Cookie。"
+        }
+      ]
+    }
+  ]
+}

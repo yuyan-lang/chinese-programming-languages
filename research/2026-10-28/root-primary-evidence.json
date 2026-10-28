@@ -47,6 +47,14 @@
       "retrieved_on": "2026-10-28",
       "bytes": 2460,
       "sha256": "0f3c8aa5a09d76463ab6b3e626806c36a7d4d9f7e77d1a5c03c95f568865907c"
+    },
+    {
+      "url": "https://www.xduph.com/pages/DownLoadResourceFile.aspx?doi=9E545399C8EDF7C891BFA6EB2E37DA86",
+      "retrieved_on": "2026-10-28",
+      "bytes": 2662912,
+      "sha256": "bc2cb9e9a0b861da33634d613409ee6aed7a40e7a98ab0b1157a386f54e621cc",
+      "static_text_locator": "实训系统登录网址段，直接链接https://classroom.gdchenyi.com.cn/#/login；随后要求选择开放实验",
+      "reading": "系统textutil仅转为文字，独立核对摘要与上轮一致；未登录或加载候选应用"
     }
   ]
 }

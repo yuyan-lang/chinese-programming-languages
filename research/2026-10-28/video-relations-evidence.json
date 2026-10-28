@@ -1,0 +1,591 @@
+{
+  "verified_at": "2026-10-28",
+  "scope": "Issue #24，静态仓库历史、分支说明和固定关键词表；候选运行、安装、构建为0",
+  "thlang": {
+    "branches": [
+      {
+        "name": "main",
+        "commit": {
+          "sha": "779844e806391ca79421378f48b2aa7de2f4f837",
+          "url": "https://api.github.com/repos/tianhuzong/ThLang/commits/779844e806391ca79421378f48b2aa7de2f4f837"
+        },
+        "protected": false
+      },
+      {
+        "name": "shared_ptr",
+        "commit": {
+          "sha": "d29a4687636b6a219d048505962d9ea5ffd56f23",
+          "url": "https://api.github.com/repos/tianhuzong/ThLang/commits/d29a4687636b6a219d048505962d9ea5ffd56f23"
+        },
+        "protected": false
+      }
+    ],
+    "main_commits": [
+      {
+        "sha": "779844e806391ca79421378f48b2aa7de2f4f837",
+        "date": "2026-06-21T04:22:56Z",
+        "message": "Merge branch 'main' of github.com:tianhuzong/ThLang"
+      },
+      {
+        "sha": "8d756355a9aaaeb2814711cc7c2613f8d13cc901",
+        "date": "2026-06-21T03:45:56Z",
+        "message": "完成架构文件夹的调整,暂停github的工作流"
+      },
+      {
+        "sha": "48de20aca80eb03ea3ddd094875c1567d8932f20",
+        "date": "2026-06-21T03:08:54Z",
+        "message": "调整一下排版"
+      },
+      {
+        "sha": "fa88aed5f04d6739d23be3b8bd194a0bea001d14",
+        "date": "2026-06-21T03:07:49Z",
+        "message": "重构计划"
+      },
+      {
+        "sha": "98875e9d3ae374184566608517d9a50920f02956",
+        "date": "2025-07-23T07:51:52Z",
+        "message": "完成了支持函数指针被赋值"
+      },
+      {
+        "sha": "2303b891acb72ea990fc4a1aebe0e650fbd3f64d",
+        "date": "2025-07-20T03:16:05Z",
+        "message": "保存提交"
+      },
+      {
+        "sha": "60aed3ce0adf1618716ce75342c27d45452373d3",
+        "date": "2025-07-11T15:19:54Z",
+        "message": "修复了函数无法返回空类型的问题,让返回语句后面可以不用带value"
+      },
+      {
+        "sha": "e907d193af3e2aa0458481a37700aad29db6af9b",
+        "date": "2025-07-05T06:45:18Z",
+        "message": "修改工作流和build.sh和parser.y"
+      },
+      {
+        "sha": "c0d9d09374ab85ec8bbf23f96f81a6ffffa2c5a7",
+        "date": "2025-07-05T06:34:52Z",
+        "message": "修改工作流和build.sh和parser.y"
+      },
+      {
+        "sha": "baf9d62f2c6d706efe13e768fbe0cfb27168fc7b",
+        "date": "2025-07-05T06:28:08Z",
+        "message": "修改工作流和build.sh和parser.y"
+      },
+      {
+        "sha": "6f90ef17ba3801f08bfc805eba36c61953197c33",
+        "date": "2025-07-05T06:18:50Z",
+        "message": "修改工作流和build.sh和parser.y"
+      },
+      {
+        "sha": "e4e529a05e491547b43bfb298b7d290a4616da11",
+        "date": "2025-07-05T06:10:33Z",
+        "message": "修改工作流和build.sh和parser.y"
+      },
+      {
+        "sha": "317408cedad7b258a86c3dfca0b675096b9b6354",
+        "date": "2025-07-05T05:52:37Z",
+        "message": "修改工作流和build.sh和parser.y"
+      },
+      {
+        "sha": "5f25d5a415db6fb8de5c6063b58fc827dac92441",
+        "date": "2025-07-05T04:53:08Z",
+        "message": "修改工作流和build.sh和parser.y"
+      },
+      {
+        "sha": "7867a6af399ed324bd34c1e82f2c31acf2a8e6db",
+        "date": "2025-07-05T04:48:14Z",
+        "message": "修改工作流和build.sh和parser.y"
+      },
+      {
+        "sha": "0fe992ead4f96ab8954952dcf0e61f70b0461ed0",
+        "date": "2025-07-05T04:42:23Z",
+        "message": "修改工作流和build.sh"
+      },
+      {
+        "sha": "605eae3dd1e0537cb0d7d41a4deeb5c79b2ef56e",
+        "date": "2025-07-05T04:30:35Z",
+        "message": "修改工作流和build.sh"
+      },
+      {
+        "sha": "10b6cd3105c2910a5d16ccfb1388419fb1a5c8bc",
+        "date": "2025-07-05T04:25:04Z",
+        "message": "修改工作流和build.sh"
+      },
+      {
+        "sha": "8f0d7cbc1eab254c5ef8db12783e4afbdf147ffb",
+        "date": "2025-07-03T14:49:49Z",
+        "message": "修改工作流"
+      },
+      {
+        "sha": "97b17768d85961149a042dae2cc0e3530286e6a8",
+        "date": "2025-07-03T14:41:55Z",
+        "message": "修改工作流"
+      },
+      {
+        "sha": "60949f954e62738cd9ce3d78ed2c87f21f559722",
+        "date": "2025-07-03T14:35:58Z",
+        "message": "修改工作流"
+      },
+      {
+        "sha": "da574ecf3b2e6aeef8fc12e23268bc18f019d472",
+        "date": "2025-07-03T14:32:46Z",
+        "message": "修改工作流"
+      },
+      {
+        "sha": "9f49340b4d84c66deda76249fc124dd35268e719",
+        "date": "2025-07-03T14:04:29Z",
+        "message": "修改工作流"
+      },
+      {
+        "sha": "22805056e830eb9415ed03fa05223a0933986971",
+        "date": "2025-07-03T10:28:27Z",
+        "message": "修改工作流"
+      },
+      {
+        "sha": "73e210804c00b127fbe80a8e4b2c82a491a20daf",
+        "date": "2025-07-03T10:25:44Z",
+        "message": "修改工作流"
+      },
+      {
+        "sha": "3f507afb59740205b7413695eaf03f57a92138fe",
+        "date": "2025-07-03T10:16:15Z",
+        "message": "修改工作流"
+      },
+      {
+        "sha": "8a1f8629aa90ee328e50297a478c81752f26e031",
+        "date": "2025-07-03T09:57:28Z",
+        "message": "修改工作流"
+      },
+      {
+        "sha": "5ae720ea6d774baaeeda26db76af06c0f4ee165a",
+        "date": "2025-07-03T09:34:56Z",
+        "message": "修改github工作流文件"
+      },
+      {
+        "sha": "8092a73b8fbd347c801b43a220dddcf728533210",
+        "date": "2025-07-03T06:19:26Z",
+        "message": "继续修改构建文件 修改llvm构建方式"
+      },
+      {
+        "sha": "57dfbad9ac5173ad47b0ec80e71f5a11d3085e15",
+        "date": "2025-07-03T06:15:54Z",
+        "message": "将构建文件中的版本过期问题进行修改"
+      },
+      {
+        "sha": "77113ee2e61847094542cdb5f6ef1619afcb0d00",
+        "date": "2025-07-03T06:12:31Z",
+        "message": "修改了构建文件中的拼写错误,新增了github工作流文件"
+      },
+      {
+        "sha": "86c40ffcfc31231c5917a4fe19ef74cc63fe9d75",
+        "date": "2025-06-29T06:01:29Z",
+        "message": "修改了link函数,为linux适配了musl libc"
+      },
+      {
+        "sha": "890c98f2a265b7bf25084268cc16e70c261be8e7",
+        "date": "2025-06-22T04:29:57Z",
+        "message": "编写了编译到asm和obj的函数,引入lld"
+      },
+      {
+        "sha": "69ce1344dc799d63a33966e6d323011bab583ca7",
+        "date": "2025-06-21T12:27:15Z",
+        "message": "Merge remote-tracking branch 'refs/remotes/origin/main'"
+      },
+      {
+        "sha": "3109b69b9bb2c9b92593ab69856eddd5d66aa9af",
+        "date": "2025-06-21T12:26:27Z",
+        "message": "对文件的头文件内容等做了细微调整"
+      },
+      {
+        "sha": "b434b6e2b0357c1139ed72320b70e62cbdc700aa",
+        "date": "2025-06-15T15:01:03Z",
+        "message": "Update 问题.md"
+      },
+      {
+        "sha": "567d7deab1939ff6f2b5f51c766fa118cf8d720d",
+        "date": "2025-06-15T13:54:10Z",
+        "message": "进一步编写CLI,逐步将编译器分离出libthlang.so"
+      },
+      {
+        "sha": "2d81e52f6191adfdafd58c01084a25c5f5415f97",
+        "date": "2025-06-15T04:13:20Z",
+        "message": "在build.sh中，新增复制动态库,修复了CMakeLists中引入第三方库reflex时目录少了,编写命令行工具,引入rapidjson"
+      },
+      {
+        "sha": "18956fa19fbd9eebf4c9da7fca4bec7d9d4468ef",
+        "date": "2025-06-14T12:13:57Z",
+        "message": "修复了cmakefile的一个缺少引入reflex的third_party include的错误，并将部分头文件并入thlang目录"
+      },
+      {
+        "sha": "1302669ac7df2f63e2f49f53172b8ac2a7a5905b",
+        "date": "2025-06-08T15:30:03Z",
+        "message": "修复了语法层面存在的一些问题：如函数定义的参数列表，函数调用"
+      },
+      {
+        "sha": "ecda6d1fccba9efd2d248c315f07d6cfaf4cf154",
+        "date": "2025-06-08T08:24:30Z",
+        "message": "对第三方库文件进行改名"
+      },
+      {
+        "sha": "fd2d440ff08affb6219974cb29b12ce249e3df88",
+        "date": "2025-06-08T08:21:51Z",
+        "message": "进行小修改"
+      },
+      {
+        "sha": "ce038d8bed12d675ecb0aa4d8888e8456f899dd8",
+        "date": "2025-06-08T06:50:57Z",
+        "message": "对一些文件的缩进进行修改，修改了类型系统，将RE-flex作为第三方库放进项目"
+      },
+      {
+        "sha": "5adaa460b58044c900739c5d8512cabe1d7c852e",
+        "date": "2025-04-04T12:32:51Z",
+        "message": "回退到一个相对正常的版本"
+      },
+      {
+        "sha": "761b066972e700a8fba2554f79611c3b9c97aa5d",
+        "date": "2025-04-04T12:09:57Z",
+        "message": "失败的修改 临时commit"
+      },
+      {
+        "sha": "d88e3b00daf2082440464b5dd693b38945712a28",
+        "date": "2025-03-30T07:46:51Z",
+        "message": "准备将type属性进行大修改"
+      },
+      {
+        "sha": "b9ff601f167b98ce4e124a06cf87d71025ec6954",
+        "date": "2025-03-23T12:11:58Z",
+        "message": "临时commit"
+      },
+      {
+        "sha": "59bccb96956756fff8d4f763057920339ee39823",
+        "date": "2025-03-23T08:09:17Z",
+        "message": "修改if语句生成,增加语义分析文件"
+      },
+      {
+        "sha": "3325532f627e13df44044c4b1a86bb90f37ef097",
+        "date": "2025-01-28T03:26:23Z",
+        "message": "将问题.md移动到docs目录,并写了一篇文章"
+      },
+      {
+        "sha": "f0bfbc49526f7b944621ef35fae5a9e2d0ba5f54",
+        "date": "2025-01-27T15:32:23Z",
+        "message": "修改测试用例"
+      },
+      {
+        "sha": "6889b78a8f432d4191bec30bc8714a2e6b78f86b",
+        "date": "2025-01-27T12:46:07Z",
+        "message": "WIP on main: b6c3851 提交忘记提交的文件"
+      },
+      {
+        "sha": "53e1bd3af963c0917e52c30dc1b1bdfe2ccf9791",
+        "date": "2025-01-27T07:46:16Z",
+        "message": "提交忘记提交的文件"
+      },
+      {
+        "sha": "9e6147f15d7c20d3f5759bc0ac4b4ebbda308482",
+        "date": "2025-01-27T07:45:54Z",
+        "message": "完成对unique_ptr的小测试"
+      },
+      {
+        "sha": "cc2bb384c9ac955512982831fa42990d339d6725",
+        "date": "2025-01-27T05:48:38Z",
+        "message": "暂时存档,创建新分支来实验shared_ptr"
+      },
+      {
+        "sha": "e1d4ad8c8c506ccc309c72e7ac777731a6006c67",
+        "date": "2025-01-25T15:32:30Z",
+        "message": "继续编写codegen，考虑将所有的AST成员改成引用"
+      },
+      {
+        "sha": "e29831c9beee79ce6e769e408cbb713fea144c00",
+        "date": "2025-01-21T11:34:00Z",
+        "message": "初步编写类型系统"
+      },
+      {
+        "sha": "84bf8805bbd7d8e192bb2f84da8e237a1f91efae",
+        "date": "2025-01-12T08:23:58Z",
+        "message": "修改了项目名称,更新了一些问题"
+      },
+      {
+        "sha": "a37c105d4bdea4841d2e8243d0f8bd30c2652f24",
+        "date": "2025-01-11T05:01:56Z",
+        "message": "调整目录结构 预备进行重构"
+      },
+      {
+        "sha": "a0eeaf7d2a3d3ce199b16554fa53d365fdd3cd1a",
+        "date": "2024-12-08T14:07:15Z",
+        "message": "Update nn.h"
+      },
+      {
+        "sha": "a021fe6f54f71b0d4001c9313e9cf284cdef8b50",
+        "date": "2024-12-08T14:06:48Z",
+        "message": "Update main.cpp"
+      },
+      {
+        "sha": "8b9eeda0452228fa4504d71552025202c55721b9",
+        "date": "2024-12-08T14:06:30Z",
+        "message": "Update lex.l"
+      },
+      {
+        "sha": "269a2392de3099020940cb74ed79156d39793dd9",
+        "date": "2024-12-08T14:06:05Z",
+        "message": "Update codegen.h"
+      },
+      {
+        "sha": "34fe0c52581b711a8b9315d79b44b44b9f3c7594",
+        "date": "2024-12-08T14:05:49Z",
+        "message": "Update codegen.cpp"
+      },
+      {
+        "sha": "2f25ae5cb97a7a5a2209e6e95efb2887bbf4a3cc",
+        "date": "2024-08-05T06:10:28Z",
+        "message": "Update 问题.md"
+      },
+      {
+        "sha": "92d755c1334ce11f18c7710511009984cbca4980",
+        "date": "2024-08-05T06:08:37Z",
+        "message": "Update parser.y"
+      },
+      {
+        "sha": "cecffdf3e746f077fbae7f7b8c718d687ef7e5d8",
+        "date": "2024-08-05T06:07:52Z",
+        "message": "Update nn.h"
+      },
+      {
+        "sha": "9f719b6cbc75ca7abbdce5e3532426c978376f65",
+        "date": "2024-08-05T06:07:33Z",
+        "message": "Update main.cpp"
+      },
+      {
+        "sha": "4120109425c2045e9431d19efc28d5c7eb3926c5",
+        "date": "2024-08-05T06:06:39Z",
+        "message": "Update codegen.h"
+      },
+      {
+        "sha": "3c26bfe7a7e84dcc38f181391fc6949846f2820d",
+        "date": "2024-08-05T06:06:19Z",
+        "message": "Update codegen.cpp"
+      },
+      {
+        "sha": "2e41d920552f4f65e8f68373d6fa26958e555a07",
+        "date": "2024-08-04T15:07:23Z",
+        "message": "Create codegen.h"
+      },
+      {
+        "sha": "e53b4699d39a4e3ad86e3e657861528addcf92e3",
+        "date": "2024-08-04T15:07:00Z",
+        "message": "Update parser.y"
+      },
+      {
+        "sha": "63a723525c6ca8a50b79c3d8fcee68cbdcff12ae",
+        "date": "2024-08-04T15:06:42Z",
+        "message": "Update nn.h"
+      },
+      {
+        "sha": "3c1f77962cb62aab6f8143cb226788d24da8440b",
+        "date": "2024-08-04T15:06:21Z",
+        "message": "Update lex.l"
+      },
+      {
+        "sha": "b11e7ced5c3f1f2b95b202b0b9028b6fa73644fd",
+        "date": "2024-08-04T15:06:00Z",
+        "message": "Update codegen.cpp"
+      },
+      {
+        "sha": "8ffe565c71f6a0c57f6067282eb9fe61dcd39eb5",
+        "date": "2024-08-04T15:05:39Z",
+        "message": "Create main.cpp"
+      },
+      {
+        "sha": "c8b2965796530d319ecdac0ac212dc0deb78e637",
+        "date": "2024-07-30T12:41:32Z",
+        "message": "Create codegen.cpp"
+      },
+      {
+        "sha": "64992c741999834bab515809cb2336d79e68e7af",
+        "date": "2024-07-30T12:40:44Z",
+        "message": "Update build.sh"
+      },
+      {
+        "sha": "6ebaa23eae0765984c36655760f2374b8aaab1c0",
+        "date": "2024-07-30T12:40:19Z",
+        "message": "Update parser.y"
+      },
+      {
+        "sha": "a43374d838aef25c5321dbc91beacb660ac44a1f",
+        "date": "2024-07-30T12:39:35Z",
+        "message": "Update lex.l"
+      },
+      {
+        "sha": "d3eb3e04de76b190f568c5e374fe4ecdaf36cdb3",
+        "date": "2024-07-30T12:39:13Z",
+        "message": "Update nn.h"
+      },
+      {
+        "sha": "d988a8ab5ef4272a6e4a0e2557d097e19d73bbdd",
+        "date": "2024-06-09T02:51:52Z",
+        "message": "Create build.sh"
+      },
+      {
+        "sha": "644db2c33d341b99a74ab7f5399c84339bd5190f",
+        "date": "2024-06-09T02:51:27Z",
+        "message": "Create uthash.h"
+      },
+      {
+        "sha": "fb7550760bc1f26f7548deb2b841a0dc7cae2e5e",
+        "date": "2024-05-19T09:34:11Z",
+        "message": "Create nn.h"
+      },
+      {
+        "sha": "95f4d45912e6f68d8eb44a4f3d1157afd9adab51",
+        "date": "2024-05-19T09:33:41Z",
+        "message": "Update parser.y"
+      },
+      {
+        "sha": "ca21013b68a8ab0b6f6c963f9bf9af1fe24c4d0c",
+        "date": "2024-05-19T09:33:23Z",
+        "message": "Update lex.l"
+      },
+      {
+        "sha": "639c546afa206cc98cf3491d2f9b9c8a43ba7dfd",
+        "date": "2024-03-28T15:00:10Z",
+        "message": "Update parser.y\n\n允许以分号结尾"
+      },
+      {
+        "sha": "1b6691f922d5472e547f7475fb5792bc91d62f79",
+        "date": "2024-03-28T14:58:47Z",
+        "message": "Update parser.y\n\n允许多行用分号分割"
+      },
+      {
+        "sha": "ab4f3b0fcf1c840f1b4ef6335292484d9ed54eeb",
+        "date": "2024-03-25T15:10:17Z",
+        "message": "Update parser.y"
+      },
+      {
+        "sha": "55baa3b6e490b6c1393f8442a7f8a63c2179c65d",
+        "date": "2024-03-24T14:46:57Z",
+        "message": "Create parser.y\n\n创建语法分析器"
+      },
+      {
+        "sha": "ce36ec6734df11cfd549f76cef7cd3d879771f56",
+        "date": "2024-03-24T14:46:24Z",
+        "message": "Create lex.l\n\n创建词法分析器"
+      },
+      {
+        "sha": "5755da9b9fdfa654ec7c492bd3e000b24bfea0d5",
+        "date": "2024-03-16T05:50:13Z",
+        "message": "Update 问题.md"
+      },
+      {
+        "sha": "8342d192a4657aac63751b50977487a03110c60b",
+        "date": "2024-03-15T13:42:48Z",
+        "message": "Update 问题.md"
+      },
+      {
+        "sha": "f2d27f62c101fa9aa32ffdcaebc5953c32790a3f",
+        "date": "2024-03-14T14:16:21Z",
+        "message": "Create 问题.md"
+      },
+      {
+        "sha": "fd6325be8db0325fdf21dd7d0d57587d5064342f",
+        "date": "2024-03-14T13:40:34Z",
+        "message": "Update README.md"
+      },
+      {
+        "sha": "f72dd88b0d353eb4e2cab26113deb187237e54b3",
+        "date": "2023-08-14T13:17:17Z",
+        "message": "Create README.md"
+      },
+      {
+        "sha": "acc1a1f3ffa7a4964b9c632a57ad19bb935da2a1",
+        "date": "2023-08-14T12:41:56Z",
+        "message": "Create .gitignore"
+      }
+    ],
+    "shared_ptr_readme": {
+      "url": "https://github.com/tianhuzong/ThLang/blob/d29a4687636b6a219d048505962d9ea5ffd56f23/README.md",
+      "content": "# ThLang\n## 天河语言，一款适合新手入门的好语言。\n## 开源·简易·可扩展\n** 始皇编译器正在开发中**\n- - -\n## 简介\n天河语言（Tianhe Language,Thlang）是一款面向儿童的中文编译型语言，解释器采用C++和LLVM开发。\n这个语言结合了python、C/C++、Java等语言的语法。\n设计这个语言的目的是为了避免大家在入门其他编程时要理解太多名词，\n熟练掌握这个语言，学习其他语言也相对容易。\n天狐语言有以下优势：\n - **开源**：这个语言是开源的，无需收费\n - **易上手**：这个语言采用全中文，不需要背诵英语单词，上手简易。\n - **可扩展**：如果你懂C++或者LLVM IR的语法的话可以扩展始皇编译器的标准库。\n\n## 分支简介\n本分支为2025年1月27日为了验证原本的分支的内容的错误是否由于std::unique_ptr所有权产生的问题而使用shared_ptr进行测试,在shared_ptr修改测试通过后又回到了原本的main分支, 在main分支修改测试通过后,这个分支将暂时被弃用。\n"
+    }
+  },
+  "python_compiler": {
+    "branches": [
+      {
+        "name": "main",
+        "commit": {
+          "sha": "ab1a8fec58afce20c3f13251ca9341b08ce6be8e",
+          "url": "https://api.github.com/repos/tianhuzong/python_compiler/commits/ab1a8fec58afce20c3f13251ca9341b08ce6be8e"
+        },
+        "protected": false
+      }
+    ],
+    "commits": [
+      {
+        "sha": "ab1a8fec58afce20c3f13251ca9341b08ce6be8e",
+        "date": "2024-06-23T08:34:38Z",
+        "message": "Update py_compiler.sh"
+      },
+      {
+        "sha": "d453962d995658cd82f0232392ad750921ebb82c",
+        "date": "2024-06-23T08:34:15Z",
+        "message": "Update py_compiler.sh"
+      },
+      {
+        "sha": "8fe61269efbcb6587a57dae6c993e17fa02640d4",
+        "date": "2024-06-23T07:53:17Z",
+        "message": "新增了编译器脚本"
+      },
+      {
+        "sha": "7aa74151e3c58d5d5f32130f35874b78c9fcc8dc",
+        "date": "2024-06-23T07:44:09Z",
+        "message": "Create README.md"
+      },
+      {
+        "sha": "561547207b3b869bc9b3edf4cbcbd167e90d3481",
+        "date": "2024-06-23T07:36:26Z",
+        "message": "Create .gitignore"
+      }
+    ],
+    "initial_readme": {
+      "url": "https://github.com/tianhuzong/python_compiler/blob/7aa74151e3c58d5d5f32130f35874b78c9fcc8dc/README.md",
+      "content": "# python编译器\n## 作者：Sen\n## email : tianhuzong@qq.com\n\n# 简介\n\n这个脚本利用cython把python编译成C语言，然后编译成可执行文件。\n\n## 用法\n准备一个python文件`a.py`\n```python\n#a.py\nprint(\"I am a.py!\")\n```\n那么\n```bash\n$ ./py_compiler.sh a.py\n请输入python版本(例如python3.10):python3.10\n请输入输出文件名:main\na.py 的C文件build_py/temp/a.py.c 已经生成\nmain已生成\n$ ls\nmain\n$ ./main\nI am a.py!\n$\n```\n\n## 许可证\nMIT\n"
+    },
+    "first_script": {
+      "url": "https://github.com/tianhuzong/python_compiler/blob/8fe61269efbcb6587a57dae6c993e17fa02640d4/py_compiler.sh",
+      "content": "#!/bin/sh\n\nread -rp \"请输入python版本(例如python3.10):\" pyversion &&\n    read -rp \"请输入输出文件名:\" outfile &&\n    mkdir -p build_py/temp/c || exit\n\nobjs=()\nfor i in \"$@\"; do\n    file_name=\"build_py/temp/$i.c\"\n    cython \"$i\" -o \"$file_name\" --embed --3str\n    echo \"$i 的C文件$file_name 已经生成\"\n    gcc -c $file_name \"$(\"$pyversion-config\" --ldflags --cflags --includes)\"  -o \"build_py/temp/c/$i.o\"\n    objs+=\"$i.o\"\ndone\n\ncd build_py/temp/c || exit\n\ngcc \"${objs[@]}\" -o $outfile \"$(\"$pyversion-config\" --ldflags --cflags --includes)\"  -l$pyversion\ncp -- $outfile ../../..\necho \"${outfile}已生成\"\n"
+    },
+    "latest_script": {
+      "url": "https://github.com/tianhuzong/python_compiler/blob/ab1a8fec58afce20c3f13251ca9341b08ce6be8e/py_compiler.sh",
+      "content": "#!/bin/bash\n\nread -rp \"请输入python版本(例如python3.10):\" pyversion &&\n    read -rp \"请输入输出文件名:\" outfile &&\n    mkdir -p build_py/temp/c || exit\n\nobjs=()\nfor i in \"$@\"; do\n    file_name=\"build_py/temp/$i.c\"\n    cython \"$i\" -o \"$file_name\" --embed --3str\n    echo \"$i 的C文件$file_name 已经生成\"\n    gcc -c $file_name `${pyversion}-config  --includes` `${pyversion}-config --ldflags --cflags` -o \"build_py/temp/c/$i.o\"\n    objs+=\"$i.o\"\ndone\n\ncd build_py/temp/c || exit\n\ngcc \"${objs[@]}\" -o $outfile `${pyversion}-config --ldflags --cflags`  -l$pyversion\ncp -- $outfile ../../..\necho \"${outfile}已生成\"\n"
+    }
+  },
+  "comparison": {
+    "zhpy": {
+      "url": "https://github.com/gasolin/zhpy/blob/f4d932a5ab810158ef4e4113df337cbf7d83817a/zhpy2/zhpy/plugcn.py",
+      "entries": {
+        "取": "for",
+        "在": "in",
+        "函数": "lambda",
+        "打印": "print",
+        "标准输入": "stdin",
+        "标准输出": "stdout"
+      },
+      "notes": "固定简体中文默认词表中for循环词条未出现；周蟒有扩展机制，默认词表差异不构成不存在派生关系的证明。"
+    },
+    "video": {
+      "url": "https://www.bilibili.com/video/BV1bm421x7AK/",
+      "observed": [
+        "for循环",
+        "函数",
+        "标准输入(...)",
+        "标准输出(...)"
+      ],
+      "frames": "沿用2026-10-25保存的01:30.296、01:58.500及02:38原帧；本轮未重复取帧。"
+    }
+  },
+  "author_blog": {
+    "tree_commit": "bdba6209c96648fdd2f08365391073dd96b860a0",
+    "index_url": "https://github.com/tianhuzong/tianhuzong.github.io/blob/bdba6209c96648fdd2f08365391073dd96b860a0/local-search.xml",
+    "index_entry_count": 7,
+    "scope": "读取固定公开博客索引；记录TinyToyCompiler、LeetCode、开站文章；索引未形成2024视频compiler的直接对应。"
+  }
+}

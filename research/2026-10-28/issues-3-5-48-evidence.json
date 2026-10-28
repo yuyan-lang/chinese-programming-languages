@@ -1,0 +1,488 @@
+{
+  "verified_at": "2026-10-28",
+  "candidate_execution_count": 0,
+  "pych_release_assets": [
+    {
+      "tag": "4.1.a",
+      "url": "https://github.com/qingsububao/PYCH-Language/releases/download/4.1.a/main.1.py",
+      "id": 480076657,
+      "name": "main.1.py",
+      "size": 14387,
+      "digest": "sha256:10bde4d680b6626e03518a1ceb45653c9a1fbb3ab8105df8d51642f5dfb4bfbe",
+      "verified": true
+    },
+    {
+      "tag": "4.1.a",
+      "url": "https://github.com/qingsububao/PYCH-Language/releases/download/4.1.a/main.py",
+      "id": 480078995,
+      "name": "main.py",
+      "size": 15048,
+      "digest": "sha256:5833c3b0f00f72478625450383c059d9c9d5c02fd26fbf3e66801b88e2a246a4",
+      "verified": true
+    },
+    {
+      "tag": "pych4.0",
+      "url": "https://github.com/qingsububao/PYCH-Language/releases/download/pych4.0/main.py",
+      "id": 479462953,
+      "name": "main.py",
+      "size": 15508,
+      "digest": "sha256:7169b20e365e86456fff8a627b2f33f7d79a12a392b02de3c7c8170cf8306e9a",
+      "verified": true
+    },
+    {
+      "tag": "pych3.2",
+      "url": "https://github.com/qingsububao/PYCH-Language/releases/download/pych3.2/main.py",
+      "id": 479458457,
+      "name": "main.py",
+      "size": 11053,
+      "digest": "sha256:1a27843fb79931093f6d6c33cfcaec6ca8fdbfcd3345ccf993387d75190a6e66",
+      "verified": true
+    },
+    {
+      "tag": "pych3.1",
+      "url": "https://github.com/qingsububao/PYCH-Language/releases/download/pych3.1/main.py",
+      "id": 479453630,
+      "name": "main.py",
+      "size": 6160,
+      "digest": "sha256:17552cf59a70813a8cf8f89994445e0be68a994f5e61f4a5518bd98c9798b374",
+      "verified": true
+    },
+    {
+      "tag": "pych3.0",
+      "url": "https://github.com/qingsububao/PYCH-Language/releases/download/pych3.0/main.py",
+      "id": 479449251,
+      "name": "main.py",
+      "size": 5227,
+      "digest": "sha256:eecc249b81d1b5da0698d2e05f02614f5331f28ceb7ed9c24c07307ce7bda288",
+      "verified": true
+    },
+    {
+      "tag": "pych2.0",
+      "url": "https://github.com/qingsububao/PYCH-Language/releases/download/pych2.0/identifier.py",
+      "id": 479444946,
+      "name": "identifier.py",
+      "size": 421,
+      "digest": "sha256:2392487c17dccdb64cedc11607d34b6ac13973fc47eec9c4f585fd8fd7906486",
+      "verified": true
+    },
+    {
+      "tag": "pych2.0",
+      "url": "https://github.com/qingsububao/PYCH-Language/releases/download/pych2.0/implementationofthreeidentifiers.py",
+      "id": 479444960,
+      "name": "implementationofthreeidentifiers.py",
+      "size": 2923,
+      "digest": "sha256:14fcbdace3e077c0365e8ecdf110af2a2c86b3e88395834ad1dc859302f8a27c",
+      "verified": true
+    },
+    {
+      "tag": "pych2.0",
+      "url": "https://github.com/qingsububao/PYCH-Language/releases/download/pych2.0/interaction.py",
+      "id": 479444966,
+      "name": "interaction.py",
+      "size": 420,
+      "digest": "sha256:b8ba666482538eb2d49d68287ca8c62b4e32c834d393807ec35e03f5ed32f224",
+      "verified": true
+    },
+    {
+      "tag": "pych2.0",
+      "url": "https://github.com/qingsububao/PYCH-Language/releases/download/pych2.0/numericconversion.py",
+      "id": 479444989,
+      "name": "numericconversion.py",
+      "size": 449,
+      "digest": "sha256:ed6cefe10021403ce6b081784e4f2b418f6c300a517117da7176b08cf6c75325",
+      "verified": true
+    },
+    {
+      "tag": "pych2.0",
+      "url": "https://github.com/qingsububao/PYCH-Language/releases/download/pych2.0/tool.py",
+      "id": 479444999,
+      "name": "tool.py",
+      "size": 2753,
+      "digest": "sha256:ebb8d2fc0ff6f02b57d21cb59648ade79b90be5eadf577a4635e9714a327d786",
+      "verified": true
+    },
+    {
+      "tag": "pych1.0",
+      "url": "https://github.com/qingsububao/PYCH-Language/releases/download/pych1.0/identifier.py",
+      "id": 479432877,
+      "name": "identifier.py",
+      "size": 336,
+      "digest": "sha256:d47914c73821957b836fdf7abd9f6bfb60d510c00dd88ac13856f45357911237",
+      "verified": true
+    },
+    {
+      "tag": "pych1.0",
+      "url": "https://github.com/qingsububao/PYCH-Language/releases/download/pych1.0/implementationofthreeidentifiers.py",
+      "id": 479433023,
+      "name": "implementationofthreeidentifiers.py",
+      "size": 1429,
+      "digest": "sha256:2c1d6755f871acd8cc81f0fc56e829850fba501f8ca1fde9bae4d64407dbedb9",
+      "verified": true
+    },
+    {
+      "tag": "pych1.0",
+      "url": "https://github.com/qingsububao/PYCH-Language/releases/download/pych1.0/interaction.py",
+      "id": 479433048,
+      "name": "interaction.py",
+      "size": 420,
+      "digest": "sha256:b8ba666482538eb2d49d68287ca8c62b4e32c834d393807ec35e03f5ed32f224",
+      "verified": true
+    },
+    {
+      "tag": "pych1.0",
+      "url": "https://github.com/qingsububao/PYCH-Language/releases/download/pych1.0/numericconversion.py",
+      "id": 479433036,
+      "name": "numericconversion.py",
+      "size": 449,
+      "digest": "sha256:ed6cefe10021403ce6b081784e4f2b418f6c300a517117da7176b08cf6c75325",
+      "verified": true
+    },
+    {
+      "tag": "pych1.0",
+      "url": "https://github.com/qingsububao/PYCH-Language/releases/download/pych1.0/tool.py",
+      "id": 479433065,
+      "name": "tool.py",
+      "size": 1137,
+      "digest": "sha256:91360d4684990ebdbb6ab755a3c8ec483acbca09cf4933e2752be85f348ba637",
+      "verified": true
+    },
+    {
+      "tag": "pych0",
+      "url": "https://github.com/qingsububao/PYCH-Language/releases/download/pych0/FileCompilerAndInterpreterForPYCH.py",
+      "id": 479409018,
+      "name": "FileCompilerAndInterpreterForPYCH.py",
+      "size": 3135,
+      "digest": "sha256:bcd37026c7f378267029888d9a7e6a2c12a3fd5e19ad24720cf18385bfbf57cf",
+      "verified": true
+    }
+  ],
+  "repositories": [
+    {
+      "name": "E#",
+      "url": "https://gitee.com/dcosa/esharp",
+      "head": "55503b2e623e3093d9c6423b63aa6b006adaaf32",
+      "refs": [
+        {
+          "ref": "refs/heads/master",
+          "commit": "55503b2e623e3093d9c6423b63aa6b006adaaf32"
+        },
+        {
+          "ref": "refs/remotes/origin/HEAD",
+          "commit": "55503b2e623e3093d9c6423b63aa6b006adaaf32"
+        },
+        {
+          "ref": "refs/remotes/origin/master",
+          "commit": "55503b2e623e3093d9c6423b63aa6b006adaaf32"
+        },
+        {
+          "ref": "refs/tags/0.1.0-end.preview",
+          "commit": "c090f0d80ca5fb6855513b906cb6a321db52903c"
+        }
+      ],
+      "commits": [
+        {
+          "commit": "55503b2e623e3093d9c6423b63aa6b006adaaf32",
+          "date": "2023-06-02T19:46:11+08:00",
+          "subject": "Merge branch 'master' of https://gitee.com/ch-team/esharp"
+        },
+        {
+          "commit": "390501774a7989e4ca47c7f41cce92800034b59a",
+          "date": "2023-06-02T19:42:41+08:00",
+          "subject": "结构更改"
+        },
+        {
+          "commit": "c090f0d80ca5fb6855513b906cb6a321db52903c",
+          "date": "2023-05-13T15:45:33Z",
+          "subject": "add LICENSE."
+        },
+        {
+          "commit": "1d0b0ae2944623a0187fde67a7821203b97cf08f",
+          "date": "2023-05-13T23:44:34+08:00",
+          "subject": "UPDATE 0513"
+        },
+        {
+          "commit": "e689ad316a67b1de02c4c11a9aa74bb800f3edb7",
+          "date": "2023-05-08T17:14:51+08:00",
+          "subject": "更改方案"
+        },
+        {
+          "commit": "245b6b0d94ab8ec091486b4eda376cdd8a6b228b",
+          "date": "2023-05-08T16:51:22+08:00",
+          "subject": "UPDATE"
+        },
+        {
+          "commit": "d8ab167efb283482e19c2c996db2325277dcd66d",
+          "date": "2023-04-20T21:40:53+08:00",
+          "subject": "确定基本结构"
+        },
+        {
+          "commit": "87de6b5894401d12ba1b6b6cf1e4e2b673474ed9",
+          "date": "2023-04-20T14:42:38+08:00",
+          "subject": "0420"
+        },
+        {
+          "commit": "623e8192502889046f35c73f45ff52015ededb0c",
+          "date": "2023-03-14T09:23:14+08:00",
+          "subject": "init"
+        },
+        {
+          "commit": "5fc492380b3924907401f62a7a55558ef9dc8da6",
+          "date": "2023-03-14T01:13:46Z",
+          "subject": "Initial commit"
+        }
+      ],
+      "head_file_count": 10
+    },
+    {
+      "name": "CH-VM",
+      "url": "https://gitee.com/dcosa/vm",
+      "head": "2e3185eecf440de9e311ce7255577cb56717079f",
+      "refs": [
+        {
+          "ref": "refs/heads/master",
+          "commit": "2e3185eecf440de9e311ce7255577cb56717079f"
+        },
+        {
+          "ref": "refs/remotes/origin/HEAD",
+          "commit": "2e3185eecf440de9e311ce7255577cb56717079f"
+        },
+        {
+          "ref": "refs/remotes/origin/master",
+          "commit": "2e3185eecf440de9e311ce7255577cb56717079f"
+        }
+      ],
+      "commits": [
+        {
+          "commit": "2e3185eecf440de9e311ce7255577cb56717079f",
+          "date": "2023-06-08T23:28:00+08:00",
+          "subject": "基础内容"
+        },
+        {
+          "commit": "09453dda3f86fce39311fd2d8ae821d48cd58a52",
+          "date": "2023-06-02T19:40:42+08:00",
+          "subject": "Init"
+        },
+        {
+          "commit": "d56ff94dcfd35575b511d28d7bec4941046682db",
+          "date": "2023-05-31T05:47:10Z",
+          "subject": "update README.md."
+        },
+        {
+          "commit": "d2a9f38a712bdd39242c54615824ac4765512b91",
+          "date": "2023-05-31T05:46:06Z",
+          "subject": "删除文件 README.en.md"
+        },
+        {
+          "commit": "addf53fd3ba0b44177a606ebfecb182a5c563072",
+          "date": "2023-05-31T05:41:26Z",
+          "subject": "Initial commit"
+        }
+      ],
+      "head_file_count": 34
+    },
+    {
+      "name": "易深IDE",
+      "url": "https://gitee.com/dcosa/yishen",
+      "head": "70c5e0b40aadf8bbd3f5dcb48061175e06389d4b",
+      "refs": [
+        {
+          "ref": "refs/heads/master",
+          "commit": "70c5e0b40aadf8bbd3f5dcb48061175e06389d4b"
+        },
+        {
+          "ref": "refs/remotes/origin/HEAD",
+          "commit": "70c5e0b40aadf8bbd3f5dcb48061175e06389d4b"
+        },
+        {
+          "ref": "refs/remotes/origin/master",
+          "commit": "70c5e0b40aadf8bbd3f5dcb48061175e06389d4b"
+        },
+        {
+          "ref": "refs/tags/v1.4-alpha",
+          "commit": "70c5e0b40aadf8bbd3f5dcb48061175e06389d4b"
+        }
+      ],
+      "commits": [
+        {
+          "commit": "70c5e0b40aadf8bbd3f5dcb48061175e06389d4b",
+          "date": "2021-07-05T14:19:44Z",
+          "subject": "新建 Release"
+        },
+        {
+          "commit": "94cdaf7eaf2b7bd1fb5714f6e0119ed8ad912c3c",
+          "date": "2021-07-05T22:15:36+08:00",
+          "subject": "init"
+        },
+        {
+          "commit": "1e21f7bdff38bbbb2883c60a90fc77577b87df81",
+          "date": "2021-07-05T02:48:41Z",
+          "subject": "update README.md."
+        },
+        {
+          "commit": "f2fb6157e17d6bfe26d539bc641e012c0f52bdd9",
+          "date": "2021-07-05T02:46:07Z",
+          "subject": "删除文件 README.en.md"
+        },
+        {
+          "commit": "0505e30a816a0f5cec2e23ef138c35a7e0d670e3",
+          "date": "2021-07-05T02:39:43Z",
+          "subject": "Initial commit"
+        }
+      ],
+      "head_file_count": 894
+    }
+  ],
+  "forum_sources": [
+    {
+      "url": "https://forum.trae.cn/t/165813.json",
+      "bytes": 61005,
+      "sha256": "7ad5a798541a032d2da21f87ded308f575a71a4fe5cea567aedea1d9fdd7f33f"
+    },
+    {
+      "url": "https://trae-forum-cdn.trae.com.cn/prod/original/3X/2/0/20407b70c24da7f2b4e5a43cc5e0127cc191eb50.png",
+      "bytes": 47578,
+      "sha256": "8a115ed4846deaf807ab58bc326867192a5371c8c50c5d23fdc4839d1658392d"
+    },
+    {
+      "url": "https://trae-forum-cdn.trae.com.cn/prod/original/3X/e/7/e7e2b7cac2bdba570baff7d95828604eb47b39af.png",
+      "bytes": 68141,
+      "sha256": "b42df5c2555ec1207d0e80b342240ae535b229af624208c3c1af99037f766fd5"
+    },
+    {
+      "url": "https://trae-forum-cdn.trae.com.cn/prod/original/3X/3/7/37ba014ed303678a71525c584c8034435652ce4f.png",
+      "bytes": 101142,
+      "sha256": "9c6ba667f0e20e08310f81e55c4289b18410df898748e99c537d1e23a5a788e1"
+    },
+    {
+      "url": "https://trae-forum-cdn.trae.com.cn/prod/original/3X/c/f/cf87efd128b94e59358c62b1e0a4aa4e5f142b4f.png",
+      "bytes": 76727,
+      "sha256": "03124a8aea70359e7744565f78829d95e98e81a2552e941a439892a9a3eab66d"
+    }
+  ],
+  "nextOS_public_repository_paths": [
+    "nextOS/art",
+    "nextOS/art-bionic",
+    "nextOS/art-libcore",
+    "nextOS/art-system-libartpalette",
+    "nextOS/art-system-libbase",
+    "nextOS/capdl",
+    "nextOS/global-components",
+    "nextOS/godot",
+    "nextOS/godot-cpp",
+    "nextOS/godot-docs",
+    "nextOS/linux",
+    "nextOS/musllibc",
+    "nextOS/nanopb",
+    "nextOS/seL4_docs",
+    "nextOS/seL4_projects_libs",
+    "nextOS/seL4_tools",
+    "nextOS/sel4",
+    "nextOS/util_libs"
+  ],
+  "fixed_files": [
+    {
+      "repository": "https://gitee.com/dcosa/esharp",
+      "commit": "c090f0d80ca5fb6855513b906cb6a321db52903c",
+      "path": "ESIL.md",
+      "blob": "71de22f7217a299334d9ec5ddf943cea08245e35",
+      "bytes": 868,
+      "sha256": "800909a0be59eed766a3a11ffaf11157e865ef45d71d4f8b659c1825e9e2a7e2"
+    },
+    {
+      "repository": "https://gitee.com/dcosa/esharp",
+      "commit": "c090f0d80ca5fb6855513b906cb6a321db52903c",
+      "path": "ESRuntime/esr.c",
+      "blob": "39535ac3c5e3226341c3d9c86b5921468c8293c1",
+      "bytes": 17,
+      "sha256": "2340ee96ac8e8c28b67aab9e8786728c9bdc1c97c23a76a2010873cb0f8aadf4"
+    },
+    {
+      "repository": "https://gitee.com/dcosa/esharp",
+      "commit": "c090f0d80ca5fb6855513b906cb6a321db52903c",
+      "path": "ESRuntime/esr.h",
+      "blob": "2a3495677c7201b2149c57328dd439bb5d096663",
+      "bytes": 9417,
+      "sha256": "f6b5f370b5a444ce8f33310c5a0d47d5bb8bb20377921b2698f3c1a8b5407396"
+    },
+    {
+      "repository": "https://gitee.com/dcosa/esharp",
+      "commit": "c090f0d80ca5fb6855513b906cb6a321db52903c",
+      "path": "ESRuntime/instset.h",
+      "blob": "0ba02ef7a0eacfc661f8f1f76ae3df9148acf030",
+      "bytes": 2606,
+      "sha256": "4ddab574705b55e4d2302fe268b926f377951f24e4ea937c7e2ec272582f7531"
+    },
+    {
+      "repository": "https://gitee.com/dcosa/vm",
+      "commit": "2e3185eecf440de9e311ce7255577cb56717079f",
+      "path": "CHIL规范.md",
+      "blob": "e2d0bb479ef95ec1fa806dbb5033aff5c1d22b44",
+      "bytes": 876,
+      "sha256": "1b0b67f28e166ec7d5fa7ef05da83815f39a84437afa88e7beb557720b818fd3"
+    },
+    {
+      "repository": "https://gitee.com/dcosa/vm",
+      "commit": "2e3185eecf440de9e311ce7255577cb56717079f",
+      "path": "CH-VM规范.md",
+      "blob": "ec533409599a98b7587015a08df309e14d6ee959",
+      "bytes": 20112,
+      "sha256": "73882c91b6ea0dbefefa2bbc50e8fdc9cec5d842df8356219667b7a297fbaadc"
+    },
+    {
+      "repository": "https://gitee.com/dcosa/vm",
+      "commit": "2e3185eecf440de9e311ce7255577cb56717079f",
+      "path": "ch-vm/core/vm/vm.c",
+      "blob": "cde184a111575d13b37e25d7f4219b8bc9b7a41a",
+      "bytes": 649,
+      "sha256": "4826007fc07ee385b6a2e58c23c4bd2eea4bfa185807f278ab1d61a892310ddc"
+    },
+    {
+      "repository": "https://gitee.com/dcosa/vm",
+      "commit": "2e3185eecf440de9e311ce7255577cb56717079f",
+      "path": "ch-vm/core/vm/stack.c",
+      "blob": "1dbd8af0342fcee24a2fd9f147559b867e58ca3c",
+      "bytes": 302,
+      "sha256": "d6b5de1b4117272400c49b98e5d37192ed1f60f87a1369fe259aa9e7aa2b588f"
+    },
+    {
+      "repository": "https://gitee.com/dcosa/vm",
+      "commit": "2e3185eecf440de9e311ce7255577cb56717079f",
+      "path": "chilc/main.c",
+      "blob": "cbb131e0c7ae87fd67da1b4c85bb17ac229af289",
+      "bytes": 52,
+      "sha256": "96dee4f74a481ef9c7655d228d350d25128519a5b25705f97871b4c189062ddb"
+    },
+    {
+      "repository": "https://gitee.com/dcosa/vm",
+      "commit": "2e3185eecf440de9e311ce7255577cb56717079f",
+      "path": "ch-vm/main/main.c",
+      "blob": "cbb131e0c7ae87fd67da1b4c85bb17ac229af289",
+      "bytes": 52,
+      "sha256": "96dee4f74a481ef9c7655d228d350d25128519a5b25705f97871b4c189062ddb"
+    },
+    {
+      "repository": "https://gitee.com/dcosa/yishen",
+      "commit": "70c5e0b40aadf8bbd3f5dcb48061175e06389d4b",
+      "path": "README.md",
+      "blob": "5a1f037ca9933e9951d37b9ece73bb5a3cb36b94",
+      "bytes": 349,
+      "sha256": "79e1c310264b6dc9e98c24e918f74dfb16fa73dc53cd2c19b952e882a652f2c9"
+    },
+    {
+      "repository": "https://gitee.com/dcosa/yishen",
+      "commit": "70c5e0b40aadf8bbd3f5dcb48061175e06389d4b",
+      "path": "KoCode/VTranslation.cpp",
+      "blob": "c3468af26b84fd70512d73134d4a46cf5f9cc026",
+      "bytes": 6322,
+      "sha256": "e4c4f313d11240932b117ed8dfe81085c4c432f7e6c3699d8ddd4c42be984ec7"
+    },
+    {
+      "repository": "https://gitee.com/dcosa/yishen",
+      "commit": "70c5e0b40aadf8bbd3f5dcb48061175e06389d4b",
+      "path": "KoCode/VBackgroundSystem.cpp",
+      "blob": "9481363dae2d60d7ece256e89ca236675a36efa6",
+      "bytes": 58773,
+      "sha256": "3aaa315f417507832e00885533335b4db47ed295cafef9bfd6ce3bae23101855"
+    }
+  ]
+}
