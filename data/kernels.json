@@ -10271,7 +10271,7 @@
       ],
       "scheduling": [
         {
-          "text": "单组父子协程由应用主动调用exec_co／co_resume推进。read无可用输入时置blocked并让出，图形提交可按开关让出；EL0上下文保存通用寄存器、ELR／SPSR与SP_EL0，父端恢复执行并在退出后回收子程序资源。调度属于协作式程序管理。",
+          "text": "单组父子协程由应用主动调用exec_co／co_resume推进。read无可用输入时置blocked并让出，图形提交可按开关让出；EL0上下文保存通用寄存器、ELR／SPSR与SP_EL0，父端恢复执行；完整上下文恢复分支在done状态下调用co_child_cleanup回收子程序资源，其他退出分支的回收覆盖待核实。调度属于协作式程序管理。",
           "evidence_level": "源码可见",
           "source_ids": [
             "hd43",

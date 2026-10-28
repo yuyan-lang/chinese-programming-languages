@@ -41,13 +41,13 @@
 5. [hudos_el0_co_start](https://github.com/xuchenruisz/hudos/blob/b4a244b808b6786d5c3a1fd98102055f7f582488/mmu_asm.S#L464-L500)保存父端上下文，切到子端内核栈，设置SP_EL0、ELR_EL1及SPSR_EL1，经ERET进入EL0。普通[EL0入口](https://github.com/xuchenruisz/hudos/blob/b4a244b808b6786d5c3a1fd98102055f7f582488/mmu_asm.S#L426-L455)另有保存／退出上下文。
 6. [自有向量和同步入口](https://github.com/xuchenruisz/hudos/blob/b4a244b808b6786d5c3a1fd98102055f7f582488/mmu_asm.S#L216-L289)保存寄存器帧后调用项目C处理器。[hudos_el0_sync_handler](https://github.com/xuchenruisz/hudos/blob/b4a244b808b6786d5c3a1fd98102055f7f582488/hudos_server.c#L1968-L2077)保存ELR／SPSR、暂时恢复固件向量，按SVC号进入sys_dispatch或退出；分派完成后恢复子端异常状态和项目向量，再经ERET回到EL0。[syscall.c](https://github.com/xuchenruisz/hudos/blob/b4a244b808b6786d5c3a1fd98102055f7f582488/syscall.c#L1-L32)与[crt0.S](https://github.com/xuchenruisz/hudos/blob/b4a244b808b6786d5c3a1fd98102055f7f582488/crt0.S#L15-L38)提供SVC与EL1函数指针两种调用路径。
 7. [read分派](https://github.com/xuchenruisz/hudos/blob/b4a244b808b6786d5c3a1fd98102055f7f582488/hudos_server.c#L4459-L4487)在终端输入为空时将协程置blocked并让出；[图形提交](https://github.com/xuchenruisz/hudos/blob/b4a244b808b6786d5c3a1fd98102055f7f582488/hudos_server.c#L4640-L4653)按开关触发主动让出。[el0_co_yield](https://github.com/xuchenruisz/hudos/blob/b4a244b808b6786d5c3a1fd98102055f7f582488/hudos_server.c#L1775-L1859)保存通用与特权上下文，恢复父端固件页表／向量并co_switch返回父端。
-8. [co_resume](https://github.com/xuchenruisz/hudos/blob/b4a244b808b6786d5c3a1fd98102055f7f582488/hudos_server.c#L5029-L5101)由父应用主动推进，初次进入EL0、后续恢复完整上下文或返回保存的内核调用路径；exit将状态置done，父端随后调用[co_child_cleanup](https://github.com/xuchenruisz/hudos/blob/b4a244b808b6786d5c3a1fd98102055f7f582488/hudos_server.c#L2695-L2710)撤销授权、释放映像／栈／参数并关闭文件表。该连续链体现项目自身程序和协程生命周期管理。
+8. [co_resume](https://github.com/xuchenruisz/hudos/blob/b4a244b808b6786d5c3a1fd98102055f7f582488/hudos_server.c#L5029-L5101)由父应用主动推进，初次进入EL0、后续恢复完整上下文或返回保存的内核调用路径；exit将状态置done，完整上下文恢复分支返回后在g_el0_yield_pending条件下检查done并调用[co_child_cleanup](https://github.com/xuchenruisz/hudos/blob/b4a244b808b6786d5c3a1fd98102055f7f582488/hudos_server.c#L2695-L2710)撤销授权、释放映像／栈／参数并关闭文件表。该连续链体现项目自身程序和协程生命周期管理；首次进入与内核调用恢复分支的退出回收覆盖待核实。
 
 ## hudos：资源控制分工与分类
 
 | 资源 | 项目自身实现 | 固件提供的基础 |
 | --- | --- | --- |
-| 程序与特权 | ELF段装载／重定位、EL0入口、SVC分派、退出与回收 | EFI映像环境、EL1服务调用窗口 |
+| 程序与特权 | ELF段装载／重定位、EL0入口、SVC分派、退出与限定分支回收 | EFI映像环境、EL1服务调用窗口 |
 | 内存 | 映像与栈布局、临时页权限、描述符恢复、可选克隆页表 | 物理页／缓冲区分配与默认地址空间 |
 | 调度与中断 | 单父子协程、主动让出／恢复、自有同步异常向量 | 普通EL1服务窗口的异步中断基础；EL0窗口屏蔽IRQ／FIQ |
 | 文件与通用设备 | 文件表、挂载表、控制台绘制、应用API | EFI文件／块设备协议、GOP、键盘和指针协议 |
@@ -61,7 +61,7 @@
 
 建议评论草稿：
 
-> 2026-10-28完成固定b4a244b8的连续资源控制审阅，按“ARM64 UEFI承载实验内核与系统”收录。可读路径已串联efi_main／exec_co→ELF装载与栈布局→页权限授权→汇编设置EL0状态并ERET→自有SVC向量与分派→输入／图形处主动让出→co_resume恢复→父端资源回收。物理页分配、文件／GOP／输入和普通异步中断基础持续使用固件；项目自身管理映像、特权同步异常、页权限及单父子协程，VirtIO-MMIO与PCI HDA另有直接寄存器路径。条目明确默认私有页表关闭、EL1回退、协作式调度和固件向量往返，独立裸机、抢占及完整隔离保持待核。中文原作者发布链沿用已有证据，国籍、完整桌面／许可、镜像对应和独立运行继续按字段保存。资源分工与合理收录分类已经完成，本轮候选安装、构建和执行均为0。
+> 2026-10-28完成固定b4a244b8的连续资源控制审阅，按“ARM64 UEFI承载实验内核与系统”收录。可读路径已串联efi_main／exec_co→ELF装载与栈布局→页权限授权→汇编设置EL0状态并ERET→自有SVC向量与分派→输入／图形处主动让出→co_resume恢复→完整上下文恢复分支的父端资源回收。物理页分配、文件／GOP／输入和普通异步中断基础持续使用固件；项目自身管理映像、特权同步异常、页权限及单父子协程，VirtIO-MMIO与PCI HDA另有直接寄存器路径。条目明确默认私有页表关闭、EL1回退、协作式调度和固件向量往返，独立裸机、抢占及完整隔离保持待核。中文原作者发布链沿用已有证据，国籍、完整桌面／许可、镜像对应和独立运行继续按字段保存。资源分工与合理收录分类已经完成，本轮候选安装、构建和执行均为0。
 
 ## 原始回执与验证
 

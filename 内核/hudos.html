@@ -25,7 +25,7 @@
 <p>elf_load计算PT_LOAD范围，为映像与64页用户栈向UEFI申请页面，装载段并处理限定重定位。项目负责映像布局和权限；物理页取得与释放使用固件AllocatePages／FreePages。 <small>源码可见</small> <a href="#hd40">[hd40]</a> <a href="#hd45">[hd45]</a></p>
 <p>默认g_el0_phaseb=0，EL0准备路径在固件页表中按4KiB页面调整子程序权限，必要时拆分块描述符；撤销授权时恢复原描述符并回收拆分表。私有克隆页表与ASID路径保留为显式开关。隔离正确性与权限覆盖待核实。 <small>源码可见</small> <a href="#hd12">[hd12]</a> <a href="#hd13">[hd13]</a> <a href="#hd50">[hd50]</a></p>
 <h2>调度与中断分工</h2>
-<p>单组父子协程由应用主动调用exec_co／co_resume推进。read无可用输入时置blocked并让出，图形提交可按开关让出；EL0上下文保存通用寄存器、ELR／SPSR与SP_EL0，父端恢复执行并在退出后回收子程序资源。调度属于协作式程序管理。 <small>源码可见</small> <a href="#hd43">[hd43]</a> <a href="#hd44">[hd44]</a> <a href="#hd45">[hd45]</a> <a href="#hd48">[hd48]</a></p>
+<p>单组父子协程由应用主动调用exec_co／co_resume推进。read无可用输入时置blocked并让出，图形提交可按开关让出；EL0上下文保存通用寄存器、ELR／SPSR与SP_EL0，父端恢复执行；完整上下文恢复分支在done状态下调用co_child_cleanup回收子程序资源，其他退出分支的回收覆盖待核实。调度属于协作式程序管理。 <small>源码可见</small> <a href="#hd43">[hd43]</a> <a href="#hd44">[hd44]</a> <a href="#hd45">[hd45]</a> <a href="#hd48">[hd48]</a></p>
 <p>EL0执行窗口屏蔽IRQ／FIQ并安装项目向量；SVC进入EL1后切回固件向量，分派完成再恢复项目向量并ERET。普通固件服务窗口继续承担异步中断基础；项目异步向量为异常诊断与退出路径，抢占式调度待核实。 <small>源码可见</small> <a href="#hd12">[hd12]</a> <a href="#hd41">[hd41]</a> <a href="#hd42">[hd42]</a> <a href="#hd43">[hd43]</a></p>
 <h2>用户态接口</h2>
 <p>项目ELF64加载器检查AArch64、ET_EXEC／ET_DYN和段范围；汇编入口设置SP_EL0、ELR_EL1、SPSR_EL1并ERET进入EL0，SVC向量保存寄存器帧交给C分派器。crt0与syscall.c同时提供EL0的SVC通道和EL1函数指针通道，入口按EL0自检／授权结果选择。 <small>源码可见</small> <a href="#hd15">[hd15]</a> <a href="#hd16">[hd16]</a> <a href="#hd40">[hd40]</a> <a href="#hd41">[hd41]</a> <a href="#hd42">[hd42]</a></p>
