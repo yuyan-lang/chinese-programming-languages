@@ -7,7 +7,7 @@
 ## 本轮落地资料
 
 - 新增语言4项：lang-111中文编程IDE（天文苑）、lang-112语程（旭猜囱演示）、lang-113如意III中文编程、lang-114飞鱼中文编程。
-- 新增内核4项：KrcyOS、hudos／hodos、BearOS／小熊操作系统（作者技术文档阶段）、NeoRunST（官方v0.13.0发行物阶段）。KrcyOS按主站所在地自述记录中国关联，国籍待核实；hudos按固定资源分工记录为ARM64 UEFI承载实验内核。
+- 新增内核5项：KrcyOS、hudos／hodos、BearOS／小熊操作系统（作者技术文档阶段）、NeoRunST（官方v0.13.0发行物阶段）、HanOS（中国关联、国籍待核实）。KrcyOS按主站所在地自述记录中国关联，国籍待核实；hudos按固定资源分工记录为ARM64 UEFI承载实验内核。
 - 完善既有语言3项：lang-090天河的关联实现历史、lang-104教材语言的实训编辑与传输链、lang-110客舍的原站论坛正文和时间。
 - 完成 #43 已核发布物的词表／输入工具／JavaScript教学手册／API与JSON组合平台分类，语言目录增量0。
 
@@ -31,7 +31,7 @@
 | [#33](https://github.com/yuyan-lang/chinese-programming-languages/issues/33) | 飞鱼官方第17课清晰原例、微信开发者工具生成目标与日志已核 | 已随PR #80关闭；转译源码、保存格式及全面支持范围保留条目字段 |
 | [#40](https://github.com/yuyan-lang/chinese-programming-languages/issues/40) | 玄沿用完成成果；Lua正常公开Git读取连接重置 | 保留：lyzavng/lua作者连续中文原例 |
 | [#43](https://github.com/yuyan-lang/chinese-programming-languages/issues/43) | 2500js原件、dshjs固定源码及作者说明完成工具范围分类 | 已随PR #80关闭；未来新增语法依据新材料重新评估 |
-| [#46](https://github.com/yuyan-lang/chinese-programming-languages/issues/46) | HanOS范围问题保持待答 | 保留：用户明确决定是否按“中国关联、国籍待核实”收录 |
+| [#46](https://github.com/yuyan-lang/chinese-programming-languages/issues/46) | HanOS当前自身内核源码与作者所在地自述已核，按“中国关联、国籍待核实”收录 | 合并并关联证据后关闭；国籍、完整历史与独立运行留条目待核 |
 | [#48](https://github.com/yuyan-lang/chinese-programming-languages/issues/48) | E#10提交、CH-VM5提交、易深IDE5提交完整静读；ESIL／CHIL文本关系已核 | 保留：完整中文用户程序、具体句法及实际语言前端 |
 | [#49](https://github.com/yuyan-lang/chinese-programming-languages/issues/49) | hudos自身ELF→EL0→SVC→协作式恢复链与UEFI资源分工已核 | 已随PR #80关闭；回收覆盖准确限定，独立运行及完整隔离保留待核 |
 | [#52](https://github.com/yuyan-lang/chinese-programming-languages/issues/52) | MimicryOS沿用完成成果；Causenix历史与公开工件定向核对 | 保留：Causenix内核本体、公开来源及继承关系 |
@@ -39,7 +39,7 @@
 | [#63](https://github.com/yuyan-lang/chinese-programming-languages/issues/63) | FCary原站两主题RSS、原文及首帖UTC已核 | 保留：FCary与Fancyary／Wang Zhangli的直接身份互链、方案与源码版本对应 |
 | [#64](https://github.com/yuyan-lang/chinese-programming-languages/issues/64) | KrcyCode当前API所在地HeFei与作者／主仓互链已核 | 已随PR #80关闭；所在地自述与国籍分别记录，固件与运行细项保留待核 |
 
-本轮目录总数为114项语言、24项内核；合计完成7项议题的资料核验，保留14项的具体实质缺口。
+本轮目录总数为114项语言、25项内核；合计完成8项议题的资料核验，保留13项的具体实质缺口。
 
 ## 证据分组
 
@@ -55,4 +55,4 @@
 
 既有语言与内核的ID、顺序、字段、原始主例及全部原参考URL保留。豫言语言、豫言内核、其他仓库及官网原样保留。JSON、HTML代码与引用、内部链接／锚点、索引集合、证据图摘要及差异空白检查纳入验证；独立sol审阅发现的hudos回收范围和视频时间已修正。
 
-本轮来源读取及二进制分析均为静态资料处理。候选软件安装、构建、启动、测试及程序执行均为0。PR #62取消合并持续有效；PR #76来源未恢复前保持草稿；#46的用户范围决定继续待答。部署核验限已有GitHub Pages自动流程及发布页面的只读检查。
+本轮来源读取及二进制分析均为静态资料处理。候选软件安装、构建、启动、测试及程序执行均为0。PR #62取消合并持续有效；PR #76来源未恢复前保持草稿；#46按作者所在地自述记录中国关联，国籍继续待核实；本项收录依据按HanOS实际证据限定。部署核验限已有GitHub Pages自动流程及发布页面的只读检查。
