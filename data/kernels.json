@@ -11515,5 +11515,268 @@
       }
     ],
     "selection_status": "已收录（作者技术文档阶段）"
+  },
+  {
+    "id": "neorunst",
+    "name": "NeoRunST",
+    "aliases": [
+      "NeoRunst"
+    ],
+    "checked_at": "2026-10-28",
+    "short_description": "NeoRunST 是热土工作室公开发布的x86-64实验操作系统。官方v0.13.0镜像包含GRUB、独立UEFI引导器及C/汇编ELF内核，当前内核的中断、页表、NEP任务调度与文件系统实现具有发行物静态依据。",
+    "author": {
+      "people": [
+        {
+          "handle": "RETUSTU",
+          "public_alias": "RTStudio-miles",
+          "role": "SDK/官方发行发布者"
+        }
+      ],
+      "organization": "热土工作室（RTStudio）",
+      "attribution": {
+        "text": "工作室官网同时链接CN-RTStudio与原视频B站UID3546925078940468；该组织SDK仓由RETUSTU发布v0.13.0及disk.vhd。",
+        "evidence_level": "官网直接互链与发布元数据",
+        "source_ids": [
+          "nr1",
+          "nr2",
+          "nr3",
+          "nr9"
+        ]
+      },
+      "china_basis": {
+        "text": "按原作者工作室官网、中文开发社区视频与官方仓库的直接关联记录；个人国籍待核实。",
+        "evidence_level": "原作者与中文开发社区关联",
+        "source_ids": [
+          "nr1",
+          "nr2",
+          "nr7"
+        ]
+      }
+    },
+    "kernel_positioning": {
+      "text": "官方v0.13.0包含独立ELF64内核RUNSTKNL.NEP，入口在0x02000000，进入高半区kmain并初始化中断、页表、堆、文件系统与任务。按该发行物的自身内核阶段收录；TheseusOS历史继承和全部原创范围继续待核实。",
+      "evidence_level": "发行物静态分析",
+      "source_ids": [
+        "nr3",
+        "nr5"
+      ]
+    },
+    "dates": {
+      "first_public": {
+        "date": null,
+        "status": "待核实"
+      },
+      "current_release": {
+        "published_at": "2026-10-24T11:54:12Z",
+        "source_ids": [
+          "nr3",
+          "nr4"
+        ]
+      }
+    },
+    "architectures": [
+      {
+        "text": "发行内核为小端ELF64 x86-64 ET_EXEC，3个PT_LOAD，代码段包含0xffff800002007000高半区映射；引导器为PE32+ x86-64 EFI application。",
+        "evidence_level": "发行物静态分析",
+        "source_ids": [
+          "nr5"
+        ]
+      }
+    ],
+    "capabilities": {
+      "boot": [
+        {
+          "text": "GRUB配置search/chainloader到/runst/system/runstload.efi；引导器读取内核、组织启动参数，并保存BootServices退出调用及返回检测路径后交接入口。_start写CR3后跳至高半区kmain。",
+          "evidence_level": "发行物静态分析",
+          "source_ids": [
+            "nr5"
+          ]
+        }
+      ],
+      "scheduling": [
+        {
+          "text": "kmain初始化task/nep并循环调用nep_sched；timer_handler调用nep_preempt_check，任务恢复与抢占汇编分别切换任务/内核CR3、恢复上下文并含iretq。完整调度正确性与隔离覆盖继续待核实。",
+          "evidence_level": "发行物静态分析",
+          "source_ids": [
+            "nr5"
+          ]
+        }
+      ],
+      "memory": [
+        {
+          "text": "kmain调用ReadEFIMemoryMap、RequestPage、MapMemory、switchPML4与init_heap。内核保存页分配、页表映射、内核堆和任务页表切换路径。",
+          "evidence_level": "发行物静态分析",
+          "source_ids": [
+            "nr5"
+          ]
+        }
+      ],
+      "filesystem": [
+        {
+          "text": "内核初始化fs_init，保存块设备/分区、FAT32目录文件读写及VFS实现。发行数据卷保存系统目录、注册表、字体及NEP应用；数据一致性与完整权限模型待核实。",
+          "evidence_level": "发行物静态分析",
+          "source_ids": [
+            "nr5"
+          ]
+        }
+      ],
+      "drivers": [
+        {
+          "text": "kmain包含PCI、ACPI及设备初始化/轮询调用；发行内核保存AHCI、NVMe、e1000、键鼠和音频等实现。实际设备支持范围继续待核实。",
+          "evidence_level": "发行物静态分析",
+          "source_ids": [
+            "nr5"
+          ]
+        }
+      ],
+      "userspace": [
+        {
+          "text": "固定SDK说明NEP用户程序、每进程地址空间与抢占设计；本轮发行内核可见系统调用分派、任务上下文、CR3切换和iretq路径。完整用户态隔离和安全性继续待核实。",
+          "evidence_level": "作者声明与发行物静态分析",
+          "source_ids": [
+            "nr5",
+            "nr6"
+          ]
+        }
+      ]
+    },
+    "implementation_languages": [
+      {
+        "text": "未剥离ELF保留kernel.c、nep.c、syscall.c、idt.c、gdt.c、fat32.c等编译单元及GCC15.2.0标记；入口、中断和任务恢复包含汇编。",
+        "evidence_level": "发行物静态分析",
+        "source_ids": [
+          "nr5"
+        ]
+      }
+    ],
+    "project_relationships": [
+      {
+        "text": "发行镜像采用GRUB链式引导与保存GNU-EFI符号的runstload.efi；字体包含Source Han Sans标记。当前内核原件、引导组件和字体按各自范围记录，精确上游与完整许可继续待核实。",
+        "evidence_level": "发行物静态分析",
+        "source_ids": [
+          "nr5"
+        ]
+      },
+      {
+        "text": "2026-07-06作者原片记录TheseusOS阶段；本轮官方v0.13.0原件另保存为C/汇编独立内核阶段。两阶段逐文件继承、重写及原始源码范围继续待核实。",
+        "evidence_level": "历史作者发布与当前发行物分阶段记录",
+        "source_ids": [
+          "nr3",
+          "nr5",
+          "nr8"
+        ]
+      }
+    ],
+    "status": {
+      "latest_formal_release": {
+        "version": "v0.13.0",
+        "published_at": "2026-10-24T11:54:12Z",
+        "source_ids": [
+          "nr3",
+          "nr4"
+        ]
+      },
+      "source_snapshot": {
+        "status": "待核实",
+        "text": "完整内核源码入口和对应固定提交待核实；本条使用已核SHA256的官方发行物。"
+      },
+      "artifact_snapshot": {
+        "name": "disk.vhd",
+        "bytes": 423732224,
+        "sha256": "c41552de8ab94fab53563220d768f23ffce233a57d9cb141d9baf0b1b8489e15",
+        "source_ids": [
+          "nr4",
+          "nr5"
+        ]
+      },
+      "license": {
+        "name": "SDK为MIT；发行内核及组件许可范围待核实",
+        "text": "SDK文档明确MIT，VHD内核、GRUB/GNU-EFI、字体与其它组件分别保留许可和来源待核范围。",
+        "source_ids": [
+          "nr5",
+          "nr6"
+        ]
+      },
+      "runtime_verification": {
+        "status": "待核实",
+        "scope": "本轮采用公开原件、VHD/分区/FAT读取及机器码静态分析；候选执行、安装、构建、启动、虚拟机运行与宿主磁盘挂载均为0。"
+      }
+    },
+    "links": {
+      "source": "https://github.com/CN-RTStudio/NeoRunST-DEV-KIT",
+      "website": "https://rtstu.com/",
+      "documentation": "https://github.com/CN-RTStudio/NeoRunST-DEV-KIT/blob/477078db66e35cb23b9eed20e7228b605f29ea83/readme.md",
+      "video_channel": {
+        "url": "https://space.bilibili.com/3546925078940468/"
+      },
+      "individual_video": {
+        "url": "https://www.bilibili.com/video/BV1tyH76QERz/",
+        "published_at": "2026-10-04T13:14:18Z"
+      },
+      "source_note": "此链接为SDK仓库；完整内核源码入口待核实。"
+    },
+    "pending_verification": [
+      "TheseusOS历史阶段到v0.13.0的逐文件继承与原始源码范围",
+      "完整内核源码入口、对应提交及内核/第三方组件许可",
+      "完整用户态隔离、文件系统正确性与硬件运行覆盖",
+      "独立构建、启动与作者视频对应版本",
+      "首次公开日期与个人国籍自述"
+    ],
+    "sources": [
+      {
+        "id": "nr1",
+        "title": "热土工作室官网与GitHub/B站互链",
+        "url": "https://rtstu.com/",
+        "kind": "作者官网"
+      },
+      {
+        "id": "nr2",
+        "title": "CN-RTStudio组织主页",
+        "url": "https://github.com/CN-RTStudio",
+        "kind": "组织自述"
+      },
+      {
+        "id": "nr3",
+        "title": "NeoRunST v0.13.0官方发布",
+        "url": "https://github.com/CN-RTStudio/NeoRunST-DEV-KIT/releases/tag/v0.13.0",
+        "kind": "官方发布"
+      },
+      {
+        "id": "nr4",
+        "title": "官方Release资产大小/哈希/发布时间",
+        "url": "https://api.github.com/repos/CN-RTStudio/NeoRunST-DEV-KIT/releases",
+        "kind": "发布元数据"
+      },
+      {
+        "id": "nr5",
+        "title": "官方disk.vhd固定哈希分析原件",
+        "url": "https://github.com/CN-RTStudio/NeoRunST-DEV-KIT/releases/download/v0.13.0/disk.vhd",
+        "kind": "发行物；SHA256 c41552de8ab94fab53563220d768f23ffce233a57d9cb141d9baf0b1b8489e15"
+      },
+      {
+        "id": "nr6",
+        "title": "NEP SDK固定说明及MIT范围",
+        "url": "https://github.com/CN-RTStudio/NeoRunST-DEV-KIT/blob/477078db66e35cb23b9eed20e7228b605f29ea83/readme.md",
+        "kind": "固定作者文档"
+      },
+      {
+        "id": "nr7",
+        "title": "NeoRunST 2026-10-04作者原片",
+        "url": "https://www.bilibili.com/video/BV1tyH76QERz/",
+        "kind": "作者视频发布"
+      },
+      {
+        "id": "nr8",
+        "title": "2026-07-06 TheseusOS历史阶段",
+        "url": "https://www.bilibili.com/video/BV1APTR6yEzo/",
+        "kind": "历史作者视频"
+      },
+      {
+        "id": "nr9",
+        "title": "RETUSTU发布者主页",
+        "url": "https://github.com/RETUSTU",
+        "kind": "公开技术身份"
+      }
+    ]
   }
 ]
