@@ -49,6 +49,7 @@
 - [KrcyOS与hudos资源分工](kernels-a.md)，[实时API回执摘要及固定源码链](kernels-a-evidence.json)。
 - [NeoRunST、BearOS、Halo、TX与Causenix](kernels-b.md)，[固定发行物摘要](kernels-b-artifact-metadata.json)，[Halo短反汇编摘录](halo-static-evidence.txt)。
 - [NeoRunST官方VHD内核链](neorunst-vhd.md)，[文件与符号摘要](neorunst-vhd-static.json)，[短指令摘录](neorunst-static-excerpts.txt)。
+- [HanOS当前内核与中国关联](hanos.md)，[作者所在地回执与固定源码摘要](hanos-evidence.json)。
 - [教材实训与客舍论坛](root-primary-review.md)，[公开原件摘要](root-primary-evidence.json)。
 
 ## 验证与操作边界
