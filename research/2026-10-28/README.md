@@ -7,7 +7,7 @@
 ## 本轮落地资料
 
 - 新增语言4项：lang-111中文编程IDE（天文苑）、lang-112语程（旭猜囱演示）、lang-113如意III中文编程、lang-114飞鱼中文编程。
-- 新增内核2项：KrcyOS、hudos／hodos。KrcyOS按主站所在地自述记录中国关联，国籍待核实；hudos按固定资源分工记录为ARM64 UEFI承载实验内核。
+- 新增内核3项：KrcyOS、hudos／hodos、BearOS／小熊操作系统（作者技术文档阶段）。KrcyOS按主站所在地自述记录中国关联，国籍待核实；hudos按固定资源分工记录为ARM64 UEFI承载实验内核。
 - 完善既有语言3项：lang-090天河的关联实现历史、lang-104教材语言的实训编辑与传输链、lang-110客舍的原站论坛正文和时间。
 - 完成 #43 已核发布物的词表／输入工具／JavaScript教学手册／API与JSON组合平台分类，语言目录增量0。
 
@@ -20,10 +20,10 @@
 | [#3](https://github.com/yuyan-lang/chinese-programming-languages/issues/3) | 19组中17组完成收录或范围分类；CN_Interpreter归为理念草案，PYCH全部17发行源码已读 | 保留：PYCH作者完整中文程序；衍真公开原仓或迁移互链 |
 | [#4](https://github.com/yuyan-lang/chinese-programming-languages/issues/4) | 语程与如意III原片公开720P可读连续中文原例；原五组均已有处理结果 | 合并后关闭；来源限定、同名与版本关系保留条目字段 |
 | [#5](https://github.com/yuyan-lang/chinese-programming-languages/issues/5) | TRAE原帖及原图补成天文苑条目；无极日期与公开范围、Wxe工件定向核对 | 保留：无极公开语法／原例，Wxe作者程序／编译器原件 |
-| [#13](https://github.com/yuyan-lang/chinese-programming-languages/issues/13) | KunOS沿用完成成果；NeoRunST继续核作者与SDK关系 | 保留：NeoRunST核心内核及SDK与公开版本的直接对应 |
+| [#13](https://github.com/yuyan-lang/chinese-programming-languages/issues/13) | KunOS沿用完成成果；NeoRunST官网互链补齐SDK与视频维护者身份关系 | 保留：NeoRunST核心内核及SDK与公开版本的直接对应 |
 | [#16](https://github.com/yuyan-lang/chinese-programming-languages/issues/16) | SPCNYY两个安装脚本七模块的字符串与GUI插入路径均静读 | 保留：作者连续中文用户程序；其他六组维持已收录／范围分类 |
 | [#22](https://github.com/yuyan-lang/chinese-programming-languages/issues/22) | 中文Rust五次提交树及全部34份Rust源码已读；历史Compute为英文Python演示 | 保留：中文Rust作者连续中文程序；52zwbc关联组继续遵守PR #62取消边界 |
-| [#23](https://github.com/yuyan-lang/chinese-programming-languages/issues/23) | BearOS作者技术文档核验另见内核组记录 | 暂保留：自身内核的证据范围与来源关系以独立审阅结论为准 |
+| [#23](https://github.com/yuyan-lang/chinese-programming-languages/issues/23) | BearOS自身保护模式、任务／FS／Shell分工的详细作者技术文档与发布链已核 | 合并后关闭；全部功能限作者声明，源码继承与发行物细节保留待核 |
 | [#24](https://github.com/yuyan-lang/chinese-programming-languages/issues/24) | ThLang主线96提交、分支用途、Cython五提交及周蟒默认词表比较补证 | 保留：视频compiler与ThLang／zhpy的具体源码继承对应 |
 | [#29](https://github.com/yuyan-lang/chinese-programming-languages/issues/29) | 固定VDI／EFI的有界静态分析取得内嵌Rust内核实现证据 | 保留：视频作者与发布仓直接身份互链、固定盘与Halo演示版本对应 |
 | [#31](https://github.com/yuyan-lang/chinese-programming-languages/issues/31) | 已有说了算CLI及LightLang条目保留；原始Web来源继续缺失 | 保留：Saysuan Web与原始结果材料；PR #76保持草稿 |
@@ -39,12 +39,15 @@
 | [#63](https://github.com/yuyan-lang/chinese-programming-languages/issues/63) | FCary原站两主题RSS、原文及首帖UTC已核 | 保留：FCary与Fancyary／Wang Zhangli的直接身份互链、方案与源码版本对应 |
 | [#64](https://github.com/yuyan-lang/chinese-programming-languages/issues/64) | KrcyCode当前API所在地HeFei与作者／主仓互链已核 | 合并后关闭；所在地自述与国籍分别记录，固件与运行细项保留待核 |
 
+本轮目录总数为114项语言、23项内核；建议合并后关闭6项议题，保留15项的具体实质缺口。
+
 ## 证据分组
 
 - [历史原件、TRAE原图与E#关系](issues-3-5-48.md)，[固定提交及资产摘要](issues-3-5-48-evidence.json)。
 - [视频原例与compiler关系](video-backlog.md)，[原站元数据与原帧摘要](video-primary-evidence.json)，[固定关系证据](video-relations-evidence.json)。
 - [SPCNYY、中文Rust、Lua与脑语言范围分类](mixed-scope-review.md)，[固定来源及访问结果](mixed-scope-evidence.json)。
 - [KrcyOS与hudos资源分工](kernels-a.md)，[实时API回执摘要及固定源码链](kernels-a-evidence.json)。
+- [NeoRunST、BearOS、Halo、TX与Causenix](kernels-b.md)，[固定发行物摘要](kernels-b-artifact-metadata.json)，[Halo短反汇编摘录](halo-static-evidence.txt)。
 - [教材实训与客舍论坛](root-primary-review.md)，[公开原件摘要](root-primary-evidence.json)。
 
 ## 验证与操作边界

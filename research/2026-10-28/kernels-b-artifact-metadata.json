@@ -1,0 +1,38 @@
+{
+  "checked_at": "2026-10-28",
+  "fixed_repository_commit": "2677b1cec975a0bff572e622f787f682b836cea2",
+  "source": "https://github.com/bigbenben77/Halo-OS/blob/2677b1cec975a0bff572e622f787f682b836cea2/MYOS-UEFI-vbox.zip",
+  "analysis": "已知可信工具7zz/qemu-img/LLVM及Python字节解析；执行、安装、构建、启动候选均为0；宿主磁盘挂载为0",
+  "files": [
+    {
+      "file": "halo-vbox.zip",
+      "bytes": 8728039,
+      "sha256": "15ed9728d7ac972ff66aa7b2074f49010876fe1ab8f2057a3c783927703702cb"
+    },
+    {
+      "file": "halo.vdi",
+      "bytes": 27262976,
+      "sha256": "690d58a444b69f53eb956c2172e6682d77664779d8c374b75e4d2c8eca5ff050"
+    },
+    {
+      "file": "halo-BOOTX64.EFI",
+      "bytes": 23629824,
+      "sha256": "fd6de65404fcafcb6735f1e3e13c94bac7dca711be9e9ca6cf2d3881b65e87a3"
+    },
+    {
+      "file": "halo-embedded-68608.elf",
+      "bytes": 23542152,
+      "sha256": "43b7a53121dee60b34a0e10c0cfadd16f7b4e578f6b688702d940348bb160270"
+    },
+    {
+      "file": "halo-embedded-1539316.elf",
+      "bytes": 10735328,
+      "sha256": "c8f37d1f83abcdab7b612e1cd3ad07d0573f2786ad9453f649cb13b6cdf69fd8"
+    },
+    {
+      "file": "halo-embedded-12371560.elf",
+      "bytes": 24680,
+      "sha256": "49170519ce611a416644884f6382687ad090e97f8723671c6983637ae1b72228"
+    }
+  ]
+}
