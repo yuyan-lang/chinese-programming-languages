@@ -1066,9 +1066,9 @@
     "id": "luminaos",
     "name": "LuminaOS",
     "aliases": [],
-    "checked_at": "2026-10-10",
+    "checked_at": "2026-10-30",
     "selection_status": "首批收录",
-    "short_description": "LuminaOS 是面向 i386 的个人实验操作系统，使用 C 和汇编实现。项目包含引导程序、32 位保护模式内核、FAT16 文件系统、图形桌面及 LSP 格式应用。作者在 B 站发布了 v0.7.0 的命令行与桌面演示。",
+    "short_description": "LuminaOS 是使用 C 与汇编实现的个人实验操作系统。2026 年 9 月快照保存 i386 与 LSP 应用阶段；10 月 11 日快照包含 x86-64 长模式启动、ELF64 装载和进程模块。作者的 v0.7.0 视频记录较早的命令行与桌面演示。",
     "author": {
       "people": [
         {
@@ -1094,11 +1094,12 @@
       }
     },
     "kernel_positioning": {
-      "text": "这是面向 i386、包含引导程序和内核源码的个人实验操作系统。作者将内核设计称为 Hybrid。",
+      "text": "这是包含引导程序和内核源码的个人实验操作系统。早期作者说明将内核设计称为 Hybrid；2026-10-11 的官网源码将项目定位为 x86-64 兴趣操作系统。",
       "evidence_level": "作者声明",
       "source_ids": [
         "l2",
-        "l3"
+        "l3",
+        "l11"
       ]
     },
     "dates": {
@@ -1120,21 +1121,35 @@
     },
     "architectures": [
       {
-        "text": "i386 / x86 32 位保护模式；架构启动源码使用 GDT、CR0.PE 和 32 位代码段。",
+        "text": "2026-09-06 历史快照为 i386 / x86 32 位保护模式；架构启动源码使用 GDT、CR0.PE 和 32 位代码段。",
         "evidence_level": "源码可见",
         "source_ids": [
           "l5"
+        ]
+      },
+      {
+        "text": "2026-10-11 快照包含 x86-64 长模式启动：设置 PML4／PDPT、CR4.PAE、EFER.LME 和 CR0.PG，进入 BITS 64 后调用 kernel_main。",
+        "evidence_level": "源码可见",
+        "source_ids": [
+          "l12"
         ]
       }
     ],
     "capabilities": {
       "boot": [
         {
-          "text": "BIOS 引导程序读取 KERNEL.BIN。架构启动程序切换至保护模式并调用 kernel_main。",
+          "text": "2026-09-06 历史快照的 BIOS 引导程序读取 KERNEL.BIN，架构启动程序切换至保护模式并调用 kernel_main。",
           "evidence_level": "源码可见",
           "source_ids": [
             "l4",
             "l5"
+          ]
+        },
+        {
+          "text": "2026-10-11 快照包含 x86-64 长模式启动：设置 PML4／PDPT、CR4.PAE、EFER.LME 和 CR0.PG，进入 BITS 64 后调用 kernel_main。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "l12"
           ]
         }
       ],
@@ -1159,10 +1174,18 @@
       ],
       "filesystem": [
         {
-          "text": "项目文档列出 IDE 磁盘上的 FAT16 文件系统及 LSP 应用加载。",
+          "text": "2026-09-06 项目文档列出 IDE 磁盘上的 FAT16 文件系统及 LSP 应用加载。",
           "evidence_level": "作者声明",
           "source_ids": [
             "l3"
+          ]
+        },
+        {
+          "text": "2026-10-11 的 elf_load 从 FAT16 读取程序，检查 ELF64 与 x86-64 标识，处理 PT_LOAD 段并创建用户页映射；proc_create 创建地址空间、装载程序并分配用户栈。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "l13",
+            "l14"
           ]
         }
       ],
@@ -1200,9 +1223,9 @@
     "status": {
       "source_version": {
         "version": "v0.7.1",
-        "label": "固定源码快照中的版本字串",
+        "label": "2026-10-11 源码版本字串；启动横幅标注 64-bit",
         "source_ids": [
-          "l6"
+          "l16"
         ]
       },
       "video_version": {
@@ -1214,10 +1237,10 @@
       },
       "source_snapshot": {
         "branch": "main",
-        "commit": "1014c8fb1a7e8ded72f6ed82ebb41fd9cae21aa2",
-        "committed_at": "2026-09-06T10:37:33Z",
+        "commit": "f0ec03047e2ed1b5e4fe8909db5ad0a433f51a79",
+        "committed_at": "2026-10-11T09:58:43Z",
         "source_ids": [
-          "l8"
+          "l15"
         ]
       },
       "license": {
@@ -1228,7 +1251,15 @@
       },
       "runtime_verification": {
         "status": "待核实",
-        "scope": "本轮核验采用原视频关键画面与源码静态阅读"
+        "scope": "保留早期原视频观察；2026-10-30 增量仅静态阅读固定源码和作者文档。"
+      },
+      "previous_source_snapshot": {
+        "branch": "main",
+        "commit": "1014c8fb1a7e8ded72f6ed82ebb41fd9cae21aa2",
+        "committed_at": "2026-09-06T10:37:33Z",
+        "source_ids": [
+          "l8"
+        ]
       }
     },
     "video_observations": [
@@ -1257,7 +1288,8 @@
       "最早公开发布日期",
       "独立构建和运行记录",
       "混合内核架构的完整分析",
-      "各版本源码来源沿革"
+      "各版本源码来源沿革",
+      "2026-10-11 x86-64 阶段的独立构建、ELF64 用户态运行及完整功能覆盖"
     ],
     "sources": [
       {
@@ -1319,6 +1351,79 @@
         "title": "作者B站主页",
         "url": "https://space.bilibili.com/1969544582/",
         "kind": "作者主页"
+      },
+      {
+        "id": "l11",
+        "title": "x86-64 官网说明固定源码",
+        "url": "https://github.com/Lumina-hc/LuminaOS/blob/f0ec03047e2ed1b5e4fe8909db5ad0a433f51a79/docs/index.html",
+        "kind": "固定作者文档",
+        "checked_at": "2026-10-30"
+      },
+      {
+        "id": "l12",
+        "title": "x86-64 长模式启动",
+        "url": "https://github.com/Lumina-hc/LuminaOS/blob/f0ec03047e2ed1b5e4fe8909db5ad0a433f51a79/kernel/arch/x86_64/boot.asm",
+        "kind": "固定源码快照",
+        "checked_at": "2026-10-30"
+      },
+      {
+        "id": "l13",
+        "title": "ELF64 装载实现",
+        "url": "https://github.com/Lumina-hc/LuminaOS/blob/f0ec03047e2ed1b5e4fe8909db5ad0a433f51a79/kernel/kernel/elf.c",
+        "kind": "固定源码快照",
+        "checked_at": "2026-10-30"
+      },
+      {
+        "id": "l14",
+        "title": "进程创建与地址空间实现",
+        "url": "https://github.com/Lumina-hc/LuminaOS/blob/f0ec03047e2ed1b5e4fe8909db5ad0a433f51a79/kernel/kernel/proc.c",
+        "kind": "固定源码快照",
+        "checked_at": "2026-10-30"
+      },
+      {
+        "id": "l15",
+        "title": "2026-10-11 核验提交",
+        "url": "https://github.com/Lumina-hc/LuminaOS/commit/f0ec03047e2ed1b5e4fe8909db5ad0a433f51a79",
+        "kind": "提交元数据",
+        "checked_at": "2026-10-30"
+      },
+      {
+        "id": "l16",
+        "title": "64-bit 版本横幅与入口",
+        "url": "https://github.com/Lumina-hc/LuminaOS/blob/f0ec03047e2ed1b5e4fe8909db5ad0a433f51a79/kernel/kernel/main.c",
+        "kind": "固定源码快照",
+        "checked_at": "2026-10-30"
+      },
+      {
+        "id": "l17",
+        "title": "仍使用 i386／LSP 说明的根 README",
+        "url": "https://github.com/Lumina-hc/LuminaOS/blob/f0ec03047e2ed1b5e4fe8909db5ad0a433f51a79/README.md",
+        "kind": "固定作者文档",
+        "checked_at": "2026-10-30"
+      }
+    ],
+    "source_stages": [
+      {
+        "date": "2026-09-06",
+        "commit": "1014c8fb1a7e8ded72f6ed82ebb41fd9cae21aa2",
+        "text": "i386、FAT16 与 LSP 应用的历史源码阶段。",
+        "source_ids": [
+          "l3",
+          "l5",
+          "l6"
+        ]
+      },
+      {
+        "date": "2026-10-11",
+        "commit": "f0ec03047e2ed1b5e4fe8909db5ad0a433f51a79",
+        "text": "x86-64 启动、ELF64 装载与进程对象源码阶段；根 README 仍使用 i386／LSP 说明，docs/index.html 已记录 x86-64／ELF64。文档与源码阶段分别保存。",
+        "source_ids": [
+          "l11",
+          "l12",
+          "l13",
+          "l14",
+          "l17"
+        ]
       }
     ]
   },
