@@ -1,0 +1,3145 @@
+{
+  "updated_at": "2026-10-30",
+  "scope": "调查资料与待核实关系，正式项目计数独立保存",
+  "formal_language_count": 114,
+  "formal_kernel_count": 26,
+  "records": [
+    {
+      "issue": 3,
+      "title": "首轮19组仓库线索的公开证据与分类",
+      "summary": "原19组逐项保存：15项已有正式条目，CN_Interpreter与Sneko按固定阶段完成范围分类，PYCH和衍真明确标为待核。原作者声明、搜索缓存和静态源证据分别记录；本资料整理维持候选执行0次及原有正式计数。",
+      "subjects": [
+        {
+          "name": "CP语言",
+          "status": "已收录；按既有证据等级记录",
+          "facts": [
+            "CP语言与恋语采用同一仓库身份；固定源码保存中英关键字、字节码VM和LLVM JIT路径。",
+            "正式条目分类：中英双语关键字语言／字节码虚拟机与JIT实现。",
+            "既有资料核验日期：2026-10-10。",
+            "原例固定提交：9bd435707f280cca615a09deabdb6976d361d511；原始代码、适用范围和日期分别保存在条目中。"
+          ],
+          "unknowns": [
+            "完整自举、性能宣传及跨平台运行待核；当前CLI与旧AOT文件的适用关系按正式条目保留。"
+          ],
+          "sources": [
+            {
+              "title": "正式条目 lang-035",
+              "url": "https://中文编程语言.yuyan-lang.org/languages/lang-035.html"
+            },
+            {
+              "title": "条目采用的原始代码或文档",
+              "url": "https://github.com/mycplang/cplang/blob/9bd435707f280cca615a09deabdb6976d361d511/examples/cp_demos/05_function.cp#L6-L11"
+            }
+          ]
+        },
+        {
+          "name": "zwpy（zw）",
+          "status": "已收录；按既有证据等级记录",
+          "facts": [
+            "zw、zwpy和zwpython按作者文档名称归并；两仓README正文相同，中文程序按映射方案和原例记录。",
+            "正式条目分类：Python中文语法映射方案／公开文档与原例。",
+            "既有资料核验日期：2026-10-10。",
+            "原例固定提交：36e929a0d4e868a8700f5ec5e7563b541c9518d4；原始代码、适用范围和日期分别保存在条目中。"
+          ],
+          "unknowns": [
+            "转换器、插件及运行时实现与公开安装文件的对应关系待核。"
+          ],
+          "sources": [
+            {
+              "title": "正式条目 lang-059",
+              "url": "https://中文编程语言.yuyan-lang.org/languages/lang-059.html"
+            },
+            {
+              "title": "条目采用的原始代码或文档",
+              "url": "https://github.com/52zwbc/zw/blob/36e929a0d4e868a8700f5ec5e7563b541c9518d4/README.md#L353-L359"
+            }
+          ]
+        },
+        {
+          "name": "智语言（cnzkai）",
+          "status": "已收录；按既有证据等级记录",
+          "facts": [
+            "cnzkai/Zlang保存智语言开发者指南及test/text.z验收原例，当前资料支持规范层面的分类。",
+            "正式条目分类：中文编程语言规范／开发者指南与验收例程。",
+            "既有资料核验日期：2026-10-10。",
+            "原例固定提交：8049eae6d22c10cbc764f8b253f561cd6ce7d378；原始代码、适用范围和日期分别保存在条目中。"
+          ],
+          "unknowns": [
+            "编译器正文、引导链、模块依赖、正式发行与作者自举声明的复现待核。"
+          ],
+          "sources": [
+            {
+              "title": "正式条目 lang-060",
+              "url": "https://中文编程语言.yuyan-lang.org/languages/lang-060.html"
+            },
+            {
+              "title": "条目采用的原始代码或文档",
+              "url": "https://github.com/cnzkai/Zlang/blob/8049eae6d22c10cbc764f8b253f561cd6ce7d378/test/text.z#L544-L552"
+            }
+          ]
+        },
+        {
+          "name": "Atlanage",
+          "status": "已收录；按既有证据等级记录",
+          "facts": [
+            "Atlanage固定源码保存中文词法、解析、语义分析、汇编及链接路径；种子生成器使用既有二进制内容。",
+            "正式条目分类：中文通用编程语言（编译型）。",
+            "既有资料核验日期：2026-10-10。",
+            "原例固定提交：da5b3a9b778ff546382990de35f2112efc9544f9；原始代码、适用范围和日期分别保存在条目中。"
+          ],
+          "unknowns": [
+            "完整源码引导、种子与二进制对应、完整自举、运行时代码沿革及整体许可待核。"
+          ],
+          "sources": [
+            {
+              "title": "正式条目 lang-037",
+              "url": "https://中文编程语言.yuyan-lang.org/languages/lang-037.html"
+            },
+            {
+              "title": "条目采用的原始代码或文档",
+              "url": "https://github.com/wc772/atlanage/blob/da5b3a9b778ff546382990de35f2112efc9544f9/examples/hello.at#L1-L11"
+            }
+          ]
+        },
+        {
+          "name": "中文编程语言设计",
+          "status": "已收录；按既有证据等级记录",
+          "facts": [
+            "Citric1acid项目保存中文规则和例程；0.1.1为规范版本，JavaScript生成属于可行性方案。",
+            "正式条目分类：实验性中文编程语言设计／规范与例程。",
+            "既有资料核验日期：2026-10-10。",
+            "原例固定提交：9abac2a8c4ee96b63d4decf8ce11d8f302e10f0e；原始代码、适用范围和日期分别保存在条目中。"
+          ],
+          "unknowns": [
+            "编译器、解释器及规范列出的求值顺序等行为待实现或待核。"
+          ],
+          "sources": [
+            {
+              "title": "正式条目 lang-042",
+              "url": "https://中文编程语言.yuyan-lang.org/languages/lang-042.html"
+            },
+            {
+              "title": "条目采用的原始代码或文档",
+              "url": "https://github.com/Citric1acid/ChineseProgrammingLanguage/blob/9abac2a8c4ee96b63d4decf8ce11d8f302e10f0e/%E4%BE%8B%E7%A8%8B/%E5%BE%AA%E7%8E%AF#L10-L15"
+            }
+          ]
+        },
+        {
+          "name": "CN_Interpreter",
+          "status": "范围分类：中文编程理念草案",
+          "facts": [
+            "固定头提交4c07321166a4a697fe6c7ca3c717e7e07abca2fa日期为2025-05-06T07:11:08Z，完整树保存README一项。",
+            "两份前序README为标题及中文编程语言介绍；头提交提出指令、语境和释义三种方向。",
+            "原文以“机器开机”解释主谓关系，证据层级为理念讨论；该阶段保存为研究对象。"
+          ],
+          "unknowns": [
+            "具体用户语法、句法规则、完整作者程序和实现待核。"
+          ],
+          "sources": [
+            {
+              "title": "头提交理念README",
+              "url": "https://github.com/whitesnowmoon/CN_Interpreter/blob/4c07321166a4a697fe6c7ca3c717e7e07abca2fa/README.md"
+            },
+            {
+              "title": "根提交README",
+              "url": "https://github.com/whitesnowmoon/CN_Interpreter/blob/1c13f1e8d402645f69ee3c98fce48c3dac95c000/README.md"
+            },
+            {
+              "title": "第二次提交README",
+              "url": "https://github.com/whitesnowmoon/CN_Interpreter/blob/3ac37ea85dc8e17a0fcd579c7c7dd4659f85f0ab/README.md"
+            }
+          ]
+        },
+        {
+          "name": "CN Language",
+          "status": "已收录；按既有证据等级记录",
+          "facts": [
+            "heikeling原仓、tomkiyang的fork和HeiKe-Tom源码副本／Chinese Code Studio发行按同一中文转译项目记录；固定源含中文猜拳程序和Python替换执行链。",
+            "正式条目分类：Python中文关键词转译层／Tkinter可视化编程环境。",
+            "既有资料核验日期：2026-10-12。",
+            "原例固定提交：6540faf32f98712931028a7014c5ea3c2eef0629；原始代码、适用范围和日期分别保存在条目中。"
+          ],
+          "unknowns": [
+            "账号迁移、共同作者与授权沿革、字符串／注释替换边界、依赖及发行运行结果待核。"
+          ],
+          "sources": [
+            {
+              "title": "正式条目 lang-095",
+              "url": "https://中文编程语言.yuyan-lang.org/languages/lang-095.html"
+            },
+            {
+              "title": "条目采用的原始代码或文档",
+              "url": "https://github.com/heikeling/CN-Language/blob/6540faf32f98712931028a7014c5ea3c2eef0629/main.pyw#L513-L533"
+            }
+          ]
+        },
+        {
+          "name": "PYCH（PYCH-Language）",
+          "status": "待核：已取得发行源码的中文脚本语言候选",
+          "facts": [
+            "仓库由qingsububao发布；main固定de4737e7df3fa0958617fa181745c270af73954b于2026-07-16T16:32:39Z保存README。README说明Python宿主、.pych后缀及交互／脚本模式。",
+            "2026-10-28已取得pych0至4.1.a八个发行的全部17份Python资产，共81255字节；所有摘要与发行元数据一致。该证据为原始源码静态读取。",
+            "pych4.0于2026-07-16T17:54:24Z发布；main.py资产479462953为15508字节，SHA256为7169b20e365e86456fff8a627b2f33f7d79a12a392b02de3c7c8170cf8306e9a。",
+            "4.0源码按“变量 ”、“函数 ”、“注释 ”分派，用“等于”分隔变量；递归求值识别数字、布尔、算术和比较方法。列表与字典分支为pass。这里记录实现词元。",
+            "pych2.0/tool.py第93行保存方法1、方法2等占位名的括号匹配辅助测试；文件末尾的递归辅助函数else分支为空。该字符串按源码辅助测试记录。",
+            "4.1.a发布说明将如果、当时、重复、对于列为计划增加内容；源码保存相应分派，控制流实现定义待核。",
+            "2026-10-30核对的公开Issues、PR及作者Gists集合为空；公开Wiki读取返回Repository not found。上述为当次可见范围。候选执行0次。"
+          ],
+          "unknowns": [
+            "完整作者中文用户程序、可独立核对的语法原例、许可正文及4.1.a控制流覆盖待核。",
+            "交互提示、源码词元和作者发行声明分别记录；语言首次公开、作者实际身份及独立运行结果待核。"
+          ],
+          "sources": [
+            {
+              "title": "固定README",
+              "url": "https://github.com/qingsububao/PYCH-Language/blob/de4737e7df3fa0958617fa181745c270af73954b/README.md"
+            },
+            {
+              "title": "作者发行集合与资产元数据",
+              "url": "https://github.com/qingsububao/PYCH-Language/releases"
+            },
+            {
+              "title": "pych4.0原始Python附件",
+              "url": "https://github.com/qingsububao/PYCH-Language/releases/download/pych4.0/main.py"
+            },
+            {
+              "title": "pych2.0原始辅助函数文件",
+              "url": "https://github.com/qingsububao/PYCH-Language/releases/download/pych2.0/tool.py"
+            },
+            {
+              "title": "4.1.a发行计划与资产",
+              "url": "https://github.com/qingsububao/PYCH-Language/releases/tag/4.1.a"
+            },
+            {
+              "title": "公开Issues集合",
+              "url": "https://api.github.com/repos/qingsububao/PYCH-Language/issues?state=all&per_page=100"
+            },
+            {
+              "title": "公开PR集合",
+              "url": "https://api.github.com/repos/qingsububao/PYCH-Language/pulls?state=all&per_page=100"
+            },
+            {
+              "title": "作者公开Gists集合",
+              "url": "https://api.github.com/users/qingsububao/gists?per_page=100"
+            }
+          ]
+        },
+        {
+          "name": "Sneko（ShineNeko-meow）",
+          "status": "范围分类：拼音关键字工具",
+          "facts": [
+            "固定README eb03bcebac4ad6b4dcfffb1c9b2789c57727c293明确使用shu、chu、ruo等中文拼音关键字；所核完整树包含README.md与SnekoEditor.exe。",
+            "仓库创建于2026-09-18T11:02:17Z；README自标0.1.0与MIT。资料按该固定阶段和署名记录。"
+          ],
+          "unknowns": [
+            "连续汉字语法、可静态核对的解析实现、许可正文及后续汉字扩展待核。"
+          ],
+          "sources": [
+            {
+              "title": "固定README与拼音关键字",
+              "url": "https://github.com/ShineNeko-meow/Sneko-Lang/blob/eb03bcebac4ad6b4dcfffb1c9b2789c57727c293/README.md#L5-L30"
+            },
+            {
+              "title": "固定完整树",
+              "url": "https://api.github.com/repos/ShineNeko-meow/Sneko-Lang/git/trees/eb03bcebac4ad6b4dcfffb1c9b2789c57727c293?recursive=1"
+            }
+          ]
+        },
+        {
+          "name": "大雄语",
+          "status": "已收录；按既有证据等级记录",
+          "facts": [
+            "xxiaoxiong/DaLang对应大雄语／DxLang；固定文档、.dx程序和Python词法→递归下降→AST树遍历执行链已静态核对。",
+            "正式条目分类：中文脚本语言／Python AST树遍历解释器。",
+            "既有资料核验日期：2026-10-11。",
+            "原例固定提交：fa7b3d0202861ed15a58ae861582e89f704175a7；原始代码、适用范围和日期分别保存在条目中。"
+          ],
+          "unknowns": [
+            "许可正文、类型输入分支、早期沿革及独立运行待核。"
+          ],
+          "sources": [
+            {
+              "title": "正式条目 lang-092",
+              "url": "https://中文编程语言.yuyan-lang.org/languages/lang-092.html"
+            },
+            {
+              "title": "条目采用的原始代码或文档",
+              "url": "https://github.com/xxiaoxiong/DaLang/blob/fa7b3d0202861ed15a58ae861582e89f704175a7/examples/fibonacci.dx#L15-L29"
+            }
+          ]
+        },
+        {
+          "name": "灵码（Ling）",
+          "status": "已收录；按既有证据等级记录",
+          "facts": [
+            "zf199606/ling-code对应灵码；固定实现通过正则规则把中文语句转换为JavaScript，再由宿主执行入口处理。",
+            "正式条目分类：中文脚本语言／JavaScript正则转译层。",
+            "既有资料核验日期：2026-10-11。",
+            "原例固定提交：5654cd1f578eaf642a8f8f0731aa77e5d04a4cbb；原始代码、适用范围和日期分别保存在条目中。"
+          ],
+          "unknowns": [
+            "设计中的独立AST、静态类型、模块、其他后端与现行正则转换覆盖、整体许可待核。"
+          ],
+          "sources": [
+            {
+              "title": "正式条目 lang-093",
+              "url": "https://中文编程语言.yuyan-lang.org/languages/lang-093.html"
+            },
+            {
+              "title": "条目采用的原始代码或文档",
+              "url": "https://github.com/zf199606/ling-code/blob/5654cd1f578eaf642a8f8f0731aa77e5d04a4cbb/%E7%81%B5%E7%A0%81%E7%A4%BA%E4%BE%8B/09_%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97.%E7%81%B5#L4-L15"
+            }
+          ]
+        },
+        {
+          "name": "Smal-lang",
+          "status": "已收录；按既有证据等级记录",
+          "facts": [
+            "CodeWatcher-Smal/Smal-lang对应Smal；实际文件ReadMe.md和main.py保存中文输入、输出、变量、顶层循环与条件。",
+            "正式条目分类：入门中文脚本语言／Python逐行解释器与PyQt IDE。",
+            "既有资料核验日期：2026-10-11。",
+            "原例固定提交：87bdf15d9d37d55ef08f038bac0fa54cbcb852ef；原始代码、适用范围和日期分别保存在条目中。"
+          ],
+          "unknowns": [
+            "嵌套控制流、严格字符串和表达式语义、早期发行与独立运行待核。"
+          ],
+          "sources": [
+            {
+              "title": "正式条目 lang-094",
+              "url": "https://中文编程语言.yuyan-lang.org/languages/lang-094.html"
+            },
+            {
+              "title": "条目采用的原始代码或文档",
+              "url": "https://github.com/CodeWatcher-Smal/Smal-lang/blob/87bdf15d9d37d55ef08f038bac0fa54cbcb852ef/main.py#L391-L408"
+            }
+          ]
+        },
+        {
+          "name": "coCN",
+          "status": "已收录；按既有证据等级记录",
+          "facts": [
+            "coCN固定源码包含.co词法／解析／求值链及Node.js启动引导入口；历史C实现和生成C的通道按阶段保留。",
+            "正式条目分类：中文关键字通用编程语言（实验性；解释执行，并保留 coCN→C 编译器源码）。",
+            "既有资料核验日期：2026-10-10。",
+            "原例固定提交：c641a58067e1a7cc0d26bfd6cebc8b42ce37cd07；原始代码、适用范围和日期分别保存在条目中。"
+          ],
+          "unknowns": [
+            "完整自举、现行引导分发与历史C链的对应、许可正文和独立运行待核。"
+          ],
+          "sources": [
+            {
+              "title": "正式条目 lang-036",
+              "url": "https://中文编程语言.yuyan-lang.org/languages/lang-036.html"
+            },
+            {
+              "title": "条目采用的原始代码或文档",
+              "url": "https://github.com/3477856804/coCN/blob/c641a58067e1a7cc0d26bfd6cebc8b42ce37cd07/%E4%BE%8B%E5%AD%90/%E8%87%AA%E4%B8%BE%E5%87%BD%E6%95%B0%E7%A4%BA%E4%BE%8B.co#L33-L42"
+            }
+          ]
+        },
+        {
+          "name": "道（Carson）",
+          "status": "已收录；按既有证据等级记录",
+          "facts": [
+            "Carson的道在Gitee与GitHub共享e00a6f4c5e0f67409676ba8f33ef06e737d5c49d；中文斐波那契原例、Python解释器及字节码VM路径已核。",
+            "正式条目分类：多范式中文语言／Python 宿主。",
+            "既有资料核验日期：2026-10-10。",
+            "原例固定提交：e00a6f4c5e0f67409676ba8f33ef06e737d5c49d；原始代码、适用范围和日期分别保存在条目中。"
+          ],
+          "unknowns": [
+            "四范式完整覆盖、JIT实际优化、双模式语义一致性和独立运行待核。"
+          ],
+          "sources": [
+            {
+              "title": "正式条目 lang-052",
+              "url": "https://中文编程语言.yuyan-lang.org/languages/lang-052.html"
+            },
+            {
+              "title": "条目采用的原始代码或文档",
+              "url": "https://github.com/kaisen-wang/dao/blob/e00a6f4c5e0f67409676ba8f33ef06e737d5c49d/源码/examples/斐波那契.道#L3-L13"
+            }
+          ]
+        },
+        {
+          "name": "RexLang",
+          "status": "已收录；按既有证据等级记录",
+          "facts": [
+            "RonxBulld原仓固定中文最大公约数子程序及ANTLR→AST→语义分析→LLVM目标文件／链接路径已核；头提交时间2020-09-23T22:18:47+08:00。",
+            "正式条目分类：易语言风格的中文编译语言与运行时实现。",
+            "既有资料核验日期：2026-10-25。",
+            "原例固定提交：6b11e5a5cc0e27b6c722db3c164e94d072710b7d；原始代码、适用范围和日期分别保存在条目中。"
+          ],
+          "unknowns": [
+            "首次公开、与易语言的兼容范围、运行及README与License.txt许可条件的适用关系待核。"
+          ],
+          "sources": [
+            {
+              "title": "正式条目 lang-107",
+              "url": "https://中文编程语言.yuyan-lang.org/languages/lang-107.html"
+            },
+            {
+              "title": "条目采用的原始代码或文档",
+              "url": "https://gitee.com/RonxBulld/RexLang/blob/6b11e5a5cc0e27b6c722db3c164e94d072710b7d/oe_test/gcd_algorithm.txt#L19-L27"
+            }
+          ]
+        },
+        {
+          "name": "青语言",
+          "status": "已收录；按既有证据等级记录",
+          "facts": [
+            "数心开物原作者文章→官网→NjinN/Qing形成身份链；官方0.9文档保存完整单句“@显示、“你好，编程世界””。",
+            "正式条目分类：独立中文解释语言（官方文档与原例核验）。",
+            "既有资料核验日期：2026-10-13。"
+          ],
+          "unknowns": [
+            "固定实现正文、解析求值链、版本对应及独立运行待核；许可附加要求按正式条目记录。"
+          ],
+          "sources": [
+            {
+              "title": "正式条目 lang-099",
+              "url": "https://中文编程语言.yuyan-lang.org/languages/lang-099.html"
+            },
+            {
+              "title": "条目采用的原始代码或文档",
+              "url": "https://doc.qingyuyan.cn/?a=index&aid=490411908277469184&id=2&m=Article"
+            }
+          ]
+        },
+        {
+          "name": "CNSH",
+          "status": "已收录；按既有证据等级记录",
+          "facts": [
+            "CNSH固定中文fib.cnsh、词元、解析入口及独立C99转译路径已核；Gitee记录v2.2.0发行。",
+            "正式条目分类：中文脚本语言／Python 宿主及转译工具链。",
+            "既有资料核验日期：2026-10-10。",
+            "原例固定提交：95ef57360c6226f7020cd27f100c4c98fa982775；原始代码、适用范围和日期分别保存在条目中。"
+          ],
+          "unknowns": [
+            "完整解释器正文、其他后端覆盖、平台同步与独立运行待核。"
+          ],
+          "sources": [
+            {
+              "title": "正式条目 lang-053",
+              "url": "https://中文编程语言.yuyan-lang.org/languages/lang-053.html"
+            },
+            {
+              "title": "条目采用的原始代码或文档",
+              "url": "https://gitee.com/uid9622/longhun-cnsh/blob/95ef57360c6226f7020cd27f100c4c98fa982775/examples/fib.cnsh#L5-L12"
+            }
+          ]
+        },
+        {
+          "name": "意语言",
+          "status": "已收录；按既有证据等级记录",
+          "facts": [
+            "原作者说明自标2026-10-04；固定说明和迁移文档保存完整八行中文递归求和模块，按实验性设计收录。",
+            "正式条目分类：实验性中文语言设计（原作者文档与原例核验）。",
+            "既有资料核验日期：2026-10-25。",
+            "原例固定提交：f8e93ab160e174a236c88f0dbdcd39f3c30fc8c5；原始代码、适用范围和日期分别保存在条目中。"
+          ],
+          "unknowns": [
+            "四个核心实现文件、正式版本、许可、完整执行链及文章自述的测试／自举／40%完成度待核。"
+          ],
+          "sources": [
+            {
+              "title": "正式条目 lang-108",
+              "url": "https://中文编程语言.yuyan-lang.org/languages/lang-108.html"
+            },
+            {
+              "title": "条目采用的原始代码或文档",
+              "url": "https://gitcode.com/gcw_2sDxn3gI/ai-agent-recommends-intent-language/blob/f8e93ab160e174a236c88f0dbdcd39f3c30fc8c5/README.md#L60-L67"
+            }
+          ]
+        },
+        {
+          "name": "衍真（nextOS/yzcc）",
+          "status": "待核：搜索缓存中的中文语言及编译器设计",
+          "facts": [
+            "2026-10-10和2026-10-14研究取得原GitCode仓库README的搜索缓存。缓存介绍全汉语语法、Rust实现设想、YIR及nextOS／NAPP目标，资料层级为原仓页面搜索缓存。",
+            "缓存4.2节保存计数循环原例，起始原文为“变量 计数器: 整数 = 0”；原例后续包含循环、赋值和显示调用。这里保留已保存的短引。",
+            "十例编译成功、seL4能力隔离、NAPP执行和性能差异属于该README陈述。具体实现验证分别待核。",
+            "2026-10-25／28原页返回404，正常公开Git传输返回403及project could not be found。2026-10-28可读nextOS组织页和18个公开项目列表未提供yzcc迁移互链。",
+            "2026-10-30沿已取得原始组织页缓存核对互链，保留此前403边界。候选执行0次。"
+          ],
+          "unknowns": [
+            "直接可读取的原仓、作者身份、固定提交、可靠文档日期、完整中文程序原件及实现／许可待核。",
+            "nextOS命名空间、当前组织列表及原语言项目的历史对应关系待核。"
+          ],
+          "sources": [
+            {
+              "title": "原GitCode语言仓库入口",
+              "url": "https://gitcode.com/nextOS/yzcc"
+            },
+            {
+              "title": "2026-10-14缓存原例与证据层级记录",
+              "url": "https://github.com/yuyan-lang/chinese-programming-languages/issues/3#issuecomment-6159232330"
+            },
+            {
+              "title": "nextOS原命名空间主页",
+              "url": "https://gitcode.com/nextOS"
+            },
+            {
+              "title": "nextOS公开仓库列表",
+              "url": "https://gitcode.com/org/nextOS/repos"
+            },
+            {
+              "title": "既有缓存设计、声明及访问范围",
+              "url": "https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe/research/2026-10-10/round-6-gitee.md"
+            }
+          ]
+        }
+      ],
+      "research": [
+        {
+          "title": "首轮CP、coCN与Atlanage原始研究",
+          "url": "https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe/research/2026-10-10/repositories.md"
+        },
+        {
+          "title": "zwpy、智语言及PYCH发行资料",
+          "url": "https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe/research/2026-10-10/round-7-issue3.md"
+        },
+        {
+          "title": "大雄语与PYCH研究",
+          "url": "https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe/research/2026-10-11/round-19.md"
+        },
+        {
+          "title": "灵码与Smal-lang研究",
+          "url": "https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe/research/2026-10-11/round-20.md"
+        },
+        {
+          "title": "CN Language与CN_Interpreter研究",
+          "url": "https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe/research/2026-10-12/round-22.md"
+        },
+        {
+          "title": "RexLang、意语言及原始附件补证",
+          "url": "https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe/research/2026-10-25/issues-3-5-63.md"
+        },
+        {
+          "title": "范围分类、PYCH全部资产及衍真访问边界",
+          "url": "https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe/research/2026-10-28/issues-3-5-48.md"
+        }
+      ]
+    },
+    {
+      "issue": 5,
+      "title": "社区语言线索、关联设计与历史目录证据",
+      "summary": "Hanyu-Lang、易码、言语言、文言Perl和天文苑IDE的既有条目逐项链接；言叶、文言心及段言／光明关系按原件分层保存。无极、Wxe、辅助同名仓及历史目录线索各自保留待核状态。辅助名称和设计关系采用来源口径，正式计数保持既有范围。",
+      "subjects": [
+        {
+          "name": "Hanyu-Lang",
+          "status": "已收录；按既有证据等级记录",
+          "facts": [
+            "PyPI维护者lin8092_76发布0.1.2；原始sdist于2025-04-23T16:35:41.915376Z上传，10095字节，SHA256为9a3ec70999c2b6418b540c2cdc3585de6df9a2f2c638856a5105532894d79f06。",
+            "正式条目分类：实验性中文语言原型（PyPI发布包静态核验）。",
+            "既有资料核验日期：2026-10-25。",
+            "原始tests/test_basic.py的作者测试短例为打印(\"测试输出\")；runtime.py通过检查打印(及双引号提取文本。包元数据为0.1.2，__init__.py内为0.1.3；LICENSE保存模板标题和占位署名。"
+          ],
+          "unknowns": [
+            "真实作者及原仓身份、运行导入与解析集成、完整控制流和完整许可正文待核。"
+          ],
+          "sources": [
+            {
+              "title": "正式条目 lang-109",
+              "url": "https://中文编程语言.yuyan-lang.org/languages/lang-109.html"
+            },
+            {
+              "title": "条目采用的原始代码或文档",
+              "url": "https://files.pythonhosted.org/packages/75/5a/88b050c9b25cdd0e165b858d61a4f7852cda033db0caa410ab2dd11703ae/hanyu_lang-0.1.2.tar.gz"
+            },
+            {
+              "title": "PyPI 0.1.2元数据",
+              "url": "https://pypi.org/pypi/hanyu-lang/0.1.2/json"
+            }
+          ]
+        },
+        {
+          "name": "易码",
+          "status": "已收录；按既有证据等级记录",
+          "facts": [
+            "易码原仓根提交7aa68b8f3f52bed963f2f9296d4a2ec3b3a61885保存2.0语法标记和勇者大冒险例程；2026-02-23源码引入1.0.0及冻结策略。",
+            "正式条目分类：解释型语言。",
+            "既有资料核验日期：2026-10-10。",
+            "原例固定提交：de50f04b0211daa3c4401c4610c83dbcc1060e0e；原始代码、适用范围和日期分别保存在条目中。"
+          ],
+          "unknowns": [
+            "论坛jinglei与原仓jinglei88的显式互链、版本重编号说明与准确首次公开待核。"
+          ],
+          "sources": [
+            {
+              "title": "正式条目 lang-024",
+              "url": "https://中文编程语言.yuyan-lang.org/languages/lang-024.html"
+            },
+            {
+              "title": "条目采用的原始代码或文档",
+              "url": "https://github.com/jinglei88/Yima---Minimalist-Chinese-Programming-Language/blob/de50f04b0211daa3c4401c4610c83dbcc1060e0e/%E7%A4%BA%E4%BE%8B/%E6%AC%A2%E8%BF%8E.ym#L1-L28"
+            },
+            {
+              "title": "作者论坛易码2.0原帖",
+              "url": "https://linux.do/t/topic/1631327?tl=en"
+            },
+            {
+              "title": "历史根提交",
+              "url": "https://github.com/jinglei88/Yima---Minimalist-Chinese-Programming-Language/commit/7aa68b8f3f52bed963f2f9296d4a2ec3b3a61885"
+            }
+          ]
+        },
+        {
+          "name": "无极（zhf888/wuji）",
+          "status": "待核：原作者设计介绍及仓库线索",
+          "facts": [
+            "CSDN账号qq_28759809，展示名在水一[钫]，发布《自制中文编程语言一（语言设计一）》；作者首页及中文编程专栏记录原创时间2020-03-20 10:49:45，时区待核。",
+            "公开可读正文明确项目暂名无极，并直接链接gitee.com/zhf888/wuji.git；作者拟参考《自制编程语言》，用C、lex和bison构建解释语言。该内容属于设计目标与作者计划。",
+            "公开正文开始说明UTF-8和顶层程序结构；完整用户语法部分呈现VIP访问提示。已保存的公开材料记录到该边界。",
+            "2026-10-28正常Git传输连接重置；2026-10-30获准的一次正常重试也返回Recv failure: Connection reset by peer。候选执行0次。"
+          ],
+          "unknowns": [
+            "公开中文用户语法、真实原程序、实现文件、固定提交、版本及许可正文待核。",
+            "页面最新推荐时间、作者文章时间和语言首次公开日期分别记录。"
+          ],
+          "sources": [
+            {
+              "title": "原作者文章",
+              "url": "https://blog.csdn.net/qq_28759809/article/details/104977727"
+            },
+            {
+              "title": "作者首页与原创时间",
+              "url": "https://blog.csdn.net/qq_28759809"
+            },
+            {
+              "title": "作者中文编程专栏",
+              "url": "https://blog.csdn.net/qq_28759809/category_9822853.html"
+            },
+            {
+              "title": "作者明确链接的无极仓库",
+              "url": "https://gitee.com/zhf888/wuji"
+            }
+          ]
+        },
+        {
+          "name": "言叶",
+          "status": "关联设计资料：已并入言语言的研究范围",
+          "facts": [
+            "固定提交815353dfe80dbae46ac2e0dabe5e9f447559bb78的综合设计表分别比较言叶、文言心与言。",
+            "Python转译方案标题使用言语言，入口文案使用言叶，1072—1082行保存标作examples/factorial.yanya的阶乘原例。路径历史提交6025186f109976e73730560d438f94d4984a0f45时间为2026-06-02T10:06:29Z。",
+            "PR #74将原始设计关系补入lang-078；资料按设计文档与原例记录。"
+          ],
+          "unknowns": [
+            "言叶独立版本、正式改名、源码继承、发行兼容性及该阶乘例的运行结果待核。"
+          ],
+          "sources": [
+            {
+              "title": "统一设计比较表",
+              "url": "https://github.com/skywalk163/yan/blob/815353dfe80dbae46ac2e0dabe5e9f447559bb78/.dumate/inbox/design.md#L62-L89"
+            },
+            {
+              "title": "言语言关联设计固定原件记录",
+              "url": "https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe/research/2026-10-14/yan-related-designs.md"
+            },
+            {
+              "title": "言语言正式条目",
+              "url": "https://中文编程语言.yuyan-lang.org/languages/lang-078.html"
+            },
+            {
+              "title": "言叶入口文案及阶乘设计原例",
+              "url": "https://github.com/skywalk163/yan/blob/815353dfe80dbae46ac2e0dabe5e9f447559bb78/docs/solution-python-transpile.md#L899-L1082"
+            }
+          ]
+        },
+        {
+          "name": "文言心",
+          "status": "关联设计资料：已并入言语言的研究范围",
+          "facts": [
+            "固定docs/design.md明确命名文言心，第55—74行用“列1 2 3，皆乘2。”说明列表、管道和高阶映射的AST构造。",
+            "综合比较表把文言心与言叶、言分别列出；SBCL后端等说明按作者设计材料记录。"
+          ],
+          "unknowns": [
+            "独立实现、正式版本、与言语言的继承及迁移阶段、原例运行待核。"
+          ],
+          "sources": [
+            {
+              "title": "文言心固定设计及原例",
+              "url": "https://github.com/skywalk163/yan/blob/815353dfe80dbae46ac2e0dabe5e9f447559bb78/docs/design.md#L55-L74"
+            },
+            {
+              "title": "统一设计比较表",
+              "url": "https://github.com/skywalk163/yan/blob/815353dfe80dbae46ac2e0dabe5e9f447559bb78/.dumate/inbox/design.md#L62-L89"
+            },
+            {
+              "title": "言语言关联设计固定原件记录",
+              "url": "https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe/research/2026-10-14/yan-related-designs.md"
+            },
+            {
+              "title": "言语言正式条目",
+              "url": "https://中文编程语言.yuyan-lang.org/languages/lang-078.html"
+            }
+          ]
+        },
+        {
+          "name": "言语言（Yán）",
+          "status": "已收录；按既有证据等级记录",
+          "facts": [
+            "言语言固定test_v2_fib.yan保存连续中文程序，Python词法、AST和转译入口已静态核验；言叶／文言心关联设计分别记录。",
+            "正式条目分类：实验性中文函数式语言／Python源码转译实现。",
+            "既有资料核验日期：2026-10-14。",
+            "原例固定提交：815353dfe80dbae46ac2e0dabe5e9f447559bb78；原始代码、适用范围和日期分别保存在条目中。"
+          ],
+          "unknowns": [
+            "多个版本字段对应、设计原例和当前实现的覆盖、独立运行及与段言／光明的具体继承关系待核。"
+          ],
+          "sources": [
+            {
+              "title": "正式条目 lang-078",
+              "url": "https://中文编程语言.yuyan-lang.org/languages/lang-078.html"
+            },
+            {
+              "title": "条目采用的原始代码或文档",
+              "url": "https://github.com/skywalk163/yan/blob/815353dfe80dbae46ac2e0dabe5e9f447559bb78/test_v2_fib.yan#L1-L10"
+            }
+          ]
+        },
+        {
+          "name": "Wxe（Wxe-ChineseCoding／WxeEditor）",
+          "status": "待核：项目说明与许可原件已取得",
+          "facts": [
+            "原仓固定根提交d46b7132f23751de26dd584bab0536fa85ef790d时间为2026-04-11T09:25:16Z，署名账号WangXingwen957；完整树保存README.md与LICENSE两项。",
+            "README把WxeEditor描述为附属IDE，并说明其包含Wxe编译器。该功能属于作者项目说明。根LICENSE提供MIT全文，署名2026 WangXingwen957。",
+            "同账号Wxe-Chinese仓库创建于2026-04-11T09:24:00Z；公开提交接口返回409 Git Repository is empty。两个同名入口按关联线索保存。",
+            "2026-10-28公开Wiki未找到，同作者工件定向检索未取得程序；2026-10-30原仓全部状态Issues／PR和作者公开Gists集合为空。候选执行0次。"
+          ],
+          "unknowns": [
+            "中文用户语法、真实原程序、编译器源码／产物、首发及发行版本对应待核。",
+            "Wxe-Chinese与Wxe-ChineseCoding的独立项目或迁移关系待核。"
+          ],
+          "sources": [
+            {
+              "title": "固定项目README",
+              "url": "https://github.com/WangXingwen957/Wxe-ChineseCoding/blob/d46b7132f23751de26dd584bab0536fa85ef790d/README.md"
+            },
+            {
+              "title": "固定MIT全文",
+              "url": "https://github.com/WangXingwen957/Wxe-ChineseCoding/blob/d46b7132f23751de26dd584bab0536fa85ef790d/LICENSE"
+            },
+            {
+              "title": "固定完整树",
+              "url": "https://api.github.com/repos/WangXingwen957/Wxe-ChineseCoding/git/trees/d46b7132f23751de26dd584bab0536fa85ef790d?recursive=1"
+            },
+            {
+              "title": "关联空仓",
+              "url": "https://github.com/WangXingwen957/Wxe-Chinese"
+            },
+            {
+              "title": "作者公开Gists",
+              "url": "https://api.github.com/users/WangXingwen957/gists?per_page=100"
+            },
+            {
+              "title": "公开Issues",
+              "url": "https://api.github.com/repos/WangXingwen957/Wxe-ChineseCoding/issues?state=all&per_page=100"
+            },
+            {
+              "title": "公开PR",
+              "url": "https://api.github.com/repos/WangXingwen957/Wxe-ChineseCoding/pulls?state=all&per_page=100"
+            }
+          ]
+        },
+        {
+          "name": "中文编程IDE（天文苑）",
+          "status": "已收录；按既有证据等级记录",
+          "facts": [
+            "TRAE原帖165813的作者账号为u701959982292476，展示名天文苑；首帖时间2026-07-15T10:57:35.281Z、公开版本8。原图保存制作工序定义圆面积函数和调用，并展示作者输出。",
+            "正式条目分类：中文教学语法与浏览器IDE演示（原作者文档和程序截图核验）。",
+            "既有资料核验日期：2026-10-28。"
+          ],
+          "unknowns": [
+            "完整编译器源码、固定提交、许可、导出产物与独立运行待核；JS生成及TRAE开发分工按作者说明记录。"
+          ],
+          "sources": [
+            {
+              "title": "正式条目 lang-111",
+              "url": "https://中文编程语言.yuyan-lang.org/languages/lang-111.html"
+            },
+            {
+              "title": "条目采用的原始代码或文档",
+              "url": "https://trae-forum-cdn.trae.com.cn/prod/original/3X/2/0/20407b70c24da7f2b4e5a43cc5e0127cc191eb50.png"
+            }
+          ]
+        },
+        {
+          "name": "Python++混合编程环境（TRAE165845）",
+          "status": "辅助线索：项目类别与中文语法范围待核",
+          "facts": [
+            "原议题把主题165845描述为Python++混合编程环境，用作TRAE165813附近的辅助发现入口。",
+            "现有研究把AI参与工具开发与实际汉字语法证据分层记录；本项保留为原议题来源线索。"
+          ],
+          "unknowns": [
+            "原作者连续汉字程序、实际语法及与TRAE165813的关系待核。"
+          ],
+          "sources": [
+            {
+              "title": "原议题记录",
+              "url": "https://github.com/yuyan-lang/chinese-programming-languages/issues/5"
+            },
+            {
+              "title": "原TRAE主题",
+              "url": "https://forum.trae.cn/t/topic/165845"
+            }
+          ]
+        },
+        {
+          "name": "Klang（HTWX）",
+          "status": "历史目录辅助线索：待核",
+          "facts": [
+            "原议题列出的program-in-chinese/overview历史目录提供该名称；该目录作为发现来源记录。",
+            "既有研究记录历史目录指向HTWX/klang_dlang；股票Klang／K浪的asmcos/Klang按另一原仓分别记录。"
+          ],
+          "unknowns": [
+            "具体原作者、实际用户语法、连续原程序、固定原件及版本关系待核。"
+          ],
+          "sources": [
+            {
+              "title": "历史目录入口",
+              "url": "https://github.com/program-in-chinese/overview"
+            },
+            {
+              "title": "原议题辅助目录清单",
+              "url": "https://github.com/yuyan-lang/chinese-programming-languages/issues/5"
+            },
+            {
+              "title": "历史目录指向的原仓入口",
+              "url": "https://github.com/HTWX/klang_dlang"
+            },
+            {
+              "title": "Klang同名消歧记录",
+              "url": "https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe/research/2026-10-10/round-14-discovery-log.md"
+            }
+          ]
+        },
+        {
+          "name": "CTS",
+          "status": "历史目录辅助线索：待核",
+          "facts": [
+            "原议题列出的program-in-chinese/overview历史目录提供该名称；该目录作为发现来源记录。"
+          ],
+          "unknowns": [
+            "具体原作者、实际用户语法、连续原程序、固定原件及版本关系待核。",
+            "与现有ChineseTypeScript条目的名称或实现关系待核。"
+          ],
+          "sources": [
+            {
+              "title": "历史目录入口",
+              "url": "https://github.com/program-in-chinese/overview"
+            },
+            {
+              "title": "原议题辅助目录清单",
+              "url": "https://github.com/yuyan-lang/chinese-programming-languages/issues/5"
+            }
+          ]
+        },
+        {
+          "name": "圈3",
+          "status": "历史目录辅助线索：待核",
+          "facts": [
+            "原议题列出的program-in-chinese/overview历史目录提供该名称；该目录作为发现来源记录。"
+          ],
+          "unknowns": [
+            "具体原作者、实际用户语法、连续原程序、固定原件及版本关系待核。"
+          ],
+          "sources": [
+            {
+              "title": "历史目录入口",
+              "url": "https://github.com/program-in-chinese/overview"
+            },
+            {
+              "title": "原议题辅助目录清单",
+              "url": "https://github.com/yuyan-lang/chinese-programming-languages/issues/5"
+            }
+          ]
+        },
+        {
+          "name": "圈4",
+          "status": "历史目录辅助线索：待核",
+          "facts": [
+            "原议题列出的program-in-chinese/overview历史目录提供该名称；该目录作为发现来源记录。"
+          ],
+          "unknowns": [
+            "具体原作者、实际用户语法、连续原程序、固定原件及版本关系待核。"
+          ],
+          "sources": [
+            {
+              "title": "历史目录入口",
+              "url": "https://github.com/program-in-chinese/overview"
+            },
+            {
+              "title": "原议题辅助目录清单",
+              "url": "https://github.com/yuyan-lang/chinese-programming-languages/issues/5"
+            }
+          ]
+        },
+        {
+          "name": "圈5",
+          "status": "历史目录辅助线索：待核",
+          "facts": [
+            "原议题列出的program-in-chinese/overview历史目录提供该名称；该目录作为发现来源记录。"
+          ],
+          "unknowns": [
+            "具体原作者、实际用户语法、连续原程序、固定原件及版本关系待核。"
+          ],
+          "sources": [
+            {
+              "title": "历史目录入口",
+              "url": "https://github.com/program-in-chinese/overview"
+            },
+            {
+              "title": "原议题辅助目录清单",
+              "url": "https://github.com/yuyan-lang/chinese-programming-languages/issues/5"
+            }
+          ]
+        },
+        {
+          "name": "孔Caml",
+          "status": "历史目录辅助线索：待核",
+          "facts": [
+            "原议题列出的program-in-chinese/overview历史目录提供该名称；该目录作为发现来源记录。"
+          ],
+          "unknowns": [
+            "具体原作者、实际用户语法、连续原程序、固定原件及版本关系待核。"
+          ],
+          "sources": [
+            {
+              "title": "历史目录入口",
+              "url": "https://github.com/program-in-chinese/overview"
+            },
+            {
+              "title": "原议题辅助目录清单",
+              "url": "https://github.com/yuyan-lang/chinese-programming-languages/issues/5"
+            }
+          ]
+        },
+        {
+          "name": "Z语言（历史目录线索）",
+          "status": "历史目录辅助线索：待核",
+          "facts": [
+            "原议题列出的program-in-chinese/overview历史目录提供该名称；该目录作为发现来源记录。"
+          ],
+          "unknowns": [
+            "具体原作者、实际用户语法、连续原程序、固定原件及版本关系待核。",
+            "与现有lang-087（zyw98020）的同名关系待核；各自采用原仓身份。"
+          ],
+          "sources": [
+            {
+              "title": "历史目录入口",
+              "url": "https://github.com/program-in-chinese/overview"
+            },
+            {
+              "title": "原议题辅助目录清单",
+              "url": "https://github.com/yuyan-lang/chinese-programming-languages/issues/5"
+            }
+          ]
+        },
+        {
+          "name": "文言Perl（中书珨）",
+          "status": "已收录；按既有证据等级记录",
+          "facts": [
+            "历史目录的文言Perl已定位到唐凤署名的Lingua::Sinica::PerlYuYan原模块；固定程序及Perl源过滤实现已静态核验。",
+            "正式条目分类：Perl文言中文方言／源过滤转换层。",
+            "既有资料核验日期：2026-10-10。",
+            "原例固定提交：08b4d8294876903ed7ff193fa3a08f247d66b637；原始代码、适用范围和日期分别保存在条目中。"
+          ],
+          "unknowns": [
+            "早期发布包、完整许可沿革、字符串／注释／正则替换边界与独立运行待核。"
+          ],
+          "sources": [
+            {
+              "title": "正式条目 lang-079",
+              "url": "https://中文编程语言.yuyan-lang.org/languages/lang-079.html"
+            },
+            {
+              "title": "条目采用的原始代码或文档",
+              "url": "https://github.com/audreyt/lingua-sinica-perlyuyan/blob/08b4d8294876903ed7ff193fa3a08f247d66b637/lib/Lingua/Sinica/PerlYuYan.pm#L23-L33"
+            }
+          ]
+        },
+        {
+          "name": "亲密数",
+          "status": "历史目录辅助线索：待核",
+          "facts": [
+            "原议题列出的program-in-chinese/overview历史目录提供该名称；该目录作为发现来源记录。"
+          ],
+          "unknowns": [
+            "具体原作者、实际用户语法、连续原程序、固定原件及版本关系待核。"
+          ],
+          "sources": [
+            {
+              "title": "历史目录入口",
+              "url": "https://github.com/program-in-chinese/overview"
+            },
+            {
+              "title": "原议题辅助目录清单",
+              "url": "https://github.com/yuyan-lang/chinese-programming-languages/issues/5"
+            }
+          ]
+        },
+        {
+          "name": "标天汇编",
+          "status": "历史目录辅助线索：待核",
+          "facts": [
+            "原议题列出的program-in-chinese/overview历史目录提供该名称；该目录作为发现来源记录。"
+          ],
+          "unknowns": [
+            "具体原作者、实际用户语法、连续原程序、固定原件及版本关系待核。"
+          ],
+          "sources": [
+            {
+              "title": "历史目录入口",
+              "url": "https://github.com/program-in-chinese/overview"
+            },
+            {
+              "title": "原议题辅助目录清单",
+              "url": "https://github.com/yuyan-lang/chinese-programming-languages/issues/5"
+            }
+          ]
+        },
+        {
+          "name": "丙正正",
+          "status": "历史目录辅助线索：待核",
+          "facts": [
+            "原议题列出的program-in-chinese/overview历史目录提供该名称；该目录作为发现来源记录。"
+          ],
+          "unknowns": [
+            "具体原作者、实际用户语法、连续原程序、固定原件及版本关系待核。"
+          ],
+          "sources": [
+            {
+              "title": "历史目录入口",
+              "url": "https://github.com/program-in-chinese/overview"
+            },
+            {
+              "title": "原议题辅助目录清单",
+              "url": "https://github.com/yuyan-lang/chinese-programming-languages/issues/5"
+            }
+          ]
+        },
+        {
+          "name": "O语言",
+          "status": "历史目录辅助线索：待核",
+          "facts": [
+            "原议题列出的program-in-chinese/overview历史目录提供该名称；该目录作为发现来源记录。"
+          ],
+          "unknowns": [
+            "具体原作者、实际用户语法、连续原程序、固定原件及版本关系待核。"
+          ],
+          "sources": [
+            {
+              "title": "历史目录入口",
+              "url": "https://github.com/program-in-chinese/overview"
+            },
+            {
+              "title": "原议题辅助目录清单",
+              "url": "https://github.com/yuyan-lang/chinese-programming-languages/issues/5"
+            }
+          ]
+        },
+        {
+          "name": "言律（skywalk163/yanlv）",
+          "status": "同作者辅助消歧入口：待核",
+          "facts": [
+            "第六轮研究将该仓列为同作者名称消歧辅助入口；言叶、文言心、言与相关名称按独立来源分别记录。"
+          ],
+          "unknowns": [
+            "实际项目范围、独立语法和原程序、与言语言／段言／光明的具体关系待核。"
+          ],
+          "sources": [
+            {
+              "title": "原仓入口",
+              "url": "https://github.com/skywalk163/yanlv"
+            },
+            {
+              "title": "第六轮关联名称记录",
+              "url": "https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe/research/2026-10-10/round-6-existing.md"
+            }
+          ]
+        },
+        {
+          "name": "skywalk163/yanzhi",
+          "status": "同作者辅助消歧入口：待核",
+          "facts": [
+            "第六轮研究将该仓列为同作者名称消歧辅助入口；言叶、文言心、言与相关名称按独立来源分别记录。"
+          ],
+          "unknowns": [
+            "实际项目范围、独立语法和原程序、与言语言／段言／光明的具体关系待核。"
+          ],
+          "sources": [
+            {
+              "title": "原仓入口",
+              "url": "https://github.com/skywalk163/yanzhi"
+            },
+            {
+              "title": "第六轮关联名称记录",
+              "url": "https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe/research/2026-10-10/round-6-existing.md"
+            }
+          ]
+        },
+        {
+          "name": "段言",
+          "status": "已收录；按既有证据等级记录",
+          "facts": [
+            "段言与光明的共同根、改名及合流有固定原件；2026-08-21公告停止段言独立开发并迁移到光明，段言条目保留历史阶段。",
+            "正式条目分类：中文关键字语言／光明项目的历史前身与合流分支。",
+            "既有资料核验日期：2026-10-10。",
+            "原例固定提交：b2fe4d471bef736e9c32afc842968771959af804；原始代码、适用范围和日期分别保存在条目中。"
+          ],
+          "unknowns": [
+            "言语言及言叶／文言心与段言的源码继承、独立版本和兼容性待核。"
+          ],
+          "sources": [
+            {
+              "title": "正式条目 lang-008",
+              "url": "https://中文编程语言.yuyan-lang.org/languages/lang-008.html"
+            },
+            {
+              "title": "条目采用的原始代码或文档",
+              "url": "https://github.com/skywalk163/duan/blob/b2fe4d471bef736e9c32afc842968771959af804/docs/30%E5%88%86%E9%92%9F%E5%85%A5%E9%97%A8%E6%AE%B5%E8%A8%80.md#L446-L450"
+            }
+          ]
+        },
+        {
+          "name": "光明",
+          "status": "已收录；按既有证据等级记录",
+          "facts": [
+            "光明条目记录当前统一项目；2026-08-14合流结合段言6.3及光明6.0阶段，当前0.4.0发行与历史7.0编号分列。",
+            "正式条目分类：中文分层语法语言／Python转译与LLVM编译工具链。",
+            "既有资料核验日期：2026-10-10。",
+            "原例固定提交：f3cd01eec801360275a50a7ed01753cefb8b45a9；原始代码、适用范围和日期分别保存在条目中。"
+          ],
+          "unknowns": [
+            "与言叶／文言心／言的具体实现继承及迁移关系待核。"
+          ],
+          "sources": [
+            {
+              "title": "正式条目 lang-009",
+              "url": "https://中文编程语言.yuyan-lang.org/languages/lang-009.html"
+            },
+            {
+              "title": "条目采用的原始代码或文档",
+              "url": "https://github.com/skywalk163/light/blob/f3cd01eec801360275a50a7ed01753cefb8b45a9/examples/test_hello_src.light#L1-L11"
+            }
+          ]
+        }
+      ],
+      "research": [
+        {
+          "title": "原始社区线索与历史目录",
+          "url": "https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe/research/2026-10-09/community.md"
+        },
+        {
+          "title": "易码及言叶系列关系",
+          "url": "https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe/research/2026-10-10/round-6-existing.md"
+        },
+        {
+          "title": "易码2.0历史衔接",
+          "url": "https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe/research/2026-10-10/round-9-existing.md"
+        },
+        {
+          "title": "历史目录与Klang消歧",
+          "url": "https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe/research/2026-10-10/round-14-discovery-log.md"
+        },
+        {
+          "title": "言叶／文言心固定原例",
+          "url": "https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe/research/2026-10-14/yan-related-designs.md"
+        },
+        {
+          "title": "Hanyu原始sdist与Wxe固定原件",
+          "url": "https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe/research/2026-10-25/issues-3-5-63.md"
+        },
+        {
+          "title": "TRAE原图、无极作者日期与访问边界",
+          "url": "https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe/research/2026-10-28/issues-3-5-48.md"
+        }
+      ]
+    },
+    {
+      "issue": 16,
+      "title": "SPCNYY、ChineseCpp等七组项目的证据记录",
+      "summary": "原 7 组候选逐项保存：5 组已有正式条目，ChineseJava 按占位计划完成当前范围分类，SPCNYY 保存已见转译与编辑器实现及原例缺口。资料不足项按待核资料记录，正式语言目录新增 0 项；议题可在公开记录合入后按新处理规则关闭，取得新证据时重新评估。",
+      "subjects": [
+        {
+          "name": "SPCNYY",
+          "status": "待核资料记录；正式目录计数 0",
+          "facts": [
+            "固定提交 2d9087cade68fff2c966a7bf057141935b439ec0，源码加入时间 2026-08-15T16:46:47Z；根提交 2b99fb85eaf91284d5d0bd0aa047772db41dd75c 时间 2026-08-15T16:43:42Z。完整树为 4 文件，保留历史 2 次提交。",
+            "作者 README 将其介绍为“用中文来写的编译器”；源码核见 Python 中文关键词转译层与 Tkinter 编辑器。language.py 映射包括“如果／否则／循环／定义／返回”，按键长度降序对整段文本 str.replace，再以正则转换计次循环；字符串、注释和标识符中的匹配文字参与替换。",
+            "Shell 与 PowerShell 中 main.py、launcher.py、login.py、recharge.py、ai.py、language.py、editor.py 七组内嵌模块统一换行后逐字符一致。Shell blob bd896ef420a1e7a2040e5bdd8ad87d24d53b51fa；PowerShell blob 7e4abde4fb89966bf8f5826d4a6c1e080172357f。",
+            "编辑器运行入口把翻译结果交给 Python exec。新建操作清空缓冲区，打开操作读取外部 .spc 文件；AI 提示词中的 {code} 来自调用参数，欢迎语、词表和补全插入点按界面与实现资料保存。",
+            "2026-10-28 静态阅读两脚本全部七模块、字符串及 GUI 写入点，已核两次历史保持同一原例缺口。2026-10-30 公开仓库全部 Issues、评论和 PR 返回空集合，Discussions 关闭；xs-smz 公开 Gists 返回 HTTP 200 空数组且无分页。结论限定于所列已读公开原件。",
+            "原作者连续中文 .spc 用户程序尚未取得，公开资料记录当前实现证据，待核材料计入研究资料。候选软件安装、构建与执行均为 0。"
+          ],
+          "unknowns": [
+            "原作者连续中文用户程序及其固定出处待补；未索引教程、视频和其他发布渠道的状态待核实。",
+            "名称沿革、正式版本、首次公开、许可正文、Shell 生成结果及打包兼容性、独立运行待核实。",
+            "DeepSeek 问答／纠错为已见配套功能；开发过程 AI 参与比例待核实。"
+          ],
+          "sources": [
+            {
+              "title": "固定翻译模块",
+              "url": "https://github.com/xs-smz/spcnyy-/blob/2d9087cade68fff2c966a7bf057141935b439ec0/setup/spcnyysetup.sh#L289-L311"
+            },
+            {
+              "title": "固定运行入口",
+              "url": "https://github.com/xs-smz/spcnyy-/blob/2d9087cade68fff2c966a7bf057141935b439ec0/setup/spcnyysetup.sh#L600-L618"
+            },
+            {
+              "title": "固定新建／打开操作",
+              "url": "https://github.com/xs-smz/spcnyy-/blob/2d9087cade68fff2c966a7bf057141935b439ec0/setup/spcnyysetup.sh#L563-L578"
+            },
+            {
+              "title": "固定 Windows 脚本",
+              "url": "https://github.com/xs-smz/spcnyy-/blob/2d9087cade68fff2c966a7bf057141935b439ec0/windows_spcnyy.ps1"
+            },
+            {
+              "title": "固定完整树",
+              "url": "https://github.com/xs-smz/spcnyy-/tree/2d9087cade68fff2c966a7bf057141935b439ec0"
+            },
+            {
+              "title": "公开 Gists 元数据",
+              "url": "https://api.github.com/users/xs-smz/gists?per_page=100"
+            }
+          ]
+        },
+        {
+          "name": "ChineseCpp（含 ChineseCplus 前身）",
+          "status": "已分类收录；剩余字段待核实",
+          "facts": [
+            "现有正式条目 lang-101，分类：C++ 中文关键字与标准库别名宏层。",
+            "前身 -ChineseCplus 的 README 直接链接 ChineseCpp 后续仓库。前身 cop.h 的 #define 提供中文 C++ 关键字、类型与标准库别名，main.cpp 保存连续原程序；两仓按同一沿革收录。",
+            "现有条目保存的原作者连续短例：\n\t\t如果(变量 % 2 == 零)\n\t\t{\n\t\t\t标准库::字符输出 << 变量 << \"\\t是偶数\" << 标准库::结束行;\n\t\t}",
+            "原例出处及上下文：前身main/main.cpp第13—16行的完整条件语句短引。完整原程序第3—18行包含头文件、入口、输入及循环，依赖同仓cop.h。保留原制表符缩进；运行结果待核实。",
+            "日期记录：前身仓库创建于2026-08-24T06:56:35Z，保留历史根提交记录2026-08-24T06:56:03Z。2026-08-30前身README宣布弃用并链接ChineseCpp作为后续更新入口。首次对外公开时间待核实。",
+            "版本与固定快照记录：前身固定提交035a0433eb215d8843774662912a40dd026f4ef4；ChineseCpp固定提交739f835d2bb38202ec08c2cbf30793df152abb6a。正式版本号待核实。",
+            "证据层级为原作者公开材料与静态源码核验；本组候选软件安装、构建与执行均为 0，独立运行保持待核实。"
+          ],
+          "unknowns": [
+            "ChineseCpp 新阶段实现、与前身兼容性、正式版本及发行、AI 参与与独立编译运行待核实。"
+          ],
+          "sources": [
+            {
+              "title": "现有正式页 lang-101",
+              "url": "https://xn--fiq228cgqosxegyprwc.yuyan-lang.org/languages/lang-101.html"
+            },
+            {
+              "title": "原始连续短例",
+              "url": "https://github.com/JinSuperOfficial/-ChineseCplus/blob/035a0433eb215d8843774662912a40dd026f4ef4/main/main.cpp#L13-L16"
+            },
+            {
+              "title": "固定中文宏定义",
+              "url": "https://github.com/JinSuperOfficial/-ChineseCplus/blob/035a0433eb215d8843774662912a40dd026f4ef4/main/cop.h"
+            },
+            {
+              "title": "前身保留提交历史",
+              "url": "https://api.github.com/repos/JinSuperOfficial/-ChineseCplus/commits?per_page=100"
+            }
+          ]
+        },
+        {
+          "name": "ChinesePython（YoloLogic）",
+          "status": "已分类收录；剩余字段待核实",
+          "facts": [
+            "现有正式条目 lang-047，分类：中文Python方言／CPython本地化发行工具链。",
+            "Windows 与 Linux 按作者同源声明归为同一 ChinesePython 项目。公开库层通过名字表建立中文 API 转发，zh_traceback.py 提供报错显示层。CPython 词法／语法修改范围依据官方 NOTICE 披露。",
+            "现有条目保存的原作者连续短例：\n导入 操作系统 作为 操\n来自 并行.futures 导入 线程池执行器\n定义 平方(甲):\n    返回 甲 * 甲\n使用 线程池执行器(2) 作为 池:\n    打印([任务.result() 对于 任务 属于 [池.submit(平方, 数字) 对于 数字 属于 range(4)]])",
+            "原例出处及上下文：固定Windows提交README“快速开始”代码块的完整六行连续原文，保留四空格缩进。示例导入中文库、定义平方函数并使用线程池与列表推导；需配套ChinesePython解释器及库。执行结果待核实。",
+            "日期记录：现存发行仓根提交为2026-10-05T06:33:30Z，首个GitHub Release v0.1发表于2026-10-05T07:30:38Z。仓库创建于2026-09-28T20:13:00Z；更早公开首发日待核实。",
+            "版本与固定快照记录：Windows最新所读Release为v0.1.1，发布于2026-10-07T08:29:00Z；Linux为linux-v0.1.1，发布于2026-10-09T13:43:11Z。Linux发行说明列Ubuntu 24.04构建与glibc≥2.39要求，资产接口当日返回空数组。Windows v0.1.1标签指向2026-10-06提交2ba64af3fe1b7f9b56906614834847e617c83877，其提交说明为发行0.1.0；资产、标签和构建快照的精确对应待核实。",
+            "证据层级为原作者公开材料与静态源码核验；本组候选软件安装、构建与执行均为 0，独立运行保持待核实。"
+          ],
+          "unknowns": [
+            "核心 Parser／Grammar 补丁、开发仓公开位置、精确上游基线待核实。",
+            "发行资产、标签、构建身份与平台间逐字节对应性、随附许可及独立运行待核实。"
+          ],
+          "sources": [
+            {
+              "title": "现有正式页 lang-047",
+              "url": "https://xn--fiq228cgqosxegyprwc.yuyan-lang.org/languages/lang-047.html"
+            },
+            {
+              "title": "原始连续短例",
+              "url": "https://github.com/YoloLogic/ChinesePython/blob/ad29d1cddae32e8d7a550ba022471dfead835d9c/README.md#L20-L25"
+            },
+            {
+              "title": "中文标准库API转发实现",
+              "url": "https://github.com/YoloLogic/ChinesePython/blob/ad29d1cddae32e8d7a550ba022471dfead835d9c/Lib/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.py#L1003-L1165"
+            },
+            {
+              "title": "发行头文件的3.14.7版本常量",
+              "url": "https://github.com/YoloLogic/ChinesePython/blob/ad29d1cddae32e8d7a550ba022471dfead835d9c/include/patchlevel.h#L18-L28"
+            },
+            {
+              "title": "词法／语法修改范围的官方披露",
+              "url": "https://github.com/YoloLogic/ChinesePython/blob/ad29d1cddae32e8d7a550ba022471dfead835d9c/NOTICE.txt"
+            },
+            {
+              "title": "Windows标签及提交指向",
+              "url": "https://api.github.com/repos/YoloLogic/ChinesePython/git/refs/tags"
+            },
+            {
+              "title": "2026-10-09许可切换提交",
+              "url": "https://github.com/YoloLogic/ChinesePython/commit/9e724d23cd8898a7ca39b599769778b7c636939d"
+            }
+          ]
+        },
+        {
+          "name": "ChineseTypeScript",
+          "status": "已分类收录；剩余字段待核实",
+          "facts": [
+            "现有正式条目 lang-048，分类：TypeScript中文方言／Go编译器关键字扩展与标准库别名层。",
+            "固定 Go 源码的 scanner 将 85 项中文拼写映射至 TypeScript 词元，printer 输出规范关键字及标准库别名；源码包含默认中文诊断与用户同名声明保护。上游 typescript-go 基线与重写根提交具有相同 Git 树。",
+            "现有条目保存的原作者连续短例：\n函数 相加(甲: 数字, 乙: 数字): 数字 {\n  返回 甲 + 乙;                 // 返回 = return\n}",
+            "原例出处及上下文：固定main提交“第1课：程序骨架”第11—13行的连续函数定义原文，保留两空格缩进及原注释。同文件第21行调用相加(3,4)，文件开头列出期望输出。本片段的blob与v0.1标签对应文件一致；执行结果待核实。",
+            "日期记录：首个GitHub公开Windows发行v0.1发表于2026-10-10T03:34:57Z；仓库创建于2026-10-09T14:27:19Z。中文关键字首次实现提交署期2026-10-06T16:00:47Z，属现存开发历史；更早公开首发日待核实。",
+            "版本与固定快照记录：项目发行版v0.1于2026-10-10T03:34:57Z发布，提供ChineseTypeScript-0.1-win64.zip；标签提交为6bbf6f6090f15298dca57aa5ec75f1e092e3ce8d。固定main的编译器版本变量默认值为7.1.0-dev，属于上游工具链版本。main在发行标签之后增加用户同名声明保护等修改，功能按源码快照与发行标签分别记录。",
+            "证据层级为原作者公开材料与静态源码核验；本组候选软件安装、构建与执行均为 0，独立运行保持待核实。"
+          ],
+          "unknowns": [
+            "v0.1 二进制与标签对应、后续 main 修复覆盖、复杂作用域中的中文别名行为及独立构建运行待核实。"
+          ],
+          "sources": [
+            {
+              "title": "现有正式页 lang-048",
+              "url": "https://xn--fiq228cgqosxegyprwc.yuyan-lang.org/languages/lang-048.html"
+            },
+            {
+              "title": "原始连续短例",
+              "url": "https://github.com/YoloLogic/ChineseTypeScript/blob/8218a6c501ddd503703fe33e4a3d82c49c77b576/%E6%95%99%E7%A8%8B/%E4%BE%8B%E5%AD%90/01-%E9%AA%A8%E6%9E%B6.ts#L11-L13"
+            },
+            {
+              "title": "官方原始项目页（第四轮入口）",
+              "url": "https://logicyolo.com/chinese-typescript/"
+            },
+            {
+              "title": "项目自己的说明与上游基线",
+              "url": "https://github.com/YoloLogic/ChineseTypeScript/blob/8218a6c501ddd503703fe33e4a3d82c49c77b576/README-%E6%88%91%E4%BB%AC%E7%9A%84%E8%AF%B4%E6%98%8E.md#L11-L31"
+            },
+            {
+              "title": "词法查表实现",
+              "url": "https://github.com/YoloLogic/ChineseTypeScript/blob/8218a6c501ddd503703fe33e4a3d82c49c77b576/tsc/internal/scanner/scanner.go#L2214-L2235"
+            },
+            {
+              "title": "用户声明名称收集实现",
+              "url": "https://github.com/YoloLogic/ChineseTypeScript/blob/8218a6c501ddd503703fe33e4a3d82c49c77b576/tsc/internal/compiler/program.go#L2038-L2075"
+            },
+            {
+              "title": "默认中文诊断入口",
+              "url": "https://github.com/YoloLogic/ChineseTypeScript/blob/8218a6c501ddd503703fe33e4a3d82c49c77b576/tsc/cmd/tsc/main.go#L36-L51"
+            }
+          ]
+        },
+        {
+          "name": "ChineseJava（YoloLogic）",
+          "status": "当前阶段已分类：占位计划；正式目录计数 0",
+          "facts": [
+            "2026-10-25 已读作者官网，页面将项目列为计划中的 OpenJDK 方向，状态为开发中。",
+            "作者说明本地仅有原始 openjdk/jdk 克隆，修改尚未开始；公开仓库、安装包、时间表和关键字表计划后续发布。页面将“整数”与 int 并列作为计划原则。",
+            "官网页脚署名 YoloLogic（张永乐）。该对象按计划阶段保存，未来新增实际中文语法或原始程序时可依新材料重新核验。"
+          ],
+          "unknowns": [
+            "实际中文语法、原作者连续程序、实现、公开仓库、版本与发行待核实。",
+            "页面为动态来源，观察日期为 2026-10-25；精确首发待核实。"
+          ],
+          "sources": [
+            {
+              "title": "作者项目说明",
+              "url": "https://logicyolo.com/chinese-java/"
+            },
+            {
+              "title": "作者身份页",
+              "url": "https://logicyolo.com/about#%E4%BD%9C%E8%80%85"
+            }
+          ]
+        },
+        {
+          "name": "子语",
+          "status": "已分类收录；剩余字段待核实",
+          "facts": [
+            "现有正式条目 lang-051，分类：中文句式语言／嵌入式开发。",
+            "BV125up6eEdA 对应子语。原作者视频与 shanque_esp32s3 仓库形成关联；PowerShell 构建脚本调度 ziyu_cli.exe，把生成的 C／H 文件送入 ESP-IDF，并链接预编译运行时。",
+            "现有条目保存的原作者连续短例：\n引入山雀开发板.zhw。\n\n循环以下内容：\n如果按键1按着：蓝灯点亮。\n直到0。",
+            "原例出处及上下文：固定提交示例第1—5行原文，含文件引入、循环及条件语句。运行依赖山雀开发板库与相应硬件。原视频 BV125up6eEdA 的 01:33 可见“组合名字、年龄成小明”及句式定义，并同时显示硬件屏幕输出；02:05 可见“复制小明成张三”和“张三长大3岁”。视频与本短例分别记录。",
+            "日期记录：当前默认分支历史最早提交为 ef5ce5b94d5a362c7578e8c91535525ecc96224b，时间 2026-07-08T10:32:56Z，已含中文条件和循环示例。显示屏演示原片发表于 2026-08-06T12:49:28Z（北京时间 2026-08-06 20:49:28）。语言首次公开日期待核实。",
+            "版本与固定快照记录：运行包包含 zi-yu-0.0.7.vsix；此编号按 VS Code 插件文件记录。核验 main 提交 15559af77adfc64e6ede4c907dd219fa5603163f，提交时间 2026-08-15T08:33:29Z。语言版本及插件与解析器版本关系待核实。",
+            "证据层级为原作者公开材料与静态源码核验；本组候选软件安装、构建与执行均为 0，独立运行保持待核实。"
+          ],
+          "unknowns": [
+            "完整解析器与预编译运行时内部源码、插件编号与语言版本关系、许可范围及独立构建运行待核实。"
+          ],
+          "sources": [
+            {
+              "title": "现有正式页 lang-051",
+              "url": "https://xn--fiq228cgqosxegyprwc.yuyan-lang.org/languages/lang-051.html"
+            },
+            {
+              "title": "原始连续短例",
+              "url": "https://github.com/liuzhiyixx/shanque_esp32s3/blob/15559af77adfc64e6ede4c907dd219fa5603163f/中文示例/08_加入循环让按键1控制蓝灯.zhw#L1-L5"
+            },
+            {
+              "title": "当前历史最早提交中的中文原例",
+              "url": "https://github.com/liuzhiyixx/shanque_esp32s3/blob/ef5ce5b94d5a362c7578e8c91535525ecc96224b/中文示例/08_加入循环让按键1控制蓝灯.zhw"
+            },
+            {
+              "title": "固定 C 入口",
+              "url": "https://github.com/liuzhiyixx/shanque_esp32s3/blob/15559af77adfc64e6ede4c907dd219fa5603163f/idf_project/main/app_main.c"
+            }
+          ]
+        },
+        {
+          "name": "Sheng（结绳）",
+          "status": "已分类收录；剩余字段待核实",
+          "facts": [
+            "现有正式条目 lang-049，分类：中文关键字语言／Python与PLY实现（作者发行说明）。",
+            "PyPI 作者元数据署名 luojiahai，维护者为 ljiahai。发行说明自述 Python 与 PLY 实现；0.1.18 页面保存两行中文赋值和打印原例。与 tiecode 结绳按各自身份保存。",
+            "现有条目保存的原作者连续短例：\n甲 赋值 \"你好，世界！\"\n打印(甲)",
+            "原例出处及上下文：作者PyPI 0.1.18发行说明“Getting Started”完整连续两行原例，页面标注来源文件为example/helloworld.zh。说明将首行解释为赋值、次行解释为内置打印函数调用。相同原例保留在当前0.1.22项目页；运行结果待核实。",
+            "日期记录：PyPI可见最早发行0.1.0，日期为2021-11-07；项目更早公开时间待核实。",
+            "版本与固定快照记录：PyPI版本表列出0.1.0至0.1.22共23个版本，日期范围2021-11-07至2021-11-17；0.1.18日期为2021-11-15，最新可见0.1.22日期为2021-11-17。各版本精确上传时刻待核实。",
+            "证据层级为原作者公开材料与静态源码核验；本组候选软件安装、构建与执行均为 0，独立运行保持待核实。"
+          ],
+          "unknowns": [
+            "原 GitHub 仓库读取返回 404；完整发行源码、词法语法产生式、执行后端和发行包内许可正文待核实。",
+            "更早首发与当前维护状态、独立运行待核实。"
+          ],
+          "sources": [
+            {
+              "title": "现有正式页 lang-049",
+              "url": "https://xn--fiq228cgqosxegyprwc.yuyan-lang.org/languages/lang-049.html"
+            },
+            {
+              "title": "原始连续短例",
+              "url": "https://pypi.org/project/sheng/0.1.18/#description"
+            },
+            {
+              "title": "作者0.1.18发行说明与中文原例",
+              "url": "https://pypi.org/project/sheng/0.1.18/"
+            },
+            {
+              "title": "PyPI项目页：当前版本、发行历史与包校验值",
+              "url": "https://pypi.org/project/sheng/"
+            },
+            {
+              "title": "0.1.19发行说明与中文原例",
+              "url": "https://pypi.org/project/sheng/0.1.19/"
+            },
+            {
+              "title": "原GitHub仓库入口",
+              "url": "https://github.com/luojiahai/sheng"
+            }
+          ]
+        }
+      ],
+      "research": [
+        {
+          "title": "2026-10-10/round-5-yolologic.md",
+          "url": "https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe395f2c89a1d6f4670da171292d452d44c/research/2026-10-10/round-5-yolologic.md"
+        },
+        {
+          "title": "2026-10-10/round-5-historical-and-layer.md",
+          "url": "https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe395f2c89a1d6f4670da171292d452d44c/research/2026-10-10/round-5-historical-and-layer.md"
+        },
+        {
+          "title": "2026-10-10/round-5-bilibili.md",
+          "url": "https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe395f2c89a1d6f4670da171292d452d44c/research/2026-10-10/round-5-bilibili.md"
+        },
+        {
+          "title": "2026-10-14/chinesecpp-publication.md",
+          "url": "https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe395f2c89a1d6f4670da171292d452d44c/research/2026-10-14/chinesecpp-publication.md"
+        },
+        {
+          "title": "2026-10-12/round-25-issue-followup.md",
+          "url": "https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe395f2c89a1d6f4670da171292d452d44c/research/2026-10-12/round-25-issue-followup.md"
+        },
+        {
+          "title": "2026-10-25/mixed-language-backlog.md",
+          "url": "https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe395f2c89a1d6f4670da171292d452d44c/research/2026-10-25/mixed-language-backlog.md"
+        },
+        {
+          "title": "2026-10-28/mixed-scope-review.md",
+          "url": "https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe395f2c89a1d6f4670da171292d452d44c/research/2026-10-28/mixed-scope-review.md"
+        }
+      ]
+    },
+    {
+      "issue": 22,
+      "title": "太和、中文Rust与52zwbc等项目的证据记录",
+      "summary": "原 10 组候选逐项保存：8 组已有正式条目，中文Rust按设计与部分基础模块原型保存证据和连续原例缺口，52zwbc关联组沿用既有 main 描述及取消 PR #62 的边界。资料不足项保持待核层级，正式目录新增 0 项；议题可在公开记录合入后按新处理规则关闭。",
+      "subjects": [
+        {
+          "name": "太和",
+          "status": "已分类收录；剩余字段待核实",
+          "facts": [
+            "现有正式条目 lang-062，分类：中文语法语言／Python编译器与AST解释器实验。",
+            "Python 词法器和解析器构造 AST；编译路径经 llvmlite 生成 LLVM IR，再由 llc／Clang 编译链接，另有 AST 解释器入口。集合语法的简化或错误分支按固定源码保存。",
+            "现有条目保存的原作者连续短例：\n函数 斐波那契(n):\n    # 计算第n个斐波那契数\n    如果 n <= 1:\n        返回 n\n    否则:\n        返回 斐波那契(n - 1) + 斐波那契(n - 2)",
+            "原例出处及上下文：固定examples/fibonacci.th第4—9行连续原文，包含完整递归斐波那契函数及中文条件、返回语法。全文和按行读取结果已比对。例程独立编译及执行结果待核实。",
+            "日期记录：仓库创建于2026-02-27T10:20:05Z；同一时间的根提交11adcd8bc435da38f09d13b8b6b94aed6e17f37f包含项目简介与MIT许可证。规范提交时间为2026-02-27T10:37:17Z，核心文件上传提交65115c14f95738d607e02b2ef8abafa8a7b36ba2的时间为2026-02-27T11:19:30Z。更早语言设计及首次公开日期待核实。",
+            "版本与固定快照记录：spec.md标题自标v0.1；src/taihe/__init__.py和CLI版本命令自标0.1.0；已提交的PKG-INFO标taihe-lang 0.2.0、Alpha、Python>=3.8及llvmlite==0.46.0。上述编号按所在文件分别记录。固定main提交c52c75f9ef82772017ffd19042fce72b8d891e71的作者及提交日期为2026-02-27T11:42:11Z。2026-10-10读取Releases列表为空，标签引用命名空间返回404；正式发行版本及编号对应关系待核实。",
+            "证据层级为原作者公开材料与静态源码核验；本组候选软件安装、构建与执行均为 0，独立运行保持待核实。"
+          ],
+          "unknowns": [
+            "两个执行路径的语义一致性、集合功能完整性、跨平台范围、性能、发布包与 IDE 对应源码及独立构建运行待核实。",
+            "规范 v0.1、CLI 0.1.0 与包元数据 0.2.0 的版本对应，AI 生成范围待核实。"
+          ],
+          "sources": [
+            {
+              "title": "现有正式页 lang-062",
+              "url": "https://xn--fiq228cgqosxegyprwc.yuyan-lang.org/languages/lang-062.html"
+            },
+            {
+              "title": "原始连续短例",
+              "url": "https://github.com/naodingaoaoao/TaiHeLang/blob/c52c75f9ef82772017ffd19042fce72b8d891e71/examples/fibonacci.th#L4-L9"
+            },
+            {
+              "title": "固定解析语句入口",
+              "url": "https://github.com/naodingaoaoao/TaiHeLang/blob/c52c75f9ef82772017ffd19042fce72b8d891e71/src/taihe/parser.py#L180-L216"
+            },
+            {
+              "title": "固定编译流水线",
+              "url": "https://github.com/naodingaoaoao/TaiHeLang/blob/c52c75f9ef82772017ffd19042fce72b8d891e71/src/taihe/compiler.py#L10-L55"
+            },
+            {
+              "title": "固定LLVM IR生成入口",
+              "url": "https://github.com/naodingaoaoao/TaiHeLang/blob/c52c75f9ef82772017ffd19042fce72b8d891e71/src/taihe/codegen.py#L335-L396"
+            },
+            {
+              "title": "固定本地编译、链接和执行路径",
+              "url": "https://github.com/naodingaoaoao/TaiHeLang/blob/c52c75f9ef82772017ffd19042fce72b8d891e71/src/taihe/cli.py#L201-L409"
+            },
+            {
+              "title": "固定集合类型实现阶段",
+              "url": "https://github.com/naodingaoaoao/TaiHeLang/blob/c52c75f9ef82772017ffd19042fce72b8d891e71/src/taihe/codegen.py#L2285-L2338"
+            }
+          ]
+        },
+        {
+          "name": "pchinese",
+          "status": "已分类收录；剩余字段待核实",
+          "facts": [
+            "现有正式条目 lang-065，分类：Python中文语法转译层／标识符词元映射运行器。",
+            "逐字符扫描区分注释和字符串，代码区按完整标识符映射并转换全角标点，再交 Python compile／exec。源码含 REPL 和 PyQt 中文词表；源码 1.2.0 与 v1.1.0-alpha1 预发行分别记录。",
+            "现有条目保存的原作者连续短例：\n定义 阶乘（数）：\n    如果 数 <= 1：\n        返回 1\n    返回 数 * 阶乘（数 - 1）\n\n打印（“5 的阶乘 =”，阶乘（5））",
+            "原例出处及上下文：固定examples/综合示例.pcn第4—9行连续原文，含完整递归阶乘函数及调用。已将全文相应行与按行读取结果逐字比对。中文关键字、全角括号和中文引号沿用原例；独立运行结果待核实。",
+            "日期记录：仓库创建于2026-08-06T05:30:41Z；根提交7595e93ebf7e00be624fa834dfbfbaed1bdca266于2026-08-06T05:30:42Z保存中文Python实验解释器简介。README语法扩写提交fcaf332dd94561172d4cf834f4ab5187d480b327于05:48:41Z提交，核心源码与.pcn原例于06:00:52Z进入提交81aca58ac5b042809f2888c3689dc8a86bd7cd3f。发行说明提及更早本地版本，早期设计及首次公开日期待核实。",
+            "版本与固定快照记录：固定main提交8c1a0957d3177dd85a7723c4dcb6ab042b6a2752时间为2026-10-01T04:58:24Z；pchinese/__init__.py自标1.2.0。2026-10-10读取的公开发行仅有v1.1.0-alpha1，发布于2026-08-06T06:09:26Z，标签指向81aca58ac5b042809f2888c3689dc8a86bd7cd3f，附件pchinese.exe为8,432,661字节。源码1.2.0与预发行1.1.0-alpha1分别记录；1.2.0独立发行及附件内容验证待核实。README声明Python3.13.x运行环境。",
+            "证据层级为原作者公开材料与静态源码核验；本组候选软件安装、构建与执行均为 0，独立运行保持待核实。"
+          ],
+          "unknowns": [
+            "1.2.0 独立发行与附件对应、GUI 兼容性、f-string 和行号边界、AI 参与及独立运行待核实。"
+          ],
+          "sources": [
+            {
+              "title": "现有正式页 lang-065",
+              "url": "https://xn--fiq228cgqosxegyprwc.yuyan-lang.org/languages/lang-065.html"
+            },
+            {
+              "title": "原始连续短例",
+              "url": "https://github.com/LostPEople634/pchinese/blob/8c1a0957d3177dd85a7723c4dcb6ab042b6a2752/examples/综合示例.pcn#L4-L9"
+            },
+            {
+              "title": "固定Python编译及执行入口",
+              "url": "https://github.com/LostPEople634/pchinese/blob/8c1a0957d3177dd85a7723c4dcb6ab042b6a2752/pchinese/runner.py#L42-L136"
+            },
+            {
+              "title": "固定Qt词表机制与依赖说明",
+              "url": "https://github.com/LostPEople634/pchinese/blob/8c1a0957d3177dd85a7723c4dcb6ab042b6a2752/pchinese/qt_words.py#L1-L39"
+            },
+            {
+              "title": "固定源码1.2.0版本",
+              "url": "https://github.com/LostPEople634/pchinese/blob/8c1a0957d3177dd85a7723c4dcb6ab042b6a2752/pchinese/__init__.py#L1-L10"
+            },
+            {
+              "title": "核心源码与原例首次上传提交",
+              "url": "https://github.com/LostPEople634/pchinese/commit/81aca58ac5b042809f2888c3689dc8a86bd7cd3f"
+            },
+            {
+              "title": "根提交与初始项目简介",
+              "url": "https://github.com/LostPEople634/pchinese/commit/7595e93ebf7e00be624fa834dfbfbaed1bdca266"
+            }
+          ]
+        },
+        {
+          "name": "ChineseToyLang",
+          "status": "已分类收录；剩余字段待核实",
+          "facts": [
+            "现有正式条目 lang-063，分类：中文语法语言／早期编译器前端与LLVM IR实验。",
+            "C／C++ 前端提供中文词元和 AST 解析；独立 IR 测试入口调用 LLVM 生成器。后端独立 main 使用手工构造的虚拟指令演示寄存器分配与 x86 指令选择，按早期前端和 IR 实验阶段收录。",
+            "现有条目保存的原作者连续短例：\n令 年龄 = 28;\n恒 PI = 3.1415926;\n函 计算面积(半径) {\n    返 PI * 半径 ** 2;\n}",
+            "原例出处及上下文：固定tests/examples/test.txt第3—7行连续原文，包含中文变量、常量声明与完整面积函数。另有test_variable.txt展示真／假字面量和多种表达式。所选原例全文与按行读取已比对，独立编译运行结果待核实。",
+            "日期记录：仓库创建于2025-06-01T08:03:13Z。默认分支根提交120ea4b7dce11a98cffa724a59d2b4a78da74dcb的作者时间为2025-06-01T09:34:37Z、提交时间为2025-06-01T09:35:14Z，消息为“中文玩具编译器”，包含中文语法和测试例程。更早语言设计及首次公开日期待核实。",
+            "版本与固定快照记录：固定master提交897456459430f6c9abcb517fa3249739f502e7b2的作者及提交时间为2025-08-18T14:47:46Z，提交说明为“gc算法开发02”；可见默认分支历史共66条。CMake工程名为ChineseToyLang，app/version.h.in保存版本替换模板。2026-10-10读取Releases列表为空，标签引用命名空间返回404；正式语言版本与发行号待核实。",
+            "证据层级为原作者公开材料与静态源码核验；本组候选软件安装、构建与执行均为 0，独立运行保持待核实。"
+          ],
+          "unknowns": [
+            "前端至机器码完整流水线、运行时及垃圾回收完整性、正式版本、许可、AI 参与与独立构建运行待核实。"
+          ],
+          "sources": [
+            {
+              "title": "现有正式页 lang-063",
+              "url": "https://xn--fiq228cgqosxegyprwc.yuyan-lang.org/languages/lang-063.html"
+            },
+            {
+              "title": "原始连续短例",
+              "url": "https://github.com/sundaolin9527/ChineseToyLang/blob/897456459430f6c9abcb517fa3249739f502e7b2/tests/examples/test.txt#L3-L7"
+            },
+            {
+              "title": "原作者仓库名称与中文玩具编译器简介",
+              "url": "https://github.com/sundaolin9527/ChineseToyLang"
+            },
+            {
+              "title": "固定声明及函数解析",
+              "url": "https://github.com/sundaolin9527/ChineseToyLang/blob/897456459430f6c9abcb517fa3249739f502e7b2/src/Frontend/Parser.c#L94-L185"
+            },
+            {
+              "title": "固定主程序AST入口",
+              "url": "https://github.com/sundaolin9527/ChineseToyLang/blob/897456459430f6c9abcb517fa3249739f502e7b2/app/Main.cpp#L13-L53"
+            },
+            {
+              "title": "固定单独IR生成测试入口",
+              "url": "https://github.com/sundaolin9527/ChineseToyLang/blob/897456459430f6c9abcb517fa3249739f502e7b2/tests/Unit/IR/CodeGenTest.cpp#L11-L52"
+            },
+            {
+              "title": "固定构建依赖与LLVM版本",
+              "url": "https://github.com/sundaolin9527/ChineseToyLang/blob/897456459430f6c9abcb517fa3249739f502e7b2/CMakeLists.txt#L1-L26"
+            }
+          ]
+        },
+        {
+          "name": "XuYu",
+          "status": "已分类收录；剩余字段待核实",
+          "facts": [
+            "现有正式条目 lang-096，分类：中文赋值关键字的早期AST解释器／实验性语言设计。",
+            "Go 词法器和解析器实现“设置”中文赋值关键字，AST 求值覆盖整数引用及四则表达式；完整两行 .中 文件为原始连续例程。CLI 0.0.1-dev 与候选规范 v0.1 分别记录。",
+            "现有条目保存的原作者连续短例：\n设置 基数 = 10\n设置 总数 = (基数 + 2) * 3 - 4 / 2\n",
+            "原例出处及上下文：固定提交examples/阶段0/整数表达式.中第1—2行的完整连续原文，保留末尾换行。第一行设置基数，第二行引用基数计算总数。README与CLI测试源码列出预期输出“环境[基数=10, 总数=34]”，CLI测试断言另含末尾换行；本轮为静态源码核验，独立执行待核实。",
+            "日期记录：GitHub仓库创建于2026-09-22T01:48:00Z；根提交345c6efc8f038e810a122e3d1eaf98d32b8c5707时间为2026-09-22T02:09:05Z。部分设计和实现文档标注2026-09-21，该日期按文档自标保存。首次对外公开日期待核实。",
+            "版本与固定快照记录：CLI自标0.0.1-dev，候选语言规范自标v0.1，两者分别记录。固定main提交2974fd20dc0b0a91eab3a83c063c21a8527a897b时间为2026-09-22T08:56:30Z；2026-10-12复查main仍指向该提交。当前整合计划标记M1整数表达式完成、M2输出和M3条件代码块为后续工作。",
+            "证据层级为原作者公开材料与静态源码核验；本组候选软件安装、构建与执行均为 0，独立运行保持待核实。"
+          ],
+          "unknowns": [
+            "输出、条件、循环、函数、对象、模块与原生编译按后续计划或实验规范记录；相应完整实现待核实。",
+            "许可、AI 实际参与、首次对外公开及独立运行待核实。"
+          ],
+          "sources": [
+            {
+              "title": "现有正式页 lang-096",
+              "url": "https://xn--fiq228cgqosxegyprwc.yuyan-lang.org/languages/lang-096.html"
+            },
+            {
+              "title": "原始连续短例",
+              "url": "https://github.com/mehaotian/xuyu/blob/2974fd20dc0b0a91eab3a83c063c21a8527a897b/examples/%E9%98%B6%E6%AE%B50/%E6%95%B4%E6%95%B0%E8%A1%A8%E8%BE%BE%E5%BC%8F.%E4%B8%AD#L1-L2"
+            },
+            {
+              "title": "词法器：“设置”关键字精确识别",
+              "url": "https://github.com/mehaotian/xuyu/blob/2974fd20dc0b0a91eab3a83c063c21a8527a897b/internal/lexer/lexer.go#L115-L141"
+            },
+            {
+              "title": "赋值解析与换行语句边界",
+              "url": "https://github.com/mehaotian/xuyu/blob/2974fd20dc0b0a91eab3a83c063c21a8527a897b/internal/parser/parser.go#L27-L91"
+            },
+            {
+              "title": "表达式分层解析与整数范围",
+              "url": "https://github.com/mehaotian/xuyu/blob/2974fd20dc0b0a91eab3a83c063c21a8527a897b/internal/parser/parser.go#L93-L182"
+            },
+            {
+              "title": "CLI版本、命令与调试环境输出",
+              "url": "https://github.com/mehaotian/xuyu/blob/2974fd20dc0b0a91eab3a83c063c21a8527a897b/cmd/zhongwen/main.go#L14-L59"
+            },
+            {
+              "title": "Go模块与工具链版本",
+              "url": "https://github.com/mehaotian/xuyu/blob/2974fd20dc0b0a91eab3a83c063c21a8527a897b/go.mod#L1-L3"
+            }
+          ]
+        },
+        {
+          "name": "中文Rust语法设计与转译工具（ZhongComputeRust／cn_transpiler）",
+          "status": "待核资料记录：设计与部分基础模块原型；正式目录计数 0",
+          "facts": [
+            "作者账号与保留 5 次提交署名为 bo333。仓库创建于 2026-07-03T03:40:07Z；根提交 fd99a1de560a478f65276c3429b68bd71f02540c 时间为 03:40:08Z；固定头 4605fee9402c9ad6fe6e06771b6d2443105eada8 时间为 05:36:32Z。",
+            "固定完整树 81 项、51 文件：README、15 个 Cargo.toml、34 份 Rust 源文件及一个空设计文档。README 为需求、词表和流程设计，7 个围栏均为 PlantUML。已见“函数／让／可变／如果／返回”映射及所有权规则片段。",
+            "工作区含 14 个 crate；cn_types 与 cn_config 提供映射注册、查询及数据结构，内置表包含 33 项关键词、27 项类型和 4 项所有权语法映射。其余 12 个 crate 声明的 51 个外部模块对应文件缺省；CLI 当前打印版本横幅。性能、LSP、增量转译与完整 Rust 语义映射按作者设计目标记录。",
+            "2026-10-28 核对全部 5 个历史树与 34 份 Rust 源文件，tests／examples 路径及 #[test]、cfg(test) 注解缺省。源码汉字用于映射、注释、诊断和横幅。历史 Compute 文件 blob 1aa3ccadef0d3c923c6b23b5938e1e89f4f36163 使用英文 Python 语法调用 NumPy／Matplotlib，中文出现在注释和显示文字。",
+            "workspace.package 与 CLI 自标 0.1.0，Rust edition 2021、最低 1.70.0；映射规范字段 1.0 单独记录。MIT 许可确认到 workspace.package 声明层级，14 个子包许可字段及完整许可正文待补。2026-10-10 已读公开 Release 与标签引用均为空。",
+            "2026-10-30 原仓全部 Issues、评论及 PR 返回空集合，Discussions 关闭；bo333 公开 Gists 返回 HTTP 200 空数组且无分页。作者连续中文用户程序尚未取得，本记录以已见原件说明当前阶段。候选软件安装、构建与执行均为 0。"
+          ],
+          "unknowns": [
+            "原作者连续中文用户程序及其固定出处待补；作者其他发布渠道的程序状态待核实。",
+            "词法、解析、语义映射和生成核心实现、端到端转译、独立构建运行待核实。",
+            "正式语言名、精确首发、真实姓名、AI 参与、完整授权正文与各包适用范围待核实。"
+          ],
+          "sources": [
+            {
+              "title": "固定需求和映射文档",
+              "url": "https://github.com/bo333/Chinese-Rust-Syntax-Design-and-Transpilation-Tool/blob/4605fee9402c9ad6fe6e06771b6d2443105eada8/README.md"
+            },
+            {
+              "title": "固定映射实现",
+              "url": "https://github.com/bo333/Chinese-Rust-Syntax-Design-and-Transpilation-Tool/blob/4605fee9402c9ad6fe6e06771b6d2443105eada8/ZhongComputeRust/crates/cn_config/src/builtin_mappings.rs#L15-L127"
+            },
+            {
+              "title": "固定工作区版本与许可声明",
+              "url": "https://github.com/bo333/Chinese-Rust-Syntax-Design-and-Transpilation-Tool/blob/4605fee9402c9ad6fe6e06771b6d2443105eada8/ZhongComputeRust/Cargo.toml#L20-L24"
+            },
+            {
+              "title": "固定 CLI",
+              "url": "https://github.com/bo333/Chinese-Rust-Syntax-Design-and-Transpilation-Tool/blob/4605fee9402c9ad6fe6e06771b6d2443105eada8/ZhongComputeRust/crates/cn_cli/src/main.rs#L1-L6"
+            },
+            {
+              "title": "历史 Python Compute 原件",
+              "url": "https://github.com/bo333/Chinese-Rust-Syntax-Design-and-Transpilation-Tool/blob/bd8ebc340636968c96200795525a374fbe88b6db/ZhongComputeRust/Compute"
+            },
+            {
+              "title": "公开 Gists 元数据",
+              "url": "https://api.github.com/users/bo333/gists?per_page=100"
+            }
+          ]
+        },
+        {
+          "name": "中文智能合约编译器（zhsc-compiler）",
+          "status": "已分类收录；剩余字段待核实",
+          "facts": [
+            "现有正式条目 lang-069，分类：中文Solidity DSL设计及部分实现原型。",
+            "固定 README 保存连续 .zhs 合约；AST、编译调度入口和 CLI 可读，按中文 Solidity DSL 设计及部分实现原型收录。",
+            "现有条目保存的原作者连续短例：\n合约 问候 {\n    公开 字符串 消息 = \"你好，世界！\";\n    \n    函数 获取消息() 公开 只读 返回 字符串 {\n        返回 消息;\n    }\n    \n    函数 设置消息(字符串 新消息) 公开 {\n        消息 = 新消息;\n    }\n}",
+            "原例出处及上下文：固定README第29—39行的完整问候合约，共11行连续原文；含状态变量、读取函数及设置函数。已将全文对应范围与按行读取结果逐字比对。原文空白行缩进保留；该例按设计文档原例记录，实际编译及执行待核实。",
+            "日期记录：仓库创建时间为2025-10-24T12:07:05Z；根提交0a1d7837bff8fb1745e6aba09d43a0f7bc2b6049于2025-10-24T12:08:42Z上传README、AST、编译入口和CLI。LICENSE中的2024为版权署名年份；更早公开历史待核实。",
+            "版本与固定快照记录：cli.py第20及138行自标0.1.0；README标Python3.11+。固定main提交f6d8665def53639a8b8b3adf473fdfa177e93632于2025-10-24T12:12:19Z修订README链接。源码版本、Git提交和公开发行分别记录；公开发行物待核实。",
+            "证据层级为原作者公开材料与静态源码核验；本组候选软件安装、构建与执行均为 0，独立运行保持待核实。"
+          ],
+          "unknowns": [
+            "词法器、解析器、Solidity 生成器三个核心模块的公开实现与端到端运行待核实。"
+          ],
+          "sources": [
+            {
+              "title": "现有正式页 lang-069",
+              "url": "https://xn--fiq228cgqosxegyprwc.yuyan-lang.org/languages/lang-069.html"
+            },
+            {
+              "title": "原始连续短例",
+              "url": "https://github.com/Anubisya/zhsc-compiler/blob/f6d8665def53639a8b8b3adf473fdfa177e93632/README.md#L29-L39"
+            },
+            {
+              "title": "编译入口的三个模块导入",
+              "url": "https://github.com/Anubisya/zhsc-compiler/blob/f6d8665def53639a8b8b3adf473fdfa177e93632/compiler.py#L10-L12"
+            },
+            {
+              "title": "词法、解析和生成的调度调用",
+              "url": "https://github.com/Anubisya/zhsc-compiler/blob/f6d8665def53639a8b8b3adf473fdfa177e93632/compiler.py#L93-L129"
+            },
+            {
+              "title": "固定CLI依赖、版本和编译命令",
+              "url": "https://github.com/Anubisya/zhsc-compiler/blob/f6d8665def53639a8b8b3adf473fdfa177e93632/cli.py#L6-L59"
+            },
+            {
+              "title": "CLI版本与作者占位字段",
+              "url": "https://github.com/Anubisya/zhsc-compiler/blob/f6d8665def53639a8b8b3adf473fdfa177e93632/cli.py#L134-L140"
+            },
+            {
+              "title": "初始上传提交及文件清单",
+              "url": "https://github.com/Anubisya/zhsc-compiler/commit/0a1d7837bff8fb1745e6aba09d43a0f7bc2b6049"
+            }
+          ]
+        },
+        {
+          "name": "chinalang（中国语言）",
+          "status": "已分类收录；剩余字段待核实",
+          "facts": [
+            "现有正式条目 lang-070，分类：中文／英文双关键字戏仿语言／Go独立AST解释器。",
+            "Go 源码包含中英文双关键字词法、Pratt 解析、AST 宏展开与树遍历解释；按戏仿语言保存作者定位。Cursor 共同署名按原仓材料记录。",
+            "现有条目保存的原作者连续短例：\n宣布 反之 = 指示(condition, consequence, alternative) {\n\t引用(如果 (!(篡改(condition))) {\n\t\t篡改(consequence);\n\t} 否则 {\n\t\t篡改(alternative);\n\t});\n};\n\n说 \"Is the State ever wrong?\";\n反之(假, 打印(\"The State is always right.\"), 打印(\"(this branch is unreachable)\"));",
+            "原例出处及上下文：固定examples/directives.cn第8—17行，共10行连续原文，含完整“反之”宏定义、输出及宏调用；中文关键字、英文参数名、制表符缩进和原例字符串均保留。全文与按行读取逐字一致。该例展示宏将分支AST拼接后交给解释器执行；运行结果待独立核实。",
+            "日期记录：仓库创建时间2026-06-21T00:11:22Z。根提交e0054f918848f8ab2e8349952a7bb00dc73c9f13的作者与提交时间均为2026-06-21T00:11:05Z，保存解释器、原例及测试。Git时间早于仓库创建17秒，按各元数据原值分别记录；首次可公开访问时间待核实。",
+            "版本与固定快照记录：固定main提交59332f7c0d02c130257124cbbedbe8d2fd1cafc4时间2026-06-21T00:14:14Z，修改README项目定位；语言版本号待核实。README写Go1.26+，go.mod声明Go1.26.2；两者按工具链要求记录。公开发行和语言整体许可证待核实。",
+            "证据层级为原作者公开材料与静态源码核验；本组候选软件安装、构建与执行均为 0，独立运行保持待核实。"
+          ],
+          "unknowns": [
+            "语言许可、正式发行、具体 AI 生成比例及独立运行待核实。"
+          ],
+          "sources": [
+            {
+              "title": "现有正式页 lang-070",
+              "url": "https://xn--fiq228cgqosxegyprwc.yuyan-lang.org/languages/lang-070.html"
+            },
+            {
+              "title": "原始连续短例",
+              "url": "https://github.com/sjqtentacles/chinalang/blob/59332f7c0d02c130257124cbbedbe8d2fd1cafc4/examples/directives.cn#L8-L17"
+            },
+            {
+              "title": "rune词法扫描与关键字识别",
+              "url": "https://github.com/sjqtentacles/chinalang/blob/59332f7c0d02c130257124cbbedbe8d2fd1cafc4/lexer/lexer.go#L18-L138"
+            },
+            {
+              "title": "Pratt解析器注册及语句构造",
+              "url": "https://github.com/sjqtentacles/chinalang/blob/59332f7c0d02c130257124cbbedbe8d2fd1cafc4/parser/parser.go#L12-L199"
+            },
+            {
+              "title": "表达式优先级及中文宏解析",
+              "url": "https://github.com/sjqtentacles/chinalang/blob/59332f7c0d02c130257124cbbedbe8d2fd1cafc4/parser/parser.go#L310-L521"
+            },
+            {
+              "title": "文件读取、宏展开及AST执行完整入口",
+              "url": "https://github.com/sjqtentacles/chinalang/blob/59332f7c0d02c130257124cbbedbe8d2fd1cafc4/main.go#L14-L52"
+            },
+            {
+              "title": "宏定义提取、参数引用和AST替换",
+              "url": "https://github.com/sjqtentacles/chinalang/blob/59332f7c0d02c130257124cbbedbe8d2fd1cafc4/evaluator/macro_expansion.go#L8-L119"
+            }
+          ]
+        },
+        {
+          "name": "MiniLang（FI0m9ySans）",
+          "status": "已分类收录；剩余字段待核实",
+          "facts": [
+            "现有正式条目 lang-066，分类：中文语法语言／Python实现的独立AST解释器。",
+            "Python 源码包含 Lexer、递归下降 Parser、AST 与 Interpreter；MiniLang.run 串接词法、解析和树遍历解释。数学库包 1.0.0 的 MIT 字段仅归属该包。",
+            "现有条目保存的原作者连续短例：\n函数 阶乘(恩) {\n    定义 结果 = 1;\n    定义 艾 = 1;\n    当 (艾 <= 恩) {\n        结果 = 结果 * 艾;\n        艾 = 艾 + 1;\n    }\n    返回 结果;\n}",
+            "原例出处及上下文：固定Code/MLCode/math_simple.kalop第9—17行连续原文，为完整迭代阶乘函数，包含函数、定义、当、返回关键字。已将全文相应行与按行读取结果逐字比对；该文件第19—21行另有调用。独立运行结果待核实。",
+            "日期记录：仓库创建于2025-11-04T05:49:43Z；根提交4770c5120be73d9e5667fe013e1cbc921039e625于05:49:44Z保存面向中文用户的MiniLang项目简介。README中文语法说明于05:50:10Z进入提交5f7a1c511f16069c33a03aa245cfe178bd16ca5d；词法、解析及解释器于05:51:11Z进入提交6144cf4b94b6b582f8b05c3d69cd6db411435dbf，数学原例于05:52:43Z进入提交6f28e6485442c219136bcf6193f903f8231a8cc4。更早设计及公开时间待核实。",
+            "版本与固定快照记录：固定main提交2778f3d3df8d6806c5b9b763e31e7d0d3ac19c7d时间为2025-11-04T06:07:45Z。2026-10-10读取Releases为空，标签引用命名空间返回404，语言正式版本及发行物待核实。数学库/minilang-package.json自标数学库1.0.0、作者MiniLang社区、license为MIT；这些字段按数学库包元数据记录，整个语言仓库的许可证待核实。",
+            "证据层级为原作者公开材料与静态源码核验；本组候选软件安装、构建与执行均为 0，独立运行保持待核实。"
+          ],
+          "unknowns": [
+            "语言整体许可、正式版本与发行物、包管理实现、AI 参与和独立运行待核实。"
+          ],
+          "sources": [
+            {
+              "title": "现有正式页 lang-066",
+              "url": "https://xn--fiq228cgqosxegyprwc.yuyan-lang.org/languages/lang-066.html"
+            },
+            {
+              "title": "原始连续短例",
+              "url": "https://github.com/FI0m9ySans/minilang/blob/2778f3d3df8d6806c5b9b763e31e7d0d3ac19c7d/Code/MLCode/math_simple.kalop#L9-L17"
+            },
+            {
+              "title": "固定MiniLang中文说明及语法原例",
+              "url": "https://github.com/FI0m9ySans/minilang/blob/2778f3d3df8d6806c5b9b763e31e7d0d3ac19c7d/README.md#L1-L25"
+            },
+            {
+              "title": "固定声明、条件、循环及函数解析",
+              "url": "https://github.com/FI0m9ySans/minilang/blob/2778f3d3df8d6806c5b9b763e31e7d0d3ac19c7d/Code/minilang.py#L231-L381"
+            },
+            {
+              "title": "固定表达式递归下降解析",
+              "url": "https://github.com/FI0m9ySans/minilang/blob/2778f3d3df8d6806c5b9b763e31e7d0d3ac19c7d/Code/minilang.py#L383-L460"
+            },
+            {
+              "title": "固定词法至AST执行与文件入口",
+              "url": "https://github.com/FI0m9ySans/minilang/blob/2778f3d3df8d6806c5b9b763e31e7d0d3ac19c7d/Code/minilang.py#L617-L718"
+            },
+            {
+              "title": "根提交与初始项目简介",
+              "url": "https://github.com/FI0m9ySans/minilang/commit/4770c5120be73d9e5667fe013e1cbc921039e625"
+            }
+          ]
+        },
+        {
+          "name": "PyCn（sunzi334481）",
+          "status": "已分类收录；剩余字段待核实",
+          "facts": [
+            "现有正式条目 lang-072，分类：Python中文方言／词元级源码转译层。",
+            "Python 手写扫描器按词元和分层词表转译，后接 compile／exec；导入钩子、CLI、REPL 和编辑器插件源码可读。0.1.0 与 MIT 依据固定项目材料记录，86 个测试方法表示源码数量。",
+            "现有条目保存的原作者连续短例：\n定义 阶乘(数):\n    如果 数 <= 1:\n        返回 1\n    返回 数 * 阶乘(数 - 1)\n\n打印(\"5 的阶乘 =\", 阶乘(5))",
+            "原例出处及上下文：固定README第11—16行连续原文，共6行，包含完整阶乘函数及一次调用。全文切片与独立按行读取逐字相等。代码按作者原例保存，执行结果待独立核实。",
+            "日期记录：仓库创建于2026-10-05T11:54:33Z；根提交6978f23f于11:54:34Z保存两行项目简介。同日11:59:30Z加入CLI、导入器、REPL和包配置，12:08:10Z加入translator.py，12:16:40Z加入mappings.py。各时间为GitHub仓库及Git提交记录，更早公开历史待核实。",
+            "版本与固定快照记录：pyproject.toml与pycn_lang.__version__均自标0.1.0；VSCode、JetBrains、Visual Studio插件配置也自标0.1.0。包声明Python>=3.10，README记开发环境为Python3.14。2026-10-10读取GitHub Releases为空，git/refs/tags返回404；0.1.0独立发行、PyPI发布及跨版本运行兼容性待核实。MIT许可证署名为2026 PyCn contributors。",
+            "证据层级为原作者公开材料与静态源码核验；本组候选软件安装、构建与执行均为 0，独立运行保持待核实。"
+          ],
+          "unknowns": [
+            "发行附件对应、独立安装构建与测试运行、同类项目源码沿革待核实。"
+          ],
+          "sources": [
+            {
+              "title": "现有正式页 lang-072",
+              "url": "https://xn--fiq228cgqosxegyprwc.yuyan-lang.org/languages/lang-072.html"
+            },
+            {
+              "title": "原始连续短例",
+              "url": "https://github.com/sunzi334481/PyCn/blob/f840307aab9f55e7d25d798768db0ad4db24edb0/README.md#L11-L16"
+            },
+            {
+              "title": "固定词元级主转译入口",
+              "url": "https://github.com/sunzi334481/PyCn/blob/f840307aab9f55e7d25d798768db0ad4db24edb0/pycn_lang/translator.py#L591-L717"
+            },
+            {
+              "title": "固定f-string表达式递归转译",
+              "url": "https://github.com/sunzi334481/PyCn/blob/f840307aab9f55e7d25d798768db0ad4db24edb0/pycn_lang/translator.py#L113-L187"
+            },
+            {
+              "title": "固定包初始化与0.1.0版本",
+              "url": "https://github.com/sunzi334481/PyCn/blob/f840307aab9f55e7d25d798768db0ad4db24edb0/pycn_lang/__init__.py#L1-L10"
+            },
+            {
+              "title": "固定转译测试：多模块导入扩为两行",
+              "url": "https://github.com/sunzi334481/PyCn/blob/f840307aab9f55e7d25d798768db0ad4db24edb0/tests/test_translator.py#L254-L268"
+            },
+            {
+              "title": "固定转译测试：三行打印的行数断言",
+              "url": "https://github.com/sunzi334481/PyCn/blob/f840307aab9f55e7d25d798768db0ad4db24edb0/tests/test_translator.py#L309-L312"
+            }
+          ]
+        },
+        {
+          "name": "52zwbc 中文CPython关联组（python313zw／python314zw）",
+          "status": "关联线索与操作边界记录；本组正式收录计数 0",
+          "facts": [
+            "既有 main 的 zwpy（zw）正式条目为 lang-059，依据固定 .zw 文档、连续原例和官网资料收录为 Python 中文语法映射方案。",
+            "既有 lang-059 保存同账号 python313zw、python314zw 公开 CPython 中文修改源码的关联线索，两仓与该条目运行环境的对应关系列为待核实。该对象沿用这项既有 main 事实。",
+            "PR #62 的合并已由用户取消，取消边界继续有效。本轮资料整理沿用现有 main 的关联描述；PR #62 的增补内容保持原先未合入状态。Issue 关闭处理规则的变化只调整议题状态，待核材料的证据层级和取消边界继续保留。"
+          ],
+          "unknowns": [
+            "python313zw、python314zw 的发行附件、分支沿革、中文语法一致性及与 zwpy 的统一项目／运行时对应关系待核实。",
+            "最终按同一实现阶段或独立方言分组待核实；本记录沿用 Issue 原有 1 关联组口径，组内明确保存两个仓库名。"
+          ],
+          "sources": [
+            {
+              "title": "既有 zwpy 正式页",
+              "url": "https://xn--fiq228cgqosxegyprwc.yuyan-lang.org/languages/lang-059.html"
+            },
+            {
+              "title": "既有 main 固定资料",
+              "url": "https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe395f2c89a1d6f4670da171292d452d44c/data/languages.json"
+            },
+            {
+              "title": "python313zw 既有公开入口",
+              "url": "https://github.com/52zwbc/python313zw"
+            },
+            {
+              "title": "python314zw 既有公开入口",
+              "url": "https://github.com/52zwbc/python314zw"
+            },
+            {
+              "title": "已取消合并的 PR #62",
+              "url": "https://github.com/yuyan-lang/chinese-programming-languages/pull/62"
+            }
+          ]
+        }
+      ],
+      "research": [
+        {
+          "title": "2026-10-10/round-8-issue22.md",
+          "url": "https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe395f2c89a1d6f4670da171292d452d44c/research/2026-10-10/round-8-issue22.md"
+        },
+        {
+          "title": "2026-10-10/round-9-issue22.md",
+          "url": "https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe395f2c89a1d6f4670da171292d452d44c/research/2026-10-10/round-9-issue22.md"
+        },
+        {
+          "title": "2026-10-10/round-10-issue22.md",
+          "url": "https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe395f2c89a1d6f4670da171292d452d44c/research/2026-10-10/round-10-issue22.md"
+        },
+        {
+          "title": "2026-10-10/round-11-pycn.md",
+          "url": "https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe395f2c89a1d6f4670da171292d452d44c/research/2026-10-10/round-11-pycn.md"
+        },
+        {
+          "title": "2026-10-10/round-12-chineserust.md",
+          "url": "https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe395f2c89a1d6f4670da171292d452d44c/research/2026-10-10/round-12-chineserust.md"
+        },
+        {
+          "title": "2026-10-12/round-26-xuyu.md",
+          "url": "https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe395f2c89a1d6f4670da171292d452d44c/research/2026-10-12/round-26-xuyu.md"
+        },
+        {
+          "title": "2026-10-25/mixed-language-backlog.md",
+          "url": "https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe395f2c89a1d6f4670da171292d452d44c/research/2026-10-25/mixed-language-backlog.md"
+        },
+        {
+          "title": "2026-10-28/mixed-scope-review.md",
+          "url": "https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe395f2c89a1d6f4670da171292d452d44c/research/2026-10-28/mixed-scope-review.md"
+        }
+      ]
+    },
+    {
+      "issue": 24,
+      "title": "Californium-252中文编译器、天河语言与周蟒的已存证据",
+      "summary": "原片中文语法、发布账号与天河语言作者链已有记录；天河语言源码、周蟒转换器和默认词表分别有固定来源。视频compiler的正式名称、实现来源及继承关系保留待核，视频对象的独立正式核实数新增0。",
+      "subjects": [
+        {
+          "name": "Californium-252视频中的中文编译器",
+          "status": "原片语法已记录；独立语言身份、实现来源与继承关系待核；作为lang-090同作者关联资料保存。",
+          "facts": [
+            "原片BV1bm421x7AK由Californium-252（Bilibili UID3494354284972407）发布，原站发布时间为2024-04-20T10:11:27Z，北京时间2024-04-20 18:11:27。",
+            "2026-10-25保存的静态原帧在01:30.296显示连续两行：“for循环 x 在 列表([1,2,3,4,5,6,999]):”，下一行缩进为“标准输出(x)”。缩进与空格按阅读排版整理。",
+            "同批静态原帧在01:58.500显示两行中文输入输出，在02:38显示zhpy目录、./compiler 函数.zh及结果55。结果属于发布者录像演示。早期浏览器记录的02:08.679与02:43.189时间点，后续以本批静态帧时间点补充说明。",
+            "原作者固定个人README与跨站互链把Sen、GitHub tianhuzong、Gitee thzsen及该B站UID关联起来；同一作者链下已正式收录天河语言ThLang。",
+            "同作者python_compiler保留五次2024-06-23提交，首版脚本为Cython／GCC路线。该工具的历史与视频compiler分别记录。"
+          ],
+          "unknowns": [
+            "视频compiler的源码仓库、正式语言名称及其与ThLang、gasolin/zhpy的具体继承关系待核实。",
+            "zhpy工作目录名称属于画面线索；目录名与默认词表差异均不足以确定继承、派生或独立实现关系。",
+            "源码与录像中可执行文件的对应、许可及独立运行结果待核实。视频对象保持关联资料状态，正式核实数新增0。"
+          ],
+          "sources": [
+            {
+              "title": "原视频：整活——自制中文编程语言编译器",
+              "url": "https://www.bilibili.com/video/BV1bm421x7AK/"
+            },
+            {
+              "title": "01:30.296循环原例",
+              "url": "https://www.bilibili.com/video/BV1bm421x7AK/?t=90.296"
+            },
+            {
+              "title": "01:58.500输入输出原例",
+              "url": "https://www.bilibili.com/video/BV1bm421x7AK/?t=118.5"
+            },
+            {
+              "title": "作者固定个人README：Sen及跨站账号互链",
+              "url": "https://github.com/tianhuzong/tianhuzong/blob/52feca7bcfc158c376958c57d0708bb24559315e/README.md"
+            },
+            {
+              "title": "python_compiler初版脚本：Cython／GCC调用",
+              "url": "https://github.com/tianhuzong/python_compiler/blob/8fe61269efbcb6587a57dae6c993e17fa02640d4/py_compiler.sh"
+            }
+          ]
+        },
+        {
+          "name": "天河语言（ThLang，旧名天狐语言）",
+          "status": "保持既有正式条目lang-090；中文源码与C++／LLVM调用链已有静态核验。",
+          "facts": [
+            "固定提交779844e806391ca79421378f48b2aa7de2f4f837的时间为2026-06-21T04:22:56Z。bin/thlang/main.th第1—3行完整短例为“整数型 入口(){\n    返回 0;\n}”。",
+            "固定词法、语法、代码生成与CLI文件提供中文关键字、AST、LLVM IR、目标文件及LLD链接入口；src/codegen.cpp将“入口”映射为main。",
+            "同仓2025-01-12提交记录天狐改名天河，按一个既有语言对象保存。",
+            "主线96次保留提交及shared_ptr分支已有核对；shared_ptr固定README说明该分支用于2025-01-27智能指针所有权测试。"
+          ],
+          "unknowns": [
+            "2024视频中的.zh编译器与ThLang各版本的源码对应及继承关系待核实。",
+            "示例包1.0.0与MIT元数据对编译器本体的适用范围、正式发行编号、本体许可与独立构建运行结果待核实。"
+          ],
+          "sources": [
+            {
+              "title": "既有正式条目：天河语言",
+              "url": "https://中文编程语言.yuyan-lang.org/languages/lang-090.html"
+            },
+            {
+              "title": "固定三行中文入口程序",
+              "url": "https://github.com/tianhuzong/ThLang/blob/779844e806391ca79421378f48b2aa7de2f4f837/bin/thlang/main.th#L1-L3"
+            },
+            {
+              "title": "固定词法规则",
+              "url": "https://github.com/tianhuzong/ThLang/blob/779844e806391ca79421378f48b2aa7de2f4f837/src/lex.l#L45-L57"
+            },
+            {
+              "title": "固定源码到IR与链接入口",
+              "url": "https://github.com/tianhuzong/ThLang/blob/779844e806391ca79421378f48b2aa7de2f4f837/src/libthlang.cpp"
+            },
+            {
+              "title": "天狐改名天河的原提交",
+              "url": "https://github.com/tianhuzong/ThLang/commit/84bf8805bbd7d8e192bb2f84da8e237a1f91efae"
+            },
+            {
+              "title": "shared_ptr分支用途原说明",
+              "url": "https://github.com/tianhuzong/ThLang/blob/d29a4687636b6a219d048505962d9ea5ffd56f23/README.md"
+            }
+          ]
+        },
+        {
+          "name": "周蟒（zhpy／zhpy3）",
+          "status": "保持既有正式条目lang-014；与视频compiler的关系保留待核。",
+          "facts": [
+            "既有固定资料将周蟒记录为Fred Lin（gasolin）在HYRY原型基础上发展的Python中文语法转换工具；Python 2与Python 3路线按同一条目的不同实现阶段保存。",
+            "固定提交f4d932a5ab810158ef4e4113df337cbf7d83817a中，Python 2路线以pyparsing处理中文词语并转换Python源码；Python 3路线以tokenize处理名称词元。关键词插件与ini映射提供扩展入口。",
+            "固定默认简体词表将“取”映射为for、“函数”映射为lambda、“标准输入／标准输出”映射为stdin／stdout。视频中的for循环与可调用输入输出按另一份材料保存，默认词表比较有明确版本范围。"
+          ],
+          "unknowns": [
+            "Californium-252是否使用周蟒、自定义扩展、派生源码或另行实现待核实。",
+            "默认词表差异与目录同名均不形成源码继承结论，具体关系需要作者声明、源码互链或对应实现材料。"
+          ],
+          "sources": [
+            {
+              "title": "既有正式条目：周蟒",
+              "url": "https://中文编程语言.yuyan-lang.org/languages/lang-014.html"
+            },
+            {
+              "title": "固定项目README",
+              "url": "https://github.com/gasolin/zhpy/blob/f4d932a5ab810158ef4e4113df337cbf7d83817a/README.md"
+            },
+            {
+              "title": "固定Python 2转换器",
+              "url": "https://github.com/gasolin/zhpy/blob/f4d932a5ab810158ef4e4113df337cbf7d83817a/zhpy2/zhpy/zhpy.py"
+            },
+            {
+              "title": "固定Python 3词元转换核心",
+              "url": "https://github.com/gasolin/zhpy/blob/f4d932a5ab810158ef4e4113df337cbf7d83817a/zhpy3/core.py"
+            },
+            {
+              "title": "固定默认简体词表",
+              "url": "https://github.com/gasolin/zhpy/blob/f4d932a5ab810158ef4e4113df337cbf7d83817a/zhpy2/zhpy/plugcn.py"
+            }
+          ]
+        }
+      ],
+      "research": [
+        {
+          "title": "原视频、静态原帧及时间点补正（2026-10-25）",
+          "url": "https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe395f2c89a1d6f4670da171292d452d44c/research/2026-10-25/video-backlog.md"
+        },
+        {
+          "title": "原帧时间、尺寸与SHA-256（2026-10-25）",
+          "url": "https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe395f2c89a1d6f4670da171292d452d44c/research/2026-10-25/video-primary-evidence.json"
+        },
+        {
+          "title": "保留历史、分支用途及默认词表边界（2026-10-28）",
+          "url": "https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe395f2c89a1d6f4670da171292d452d44c/research/2026-10-28/video-backlog.md"
+        },
+        {
+          "title": "固定关系来源选录与提交范围（2026-10-28）",
+          "url": "https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe395f2c89a1d6f4670da171292d452d44c/research/2026-10-28/video-relations-evidence.json"
+        }
+      ]
+    },
+    {
+      "issue": 29,
+      "title": "Halo：B站原片与GitHub仓库发布阶段的公开证据",
+      "summary": "原片的Halo OS名称画面、发布账号与能力声明已保存；bigbenben77仓库Demo的静态内核阶段已有正式条目。两条发布身份与视频／Demo版本的直接对应继续待核。本页分别保存现有证据，待核资料保持明确边界，正式项目数保持原样。",
+      "subjects": [
+        {
+          "name": "Halo OS（编剧笨笨，B站原片画面名）",
+          "status": "公开发布与名称画面已记录；身份及版本对应待核实",
+          "facts": [
+            "平台公开元数据：三条原片均由编剧笨笨（UID595021134）发布，首发BV1Thh264EtM为2026-09-25T11:41:57Z，更新BV1oZap6CE8X为2026-09-29T16:25:08Z，扫雷BV1hwYA65EqL为2026-09-30T22:49:01Z。后两项北京时间分别为9月30日00:25:08和10月1日06:49:01。",
+            "原作者演示：2026-10-10既有视觉核验在首发视频00:02／01:19读到“Halo OS”标志；这一时间点支持画面显示名。具体内核功能与启动过程继续采用待核状态。",
+            "作者声明：原片以第一人称介绍AI、Rust、多语言显示及主题支持，并以中国项目作公开自述。“第一个”“全部AI代码”“全功能”和性能范围均采用作者声明等级。",
+            "作者声明：更新片简介列矢量字体／图标、GUI资源与脏区调整、主题、bootloader硬件识别及24小时空载测试；扫雷片简介列USB／网络框架、自有应用打包和三平台测试。",
+            "证据范围：B站原片身份单独记录；bigbenben77/Halo-OS的固定Demo发行物已另有正式条目，两条身份及版本的直接对应继续待核实。"
+          ],
+          "unknowns": [
+            "最小对应缺口：原作者明确链接或说明，将编剧笨笨UID595021134与bigbenben77关联，并明确原片Halo版本与仓库Demo盘的关系。",
+            "原片阶段自身内核、固件服务、引导器、图形层及上游组件的具体实现边界；原片阶段对应源码／可解析发行物。",
+            "00:02名称画面以外的可靠功能时间点与对应版本，以及AI参与开发记录、项目及第三方许可。",
+            "原片各项功能、稳定性与独立构建／启动验证；个人国籍明确自述。"
+          ],
+          "sources": [
+            {
+              "title": "2026-09-25首发原片：00:02 Halo OS名称",
+              "url": "https://www.bilibili.com/video/BV1Thh264EtM/"
+            },
+            {
+              "title": "2026-09-29更新原片",
+              "url": "https://www.bilibili.com/video/BV1oZap6CE8X/"
+            },
+            {
+              "title": "2026-09-30扫雷原片",
+              "url": "https://www.bilibili.com/video/BV1hwYA65EqL/"
+            },
+            {
+              "title": "编剧笨笨公开频道",
+              "url": "https://space.bilibili.com/595021134/"
+            },
+            {
+              "title": "既存三片公开元数据与UTC日期",
+              "url": "https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe395f2c89a1d6f4670da171292d452d44c/research/2026-10-25/kernels-b-video-metadata.json"
+            },
+            {
+              "title": "另行收录的仓库发布阶段，身份对应待核实",
+              "url": "https://中文编程语言.yuyan-lang.org/内核/halo-os-bigbenben77.html"
+            }
+          ]
+        },
+        {
+          "name": "Halo-OS（bigbenben77，仓库发布阶段）",
+          "status": "已正式收录：固定仓库文档与发行物静态分析阶段",
+          "facts": [
+            "固定仓库阶段：main提交2677b1cec975a0bff572e622f787f682b836cea2，时间2026-09-24T14:56:19Z；完整树保存README和两项虚拟盘分发物。较早180e78b5c912cc7c7025b6691fe302a141fad426上传说明将其称为操作系统Demo版虚拟盘。",
+            "公开技术身份与作者声明：GitHub维护者bigbenben77使用公开别名码农笨笨；固定README以中国项目、AI和Rust自述介绍Halo-OS。中国关联采用项目自述，个人国籍待核实。",
+            "固定原件：MYOS-UEFI-vbox.zip为8728039字节，SHA256 15ed9728d7ac972ff66aa7b2074f49010876fe1ab8f2057a3c783927703702cb；内核ELF SHA256为43b7a53121dee60b34a0e10c0cfadd16f7b4e578f6b688702d940348bb160270。",
+            "发行物静态分析：VDI内枚举EFI/BOOT/BOOTX64.EFI，外层为PE32+ x86-64 EFI application；文件偏移68608内嵌完整ELF64 x86-64 ET_EXEC，入口0xe80900，保存8个程序头、22个节、符号和DWARF。枚举工具的Headers Error提示与文件观察分别保存。",
+            "机器码静态依据：EFI交接写CR3、设置RSP、通过RDI传入BootInfo并跳转；内核_start在0xe80905调用_start_uefi，该路径调用页帧、页表、堆、GDT、IDT／PIC及硬件中断注册。",
+            "机器码与符号静态依据：内核含调度与上下文保存恢复、VFS及块设备接口、ATA／AHCI和USB模块。成功执行、调度正确性和设备支持范围分别待核实。",
+            "来源线索：发行物含myos符号、AetherOS Portal字符串，以及Rust标准库、bootloader_api 0.11.17、uefi 0.38.0和x86_64-patched调试路径。它们分别作为内部名称和构建依赖线索记录。",
+            "核验范围：正式条目采用仓库发布身份与固定发行物；全部AI开发、整体原创与性能属于作者声明。候选执行、安装、构建、启动与挂载均为0。"
+          ],
+          "unknowns": [
+            "B站编剧笨笨与bigbenben77的直接身份链接，以及原片Halo版本与本Demo盘对应",
+            "myos/AetherOS内部名称的沿革、完整源码与上游继承范围",
+            "项目及第三方组件许可和原始开发记录",
+            "当前样本成功启动、调度、页表、设备与文件系统的独立运行验证",
+            "正式版本、最早公开日期及个人国籍自述"
+          ],
+          "sources": [
+            {
+              "title": "正式条目：Halo-OS（bigbenben77，仓库发布阶段）",
+              "url": "https://中文编程语言.yuyan-lang.org/内核/halo-os-bigbenben77.html"
+            },
+            {
+              "title": "Halo-OS固定README的中国关联/AI/Rust自述",
+              "url": "https://github.com/bigbenben77/Halo-OS/blob/2677b1cec975a0bff572e622f787f682b836cea2/README.md"
+            },
+            {
+              "title": "码农笨笨公开GitHub档案",
+              "url": "https://github.com/bigbenben77"
+            },
+            {
+              "title": "固定发布提交与作者署名",
+              "url": "https://github.com/bigbenben77/Halo-OS/commit/2677b1cec975a0bff572e622f787f682b836cea2"
+            },
+            {
+              "title": "作者将上传文件说明为Demo虚拟盘",
+              "url": "https://github.com/bigbenben77/Halo-OS/commit/180e78b5c912cc7c7025b6691fe302a141fad426"
+            },
+            {
+              "title": "固定VirtualBox ZIP原件",
+              "url": "https://github.com/bigbenben77/Halo-OS/blob/2677b1cec975a0bff572e622f787f682b836cea2/MYOS-UEFI-vbox.zip"
+            },
+            {
+              "title": "固定完整仓库树",
+              "url": "https://api.github.com/repos/bigbenben77/Halo-OS/git/trees/2677b1cec975a0bff572e622f787f682b836cea2?recursive=1"
+            },
+            {
+              "title": "2026-10-28发行物大小、SHA256与静态范围",
+              "url": "https://github.com/yuyan-lang/chinese-programming-languages/blob/ac01037f4a328e3849fa565a557b27181798f9ea/research/2026-10-28/kernels-b-artifact-metadata.json"
+            },
+            {
+              "title": "2026-10-28内核与引导机器码短摘录",
+              "url": "https://github.com/yuyan-lang/chinese-programming-languages/blob/ac01037f4a328e3849fa565a557b27181798f9ea/research/2026-10-28/halo-static-evidence.txt"
+            },
+            {
+              "title": "固定哈希发行物入口实际调用机器码",
+              "url": "https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe395f2c89a1d6f4670da171292d452d44c/research/2026-10-30/halo-entry-callchain.txt"
+            }
+          ]
+        }
+      ],
+      "research": [
+        {
+          "title": "原片00:02名称、候选身份与旧日期显示",
+          "url": "https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe395f2c89a1d6f4670da171292d452d44c/research/2026-10-10/round-11-kernels.md"
+        },
+        {
+          "title": "三片UTC元数据与发布边界",
+          "url": "https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe395f2c89a1d6f4670da171292d452d44c/research/2026-10-25/kernels-b.md"
+        },
+        {
+          "title": "固定Demo盘静态分析",
+          "url": "https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe395f2c89a1d6f4670da171292d452d44c/research/2026-10-28/kernels-b.md"
+        },
+        {
+          "title": "仓库发布阶段正式收录范围及实际调用链",
+          "url": "https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe395f2c89a1d6f4670da171292d452d44c/research/2026-10-30/halo-repository.md"
+        }
+      ]
+    },
+    {
+      "issue": 31,
+      "title": "说了算与LightLang（NomiLight2026）的已存证据和剩余缺口",
+      "summary": "说了算lang-103的CLI静态证据与LightLang lang-083的Rust／LLVM及自举资料保持已有正式状态。说了算Web原件、双端结果对应和其他未核关系公开归档，PR #76保持来源待补的草稿状态。待核内容的正式核实数新增0。",
+      "subjects": [
+        {
+          "name": "说了算（Saysuan）",
+          "status": "保持既有正式条目lang-103的中文数据分析DSL／Python转译分类；Web原件与双端对应待核。",
+          "facts": [
+            "2026-10-15研究已读取badhope/saysuan固定提交719f1b3db510902527c0ad9cc7d439fad92b16fc；该提交与此前GitCode头记录相同，固定发布指南直接链接GitCode同名原仓。",
+            "既有主例来自demo.suan第11—14行：“设 「单价」 为 5 块 5 角\n设 「数量」 为 10 个\n算 「货款」 = 「单价」 乘 「数量」\n显示 「货款」”。四句组成连续赋值、乘法与输出序列，原例与正式页保持原样。",
+            "已存CLI源码链为.suan经Node.js词法／表达式／量词规则生成Python及pandas操作，再按CLI参数选择Python调用。顶层表操作使用显式存到结果，命名话题块以块名绑定结果。",
+            "固定package.json与compiler.js标1.1.0，SPEC标v1.1.0；固定LICENSE保存MIT正文并署名2026 badhope。版本清单、保留提交时间与正式首发分别记录。",
+            "2026-10-25、10-28研究记录原GitHub／GitCode入口与原始playground.html无法取得。2026-10-30的原始Web URL范围归档索引查询为空，查询范围内的原件仍缺失。既有历史CLI证据继续保存。"
+          ],
+          "unknowns": [
+            "Web原始playground.html、README省略存到的结果名与双端运行对应、JS与CLI的精确覆盖待核实。",
+            "PR #76保持草稿；其缺少原始来源的材料维持草稿范围，原件恢复状态仍待补证。证据页仅记录缺口和已发布研究，草稿材料未用于恢复或替代原件。",
+            "GitCode发行正文、首个公开时间、x1882与badhope分工、AI协作细节及独立运行结果待核实。"
+          ],
+          "sources": [
+            {
+              "title": "既有正式条目：说了算",
+              "url": "https://中文编程语言.yuyan-lang.org/languages/lang-103.html"
+            },
+            {
+              "title": "历史固定算术原例（2026-10-15已读，后续原仓无法取得）",
+              "url": "https://github.com/badhope/saysuan/blob/719f1b3db510902527c0ad9cc7d439fad92b16fc/demo.suan#L11-L14"
+            },
+            {
+              "title": "历史固定CLI（2026-10-15静态核验）",
+              "url": "https://github.com/badhope/saysuan/blob/719f1b3db510902527c0ad9cc7d439fad92b16fc/src/cli.js"
+            },
+            {
+              "title": "历史固定结果绑定与pandas生成分支",
+              "url": "https://github.com/badhope/saysuan/blob/719f1b3db510902527c0ad9cc7d439fad92b16fc/src/compiler.js#L865-L906"
+            },
+            {
+              "title": "历史固定MIT正文",
+              "url": "https://github.com/badhope/saysuan/blob/719f1b3db510902527c0ad9cc7d439fad92b16fc/LICENSE"
+            },
+            {
+              "title": "2026-10-25议题记录：Web原件与草稿边界",
+              "url": "https://github.com/yuyan-lang/chinese-programming-languages/issues/31#issuecomment-6400525688"
+            }
+          ]
+        },
+        {
+          "name": "LightLang（NomiLight2026／oneone1565）",
+          "status": "保持既有正式条目lang-083；中文前端及Rust／LLVM调用链已有固定源码，作者自举声明与独立复现分别记录。",
+          "facts": [
+            "GitHub oneone1565/LightLang保留两条明确写出GitCode NomiLight2026/lightLang地址的双亲合并提交，建立两入口的同源历史联系。目录按一个既有语言对象记录。",
+            "固定快照38aa05b295a53a2591617a5c3bc8f7b08595de25的examples/hello.lt第1—11行为完整连续中文函数，含函数、让、打印、如果、否则、返回。该主例与正式页保持原样。",
+            "固定Rust前端已有中文词法、缩进解析、AST和类型推导；编译链生成LLVM IR，经Clang链接Rust运行时。light与lightGo分别提供会话重编和FFI构建入口。",
+            "2026-10-13快照458b31a7f01d4c6aeed6b387b47a04a8d994c772的lightc/Cargo.toml标1.0.0，二进制名nlightc。此前2026-09-27快照清单标0.2.1；版本清单与正式发行日期分别记录。",
+            "固定scripts/bootstrap.sh保存Rust参考编译器、Light编译器逐级生成IR、Clang链接与cmp比较的静态调用链。docs/bootstrap.md记录作者的stage2／stage3 IR定点一致测试声明；独立自举复现与该声明分别记录。",
+            "固定LICENSE保存GPL第3版正文，README声明GPL-3.0及第三方依赖各自许可。"
+          ],
+          "unknowns": [
+            "2026-09-27固定快照中的README输入判空原例涉及字符串比较，该快照gen_cmp的语义与实际输入结果待核实。",
+            "与光明lang-009共用LightLang别名及.light后缀的设计借鉴或源码继承关系、两平台当前同步、自然人身份与维护分工待核实。",
+            "正式发行时间与附件、跨平台执行和CI结果、AI开发范围、专属版权细项及独立构建／自举／运行结果待核实。"
+          ],
+          "sources": [
+            {
+              "title": "既有正式条目：LightLang（NomiLight2026）",
+              "url": "https://中文编程语言.yuyan-lang.org/languages/lang-083.html"
+            },
+            {
+              "title": "GitCode原仓合流记录之一",
+              "url": "https://github.com/oneone1565/LightLang/commit/07a25c1766f992e2debd2c9a6c4955882c3516e4"
+            },
+            {
+              "title": "GitCode原仓合流记录之二",
+              "url": "https://github.com/oneone1565/LightLang/commit/371da53cf89efcdce178fb7d9fbab20e855903ae"
+            },
+            {
+              "title": "固定11行中文函数原例",
+              "url": "https://github.com/oneone1565/LightLang/blob/38aa05b295a53a2591617a5c3bc8f7b08595de25/examples/hello.lt#L1-L11"
+            },
+            {
+              "title": "固定编译与链接入口",
+              "url": "https://github.com/oneone1565/LightLang/blob/38aa05b295a53a2591617a5c3bc8f7b08595de25/lightc/src/main.rs#L109-L245"
+            },
+            {
+              "title": "固定1.0.0与nlightc清单",
+              "url": "https://github.com/oneone1565/LightLang/blob/458b31a7f01d4c6aeed6b387b47a04a8d994c772/lightc/Cargo.toml"
+            },
+            {
+              "title": "固定自举脚本：静态调用链",
+              "url": "https://github.com/oneone1565/LightLang/blob/458b31a7f01d4c6aeed6b387b47a04a8d994c772/scripts/bootstrap.sh"
+            },
+            {
+              "title": "作者自举阶段测试记录",
+              "url": "https://github.com/oneone1565/LightLang/blob/458b31a7f01d4c6aeed6b387b47a04a8d994c772/docs/bootstrap.md"
+            },
+            {
+              "title": "固定GPL第3版许可正文",
+              "url": "https://github.com/oneone1565/LightLang/blob/38aa05b295a53a2591617a5c3bc8f7b08595de25/LICENSE"
+            }
+          ]
+        }
+      ],
+      "research": [
+        {
+          "title": "最初两组GitCode候选与版本分层",
+          "url": "https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe395f2c89a1d6f4670da171292d452d44c/research/2026-10-10/round-10-discovery.md"
+        },
+        {
+          "title": "LightLang固定源码、原例与同源合流",
+          "url": "https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe395f2c89a1d6f4670da171292d452d44c/research/2026-10-10/round-15-lightlang.md"
+        },
+        {
+          "title": "说了算CLI原例、许可和源码补证",
+          "url": "https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe395f2c89a1d6f4670da171292d452d44c/research/2026-10-15/saysuan-publication.md"
+        },
+        {
+          "title": "LightLang 1.0.0及自举资料",
+          "url": "https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe395f2c89a1d6f4670da171292d452d44c/research/2026-10-20/lightlang-version-bootstrap.md"
+        },
+        {
+          "title": "原始Web来源无法取得与PR #76草稿边界",
+          "url": "https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe395f2c89a1d6f4670da171292d452d44c/research/2026-10-25/root-findings.md"
+        },
+        {
+          "title": "原始Web URL范围的有界归档查询",
+          "url": "https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe395f2c89a1d6f4670da171292d452d44c/research/2026-10-30/root-primary-review.md"
+        }
+      ]
+    },
+    {
+      "issue": 32,
+      "title": "TX VergeOS、FendOSPE与VergeOS Open的发布和实现边界",
+      "summary": "TX VergeOS保存作者发布与分发入口；FendOSPE单独按作者Win11PE自述记录发行关系；NewEra Studio的VergeOS Open已有固定源码正式条目。三者分别记录，合作、改名和继承关系待核。待核页采用现有公开证据，正式项目数保持原样。",
+      "subjects": [
+        {
+          "name": "VergeOS Beta（TX工作室／FendosPE系统官方发布）",
+          "status": "作者发布与分发入口已记录；自身内核及上游边界待核实",
+          "facts": [
+            "平台公开元数据：原片BV1UaHp6KEYx由FendosPE系统官方（UID3493125223877029）于2026-10-05T04:42:06Z发布；标题自称支持双启动的自研操作系统，简介直接链接txgzsgw.mysxl.cn。",
+            "作者官网：TX工作室将VergeOS Beta作为独立产品段落，提供VergeOS.iso公开分享入口。既有分享页观察显示该文件名及2026-10-05分享时间。镜像字节、大小和哈希继续待取得。",
+            "已保存官网原件：2026-10-30T12:07:31Z HTTP200，131856字节，SHA256 7907125cf63e37296476e896fcd2590da059282a8389c169f9f2c5738968facc。",
+            "产品边界：TX主站将VergeOS Beta和FendOSPE分列；FendOSPE产品页的Win11PE自述限定于该独立PE产品，VergeOS本身的对应关系继续待核实。",
+            "分类范围：双启动、自研及系统能力按作者声明保存。当前公开证据支持发布身份和分发入口记录，正式内核目录继续采用已有条目范围。"
+          ],
+          "unknowns": [
+            "最小技术缺口：可解析的公开VergeOS发行物，或明确内核入口、资源管理与上游边界的原作者技术资料。",
+            "原片阶段的架构、实现语言、引导、调度、内存、文件系统与驱动；内核、固件服务、现成系统与界面层的对应范围。",
+            "与FendOSPE产品、NewEra Studio同名VergeOS Open的合作／改名／代码继承关系。",
+            "源码与许可、原片可靠功能时间点及版本对应、独立运行；明确中国地域／社区归属自述与个人国籍。"
+          ],
+          "sources": [
+            {
+              "title": "FendosPE系统官方的VergeOS原片",
+              "url": "https://www.bilibili.com/video/BV1UaHp6KEYx/"
+            },
+            {
+              "title": "TX工作室官网VergeOS产品段落",
+              "url": "https://txgzsgw.mysxl.cn/#vergeos"
+            },
+            {
+              "title": "官网既有VergeOS.iso公开分享入口",
+              "url": "https://1817497108.share.123pan.cn/123pan/nvdTjv-DG3ih?pwd=1234"
+            },
+            {
+              "title": "原片账号、简介与UTC时间记录",
+              "url": "https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe395f2c89a1d6f4670da171292d452d44c/research/2026-10-25/kernels-b-video-metadata.json"
+            },
+            {
+              "title": "官网原件响应与产品分列边界",
+              "url": "https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe395f2c89a1d6f4670da171292d452d44c/research/2026-10-30/tx-causenix-evidence.json"
+            }
+          ]
+        },
+        {
+          "name": "FendOSPE（TX工作室单列PE产品）",
+          "status": "作者声明分类：基于Win11PE的PE发行产品；发行物内容待核实",
+          "facts": [
+            "直接作者发布链：TX官网在FendOSPE单独产品段落明确链接fendospext.mysxl.cn。",
+            "作者声明：FendOSPE产品页明确说明其PE系统内核基于Win11PE，并提供微软Windows 10／11官方下载入口；该来源支持此PE产品的作者自述发行关系。",
+            "已保存原件：2026-10-30T12:07:59Z HTTP200，119326字节，SHA256 2419dedb05ae7a91a22c8463ff2bf0e0cd1aaa898797fe4a2a055ce3b3a86754。",
+            "范围边界：工作室主站单列FendOSPE和VergeOS Beta；Win11PE声明采用FendOSPE范围。此处记录发行分类，正式内核项目数保持原样。"
+          ],
+          "unknowns": [
+            "FendOSPE实际发行物内容、精确Windows／PE组件版本、源码与完整授权范围及独立运行。",
+            "FendOSPE与TX VergeOS Beta的具体实现关系。"
+          ],
+          "sources": [
+            {
+              "title": "TX工作室官网的FendOSPE产品直链",
+              "url": "https://txgzsgw.mysxl.cn/"
+            },
+            {
+              "title": "FendOSPE作者产品页",
+              "url": "https://fendospext.mysxl.cn/"
+            },
+            {
+              "title": "产品页HTTP回执、摘要及边界短引",
+              "url": "https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe395f2c89a1d6f4670da171292d452d44c/research/2026-10-30/tx-causenix-evidence.json"
+            }
+          ]
+        },
+        {
+          "name": "VergeOS Open（NewEra Studio，新启年工作室）",
+          "status": "已正式收录：固定C／汇编内核源码阶段",
+          "facts": [
+            "固定源码：提交d6041c2f2c2a95d73b22a7df8142a0d7d345f319，时间2026-07-02T07:36:55Z；README使用VergeOS Open名称，源码、输出文件与banner沿用VoidOS v0.2。",
+            "原作者发布关联：BV1fPTj6FEcb由新启年工作室-NES（UID3546976190728987）于2026-07-02T10:33:07Z发布，简介直接链接公开仓库；中文技术社区发布与源码关联已核，成员国籍待核实。",
+            "源码可见：Multiboot进入32位汇编入口再调用C内核，独立链接voidos.bin；入口初始化中断、内存、任务、输入与图形。",
+            "源码可见：32槽任务、就绪链表、主动task_yield与ESP切换；PIT累加计数。内存包含4KiB页位图、0—32MiB恒等映射及CR3／CR0设置、可分裂合并的堆分配器。",
+            "源码可见：ustar初始内存盘解析与读取、PS/2键鼠、BGA／framebuffer路径；ELF32加载器采用supervisor映射，PE32加载器提供有限Win32桩。完整用户态隔离与Windows兼容范围继续待核实。",
+            "许可与验证范围：根MIT署名2026 NewEra Studio。证据采用固定源码静态阅读；原片可靠功能时间点与独立构建、启动和设备运行继续待核实。"
+          ],
+          "unknowns": [
+            "与TX工作室／FendosPE系统官方同名VergeOS的合作、改名与代码继承关系。",
+            "抢占调度、用户态隔离、PE兼容、任务切换及设备／文件系统的实际运行范围。",
+            "原片可靠功能时间点、源码／发行物对应、完整initrd与构建输入及独立构建启动。",
+            "v0.2以前历史、最早公开日、完整上游与组件许可；成员国籍及进一步地域关联。"
+          ],
+          "sources": [
+            {
+              "title": "正式条目：VergeOS Open（NewEra Studio）",
+              "url": "https://中文编程语言.yuyan-lang.org/内核/vergeos-open-newera.html"
+            },
+            {
+              "title": "VergeOS Open 作者原片（2026-07-02）",
+              "url": "https://www.bilibili.com/video/BV1fPTj6FEcb/"
+            },
+            {
+              "title": "VergeOS Open 固定 README",
+              "url": "https://github.com/max257026-svg/VergeOS-Open-VoidOS-/blob/d6041c2f2c2a95d73b22a7df8142a0d7d345f319/README.md"
+            },
+            {
+              "title": "固定初始提交",
+              "url": "https://github.com/max257026-svg/VergeOS-Open-VoidOS-/commit/d6041c2f2c2a95d73b22a7df8142a0d7d345f319"
+            },
+            {
+              "title": "32位Multiboot启动入口",
+              "url": "https://github.com/max257026-svg/VergeOS-Open-VoidOS-/blob/d6041c2f2c2a95d73b22a7df8142a0d7d345f319/boot/boot.asm"
+            },
+            {
+              "title": "内核初始化入口",
+              "url": "https://github.com/max257026-svg/VergeOS-Open-VoidOS-/blob/d6041c2f2c2a95d73b22a7df8142a0d7d345f319/kernel/kernel.c"
+            },
+            {
+              "title": "C和汇编构建脚本",
+              "url": "https://github.com/max257026-svg/VergeOS-Open-VoidOS-/blob/d6041c2f2c2a95d73b22a7df8142a0d7d345f319/build.sh"
+            },
+            {
+              "title": "轮转任务实现",
+              "url": "https://github.com/max257026-svg/VergeOS-Open-VoidOS-/blob/d6041c2f2c2a95d73b22a7df8142a0d7d345f319/kernel/task.c"
+            },
+            {
+              "title": "分页与映射",
+              "url": "https://github.com/max257026-svg/VergeOS-Open-VoidOS-/blob/d6041c2f2c2a95d73b22a7df8142a0d7d345f319/kernel/paging.c"
+            },
+            {
+              "title": "tar初始内存盘",
+              "url": "https://github.com/max257026-svg/VergeOS-Open-VoidOS-/blob/d6041c2f2c2a95d73b22a7df8142a0d7d345f319/kernel/initrd.c"
+            },
+            {
+              "title": "ELF32加载器",
+              "url": "https://github.com/max257026-svg/VergeOS-Open-VoidOS-/blob/d6041c2f2c2a95d73b22a7df8142a0d7d345f319/kernel/elf.c"
+            },
+            {
+              "title": "PE32加载器与Win32桩",
+              "url": "https://github.com/max257026-svg/VergeOS-Open-VoidOS-/blob/d6041c2f2c2a95d73b22a7df8142a0d7d345f319/kernel/pe.c"
+            },
+            {
+              "title": "根MIT许可证",
+              "url": "https://github.com/max257026-svg/VergeOS-Open-VoidOS-/blob/d6041c2f2c2a95d73b22a7df8142a0d7d345f319/LICENSE"
+            }
+          ]
+        }
+      ],
+      "research": [
+        {
+          "title": "两条同名VergeOS的原始核验",
+          "url": "https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe395f2c89a1d6f4670da171292d452d44c/research/2026-10-10/round-10-kernels.md"
+        },
+        {
+          "title": "VergeOS Open正式收录与TX发布关联",
+          "url": "https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe395f2c89a1d6f4670da171292d452d44c/research/2026-10-25/kernels-b.md"
+        },
+        {
+          "title": "TX分发页及静态资料范围",
+          "url": "https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe395f2c89a1d6f4670da171292d452d44c/research/2026-10-28/kernels-b.md"
+        },
+        {
+          "title": "FendOSPE的作者自述发行关系与单独产品边界",
+          "url": "https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe395f2c89a1d6f4670da171292d452d44c/research/2026-10-30/tx-causenix.md"
+        }
+      ]
+    },
+    {
+      "issue": 40,
+      "title": "玄与Lua中文版的证据记录",
+      "summary": "原 2 组候选逐项保存：玄已有正式条目 lang-105；Lua 保存固定双语词法、解析和 VM 结构、两分支树与手册传输结果，连续中文原例仍待核。Lua 手册正文未取得，语言保持未知。资料不足项保持待核层级，正式目录新增 0 项；议题可在公开记录合入后按新处理规则关闭。",
+      "subjects": [
+        {
+          "name": "玄（xuan.ide）",
+          "status": "已分类收录；剩余字段待核实",
+          "facts": [
+            "现有正式条目 lang-105，分类：中文C++转译前端与Win32 IDE。",
+            "固定完整树 4 文件，xuan_ide.cpp 内 const char* demo 保存 15 行预置中文程序。转译器扫描中文结构及外置映射，Win32 IDE 调度外部 g++ 的 C++17 编译并捕获输出，调用链经过静态核验。",
+            "现有条目保存的原作者连续短例：\n头文件《标准IO》\n使用命名空间标准；\n\n主程序：\n    重复 3 次《\n        输出：\"hi\"：换行；\n    》\n\n    整数列表 v = 【10， 20， 30】；\n    遍历 x 在 v 中《\n        输出：\"x=\"：x：换行；\n    》\n\n    返回 0；\n。\n",
+            "原例出处及上下文：固定xuan_ide.cpp第1468—1484行const char* demo的完整15行预置中文用户程序。按C++相邻字符串字面量的转义规则转录，保留末尾换行；源码第1484行将该程序放入编辑器。代码包含重复输出、列表遍历和返回，独立编译及运行结果待核实。",
+            "日期记录：保留历史唯一提交a1a5d09f534e2e2b1b6f6756b56f6bbb8ddef028，作者与提交者时间均为2026-09-13T17:18:30+08:00。同账号CSDN文章索引标2026-09-13；仓库创建、原文精确发布时间及首次对外公开时间待核实。",
+            "版本与固定快照记录：固定唯一提交a1a5d09f534e2e2b1b6f6756b56f6bbb8ddef028自标《玄》IDE v3.8.2；提交摘要描述数据外置与全链路优化。完整树4文件：xuan_ide.cpp及data/help.txt、patterns.txt、types.txt。当前公开Git标签列表为空；版本沿革与发行附件待核实。",
+            "证据层级为原作者公开材料与静态源码核验；本组候选软件安装、构建与执行均为 0，独立运行保持待核实。"
+          ],
+          "unknowns": [
+            "许可正文、发行附件、版本沿革、原文精确发布时间、AI 参与及独立运行待核实。",
+            "与玄语 lang-044、玄铁的作者或代码继承关系待原始材料确认。"
+          ],
+          "sources": [
+            {
+              "title": "现有正式页 lang-105",
+              "url": "https://xn--fiq228cgqosxegyprwc.yuyan-lang.org/languages/lang-105.html"
+            },
+            {
+              "title": "原始连续短例",
+              "url": "https://atomgit.com/2301_77161129/xuan.ide/blob/a1a5d09f534e2e2b1b6f6756b56f6bbb8ddef028/xuan_ide.cpp#L1468-L1484"
+            },
+            {
+              "title": "固定转译器扫描与保护规则",
+              "url": "https://atomgit.com/2301_77161129/xuan.ide/blob/a1a5d09f534e2e2b1b6f6756b56f6bbb8ddef028/xuan_ide.cpp#L523-L654"
+            },
+            {
+              "title": "固定编译与运行调度",
+              "url": "https://atomgit.com/2301_77161129/xuan.ide/blob/a1a5d09f534e2e2b1b6f6756b56f6bbb8ddef028/xuan_ide.cpp#L1173-L1240"
+            },
+            {
+              "title": "固定唯一提交",
+              "url": "https://atomgit.com/2301_77161129/xuan.ide/commit/a1a5d09f534e2e2b1b6f6756b56f6bbb8ddef028"
+            }
+          ]
+        },
+        {
+          "name": "Lua 5.4中文版（lyzavng；OldDragon/lua Fork关联）",
+          "status": "待核资料记录：双语词法前端及 Lua 解析／字节码 VM；正式目录计数 0",
+          "facts": [
+            "固定 master 头 c0e0b83f7bd323bac7e0326886652075d85d55db。公开简介为 Lua 5.4 中文版；2026-10-12 已读 llex.c、lparser.c、ldo.c、lua.c、lvm.c 和 lua.h 的固定公开源码正文。",
+            "llex.c 第 39—56 行列 22 项中文和 22 项英文保留字，第 78—91 行将成对拼写设为同一词元编号。lparser.c 保存语句分派与闭包／Proto 建立，ldo.c 进入源码解析或反序列化并调度 luaV_execute；lua.c 加载文件后通过 lua_pcall 调用，lvm.c 保存虚拟机取指和指令分派。证据层级为静态源码。",
+            "lua.h 自标 Lua 5.4.0 并保存 1994—2020 Lua.org／PUC-Rio MIT 许可；历史已读 doc/readme.html 保存 5.4.0-beta 和 1994—2019 MIT，根页 MulanPSL-2.0 声明按各自层级记录。",
+            "历史公开页面提示头提交时间为 2020-08-10 17:06:36 +0800，源码关联 fa00ad33fff1456094dac9865dabe487e470dd4a 提示 2020-08-10 16:43 +08:00，doc 关联 29e016a33a3811c41483d35ded8151e1166fca77 提示 2020-05-23 19:57:51 +0800。作者／提交者时间语义及首次公开保持待核实。",
+            "2026-10-30 正常公开 Git refs 确认 master 为上述 c0e0b83，develop 与 feature 共用 71e8ba8e2056a8c7375ac1c432fc3d6bdbc58499。HTTP/1.1 协议能力明确支持 filter；depth=1、blob:none 元数据取得 master 完整 115 文件树，tests／examples／sample／demo 路径及 .lua 程序文件缺省。另一提交完整树仅 .gitignore 与 LICENSE 两文件。检查范围限定于这两个提交树。",
+            "独立路径 doc/manual.html 的树对象为 blob 5a6641c70bc244949ad3cb064ba47037781a1f9d。精确 blob 的过滤传输返回 Git exit 1、未发送必要对象，正文未取得。该手册使用的语言以及中文程序内容均保持未知。",
+            "本次新增 Git 缓存仅含 2 个 commit、4 个 tree、0 个 blob；README、README.md、doc/readme.html 的正文均未下载或读取。此前平台屏蔽 README 与手册页面登录边界继续保留，最后一次独立公开 Git blob 请求为技术失败。",
+            "OldDragon/lua 按已见明确 Fork 关系归并。cnLua 采用自身 LuaJIT 2.0.5 来源，言序保留 lang-007 独立身份。原作者连续中文用户程序尚未取得。候选软件安装、构建、测试和执行均为 0。"
+          ],
+          "unknowns": [
+            "原作者连续中文用户程序及固定出处待补；手册正文未取得，语言和是否包含中文原例待核实。",
+            "中文库接口覆盖、完整上游差异、中文贡献授权适用范围、建库与首次公开日期待核实。",
+            "与 cnLua／言序的代码继承关系、发行物、独立运行待核实。",
+            "树内缺少例程路径的结论限定于所列 master 与 develop／feature 提交，其他未读历史或公开渠道的状态待核实。"
+          ],
+          "sources": [
+            {
+              "title": "固定双语词法器",
+              "url": "https://gitee.com/lyzavng/lua/blob/c0e0b83f7bd323bac7e0326886652075d85d55db/src/llex.c#L39-L91"
+            },
+            {
+              "title": "固定解析器",
+              "url": "https://gitee.com/lyzavng/lua/blob/c0e0b83f7bd323bac7e0326886652075d85d55db/src/lparser.c"
+            },
+            {
+              "title": "固定加载与执行调度",
+              "url": "https://gitee.com/lyzavng/lua/blob/c0e0b83f7bd323bac7e0326886652075d85d55db/src/ldo.c"
+            },
+            {
+              "title": "固定命令行入口",
+              "url": "https://gitee.com/lyzavng/lua/blob/c0e0b83f7bd323bac7e0326886652075d85d55db/src/lua.c"
+            },
+            {
+              "title": "固定字节码 VM",
+              "url": "https://gitee.com/lyzavng/lua/blob/c0e0b83f7bd323bac7e0326886652075d85d55db/src/lvm.c"
+            },
+            {
+              "title": "固定版本和上游许可",
+              "url": "https://gitee.com/lyzavng/lua/blob/c0e0b83f7bd323bac7e0326886652075d85d55db/src/lua.h"
+            },
+            {
+              "title": "已核 master 树",
+              "url": "https://gitee.com/lyzavng/lua/tree/c0e0b83f7bd323bac7e0326886652075d85d55db"
+            },
+            {
+              "title": "已核 develop／feature 共用树",
+              "url": "https://gitee.com/lyzavng/lua/tree/71e8ba8e2056a8c7375ac1c432fc3d6bdbc58499"
+            }
+          ]
+        }
+      ],
+      "research": [
+        {
+          "title": "2026-10-10/round-13-discovery.md",
+          "url": "https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe395f2c89a1d6f4670da171292d452d44c/research/2026-10-10/round-13-discovery.md"
+        },
+        {
+          "title": "2026-10-12/round-25-issue-followup.md",
+          "url": "https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe395f2c89a1d6f4670da171292d452d44c/research/2026-10-12/round-25-issue-followup.md"
+        },
+        {
+          "title": "2026-10-25/mixed-language-backlog.md",
+          "url": "https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe395f2c89a1d6f4670da171292d452d44c/research/2026-10-25/mixed-language-backlog.md"
+        },
+        {
+          "title": "2026-10-28/mixed-scope-review.md",
+          "url": "https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe395f2c89a1d6f4670da171292d452d44c/research/2026-10-28/mixed-scope-review.md"
+        }
+      ]
+    },
+    {
+      "issue": 48,
+      "title": "E#、ESRuntime、CH-VM与易深IDE的公开证据",
+      "summary": "E#关键词设计、ESRuntime／ESIL历史方案、CH-VM／CHIL规范和易深中文C工具分别保存。固定源码与规范文本关系已有静态证据；完整中文用户程序、具体句法及实际语言前端明确列为待核。资料归档维持既有正式计数，候选执行0次。",
+      "subjects": [
+        {
+          "name": "E#（DCOSA／ESharp）",
+          "status": "待核：中文关键词设计与运行平台原型",
+          "facts": [
+            "原仓署名云之梦歌；固定头提交55503b2e623e3093d9c6423b63aa6b006adaaf32时间2023-06-02T19:46:11+08:00，README将E#定位为基于CH-VM的中文编程语言。",
+            "固定E#规范.md为464字节、58项词语，包含字节型、整数型、如果、返回等；资料按词表记录。src/main.c为0字节，test/main.c为返回0的C占位入口。",
+            "2026-10-28已读取公开master、0.1.0-end.preview标签及全部10次提交；历史Markdown、C源码和头文件共32个不同文本blob。根LICENSE保存LGPLv3正文。",
+            "2026-10-30公开Issues集合为空；PR集合读取25秒超时，Wiki及组织原页明确链接的站点未能读取。候选执行0次。"
+          ],
+          "unknowns": [
+            "完整中文用户程序、具体中文句法规范或原例、实际语言前端、首次公开及AI参与待核。",
+            "这些待核事实作为公开证据资料保留，正式语言计数采用既有核实范围。"
+          ],
+          "sources": [
+            {
+              "title": "固定项目README",
+              "url": "https://gitee.com/dcosa/esharp/blob/55503b2e623e3093d9c6423b63aa6b006adaaf32/README.md"
+            },
+            {
+              "title": "固定58项词表",
+              "url": "https://gitee.com/dcosa/esharp/blob/55503b2e623e3093d9c6423b63aa6b006adaaf32/E%23%E8%A7%84%E8%8C%83.md"
+            },
+            {
+              "title": "固定空入口",
+              "url": "https://gitee.com/dcosa/esharp/blob/55503b2e623e3093d9c6423b63aa6b006adaaf32/src/main.c"
+            },
+            {
+              "title": "固定LGPLv3全文",
+              "url": "https://gitee.com/dcosa/esharp/blob/55503b2e623e3093d9c6423b63aa6b006adaaf32/LICENSE"
+            },
+            {
+              "title": "公开Issues集合",
+              "url": "https://gitee.com/api/v5/repos/dcosa/esharp/issues?state=all&per_page=100"
+            }
+          ]
+        },
+        {
+          "name": "ESRuntime／ESIL历史阶段",
+          "status": "关联设计与静态原型：部分关系已核",
+          "facts": [
+            "0.1.0-end.preview指向c090f0d80ca5fb6855513b906cb6a321db52903c，提交记录为2023-05-13T15:45:33Z；发行页显示的2023-06-02时间分别记录。",
+            "旧README设计.esb二进制、.esl库及导出_es_LibraryMain的类库；旧树保存ESRuntime、ESIL.md与汇编器占位入口。",
+            "ESRuntime/instset.h的作者注释提出在易语言上改进E#、编译为ESIL并由ESR解释执行。该文字为开发计划。ESIL文档保存.class、.method、.param等声明标记设计。"
+          ],
+          "unknowns": [
+            "完整ESRuntime执行实现、E#前端与旧字节码产物、版本兼容及独立运行待核。"
+          ],
+          "sources": [
+            {
+              "title": "历史标签发行",
+              "url": "https://gitee.com/dcosa/esharp/releases/tag/0.1.0-end.preview"
+            },
+            {
+              "title": "固定历史README",
+              "url": "https://gitee.com/dcosa/esharp/blob/c090f0d80ca5fb6855513b906cb6a321db52903c/README.md"
+            },
+            {
+              "title": "固定ESIL设计",
+              "url": "https://gitee.com/dcosa/esharp/blob/c090f0d80ca5fb6855513b906cb6a321db52903c/ESIL.md"
+            },
+            {
+              "title": "作者运行时计划注释",
+              "url": "https://gitee.com/dcosa/esharp/blob/c090f0d80ca5fb6855513b906cb6a321db52903c/ESRuntime/instset.h"
+            }
+          ]
+        },
+        {
+          "name": "CH-VM／CHIL",
+          "status": "关联平台规范与分配原型：静态材料已核",
+          "facts": [
+            "DCOSA组织页直接链接dcosa/vm；完整公开历史5次提交，固定头2e3185eecf440de9e311ce7255577cb56717079f时间2023-06-08T23:28:00+08:00。",
+            "CHIL规范与E#旧ESIL的声明标记和条目正文相同，差异为标题、Markdown层级及空行。该比较支持规范文本延续关系。",
+            "CH-VM规范定义.chl／.chr、目标文件、元数据及指令；vm.c、stack.c保存程序环境、调用帧和栈的分配原型。chilc/main.c及运行main.c为返回0的入口。"
+          ],
+          "unknowns": [
+            "E#到CHIL的实际前端调用链、字节码兼容性、完整执行和发行版本对应待核。"
+          ],
+          "sources": [
+            {
+              "title": "组织原页互链",
+              "url": "https://gitee.com/dcosa"
+            },
+            {
+              "title": "固定CHIL规范",
+              "url": "https://gitee.com/dcosa/vm/blob/2e3185eecf440de9e311ce7255577cb56717079f/CHIL%E8%A7%84%E8%8C%83.md"
+            },
+            {
+              "title": "固定CH-VM规范",
+              "url": "https://gitee.com/dcosa/vm/blob/2e3185eecf440de9e311ce7255577cb56717079f/CH-VM%E8%A7%84%E8%8C%83.md"
+            },
+            {
+              "title": "固定程序环境原型",
+              "url": "https://gitee.com/dcosa/vm/blob/2e3185eecf440de9e311ce7255577cb56717079f/ch-vm/core/vm/vm.c"
+            },
+            {
+              "title": "固定栈原型",
+              "url": "https://gitee.com/dcosa/vm/blob/2e3185eecf440de9e311ce7255577cb56717079f/ch-vm/core/vm/stack.c"
+            }
+          ]
+        },
+        {
+          "name": "易深IDE（Yishen）",
+          "status": "关联工具：中文C转换源码已静态核验",
+          "facts": [
+            "同组织原仓固定头70c5e0b40aadf8bbd3f5dcb48061175e06389d4b时间2021-07-05T14:19:44Z，标签v1.4-alpha；公开历史5次提交。README署名再见理想、云之梦歌，开发环境为Qt与VS2019。",
+            "KoCode/VTranslation.cpp保存整数型→int、如果→if、主函数→main等映射；VBackgroundSystem.cpp保存转换后写出文件的调用路径。该阶段按中文C映射界面记录。"
+          ],
+          "unknowns": [
+            "与2023年E#语法、CH-VM产物及正式前端的集成关系、完整用户程序和独立运行待核。"
+          ],
+          "sources": [
+            {
+              "title": "固定README",
+              "url": "https://gitee.com/dcosa/yishen/blob/70c5e0b40aadf8bbd3f5dcb48061175e06389d4b/README.md"
+            },
+            {
+              "title": "固定映射源码",
+              "url": "https://gitee.com/dcosa/yishen/blob/70c5e0b40aadf8bbd3f5dcb48061175e06389d4b/KoCode/VTranslation.cpp"
+            },
+            {
+              "title": "固定转换入口",
+              "url": "https://gitee.com/dcosa/yishen/blob/70c5e0b40aadf8bbd3f5dcb48061175e06389d4b/KoCode/VBackgroundSystem.cpp"
+            }
+          ]
+        }
+      ],
+      "research": [
+        {
+          "title": "E#初始固定词表与历史发行",
+          "url": "https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe/research/2026-10-10/round-16-gitee.md"
+        },
+        {
+          "title": "既有源页访问范围",
+          "url": "https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe/research/2026-10-25/root-findings.md"
+        },
+        {
+          "title": "三个原仓历史及规范对应",
+          "url": "https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe/research/2026-10-28/issues-3-5-48.md"
+        },
+        {
+          "title": "固定提交、文件blob及资产摘要",
+          "url": "https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe/research/2026-10-28/issues-3-5-48-evidence.json"
+        }
+      ]
+    },
+    {
+      "issue": 52,
+      "title": "MimicryOS正式源码阶段与Causenix软件源阶段的公开证据",
+      "summary": "MimicryOS已按中国开发者自述及BOOTBOOT／ELF64固定源码正式收录；Causenix保存作者系统声明、网络队列片段、软件源和两项应用资料，自身内核核心链继续待核。评论中YiYiYa补充已由专项条目处理。本页保留候选各自证据，正式项目数保持原样。",
+      "subjects": [
+        {
+          "name": "MimicryOS（Annihilation006及贡献者）",
+          "status": "已正式收录：BOOTBOOT／ELF64内核固定源码阶段",
+          "facts": [
+            "原作者明确自述：Annihilation006于2026-10-23的百科议题评论确认自己是中国开发者，并说明本人和DeepSeek AI参与开发。当前README另列ming_yv1与Hugo_YuGuo及其分工。",
+            "固定源码：main提交e5d79e4311910c44b870ad7c36e4e8268eac9f6e，时间2026-10-24T16:35:42Z；sysinfo字串为v0.1。Makefile使用freestanding参数独立链接x86-64 kernel.elf，BOOTBOOT负责引导。",
+            "源码可见：_start设置16KiB静态栈并进入kernel_main；包含1MiB静态堆的first-fit分割／相邻合并、ATA PIO、PS/2键盘轮询与Shell行编辑器。",
+            "源码可见：FAT12风格格式化及简化文件操作采用LBA2890固定数据区、16项根目录和8.3名称；desktop命令调用矩形背景／窗口边框绘制，模块自动注册中的desktop项处于注释阶段。",
+            "已完成字体输入补证：固定树包含4128字节font.psf，Makefile通过objcopy生成font.o并链接；字体原始来源、许可和生成脚本另保留待核。",
+            "作者声明与来源阶段：早期曾移植pl_readline，当前README声明移除并使用自身Shell行编辑器；BOOTBOOT和stb_image作为依赖记录。根MIT署名2025 annihilation006，BOOTBOOT头及链接脚本保留bzt／MIT署名。",
+            "原片元数据与作者声明：README短链关联BV1MAHM6fEq3，发布者Annihilation006（UID3546392479926809），时间2026-10-24T16:30:33Z、时长493秒，简介称AI／人类共同开发。具体功能画面时间点采用待核状态。",
+            "平台历史记录：新历史根6759094cab605e53427e62d628359be3d40b3e15为2026-10-24T13:10:40Z；旧f6f2ad48与新头compare返回无共同祖先，新旧源码分别固定。"
+          ],
+          "unknowns": [
+            "镜像打包配置iso_build/myos.json、sys/config与tools/genfont.py固定原件",
+            "BOOTBOOT工具链固定版本、font.psf来源和完整第三方许可",
+            "新旧快照逐文件继承及pl_readline/CoolPot参考范围",
+            "IDT/int 0x80、多任务、分页与Ring 3各阶段的实现和整合",
+            "作者原片具体功能时间点、对应源码和独立构建启动"
+          ],
+          "sources": [
+            {
+              "title": "正式条目：MimicryOS",
+              "url": "https://中文编程语言.yuyan-lang.org/内核/mimicryos.html"
+            },
+            {
+              "title": "作者中国开发者与DeepSeek参与自述",
+              "url": "https://github.com/yuyan-lang/chinese-programming-languages/issues/52#issuecomment-6362756351"
+            },
+            {
+              "title": "当前 README",
+              "url": "https://github.com/Annihilation006/MimicryOS/blob/e5d79e4311910c44b870ad7c36e4e8268eac9f6e/README.md"
+            },
+            {
+              "title": "独立ELF64构建配置",
+              "url": "https://github.com/Annihilation006/MimicryOS/blob/e5d79e4311910c44b870ad7c36e4e8268eac9f6e/Makefile"
+            },
+            {
+              "title": "当前内核实现",
+              "url": "https://github.com/Annihilation006/MimicryOS/blob/e5d79e4311910c44b870ad7c36e4e8268eac9f6e/kernel.c"
+            },
+            {
+              "title": "BOOTBOOT示例链接脚本及许可",
+              "url": "https://github.com/Annihilation006/MimicryOS/blob/e5d79e4311910c44b870ad7c36e4e8268eac9f6e/linker.ld"
+            },
+            {
+              "title": "BOOTBOOT协议头及许可",
+              "url": "https://github.com/Annihilation006/MimicryOS/blob/e5d79e4311910c44b870ad7c36e4e8268eac9f6e/bootboot.h"
+            },
+            {
+              "title": "根MIT许可证",
+              "url": "https://github.com/Annihilation006/MimicryOS/blob/e5d79e4311910c44b870ad7c36e4e8268eac9f6e/LICENSE"
+            },
+            {
+              "title": "当前构建指南与遗留功能说明",
+              "url": "https://github.com/Annihilation006/MimicryOS/blob/e5d79e4311910c44b870ad7c36e4e8268eac9f6e/BUILD.md"
+            },
+            {
+              "title": "MimicryOS原仓关联视频",
+              "url": "https://www.bilibili.com/video/BV1MAHM6fEq3/"
+            },
+            {
+              "title": "固定头提交",
+              "url": "https://github.com/Annihilation006/MimicryOS/commit/e5d79e4311910c44b870ad7c36e4e8268eac9f6e"
+            },
+            {
+              "title": "完整固定树",
+              "url": "https://api.github.com/repos/Annihilation006/MimicryOS/git/trees/e5d79e4311910c44b870ad7c36e4e8268eac9f6e?recursive=1"
+            },
+            {
+              "title": "早期CoolPot文件声明",
+              "url": "https://github.com/Annihilation006/MimicryOS/blob/b2ed7ca8392c91c0386aeee055e242ee0c433b2d/README.md"
+            },
+            {
+              "title": "既有字体和重建历史核验",
+              "url": "https://github.com/yuyan-lang/chinese-programming-languages/issues/52#issuecomment-6391980826"
+            }
+          ]
+        },
+        {
+          "name": "Causenix OS（FRCREEPER）",
+          "status": "公开软件源与源码片段已记录；自身内核实现待核实",
+          "facts": [
+            "固定快照：f7ab3f38bac9b944b184e9226a6e8da5d65dde2e，时间2026-10-06T15:46:44Z；完整树为9文件、2目录，保存README、软件页／清单、两项应用ELF与网络／接口源码片段。",
+            "作者声明：README介绍x86-64、Limine、LIFS／FAT32、图形桌面及e1000网络栈；这些整体内核能力按作者声明记录。",
+            "源码片段可见：src/netcmd.c保存64槽、每命令256字节的环形队列与白名单分派；头注释与drain注释分别提shell_run和timer上下文，实际调用上下文及权限验证继续待核实。",
+            "阶段区别：旧下载中心index.html固定782cabeecb9c8c2e0b2738f9456fe25ff0b02bcf（2026-10-06T06:37:58Z）列内核和src/main.c相对链接；当前首页为软件源阶段。页面链接声明与实际已取得的核心原件分别记录。",
+            "公开部署来源：仓库homepage明确指向frcreeper.github.io/causenix/。2026-10-30T12:07:32Z首页HTTP200、4494字节，SHA256 ab3f2a481b357d6c5cdf8fed671cc403eaf357e338b1083ffca582074e117f57，与10月28日摘要一致。",
+            "软件源原件：2026-10-30T12:08:00Z manifest.json为HTTP200、839字节，SHA256 6495fc6aeb9190c14c3054b42167e171d895af92c89de8887ccfadfaab621811，只列snake和conway两项0.1.0应用ELF；当次读取Releases为空集合。",
+            "核验范围：现有公开材料支持软件源、应用与网络队列片段记录；整体自身内核、发行物边界与中国归属继续采用待核状态。"
+          ],
+          "unknowns": [
+            "最小实现缺口：可取得的自身内核源码／可解析发行物，以及内核入口、资源管理和UEFI／Linux／上游组件的边界。",
+            "netcmd实际调用链、e1000／UDP完整实现、网络输入及权限验证。",
+            "明确中国作者／开发社区公开归属；系统与两项应用源码、许可及版本对应。",
+            "原作者视频及可靠功能时间点、独立构建和启动；未取得原件的作者声明继续保持声明等级。"
+          ],
+          "sources": [
+            {
+              "title": "Causenix固定提交",
+              "url": "https://github.com/FRCREEPER/causenix/commit/f7ab3f38bac9b944b184e9226a6e8da5d65dde2e"
+            },
+            {
+              "title": "固定README作者声明",
+              "url": "https://github.com/FRCREEPER/causenix/blob/f7ab3f38bac9b944b184e9226a6e8da5d65dde2e/README.md"
+            },
+            {
+              "title": "固定网络命令队列实现",
+              "url": "https://github.com/FRCREEPER/causenix/blob/f7ab3f38bac9b944b184e9226a6e8da5d65dde2e/src/netcmd.c"
+            },
+            {
+              "title": "固定完整文件树",
+              "url": "https://api.github.com/repos/FRCREEPER/causenix/git/trees/f7ab3f38bac9b944b184e9226a6e8da5d65dde2e?recursive=1"
+            },
+            {
+              "title": "旧下载中心页面原件",
+              "url": "https://github.com/FRCREEPER/causenix/blob/782cabeecb9c8c2e0b2738f9456fe25ff0b02bcf/index.html"
+            },
+            {
+              "title": "作者公开软件源",
+              "url": "https://frcreeper.github.io/causenix/"
+            },
+            {
+              "title": "当前部署软件清单",
+              "url": "https://frcreeper.github.io/causenix/manifest.json"
+            },
+            {
+              "title": "已保存当前公开入口HTTP摘要与清单",
+              "url": "https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe395f2c89a1d6f4670da171292d452d44c/research/2026-10-30/tx-causenix-evidence.json"
+            }
+          ]
+        }
+      ],
+      "research": [
+        {
+          "title": "两候选原始源码与身份核验",
+          "url": "https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe395f2c89a1d6f4670da171292d452d44c/research/2026-10-11/round-18-kernels.md"
+        },
+        {
+          "title": "MimicryOS正式收录与Causenix源链范围",
+          "url": "https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe395f2c89a1d6f4670da171292d452d44c/research/2026-10-25/kernels-b.md"
+        },
+        {
+          "title": "Causenix公开历史及旧下载页面范围",
+          "url": "https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe395f2c89a1d6f4670da171292d452d44c/research/2026-10-28/kernels-b.md"
+        },
+        {
+          "title": "Causenix当前公开软件源与清单回执",
+          "url": "https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe395f2c89a1d6f4670da171292d452d44c/research/2026-10-30/tx-causenix.md"
+        },
+        {
+          "title": "YiYiYa评论补充分项的既有正式条目",
+          "url": "https://中文编程语言.yuyan-lang.org/内核/yiyiya.html"
+        }
+      ]
+    },
+    {
+      "issue": 59,
+      "title": "博流品牌、教材语言与实训平台资料",
+      "summary": "教材中文程序、实训前端与公司产品导航已有直接原件。博流品牌与教材语言的正式命名、版本及服务端语言实现对应待核实。",
+      "subjects": [
+        {
+          "name": "博流中文编程语言及关联技术方案",
+          "status": "作者产品声明与关联专利已记录；品牌语言对应待核实",
+          "facts": [
+            "广东辰宜信息科技有限公司介绍将博流中文编程语言列为2018年发布产品；原始系统介绍将语言定位为面向关系。发布日期与定位按公司自述记录。",
+            "公司转载的易朝刚介绍署名佛山新闻传媒中心／辰宜科技，页面标2023-12-19 12:05，将技术总监易朝刚及团队与博流产品关联。个人完整设计与实现分工待核实。",
+            "公司专利介绍指向《基于中文逻辑表达式的查询方法和装置》。公开专利文本CN114372075B列发明人易朝刚、原申请人广东辰宜信息科技有限公司，申请日2021-06-05、A文本公布日2022-04-19、B文本公布日2026-03-24。方案描述网页中文查询、服务器生成逻辑表达式与字段变量化，列“是、否、且、或”。这些内容按专利方案记录。",
+            "2026-10-30正常取得博流数据库子站下载页：HTTP200，22587字节，响应Date为2026-10-30T12:12:27Z；“产品下载”导航直接链接classroom.gdchenyi.com.cn。下载页自标DeepSpring博流数据库v2.0.1，公司另一下载页标1.433，各网页产品标记分别保存。"
+          ],
+          "unknowns": [
+            "博流品牌自身的公开语法／原始程序，或明确将教材语言与博流名称关联的作者文档待核实。",
+            "公司产品标记与语言版本、教材程序及实际发行物的对应待核实。专利方案与博流实际解析器的对应待核实。",
+            "语言实现源码、许可、服务端解析链与独立运行待核实。2026-10-30两个直接手册栏目返回404，DOCX服务器8087端口无法连接；这些访问结果限定于当次路径。"
+          ],
+          "sources": [
+            {
+              "title": "公司博流发布自述",
+              "url": "https://www.gdchenyi.com.cn/col.jsp?id=133"
+            },
+            {
+              "title": "公司系统与语言定位原文",
+              "url": "https://www.gdchenyi.com.cn/nd.jsp?id=14"
+            },
+            {
+              "title": "公司转载的易朝刚与团队介绍",
+              "url": "https://www.gdchenyi.com.cn/nd.jsp?id=164"
+            },
+            {
+              "title": "公司专利介绍",
+              "url": "https://www.gdchenyi.com.cn/nd.jsp?id=247"
+            },
+            {
+              "title": "中文公开专利文本CN114372075B",
+              "url": "https://patents.google.com/patent/CN114372075B/zh"
+            },
+            {
+              "title": "博流数据库子站产品下载导航",
+              "url": "http://db.gdchenyi.com.cn/download/index.html"
+            },
+            {
+              "title": "公司产品1.433下载标记",
+              "url": "https://www.gdchenyi.com.cn/col.jsp?id=145"
+            }
+          ]
+        },
+        {
+          "name": "辰宜中文智能合约语言（教材）与实训站",
+          "status": "教材语言已收录为lang-104；品牌与服务端对应待核实",
+          "facts": [
+            "出版社《区块链技术原理与应用》书目记2023-07、ISBN978-7-5606-6924-3，主编李建辉、易朝刚、刘满兰；教材由院校教师与辰宜教育产品团队合编。教材署名与语言设计者分别记录。",
+            "2026-10-25取得配套源代码DOCX，64314字节，SHA-256为e1f699276fa72994d23081091cea1b3de5d29568269c5d1e9f990d01770cf9d6。任务10—13保存完整中文算术、条件、循环和函数程序，已以描述名“辰宜中文智能合约语言（教材）”收录。",
+            "出版社实训说明直接指向classroom.gdchenyi.com.cn。2026-10-28静态核验前端app.deb32d9322aa13d5f098.js，SHA-256为8ea9f05c41e69b919cf83b332c6879ac350516183ea13e89efeaf0360f56833b：中文链码编辑器getValue取得Markdown，经Base64编码后WebSocket发送，接收端解码响应。证据支持编辑与传输入口。"
+          ],
+          "unknowns": [
+            "教材语言正式名称与博流品牌、语言版本及服务端实现对应待核实。教材中的Java例程与中文程序后端对应待核实。"
+          ],
+          "examples": [
+            {
+              "code": "数值变量 长 = 15\n数值变量 高 = 5\n数值变量 面积=长*高/2\n显示信息（“三角形面积为：”+面积）",
+              "source": "出版社配套源代码文档任务10，原始四行；独立运行待核实。"
+            }
+          ],
+          "sources": [
+            {
+              "title": "正式条目：教材中文语言",
+              "url": "../languages/lang-104.html"
+            },
+            {
+              "title": "出版社书目与目录",
+              "url": "https://www.xduph.com/pages/BookDetail.aspx?doi=48a13137-8a88-49a4-a8b2-0ebce04f7b3b&type=1"
+            },
+            {
+              "title": "出版社配套源代码DOCX",
+              "url": "https://www.xduph.com/pages/DownLoadResourceFile.aspx?doi=FDB029062C263376B4772AA451E653FE"
+            },
+            {
+              "title": "出版社实训使用说明",
+              "url": "https://www.xduph.com/pages/DownLoadResourceFile.aspx?doi=9E545399C8EDF7C891BFA6EB2E37DA86"
+            },
+            {
+              "title": "实训站公开前端静态文件",
+              "url": "https://classroom.gdchenyi.com.cn/static/js/app.deb32d9322aa13d5f098.js"
+            }
+          ]
+        }
+      ],
+      "research": [
+        {
+          "title": "教材原件及摘要",
+          "url": "../research/2026-10-25/root-findings.md"
+        },
+        {
+          "title": "实训前端静态调用链",
+          "url": "../research/2026-10-28/root-primary-review.md"
+        },
+        {
+          "title": "博流官方导航与手册读取范围",
+          "url": "../research/2026-10-30/root-primary-review.md"
+        }
+      ]
+    },
+    {
+      "issue": 63,
+      "title": "客舍论坛设计与仓库署名关系资料",
+      "summary": "客舍仓库规范与读取器原型已收录。论坛FCary、提交账号Fancyary及规范署名Wang Zhangli分别记录，直接身份互链与版本对应待核实。",
+      "subjects": [
+        {
+          "name": "FCary的客舍论坛设计",
+          "status": "原站设计讨论已核；跨账号身份待核实",
+          "facts": [
+            "原站RSS确认Emacs China账号FCary首帖发表于2026-08-29T10:02:17Z，讨论客舍虚词模板、读取期与宿主映射；后缀讨论首帖为2026-09-19T03:27:16Z，延续假名后缀附着与组合歧义设计。",
+            "论坛原例“夫曰一曰二哉”用于说明对应Lisp表达式，“当 甲一，乙二者，加甲乙哉。”用于讨论绑定设计。例子按作者设计说明记录，运行能力待核实。",
+            "2026-10-28取得正常公开主题RSS全文。2026-10-30检查Fancyary公开Gists及keshe-lang命名空间公开仓库，没有取得通向FCary账号的直接链接。该结果限定于所查入口。"
+          ],
+          "unknowns": [
+            "论坛FCary与GitHub Fancyary／规范署名Wang Zhangli的直接身份对应待核实。论坛方案与固定仓库版本、规范阶段的逐项对应待核实。"
+          ],
+          "sources": [
+            {
+              "title": "FCary模板与宏首帖",
+              "url": "https://emacs-china.org/t/vs/32015"
+            },
+            {
+              "title": "模板讨论原站RSS",
+              "url": "https://emacs-china.org/t/vs/32015.rss"
+            },
+            {
+              "title": "FCary后缀设计讨论",
+              "url": "https://emacs-china.org/t/topic/32075"
+            },
+            {
+              "title": "后缀讨论原站RSS",
+              "url": "https://emacs-china.org/t/topic/32075.rss"
+            }
+          ]
+        },
+        {
+          "name": "keshe-lang仓库的规范与解析原型",
+          "status": "已收录lang-110；宿主求值与身份关系待核实",
+          "facts": [
+            "仓库固定提交2ab2153a46cdab9dd04976d068f62c72b5888474，提交时间2026-08-27T11:15:16Z，关联账号Fancyary。SPECIFICATION.md自标v0.1.0-alpha、2026-08-26、作者Wang Zhangli。建库时间2026-08-26T09:49:33Z、保留历史根时间2026-08-26T09:49:34Z与首次公开分别记录。",
+            "cljs/main.cljs保存ClojureScript分词、parse-rules、递归模板解析与parse入口；parse-by-template构造操作词和参数向量。源码字符串扫描采用ASCII双引号，README使用「」。common-lisp/main.lisp与docs/index.html各为1字节。",
+            "根LICENSE提供Apache-2.0正文；README与规范将参考实现标Apache-2.0、规范文本标CC BY-SA 4.0。M0规范公开为进行中，最小解释器与宿主接入属于后续路线图。规范、原例与解析原型分别按其证据层级收录。"
+          ],
+          "unknowns": [
+            "宿主AST转换及求值链、规范覆盖、完整程序运行待核实。“AI原生”为设计定位，实际开发的AI贡献范围待核实。"
+          ],
+          "examples": [
+            {
+              "code": "定階，甲，若等甲零者，1也，乘甲階减甲一也",
+              "source": "固定README第16行阶乘设计原例，保留原字形；独立运行待核实。"
+            }
+          ],
+          "sources": [
+            {
+              "title": "正式条目：客舍",
+              "url": "../languages/lang-110.html"
+            },
+            {
+              "title": "固定README与设计原例",
+              "url": "https://github.com/keshe-lang/keshe-lang/blob/2ab2153a46cdab9dd04976d068f62c72b5888474/README.md#L16"
+            },
+            {
+              "title": "固定规范与署名",
+              "url": "https://github.com/keshe-lang/keshe-lang/blob/2ab2153a46cdab9dd04976d068f62c72b5888474/SPECIFICATION.md"
+            },
+            {
+              "title": "固定分词与模板解析原型",
+              "url": "https://github.com/keshe-lang/keshe-lang/blob/2ab2153a46cdab9dd04976d068f62c72b5888474/cljs/main.cljs"
+            },
+            {
+              "title": "固定许可正文",
+              "url": "https://github.com/keshe-lang/keshe-lang/blob/2ab2153a46cdab9dd04976d068f62c72b5888474/LICENSE"
+            }
+          ]
+        }
+      ],
+      "research": [
+        {
+          "title": "仓库规范与实现边界",
+          "url": "../research/2026-10-25/issues-3-5-63.md"
+        },
+        {
+          "title": "论坛RSS原文与时间",
+          "url": "../research/2026-10-28/root-primary-review.md"
+        },
+        {
+          "title": "公开账号互链检查范围",
+          "url": "../research/2026-10-30/root-primary-review.md"
+        }
+      ]
+    }
+  ]
+}

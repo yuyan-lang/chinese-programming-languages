@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MimicryOS正式源码阶段与Causenix软件源阶段的公开证据 · 中文编程语言百科</title><link rel="stylesheet" href="../style.css"></head>
+<body><header><h1>MimicryOS正式源码阶段与Causenix软件源阶段的公开证据</h1><p>已有证据与待核实部分</p></header>
+<main><nav><a href="../index.html">语言目录</a> · <a href="../内核/index.html">内核目录</a> · <a href="index.html">资料与待核实记录</a></nav>
+<p>MimicryOS已按中国开发者自述及BOOTBOOT／ELF64固定源码正式收录；Causenix保存作者系统声明、网络队列片段、软件源和两项应用资料，自身内核核心链继续待核。评论中YiYiYa补充已由专项条目处理。本页保留候选各自证据，正式项目数保持原样。</p>
+<p>整理日期：2026-10-30。对应<a href="https://github.com/yuyan-lang/chinese-programming-languages/issues/52">议题 #52</a>。本页保存现有调查结论，待核实内容按字段列出。后续取得新证据时可以补充页面并重开议题。</p>
+<p>资料页中的候选与关联关系单独记录。正式目录保持114项语言、26项内核；项目阶段与证据等级见各正式条目。</p>
+<section id="subject-1"><h2>MimicryOS（Annihilation006及贡献者）</h2>
+<p><strong>资料状态：</strong>已正式收录：BOOTBOOT／ELF64内核固定源码阶段</p>
+<p>原作者明确自述：Annihilation006于2026-10-23的百科议题评论确认自己是中国开发者，并说明本人和DeepSeek AI参与开发。当前README另列ming_yv1与Hugo_YuGuo及其分工。</p>
+<p>固定源码：main提交e5d79e4311910c44b870ad7c36e4e8268eac9f6e，时间2026-10-24T16:35:42Z；sysinfo字串为v0.1。Makefile使用freestanding参数独立链接x86-64 kernel.elf，BOOTBOOT负责引导。</p>
+<p>源码可见：_start设置16KiB静态栈并进入kernel_main；包含1MiB静态堆的first-fit分割／相邻合并、ATA PIO、PS/2键盘轮询与Shell行编辑器。</p>
+<p>源码可见：FAT12风格格式化及简化文件操作采用LBA2890固定数据区、16项根目录和8.3名称；desktop命令调用矩形背景／窗口边框绘制，模块自动注册中的desktop项处于注释阶段。</p>
+<p>已完成字体输入补证：固定树包含4128字节font.psf，Makefile通过objcopy生成font.o并链接；字体原始来源、许可和生成脚本另保留待核。</p>
+<p>作者声明与来源阶段：早期曾移植pl_readline，当前README声明移除并使用自身Shell行编辑器；BOOTBOOT和stb_image作为依赖记录。根MIT署名2025 annihilation006，BOOTBOOT头及链接脚本保留bzt／MIT署名。</p>
+<p>原片元数据与作者声明：README短链关联BV1MAHM6fEq3，发布者Annihilation006（UID3546392479926809），时间2026-10-24T16:30:33Z、时长493秒，简介称AI／人类共同开发。具体功能画面时间点采用待核状态。</p>
+<p>平台历史记录：新历史根6759094cab605e53427e62d628359be3d40b3e15为2026-10-24T13:10:40Z；旧f6f2ad48与新头compare返回无共同祖先，新旧源码分别固定。</p>
+<h3>待核实</h3>
+<ul>
+<li>镜像打包配置iso_build/myos.json、sys/config与tools/genfont.py固定原件</li>
+<li>BOOTBOOT工具链固定版本、font.psf来源和完整第三方许可</li>
+<li>新旧快照逐文件继承及pl_readline/CoolPot参考范围</li>
+<li>IDT/int 0x80、多任务、分页与Ring 3各阶段的实现和整合</li>
+<li>作者原片具体功能时间点、对应源码和独立构建启动</li>
+</ul>
+<h3>来源</h3>
+<ul>
+<li><a href="https://中文编程语言.yuyan-lang.org/内核/mimicryos.html">正式条目：MimicryOS</a></li>
+<li><a href="https://github.com/yuyan-lang/chinese-programming-languages/issues/52#issuecomment-6362756351">作者中国开发者与DeepSeek参与自述</a></li>
+<li><a href="https://github.com/Annihilation006/MimicryOS/blob/e5d79e4311910c44b870ad7c36e4e8268eac9f6e/README.md">当前 README</a></li>
+<li><a href="https://github.com/Annihilation006/MimicryOS/blob/e5d79e4311910c44b870ad7c36e4e8268eac9f6e/Makefile">独立ELF64构建配置</a></li>
+<li><a href="https://github.com/Annihilation006/MimicryOS/blob/e5d79e4311910c44b870ad7c36e4e8268eac9f6e/kernel.c">当前内核实现</a></li>
+<li><a href="https://github.com/Annihilation006/MimicryOS/blob/e5d79e4311910c44b870ad7c36e4e8268eac9f6e/linker.ld">BOOTBOOT示例链接脚本及许可</a></li>
+<li><a href="https://github.com/Annihilation006/MimicryOS/blob/e5d79e4311910c44b870ad7c36e4e8268eac9f6e/bootboot.h">BOOTBOOT协议头及许可</a></li>
+<li><a href="https://github.com/Annihilation006/MimicryOS/blob/e5d79e4311910c44b870ad7c36e4e8268eac9f6e/LICENSE">根MIT许可证</a></li>
+<li><a href="https://github.com/Annihilation006/MimicryOS/blob/e5d79e4311910c44b870ad7c36e4e8268eac9f6e/BUILD.md">当前构建指南与遗留功能说明</a></li>
+<li><a href="https://www.bilibili.com/video/BV1MAHM6fEq3/">MimicryOS原仓关联视频</a></li>
+<li><a href="https://github.com/Annihilation006/MimicryOS/commit/e5d79e4311910c44b870ad7c36e4e8268eac9f6e">固定头提交</a></li>
+<li><a href="https://api.github.com/repos/Annihilation006/MimicryOS/git/trees/e5d79e4311910c44b870ad7c36e4e8268eac9f6e?recursive=1">完整固定树</a></li>
+<li><a href="https://github.com/Annihilation006/MimicryOS/blob/b2ed7ca8392c91c0386aeee055e242ee0c433b2d/README.md">早期CoolPot文件声明</a></li>
+<li><a href="https://github.com/yuyan-lang/chinese-programming-languages/issues/52#issuecomment-6391980826">既有字体和重建历史核验</a></li>
+</ul>
+</section>
+<section id="subject-2"><h2>Causenix OS（FRCREEPER）</h2>
+<p><strong>资料状态：</strong>公开软件源与源码片段已记录；自身内核实现待核实</p>
+<p>固定快照：f7ab3f38bac9b944b184e9226a6e8da5d65dde2e，时间2026-10-06T15:46:44Z；完整树为9文件、2目录，保存README、软件页／清单、两项应用ELF与网络／接口源码片段。</p>
+<p>作者声明：README介绍x86-64、Limine、LIFS／FAT32、图形桌面及e1000网络栈；这些整体内核能力按作者声明记录。</p>
+<p>源码片段可见：src/netcmd.c保存64槽、每命令256字节的环形队列与白名单分派；头注释与drain注释分别提shell_run和timer上下文，实际调用上下文及权限验证继续待核实。</p>
+<p>阶段区别：旧下载中心index.html固定782cabeecb9c8c2e0b2738f9456fe25ff0b02bcf（2026-10-06T06:37:58Z）列内核和src/main.c相对链接；当前首页为软件源阶段。页面链接声明与实际已取得的核心原件分别记录。</p>
+<p>公开部署来源：仓库homepage明确指向frcreeper.github.io/causenix/。2026-10-30T12:07:32Z首页HTTP200、4494字节，SHA256 ab3f2a481b357d6c5cdf8fed671cc403eaf357e338b1083ffca582074e117f57，与10月28日摘要一致。</p>
+<p>软件源原件：2026-10-30T12:08:00Z manifest.json为HTTP200、839字节，SHA256 6495fc6aeb9190c14c3054b42167e171d895af92c89de8887ccfadfaab621811，只列snake和conway两项0.1.0应用ELF；当次读取Releases为空集合。</p>
+<p>核验范围：现有公开材料支持软件源、应用与网络队列片段记录；整体自身内核、发行物边界与中国归属继续采用待核状态。</p>
+<h3>待核实</h3>
+<ul>
+<li>最小实现缺口：可取得的自身内核源码／可解析发行物，以及内核入口、资源管理和UEFI／Linux／上游组件的边界。</li>
+<li>netcmd实际调用链、e1000／UDP完整实现、网络输入及权限验证。</li>
+<li>明确中国作者／开发社区公开归属；系统与两项应用源码、许可及版本对应。</li>
+<li>原作者视频及可靠功能时间点、独立构建和启动；未取得原件的作者声明继续保持声明等级。</li>
+</ul>
+<h3>来源</h3>
+<ul>
+<li><a href="https://github.com/FRCREEPER/causenix/commit/f7ab3f38bac9b944b184e9226a6e8da5d65dde2e">Causenix固定提交</a></li>
+<li><a href="https://github.com/FRCREEPER/causenix/blob/f7ab3f38bac9b944b184e9226a6e8da5d65dde2e/README.md">固定README作者声明</a></li>
+<li><a href="https://github.com/FRCREEPER/causenix/blob/f7ab3f38bac9b944b184e9226a6e8da5d65dde2e/src/netcmd.c">固定网络命令队列实现</a></li>
+<li><a href="https://api.github.com/repos/FRCREEPER/causenix/git/trees/f7ab3f38bac9b944b184e9226a6e8da5d65dde2e?recursive=1">固定完整文件树</a></li>
+<li><a href="https://github.com/FRCREEPER/causenix/blob/782cabeecb9c8c2e0b2738f9456fe25ff0b02bcf/index.html">旧下载中心页面原件</a></li>
+<li><a href="https://frcreeper.github.io/causenix/">作者公开软件源</a></li>
+<li><a href="https://frcreeper.github.io/causenix/manifest.json">当前部署软件清单</a></li>
+<li><a href="https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe395f2c89a1d6f4670da171292d452d44c/research/2026-10-30/tx-causenix-evidence.json">已保存当前公开入口HTTP摘要与清单</a></li>
+</ul>
+</section>
+<h2>研究记录与取证范围</h2>
+<ul>
+<li><a href="https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe395f2c89a1d6f4670da171292d452d44c/research/2026-10-11/round-18-kernels.md">两候选原始源码与身份核验</a></li>
+<li><a href="https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe395f2c89a1d6f4670da171292d452d44c/research/2026-10-25/kernels-b.md">MimicryOS正式收录与Causenix源链范围</a></li>
+<li><a href="https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe395f2c89a1d6f4670da171292d452d44c/research/2026-10-28/kernels-b.md">Causenix公开历史及旧下载页面范围</a></li>
+<li><a href="https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe395f2c89a1d6f4670da171292d452d44c/research/2026-10-30/tx-causenix.md">Causenix当前公开软件源与清单回执</a></li>
+<li><a href="https://中文编程语言.yuyan-lang.org/内核/yiyiya.html">YiYiYa评论补充分项的既有正式条目</a></li>
+</ul>
+<p>来源按公开原始文档、静态源码、作者声明、搜索缓存和读取状态分别记录。候选软件的安装、构建、启动及执行次数均为0。访问失败的结论限定于记录日期与实际入口。</p>
+
+</main><footer>站点由<a href="https://yuyan-lang.org/">豫言编程语言</a>提供</footer></body></html>

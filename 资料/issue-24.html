@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Californium-252中文编译器、天河语言与周蟒的已存证据 · 中文编程语言百科</title><link rel="stylesheet" href="../style.css"></head>
+<body><header><h1>Californium-252中文编译器、天河语言与周蟒的已存证据</h1><p>已有证据与待核实部分</p></header>
+<main><nav><a href="../index.html">语言目录</a> · <a href="../内核/index.html">内核目录</a> · <a href="index.html">资料与待核实记录</a></nav>
+<p>原片中文语法、发布账号与天河语言作者链已有记录；天河语言源码、周蟒转换器和默认词表分别有固定来源。视频compiler的正式名称、实现来源及继承关系保留待核，视频对象的独立正式核实数新增0。</p>
+<p>整理日期：2026-10-30。对应<a href="https://github.com/yuyan-lang/chinese-programming-languages/issues/24">议题 #24</a>。本页保存现有调查结论，待核实内容按字段列出。后续取得新证据时可以补充页面并重开议题。</p>
+<p>资料页中的候选与关联关系单独记录。正式目录保持114项语言、26项内核；项目阶段与证据等级见各正式条目。</p>
+<section id="subject-1"><h2>Californium-252视频中的中文编译器</h2>
+<p><strong>资料状态：</strong>原片语法已记录；独立语言身份、实现来源与继承关系待核；作为lang-090同作者关联资料保存。</p>
+<p>原片BV1bm421x7AK由Californium-252（Bilibili UID3494354284972407）发布，原站发布时间为2024-04-20T10:11:27Z，北京时间2024-04-20 18:11:27。</p>
+<p>2026-10-25保存的静态原帧在01:30.296显示连续两行：“for循环 x 在 列表([1,2,3,4,5,6,999]):”，下一行缩进为“标准输出(x)”。缩进与空格按阅读排版整理。</p>
+<p>同批静态原帧在01:58.500显示两行中文输入输出，在02:38显示zhpy目录、./compiler 函数.zh及结果55。结果属于发布者录像演示。早期浏览器记录的02:08.679与02:43.189时间点，后续以本批静态帧时间点补充说明。</p>
+<p>原作者固定个人README与跨站互链把Sen、GitHub tianhuzong、Gitee thzsen及该B站UID关联起来；同一作者链下已正式收录天河语言ThLang。</p>
+<p>同作者python_compiler保留五次2024-06-23提交，首版脚本为Cython／GCC路线。该工具的历史与视频compiler分别记录。</p>
+<h3>待核实</h3>
+<ul>
+<li>视频compiler的源码仓库、正式语言名称及其与ThLang、gasolin/zhpy的具体继承关系待核实。</li>
+<li>zhpy工作目录名称属于画面线索；目录名与默认词表差异均不足以确定继承、派生或独立实现关系。</li>
+<li>源码与录像中可执行文件的对应、许可及独立运行结果待核实。视频对象保持关联资料状态，正式核实数新增0。</li>
+</ul>
+<h3>来源</h3>
+<ul>
+<li><a href="https://www.bilibili.com/video/BV1bm421x7AK/">原视频：整活——自制中文编程语言编译器</a></li>
+<li><a href="https://www.bilibili.com/video/BV1bm421x7AK/?t=90.296">01:30.296循环原例</a></li>
+<li><a href="https://www.bilibili.com/video/BV1bm421x7AK/?t=118.5">01:58.500输入输出原例</a></li>
+<li><a href="https://github.com/tianhuzong/tianhuzong/blob/52feca7bcfc158c376958c57d0708bb24559315e/README.md">作者固定个人README：Sen及跨站账号互链</a></li>
+<li><a href="https://github.com/tianhuzong/python_compiler/blob/8fe61269efbcb6587a57dae6c993e17fa02640d4/py_compiler.sh">python_compiler初版脚本：Cython／GCC调用</a></li>
+</ul>
+</section>
+<section id="subject-2"><h2>天河语言（ThLang，旧名天狐语言）</h2>
+<p><strong>资料状态：</strong>保持既有正式条目lang-090；中文源码与C++／LLVM调用链已有静态核验。</p>
+<p style="white-space: pre-wrap">固定提交779844e806391ca79421378f48b2aa7de2f4f837的时间为2026-06-21T04:22:56Z。bin/thlang/main.th第1—3行完整短例为“整数型 入口(){
+    返回 0;
+}”。</p>
+<p>固定词法、语法、代码生成与CLI文件提供中文关键字、AST、LLVM IR、目标文件及LLD链接入口；src/codegen.cpp将“入口”映射为main。</p>
+<p>同仓2025-01-12提交记录天狐改名天河，按一个既有语言对象保存。</p>
+<p>主线96次保留提交及shared_ptr分支已有核对；shared_ptr固定README说明该分支用于2025-01-27智能指针所有权测试。</p>
+<h3>待核实</h3>
+<ul>
+<li>2024视频中的.zh编译器与ThLang各版本的源码对应及继承关系待核实。</li>
+<li>示例包1.0.0与MIT元数据对编译器本体的适用范围、正式发行编号、本体许可与独立构建运行结果待核实。</li>
+</ul>
+<h3>来源</h3>
+<ul>
+<li><a href="https://中文编程语言.yuyan-lang.org/languages/lang-090.html">既有正式条目：天河语言</a></li>
+<li><a href="https://github.com/tianhuzong/ThLang/blob/779844e806391ca79421378f48b2aa7de2f4f837/bin/thlang/main.th#L1-L3">固定三行中文入口程序</a></li>
+<li><a href="https://github.com/tianhuzong/ThLang/blob/779844e806391ca79421378f48b2aa7de2f4f837/src/lex.l#L45-L57">固定词法规则</a></li>
+<li><a href="https://github.com/tianhuzong/ThLang/blob/779844e806391ca79421378f48b2aa7de2f4f837/src/libthlang.cpp">固定源码到IR与链接入口</a></li>
+<li><a href="https://github.com/tianhuzong/ThLang/commit/84bf8805bbd7d8e192bb2f84da8e237a1f91efae">天狐改名天河的原提交</a></li>
+<li><a href="https://github.com/tianhuzong/ThLang/blob/d29a4687636b6a219d048505962d9ea5ffd56f23/README.md">shared_ptr分支用途原说明</a></li>
+</ul>
+</section>
+<section id="subject-3"><h2>周蟒（zhpy／zhpy3）</h2>
+<p><strong>资料状态：</strong>保持既有正式条目lang-014；与视频compiler的关系保留待核。</p>
+<p>既有固定资料将周蟒记录为Fred Lin（gasolin）在HYRY原型基础上发展的Python中文语法转换工具；Python 2与Python 3路线按同一条目的不同实现阶段保存。</p>
+<p>固定提交f4d932a5ab810158ef4e4113df337cbf7d83817a中，Python 2路线以pyparsing处理中文词语并转换Python源码；Python 3路线以tokenize处理名称词元。关键词插件与ini映射提供扩展入口。</p>
+<p>固定默认简体词表将“取”映射为for、“函数”映射为lambda、“标准输入／标准输出”映射为stdin／stdout。视频中的for循环与可调用输入输出按另一份材料保存，默认词表比较有明确版本范围。</p>
+<h3>待核实</h3>
+<ul>
+<li>Californium-252是否使用周蟒、自定义扩展、派生源码或另行实现待核实。</li>
+<li>默认词表差异与目录同名均不形成源码继承结论，具体关系需要作者声明、源码互链或对应实现材料。</li>
+</ul>
+<h3>来源</h3>
+<ul>
+<li><a href="https://中文编程语言.yuyan-lang.org/languages/lang-014.html">既有正式条目：周蟒</a></li>
+<li><a href="https://github.com/gasolin/zhpy/blob/f4d932a5ab810158ef4e4113df337cbf7d83817a/README.md">固定项目README</a></li>
+<li><a href="https://github.com/gasolin/zhpy/blob/f4d932a5ab810158ef4e4113df337cbf7d83817a/zhpy2/zhpy/zhpy.py">固定Python 2转换器</a></li>
+<li><a href="https://github.com/gasolin/zhpy/blob/f4d932a5ab810158ef4e4113df337cbf7d83817a/zhpy3/core.py">固定Python 3词元转换核心</a></li>
+<li><a href="https://github.com/gasolin/zhpy/blob/f4d932a5ab810158ef4e4113df337cbf7d83817a/zhpy2/zhpy/plugcn.py">固定默认简体词表</a></li>
+</ul>
+</section>
+<h2>研究记录与取证范围</h2>
+<ul>
+<li><a href="https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe395f2c89a1d6f4670da171292d452d44c/research/2026-10-25/video-backlog.md">原视频、静态原帧及时间点补正（2026-10-25）</a></li>
+<li><a href="https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe395f2c89a1d6f4670da171292d452d44c/research/2026-10-25/video-primary-evidence.json">原帧时间、尺寸与SHA-256（2026-10-25）</a></li>
+<li><a href="https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe395f2c89a1d6f4670da171292d452d44c/research/2026-10-28/video-backlog.md">保留历史、分支用途及默认词表边界（2026-10-28）</a></li>
+<li><a href="https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe395f2c89a1d6f4670da171292d452d44c/research/2026-10-28/video-relations-evidence.json">固定关系来源选录与提交范围（2026-10-28）</a></li>
+</ul>
+<p>来源按公开原始文档、静态源码、作者声明、搜索缓存和读取状态分别记录。候选软件的安装、构建、启动及执行次数均为0。访问失败的结论限定于记录日期与实际入口。</p>
+
+</main><footer>站点由<a href="https://yuyan-lang.org/">豫言编程语言</a>提供</footer></body></html>
