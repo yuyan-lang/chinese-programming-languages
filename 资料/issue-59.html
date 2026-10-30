@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>博流品牌、教材语言与实训平台资料 · 中文编程语言百科</title><link rel="stylesheet" href="../style.css"></head>
+<body><header><h1>博流品牌、教材语言与实训平台资料</h1><p>已有证据与待核实部分</p></header>
+<main><nav><a href="../index.html">语言目录</a> · <a href="../内核/index.html">内核目录</a> · <a href="index.html">资料与待核实记录</a></nav>
+<p>教材中文程序、实训前端与公司产品导航已有直接原件。博流品牌与教材语言的正式命名、版本及服务端语言实现对应待核实。</p>
+<p>整理日期：2026-10-30。对应<a href="https://github.com/yuyan-lang/chinese-programming-languages/issues/59">议题 #59</a>。本页保存现有调查结论，待核实内容按字段列出。后续取得新证据时可以补充页面并重开议题。</p>
+<p>资料页中的候选与关联关系单独记录。正式目录保持114项语言、26项内核；项目阶段与证据等级见各正式条目。</p>
+<section id="subject-1"><h2>博流中文编程语言及关联技术方案</h2>
+<p><strong>资料状态：</strong>作者产品声明与关联专利已记录；品牌语言对应待核实</p>
+<p>广东辰宜信息科技有限公司介绍将博流中文编程语言列为2018年发布产品；原始系统介绍将语言定位为面向关系。发布日期与定位按公司自述记录。</p>
+<p>公司转载的易朝刚介绍署名佛山新闻传媒中心／辰宜科技，页面标2023-12-19 12:05，将技术总监易朝刚及团队与博流产品关联。个人完整设计与实现分工待核实。</p>
+<p>公司专利介绍指向《基于中文逻辑表达式的查询方法和装置》。公开专利文本CN114372075B列发明人易朝刚、原申请人广东辰宜信息科技有限公司，申请日2021-06-05、A文本公布日2022-04-19、B文本公布日2026-03-24。方案描述网页中文查询、服务器生成逻辑表达式与字段变量化，列“是、否、且、或”。这些内容按专利方案记录。</p>
+<p>2026-10-30正常取得博流数据库子站下载页：HTTP200，22587字节，响应Date为2026-10-30T12:12:27Z；“产品下载”导航直接链接classroom.gdchenyi.com.cn。下载页自标DeepSpring博流数据库v2.0.1，公司另一下载页标1.433，各网页产品标记分别保存。</p>
+<h3>待核实</h3>
+<ul>
+<li>博流品牌自身的公开语法／原始程序，或明确将教材语言与博流名称关联的作者文档待核实。</li>
+<li>公司产品标记与语言版本、教材程序及实际发行物的对应待核实。专利方案与博流实际解析器的对应待核实。</li>
+<li>语言实现源码、许可、服务端解析链与独立运行待核实。2026-10-30两个直接手册栏目返回404，DOCX服务器8087端口无法连接；这些访问结果限定于当次路径。</li>
+</ul>
+<h3>来源</h3>
+<ul>
+<li><a href="https://www.gdchenyi.com.cn/col.jsp?id=133">公司博流发布自述</a></li>
+<li><a href="https://www.gdchenyi.com.cn/nd.jsp?id=14">公司系统与语言定位原文</a></li>
+<li><a href="https://www.gdchenyi.com.cn/nd.jsp?id=164">公司转载的易朝刚与团队介绍</a></li>
+<li><a href="https://www.gdchenyi.com.cn/nd.jsp?id=247">公司专利介绍</a></li>
+<li><a href="https://patents.google.com/patent/CN114372075B/zh">中文公开专利文本CN114372075B</a></li>
+<li><a href="http://db.gdchenyi.com.cn/download/index.html">博流数据库子站产品下载导航</a></li>
+<li><a href="https://www.gdchenyi.com.cn/col.jsp?id=145">公司产品1.433下载标记</a></li>
+</ul>
+</section>
+<section id="subject-2"><h2>辰宜中文智能合约语言（教材）与实训站</h2>
+<p><strong>资料状态：</strong>教材语言已收录为lang-104；品牌与服务端对应待核实</p>
+<p>出版社《区块链技术原理与应用》书目记2023-07、ISBN978-7-5606-6924-3，主编李建辉、易朝刚、刘满兰；教材由院校教师与辰宜教育产品团队合编。教材署名与语言设计者分别记录。</p>
+<p>2026-10-25取得配套源代码DOCX，64314字节，SHA-256为e1f699276fa72994d23081091cea1b3de5d29568269c5d1e9f990d01770cf9d6。任务10—13保存完整中文算术、条件、循环和函数程序，已以描述名“辰宜中文智能合约语言（教材）”收录。</p>
+<p>出版社实训说明直接指向classroom.gdchenyi.com.cn。2026-10-28静态核验前端app.deb32d9322aa13d5f098.js，SHA-256为8ea9f05c41e69b919cf83b332c6879ac350516183ea13e89efeaf0360f56833b：中文链码编辑器getValue取得Markdown，经Base64编码后WebSocket发送，接收端解码响应。证据支持编辑与传输入口。</p>
+<pre><code>数值变量 长 = 15
+数值变量 高 = 5
+数值变量 面积=长*高/2
+显示信息（“三角形面积为：”+面积）</code></pre><p>出版社配套源代码文档任务10，原始四行；独立运行待核实。</p>
+<h3>待核实</h3>
+<ul>
+<li>教材语言正式名称与博流品牌、语言版本及服务端实现对应待核实。教材中的Java例程与中文程序后端对应待核实。</li>
+</ul>
+<h3>来源</h3>
+<ul>
+<li><a href="../languages/lang-104.html">正式条目：教材中文语言</a></li>
+<li><a href="https://www.xduph.com/pages/BookDetail.aspx?doi=48a13137-8a88-49a4-a8b2-0ebce04f7b3b&amp;type=1">出版社书目与目录</a></li>
+<li><a href="https://www.xduph.com/pages/DownLoadResourceFile.aspx?doi=FDB029062C263376B4772AA451E653FE">出版社配套源代码DOCX</a></li>
+<li><a href="https://www.xduph.com/pages/DownLoadResourceFile.aspx?doi=9E545399C8EDF7C891BFA6EB2E37DA86">出版社实训使用说明</a></li>
+<li><a href="https://classroom.gdchenyi.com.cn/static/js/app.deb32d9322aa13d5f098.js">实训站公开前端静态文件</a></li>
+</ul>
+</section>
+<h2>研究记录与取证范围</h2>
+<ul>
+<li><a href="../research/2026-10-25/root-findings.md">教材原件及摘要</a></li>
+<li><a href="../research/2026-10-28/root-primary-review.md">实训前端静态调用链</a></li>
+<li><a href="../research/2026-10-30/root-primary-review.md">博流官方导航与手册读取范围</a></li>
+</ul>
+<p>来源按公开原始文档、静态源码、作者声明、搜索缓存和读取状态分别记录。候选软件的安装、构建、启动及执行次数均为0。访问失败的结论限定于记录日期与实际入口。</p>
+
+</main><footer>站点由<a href="https://yuyan-lang.org/">豫言编程语言</a>提供</footer></body></html>

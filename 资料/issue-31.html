@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>说了算与LightLang（NomiLight2026）的已存证据和剩余缺口 · 中文编程语言百科</title><link rel="stylesheet" href="../style.css"></head>
+<body><header><h1>说了算与LightLang（NomiLight2026）的已存证据和剩余缺口</h1><p>已有证据与待核实部分</p></header>
+<main><nav><a href="../index.html">语言目录</a> · <a href="../内核/index.html">内核目录</a> · <a href="index.html">资料与待核实记录</a></nav>
+<p>说了算lang-103的CLI静态证据与LightLang lang-083的Rust／LLVM及自举资料保持已有正式状态。说了算Web原件、双端结果对应和其他未核关系公开归档，PR #76保持来源待补的草稿状态。待核内容的正式核实数新增0。</p>
+<p>整理日期：2026-10-30。对应<a href="https://github.com/yuyan-lang/chinese-programming-languages/issues/31">议题 #31</a>。本页保存现有调查结论，待核实内容按字段列出。后续取得新证据时可以补充页面并重开议题。</p>
+<p>资料页中的候选与关联关系单独记录。正式目录保持114项语言、26项内核；项目阶段与证据等级见各正式条目。</p>
+<section id="subject-1"><h2>说了算（Saysuan）</h2>
+<p><strong>资料状态：</strong>保持既有正式条目lang-103的中文数据分析DSL／Python转译分类；Web原件与双端对应待核。</p>
+<p>2026-10-15研究已读取badhope/saysuan固定提交719f1b3db510902527c0ad9cc7d439fad92b16fc；该提交与此前GitCode头记录相同，固定发布指南直接链接GitCode同名原仓。</p>
+<p>既有主例来自demo.suan第11—14行：“设 「单价」 为 5 块 5 角
+设 「数量」 为 10 个
+算 「货款」 = 「单价」 乘 「数量」
+显示 「货款」”。四句组成连续赋值、乘法与输出序列，原例与正式页保持原样。</p>
+<p>已存CLI源码链为.suan经Node.js词法／表达式／量词规则生成Python及pandas操作，再按CLI参数选择Python调用。顶层表操作使用显式存到结果，命名话题块以块名绑定结果。</p>
+<p>固定package.json与compiler.js标1.1.0，SPEC标v1.1.0；固定LICENSE保存MIT正文并署名2026 badhope。版本清单、保留提交时间与正式首发分别记录。</p>
+<p>2026-10-25、10-28研究记录原GitHub／GitCode入口与原始playground.html无法取得。2026-10-30的原始Web URL范围归档索引查询为空，查询范围内的原件仍缺失。既有历史CLI证据继续保存。</p>
+<h3>待核实</h3>
+<ul>
+<li>Web原始playground.html、README省略存到的结果名与双端运行对应、JS与CLI的精确覆盖待核实。</li>
+<li>PR #76保持草稿；其缺少原始来源的材料维持草稿范围，原件恢复状态仍待补证。证据页仅记录缺口和已发布研究，草稿材料未用于恢复或替代原件。</li>
+<li>GitCode发行正文、首个公开时间、x1882与badhope分工、AI协作细节及独立运行结果待核实。</li>
+</ul>
+<h3>来源</h3>
+<ul>
+<li><a href="https://中文编程语言.yuyan-lang.org/languages/lang-103.html">既有正式条目：说了算</a></li>
+<li><a href="https://github.com/badhope/saysuan/blob/719f1b3db510902527c0ad9cc7d439fad92b16fc/demo.suan#L11-L14">历史固定算术原例（2026-10-15已读，后续原仓无法取得）</a></li>
+<li><a href="https://github.com/badhope/saysuan/blob/719f1b3db510902527c0ad9cc7d439fad92b16fc/src/cli.js">历史固定CLI（2026-10-15静态核验）</a></li>
+<li><a href="https://github.com/badhope/saysuan/blob/719f1b3db510902527c0ad9cc7d439fad92b16fc/src/compiler.js#L865-L906">历史固定结果绑定与pandas生成分支</a></li>
+<li><a href="https://github.com/badhope/saysuan/blob/719f1b3db510902527c0ad9cc7d439fad92b16fc/LICENSE">历史固定MIT正文</a></li>
+<li><a href="https://github.com/yuyan-lang/chinese-programming-languages/issues/31#issuecomment-6400525688">2026-10-25议题记录：Web原件与草稿边界</a></li>
+</ul>
+</section>
+<section id="subject-2"><h2>LightLang（NomiLight2026／oneone1565）</h2>
+<p><strong>资料状态：</strong>保持既有正式条目lang-083；中文前端及Rust／LLVM调用链已有固定源码，作者自举声明与独立复现分别记录。</p>
+<p>GitHub oneone1565/LightLang保留两条明确写出GitCode NomiLight2026/lightLang地址的双亲合并提交，建立两入口的同源历史联系。目录按一个既有语言对象记录。</p>
+<p>固定快照38aa05b295a53a2591617a5c3bc8f7b08595de25的examples/hello.lt第1—11行为完整连续中文函数，含函数、让、打印、如果、否则、返回。该主例与正式页保持原样。</p>
+<p>固定Rust前端已有中文词法、缩进解析、AST和类型推导；编译链生成LLVM IR，经Clang链接Rust运行时。light与lightGo分别提供会话重编和FFI构建入口。</p>
+<p>2026-10-13快照458b31a7f01d4c6aeed6b387b47a04a8d994c772的lightc/Cargo.toml标1.0.0，二进制名nlightc。此前2026-09-27快照清单标0.2.1；版本清单与正式发行日期分别记录。</p>
+<p>固定scripts/bootstrap.sh保存Rust参考编译器、Light编译器逐级生成IR、Clang链接与cmp比较的静态调用链。docs/bootstrap.md记录作者的stage2／stage3 IR定点一致测试声明；独立自举复现与该声明分别记录。</p>
+<p>固定LICENSE保存GPL第3版正文，README声明GPL-3.0及第三方依赖各自许可。</p>
+<h3>待核实</h3>
+<ul>
+<li>2026-09-27固定快照中的README输入判空原例涉及字符串比较，该快照gen_cmp的语义与实际输入结果待核实。</li>
+<li>与光明lang-009共用LightLang别名及.light后缀的设计借鉴或源码继承关系、两平台当前同步、自然人身份与维护分工待核实。</li>
+<li>正式发行时间与附件、跨平台执行和CI结果、AI开发范围、专属版权细项及独立构建／自举／运行结果待核实。</li>
+</ul>
+<h3>来源</h3>
+<ul>
+<li><a href="https://中文编程语言.yuyan-lang.org/languages/lang-083.html">既有正式条目：LightLang（NomiLight2026）</a></li>
+<li><a href="https://github.com/oneone1565/LightLang/commit/07a25c1766f992e2debd2c9a6c4955882c3516e4">GitCode原仓合流记录之一</a></li>
+<li><a href="https://github.com/oneone1565/LightLang/commit/371da53cf89efcdce178fb7d9fbab20e855903ae">GitCode原仓合流记录之二</a></li>
+<li><a href="https://github.com/oneone1565/LightLang/blob/38aa05b295a53a2591617a5c3bc8f7b08595de25/examples/hello.lt#L1-L11">固定11行中文函数原例</a></li>
+<li><a href="https://github.com/oneone1565/LightLang/blob/38aa05b295a53a2591617a5c3bc8f7b08595de25/lightc/src/main.rs#L109-L245">固定编译与链接入口</a></li>
+<li><a href="https://github.com/oneone1565/LightLang/blob/458b31a7f01d4c6aeed6b387b47a04a8d994c772/lightc/Cargo.toml">固定1.0.0与nlightc清单</a></li>
+<li><a href="https://github.com/oneone1565/LightLang/blob/458b31a7f01d4c6aeed6b387b47a04a8d994c772/scripts/bootstrap.sh">固定自举脚本：静态调用链</a></li>
+<li><a href="https://github.com/oneone1565/LightLang/blob/458b31a7f01d4c6aeed6b387b47a04a8d994c772/docs/bootstrap.md">作者自举阶段测试记录</a></li>
+<li><a href="https://github.com/oneone1565/LightLang/blob/38aa05b295a53a2591617a5c3bc8f7b08595de25/LICENSE">固定GPL第3版许可正文</a></li>
+</ul>
+</section>
+<h2>研究记录与取证范围</h2>
+<ul>
+<li><a href="https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe395f2c89a1d6f4670da171292d452d44c/research/2026-10-10/round-10-discovery.md">最初两组GitCode候选与版本分层</a></li>
+<li><a href="https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe395f2c89a1d6f4670da171292d452d44c/research/2026-10-10/round-15-lightlang.md">LightLang固定源码、原例与同源合流</a></li>
+<li><a href="https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe395f2c89a1d6f4670da171292d452d44c/research/2026-10-15/saysuan-publication.md">说了算CLI原例、许可和源码补证</a></li>
+<li><a href="https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe395f2c89a1d6f4670da171292d452d44c/research/2026-10-20/lightlang-version-bootstrap.md">LightLang 1.0.0及自举资料</a></li>
+<li><a href="https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe395f2c89a1d6f4670da171292d452d44c/research/2026-10-25/root-findings.md">原始Web来源无法取得与PR #76草稿边界</a></li>
+<li><a href="https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe395f2c89a1d6f4670da171292d452d44c/research/2026-10-30/root-primary-review.md">原始Web URL范围的有界归档查询</a></li>
+</ul>
+<p>来源按公开原始文档、静态源码、作者声明、搜索缓存和读取状态分别记录。候选软件的安装、构建、启动及执行次数均为0。访问失败的结论限定于记录日期与实际入口。</p>
+
+</main><footer>站点由<a href="https://yuyan-lang.org/">豫言编程语言</a>提供</footer></body></html>

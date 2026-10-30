@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>玄与Lua中文版的证据记录 · 中文编程语言百科</title><link rel="stylesheet" href="../style.css"></head>
+<body><header><h1>玄与Lua中文版的证据记录</h1><p>已有证据与待核实部分</p></header>
+<main><nav><a href="../index.html">语言目录</a> · <a href="../内核/index.html">内核目录</a> · <a href="index.html">资料与待核实记录</a></nav>
+<p>原 2 组候选逐项保存：玄已有正式条目 lang-105；Lua 保存固定双语词法、解析和 VM 结构、两分支树与手册传输结果，连续中文原例仍待核。Lua 手册正文未取得，语言保持未知。资料不足项保持待核层级，正式目录新增 0 项；议题可在公开记录合入后按新处理规则关闭。</p>
+<p>整理日期：2026-10-30。对应<a href="https://github.com/yuyan-lang/chinese-programming-languages/issues/40">议题 #40</a>。本页保存现有调查结论，待核实内容按字段列出。后续取得新证据时可以补充页面并重开议题。</p>
+<p>资料页中的候选与关联关系单独记录。正式目录保持114项语言、26项内核；项目阶段与证据等级见各正式条目。</p>
+<section id="subject-1"><h2>玄（xuan.ide）</h2>
+<p><strong>资料状态：</strong>已分类收录；剩余字段待核实</p>
+<p>现有正式条目 lang-105，分类：中文C++转译前端与Win32 IDE。</p>
+<p>固定完整树 4 文件，xuan_ide.cpp 内 const char* demo 保存 15 行预置中文程序。转译器扫描中文结构及外置映射，Win32 IDE 调度外部 g++ 的 C++17 编译并捕获输出，调用链经过静态核验。</p>
+<p>现有条目保存的原作者连续短例：
+头文件《标准IO》
+使用命名空间标准；
+
+主程序：
+    重复 3 次《
+        输出：&quot;hi&quot;：换行；
+    》
+
+    整数列表 v = 【10， 20， 30】；
+    遍历 x 在 v 中《
+        输出：&quot;x=&quot;：x：换行；
+    》
+
+    返回 0；
+。
+</p>
+<p>原例出处及上下文：固定xuan_ide.cpp第1468—1484行const char* demo的完整15行预置中文用户程序。按C++相邻字符串字面量的转义规则转录，保留末尾换行；源码第1484行将该程序放入编辑器。代码包含重复输出、列表遍历和返回，独立编译及运行结果待核实。</p>
+<p>日期记录：保留历史唯一提交a1a5d09f534e2e2b1b6f6756b56f6bbb8ddef028，作者与提交者时间均为2026-09-13T17:18:30+08:00。同账号CSDN文章索引标2026-09-13；仓库创建、原文精确发布时间及首次对外公开时间待核实。</p>
+<p>版本与固定快照记录：固定唯一提交a1a5d09f534e2e2b1b6f6756b56f6bbb8ddef028自标《玄》IDE v3.8.2；提交摘要描述数据外置与全链路优化。完整树4文件：xuan_ide.cpp及data/help.txt、patterns.txt、types.txt。当前公开Git标签列表为空；版本沿革与发行附件待核实。</p>
+<p>证据层级为原作者公开材料与静态源码核验；本组候选软件安装、构建与执行均为 0，独立运行保持待核实。</p>
+<h3>待核实</h3>
+<ul>
+<li>许可正文、发行附件、版本沿革、原文精确发布时间、AI 参与及独立运行待核实。</li>
+<li>与玄语 lang-044、玄铁的作者或代码继承关系待原始材料确认。</li>
+</ul>
+<h3>来源</h3>
+<ul>
+<li><a href="https://xn--fiq228cgqosxegyprwc.yuyan-lang.org/languages/lang-105.html">现有正式页 lang-105</a></li>
+<li><a href="https://atomgit.com/2301_77161129/xuan.ide/blob/a1a5d09f534e2e2b1b6f6756b56f6bbb8ddef028/xuan_ide.cpp#L1468-L1484">原始连续短例</a></li>
+<li><a href="https://atomgit.com/2301_77161129/xuan.ide/blob/a1a5d09f534e2e2b1b6f6756b56f6bbb8ddef028/xuan_ide.cpp#L523-L654">固定转译器扫描与保护规则</a></li>
+<li><a href="https://atomgit.com/2301_77161129/xuan.ide/blob/a1a5d09f534e2e2b1b6f6756b56f6bbb8ddef028/xuan_ide.cpp#L1173-L1240">固定编译与运行调度</a></li>
+<li><a href="https://atomgit.com/2301_77161129/xuan.ide/commit/a1a5d09f534e2e2b1b6f6756b56f6bbb8ddef028">固定唯一提交</a></li>
+</ul>
+</section>
+<section id="subject-2"><h2>Lua 5.4中文版（lyzavng；OldDragon/lua Fork关联）</h2>
+<p><strong>资料状态：</strong>待核资料记录：双语词法前端及 Lua 解析／字节码 VM；正式目录计数 0</p>
+<p>固定 master 头 c0e0b83f7bd323bac7e0326886652075d85d55db。公开简介为 Lua 5.4 中文版；2026-10-12 已读 llex.c、lparser.c、ldo.c、lua.c、lvm.c 和 lua.h 的固定公开源码正文。</p>
+<p>llex.c 第 39—56 行列 22 项中文和 22 项英文保留字，第 78—91 行将成对拼写设为同一词元编号。lparser.c 保存语句分派与闭包／Proto 建立，ldo.c 进入源码解析或反序列化并调度 luaV_execute；lua.c 加载文件后通过 lua_pcall 调用，lvm.c 保存虚拟机取指和指令分派。证据层级为静态源码。</p>
+<p>lua.h 自标 Lua 5.4.0 并保存 1994—2020 Lua.org／PUC-Rio MIT 许可；历史已读 doc/readme.html 保存 5.4.0-beta 和 1994—2019 MIT，根页 MulanPSL-2.0 声明按各自层级记录。</p>
+<p>历史公开页面提示头提交时间为 2020-08-10 17:06:36 +0800，源码关联 fa00ad33fff1456094dac9865dabe487e470dd4a 提示 2020-08-10 16:43 +08:00，doc 关联 29e016a33a3811c41483d35ded8151e1166fca77 提示 2020-05-23 19:57:51 +0800。作者／提交者时间语义及首次公开保持待核实。</p>
+<p>2026-10-30 正常公开 Git refs 确认 master 为上述 c0e0b83，develop 与 feature 共用 71e8ba8e2056a8c7375ac1c432fc3d6bdbc58499。HTTP/1.1 协议能力明确支持 filter；depth=1、blob:none 元数据取得 master 完整 115 文件树，tests／examples／sample／demo 路径及 .lua 程序文件缺省。另一提交完整树仅 .gitignore 与 LICENSE 两文件。检查范围限定于这两个提交树。</p>
+<p>独立路径 doc/manual.html 的树对象为 blob 5a6641c70bc244949ad3cb064ba47037781a1f9d。精确 blob 的过滤传输返回 Git exit 1、未发送必要对象，正文未取得。该手册使用的语言以及中文程序内容均保持未知。</p>
+<p>本次新增 Git 缓存仅含 2 个 commit、4 个 tree、0 个 blob；README、README.md、doc/readme.html 的正文均未下载或读取。此前平台屏蔽 README 与手册页面登录边界继续保留，最后一次独立公开 Git blob 请求为技术失败。</p>
+<p>OldDragon/lua 按已见明确 Fork 关系归并。cnLua 采用自身 LuaJIT 2.0.5 来源，言序保留 lang-007 独立身份。原作者连续中文用户程序尚未取得。候选软件安装、构建、测试和执行均为 0。</p>
+<h3>待核实</h3>
+<ul>
+<li>原作者连续中文用户程序及固定出处待补；手册正文未取得，语言和是否包含中文原例待核实。</li>
+<li>中文库接口覆盖、完整上游差异、中文贡献授权适用范围、建库与首次公开日期待核实。</li>
+<li>与 cnLua／言序的代码继承关系、发行物、独立运行待核实。</li>
+<li>树内缺少例程路径的结论限定于所列 master 与 develop／feature 提交，其他未读历史或公开渠道的状态待核实。</li>
+</ul>
+<h3>来源</h3>
+<ul>
+<li><a href="https://gitee.com/lyzavng/lua/blob/c0e0b83f7bd323bac7e0326886652075d85d55db/src/llex.c#L39-L91">固定双语词法器</a></li>
+<li><a href="https://gitee.com/lyzavng/lua/blob/c0e0b83f7bd323bac7e0326886652075d85d55db/src/lparser.c">固定解析器</a></li>
+<li><a href="https://gitee.com/lyzavng/lua/blob/c0e0b83f7bd323bac7e0326886652075d85d55db/src/ldo.c">固定加载与执行调度</a></li>
+<li><a href="https://gitee.com/lyzavng/lua/blob/c0e0b83f7bd323bac7e0326886652075d85d55db/src/lua.c">固定命令行入口</a></li>
+<li><a href="https://gitee.com/lyzavng/lua/blob/c0e0b83f7bd323bac7e0326886652075d85d55db/src/lvm.c">固定字节码 VM</a></li>
+<li><a href="https://gitee.com/lyzavng/lua/blob/c0e0b83f7bd323bac7e0326886652075d85d55db/src/lua.h">固定版本和上游许可</a></li>
+<li><a href="https://gitee.com/lyzavng/lua/tree/c0e0b83f7bd323bac7e0326886652075d85d55db">已核 master 树</a></li>
+<li><a href="https://gitee.com/lyzavng/lua/tree/71e8ba8e2056a8c7375ac1c432fc3d6bdbc58499">已核 develop／feature 共用树</a></li>
+</ul>
+</section>
+<h2>研究记录与取证范围</h2>
+<ul>
+<li><a href="https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe395f2c89a1d6f4670da171292d452d44c/research/2026-10-10/round-13-discovery.md">2026-10-10/round-13-discovery.md</a></li>
+<li><a href="https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe395f2c89a1d6f4670da171292d452d44c/research/2026-10-12/round-25-issue-followup.md">2026-10-12/round-25-issue-followup.md</a></li>
+<li><a href="https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe395f2c89a1d6f4670da171292d452d44c/research/2026-10-25/mixed-language-backlog.md">2026-10-25/mixed-language-backlog.md</a></li>
+<li><a href="https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe395f2c89a1d6f4670da171292d452d44c/research/2026-10-28/mixed-scope-review.md">2026-10-28/mixed-scope-review.md</a></li>
+</ul>
+<p>来源按公开原始文档、静态源码、作者声明、搜索缓存和读取状态分别记录。候选软件的安装、构建、启动及执行次数均为0。访问失败的结论限定于记录日期与实际入口。</p>
+
+</main><footer>站点由<a href="https://yuyan-lang.org/">豫言编程语言</a>提供</footer></body></html>

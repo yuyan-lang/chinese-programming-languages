@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>太和、中文Rust与52zwbc等项目的证据记录 · 中文编程语言百科</title><link rel="stylesheet" href="../style.css"></head>
+<body><header><h1>太和、中文Rust与52zwbc等项目的证据记录</h1><p>已有证据与待核实部分</p></header>
+<main><nav><a href="../index.html">语言目录</a> · <a href="../内核/index.html">内核目录</a> · <a href="index.html">资料与待核实记录</a></nav>
+<p>原 10 组候选逐项保存：8 组已有正式条目，中文Rust按设计与部分基础模块原型保存证据和连续原例缺口，52zwbc关联组沿用既有 main 描述及取消 PR #62 的边界。资料不足项保持待核层级，正式目录新增 0 项；议题可在公开记录合入后按新处理规则关闭。</p>
+<p>整理日期：2026-10-30。对应<a href="https://github.com/yuyan-lang/chinese-programming-languages/issues/22">议题 #22</a>。本页保存现有调查结论，待核实内容按字段列出。后续取得新证据时可以补充页面并重开议题。</p>
+<p>资料页中的候选与关联关系单独记录。正式目录保持114项语言、26项内核；项目阶段与证据等级见各正式条目。</p>
+<section id="subject-1"><h2>太和</h2>
+<p><strong>资料状态：</strong>已分类收录；剩余字段待核实</p>
+<p>现有正式条目 lang-062，分类：中文语法语言／Python编译器与AST解释器实验。</p>
+<p>Python 词法器和解析器构造 AST；编译路径经 llvmlite 生成 LLVM IR，再由 llc／Clang 编译链接，另有 AST 解释器入口。集合语法的简化或错误分支按固定源码保存。</p>
+<p>现有条目保存的原作者连续短例：
+函数 斐波那契(n):
+    # 计算第n个斐波那契数
+    如果 n &lt;= 1:
+        返回 n
+    否则:
+        返回 斐波那契(n - 1) + 斐波那契(n - 2)</p>
+<p>原例出处及上下文：固定examples/fibonacci.th第4—9行连续原文，包含完整递归斐波那契函数及中文条件、返回语法。全文和按行读取结果已比对。例程独立编译及执行结果待核实。</p>
+<p>日期记录：仓库创建于2026-02-27T10:20:05Z；同一时间的根提交11adcd8bc435da38f09d13b8b6b94aed6e17f37f包含项目简介与MIT许可证。规范提交时间为2026-02-27T10:37:17Z，核心文件上传提交65115c14f95738d607e02b2ef8abafa8a7b36ba2的时间为2026-02-27T11:19:30Z。更早语言设计及首次公开日期待核实。</p>
+<p>版本与固定快照记录：spec.md标题自标v0.1；src/taihe/__init__.py和CLI版本命令自标0.1.0；已提交的PKG-INFO标taihe-lang 0.2.0、Alpha、Python&gt;=3.8及llvmlite==0.46.0。上述编号按所在文件分别记录。固定main提交c52c75f9ef82772017ffd19042fce72b8d891e71的作者及提交日期为2026-02-27T11:42:11Z。2026-10-10读取Releases列表为空，标签引用命名空间返回404；正式发行版本及编号对应关系待核实。</p>
+<p>证据层级为原作者公开材料与静态源码核验；本组候选软件安装、构建与执行均为 0，独立运行保持待核实。</p>
+<h3>待核实</h3>
+<ul>
+<li>两个执行路径的语义一致性、集合功能完整性、跨平台范围、性能、发布包与 IDE 对应源码及独立构建运行待核实。</li>
+<li>规范 v0.1、CLI 0.1.0 与包元数据 0.2.0 的版本对应，AI 生成范围待核实。</li>
+</ul>
+<h3>来源</h3>
+<ul>
+<li><a href="https://xn--fiq228cgqosxegyprwc.yuyan-lang.org/languages/lang-062.html">现有正式页 lang-062</a></li>
+<li><a href="https://github.com/naodingaoaoao/TaiHeLang/blob/c52c75f9ef82772017ffd19042fce72b8d891e71/examples/fibonacci.th#L4-L9">原始连续短例</a></li>
+<li><a href="https://github.com/naodingaoaoao/TaiHeLang/blob/c52c75f9ef82772017ffd19042fce72b8d891e71/src/taihe/parser.py#L180-L216">固定解析语句入口</a></li>
+<li><a href="https://github.com/naodingaoaoao/TaiHeLang/blob/c52c75f9ef82772017ffd19042fce72b8d891e71/src/taihe/compiler.py#L10-L55">固定编译流水线</a></li>
+<li><a href="https://github.com/naodingaoaoao/TaiHeLang/blob/c52c75f9ef82772017ffd19042fce72b8d891e71/src/taihe/codegen.py#L335-L396">固定LLVM IR生成入口</a></li>
+<li><a href="https://github.com/naodingaoaoao/TaiHeLang/blob/c52c75f9ef82772017ffd19042fce72b8d891e71/src/taihe/cli.py#L201-L409">固定本地编译、链接和执行路径</a></li>
+<li><a href="https://github.com/naodingaoaoao/TaiHeLang/blob/c52c75f9ef82772017ffd19042fce72b8d891e71/src/taihe/codegen.py#L2285-L2338">固定集合类型实现阶段</a></li>
+</ul>
+</section>
+<section id="subject-2"><h2>pchinese</h2>
+<p><strong>资料状态：</strong>已分类收录；剩余字段待核实</p>
+<p>现有正式条目 lang-065，分类：Python中文语法转译层／标识符词元映射运行器。</p>
+<p>逐字符扫描区分注释和字符串，代码区按完整标识符映射并转换全角标点，再交 Python compile／exec。源码含 REPL 和 PyQt 中文词表；源码 1.2.0 与 v1.1.0-alpha1 预发行分别记录。</p>
+<p>现有条目保存的原作者连续短例：
+定义 阶乘（数）：
+    如果 数 &lt;= 1：
+        返回 1
+    返回 数 * 阶乘（数 - 1）
+
+打印（“5 的阶乘 =”，阶乘（5））</p>
+<p>原例出处及上下文：固定examples/综合示例.pcn第4—9行连续原文，含完整递归阶乘函数及调用。已将全文相应行与按行读取结果逐字比对。中文关键字、全角括号和中文引号沿用原例；独立运行结果待核实。</p>
+<p>日期记录：仓库创建于2026-08-06T05:30:41Z；根提交7595e93ebf7e00be624fa834dfbfbaed1bdca266于2026-08-06T05:30:42Z保存中文Python实验解释器简介。README语法扩写提交fcaf332dd94561172d4cf834f4ab5187d480b327于05:48:41Z提交，核心源码与.pcn原例于06:00:52Z进入提交81aca58ac5b042809f2888c3689dc8a86bd7cd3f。发行说明提及更早本地版本，早期设计及首次公开日期待核实。</p>
+<p>版本与固定快照记录：固定main提交8c1a0957d3177dd85a7723c4dcb6ab042b6a2752时间为2026-10-01T04:58:24Z；pchinese/__init__.py自标1.2.0。2026-10-10读取的公开发行仅有v1.1.0-alpha1，发布于2026-08-06T06:09:26Z，标签指向81aca58ac5b042809f2888c3689dc8a86bd7cd3f，附件pchinese.exe为8,432,661字节。源码1.2.0与预发行1.1.0-alpha1分别记录；1.2.0独立发行及附件内容验证待核实。README声明Python3.13.x运行环境。</p>
+<p>证据层级为原作者公开材料与静态源码核验；本组候选软件安装、构建与执行均为 0，独立运行保持待核实。</p>
+<h3>待核实</h3>
+<ul>
+<li>1.2.0 独立发行与附件对应、GUI 兼容性、f-string 和行号边界、AI 参与及独立运行待核实。</li>
+</ul>
+<h3>来源</h3>
+<ul>
+<li><a href="https://xn--fiq228cgqosxegyprwc.yuyan-lang.org/languages/lang-065.html">现有正式页 lang-065</a></li>
+<li><a href="https://github.com/LostPEople634/pchinese/blob/8c1a0957d3177dd85a7723c4dcb6ab042b6a2752/examples/综合示例.pcn#L4-L9">原始连续短例</a></li>
+<li><a href="https://github.com/LostPEople634/pchinese/blob/8c1a0957d3177dd85a7723c4dcb6ab042b6a2752/pchinese/runner.py#L42-L136">固定Python编译及执行入口</a></li>
+<li><a href="https://github.com/LostPEople634/pchinese/blob/8c1a0957d3177dd85a7723c4dcb6ab042b6a2752/pchinese/qt_words.py#L1-L39">固定Qt词表机制与依赖说明</a></li>
+<li><a href="https://github.com/LostPEople634/pchinese/blob/8c1a0957d3177dd85a7723c4dcb6ab042b6a2752/pchinese/__init__.py#L1-L10">固定源码1.2.0版本</a></li>
+<li><a href="https://github.com/LostPEople634/pchinese/commit/81aca58ac5b042809f2888c3689dc8a86bd7cd3f">核心源码与原例首次上传提交</a></li>
+<li><a href="https://github.com/LostPEople634/pchinese/commit/7595e93ebf7e00be624fa834dfbfbaed1bdca266">根提交与初始项目简介</a></li>
+</ul>
+</section>
+<section id="subject-3"><h2>ChineseToyLang</h2>
+<p><strong>资料状态：</strong>已分类收录；剩余字段待核实</p>
+<p>现有正式条目 lang-063，分类：中文语法语言／早期编译器前端与LLVM IR实验。</p>
+<p>C／C++ 前端提供中文词元和 AST 解析；独立 IR 测试入口调用 LLVM 生成器。后端独立 main 使用手工构造的虚拟指令演示寄存器分配与 x86 指令选择，按早期前端和 IR 实验阶段收录。</p>
+<p>现有条目保存的原作者连续短例：
+令 年龄 = 28;
+恒 PI = 3.1415926;
+函 计算面积(半径) {
+    返 PI * 半径 ** 2;
+}</p>
+<p>原例出处及上下文：固定tests/examples/test.txt第3—7行连续原文，包含中文变量、常量声明与完整面积函数。另有test_variable.txt展示真／假字面量和多种表达式。所选原例全文与按行读取已比对，独立编译运行结果待核实。</p>
+<p>日期记录：仓库创建于2025-06-01T08:03:13Z。默认分支根提交120ea4b7dce11a98cffa724a59d2b4a78da74dcb的作者时间为2025-06-01T09:34:37Z、提交时间为2025-06-01T09:35:14Z，消息为“中文玩具编译器”，包含中文语法和测试例程。更早语言设计及首次公开日期待核实。</p>
+<p>版本与固定快照记录：固定master提交897456459430f6c9abcb517fa3249739f502e7b2的作者及提交时间为2025-08-18T14:47:46Z，提交说明为“gc算法开发02”；可见默认分支历史共66条。CMake工程名为ChineseToyLang，app/version.h.in保存版本替换模板。2026-10-10读取Releases列表为空，标签引用命名空间返回404；正式语言版本与发行号待核实。</p>
+<p>证据层级为原作者公开材料与静态源码核验；本组候选软件安装、构建与执行均为 0，独立运行保持待核实。</p>
+<h3>待核实</h3>
+<ul>
+<li>前端至机器码完整流水线、运行时及垃圾回收完整性、正式版本、许可、AI 参与与独立构建运行待核实。</li>
+</ul>
+<h3>来源</h3>
+<ul>
+<li><a href="https://xn--fiq228cgqosxegyprwc.yuyan-lang.org/languages/lang-063.html">现有正式页 lang-063</a></li>
+<li><a href="https://github.com/sundaolin9527/ChineseToyLang/blob/897456459430f6c9abcb517fa3249739f502e7b2/tests/examples/test.txt#L3-L7">原始连续短例</a></li>
+<li><a href="https://github.com/sundaolin9527/ChineseToyLang">原作者仓库名称与中文玩具编译器简介</a></li>
+<li><a href="https://github.com/sundaolin9527/ChineseToyLang/blob/897456459430f6c9abcb517fa3249739f502e7b2/src/Frontend/Parser.c#L94-L185">固定声明及函数解析</a></li>
+<li><a href="https://github.com/sundaolin9527/ChineseToyLang/blob/897456459430f6c9abcb517fa3249739f502e7b2/app/Main.cpp#L13-L53">固定主程序AST入口</a></li>
+<li><a href="https://github.com/sundaolin9527/ChineseToyLang/blob/897456459430f6c9abcb517fa3249739f502e7b2/tests/Unit/IR/CodeGenTest.cpp#L11-L52">固定单独IR生成测试入口</a></li>
+<li><a href="https://github.com/sundaolin9527/ChineseToyLang/blob/897456459430f6c9abcb517fa3249739f502e7b2/CMakeLists.txt#L1-L26">固定构建依赖与LLVM版本</a></li>
+</ul>
+</section>
+<section id="subject-4"><h2>XuYu</h2>
+<p><strong>资料状态：</strong>已分类收录；剩余字段待核实</p>
+<p>现有正式条目 lang-096，分类：中文赋值关键字的早期AST解释器／实验性语言设计。</p>
+<p>Go 词法器和解析器实现“设置”中文赋值关键字，AST 求值覆盖整数引用及四则表达式；完整两行 .中 文件为原始连续例程。CLI 0.0.1-dev 与候选规范 v0.1 分别记录。</p>
+<p>现有条目保存的原作者连续短例：
+设置 基数 = 10
+设置 总数 = (基数 + 2) * 3 - 4 / 2
+</p>
+<p>原例出处及上下文：固定提交examples/阶段0/整数表达式.中第1—2行的完整连续原文，保留末尾换行。第一行设置基数，第二行引用基数计算总数。README与CLI测试源码列出预期输出“环境[基数=10, 总数=34]”，CLI测试断言另含末尾换行；本轮为静态源码核验，独立执行待核实。</p>
+<p>日期记录：GitHub仓库创建于2026-09-22T01:48:00Z；根提交345c6efc8f038e810a122e3d1eaf98d32b8c5707时间为2026-09-22T02:09:05Z。部分设计和实现文档标注2026-09-21，该日期按文档自标保存。首次对外公开日期待核实。</p>
+<p>版本与固定快照记录：CLI自标0.0.1-dev，候选语言规范自标v0.1，两者分别记录。固定main提交2974fd20dc0b0a91eab3a83c063c21a8527a897b时间为2026-09-22T08:56:30Z；2026-10-12复查main仍指向该提交。当前整合计划标记M1整数表达式完成、M2输出和M3条件代码块为后续工作。</p>
+<p>证据层级为原作者公开材料与静态源码核验；本组候选软件安装、构建与执行均为 0，独立运行保持待核实。</p>
+<h3>待核实</h3>
+<ul>
+<li>输出、条件、循环、函数、对象、模块与原生编译按后续计划或实验规范记录；相应完整实现待核实。</li>
+<li>许可、AI 实际参与、首次对外公开及独立运行待核实。</li>
+</ul>
+<h3>来源</h3>
+<ul>
+<li><a href="https://xn--fiq228cgqosxegyprwc.yuyan-lang.org/languages/lang-096.html">现有正式页 lang-096</a></li>
+<li><a href="https://github.com/mehaotian/xuyu/blob/2974fd20dc0b0a91eab3a83c063c21a8527a897b/examples/%E9%98%B6%E6%AE%B50/%E6%95%B4%E6%95%B0%E8%A1%A8%E8%BE%BE%E5%BC%8F.%E4%B8%AD#L1-L2">原始连续短例</a></li>
+<li><a href="https://github.com/mehaotian/xuyu/blob/2974fd20dc0b0a91eab3a83c063c21a8527a897b/internal/lexer/lexer.go#L115-L141">词法器：“设置”关键字精确识别</a></li>
+<li><a href="https://github.com/mehaotian/xuyu/blob/2974fd20dc0b0a91eab3a83c063c21a8527a897b/internal/parser/parser.go#L27-L91">赋值解析与换行语句边界</a></li>
+<li><a href="https://github.com/mehaotian/xuyu/blob/2974fd20dc0b0a91eab3a83c063c21a8527a897b/internal/parser/parser.go#L93-L182">表达式分层解析与整数范围</a></li>
+<li><a href="https://github.com/mehaotian/xuyu/blob/2974fd20dc0b0a91eab3a83c063c21a8527a897b/cmd/zhongwen/main.go#L14-L59">CLI版本、命令与调试环境输出</a></li>
+<li><a href="https://github.com/mehaotian/xuyu/blob/2974fd20dc0b0a91eab3a83c063c21a8527a897b/go.mod#L1-L3">Go模块与工具链版本</a></li>
+</ul>
+</section>
+<section id="subject-5"><h2>中文Rust语法设计与转译工具（ZhongComputeRust／cn_transpiler）</h2>
+<p><strong>资料状态：</strong>待核资料记录：设计与部分基础模块原型；正式目录计数 0</p>
+<p>作者账号与保留 5 次提交署名为 bo333。仓库创建于 2026-07-03T03:40:07Z；根提交 fd99a1de560a478f65276c3429b68bd71f02540c 时间为 03:40:08Z；固定头 4605fee9402c9ad6fe6e06771b6d2443105eada8 时间为 05:36:32Z。</p>
+<p>固定完整树 81 项、51 文件：README、15 个 Cargo.toml、34 份 Rust 源文件及一个空设计文档。README 为需求、词表和流程设计，7 个围栏均为 PlantUML。已见“函数／让／可变／如果／返回”映射及所有权规则片段。</p>
+<p>工作区含 14 个 crate；cn_types 与 cn_config 提供映射注册、查询及数据结构，内置表包含 33 项关键词、27 项类型和 4 项所有权语法映射。其余 12 个 crate 声明的 51 个外部模块对应文件缺省；CLI 当前打印版本横幅。性能、LSP、增量转译与完整 Rust 语义映射按作者设计目标记录。</p>
+<p>2026-10-28 核对全部 5 个历史树与 34 份 Rust 源文件，tests／examples 路径及 #[test]、cfg(test) 注解缺省。源码汉字用于映射、注释、诊断和横幅。历史 Compute 文件 blob 1aa3ccadef0d3c923c6b23b5938e1e89f4f36163 使用英文 Python 语法调用 NumPy／Matplotlib，中文出现在注释和显示文字。</p>
+<p>workspace.package 与 CLI 自标 0.1.0，Rust edition 2021、最低 1.70.0；映射规范字段 1.0 单独记录。MIT 许可确认到 workspace.package 声明层级，14 个子包许可字段及完整许可正文待补。2026-10-10 已读公开 Release 与标签引用均为空。</p>
+<p>2026-10-30 原仓全部 Issues、评论及 PR 返回空集合，Discussions 关闭；bo333 公开 Gists 返回 HTTP 200 空数组且无分页。作者连续中文用户程序尚未取得，本记录以已见原件说明当前阶段。候选软件安装、构建与执行均为 0。</p>
+<h3>待核实</h3>
+<ul>
+<li>原作者连续中文用户程序及其固定出处待补；作者其他发布渠道的程序状态待核实。</li>
+<li>词法、解析、语义映射和生成核心实现、端到端转译、独立构建运行待核实。</li>
+<li>正式语言名、精确首发、真实姓名、AI 参与、完整授权正文与各包适用范围待核实。</li>
+</ul>
+<h3>来源</h3>
+<ul>
+<li><a href="https://github.com/bo333/Chinese-Rust-Syntax-Design-and-Transpilation-Tool/blob/4605fee9402c9ad6fe6e06771b6d2443105eada8/README.md">固定需求和映射文档</a></li>
+<li><a href="https://github.com/bo333/Chinese-Rust-Syntax-Design-and-Transpilation-Tool/blob/4605fee9402c9ad6fe6e06771b6d2443105eada8/ZhongComputeRust/crates/cn_config/src/builtin_mappings.rs#L15-L127">固定映射实现</a></li>
+<li><a href="https://github.com/bo333/Chinese-Rust-Syntax-Design-and-Transpilation-Tool/blob/4605fee9402c9ad6fe6e06771b6d2443105eada8/ZhongComputeRust/Cargo.toml#L20-L24">固定工作区版本与许可声明</a></li>
+<li><a href="https://github.com/bo333/Chinese-Rust-Syntax-Design-and-Transpilation-Tool/blob/4605fee9402c9ad6fe6e06771b6d2443105eada8/ZhongComputeRust/crates/cn_cli/src/main.rs#L1-L6">固定 CLI</a></li>
+<li><a href="https://github.com/bo333/Chinese-Rust-Syntax-Design-and-Transpilation-Tool/blob/bd8ebc340636968c96200795525a374fbe88b6db/ZhongComputeRust/Compute">历史 Python Compute 原件</a></li>
+<li><a href="https://api.github.com/users/bo333/gists?per_page=100">公开 Gists 元数据</a></li>
+</ul>
+</section>
+<section id="subject-6"><h2>中文智能合约编译器（zhsc-compiler）</h2>
+<p><strong>资料状态：</strong>已分类收录；剩余字段待核实</p>
+<p>现有正式条目 lang-069，分类：中文Solidity DSL设计及部分实现原型。</p>
+<p>固定 README 保存连续 .zhs 合约；AST、编译调度入口和 CLI 可读，按中文 Solidity DSL 设计及部分实现原型收录。</p>
+<p>现有条目保存的原作者连续短例：
+合约 问候 {
+    公开 字符串 消息 = &quot;你好，世界！&quot;;
+    
+    函数 获取消息() 公开 只读 返回 字符串 {
+        返回 消息;
+    }
+    
+    函数 设置消息(字符串 新消息) 公开 {
+        消息 = 新消息;
+    }
+}</p>
+<p>原例出处及上下文：固定README第29—39行的完整问候合约，共11行连续原文；含状态变量、读取函数及设置函数。已将全文对应范围与按行读取结果逐字比对。原文空白行缩进保留；该例按设计文档原例记录，实际编译及执行待核实。</p>
+<p>日期记录：仓库创建时间为2025-10-24T12:07:05Z；根提交0a1d7837bff8fb1745e6aba09d43a0f7bc2b6049于2025-10-24T12:08:42Z上传README、AST、编译入口和CLI。LICENSE中的2024为版权署名年份；更早公开历史待核实。</p>
+<p>版本与固定快照记录：cli.py第20及138行自标0.1.0；README标Python3.11+。固定main提交f6d8665def53639a8b8b3adf473fdfa177e93632于2025-10-24T12:12:19Z修订README链接。源码版本、Git提交和公开发行分别记录；公开发行物待核实。</p>
+<p>证据层级为原作者公开材料与静态源码核验；本组候选软件安装、构建与执行均为 0，独立运行保持待核实。</p>
+<h3>待核实</h3>
+<ul>
+<li>词法器、解析器、Solidity 生成器三个核心模块的公开实现与端到端运行待核实。</li>
+</ul>
+<h3>来源</h3>
+<ul>
+<li><a href="https://xn--fiq228cgqosxegyprwc.yuyan-lang.org/languages/lang-069.html">现有正式页 lang-069</a></li>
+<li><a href="https://github.com/Anubisya/zhsc-compiler/blob/f6d8665def53639a8b8b3adf473fdfa177e93632/README.md#L29-L39">原始连续短例</a></li>
+<li><a href="https://github.com/Anubisya/zhsc-compiler/blob/f6d8665def53639a8b8b3adf473fdfa177e93632/compiler.py#L10-L12">编译入口的三个模块导入</a></li>
+<li><a href="https://github.com/Anubisya/zhsc-compiler/blob/f6d8665def53639a8b8b3adf473fdfa177e93632/compiler.py#L93-L129">词法、解析和生成的调度调用</a></li>
+<li><a href="https://github.com/Anubisya/zhsc-compiler/blob/f6d8665def53639a8b8b3adf473fdfa177e93632/cli.py#L6-L59">固定CLI依赖、版本和编译命令</a></li>
+<li><a href="https://github.com/Anubisya/zhsc-compiler/blob/f6d8665def53639a8b8b3adf473fdfa177e93632/cli.py#L134-L140">CLI版本与作者占位字段</a></li>
+<li><a href="https://github.com/Anubisya/zhsc-compiler/commit/0a1d7837bff8fb1745e6aba09d43a0f7bc2b6049">初始上传提交及文件清单</a></li>
+</ul>
+</section>
+<section id="subject-7"><h2>chinalang（中国语言）</h2>
+<p><strong>资料状态：</strong>已分类收录；剩余字段待核实</p>
+<p>现有正式条目 lang-070，分类：中文／英文双关键字戏仿语言／Go独立AST解释器。</p>
+<p>Go 源码包含中英文双关键字词法、Pratt 解析、AST 宏展开与树遍历解释；按戏仿语言保存作者定位。Cursor 共同署名按原仓材料记录。</p>
+<p>现有条目保存的原作者连续短例：
+宣布 反之 = 指示(condition, consequence, alternative) {
+	引用(如果 (!(篡改(condition))) {
+		篡改(consequence);
+	} 否则 {
+		篡改(alternative);
+	});
+};
+
+说 &quot;Is the State ever wrong?&quot;;
+反之(假, 打印(&quot;The State is always right.&quot;), 打印(&quot;(this branch is unreachable)&quot;));</p>
+<p>原例出处及上下文：固定examples/directives.cn第8—17行，共10行连续原文，含完整“反之”宏定义、输出及宏调用；中文关键字、英文参数名、制表符缩进和原例字符串均保留。全文与按行读取逐字一致。该例展示宏将分支AST拼接后交给解释器执行；运行结果待独立核实。</p>
+<p>日期记录：仓库创建时间2026-06-21T00:11:22Z。根提交e0054f918848f8ab2e8349952a7bb00dc73c9f13的作者与提交时间均为2026-06-21T00:11:05Z，保存解释器、原例及测试。Git时间早于仓库创建17秒，按各元数据原值分别记录；首次可公开访问时间待核实。</p>
+<p>版本与固定快照记录：固定main提交59332f7c0d02c130257124cbbedbe8d2fd1cafc4时间2026-06-21T00:14:14Z，修改README项目定位；语言版本号待核实。README写Go1.26+，go.mod声明Go1.26.2；两者按工具链要求记录。公开发行和语言整体许可证待核实。</p>
+<p>证据层级为原作者公开材料与静态源码核验；本组候选软件安装、构建与执行均为 0，独立运行保持待核实。</p>
+<h3>待核实</h3>
+<ul>
+<li>语言许可、正式发行、具体 AI 生成比例及独立运行待核实。</li>
+</ul>
+<h3>来源</h3>
+<ul>
+<li><a href="https://xn--fiq228cgqosxegyprwc.yuyan-lang.org/languages/lang-070.html">现有正式页 lang-070</a></li>
+<li><a href="https://github.com/sjqtentacles/chinalang/blob/59332f7c0d02c130257124cbbedbe8d2fd1cafc4/examples/directives.cn#L8-L17">原始连续短例</a></li>
+<li><a href="https://github.com/sjqtentacles/chinalang/blob/59332f7c0d02c130257124cbbedbe8d2fd1cafc4/lexer/lexer.go#L18-L138">rune词法扫描与关键字识别</a></li>
+<li><a href="https://github.com/sjqtentacles/chinalang/blob/59332f7c0d02c130257124cbbedbe8d2fd1cafc4/parser/parser.go#L12-L199">Pratt解析器注册及语句构造</a></li>
+<li><a href="https://github.com/sjqtentacles/chinalang/blob/59332f7c0d02c130257124cbbedbe8d2fd1cafc4/parser/parser.go#L310-L521">表达式优先级及中文宏解析</a></li>
+<li><a href="https://github.com/sjqtentacles/chinalang/blob/59332f7c0d02c130257124cbbedbe8d2fd1cafc4/main.go#L14-L52">文件读取、宏展开及AST执行完整入口</a></li>
+<li><a href="https://github.com/sjqtentacles/chinalang/blob/59332f7c0d02c130257124cbbedbe8d2fd1cafc4/evaluator/macro_expansion.go#L8-L119">宏定义提取、参数引用和AST替换</a></li>
+</ul>
+</section>
+<section id="subject-8"><h2>MiniLang（FI0m9ySans）</h2>
+<p><strong>资料状态：</strong>已分类收录；剩余字段待核实</p>
+<p>现有正式条目 lang-066，分类：中文语法语言／Python实现的独立AST解释器。</p>
+<p>Python 源码包含 Lexer、递归下降 Parser、AST 与 Interpreter；MiniLang.run 串接词法、解析和树遍历解释。数学库包 1.0.0 的 MIT 字段仅归属该包。</p>
+<p>现有条目保存的原作者连续短例：
+函数 阶乘(恩) {
+    定义 结果 = 1;
+    定义 艾 = 1;
+    当 (艾 &lt;= 恩) {
+        结果 = 结果 * 艾;
+        艾 = 艾 + 1;
+    }
+    返回 结果;
+}</p>
+<p>原例出处及上下文：固定Code/MLCode/math_simple.kalop第9—17行连续原文，为完整迭代阶乘函数，包含函数、定义、当、返回关键字。已将全文相应行与按行读取结果逐字比对；该文件第19—21行另有调用。独立运行结果待核实。</p>
+<p>日期记录：仓库创建于2025-11-04T05:49:43Z；根提交4770c5120be73d9e5667fe013e1cbc921039e625于05:49:44Z保存面向中文用户的MiniLang项目简介。README中文语法说明于05:50:10Z进入提交5f7a1c511f16069c33a03aa245cfe178bd16ca5d；词法、解析及解释器于05:51:11Z进入提交6144cf4b94b6b582f8b05c3d69cd6db411435dbf，数学原例于05:52:43Z进入提交6f28e6485442c219136bcf6193f903f8231a8cc4。更早设计及公开时间待核实。</p>
+<p>版本与固定快照记录：固定main提交2778f3d3df8d6806c5b9b763e31e7d0d3ac19c7d时间为2025-11-04T06:07:45Z。2026-10-10读取Releases为空，标签引用命名空间返回404，语言正式版本及发行物待核实。数学库/minilang-package.json自标数学库1.0.0、作者MiniLang社区、license为MIT；这些字段按数学库包元数据记录，整个语言仓库的许可证待核实。</p>
+<p>证据层级为原作者公开材料与静态源码核验；本组候选软件安装、构建与执行均为 0，独立运行保持待核实。</p>
+<h3>待核实</h3>
+<ul>
+<li>语言整体许可、正式版本与发行物、包管理实现、AI 参与和独立运行待核实。</li>
+</ul>
+<h3>来源</h3>
+<ul>
+<li><a href="https://xn--fiq228cgqosxegyprwc.yuyan-lang.org/languages/lang-066.html">现有正式页 lang-066</a></li>
+<li><a href="https://github.com/FI0m9ySans/minilang/blob/2778f3d3df8d6806c5b9b763e31e7d0d3ac19c7d/Code/MLCode/math_simple.kalop#L9-L17">原始连续短例</a></li>
+<li><a href="https://github.com/FI0m9ySans/minilang/blob/2778f3d3df8d6806c5b9b763e31e7d0d3ac19c7d/README.md#L1-L25">固定MiniLang中文说明及语法原例</a></li>
+<li><a href="https://github.com/FI0m9ySans/minilang/blob/2778f3d3df8d6806c5b9b763e31e7d0d3ac19c7d/Code/minilang.py#L231-L381">固定声明、条件、循环及函数解析</a></li>
+<li><a href="https://github.com/FI0m9ySans/minilang/blob/2778f3d3df8d6806c5b9b763e31e7d0d3ac19c7d/Code/minilang.py#L383-L460">固定表达式递归下降解析</a></li>
+<li><a href="https://github.com/FI0m9ySans/minilang/blob/2778f3d3df8d6806c5b9b763e31e7d0d3ac19c7d/Code/minilang.py#L617-L718">固定词法至AST执行与文件入口</a></li>
+<li><a href="https://github.com/FI0m9ySans/minilang/commit/4770c5120be73d9e5667fe013e1cbc921039e625">根提交与初始项目简介</a></li>
+</ul>
+</section>
+<section id="subject-9"><h2>PyCn（sunzi334481）</h2>
+<p><strong>资料状态：</strong>已分类收录；剩余字段待核实</p>
+<p>现有正式条目 lang-072，分类：Python中文方言／词元级源码转译层。</p>
+<p>Python 手写扫描器按词元和分层词表转译，后接 compile／exec；导入钩子、CLI、REPL 和编辑器插件源码可读。0.1.0 与 MIT 依据固定项目材料记录，86 个测试方法表示源码数量。</p>
+<p>现有条目保存的原作者连续短例：
+定义 阶乘(数):
+    如果 数 &lt;= 1:
+        返回 1
+    返回 数 * 阶乘(数 - 1)
+
+打印(&quot;5 的阶乘 =&quot;, 阶乘(5))</p>
+<p>原例出处及上下文：固定README第11—16行连续原文，共6行，包含完整阶乘函数及一次调用。全文切片与独立按行读取逐字相等。代码按作者原例保存，执行结果待独立核实。</p>
+<p>日期记录：仓库创建于2026-10-05T11:54:33Z；根提交6978f23f于11:54:34Z保存两行项目简介。同日11:59:30Z加入CLI、导入器、REPL和包配置，12:08:10Z加入translator.py，12:16:40Z加入mappings.py。各时间为GitHub仓库及Git提交记录，更早公开历史待核实。</p>
+<p>版本与固定快照记录：pyproject.toml与pycn_lang.__version__均自标0.1.0；VSCode、JetBrains、Visual Studio插件配置也自标0.1.0。包声明Python&gt;=3.10，README记开发环境为Python3.14。2026-10-10读取GitHub Releases为空，git/refs/tags返回404；0.1.0独立发行、PyPI发布及跨版本运行兼容性待核实。MIT许可证署名为2026 PyCn contributors。</p>
+<p>证据层级为原作者公开材料与静态源码核验；本组候选软件安装、构建与执行均为 0，独立运行保持待核实。</p>
+<h3>待核实</h3>
+<ul>
+<li>发行附件对应、独立安装构建与测试运行、同类项目源码沿革待核实。</li>
+</ul>
+<h3>来源</h3>
+<ul>
+<li><a href="https://xn--fiq228cgqosxegyprwc.yuyan-lang.org/languages/lang-072.html">现有正式页 lang-072</a></li>
+<li><a href="https://github.com/sunzi334481/PyCn/blob/f840307aab9f55e7d25d798768db0ad4db24edb0/README.md#L11-L16">原始连续短例</a></li>
+<li><a href="https://github.com/sunzi334481/PyCn/blob/f840307aab9f55e7d25d798768db0ad4db24edb0/pycn_lang/translator.py#L591-L717">固定词元级主转译入口</a></li>
+<li><a href="https://github.com/sunzi334481/PyCn/blob/f840307aab9f55e7d25d798768db0ad4db24edb0/pycn_lang/translator.py#L113-L187">固定f-string表达式递归转译</a></li>
+<li><a href="https://github.com/sunzi334481/PyCn/blob/f840307aab9f55e7d25d798768db0ad4db24edb0/pycn_lang/__init__.py#L1-L10">固定包初始化与0.1.0版本</a></li>
+<li><a href="https://github.com/sunzi334481/PyCn/blob/f840307aab9f55e7d25d798768db0ad4db24edb0/tests/test_translator.py#L254-L268">固定转译测试：多模块导入扩为两行</a></li>
+<li><a href="https://github.com/sunzi334481/PyCn/blob/f840307aab9f55e7d25d798768db0ad4db24edb0/tests/test_translator.py#L309-L312">固定转译测试：三行打印的行数断言</a></li>
+</ul>
+</section>
+<section id="subject-10"><h2>52zwbc 中文CPython关联组（python313zw／python314zw）</h2>
+<p><strong>资料状态：</strong>关联线索与操作边界记录；本组正式收录计数 0</p>
+<p>既有 main 的 zwpy（zw）正式条目为 lang-059，依据固定 .zw 文档、连续原例和官网资料收录为 Python 中文语法映射方案。</p>
+<p>既有 lang-059 保存同账号 python313zw、python314zw 公开 CPython 中文修改源码的关联线索，两仓与该条目运行环境的对应关系列为待核实。该对象沿用这项既有 main 事实。</p>
+<p>PR #62 的合并已由用户取消，取消边界继续有效。本轮资料整理沿用现有 main 的关联描述；PR #62 的增补内容保持原先未合入状态。Issue 关闭处理规则的变化只调整议题状态，待核材料的证据层级和取消边界继续保留。</p>
+<h3>待核实</h3>
+<ul>
+<li>python313zw、python314zw 的发行附件、分支沿革、中文语法一致性及与 zwpy 的统一项目／运行时对应关系待核实。</li>
+<li>最终按同一实现阶段或独立方言分组待核实；本记录沿用 Issue 原有 1 关联组口径，组内明确保存两个仓库名。</li>
+</ul>
+<h3>来源</h3>
+<ul>
+<li><a href="https://xn--fiq228cgqosxegyprwc.yuyan-lang.org/languages/lang-059.html">既有 zwpy 正式页</a></li>
+<li><a href="https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe395f2c89a1d6f4670da171292d452d44c/data/languages.json">既有 main 固定资料</a></li>
+<li><a href="https://github.com/52zwbc/python313zw">python313zw 既有公开入口</a></li>
+<li><a href="https://github.com/52zwbc/python314zw">python314zw 既有公开入口</a></li>
+<li><a href="https://github.com/yuyan-lang/chinese-programming-languages/pull/62">已取消合并的 PR #62</a></li>
+</ul>
+</section>
+<h2>研究记录与取证范围</h2>
+<ul>
+<li><a href="https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe395f2c89a1d6f4670da171292d452d44c/research/2026-10-10/round-8-issue22.md">2026-10-10/round-8-issue22.md</a></li>
+<li><a href="https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe395f2c89a1d6f4670da171292d452d44c/research/2026-10-10/round-9-issue22.md">2026-10-10/round-9-issue22.md</a></li>
+<li><a href="https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe395f2c89a1d6f4670da171292d452d44c/research/2026-10-10/round-10-issue22.md">2026-10-10/round-10-issue22.md</a></li>
+<li><a href="https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe395f2c89a1d6f4670da171292d452d44c/research/2026-10-10/round-11-pycn.md">2026-10-10/round-11-pycn.md</a></li>
+<li><a href="https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe395f2c89a1d6f4670da171292d452d44c/research/2026-10-10/round-12-chineserust.md">2026-10-10/round-12-chineserust.md</a></li>
+<li><a href="https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe395f2c89a1d6f4670da171292d452d44c/research/2026-10-12/round-26-xuyu.md">2026-10-12/round-26-xuyu.md</a></li>
+<li><a href="https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe395f2c89a1d6f4670da171292d452d44c/research/2026-10-25/mixed-language-backlog.md">2026-10-25/mixed-language-backlog.md</a></li>
+<li><a href="https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe395f2c89a1d6f4670da171292d452d44c/research/2026-10-28/mixed-scope-review.md">2026-10-28/mixed-scope-review.md</a></li>
+</ul>
+<p>来源按公开原始文档、静态源码、作者声明、搜索缓存和读取状态分别记录。候选软件的安装、构建、启动及执行次数均为0。访问失败的结论限定于记录日期与实际入口。</p>
+
+</main><footer>站点由<a href="https://yuyan-lang.org/">豫言编程语言</a>提供</footer></body></html>

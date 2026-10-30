@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>SPCNYY、ChineseCpp等七组项目的证据记录 · 中文编程语言百科</title><link rel="stylesheet" href="../style.css"></head>
+<body><header><h1>SPCNYY、ChineseCpp等七组项目的证据记录</h1><p>已有证据与待核实部分</p></header>
+<main><nav><a href="../index.html">语言目录</a> · <a href="../内核/index.html">内核目录</a> · <a href="index.html">资料与待核实记录</a></nav>
+<p>原 7 组候选逐项保存：5 组已有正式条目，ChineseJava 按占位计划完成当前范围分类，SPCNYY 保存已见转译与编辑器实现及原例缺口。资料不足项按待核资料记录，正式语言目录新增 0 项；议题可在公开记录合入后按新处理规则关闭，取得新证据时重新评估。</p>
+<p>整理日期：2026-10-30。对应<a href="https://github.com/yuyan-lang/chinese-programming-languages/issues/16">议题 #16</a>。本页保存现有调查结论，待核实内容按字段列出。后续取得新证据时可以补充页面并重开议题。</p>
+<p>资料页中的候选与关联关系单独记录。正式目录保持114项语言、26项内核；项目阶段与证据等级见各正式条目。</p>
+<section id="subject-1"><h2>SPCNYY</h2>
+<p><strong>资料状态：</strong>待核资料记录；正式目录计数 0</p>
+<p>固定提交 2d9087cade68fff2c966a7bf057141935b439ec0，源码加入时间 2026-08-15T16:46:47Z；根提交 2b99fb85eaf91284d5d0bd0aa047772db41dd75c 时间 2026-08-15T16:43:42Z。完整树为 4 文件，保留历史 2 次提交。</p>
+<p>作者 README 将其介绍为“用中文来写的编译器”；源码核见 Python 中文关键词转译层与 Tkinter 编辑器。language.py 映射包括“如果／否则／循环／定义／返回”，按键长度降序对整段文本 str.replace，再以正则转换计次循环；字符串、注释和标识符中的匹配文字参与替换。</p>
+<p>Shell 与 PowerShell 中 main.py、launcher.py、login.py、recharge.py、ai.py、language.py、editor.py 七组内嵌模块统一换行后逐字符一致。Shell blob bd896ef420a1e7a2040e5bdd8ad87d24d53b51fa；PowerShell blob 7e4abde4fb89966bf8f5826d4a6c1e080172357f。</p>
+<p>编辑器运行入口把翻译结果交给 Python exec。新建操作清空缓冲区，打开操作读取外部 .spc 文件；AI 提示词中的 {code} 来自调用参数，欢迎语、词表和补全插入点按界面与实现资料保存。</p>
+<p>2026-10-28 静态阅读两脚本全部七模块、字符串及 GUI 写入点，已核两次历史保持同一原例缺口。2026-10-30 公开仓库全部 Issues、评论和 PR 返回空集合，Discussions 关闭；xs-smz 公开 Gists 返回 HTTP 200 空数组且无分页。结论限定于所列已读公开原件。</p>
+<p>原作者连续中文 .spc 用户程序尚未取得，公开资料记录当前实现证据，待核材料计入研究资料。候选软件安装、构建与执行均为 0。</p>
+<h3>待核实</h3>
+<ul>
+<li>原作者连续中文用户程序及其固定出处待补；未索引教程、视频和其他发布渠道的状态待核实。</li>
+<li>名称沿革、正式版本、首次公开、许可正文、Shell 生成结果及打包兼容性、独立运行待核实。</li>
+<li>DeepSeek 问答／纠错为已见配套功能；开发过程 AI 参与比例待核实。</li>
+</ul>
+<h3>来源</h3>
+<ul>
+<li><a href="https://github.com/xs-smz/spcnyy-/blob/2d9087cade68fff2c966a7bf057141935b439ec0/setup/spcnyysetup.sh#L289-L311">固定翻译模块</a></li>
+<li><a href="https://github.com/xs-smz/spcnyy-/blob/2d9087cade68fff2c966a7bf057141935b439ec0/setup/spcnyysetup.sh#L600-L618">固定运行入口</a></li>
+<li><a href="https://github.com/xs-smz/spcnyy-/blob/2d9087cade68fff2c966a7bf057141935b439ec0/setup/spcnyysetup.sh#L563-L578">固定新建／打开操作</a></li>
+<li><a href="https://github.com/xs-smz/spcnyy-/blob/2d9087cade68fff2c966a7bf057141935b439ec0/windows_spcnyy.ps1">固定 Windows 脚本</a></li>
+<li><a href="https://github.com/xs-smz/spcnyy-/tree/2d9087cade68fff2c966a7bf057141935b439ec0">固定完整树</a></li>
+<li><a href="https://api.github.com/users/xs-smz/gists?per_page=100">公开 Gists 元数据</a></li>
+</ul>
+</section>
+<section id="subject-2"><h2>ChineseCpp（含 ChineseCplus 前身）</h2>
+<p><strong>资料状态：</strong>已分类收录；剩余字段待核实</p>
+<p>现有正式条目 lang-101，分类：C++ 中文关键字与标准库别名宏层。</p>
+<p>前身 -ChineseCplus 的 README 直接链接 ChineseCpp 后续仓库。前身 cop.h 的 #define 提供中文 C++ 关键字、类型与标准库别名，main.cpp 保存连续原程序；两仓按同一沿革收录。</p>
+<p>现有条目保存的原作者连续短例：
+		如果(变量 % 2 == 零)
+		{
+			标准库::字符输出 &lt;&lt; 变量 &lt;&lt; &quot;\t是偶数&quot; &lt;&lt; 标准库::结束行;
+		}</p>
+<p>原例出处及上下文：前身main/main.cpp第13—16行的完整条件语句短引。完整原程序第3—18行包含头文件、入口、输入及循环，依赖同仓cop.h。保留原制表符缩进；运行结果待核实。</p>
+<p>日期记录：前身仓库创建于2026-08-24T06:56:35Z，保留历史根提交记录2026-08-24T06:56:03Z。2026-08-30前身README宣布弃用并链接ChineseCpp作为后续更新入口。首次对外公开时间待核实。</p>
+<p>版本与固定快照记录：前身固定提交035a0433eb215d8843774662912a40dd026f4ef4；ChineseCpp固定提交739f835d2bb38202ec08c2cbf30793df152abb6a。正式版本号待核实。</p>
+<p>证据层级为原作者公开材料与静态源码核验；本组候选软件安装、构建与执行均为 0，独立运行保持待核实。</p>
+<h3>待核实</h3>
+<ul>
+<li>ChineseCpp 新阶段实现、与前身兼容性、正式版本及发行、AI 参与与独立编译运行待核实。</li>
+</ul>
+<h3>来源</h3>
+<ul>
+<li><a href="https://xn--fiq228cgqosxegyprwc.yuyan-lang.org/languages/lang-101.html">现有正式页 lang-101</a></li>
+<li><a href="https://github.com/JinSuperOfficial/-ChineseCplus/blob/035a0433eb215d8843774662912a40dd026f4ef4/main/main.cpp#L13-L16">原始连续短例</a></li>
+<li><a href="https://github.com/JinSuperOfficial/-ChineseCplus/blob/035a0433eb215d8843774662912a40dd026f4ef4/main/cop.h">固定中文宏定义</a></li>
+<li><a href="https://api.github.com/repos/JinSuperOfficial/-ChineseCplus/commits?per_page=100">前身保留提交历史</a></li>
+</ul>
+</section>
+<section id="subject-3"><h2>ChinesePython（YoloLogic）</h2>
+<p><strong>资料状态：</strong>已分类收录；剩余字段待核实</p>
+<p>现有正式条目 lang-047，分类：中文Python方言／CPython本地化发行工具链。</p>
+<p>Windows 与 Linux 按作者同源声明归为同一 ChinesePython 项目。公开库层通过名字表建立中文 API 转发，zh_traceback.py 提供报错显示层。CPython 词法／语法修改范围依据官方 NOTICE 披露。</p>
+<p>现有条目保存的原作者连续短例：
+导入 操作系统 作为 操
+来自 并行.futures 导入 线程池执行器
+定义 平方(甲):
+    返回 甲 * 甲
+使用 线程池执行器(2) 作为 池:
+    打印([任务.result() 对于 任务 属于 [池.submit(平方, 数字) 对于 数字 属于 range(4)]])</p>
+<p>原例出处及上下文：固定Windows提交README“快速开始”代码块的完整六行连续原文，保留四空格缩进。示例导入中文库、定义平方函数并使用线程池与列表推导；需配套ChinesePython解释器及库。执行结果待核实。</p>
+<p>日期记录：现存发行仓根提交为2026-10-05T06:33:30Z，首个GitHub Release v0.1发表于2026-10-05T07:30:38Z。仓库创建于2026-09-28T20:13:00Z；更早公开首发日待核实。</p>
+<p>版本与固定快照记录：Windows最新所读Release为v0.1.1，发布于2026-10-07T08:29:00Z；Linux为linux-v0.1.1，发布于2026-10-09T13:43:11Z。Linux发行说明列Ubuntu 24.04构建与glibc≥2.39要求，资产接口当日返回空数组。Windows v0.1.1标签指向2026-10-06提交2ba64af3fe1b7f9b56906614834847e617c83877，其提交说明为发行0.1.0；资产、标签和构建快照的精确对应待核实。</p>
+<p>证据层级为原作者公开材料与静态源码核验；本组候选软件安装、构建与执行均为 0，独立运行保持待核实。</p>
+<h3>待核实</h3>
+<ul>
+<li>核心 Parser／Grammar 补丁、开发仓公开位置、精确上游基线待核实。</li>
+<li>发行资产、标签、构建身份与平台间逐字节对应性、随附许可及独立运行待核实。</li>
+</ul>
+<h3>来源</h3>
+<ul>
+<li><a href="https://xn--fiq228cgqosxegyprwc.yuyan-lang.org/languages/lang-047.html">现有正式页 lang-047</a></li>
+<li><a href="https://github.com/YoloLogic/ChinesePython/blob/ad29d1cddae32e8d7a550ba022471dfead835d9c/README.md#L20-L25">原始连续短例</a></li>
+<li><a href="https://github.com/YoloLogic/ChinesePython/blob/ad29d1cddae32e8d7a550ba022471dfead835d9c/Lib/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F.py#L1003-L1165">中文标准库API转发实现</a></li>
+<li><a href="https://github.com/YoloLogic/ChinesePython/blob/ad29d1cddae32e8d7a550ba022471dfead835d9c/include/patchlevel.h#L18-L28">发行头文件的3.14.7版本常量</a></li>
+<li><a href="https://github.com/YoloLogic/ChinesePython/blob/ad29d1cddae32e8d7a550ba022471dfead835d9c/NOTICE.txt">词法／语法修改范围的官方披露</a></li>
+<li><a href="https://api.github.com/repos/YoloLogic/ChinesePython/git/refs/tags">Windows标签及提交指向</a></li>
+<li><a href="https://github.com/YoloLogic/ChinesePython/commit/9e724d23cd8898a7ca39b599769778b7c636939d">2026-10-09许可切换提交</a></li>
+</ul>
+</section>
+<section id="subject-4"><h2>ChineseTypeScript</h2>
+<p><strong>资料状态：</strong>已分类收录；剩余字段待核实</p>
+<p>现有正式条目 lang-048，分类：TypeScript中文方言／Go编译器关键字扩展与标准库别名层。</p>
+<p>固定 Go 源码的 scanner 将 85 项中文拼写映射至 TypeScript 词元，printer 输出规范关键字及标准库别名；源码包含默认中文诊断与用户同名声明保护。上游 typescript-go 基线与重写根提交具有相同 Git 树。</p>
+<p>现有条目保存的原作者连续短例：
+函数 相加(甲: 数字, 乙: 数字): 数字 {
+  返回 甲 + 乙;                 // 返回 = return
+}</p>
+<p>原例出处及上下文：固定main提交“第1课：程序骨架”第11—13行的连续函数定义原文，保留两空格缩进及原注释。同文件第21行调用相加(3,4)，文件开头列出期望输出。本片段的blob与v0.1标签对应文件一致；执行结果待核实。</p>
+<p>日期记录：首个GitHub公开Windows发行v0.1发表于2026-10-10T03:34:57Z；仓库创建于2026-10-09T14:27:19Z。中文关键字首次实现提交署期2026-10-06T16:00:47Z，属现存开发历史；更早公开首发日待核实。</p>
+<p>版本与固定快照记录：项目发行版v0.1于2026-10-10T03:34:57Z发布，提供ChineseTypeScript-0.1-win64.zip；标签提交为6bbf6f6090f15298dca57aa5ec75f1e092e3ce8d。固定main的编译器版本变量默认值为7.1.0-dev，属于上游工具链版本。main在发行标签之后增加用户同名声明保护等修改，功能按源码快照与发行标签分别记录。</p>
+<p>证据层级为原作者公开材料与静态源码核验；本组候选软件安装、构建与执行均为 0，独立运行保持待核实。</p>
+<h3>待核实</h3>
+<ul>
+<li>v0.1 二进制与标签对应、后续 main 修复覆盖、复杂作用域中的中文别名行为及独立构建运行待核实。</li>
+</ul>
+<h3>来源</h3>
+<ul>
+<li><a href="https://xn--fiq228cgqosxegyprwc.yuyan-lang.org/languages/lang-048.html">现有正式页 lang-048</a></li>
+<li><a href="https://github.com/YoloLogic/ChineseTypeScript/blob/8218a6c501ddd503703fe33e4a3d82c49c77b576/%E6%95%99%E7%A8%8B/%E4%BE%8B%E5%AD%90/01-%E9%AA%A8%E6%9E%B6.ts#L11-L13">原始连续短例</a></li>
+<li><a href="https://logicyolo.com/chinese-typescript/">官方原始项目页（第四轮入口）</a></li>
+<li><a href="https://github.com/YoloLogic/ChineseTypeScript/blob/8218a6c501ddd503703fe33e4a3d82c49c77b576/README-%E6%88%91%E4%BB%AC%E7%9A%84%E8%AF%B4%E6%98%8E.md#L11-L31">项目自己的说明与上游基线</a></li>
+<li><a href="https://github.com/YoloLogic/ChineseTypeScript/blob/8218a6c501ddd503703fe33e4a3d82c49c77b576/tsc/internal/scanner/scanner.go#L2214-L2235">词法查表实现</a></li>
+<li><a href="https://github.com/YoloLogic/ChineseTypeScript/blob/8218a6c501ddd503703fe33e4a3d82c49c77b576/tsc/internal/compiler/program.go#L2038-L2075">用户声明名称收集实现</a></li>
+<li><a href="https://github.com/YoloLogic/ChineseTypeScript/blob/8218a6c501ddd503703fe33e4a3d82c49c77b576/tsc/cmd/tsc/main.go#L36-L51">默认中文诊断入口</a></li>
+</ul>
+</section>
+<section id="subject-5"><h2>ChineseJava（YoloLogic）</h2>
+<p><strong>资料状态：</strong>当前阶段已分类：占位计划；正式目录计数 0</p>
+<p>2026-10-25 已读作者官网，页面将项目列为计划中的 OpenJDK 方向，状态为开发中。</p>
+<p>作者说明本地仅有原始 openjdk/jdk 克隆，修改尚未开始；公开仓库、安装包、时间表和关键字表计划后续发布。页面将“整数”与 int 并列作为计划原则。</p>
+<p>官网页脚署名 YoloLogic（张永乐）。该对象按计划阶段保存，未来新增实际中文语法或原始程序时可依新材料重新核验。</p>
+<h3>待核实</h3>
+<ul>
+<li>实际中文语法、原作者连续程序、实现、公开仓库、版本与发行待核实。</li>
+<li>页面为动态来源，观察日期为 2026-10-25；精确首发待核实。</li>
+</ul>
+<h3>来源</h3>
+<ul>
+<li><a href="https://logicyolo.com/chinese-java/">作者项目说明</a></li>
+<li><a href="https://logicyolo.com/about#%E4%BD%9C%E8%80%85">作者身份页</a></li>
+</ul>
+</section>
+<section id="subject-6"><h2>子语</h2>
+<p><strong>资料状态：</strong>已分类收录；剩余字段待核实</p>
+<p>现有正式条目 lang-051，分类：中文句式语言／嵌入式开发。</p>
+<p>BV125up6eEdA 对应子语。原作者视频与 shanque_esp32s3 仓库形成关联；PowerShell 构建脚本调度 ziyu_cli.exe，把生成的 C／H 文件送入 ESP-IDF，并链接预编译运行时。</p>
+<p>现有条目保存的原作者连续短例：
+引入山雀开发板.zhw。
+
+循环以下内容：
+如果按键1按着：蓝灯点亮。
+直到0。</p>
+<p>原例出处及上下文：固定提交示例第1—5行原文，含文件引入、循环及条件语句。运行依赖山雀开发板库与相应硬件。原视频 BV125up6eEdA 的 01:33 可见“组合名字、年龄成小明”及句式定义，并同时显示硬件屏幕输出；02:05 可见“复制小明成张三”和“张三长大3岁”。视频与本短例分别记录。</p>
+<p>日期记录：当前默认分支历史最早提交为 ef5ce5b94d5a362c7578e8c91535525ecc96224b，时间 2026-07-08T10:32:56Z，已含中文条件和循环示例。显示屏演示原片发表于 2026-08-06T12:49:28Z（北京时间 2026-08-06 20:49:28）。语言首次公开日期待核实。</p>
+<p>版本与固定快照记录：运行包包含 zi-yu-0.0.7.vsix；此编号按 VS Code 插件文件记录。核验 main 提交 15559af77adfc64e6ede4c907dd219fa5603163f，提交时间 2026-08-15T08:33:29Z。语言版本及插件与解析器版本关系待核实。</p>
+<p>证据层级为原作者公开材料与静态源码核验；本组候选软件安装、构建与执行均为 0，独立运行保持待核实。</p>
+<h3>待核实</h3>
+<ul>
+<li>完整解析器与预编译运行时内部源码、插件编号与语言版本关系、许可范围及独立构建运行待核实。</li>
+</ul>
+<h3>来源</h3>
+<ul>
+<li><a href="https://xn--fiq228cgqosxegyprwc.yuyan-lang.org/languages/lang-051.html">现有正式页 lang-051</a></li>
+<li><a href="https://github.com/liuzhiyixx/shanque_esp32s3/blob/15559af77adfc64e6ede4c907dd219fa5603163f/中文示例/08_加入循环让按键1控制蓝灯.zhw#L1-L5">原始连续短例</a></li>
+<li><a href="https://github.com/liuzhiyixx/shanque_esp32s3/blob/ef5ce5b94d5a362c7578e8c91535525ecc96224b/中文示例/08_加入循环让按键1控制蓝灯.zhw">当前历史最早提交中的中文原例</a></li>
+<li><a href="https://github.com/liuzhiyixx/shanque_esp32s3/blob/15559af77adfc64e6ede4c907dd219fa5603163f/idf_project/main/app_main.c">固定 C 入口</a></li>
+</ul>
+</section>
+<section id="subject-7"><h2>Sheng（结绳）</h2>
+<p><strong>资料状态：</strong>已分类收录；剩余字段待核实</p>
+<p>现有正式条目 lang-049，分类：中文关键字语言／Python与PLY实现（作者发行说明）。</p>
+<p>PyPI 作者元数据署名 luojiahai，维护者为 ljiahai。发行说明自述 Python 与 PLY 实现；0.1.18 页面保存两行中文赋值和打印原例。与 tiecode 结绳按各自身份保存。</p>
+<p>现有条目保存的原作者连续短例：
+甲 赋值 &quot;你好，世界！&quot;
+打印(甲)</p>
+<p>原例出处及上下文：作者PyPI 0.1.18发行说明“Getting Started”完整连续两行原例，页面标注来源文件为example/helloworld.zh。说明将首行解释为赋值、次行解释为内置打印函数调用。相同原例保留在当前0.1.22项目页；运行结果待核实。</p>
+<p>日期记录：PyPI可见最早发行0.1.0，日期为2021-11-07；项目更早公开时间待核实。</p>
+<p>版本与固定快照记录：PyPI版本表列出0.1.0至0.1.22共23个版本，日期范围2021-11-07至2021-11-17；0.1.18日期为2021-11-15，最新可见0.1.22日期为2021-11-17。各版本精确上传时刻待核实。</p>
+<p>证据层级为原作者公开材料与静态源码核验；本组候选软件安装、构建与执行均为 0，独立运行保持待核实。</p>
+<h3>待核实</h3>
+<ul>
+<li>原 GitHub 仓库读取返回 404；完整发行源码、词法语法产生式、执行后端和发行包内许可正文待核实。</li>
+<li>更早首发与当前维护状态、独立运行待核实。</li>
+</ul>
+<h3>来源</h3>
+<ul>
+<li><a href="https://xn--fiq228cgqosxegyprwc.yuyan-lang.org/languages/lang-049.html">现有正式页 lang-049</a></li>
+<li><a href="https://pypi.org/project/sheng/0.1.18/#description">原始连续短例</a></li>
+<li><a href="https://pypi.org/project/sheng/0.1.18/">作者0.1.18发行说明与中文原例</a></li>
+<li><a href="https://pypi.org/project/sheng/">PyPI项目页：当前版本、发行历史与包校验值</a></li>
+<li><a href="https://pypi.org/project/sheng/0.1.19/">0.1.19发行说明与中文原例</a></li>
+<li><a href="https://github.com/luojiahai/sheng">原GitHub仓库入口</a></li>
+</ul>
+</section>
+<h2>研究记录与取证范围</h2>
+<ul>
+<li><a href="https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe395f2c89a1d6f4670da171292d452d44c/research/2026-10-10/round-5-yolologic.md">2026-10-10/round-5-yolologic.md</a></li>
+<li><a href="https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe395f2c89a1d6f4670da171292d452d44c/research/2026-10-10/round-5-historical-and-layer.md">2026-10-10/round-5-historical-and-layer.md</a></li>
+<li><a href="https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe395f2c89a1d6f4670da171292d452d44c/research/2026-10-10/round-5-bilibili.md">2026-10-10/round-5-bilibili.md</a></li>
+<li><a href="https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe395f2c89a1d6f4670da171292d452d44c/research/2026-10-14/chinesecpp-publication.md">2026-10-14/chinesecpp-publication.md</a></li>
+<li><a href="https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe395f2c89a1d6f4670da171292d452d44c/research/2026-10-12/round-25-issue-followup.md">2026-10-12/round-25-issue-followup.md</a></li>
+<li><a href="https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe395f2c89a1d6f4670da171292d452d44c/research/2026-10-25/mixed-language-backlog.md">2026-10-25/mixed-language-backlog.md</a></li>
+<li><a href="https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe395f2c89a1d6f4670da171292d452d44c/research/2026-10-28/mixed-scope-review.md">2026-10-28/mixed-scope-review.md</a></li>
+</ul>
+<p>来源按公开原始文档、静态源码、作者声明、搜索缓存和读取状态分别记录。候选软件的安装、构建、启动及执行次数均为0。访问失败的结论限定于记录日期与实际入口。</p>
+
+</main><footer>站点由<a href="https://yuyan-lang.org/">豫言编程语言</a>提供</footer></body></html>

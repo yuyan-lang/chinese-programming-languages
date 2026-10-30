@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Halo：B站原片与GitHub仓库发布阶段的公开证据 · 中文编程语言百科</title><link rel="stylesheet" href="../style.css"></head>
+<body><header><h1>Halo：B站原片与GitHub仓库发布阶段的公开证据</h1><p>已有证据与待核实部分</p></header>
+<main><nav><a href="../index.html">语言目录</a> · <a href="../内核/index.html">内核目录</a> · <a href="index.html">资料与待核实记录</a></nav>
+<p>原片的Halo OS名称画面、发布账号与能力声明已保存；bigbenben77仓库Demo的静态内核阶段已有正式条目。两条发布身份与视频／Demo版本的直接对应继续待核。本页分别保存现有证据，待核资料保持明确边界，正式项目数保持原样。</p>
+<p>整理日期：2026-10-30。对应<a href="https://github.com/yuyan-lang/chinese-programming-languages/issues/29">议题 #29</a>。本页保存现有调查结论，待核实内容按字段列出。后续取得新证据时可以补充页面并重开议题。</p>
+<p>资料页中的候选与关联关系单独记录。正式目录保持114项语言、26项内核；项目阶段与证据等级见各正式条目。</p>
+<section id="subject-1"><h2>Halo OS（编剧笨笨，B站原片画面名）</h2>
+<p><strong>资料状态：</strong>公开发布与名称画面已记录；身份及版本对应待核实</p>
+<p>平台公开元数据：三条原片均由编剧笨笨（UID595021134）发布，首发BV1Thh264EtM为2026-09-25T11:41:57Z，更新BV1oZap6CE8X为2026-09-29T16:25:08Z，扫雷BV1hwYA65EqL为2026-09-30T22:49:01Z。后两项北京时间分别为9月30日00:25:08和10月1日06:49:01。</p>
+<p>原作者演示：2026-10-10既有视觉核验在首发视频00:02／01:19读到“Halo OS”标志；这一时间点支持画面显示名。具体内核功能与启动过程继续采用待核状态。</p>
+<p>作者声明：原片以第一人称介绍AI、Rust、多语言显示及主题支持，并以中国项目作公开自述。“第一个”“全部AI代码”“全功能”和性能范围均采用作者声明等级。</p>
+<p>作者声明：更新片简介列矢量字体／图标、GUI资源与脏区调整、主题、bootloader硬件识别及24小时空载测试；扫雷片简介列USB／网络框架、自有应用打包和三平台测试。</p>
+<p>证据范围：B站原片身份单独记录；bigbenben77/Halo-OS的固定Demo发行物已另有正式条目，两条身份及版本的直接对应继续待核实。</p>
+<h3>待核实</h3>
+<ul>
+<li>最小对应缺口：原作者明确链接或说明，将编剧笨笨UID595021134与bigbenben77关联，并明确原片Halo版本与仓库Demo盘的关系。</li>
+<li>原片阶段自身内核、固件服务、引导器、图形层及上游组件的具体实现边界；原片阶段对应源码／可解析发行物。</li>
+<li>00:02名称画面以外的可靠功能时间点与对应版本，以及AI参与开发记录、项目及第三方许可。</li>
+<li>原片各项功能、稳定性与独立构建／启动验证；个人国籍明确自述。</li>
+</ul>
+<h3>来源</h3>
+<ul>
+<li><a href="https://www.bilibili.com/video/BV1Thh264EtM/">2026-09-25首发原片：00:02 Halo OS名称</a></li>
+<li><a href="https://www.bilibili.com/video/BV1oZap6CE8X/">2026-09-29更新原片</a></li>
+<li><a href="https://www.bilibili.com/video/BV1hwYA65EqL/">2026-09-30扫雷原片</a></li>
+<li><a href="https://space.bilibili.com/595021134/">编剧笨笨公开频道</a></li>
+<li><a href="https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe395f2c89a1d6f4670da171292d452d44c/research/2026-10-25/kernels-b-video-metadata.json">既存三片公开元数据与UTC日期</a></li>
+<li><a href="https://中文编程语言.yuyan-lang.org/内核/halo-os-bigbenben77.html">另行收录的仓库发布阶段，身份对应待核实</a></li>
+</ul>
+</section>
+<section id="subject-2"><h2>Halo-OS（bigbenben77，仓库发布阶段）</h2>
+<p><strong>资料状态：</strong>已正式收录：固定仓库文档与发行物静态分析阶段</p>
+<p>固定仓库阶段：main提交2677b1cec975a0bff572e622f787f682b836cea2，时间2026-09-24T14:56:19Z；完整树保存README和两项虚拟盘分发物。较早180e78b5c912cc7c7025b6691fe302a141fad426上传说明将其称为操作系统Demo版虚拟盘。</p>
+<p>公开技术身份与作者声明：GitHub维护者bigbenben77使用公开别名码农笨笨；固定README以中国项目、AI和Rust自述介绍Halo-OS。中国关联采用项目自述，个人国籍待核实。</p>
+<p>固定原件：MYOS-UEFI-vbox.zip为8728039字节，SHA256 15ed9728d7ac972ff66aa7b2074f49010876fe1ab8f2057a3c783927703702cb；内核ELF SHA256为43b7a53121dee60b34a0e10c0cfadd16f7b4e578f6b688702d940348bb160270。</p>
+<p>发行物静态分析：VDI内枚举EFI/BOOT/BOOTX64.EFI，外层为PE32+ x86-64 EFI application；文件偏移68608内嵌完整ELF64 x86-64 ET_EXEC，入口0xe80900，保存8个程序头、22个节、符号和DWARF。枚举工具的Headers Error提示与文件观察分别保存。</p>
+<p>机器码静态依据：EFI交接写CR3、设置RSP、通过RDI传入BootInfo并跳转；内核_start在0xe80905调用_start_uefi，该路径调用页帧、页表、堆、GDT、IDT／PIC及硬件中断注册。</p>
+<p>机器码与符号静态依据：内核含调度与上下文保存恢复、VFS及块设备接口、ATA／AHCI和USB模块。成功执行、调度正确性和设备支持范围分别待核实。</p>
+<p>来源线索：发行物含myos符号、AetherOS Portal字符串，以及Rust标准库、bootloader_api 0.11.17、uefi 0.38.0和x86_64-patched调试路径。它们分别作为内部名称和构建依赖线索记录。</p>
+<p>核验范围：正式条目采用仓库发布身份与固定发行物；全部AI开发、整体原创与性能属于作者声明。候选执行、安装、构建、启动与挂载均为0。</p>
+<h3>待核实</h3>
+<ul>
+<li>B站编剧笨笨与bigbenben77的直接身份链接，以及原片Halo版本与本Demo盘对应</li>
+<li>myos/AetherOS内部名称的沿革、完整源码与上游继承范围</li>
+<li>项目及第三方组件许可和原始开发记录</li>
+<li>当前样本成功启动、调度、页表、设备与文件系统的独立运行验证</li>
+<li>正式版本、最早公开日期及个人国籍自述</li>
+</ul>
+<h3>来源</h3>
+<ul>
+<li><a href="https://中文编程语言.yuyan-lang.org/内核/halo-os-bigbenben77.html">正式条目：Halo-OS（bigbenben77，仓库发布阶段）</a></li>
+<li><a href="https://github.com/bigbenben77/Halo-OS/blob/2677b1cec975a0bff572e622f787f682b836cea2/README.md">Halo-OS固定README的中国关联/AI/Rust自述</a></li>
+<li><a href="https://github.com/bigbenben77">码农笨笨公开GitHub档案</a></li>
+<li><a href="https://github.com/bigbenben77/Halo-OS/commit/2677b1cec975a0bff572e622f787f682b836cea2">固定发布提交与作者署名</a></li>
+<li><a href="https://github.com/bigbenben77/Halo-OS/commit/180e78b5c912cc7c7025b6691fe302a141fad426">作者将上传文件说明为Demo虚拟盘</a></li>
+<li><a href="https://github.com/bigbenben77/Halo-OS/blob/2677b1cec975a0bff572e622f787f682b836cea2/MYOS-UEFI-vbox.zip">固定VirtualBox ZIP原件</a></li>
+<li><a href="https://api.github.com/repos/bigbenben77/Halo-OS/git/trees/2677b1cec975a0bff572e622f787f682b836cea2?recursive=1">固定完整仓库树</a></li>
+<li><a href="https://github.com/yuyan-lang/chinese-programming-languages/blob/ac01037f4a328e3849fa565a557b27181798f9ea/research/2026-10-28/kernels-b-artifact-metadata.json">2026-10-28发行物大小、SHA256与静态范围</a></li>
+<li><a href="https://github.com/yuyan-lang/chinese-programming-languages/blob/ac01037f4a328e3849fa565a557b27181798f9ea/research/2026-10-28/halo-static-evidence.txt">2026-10-28内核与引导机器码短摘录</a></li>
+<li><a href="https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe395f2c89a1d6f4670da171292d452d44c/research/2026-10-30/halo-entry-callchain.txt">固定哈希发行物入口实际调用机器码</a></li>
+</ul>
+</section>
+<h2>研究记录与取证范围</h2>
+<ul>
+<li><a href="https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe395f2c89a1d6f4670da171292d452d44c/research/2026-10-10/round-11-kernels.md">原片00:02名称、候选身份与旧日期显示</a></li>
+<li><a href="https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe395f2c89a1d6f4670da171292d452d44c/research/2026-10-25/kernels-b.md">三片UTC元数据与发布边界</a></li>
+<li><a href="https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe395f2c89a1d6f4670da171292d452d44c/research/2026-10-28/kernels-b.md">固定Demo盘静态分析</a></li>
+<li><a href="https://github.com/yuyan-lang/chinese-programming-languages/blob/199fcbe395f2c89a1d6f4670da171292d452d44c/research/2026-10-30/halo-repository.md">仓库发布阶段正式收录范围及实际调用链</a></li>
+</ul>
+<p>来源按公开原始文档、静态源码、作者声明、搜索缓存和读取状态分别记录。候选软件的安装、构建、启动及执行次数均为0。访问失败的结论限定于记录日期与实际入口。</p>
+
+</main><footer>站点由<a href="https://yuyan-lang.org/">豫言编程语言</a>提供</footer></body></html>
