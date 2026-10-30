@@ -3570,7 +3570,7 @@
     "aliases": [
       "TextOS Kernel"
     ],
-    "checked_at": "2026-10-10",
+    "checked_at": "2026-10-30",
     "selection_status": "可收录",
     "short_description": "TextOS 是 Maouai233（ljQAQ233）维护的 x86-64 实验操作系统项目，采用 C 与汇编实现内核，配套 SigmaBoot 引导器和用户态程序。当前源码包含 UEFI 与 Multiboot 启动、任务调度、内存管理、VFS、设备驱动及 ELF 用户程序加载。",
     "author": {
@@ -3676,7 +3676,7 @@
       ],
       "scheduling": [
         {
-          "text": "task.c 通过循环扫描任务表选取 TASK_PRE 任务，递减并恢复时间片计数，更新 TSS 与 CR3 后调用上下文切换；同时定义阻塞、唤醒和睡眠接口。",
+          "text": "2026-10-01 快照：task.c 通过循环扫描任务表选取 TASK_PRE 任务，递减并恢复时间片计数，更新 TSS 与 CR3 后调用上下文切换；同时定义阻塞、唤醒和睡眠接口。",
           "evidence_level": "源码可见",
           "source_ids": [
             "tx12"
@@ -3692,7 +3692,7 @@
           ]
         },
         {
-          "text": "vmm.c 包含规范地址处理、物理页分配与页映射入口，文件仍保存虚拟内存设计 TODO；README 将完整虚拟内存管理和写时复制列为待完成。",
+          "text": "2026-10-01 快照：vmm.c 包含规范地址处理、物理页分配与页映射入口，文件仍保存虚拟内存设计 TODO；README 将完整虚拟内存管理和写时复制列为待完成。",
           "evidence_level": "源码可见与作者声明",
           "source_ids": [
             "tx14",
@@ -3820,19 +3820,20 @@
       },
       "source_snapshot": {
         "branch": "main",
-        "commit": "75ebadf4134f6144ed1ffc0b1d3229582766db4f",
-        "committed_at": "2026-10-01T13:53:49Z",
+        "commit": "a38fbc6fb9e9d08c1f60c476373f99c596c34da1",
+        "committed_at": "2026-10-30T14:41:11Z",
         "source_ids": [
-          "tx21",
-          "tx23"
+          "tx32"
         ]
       },
       "activity": {
-        "text": "核验时 main 最新提交为 2026-10-01 的发布工作流更新；同一提交被 buildable-20261001 标签引用。",
-        "evidence_level": "仓库元数据",
+        "text": "2026-10-30 的 main 快照为 a38fbc6，相比 2026-10-01 快照新增 63 个提交。最新提交调整 getty、init、login 的职责并设置 TERM。",
+        "evidence_level": "仓库元数据与源码可见",
         "source_ids": [
-          "tx21",
-          "tx23"
+          "tx32",
+          "tx33",
+          "tx37",
+          "tx38"
         ]
       },
       "license": {
@@ -3847,7 +3848,42 @@
       "runtime_verification": {
         "status": "待核实",
         "scope": "本轮覆盖公开作者资料、固定源码静态阅读、仓库元数据与原片发布页。独立构建和运行、发布包内容以及原片功能画面的可靠时间点待核实。"
-      }
+      },
+      "previous_source_snapshot": {
+        "branch": "main",
+        "commit": "75ebadf4134f6144ed1ffc0b1d3229582766db4f",
+        "committed_at": "2026-10-01T13:53:49Z",
+        "source_ids": [
+          "tx21",
+          "tx23"
+        ]
+      },
+      "october_source_stage": [
+        {
+          "text": "2026-10-17 的提交说明记述初步写时复制（COW）。10月30日 map.c 的 _copy_pgt 清除叶页表项 PE_RW，ppg.c 管理共享物理页记录与引用计数。",
+          "evidence_level": "作者提交说明与源码可见",
+          "source_ids": [
+            "tx34",
+            "tx35",
+            "tx36"
+          ]
+        },
+        {
+          "text": "sync.c 为 MAP_SHARED 文件映射登记同步区域，vmm_sync_area 扫描脏页，经回调调用 vfs_write。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "tx39"
+          ]
+        },
+        {
+          "text": "init.c 启动 /dev/tty1 和 /dev/ttyS0 的 getty；getty.c 调用 setsid、打开终端并复制标准输入输出描述符，设置 TERM 后执行 /bin/login。",
+          "evidence_level": "源码可见",
+          "source_ids": [
+            "tx37",
+            "tx38"
+          ]
+        }
+      ]
     },
     "video_observations": [],
     "links": {
@@ -4104,7 +4140,7 @@
       },
       {
         "id": "tx21",
-        "title": "核验时最新main提交",
+        "title": "2026-10-01 main 历史快照",
         "url": "https://github.com/ljQAQ233/textos-dev/commit/75ebadf4134f6144ed1ffc0b1d3229582766db4f",
         "kind": "提交元数据",
         "supports": [
@@ -4209,6 +4245,78 @@
         "kind": "频道关联原片入口",
         "supports": [
           "2024年开发记录"
+        ]
+      },
+      {
+        "id": "tx32",
+        "title": "2026-10-30 main 提交",
+        "url": "https://github.com/ljQAQ233/textos-dev/commit/a38fbc6fb9e9d08c1f60c476373f99c596c34da1",
+        "kind": "提交元数据",
+        "supports": [
+          "2026年10月源码阶段"
+        ]
+      },
+      {
+        "id": "tx33",
+        "title": "10月1日至10月30日固定提交比较",
+        "url": "https://github.com/ljQAQ233/textos-dev/compare/75ebadf4134f6144ed1ffc0b1d3229582766db4f...a38fbc6fb9e9d08c1f60c476373f99c596c34da1",
+        "kind": "提交比较",
+        "supports": [
+          "2026年10月源码阶段"
+        ]
+      },
+      {
+        "id": "tx34",
+        "title": "初步 COW 的作者提交说明",
+        "url": "https://github.com/ljQAQ233/textos-dev/commit/db6b3c313bf6334605c108000abb66bc81cbc917",
+        "kind": "作者提交说明",
+        "supports": [
+          "2026年10月源码阶段"
+        ]
+      },
+      {
+        "id": "tx35",
+        "title": "10月30日页表复制",
+        "url": "https://github.com/ljQAQ233/textos-dev/blob/a38fbc6fb9e9d08c1f60c476373f99c596c34da1/src/kernel/mm/map.c",
+        "kind": "固定源码快照",
+        "supports": [
+          "2026年10月源码阶段"
+        ]
+      },
+      {
+        "id": "tx36",
+        "title": "10月30日物理页引用记录",
+        "url": "https://github.com/ljQAQ233/textos-dev/blob/a38fbc6fb9e9d08c1f60c476373f99c596c34da1/src/kernel/mm/mman/ppg.c",
+        "kind": "固定源码快照",
+        "supports": [
+          "2026年10月源码阶段"
+        ]
+      },
+      {
+        "id": "tx37",
+        "title": "10月30日 init",
+        "url": "https://github.com/ljQAQ233/textos-dev/blob/a38fbc6fb9e9d08c1f60c476373f99c596c34da1/src/app/init.c",
+        "kind": "固定源码快照",
+        "supports": [
+          "2026年10月源码阶段"
+        ]
+      },
+      {
+        "id": "tx38",
+        "title": "10月30日 getty",
+        "url": "https://github.com/ljQAQ233/textos-dev/blob/a38fbc6fb9e9d08c1f60c476373f99c596c34da1/src/app/getty.c",
+        "kind": "固定源码快照",
+        "supports": [
+          "2026年10月源码阶段"
+        ]
+      },
+      {
+        "id": "tx39",
+        "title": "10月30日共享映射同步",
+        "url": "https://github.com/ljQAQ233/textos-dev/blob/a38fbc6fb9e9d08c1f60c476373f99c596c34da1/src/kernel/mm/mman/sync.c",
+        "kind": "固定源码快照",
+        "supports": [
+          "2026年10月源码阶段"
         ]
       }
     ]
