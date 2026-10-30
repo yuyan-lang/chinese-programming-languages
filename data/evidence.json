@@ -3140,6 +3140,65 @@
           "url": "../research/2026-10-30/root-primary-review.md"
         }
       ]
+    },
+    {
+      "issue": 85,
+      "title": "AuroraOS（zhan1206）的公开源码与待核归属",
+      "summary": "AuroraOS 保存中文项目说明、内核源码和限制文档。项目以 x86_64 hobby OS 自述，作者／社区中国归属、自主实现范围及运行结果待核实，资料计入待核记录。",
+      "subjects": [
+        {
+          "name": "AuroraOS（zhan1206）",
+          "status": "待核实：公开源码可见，作者／社区中国归属待核",
+          "facts": [
+            "平台元数据：仓库 zhan1206/aurora-os 创建于 2026-06-19T07:28:40Z，主要语言为 C，许可证元数据为 MIT。创建时间按 GitHub 仓库事件记录。",
+            "固定快照：64700469dc6d39e293417d4ba06791ef1e1db92c，提交时间为 2026-08-14T00:36:09Z，提交说明与 README 标注 v4.4.5。版本号采用作者标记。",
+            "作者声明：README 将项目定位为 x86_64 实验性操作系统，说明自研目标及 Minix、Linux、CoolPotOS 的设计参考关系，并链接已知限制文档。",
+            "静态源码：kernel/main.c 引入内存、调度、页表、系统调用、文件系统与设备模块；pagetable.c 保存页表状态和锁；sched.c 定义任务指针、每 CPU 运行队列与最小虚拟运行时间。核验范围为上述文件前 65 行与 kernel 目录。",
+            "证据分层：中文 README 支持文档语言事实。功能范围、自研程度和测试通过数采用作者声明层级；LIMITATIONS.md 及源码注释保存实现阶段说明。"
+          ],
+          "unknowns": [
+            "作者或社区的中国归属、个人国籍与公开身份关联。",
+            "整体自主实现范围、第三方代码关系和许可证正文适用范围。",
+            "文档、注释与实际功能的一致性；各架构支持范围、正式发行及独立构建和运行结果。"
+          ],
+          "sources": [
+            {
+              "title": "仓库元数据（核验日期 2026-10-30）",
+              "url": "https://api.github.com/repos/zhan1206/aurora-os"
+            },
+            {
+              "title": "固定版本提交",
+              "url": "https://github.com/zhan1206/aurora-os/commit/64700469dc6d39e293417d4ba06791ef1e1db92c"
+            },
+            {
+              "title": "固定 README",
+              "url": "https://github.com/zhan1206/aurora-os/blob/64700469dc6d39e293417d4ba06791ef1e1db92c/README.md"
+            },
+            {
+              "title": "固定限制文档",
+              "url": "https://github.com/zhan1206/aurora-os/blob/64700469dc6d39e293417d4ba06791ef1e1db92c/LIMITATIONS.md"
+            },
+            {
+              "title": "固定内核入口模块",
+              "url": "https://github.com/zhan1206/aurora-os/blob/64700469dc6d39e293417d4ba06791ef1e1db92c/kernel/main.c"
+            },
+            {
+              "title": "固定页表模块",
+              "url": "https://github.com/zhan1206/aurora-os/blob/64700469dc6d39e293417d4ba06791ef1e1db92c/kernel/pagetable.c"
+            },
+            {
+              "title": "固定调度模块",
+              "url": "https://github.com/zhan1206/aurora-os/blob/64700469dc6d39e293417d4ba06791ef1e1db92c/kernel/sched.c"
+            }
+          ]
+        }
+      ],
+      "research": [
+        {
+          "title": "本轮检索与证据边界",
+          "url": "../research/2026-10-30/aurora-evidence.md"
+        }
+      ]
     }
   ]
 }
