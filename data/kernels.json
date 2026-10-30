@@ -12487,5 +12487,296 @@
         ]
       }
     ]
+  },
+  {
+    "id": "halo-os-bigbenben77",
+    "name": "Halo-OS（bigbenben77，仓库发布阶段）",
+    "aliases": [],
+    "checked_at": "2026-10-30",
+    "short_description": "Halo-OS 是bigbenben77（公开别名码农笨笨）发布的Rust操作系统项目，作者声明使用AI开发。2026-09-24仓库Demo虚拟盘内含UEFI引导器及独立x86-64 Rust ELF内核；本条按仓库文档与固定发行物范围记录，B站同名发布身份继续待核。",
+    "author": {
+      "people": [
+        {
+          "handle": "bigbenben77",
+          "public_alias": "码农笨笨"
+        }
+      ],
+      "organization": null,
+      "attribution": {
+        "text": "bigbenben77维护Halo-OS仓库，公开档案与固定提交署名均使用码农笨笨。作者上传说明将该发行物称为操作系统Demo版虚拟盘。",
+        "evidence_level": "公开技术身份与作者发布说明",
+        "source_ids": [
+          "ha2",
+          "ha3",
+          "ha4"
+        ]
+      },
+      "china_basis": {
+        "text": "固定README以中国关联自述介绍项目，并声明使用AI与Rust开发。本条按该项目自述保存中国关联；个人国籍待核实。",
+        "evidence_level": "作者项目自述",
+        "source_ids": [
+          "ha1"
+        ]
+      }
+    },
+    "kernel_positioning": {
+      "text": "固定VirtualBox发行物的BOOTX64.EFI内嵌完整ELF64 x86-64内核；入口_start进入_start_uefi，内核拥有页帧/堆、GDT/IDT、调度及VFS等资源管理代码。记录此仓库发布的内核样本；完整源码来源、原创范围与成功运行继续待核实。",
+      "evidence_level": "发行物静态分析",
+      "source_ids": [
+        "ha5",
+        "ha7",
+        "ha8",
+        "ha10"
+      ]
+    },
+    "dates": {
+      "first_public": {
+        "date": null,
+        "status": "待核实"
+      },
+      "repository_created": {
+        "at": "2026-09-24T13:53:27Z",
+        "meaning": "GitHub created_at"
+      },
+      "observed_publication": {
+        "at": "2026-09-24T14:56:19Z",
+        "meaning": "固定仓库提交时间，区分软件构建/正式发布日",
+        "source_ids": [
+          "ha3"
+        ]
+      }
+    },
+    "architectures": [
+      {
+        "text": "内核样本为小端ELF64 x86-64 ET_EXEC，入口0xe80900，包含8个程序头、22个节和符号/调试资料；外层引导文件为PE32+ EFI application。",
+        "evidence_level": "发行物静态分析",
+        "source_ids": [
+          "ha5",
+          "ha7"
+        ]
+      }
+    ],
+    "capabilities": {
+      "boot": [
+        {
+          "text": "VDI内可枚举EFI/BOOT/BOOTX64.EFI；EFI交接路径写CR3、设置RSP、通过RDI传入BootInfo并跳转内核。ELF的_start在0xe80905调用_start_uefi。固件退出服务及实际成功交接继续待核实。",
+          "evidence_level": "发行物静态分析",
+          "source_ids": [
+            "ha5",
+            "ha8",
+            "ha10"
+          ]
+        }
+      ],
+      "scheduling": [
+        {
+          "text": "Rust内核包含sched::init、timer_tick_schedule和context_switch；对应机器码保存/恢复通用寄存器与栈指针。调度正确性、任务隔离和实际运行覆盖继续待核实。",
+          "evidence_level": "发行物静态分析",
+          "source_ids": [
+            "ha5",
+            "ha8"
+          ]
+        }
+      ],
+      "memory": [
+        {
+          "text": "_start_uefi路径调用FrameAllocator::init、mm::paging::init及mm::heap::init；存在页表和内核堆管理实现。",
+          "evidence_level": "发行物静态分析",
+          "source_ids": [
+            "ha5",
+            "ha8",
+            "ha10"
+          ]
+        }
+      ],
+      "filesystem": [
+        {
+          "text": "内核样本包含VFS、挂载/查找与块设备接口代码及ATA/AHCI实现；文件系统完整性、持久化和分发盘布局的对应继续待核实。",
+          "evidence_level": "发行物静态分析",
+          "source_ids": [
+            "ha5",
+            "ha8"
+          ]
+        }
+      ],
+      "drivers": [
+        {
+          "text": "_start_uefi路径调用gdt::init、interrupts::init、PIC初始化及硬件中断处理注册；内核还保存ATA/AHCI及USB等模块代码。实际设备支持范围待核实。",
+          "evidence_level": "发行物静态分析",
+          "source_ids": [
+            "ha5",
+            "ha8",
+            "ha10"
+          ]
+        }
+      ]
+    },
+    "implementation_languages": [
+      {
+        "text": "README声明Rust；发行内核保存Rust符号与调试路径，并包含页表、端口、中断和上下文切换的底层机器码。",
+        "evidence_level": "作者声明与发行物静态分析",
+        "source_ids": [
+          "ha1",
+          "ha5"
+        ]
+      }
+    ],
+    "project_relationships": [
+      {
+        "text": "作者README声明全部代码由AI完成；本条将其作为开发方式自述保存，模型名称、参与范围的开发记录和逐项来源待核实。",
+        "evidence_level": "作者声明",
+        "source_ids": [
+          "ha1"
+        ]
+      },
+      {
+        "text": "发行物内部包含myos符号和AetherOS Portal字符串。它们按内部名称线索分别记录，与Halo-OS的命名沿革、上游继承和完整源码来源继续待核实。",
+        "evidence_level": "发行物静态分析",
+        "source_ids": [
+          "ha5"
+        ]
+      },
+      {
+        "text": "调试资料识别出Rust标准库、bootloader_api 0.11.17、uefi 0.38.0及x86_64-patched依赖线索；精确组件来源和整体许可继续待核实。",
+        "evidence_level": "发行物静态分析",
+        "source_ids": [
+          "ha5"
+        ]
+      },
+      {
+        "text": "B站编剧笨笨UID595021134的Halo OS画面线索另由Issue #29保存。该身份与本GitHub维护者、视频与本Demo盘的直接对应继续待核实。",
+        "evidence_level": "身份关系待核实",
+        "source_ids": [
+          "ha9"
+        ]
+      }
+    ],
+    "status": {
+      "latest_formal_release": {
+        "version": null,
+        "status": "待核实"
+      },
+      "observed_version": {
+        "version": "2026-09-24仓库Demo虚拟盘阶段",
+        "meaning": "采用作者上传说明与固定提交，区分源码版本号和正式Release",
+        "source_ids": [
+          "ha3",
+          "ha4"
+        ]
+      },
+      "source_snapshot": {
+        "branch": "main",
+        "commit": "2677b1cec975a0bff572e622f787f682b836cea2",
+        "committed_at": "2026-09-24T14:56:19Z",
+        "scope": "固定树包含README和两项虚拟盘分发物；完整内核源码待核实。",
+        "source_ids": [
+          "ha3",
+          "ha6"
+        ]
+      },
+      "artifact_snapshot": {
+        "name": "MYOS-UEFI-vbox.zip",
+        "bytes": 8728039,
+        "sha256": "15ed9728d7ac972ff66aa7b2074f49010876fe1ab8f2057a3c783927703702cb",
+        "kernel_elf_sha256": "43b7a53121dee60b34a0e10c0cfadd16f7b4e578f6b688702d940348bb160270",
+        "source_ids": [
+          "ha5",
+          "ha7"
+        ]
+      },
+      "license": {
+        "name": null,
+        "status": "待核实",
+        "text": "固定树未随附项目许可文本，内核与各组件完整授权和来源继续待核实。",
+        "source_ids": [
+          "ha6"
+        ]
+      },
+      "runtime_verification": {
+        "status": "待核实",
+        "scope": "本次复用并核对固定哈希的发行物缓存及机器码；候选执行、安装、构建、启动、挂载和独立运行均为0。"
+      }
+    },
+    "links": {
+      "source": "https://github.com/bigbenben77/Halo-OS",
+      "source_note": "仓库当前提供文档与虚拟盘，完整内核源码入口待核实。",
+      "video_channel": {
+        "url": null,
+        "status": "与B站编剧笨笨身份直接对应待核实"
+      },
+      "individual_video": {
+        "url": null,
+        "status": "与本仓库发行物直接对应待核实"
+      }
+    },
+    "pending_verification": [
+      "B站编剧笨笨与bigbenben77的直接身份链接，以及原片Halo版本与本Demo盘对应",
+      "myos/AetherOS内部名称的沿革、完整源码与上游继承范围",
+      "项目及第三方组件许可和原始开发记录",
+      "当前样本成功启动、调度、页表、设备与文件系统的独立运行验证",
+      "正式版本、最早公开日期及个人国籍自述"
+    ],
+    "sources": [
+      {
+        "id": "ha1",
+        "title": "Halo-OS固定README的中国关联/AI/Rust自述",
+        "url": "https://github.com/bigbenben77/Halo-OS/blob/2677b1cec975a0bff572e622f787f682b836cea2/README.md",
+        "kind": "固定作者文档"
+      },
+      {
+        "id": "ha2",
+        "title": "码农笨笨公开GitHub档案",
+        "url": "https://github.com/bigbenben77",
+        "kind": "作者公开别名"
+      },
+      {
+        "id": "ha3",
+        "title": "固定发布提交与作者署名",
+        "url": "https://github.com/bigbenben77/Halo-OS/commit/2677b1cec975a0bff572e622f787f682b836cea2",
+        "kind": "固定提交元数据"
+      },
+      {
+        "id": "ha4",
+        "title": "作者将上传文件说明为Demo虚拟盘",
+        "url": "https://github.com/bigbenben77/Halo-OS/commit/180e78b5c912cc7c7025b6691fe302a141fad426",
+        "kind": "固定作者发布说明"
+      },
+      {
+        "id": "ha5",
+        "title": "固定VirtualBox ZIP原件",
+        "url": "https://github.com/bigbenben77/Halo-OS/blob/2677b1cec975a0bff572e622f787f682b836cea2/MYOS-UEFI-vbox.zip",
+        "kind": "固定发行物；SHA256 15ed9728d7ac972ff66aa7b2074f49010876fe1ab8f2057a3c783927703702cb"
+      },
+      {
+        "id": "ha6",
+        "title": "固定完整仓库树",
+        "url": "https://api.github.com/repos/bigbenben77/Halo-OS/git/trees/2677b1cec975a0bff572e622f787f682b836cea2?recursive=1",
+        "kind": "固定树元数据"
+      },
+      {
+        "id": "ha7",
+        "title": "2026-10-28发行物大小、SHA256与静态范围",
+        "url": "https://github.com/yuyan-lang/chinese-programming-languages/blob/ac01037f4a328e3849fa565a557b27181798f9ea/research/2026-10-28/kernels-b-artifact-metadata.json",
+        "kind": "既有静态核验记录"
+      },
+      {
+        "id": "ha8",
+        "title": "2026-10-28内核与引导机器码短摘录",
+        "url": "https://github.com/yuyan-lang/chinese-programming-languages/blob/ac01037f4a328e3849fa565a557b27181798f9ea/research/2026-10-28/halo-static-evidence.txt",
+        "kind": "既有发行物机器码核验"
+      },
+      {
+        "id": "ha9",
+        "title": "B站线索与仓库对应待核议题",
+        "url": "https://github.com/yuyan-lang/chinese-programming-languages/issues/29",
+        "kind": "待核身份关系"
+      },
+      {
+        "id": "ha10",
+        "title": "2026-10-30入口至内存与中断初始化调用机器码",
+        "url": "https://github.com/yuyan-lang/chinese-programming-languages/blob/main/research/2026-10-30/halo-entry-callchain.txt",
+        "kind": "固定哈希发行物的静态调用摘录"
+      }
+    ]
   }
 ]
