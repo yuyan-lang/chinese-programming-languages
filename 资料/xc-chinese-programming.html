@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>xc 中文编程解释器的原例与实现资料 · 中文编程语言百科</title><link rel="stylesheet" href="../style.css"></head>
+<body><header><h1>xc 中文编程解释器的原例与实现资料</h1><p>已有证据与待核实部分</p></header>
+<main><nav><a href="../index.html">语言目录</a> · <a href="../内核/index.html">内核目录</a> · <a href="index.html">资料与待核实记录</a></nav>
+<p>核验日期：2026-10-30。本文记录公开原仓及静态源码，正式目录保持 114 项语言、26 项内核。</p>
+<section><h2>中文编程（xc／team-xc）</h2><p><strong>资料状态：</strong>中文原例和解释器源码已读取，署名关系、正式版本和运行结果待核实。</p>
+<p>作者主页 xc（team-xc）直接链接“中文编程”仓库。仓库 README 将其描述为“基于JavaScript实现的中文语言解释器”。</p>
+<p>2026-10-30 读取时，仓库 master 头显示 ced6b64ccd8ebf7b2386ee41ba43d3de224b7a02；中文编程.js 文件页链接最近改动 8f5ebb829286504ddc9d30f183434a955c433e0b。源码版权行写有 Copyright (c) 2022 Boy，采用 MIT 标记。托管账号与版权署名的关系待核实。</p>
+<p>原仓提供一个 342 行的 JavaScript 文件。静态可见输入流、令牌流、语法分析、环境及执行函数；程序通过词法和语法分析生成节点，再交给执行器处理。</p>
+<p>中文短例采用“我有一个字符串”“等于”声明变量，以「」包围变量名、“”包围字符串，使用“输出：”和中文句号。解析器保存声明变量、获取变量、字符串及调用表达式节点，内置输出方法使用 console.log。</p>
+<p>当前材料支持小型实验性中文解释器原型的分类。2022 版权标记与作者主页的历史活动提供历史线索；首次公开日期、后续发行版本和完整功能范围待核实。</p>
+<h3>作者原例</h3><p>以下短例摘自中文编程.js 第 7—10 行，按原文保存。独立运行结果待核实。</p><pre><code>我有一个字符串「🐔」，等于“坤坤❤️”。
+我有一个字符串「🏀」，等于“打篮球”。
+
+输出：“我叫”「🐔」“，我会”「🏀」“。”。</code></pre>
+<h3>待核实</h3><ul><li>xc（team-xc）与源码版权署名 Boy 的明确关系，以及实现与其他项目的来源关系。</li><li>首次公开日期、固定提交的精确时间、正式版本及发行情况。</li><li>中文语法完整覆盖、独立构建运行与实际输出；本轮候选执行次数为 0。</li></ul>
+<h3>来源</h3><ul><li><a href="https://gitee.com/team-xc">作者公开主页</a></li><li><a href="https://gitee.com/team-xc/chinese-programming">中文编程仓库与 README</a></li><li><a href="https://gitee.com/team-xc/chinese-programming/blob/master/%E4%B8%AD%E6%96%87%E7%BC%96%E7%A8%8B.js">已读取的源码页面（master，核验日期 2026-10-30）</a></li><li><a href="https://gitee.com/team-xc/chinese-programming/commit/ced6b64ccd8ebf7b2386ee41ba43d3de224b7a02">原仓显示的头提交标识（详情需登录）</a></li></ul></section>
+<h2>研究记录与取证范围</h2><p><a href="../research/2026-10-30/xc-evidence.md">本轮核验与访问范围</a>记录已读路径及遗漏风险。新证据可用于补充本页并重新评估正式收录。</p>
+</main><footer>站点由<a href="https://yuyan-lang.org/">豫言编程语言</a>提供</footer></body></html>
