@@ -3821,7 +3821,7 @@
       "source_snapshot": {
         "branch": "main",
         "commit": "a38fbc6fb9e9d08c1f60c476373f99c596c34da1",
-        "committed_at": "2026-10-30T14:41:11Z",
+        "committed_at": "2026-10-30T14:43:32Z",
         "source_ids": [
           "tx32"
         ]

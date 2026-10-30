@@ -18,7 +18,7 @@
 - [10月30日共享映射同步](https://github.com/ljQAQ233/textos-dev/blob/a38fbc6fb9e9d08c1f60c476373f99c596c34da1/src/kernel/mm/mman/sync.c)
 - [Releases集合](https://api.github.com/repos/ljQAQ233/textos-dev/releases?per_page=100)：最新仍为 buildable-20261001，2026-10-01T13:58:46Z；kit-202604 为2026-04-26T05:56:05Z。
 
-当前 main 固定为 a38fbc6fb9e9d08c1f60c476373f99c596c34da1，提交时间2026-10-30T14:41:11Z，相比75ebadf4134f6144ed1ffc0b1d3229582766db4f新增63提交。
+当前 main 固定为 a38fbc6fb9e9d08c1f60c476373f99c596c34da1，提交时间2026-10-30T14:43:32Z，相比75ebadf4134f6144ed1ffc0b1d3229582766db4f新增63提交。
 
 2026-10-17 的提交说明记述初步写时复制（COW）。10月30日 map.c 的 _copy_pgt 清除叶页表项 PE_RW，ppg.c 管理共享物理页记录与引用计数。
 
@@ -36,7 +36,7 @@ vnpg[i] = vpg[i];
 短代码（getty.c）：
 
 ```c
-execv("/bin/login", (char *[]){ "login", NULL });
+    execv(argv[0], argv);
 ```
 
 百科保留10月1日的原始源码、README路线图、发布与视频来源；调度和旧内存说明加历史日期，新增10月30日静态源码阶段。代码正确性、独立构建/启动与视频时间点继续待核实。本轮没有执行项目或下载发布包。遗漏风险：仅静态阅读限定文件，提交记录与源码路径不能覆盖运行时行为或全部近期变动。没有重新访问既有受限来源。
