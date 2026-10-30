@@ -1,0 +1,13 @@
+固定发行物ELF SHA256 43b7a53121dee60b34a0e10c0cfadd16f7b4e578f6b688702d940348bb160270
+入口到内核资源初始化的静态调用摘录；执行次数0。
+
+  dfdd48: e8 33 17 0d 00               	call	0xecf480 <<myos::mm::FrameAllocator>::init>
+  dfdd64: e8 87 b6 03 00               	call	0xe393f0 <myos::mm::paging::init>
+  dfdd7a: e8 c1 0c 16 00               	call	0xf5ea40 <myos::mm::heap::init>
+  e0105d: e8 de c9 0e 00               	call	0xeeda40 <myos::gdt::init>
+  e01084: e8 97 33 08 00               	call	0xe84420 <myos::interrupts::init>
+  e010ab: e8 80 7f 0a 00               	call	0xea9030 <myos::interrupts::pic::init>
+  e010cd: e8 4e 32 08 00               	call	0xe84320 <myos::interrupts::set_hardware_interrupt_handler>
+  e80900: 50                           	push	rax
+  e80901: 48 89 3c 24                  	mov	qword ptr [rsp], rdi
+  e80905: e8 46 cd f7 ff               	call	0xdfd650 <_start_uefi>

@@ -1,0 +1,75 @@
+{
+  "sources": [
+    {
+      "url": "http://db.gdchenyi.com.cn/download/index.html",
+      "observed_on": "2026-10-30",
+      "bytes": 22587,
+      "sha256": "48cd7a486adb0b93201023ffa0998000e73746aa752ae272ec04a9caa3437751",
+      "headers": {
+        "status_line": "HTTP/1.1 200 OK",
+        "date": "Fri, 30 Oct 2026 12:12:27 GMT",
+        "content-type": "text/html; charset=utf8",
+        "content-length": "22587"
+      }
+    },
+    {
+      "url": "http://db.gdchenyi.com.cn/edu/293/a/products/lm2/",
+      "observed_on": "2026-10-30",
+      "bytes": 153,
+      "sha256": "6807c84bf35d67496e020c1528303b87d4759933c09817e514a7159ac689d352",
+      "headers": {
+        "status_line": "HTTP/1.1 404 Not Found",
+        "date": "Fri, 30 Oct 2026 12:14:37 GMT",
+        "content-type": "text/html; charset=utf8",
+        "content-length": "153"
+      }
+    },
+    {
+      "url": "http://db.gdchenyi.com.cn/edu/293/a/products/lm3/",
+      "observed_on": "2026-10-30",
+      "bytes": 153,
+      "sha256": "6807c84bf35d67496e020c1528303b87d4759933c09817e514a7159ac689d352",
+      "headers": {
+        "status_line": "HTTP/1.1 404 Not Found",
+        "date": "Fri, 30 Oct 2026 12:14:37 GMT",
+        "content-type": "text/html; charset=utf8",
+        "content-length": "153"
+      }
+    }
+  ],
+  "failures": [
+    {
+      "url": "https://db.gdchenyi.com.cn/download/index.html",
+      "result": "TLS SNI unrecognized name；未关闭证书验证"
+    },
+    {
+      "url": "http://lisence.gdchenyi.com.cn:8087/front/file?filename=辰宜区块链操作系统基础使用文档.docx",
+      "result": "官方直接链接；8087端口无法连接，未取得DOCX原件"
+    }
+  ],
+  "saysuan": [
+    {
+      "url": "https://web.archive.org/cdx/search/cdx?url=raw.githubusercontent.com%2Fbadhope%2Fsaysuan%2F*%2Fplayground.html&output=json&filter=statuscode%3A200&collapse=digest",
+      "status": 200,
+      "result": []
+    },
+    {
+      "query": "GitHub repositories saysuan",
+      "result": "未返回匹配仓库"
+    }
+  ],
+  "keshe": [
+    {
+      "url": "https://api.github.com/users/Fancyary/gists",
+      "result": []
+    },
+    {
+      "url": "https://api.github.com/users/keshe-lang/repos",
+      "result": [
+        "keshe-lang/keshe-lang"
+      ]
+    }
+  ],
+  "candidate_execution_count": 0,
+  "interpretation": "官方导航仅证明同一平台域名关联，正式语言命名/版本和服务器实现对应继续待核；Saysuan与客舍没有新增核心原件。"
+}
